@@ -36,6 +36,7 @@ import ConsentDocumentsPage from "./ConsentDocumentsPage";
 import ContactUsPage from "./ContactUsPage";
 import HomePageV1 from "./HomePageV1";
 import HomePageV2 from "./HomePageV2";
+import MentalHealthTopicPage from "./MentalHealthTopicPage";
 
 /* ── animation helpers ── */
 function FadeUp({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
@@ -930,6 +931,7 @@ const router = createBrowserRouter([
       { path: "home-v1", Component: HomePageV1 },
       { path: "home-v2", Component: HomePageV2 },
       { path: "mental-health-series", Component: MentalHealthSeriesPage },
+      { path: "mental-health-series/:slug", Component: MentalHealthTopicPage },
       { path: "parent-coaching", Component: ParentCoachingPage },
       { path: "on-demand-courses", Component: OnDemandCoursesPage },
       { path: "ask-a-therapist", Component: AskATherapistPage },

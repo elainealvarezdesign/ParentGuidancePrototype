@@ -1,5 +1,6 @@
 import { useState, type MouseEvent } from "react";
 import { motion } from "motion/react";
+import { Link } from "react-router";
 import { scrollBehavior } from "./utils/motion";
 import svgPaths from "@/imports/MentalHealthPage/svg-8lpz1a5k3k";
 import imgImage13 from "@/imports/MentalHealthPage/f075cf3868341d1ced5b7049edc0996923832898.png";
@@ -30,11 +31,11 @@ type ResourceType = "Video" | "Article" | "Guide" | "Worksheet" | "Tool";
 type ResourceCategory = "All" | "Anxiety" | "Depression" | "Parenting" | "Teen Health" | "Self-Care" | "Crisis";
 
 const RESOURCE_LIBRARY: {
-  title: string; desc: string; type: ResourceType; category: ResourceCategory; duration: string; isNew?: boolean;
+  title: string; desc: string; type: ResourceType; category: ResourceCategory; duration: string; isNew?: boolean; slug?: string;
 }[] = [
   { title: "ABC's of Substance Use & Vaping",                         desc: "Recognize and address risk and health impact in teens",                              type: "Video",     category: "Parenting",   duration: "8 min" },
   { title: "Body Positivity: Nurturing Self-Image",                   desc: "Promote body positivity with strategies for self-acceptance",                       type: "Article",   category: "Anxiety",     duration: "5 min read" },
-  { title: "Building Your Child's Confidence",                        desc: "Foster a healthy identity in your child with professional insights",                 type: "Video",     category: "Self-Care",   duration: "6-part series", isNew: true },
+  { title: "Building Your Child's Confidence",                        desc: "Foster a healthy identity in your child with professional insights",                 type: "Video",     category: "Self-Care",   duration: "6-part series", isNew: true, slug: "building-your-childs-confidence" },
   { title: "Bullying - Stop the Cycle",                               desc: "Identify and address bullying with expert tips and strategies",                      type: "Guide",     category: "Depression",  duration: "7 min read" },
   { title: "Compassionate Parenting & Self-Compassion",               desc: "Practical tools for reducing day-to-day stress as a family.",                       type: "Worksheet", category: "Parenting",   duration: "Printable" },
   { title: "De-escalating Cycles of Conflicts",                       desc: "Resolve conflicts using internal Family Systems",                                    type: "Article",   category: "Anxiety",     duration: "6 min read" },
@@ -95,11 +96,13 @@ function TypeBadge({ type }: { type: ResourceType }) {
   );
 }
 
+const MotionLink = motion.create(Link);
+
 /* ─── Resource card (faithful to Figma Link component) ─── */
 function ResourceCard({ resource, index }: { resource: typeof RESOURCE_LIBRARY[0]; index: number }) {
   return (
-    <motion.a
-      href="#"
+    <MotionLink
+      to={resource.slug ? `/mental-health-series/${resource.slug}` : "#"}
       className="bg-white flex flex-col gap-[12px] items-start p-[20px] rounded-[16px] drop-shadow-[0px_2px_5px_rgba(0,0,0,0.05)] no-underline group"
       initial={{ opacity: 0, y: 14 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -146,7 +149,7 @@ function ResourceCard({ resource, index }: { resource: typeof RESOURCE_LIBRARY[0
           </div>
         </div>
       </div>
-    </motion.a>
+    </MotionLink>
   );
 }
 
