@@ -1,0 +1,405 @@
+import { useMemo, useState } from "react";
+import { motion } from "motion/react";
+import {
+  AlertCircle,
+  ArrowRight,
+  CheckCircle2,
+  Globe2,
+  LockKeyhole,
+  MessageCircle,
+  Phone,
+  Search,
+  ShieldCheck,
+  Signpost,
+  X,
+} from "lucide-react";
+import getHelpHero from "@/imports/get-help-hero.png";
+import logo988 from "@/imports/get-help-logos/988-suicide-crisis-lifeline.png";
+import logoCrisisText from "@/imports/get-help-logos/Crisis-Text_line.jpeg";
+import logoMentalHealth from "@/imports/get-help-logos/mentalhealth.gov_1.png";
+import logoNIH from "@/imports/get-help-logos/NIH-Logo.png";
+import logoTrevor from "@/imports/get-help-logos/The_Trevor_Project_logo.svg.webp";
+import logoVeterans from "@/imports/get-help-logos/veterans-crisis-line.webp";
+import UnifiedCard from "./components/UnifiedCard";
+type ResourceCategory =
+  | "All"
+  | "Youth & LGBTQ+"
+  | "Veterans"
+  | "Suicide prevention"
+  | "Family support"
+  | "Information";
+
+type Resource = {
+  name: string;
+  logo: string;
+  description: string;
+  category: Exclude<ResourceCategory, "All">;
+  availability: string;
+  href: string;
+};
+
+const CATEGORIES: ResourceCategory[] = [
+  "All",
+  "Youth & LGBTQ+",
+  "Veterans",
+  "Suicide prevention",
+  "Family support",
+  "Information",
+];
+
+const RESOURCES: Resource[] = [
+  {
+    name: "The Trevor Project",
+    logo: logoTrevor,
+    description:
+      "Free, confidential crisis support and suicide prevention services for LGBTQ+ young people.",
+    category: "Youth & LGBTQ+",
+    availability: "Available 24/7",
+    href: "https://www.thetrevorproject.org/get-help/",
+  
+  },
+  {
+    name: "Veterans Crisis Line",
+    logo: logoVeterans,
+    description:
+      "Confidential support for Veterans, service members, and the people who care about them.",
+    category: "Veterans",
+    availability: "Available 24/7",
+    href: "https://www.veteranscrisisline.net/",
+  },
+  {
+    name: "National Institute of Mental Health",
+    logo: logoNIH,
+    description:
+      "Research-based information about mental health conditions, treatment, and suicide prevention.",
+    category: "Information",
+    availability: "Information resource",
+    href: "https://www.nimh.nih.gov/health/topics/suicide-prevention",
+  },
+  {
+    name: "MentalHealth.gov",
+    logo: logoMentalHealth,
+    description:
+      "Trusted information about mental health, warning signs, myths, facts, and ways to get help.",
+    category: "Family support",
+    availability: "Information resource",
+    href: "https://www.mentalhealth.gov/",
+  },
+  {
+    name: "988 Suicide & Crisis Lifeline",
+    logo: logo988,
+    description:
+      "Free and confidential emotional support for people in suicidal crisis or emotional distress.",
+    category: "Suicide prevention",
+    availability: "Available 24/7",
+    href: "https://988lifeline.org/",
+  },
+  {
+    name: "Crisis Text Line",
+    logo: logoCrisisText,
+    description:
+      "Free, confidential text-based crisis support from a trained volunteer Crisis Counselor.",
+    category: "Suicide prevention",
+    availability: "Available 24/7",
+    href: "https://www.crisistextline.org/",
+  },
+];
+
+function ResourceCard({
+  resource,
+  index,
+}: {
+  resource: Resource;
+  index: number;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.45, delay: index * 0.06 }}
+      className="h-full"
+    >
+      <UnifiedCard
+        image={resource.logo}
+        imageAlt={`${resource.name} logo`}
+        imageFit="contain"
+        imageSize={
+          resource.name === "The Trevor Project" ||
+          resource.name === "Veterans Crisis Line"
+            ? "small"
+            : "default"
+        }
+        badge={resource.category}
+        title={resource.name}
+        description={resource.description}
+        metadata={resource.availability}
+        buttonLabel="Get help"
+        href={resource.href}
+      />
+    </motion.div>
+  );
+}
+export default function GetHelpPage() {
+  const [search, setSearch] = useState("");
+  const [activeCategory, setActiveCategory] = useState<ResourceCategory>("All");
+
+  const filteredResources = useMemo(() => {
+    const query = search.trim().toLowerCase();
+    return RESOURCES.filter((resource) => {
+      const matchesCategory =
+        activeCategory === "All" || resource.category === activeCategory;
+      const matchesSearch =
+        !query ||
+        resource.name.toLowerCase().includes(query) ||
+        resource.description.toLowerCase().includes(query) ||
+        resource.category.toLowerCase().includes(query);
+      return matchesCategory && matchesSearch;
+    });
+  }, [activeCategory, search]);
+
+  return (
+    <main className="pt-14 bg-[#f9f4f1] min-h-screen">
+      {/* Hero */}
+      <section className="overflow-hidden bg-[#f9f4f1]">
+        <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-14 py-14 md:py-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-16">
+            <motion.div
+              className="max-w-[540px]"
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <p className="font-['Poppins',sans-serif] text-[#59797d] text-xs font-semibold tracking-[0.16em] uppercase mb-5">
+                Get Help
+              </p>
+              <h1 className="font-['Poppins',sans-serif] text-[#1c3243] font-bold text-[38px] md:text-[50px] leading-[1.08] tracking-[-0.02em]">
+                Find the right support, right when you need it.
+              </h1>
+              <p className="font-['Poppins',sans-serif] text-[#435766] text-base md:text-lg leading-relaxed mt-6 max-w-[500px]">
+                Explore trusted crisis lines and mental health resources for you or someone you care about.
+              </p>
+              <div className="mt-7 flex items-start gap-3 rounded-xl bg-white/70 border border-[#ebe8e5] px-4 py-4 max-w-[500px]">
+                <AlertCircle className="text-[#1c3243] shrink-0 mt-0.5" size={21} />
+                <p className="font-['Poppins',sans-serif] text-[#1c3243] text-sm leading-relaxed">
+                  If you or someone you know is in immediate danger, <strong>call 911.</strong>
+                </p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="relative w-full max-w-[570px] mx-auto lg:mx-0 lg:ml-auto pb-9 pr-7 md:pb-12 md:pr-10"
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+            >
+              <div className="absolute right-0 bottom-0 w-[66%] h-[78%] rounded-2xl bg-[#90b3b6]" />
+              <img
+                src={getHelpHero}
+                alt="A parent calmly talking on the phone in a comfortable home"
+                className="relative z-10 w-full aspect-[16/10] object-cover rounded-2xl shadow-sm"
+              />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+     {/* Priority support */}
+<section className="bg-[#f9f4f1] px-8 md:px-14 lg:px-14 pb-14">
+  <motion.div
+  className="max-w-[1180px] mx-auto bg-[#1c3243] rounded-[8px] px-8 md:px-16 py-10 md:py-12"
+    initial={{ opacity: 0, y: 24 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: "-60px" }}
+  >
+    <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10">
+      <img
+        src={logo988}
+        alt="988 Suicide and Crisis Lifeline"
+        className="w-[128px] h-[128px] md:w-[144px] md:h-[144px] object-contain shrink-0"
+      />
+
+      <div className="text-center md:text-left">
+        <h2 className="font-['Poppins',sans-serif] font-bold text-white text-[32px] md:text-[40px] leading-tight">
+          Need Help Now?
+        </h2>
+
+        <p className="font-['Poppins',sans-serif] text-white/85 text-base md:text-lg mt-2">
+          Free, Confidential Support is Available 24/7
+        </p>
+
+        <div className="flex flex-col sm:flex-row flex-wrap justify-center md:justify-start gap-3 mt-5">
+          <a
+            href="tel:988"
+            className="inline-flex items-center justify-center gap-2 bg-[#59797d] text-white rounded-[8px] px-6 py-3.5 font-['Poppins',sans-serif] text-sm font-semibold hover:bg-[#6f9296] transition-colors"
+          >
+            <Phone size={15} />
+            Call 988
+          </a>
+
+          <a
+            href="sms:988"
+            className="inline-flex items-center justify-center gap-2 bg-[#59797d] text-white rounded-[8px] px-6 py-3.5 font-['Poppins',sans-serif] text-sm font-semibold hover:bg-[#6f9296] transition-colors"
+          >
+            <MessageCircle size={15} />
+            Text 988
+          </a>
+
+          <a
+            href="https://988lifeline.org/"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center justify-center gap-2 bg-[#59797d] text-white rounded-[8px] px-6 py-3.5 font-['Poppins',sans-serif] text-sm font-semibold hover:bg-[#6f9296] transition-colors"
+          >
+            <Globe2 size={15} />
+            Visit Website
+          </a>
+        </div>
+      </div>
+    </div>
+  </motion.div>
+</section>
+
+      <section className="bg-[#f5f5f5] px-6 md:px-10 lg:px-14 py-16">
+        <div className="max-w-[1280px] mx-auto">
+          <div className="text-center max-w-[680px] mx-auto">
+            <p className="font-['Poppins',sans-serif] text-[#59797d] text-xs font-semibold tracking-[0.14em] uppercase">
+              Trusted support
+            </p>
+            <h2 className="font-['Poppins',sans-serif] font-bold text-[#1c3243] text-3xl md:text-4xl mt-3">
+              Browse support resources
+            </h2>
+          </div>
+
+          <div className="mt-8 max-w-[900px] mx-auto">
+            <div className="relative">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-[#76979a]" size={18} />
+              <input
+                value={search}
+                onChange={(event) => setSearch(event.target.value)}
+                placeholder="Search resources..."
+                className="w-full bg-white border border-[#dedcdc] rounded-xl pl-12 pr-12 py-4 font-['Poppins',sans-serif] text-[#1c3243] text-sm outline-none focus:ring-2 focus:ring-[#90b3b6]/40"
+              />
+              {search && (
+                <button
+                  type="button"
+                  onClick={() => setSearch("")}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-[#76979a] hover:text-[#1c3243]"
+                  aria-label="Clear search"
+                >
+                  <X size={18} />
+                </button>
+              )}
+            </div>
+          </div>
+
+          <div className="mt-5 flex flex-wrap justify-center gap-2">
+            {CATEGORIES.map((category) => {
+              const active = activeCategory === category;
+              return (
+                <button
+                  key={category}
+                  type="button"
+                  onClick={() => setActiveCategory(category)}
+                  className={`rounded-full px-4 py-2 font-['Poppins',sans-serif] text-xs font-medium transition-colors ${
+                    active
+                      ? "bg-[#1c3243] text-white"
+                      : "bg-white border border-[#dedcdc] text-[#435766] hover:bg-[#e8f1f1]"
+                  }`}
+                >
+                  {category}
+                </button>
+              );
+            })}
+          </div>
+
+          {filteredResources.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 mt-9 max-w-[1000px] mx-auto">
+              {filteredResources.map((resource, index) => (
+                <ResourceCard key={resource.name} resource={resource} index={index} />
+              ))}
+            </div>
+          ) : (
+            <div className="mt-10 bg-white rounded-2xl border border-[#e3e1df] p-10 text-center">
+              <p className="font-['Poppins',sans-serif] font-semibold text-[#1c3243]">
+                No resources match your search.
+              </p>
+              <button
+                type="button"
+                onClick={() => {
+                  setSearch("");
+                  setActiveCategory("All");
+                }}
+                className="mt-4 text-[#59797d] font-['Poppins',sans-serif] text-sm font-semibold"
+              >
+                Clear filters
+              </button>
+            </div>
+          )}
+
+          <motion.div
+            className="mt-12 rounded-2xl bg-[#dceced] px-7 md:px-12 py-9 flex flex-col md:flex-row items-center gap-8 max-w-[1000px] mx-auto"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+          >
+            <div className="w-24 h-24 rounded-full bg-white/70 flex items-center justify-center shrink-0">
+              <Signpost size={46} className="text-[#59797d]" />
+            </div>
+            <div className="flex-1 text-center md:text-left">
+              <h2 className="font-['Poppins',sans-serif] font-bold text-[#1c3243] text-2xl md:text-3xl">
+Not sure which resource  {" "}
+<span className="whitespace-nowrap">is right for you?</span>              </h2>
+              <p className="font-['Poppins',sans-serif] text-[#435766] text-sm md:text-base mt-2">
+                Answer a few simple questions to find the best place to start.
+              </p>
+            </div>
+            <motion.button
+              type="button"
+              className="inline-flex items-center gap-2 bg-[#59797d] text-white rounded-lg px-6 py-3.5 font-['Poppins',sans-serif] text-sm font-semibold shrink-0"
+              whileHover={{ backgroundColor: "#406064", x: 2 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              Help me choose <ArrowRight size={17} />
+            </motion.button>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Trust strip */}
+      <section className="bg-white border-y border-[#ebe8e5] px-6 md:px-10 lg:px-14 py-8">
+        <div className="max-w-[1100px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-7">
+          {[
+            {
+              icon: ShieldCheck,
+              title: "Trusted national resources",
+              copy: "Reliable organizations you can trust.",
+            },
+            {
+              icon: LockKeyhole,
+              title: "Confidential options",
+              copy: "Your privacy and safety come first.",
+            },
+            {
+              icon: CheckCircle2,
+              title: "Available 24/7",
+              copy: "Support whenever you need it.",
+            },
+          ].map(({ icon: Icon, title, copy }) => (
+            <div key={title} className="flex items-center gap-4 md:justify-center">
+              <Icon size={34} className="text-[#59797d] shrink-0" />
+              <div>
+                <p className="font-['Poppins',sans-serif] text-[#1c3243] text-sm font-semibold">
+                  {title}
+                </p>
+                <p className="font-['Poppins',sans-serif] text-[#6c777f] text-xs mt-1">
+                  {copy}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    </main>
+  );
+}

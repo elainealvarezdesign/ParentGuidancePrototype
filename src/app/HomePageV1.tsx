@@ -1,0 +1,460 @@
+import { useState } from "react";
+import { Link } from "react-router";
+import { motion } from "motion/react";
+import {
+  Search,
+  ArrowRight,
+  Send,
+  ShieldCheck,
+  Clock,
+} from "lucide-react";
+import UnifiedCard from "./components/UnifiedCard";
+
+import imgMentalHealth from "@/imports/HomePagePgV2/b75247b5542e76cdf5c675041b7a6e465e33ef23.png";
+import imgCoaching from "@/imports/HomePagePgV2/debf8187f5722e2bc3e9c2869fc7308cfe71f1fc.png";
+import imgOnDemand from "@/imports/HomePagePgV2/2efa62174bfcf85665907842ba36899e44e02fe9.png";
+import imgAskTherapist from "@/imports/HomePagePgV2/277938b24e46ee2598e5638b70da775e75a5d182.png";
+import imgTrustedByParents from "@/imports/HomePagePgV2/fb9567d2a70815a5c0307df9118cb49c401b72a3.png";
+import imgRealSupport from "@/imports/HomePagePgV2/dabd6f5341bd78f44bfe8771b4f0e2a23c9565f1.png";
+import imgNewsletter from "@/imports/HomePagePgV2/0400e3bb3f86c98e80e3ad89c6a42fc531e57c9c.png";
+
+import imgQBUnited from "@/imports/QB_united-1.png";
+import imgHopeSquad from "@/imports/HopeSquad-1.png";
+import imgCookCenter from "@/imports/CCHC_Logo-greyscale-1.png";
+import imgStaffGuidance from "@/imports/StaffGuidance.png";
+import imgElizaChat from "@/imports/elizachat_logo_horizontal.svg";
+
+const imgHeroBanner =
+  "https://images.unsplash.com/photo-1560707856-3af2ff5ea652?auto=format&fit=crop&w=1400&h=900&q=80";
+
+type Category = "All" | "Mental Health" | "Coaching" | "Courses" | "Ask a Therapist";
+const CATEGORIES: Category[] = ["All", "Mental Health", "Coaching", "Courses", "Ask a Therapist"];
+
+const RESOURCE_CARDS = [
+  {
+    image: imgMentalHealth,
+    badge: "Mental Health",
+    title: "Mental Health Series",
+    description: "Dive into a wealth of knowledge tailored for parents.",
+  },
+  {
+    image: imgCoaching,
+    badge: "Coaching",
+    title: "Coaching for Lasting Change",
+    description: "One-on-one guidance to help you navigate the ups and downs.",
+  },
+  {
+    image: imgOnDemand,
+    badge: "Courses",
+    title: "On-Demand Courses",
+    description: "Learn at your own pace with self-guided video courses.",
+  },
+  {
+    image: imgAskTherapist,
+    badge: "Ask a Therapist",
+    title: "Ask a Therapist",
+    description: "Real questions from parents, answered by our clinical team.",
+  },
+];
+
+const FEATURES = [
+  {
+    img: imgTrustedByParents,
+    title: "Trusted by Parents",
+    desc: "Developed by leading mental health professionals with years of clinical practice.",
+    reverse: false,
+  },
+  {
+    img: imgOnDemand,
+    title: "Expert Guidance",
+    desc: "Access support whenever you need it, day or night, at your own pace.",
+    reverse: true,
+  },
+  {
+    img: imgRealSupport,
+    title: "Real Support for You",
+    desc: "Get answers when your child needs them most.",
+    reverse: false,
+  },
+];
+
+const FAQS = [
+  {
+    question: "How long is this program?",
+    answer:
+      "Mental health support doesn't have a timeline and neither does our program. While the initial Parenting with Purpose roadmap is expected to take around 4 weeks to complete, we offer ongoing support as long as you need it.",
+    defaultOpen: true,
+  },
+  { question: "What can I expect from a meeting with my coach?", answer: "Each coaching session is personalized to your family's unique needs and goals. Your coach will listen actively, offer evidence-based strategies, and help you develop an action plan that fits your lifestyle.", defaultOpen: false },
+  { question: "How often can I message my coach?", answer: "You can message your coach at any time through our platform. Most coaches respond within a few hours during business hours, and within 24 hours at other times.", defaultOpen: false },
+  { question: "How often will I meet with my coach?", answer: "Meeting frequency is flexible and based on your needs. Most families start with weekly sessions and adjust from there.", defaultOpen: false },
+  { question: "What can I expect from a meeting with my coach?", answer: "Sessions typically include a check-in, goal review, new strategies, and a plan for the week ahead.", defaultOpen: false },
+  { question: "How often can I message my coach?", answer: "Messaging is unlimited — reach out whenever something comes up.", defaultOpen: false },
+  { question: "How long until we deliver your first blog post?", answer: "Our team reviews your intake information and typically delivers the first resource within 48 hours of enrollment.", defaultOpen: false },
+];
+
+const PARTNER_LOGOS = [
+  { src: imgQBUnited, alt: "QB United", height: 40 },
+  { src: imgHopeSquad, alt: "Hope Squad", height: 40 },
+  { src: imgCookCenter, alt: "Cook Center for Human Connection", height: 44 },
+  { src: imgStaffGuidance, alt: "Staff Guidance", height: 40 },
+  { src: imgElizaChat, alt: "Eliza Chat", height: 36 },
+];
+
+function FaqItem({ item, index }: { item: typeof FAQS[0]; index: number }) {
+  const [open, setOpen] = useState(item.defaultOpen);
+  return (
+    <motion.div
+      className="bg-white rounded-lg shadow-[0px_16px_32px_-12px_rgba(149,149,149,0.25)] overflow-hidden cursor-pointer"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-40px" }}
+      transition={{ duration: 0.45, delay: index * 0.06 }}
+      onClick={() => setOpen((o) => !o)}
+    >
+      <div className="flex items-center justify-between px-8 py-6">
+        <span className="font-['Poppins',sans-serif] font-bold text-[#1b1139] text-lg leading-snug opacity-88 flex-1 pr-4">
+          {item.question}
+        </span>
+        <motion.div
+          animate={{ rotate: open ? 45 : 0 }}
+          transition={{ duration: 0.22 }}
+          className="flex items-center justify-center w-5 h-5 shrink-0"
+        >
+          <div className="relative w-5 h-5">
+            <div className="absolute top-1/2 left-0 w-full h-[3px] bg-[#1b1139] rounded-full opacity-80 -translate-y-1/2" />
+            <div className="absolute left-1/2 top-0 h-full w-[3px] bg-[#1b1139] rounded-full opacity-80 -translate-x-1/2" />
+          </div>
+        </motion.div>
+      </div>
+      <motion.div
+        initial={false}
+        animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }}
+        transition={{ duration: 0.3 }}
+        style={{ overflow: "hidden" }}
+      >
+        <div className="px-8 pb-6 flex flex-col gap-3">
+          <div className="w-5 h-[3px] bg-[#52bd95] rounded-full opacity-80" />
+          <p className="font-['Poppins',sans-serif] text-[#363049] text-sm leading-relaxed opacity-70">{item.answer}</p>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+}
+
+function PartnersCarousel() {
+  const doubled = [...PARTNER_LOGOS, ...PARTNER_LOGOS, ...PARTNER_LOGOS];
+  return (
+    <section className="bg-[#f9f4f1] py-20 overflow-hidden">
+      <style>{`
+        @keyframes marquee-v1 { 0% { transform: translateX(0); } 100% { transform: translateX(-33.3333%); } }
+        .marquee-track-v1 { animation: marquee-v1 30s linear infinite; will-change: transform; }
+        .marquee-track-v1:hover { animation-play-state: paused; }
+      `}</style>
+      <motion.h3
+        className="font-['Poppins',sans-serif] font-semibold text-[#59797d] text-2xl text-center mb-10"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+      >
+        Our Passionate Partners
+      </motion.h3>
+      <div className="relative">
+        <div className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: "linear-gradient(to right, #f9f4f1, transparent)" }} />
+        <div className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: "linear-gradient(to left, #f9f4f1, transparent)" }} />
+        <div className="flex items-center marquee-track-v1" style={{ width: "max-content" }}>
+          {doubled.map((logo, i) => (
+            <div key={i} className="flex items-center justify-center flex-shrink-0 px-10">
+              <img src={logo.src} alt={logo.alt} style={{ height: logo.height, width: "auto", objectFit: "contain", mixBlendMode: "multiply" }} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export default function HomePageV1() {
+  const [activeCategory, setActiveCategory] = useState<Category>("All");
+  const [email, setEmail] = useState("");
+  const [subscribed, setSubscribed] = useState(false);
+
+  const left = FAQS.slice(0, Math.ceil(FAQS.length / 2));
+  const right = FAQS.slice(Math.ceil(FAQS.length / 2));
+
+  return (
+    <main className="pt-14 bg-[#f9f4f1] min-h-screen">
+      {/* ── HERO ── */}
+      <section className="bg-[#f9f4f1] overflow-hidden">
+        <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-14 py-14 md:py-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-16">
+            <motion.div
+              className="max-w-[540px]"
+              initial={{ opacity: 0, y: 28 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] }}
+            >
+              <h1 className="font-['Poppins',sans-serif] font-bold text-[#1c3243] text-[38px] md:text-[48px] leading-[1.08] tracking-[-0.02em] mb-5">
+                Discover Resources That Can Help
+              </h1>
+              <p className="font-['Poppins',sans-serif] text-[#435766] text-base md:text-lg leading-relaxed mb-8 max-w-[480px]">
+                Find trusted guidance, practical tips, and expert resources to help you navigate everyday parenting challenges.
+              </p>
+
+              <div className="bg-white rounded-3xl px-5 py-2.5 flex items-center gap-3 shadow-sm max-w-[440px]" style={{ boxShadow: "0 2px 16px rgba(0,0,0,0.07)" }}>
+                <Search size={18} className="text-gray-400 shrink-0" />
+                <input
+                  className="flex-1 font-['Poppins',sans-serif] text-sm text-gray-700 bg-transparent outline-none placeholder:text-gray-400"
+                  placeholder="Anxiety in Children"
+                />
+                <button className="bg-[#59797d] hover:bg-[#406064] transition-colors text-white font-['Poppins',sans-serif] font-medium text-sm px-5 py-2.5 rounded-xl">
+                  Search
+                </button>
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="relative w-full max-w-[570px] mx-auto lg:mx-0 lg:ml-auto pb-9 pr-7 md:pb-12 md:pr-10"
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+            >
+              <div className="absolute right-0 bottom-0 w-[66%] h-[78%] rounded-2xl bg-[#90b3b6]" />
+              <img
+                src={imgHeroBanner}
+                alt="A mother and daughter sharing a joyful moment at home"
+                className="relative z-10 w-full aspect-[16/10] object-cover rounded-2xl shadow-sm"
+              />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── FILTER BAR ── */}
+      <section className="bg-white border-y border-[#ebe8eb] sticky top-14 z-30" style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.05)" }}>
+        <div className="max-w-[1280px] mx-auto px-6 md:px-10 py-3 flex items-center gap-2 overflow-x-auto">
+          {CATEGORIES.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className="shrink-0 font-['Poppins',sans-serif] text-xs font-medium px-4 py-2 rounded-full transition-colors"
+              style={{
+                background: activeCategory === cat ? "#1c3243" : "#f1eeee",
+                color: activeCategory === cat ? "#fff" : "#435766",
+              }}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+      </section>
+
+      {/* ── RESOURCES ── */}
+      <section className="bg-[#f5f5f5] py-14">
+        <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-14">
+          <div className="flex items-center gap-2.5 mb-6">
+            <div className="w-1 h-5 rounded-full bg-[#90b3b6]" />
+            <span className="font-['Poppins',sans-serif] font-semibold text-[#1c3243] text-lg">Browse All Resources</span>
+            <div className="bg-[#e8f1f1] rounded-full px-2.5 py-0.5">
+              <span className="font-['Poppins',sans-serif] font-medium text-[#90b3b6] text-[11px]">24 resources</span>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {RESOURCE_CARDS.map((card, i) => (
+              <motion.div
+                key={card.title + i}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.45, delay: i * 0.08 }}
+              >
+                <UnifiedCard
+                  image={card.image}
+                  imageAlt={card.title}
+                  badge={card.badge}
+                  title={card.title}
+                  description={card.description}
+                  buttonLabel="Explore"
+                />
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="flex justify-center mt-10 mb-12">
+            <a href="#" className="inline-flex items-center gap-2 font-['Poppins',sans-serif] font-semibold text-sm text-[#59797d] border border-[#90b3b6] px-6 py-3 rounded-[8px] hover:bg-[#f0f6f6] transition-colors">
+              View more resources <ArrowRight size={14} />
+            </a>
+          </div>
+
+          {/* Feature cards: quiz CTA + expert therapists */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <motion.div
+              className="group relative overflow-hidden rounded-[28px] border border-white/10 min-h-[340px] px-8 py-10 flex flex-col items-center justify-center text-center"
+              style={{
+                background:
+                  "radial-gradient(120% 90% at 50% 0%, rgba(144,179,182,0.38) 0%, rgba(144,179,182,0) 60%), #1c3243",
+              }}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.55 }}
+            >
+              <h3 className="font-['Poppins',sans-serif] font-medium text-white text-[28px] leading-[1.2]">
+                Not sure where to start?
+              </h3>
+              <p className="font-['Poppins',sans-serif] font-normal text-white/70 text-base leading-[1.5] mt-3 max-w-[360px]">
+                Answer a few quick questions and we'll point you to the right resources.
+              </p>
+              <div className="flex flex-wrap items-center justify-center gap-3 mt-8">
+                <button className="inline-flex items-center gap-2 bg-white text-[#1c3243] hover:bg-[#f9f4f1] transition-colors font-['Poppins',sans-serif] font-semibold text-sm px-6 py-3 rounded-full">
+                  <Send size={14} />
+                  Take the Quiz
+                </button>
+                <button className="inline-flex items-center gap-2 bg-white/5 text-white border border-white/20 hover:bg-white/10 transition-colors font-['Poppins',sans-serif] font-medium text-sm px-6 py-3 rounded-full">
+                  Learn more
+                </button>
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="group relative overflow-hidden rounded-[28px] min-h-[340px] cursor-pointer"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.55, delay: 0.1 }}
+            >
+              <img
+                src={imgMentalHealth}
+                alt="A therapist speaking with a young client"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1c3243] via-[#1c3243]/40 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-8 flex items-end justify-between gap-4">
+                <div>
+                  <h3 className="font-['Poppins',sans-serif] font-medium text-white text-[28px] leading-[1.2] max-w-[320px]">
+                    Expert therapists available to help
+                  </h3>
+                  <p className="font-['Poppins',sans-serif] font-normal text-white/75 text-base leading-[1.5] mt-2">
+                    Licensed clinicians, ready when you are.
+                  </p>
+                </div>
+                <span className="shrink-0 w-12 h-12 rounded-full bg-white text-[#1c3243] flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
+                  <ArrowRight size={18} />
+                </span>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── WHY ── */}
+      <section className="bg-[#f9f4f1] py-20 px-6 md:px-10 lg:px-14 flex flex-col items-center gap-16">
+        <motion.div
+          className="flex flex-col items-center gap-4 max-w-3xl text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <span className="font-['Poppins',sans-serif] font-semibold text-[#2c3e50] text-base uppercase tracking-wider">Why</span>
+          <h2 className="font-['Poppins',sans-serif] font-bold text-[#2c3e50] text-4xl leading-tight tracking-tight">
+            Built on real clinical experience
+          </h2>
+          <p className="font-['Poppins',sans-serif] text-[#2c3e50] text-xl leading-relaxed">
+            We believe every parent deserves access to expert guidance. Our resources are built on real clinical experience and designed with your family in mind.
+          </p>
+        </motion.div>
+
+        <div className="flex flex-col gap-14 w-full max-w-4xl">
+          {FEATURES.map((f, i) => (
+            <motion.div
+              key={f.title}
+              className={`flex flex-col md:flex-row items-center gap-8 md:gap-24 ${f.reverse ? "md:flex-row-reverse" : ""}`}
+              initial={{ opacity: 0, x: f.reverse ? 48 : -48 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.7, delay: i * 0.1 }}
+            >
+              <div className="w-full md:w-80 h-60 rounded-[8px] overflow-hidden shrink-0">
+                <img src={f.img} alt="" className="w-full h-full object-cover" />
+              </div>
+              <div className="flex flex-col gap-2 max-w-sm">
+                <p className="font-['Poppins',sans-serif] font-black text-[#59797d] text-3xl leading-relaxed">{f.title}</p>
+                <p className="font-['Poppins',sans-serif] text-[#1c3243] text-lg leading-relaxed">{f.desc}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── FAQ ── */}
+      <section className="bg-[#f9f4f1] py-16 px-6 md:px-10 lg:px-14">
+        <motion.h2
+          className="font-['Poppins',sans-serif] font-bold text-[#1c3243] text-2xl text-center mb-10 capitalize"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          Frequently Asked Questions
+        </motion.h2>
+        <div className="flex flex-col md:flex-row gap-8 max-w-[1280px] mx-auto">
+          <div className="flex flex-col gap-5 flex-1">
+            {left.map((item, i) => <FaqItem key={i} item={item} index={i} />)}
+          </div>
+          <div className="flex flex-col gap-5 flex-1 md:pt-8">
+            {right.map((item, i) => <FaqItem key={i} item={item} index={i} />)}
+          </div>
+        </div>
+      </section>
+
+      <PartnersCarousel />
+
+      {/* ── CTA / JOIN US ── */}
+      <section className="bg-[#90b3b6] px-6 md:px-10 lg:px-14 py-14">
+        <div className="max-w-[1280px] mx-auto flex flex-col md:flex-row items-center justify-center gap-12">
+          <motion.div
+            className="relative overflow-hidden rounded-[16px] shrink-0 w-full md:w-[420px] h-[240px] md:h-[210px]"
+            initial={{ opacity: 0, scale: 0.97 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <img src={imgNewsletter} alt="" className="w-full h-full object-cover" />
+          </motion.div>
+
+          <motion.div
+            className="flex flex-col gap-4"
+            initial={{ opacity: 0, x: 24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.55 }}
+          >
+            <h2 className="font-['Poppins',sans-serif] font-bold text-[#1b1139] text-4xl leading-tight max-w-md">Join Us!</h2>
+            <p className="font-['Poppins',sans-serif] text-[#1b1139] text-sm leading-relaxed max-w-sm">
+              Subscribe to our weekly newsletter and be a part of our journey to self discovery and love.
+            </p>
+            {subscribed ? (
+              <p className="font-['Poppins',sans-serif] text-[#1b1139] font-semibold text-base">✓ Thanks for subscribing!</p>
+            ) : (
+              <div className="flex border border-[#f4f6f9] rounded-2xl overflow-hidden bg-[#f9f9f9] max-w-md">
+                <input
+                  className="flex-1 px-5 py-3.5 bg-transparent font-['Poppins',sans-serif] text-sm text-gray-700 outline-none placeholder:text-[#737373]"
+                  placeholder="Your Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                <button
+                  className="bg-[#59797d] hover:bg-[#4a6b6f] transition-colors text-white font-['Poppins',sans-serif] text-sm px-7 py-3.5 whitespace-nowrap"
+                  onClick={() => email && setSubscribed(true)}
+                >
+                  Subscribe
+                </button>
+              </div>
+            )}
+          </motion.div>
+        </div>
+      </section>
+    </main>
+  );
+}
