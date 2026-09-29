@@ -4,7 +4,7 @@ import { scrollBehavior } from "./utils/motion";
 import { useNavigate } from "react-router";
 import svgPaths from "@/imports/CreateLivePrototypeWithTransitions/svg-aw5njrtmbl";
 import imgParentAndChild from "@/imports/CreateLivePrototypeWithTransitions/5adf607043d952ed1bbbfdfe5254ee778ed8a6e8.png";
-import imgContainer from "@/imports/CreateLivePrototypeWithTransitions/31bc69f6b6afc5b55d4dca6a6bf913963d36271a.png";
+import imgContainer from "@/imports/get-help-hero.png";
 
 const imgConnectWithChild = "https://images.unsplash.com/photo-1549068294-04a001ee0638?auto=format&fit=crop&w=700&q=80";
 const imgAnxietyWays = "https://images.unsplash.com/photo-1769095207794-02ffab1e2376?auto=format&fit=crop&w=700&q=80";
@@ -671,7 +671,7 @@ export default function OnDemandCoursesPage() {
             <img
               alt=""
               className="absolute inset-0 w-full h-full object-cover"
-              style={{ objectPosition: "center 35%" }}
+              style={{ objectPosition: "center 30%" }}
               src={imgContainer}
             />
           </div>
