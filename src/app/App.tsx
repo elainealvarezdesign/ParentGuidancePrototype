@@ -11,6 +11,7 @@ import QuestionDetailPage from "./QuestionDetailPage";
 import MilestonesToProgressPage from "./MilestonesToProgressPage";
 import MilestonesLessonPage from "./MilestonesLessonPage";
 import { motion, useInView, AnimatePresence, MotionConfig } from "motion/react";
+import { Menu, X } from "lucide-react";
 import svgPaths from "@/imports/HomePagePgV2/svg-2e7k4ll6gf.ts";
 import imgStaffGuidance from "@/imports/StaffGuidance.png";
 import imgElizaChat from "@/imports/elizachat_logo_horizontal.svg";
@@ -189,12 +190,30 @@ function LanguageDropdown() {
 /* ── Navbar ── */
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const firstMenuLinkRef = useRef<HTMLAnchorElement>(null);
   const location = useLocation();
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", fn);
     return () => window.removeEventListener("scroll", fn);
   }, []);
+
+  // Mobile menu: close on navigation, close with Escape, move focus into the menu when it opens
+  useEffect(() => { setMenuOpen(false); }, [location.pathname]);
+  useEffect(() => {
+    if (!menuOpen) return;
+    firstMenuLinkRef.current?.focus();
+    function onKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") {
+        setMenuOpen(false);
+        menuButtonRef.current?.focus();
+      }
+    }
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [menuOpen]);
 
   const links: { label: string; to: string }[] = [
     { label: "Home",                 to: "/" },
@@ -217,7 +236,7 @@ function Navbar() {
 
   return (
     <motion.nav
-      className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-10 h-14 bg-[#1c3243] print:hidden"
+      className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 lg:px-10 h-14 bg-[#1c3243] print:hidden"
       animate={{ boxShadow: scrolled ? "0 4px 24px rgba(0,0,0,0.18)" : "none" }}
       transition={{ duration: 0.3 }}
     >
@@ -225,7 +244,7 @@ function Navbar() {
         <Logo />
       </motion.div>
       <motion.div
-        className="flex items-center gap-6"
+        className="hidden lg:flex items-center gap-6"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
@@ -252,6 +271,69 @@ function Navbar() {
         })}
         <LanguageDropdown />
       </motion.div>
+
+      {/* Mobile menu button (below 1024px) */}
+      <button
+        ref={menuButtonRef}
+        type="button"
+        className="lg:hidden flex items-center justify-center w-11 h-11 -mr-2 rounded-lg text-white hover:bg-white/10 transition-colors"
+        aria-expanded={menuOpen}
+        aria-controls="mobile-menu"
+        aria-label={menuOpen ? "Close menu" : "Open menu"}
+        onClick={() => setMenuOpen((v) => !v)}
+      >
+        {menuOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
+      </button>
+
+      <AnimatePresence>
+        {menuOpen && (
+          <>
+            {/* Dimmed page behind the menu; tap to close */}
+            <motion.div
+              className="lg:hidden fixed inset-0 top-14 bg-[#1c3243]/40"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.22 }}
+              onClick={() => setMenuOpen(false)}
+              aria-hidden="true"
+            />
+            <motion.div
+              id="mobile-menu"
+              className="lg:hidden absolute top-14 left-0 right-0 bg-[#1c3243] border-t border-white/10 px-6 pt-2 pb-6 shadow-[0_24px_60px_rgba(28,50,67,0.28)] max-h-[calc(100dvh-56px)] overflow-y-auto"
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.22, ease: [0.25, 0.46, 0.45, 0.94] }}
+            >
+              <ul className="flex flex-col">
+                {links.map((l, i) => {
+                  const active = isActive(l.to);
+                  return (
+                    <li key={l.label} className="border-b border-white/10 last:border-b-0">
+                      <Link
+                        ref={i === 0 ? firstMenuLinkRef : undefined}
+                        to={l.to}
+                        aria-current={active ? "page" : undefined}
+                        className={`flex items-center gap-3 min-h-12 py-3 font-['Poppins',sans-serif] text-base font-medium transition-colors ${
+                          active ? "text-[#90b3b6]" : "text-white hover:text-[#90b3b6]"
+                        }`}
+                      >
+                        <span className={`w-1 h-5 rounded-full ${active ? "bg-[#90b3b6]" : "bg-transparent"}`} aria-hidden="true" />
+                        {l.label}
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+              <div className="mt-4 pt-4 border-t border-white/10 flex items-center justify-between">
+                <span className="font-['Poppins',sans-serif] text-xs font-semibold uppercase tracking-[1.2px] text-[#90b3b6]">Language</span>
+                <LanguageDropdown />
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </motion.nav>
   );
 }
@@ -736,16 +818,16 @@ function Footer() {
   const resourceLinks = ["Mental Health Series", "Parent Coaching", "On-Demand Courses", "Ask a Therapist"];
 
   return (
-    <footer className="bg-[#f9f4f1] px-14 py-8 print:hidden">
-      <div className="max-w-[1280px] mx-auto flex gap-20 items-start mb-10">
-        <div className="flex flex-col gap-40 w-[467px]">
+    <footer className="bg-[#f9f4f1] px-6 md:px-10 lg:px-14 py-8 print:hidden">
+      <div className="max-w-[1280px] mx-auto flex flex-col md:flex-row gap-10 md:gap-20 items-start mb-10">
+        <div className="flex flex-col gap-6 md:gap-40 w-full md:w-[467px] md:shrink-0">
           <FooterLogo />
           <div className="flex gap-3 items-center">
             <img src={imgImage5} alt="Google Play" className="h-6 object-contain" />
             <img src={imgImage6} alt="App Store" className="h-6 object-contain" />
           </div>
         </div>
-        <div className="flex flex-1 gap-16 justify-center">
+        <div className="flex flex-col sm:flex-row flex-1 gap-8 sm:gap-16 md:justify-center">
           <div className="flex flex-col gap-3">
             <p className="font-['Poppins',sans-serif] font-semibold text-[#58595b] text-sm">Our Company</p>
             {companyLinks.map((l) => (
@@ -775,7 +857,7 @@ function Footer() {
         </div>
       </div>
       <div className="bg-[#a1bfb9] h-[1px] mb-6 opacity-60" />
-      <div className="flex items-center justify-between max-w-[1280px] mx-auto">
+      <div className="flex flex-col-reverse items-start gap-4 sm:flex-row sm:items-center sm:justify-between max-w-[1280px] mx-auto">
         <div className="flex gap-3">
           {/* Social icons */}
           {[
@@ -805,7 +887,7 @@ function Footer() {
             </svg>
           </motion.div>
         </div>
-        <p className="font-['Poppins',sans-serif] text-[#1c3243] text-sm leading-relaxed whitespace-nowrap">
+        <p className="font-['Poppins',sans-serif] text-[#1c3243] text-sm leading-relaxed sm:whitespace-nowrap">
           © 2026 ParentGuidance.org. All rights reserved.
         </p>
       </div>
