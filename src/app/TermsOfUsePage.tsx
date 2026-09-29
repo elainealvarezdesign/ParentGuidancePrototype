@@ -5,7 +5,7 @@ import {
   buildLegalPlainText,
 } from "./legal/legalContent";
 import LegalDocumentBody from "./legal/LegalDocumentBody";
-import { LegalActions, downloadTextFile } from "./legal/LegalActions";
+import { LegalActions, BackToTopButton, downloadTextFile } from "./legal/LegalActions";
 
 function handleDownload() {
   const text = buildLegalPlainText("Terms of Use", TERMS_EFFECTIVE_DATE, "Introduction", TERMS_INTRO, TERMS_SECTIONS);
@@ -21,7 +21,7 @@ export default function TermsOfUsePage() {
             Legal
           </p>
 
-          <h1 className="font-['Poppins',sans-serif] text-4xl font-bold text-[#1C3243] md:text-5xl">
+          <h1 id="terms-of-use-title" tabIndex={-1} className="focus:outline-none font-['Poppins',sans-serif] text-4xl font-bold text-[#1C3243] md:text-5xl">
             Terms of Use
           </h1>
 
@@ -46,6 +46,7 @@ export default function TermsOfUsePage() {
             contactEmail="hello@parentguidance.org"
           />
         </div>
+        <BackToTopButton focusId="terms-of-use-title" />
       </section>
     </main>
   );

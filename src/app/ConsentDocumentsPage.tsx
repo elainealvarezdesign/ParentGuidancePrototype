@@ -11,6 +11,7 @@ import {
   type LegalSection,
 } from "./legal/legalContent";
 import LegalDocumentBody from "./legal/LegalDocumentBody";
+import { BackToTopButton } from "./legal/LegalActions";
 
 type Document = {
   id: string;
@@ -144,7 +145,7 @@ export default function ConsentDocumentsPage() {
             Legal
           </p>
 
-          <h1 className="font-['Poppins',sans-serif] text-4xl font-bold text-[#1C3243] md:text-5xl">
+          <h1 id="consent-documents-title" tabIndex={-1} className="focus:outline-none font-['Poppins',sans-serif] text-4xl font-bold text-[#1C3243] md:text-5xl">
             Consent Documents
           </h1>
 
@@ -166,6 +167,7 @@ export default function ConsentDocumentsPage() {
             />
           ))}
         </div>
+        <BackToTopButton focusId="consent-documents-title" />
       </section>
     </main>
   );
