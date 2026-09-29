@@ -130,16 +130,3 @@ export const TOPICS: Topic[] = [
 export function getTopic(slug: string | undefined) {
   return TOPICS.find((t) => t.slug === slug);
 }
-
-/** Plain-text version of a topic, used by the Download button. */
-export function topicPlainText(topic: Topic) {
-  const lines = [topic.title.toUpperCase(), `${topic.expert.name}, ${topic.expert.role}`, "", topic.intro, "", topic.reminder, "", "KEY TAKEAWAYS", ""];
-  topic.takeaways.forEach((t, i) => lines.push(`${i + 1}. ${t.title}`, `   ${t.text}`, ""));
-  lines.push("THINGS YOU CAN DO", "");
-  topic.actions.forEach((a, i) => {
-    lines.push(`${i + 1}. ${a.title}`);
-    a.tips.forEach((tip) => lines.push(`   - ${tip.label}: ${tip.text}`));
-    lines.push("");
-  });
-  return lines.join("\n");
-}

@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { Link, useParams } from "react-router";
 import { ArrowRight, CalendarDays, ChevronLeft, ListChecks, PlayCircle } from "lucide-react";
-import { getTopic, topicPlainText, type Topic } from "./mhs/topics";
-import { LegalActions, BackToTopButton, downloadTextFile } from "./legal/LegalActions";
+import { getTopic, type Topic } from "./mhs/topics";
+import { BackToTopButton } from "./legal/LegalActions";
 
 const font = "font-['Poppins',sans-serif]";
 
@@ -50,7 +50,6 @@ function Hero({ topic }: { topic: Topic }) {
             <p className={`${font} mt-5 rounded-r-xl border-l-4 border-[#90b3b6] bg-white px-5 py-4 text-sm italic leading-relaxed text-[#1c3243]`}>
               {topic.reminder}
             </p>
-            <LegalActions onDownload={() => downloadTextFile(`ParentGuidance-${topic.slug}.txt`, topicPlainText(topic))} />
           </div>
 
           <aside className={`${card} p-6 print:hidden`} aria-label="About this topic">
