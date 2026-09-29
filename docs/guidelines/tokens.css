@@ -1,0 +1,145 @@
+/*
+ * Parent Guidance — design tokens
+ * Fuente: Scalar_Design_System-v1.0 (variables de Figma) + Scalar_Design_System-Components (Button).
+ * Ver docs/guidelines/ para el uso de cada token. No añadir valores que no existan en Figma.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,600;0,14..32,700;1,14..32,400&display=swap');
+
+:root {
+  /* ---------- Tipografía ---------- */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  --text-xs: 10px;  --leading-xs: 14px;
+  --text-s: 12px;   --leading-s: 16px;
+  --text-m: 14px;   --leading-m: 20px;
+  --text-l: 16px;   --leading-l: 24px;
+  --text-xl: 18px;  --leading-xl: 26px;
+  --text-2xl: 20px; --leading-2xl: 28px;
+  --text-3xl: 24px; --leading-3xl: 32px;
+  --text-4xl: 28px; --leading-4xl: 36px;
+  --text-5xl: 32px; --leading-5xl: 40px;
+
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* ---------- Neutrales ---------- */
+  --neutral-white: #ffffff;
+  --neutral-50: #f8fafc;
+  --neutral-100: #f1f5f9;
+  --neutral-200: #e3e8f0;
+  --neutral-300: #cbd5e1;
+  --neutral-400: #94a3b8;
+  --neutral-500: #64748b;
+  --neutral-600: #475569;
+  --neutral-700: #334155;
+  --neutral-800: #1e293b;
+  --neutral-900: #0f172a;
+
+  --text-primary: var(--neutral-900);
+  --text-secondary: var(--neutral-800);
+  --text-tertiary: var(--neutral-600);
+  --text-muted: var(--neutral-400);
+  --bg-page: var(--neutral-white);
+  --bg-surface: var(--neutral-50);
+  --bg-hover: var(--neutral-100);
+
+  /* ---------- Brand ---------- */
+  --brand-200: #9acbf6;
+  --brand-300: #68b1f1;
+  --brand-400: #3597ed; /* usado por Button (Focus/Selected); no está en la tabla de la guía del sistema */
+  --brand-500: #037de8;
+  --brand-600: #0268c1;
+  --brand-700: #02539a;
+  --brand-800: #013e73;
+  --brand-900: #01294c;
+  --brand: var(--brand-500);
+  --text-link: #2a3ef4;
+
+  /* ---------- Semánticos ---------- */
+  --bg-positive: #00b04f;
+  --text-positive: #00b04f;
+  --bg-warning: #ffbb33;
+  --text-warning: #cc8800;
+  --bg-negative: #ff2f3d;
+  --text-negative: #cb0000;
+
+  /* ---------- Acentos de datos (solo gráficos) ---------- */
+  --data-teal: #08c581;
+  --data-purple: #6e2fff;
+  --data-indigo: #2a3ef4;
+  --data-green: #009c1c;
+  --data-amber: #ffaa00;
+  --data-orange: #ff7700;
+  --data-red: #fb0000;
+
+  /* ---------- Bordes ---------- */
+  --rule: rgba(203, 213, 225, 0.6); /* Neutral/300 al 60 % */
+  --rule-heavy: var(--neutral-800);
+
+  /* ---------- Espaciado ---------- */
+  --space-xxs: 2px;
+  --space-s: 8px;
+  --space-m: 16px;
+  --space-l: 24px;
+  --space-xl: 32px;
+  --space-4: 4px;
+  --space-10: 10px;
+  --space-12: 12px;
+  --space-14: 14px;
+  --space-18: 18px;
+  --space-20: 20px;
+  --space-26: 26px;
+  --space-28: 28px;
+  --space-36: 36px;
+  --space-40: 40px;
+  --space-48: 48px;
+  --space-56: 56px;
+  --space-64: 64px;
+  --space-72: 72px;
+  --space-80: 80px;
+
+  /* ---------- Radios ---------- */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-pill: 999px;
+
+  /* ---------- Elevación ---------- */
+  --shadow-sm: 0 4px 12px rgba(15, 23, 42, 0.07);
+  --shadow-md: 0 8px 32px -8px rgba(0, 0, 0, 0.3);
+  --glow-md: 0 6px 18px rgba(3, 125, 232, 0.32);
+  --glow-focus: 0 0 0 3px rgba(3, 125, 232, 0.18);
+
+  /* ---------- Layout ---------- */
+  --wrap: 1160px;
+  --px: max(24px, calc((100vw - var(--wrap)) / 2));
+  --px-mobile: 16px;
+
+  /* ---------- Movimiento ---------- */
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-in: cubic-bezier(0.55, 0, 1, 0.45);
+
+  --dur-micro-fast: 150ms;
+  --dur-micro: 180ms;
+  --dur-short: 240ms;
+  --dur-standard: 360ms;
+}
+
+@media (max-width: 480px) {
+  :root { --px: var(--px-mobile); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
