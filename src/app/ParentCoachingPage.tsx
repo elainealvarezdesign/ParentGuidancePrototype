@@ -137,7 +137,7 @@ function ProcessStep({ num, title, desc, index }: { num: string; title: string; 
         animate={inView ? { scale: 1 } : {}}
         transition={{ duration: 0.5, delay: index * 0.12, ease: [0.34, 1.56, 0.64, 1] }}
       >
-        <span className="font-['Poppins',sans-serif] font-bold text-white text-sm">{num}</span>
+        <span className="font-['Poppins',sans-serif] font-bold text-[#1c3243] text-sm">{num}</span>
       </motion.div>
       <div>
         <p className="font-['Poppins',sans-serif] font-semibold text-[#1c3243] text-sm leading-5">{title}</p>
@@ -180,7 +180,7 @@ export default function ParentCoachingPage() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            <span className="font-['Poppins',sans-serif] text-xs font-semibold uppercase tracking-[1.2px] text-[#90b3b6]">
+            <span className="font-['Poppins',sans-serif] text-xs font-semibold uppercase tracking-[1.2px] text-[#406064]">
               Parent Coaching
             </span>
             <h1 className="font-['Poppins',sans-serif] font-bold text-[#1c3243] text-[36px] leading-[1.25] max-w-[488px]">
@@ -203,7 +203,7 @@ export default function ParentCoachingPage() {
               </motion.a>
               <motion.a
                 href="#how-it-works"
-                className="font-['Poppins',sans-serif] font-semibold text-sm text-[#59797d] border border-[#90b3b6] px-6 py-3.5 rounded-2xl no-underline bg-transparent"
+                className="font-['Poppins',sans-serif] font-semibold text-sm text-[#406064] border border-[#90b3b6] px-6 py-3.5 rounded-2xl no-underline bg-transparent"
                 whileHover={{ scale: 1.03, backgroundColor: "rgba(144,179,182,0.08)" }}
                 whileTap={{ scale: 0.97 }}
               >
@@ -282,7 +282,7 @@ export default function ParentCoachingPage() {
           <div className="w-full max-w-[1024px]">
             <div className="flex items-center gap-2 mb-1">
               <div className="w-1 h-5 rounded-full bg-[#90b3b6]" />
-              <span className="font-['Poppins',sans-serif] font-semibold text-[#90b3b6] text-xs uppercase tracking-[1.2px]">Meet the coaches</span>
+              <span className="font-['Poppins',sans-serif] font-semibold text-[#406064] text-xs uppercase tracking-[1.2px]">Meet the coaches</span>
             </div>
             <h2 className="font-['Poppins',sans-serif] font-bold text-[#1c3243] text-2xl leading-8">Explore our Courses</h2>
             <p className="font-['Poppins',sans-serif] text-[#435766] text-sm leading-5 mt-2 max-w-[512px]">
@@ -309,7 +309,7 @@ export default function ParentCoachingPage() {
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute top-3 right-3 bg-[#e8f1f1] rounded-full px-2.5 py-1">
-                      <span className="font-['Poppins',sans-serif] font-semibold text-[#59797d] text-[10px]">● Available</span>
+                      <span className="font-['Poppins',sans-serif] font-semibold text-[#59797d] text-xs">● Available</span>
                     </div>
                   </div>
 
@@ -317,12 +317,12 @@ export default function ParentCoachingPage() {
                   <div className="flex flex-col gap-3 p-5 flex-1">
                     <div>
                       <p className="font-['Poppins',sans-serif] font-semibold text-[#1c3243] text-sm leading-5">{coach.name}</p>
-                      <p className="font-['Poppins',sans-serif] text-[#90b3b6] text-xs leading-4 mt-0.5">{coach.role}</p>
+                      <p className="font-['Poppins',sans-serif] text-[#406064] text-xs leading-4 mt-0.5">{coach.role}</p>
                     </div>
                     <p className="font-['Poppins',sans-serif] text-[#435766] text-xs leading-[1.625] flex-1">{coach.bio}</p>
                     <div className="flex flex-wrap gap-1.5">
                       {coach.tags.map(tag => (
-                        <span key={tag} className="font-['Poppins',sans-serif] font-medium text-[#90b3b6] text-[10px] bg-[#f9f4f1] px-2.5 py-1 rounded-full">
+                        <span key={tag} className="font-['Poppins',sans-serif] font-medium text-[#406064] text-xs bg-[#f9f4f1] px-2.5 py-1 rounded-full">
                           {tag}
                         </span>
                       ))}
@@ -348,7 +348,7 @@ export default function ParentCoachingPage() {
           <div className="w-full max-w-[1024px] flex flex-col items-center">
             <div className="flex items-center gap-2 mb-1 self-start">
               <div className="w-1 h-5 rounded-full bg-[#90b3b6]" />
-              <span className="font-['Poppins',sans-serif] font-semibold text-[#90b3b6] text-xs uppercase tracking-[1.2px]">Process</span>
+              <span className="font-['Poppins',sans-serif] font-semibold text-[#406064] text-xs uppercase tracking-[1.2px]">Process</span>
             </div>
             <h2 className="font-['Poppins',sans-serif] font-bold text-[#1c3243] text-2xl leading-8 text-center mt-3 mb-10">
               Getting started is simple
@@ -393,7 +393,7 @@ export default function ParentCoachingPage() {
           <div className="w-full max-w-[1024px]">
             <div className="flex items-center gap-2 mb-1">
               <div className="w-1 h-5 rounded-full bg-[#90b3b6]" />
-              <span className="font-['Poppins',sans-serif] font-semibold text-[#90b3b6] text-xs uppercase tracking-[1.2px]">{"Families we've supported"}</span>
+              <span className="font-['Poppins',sans-serif] font-semibold text-[#406064] text-xs uppercase tracking-[1.2px]">{"Families we've supported"}</span>
             </div>
             <h2 className="font-['Poppins',sans-serif] font-bold text-[#1c3243] text-2xl leading-8 mt-3">Real families. Real change.</h2>
 
@@ -414,7 +414,7 @@ export default function ParentCoachingPage() {
                   </p>
                   <div className="border-t border-[#f5f5f5] pt-3">
                     <p className="font-['Poppins',sans-serif] font-semibold text-[#1c3243] text-xs leading-4">{t.name}</p>
-                    <p className="font-['Poppins',sans-serif] text-[#90b3b6] text-[11px] leading-[16.5px] mt-0.5">{t.meta}</p>
+                    <p className="font-['Poppins',sans-serif] text-[#406064] text-xs leading-[16.5px] mt-0.5">{t.meta}</p>
                   </div>
                 </motion.div>
               ))}

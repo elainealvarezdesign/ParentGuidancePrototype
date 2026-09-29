@@ -29,7 +29,7 @@ export default function TermsOfUsePage() {
     <main className="min-h-screen bg-[#F9F4F1] print:bg-white">
       <section className="px-6 pb-14 pt-28 md:px-10 lg:px-14 print:hidden">
         <div className="mx-auto max-w-[1100px]">
-          <p className="mb-3 font-['Poppins',sans-serif] text-sm font-semibold uppercase tracking-[0.14em] text-[#59797D]">
+          <p className="mb-3 font-['Poppins',sans-serif] text-sm font-semibold uppercase tracking-[0.14em] text-[#406064]">
             Legal
           </p>
 
@@ -55,7 +55,7 @@ export default function TermsOfUsePage() {
             <button
               type="button"
               onClick={handlePrint}
-              className="inline-flex items-center gap-2 rounded-lg border border-[#90b3b6] px-5 py-3 font-['Poppins',sans-serif] text-sm font-semibold text-[#59797D] transition hover:bg-[#F0F6F6] focus:outline-none focus:ring-2 focus:ring-[#59797D] focus:ring-offset-2"
+              className="inline-flex items-center gap-2 rounded-lg border border-[#90b3b6] px-5 py-3 font-['Poppins',sans-serif] text-sm font-semibold text-[#406064] transition hover:bg-[#F0F6F6] focus:outline-none focus:ring-2 focus:ring-[#59797D] focus:ring-offset-2"
             >
               <Printer size={16} />
               Print

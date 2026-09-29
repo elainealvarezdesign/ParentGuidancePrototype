@@ -103,18 +103,18 @@ export default function LessonPage() {
         <div className="max-w-[1280px] mx-auto px-6 h-10 flex items-center gap-2">
           <Link
             to="/on-demand-courses"
-            className="font-['Poppins',sans-serif] text-xs text-[#59797D] hover:text-[#406064] no-underline transition-colors shrink-0"
+            className="font-['Poppins',sans-serif] text-xs text-[#406064] hover:text-[#1c3243] no-underline transition-colors shrink-0"
           >
             ← Back to courses
           </Link>
-          <ChevronRight size={13} className="text-[#acbcbe] shrink-0" />
+          <ChevronRight size={13} className="text-[#435766] shrink-0" />
           <Link
             to={`/courses/${COURSE_SLUG}`}
-            className="font-['Poppins',sans-serif] text-xs text-[#59797D] hover:text-[#406064] no-underline transition-colors truncate"
+            className="font-['Poppins',sans-serif] text-xs text-[#406064] hover:text-[#1c3243] no-underline transition-colors truncate"
           >
             {COURSE_TITLE}
           </Link>
-          <ChevronRight size={13} className="text-[#acbcbe] shrink-0" />
+          <ChevronRight size={13} className="text-[#435766] shrink-0" />
           <span className="font-['Poppins',sans-serif] text-xs font-semibold text-[#1C3243] shrink-0">
             {lesson.title}
           </span>
@@ -131,10 +131,10 @@ export default function LessonPage() {
           <div className="flex items-start justify-between gap-4">
             <div>
               <div className="flex items-center gap-2 mb-1">
-                <span className="font-['Poppins',sans-serif] font-semibold text-[10px] uppercase tracking-[1.4px] text-[#59797D] bg-[#EAF1F1] px-2.5 py-0.5 rounded-[4px]">
+                <span className="font-['Poppins',sans-serif] font-semibold text-[11px] uppercase tracking-[1.4px] text-[#406064] bg-[#EAF1F1] px-2.5 py-0.5 rounded-[4px]">
                   Lesson {lesson.id} of {LESSONS.length}
                 </span>
-                <span className="font-['Poppins',sans-serif] text-[10px] text-[#acbcbe]">
+                <span className="font-['Poppins',sans-serif] text-xs text-[#435766]">
                   {lesson.duration}
                 </span>
               </div>
@@ -182,7 +182,7 @@ export default function LessonPage() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
 
             {/* Duration badge */}
-            <div className="absolute top-3 left-3 bg-black/60 text-white font-['Poppins',sans-serif] text-[11px] font-semibold px-2 py-0.5 rounded">
+            <div className="absolute top-3 left-3 bg-black/60 text-white font-['Poppins',sans-serif] text-xs font-semibold px-2 py-0.5 rounded">
               {lesson.duration}
             </div>
 
@@ -233,7 +233,7 @@ export default function LessonPage() {
                   >
                     {playing ? <Pause size={16} fill="white" /> : <Play size={16} className="ml-0.5" fill="white" />}
                   </button>
-                  <span className="font-['Poppins',sans-serif] text-white/80 text-[11px]">
+                  <span className="font-['Poppins',sans-serif] text-white/80 text-xs">
                     {Math.floor((parseInt(lesson.duration.split(":")[0]) * 60 + parseInt(lesson.duration.split(":")[1])) * progress / 100 / 60).toString().padStart(2, "0")}:
                     {Math.floor((parseInt(lesson.duration.split(":")[0]) * 60 + parseInt(lesson.duration.split(":")[1])) * progress / 100 % 60).toString().padStart(2, "0")}
                     {" / "}
@@ -319,7 +319,7 @@ export default function LessonPage() {
                           <FileText size={14} className="text-[#90B3B6]" />
                           <span className="font-['Poppins',sans-serif] text-sm text-[#1C3243]">{r.label}</span>
                         </div>
-                        <span className="font-['Poppins',sans-serif] text-[10px] font-semibold text-[#59797D] bg-[#EAF1F1] px-2 py-0.5 rounded-full">
+                        <span className="font-['Poppins',sans-serif] text-xs font-semibold text-[#59797D] bg-[#EAF1F1] px-2 py-0.5 rounded-full">
                           {r.type}
                         </span>
                       </div>
@@ -343,7 +343,7 @@ export default function LessonPage() {
                     style={{ width: `${(completed.size / LESSONS.length) * 100}%` }}
                   />
                 </div>
-                <span className="font-['Poppins',sans-serif] text-[10px] text-[#435766] shrink-0">
+                <span className="font-['Poppins',sans-serif] text-xs text-[#435766] shrink-0">
                   {completed.size}/{LESSONS.length}
                 </span>
               </div>
@@ -362,7 +362,7 @@ export default function LessonPage() {
                     }`}
                     whileTap={{ scale: 0.98 }}
                   >
-                    <span className={`w-6 h-6 rounded-full flex items-center justify-center text-[11px] font-bold shrink-0 transition-colors ${
+                    <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold shrink-0 transition-colors ${
                       isDone
                         ? "bg-[#59797D] text-white"
                         : isActive
@@ -377,7 +377,7 @@ export default function LessonPage() {
                       }`}>
                         {l.title}
                       </p>
-                      <p className="font-['Poppins',sans-serif] text-[10px] text-[#acbcbe] mt-0.5">{l.duration}</p>
+                      <p className="font-['Poppins',sans-serif] text-xs text-[#435766] mt-0.5">{l.duration}</p>
                     </div>
                     {isActive && <Play size={10} fill="#59797D" className="text-[#59797D] shrink-0" />}
                   </motion.button>
@@ -442,8 +442,8 @@ export default function LessonPage() {
             <motion.button
               onClick={() => goToLesson(nextLesson.id)}
               className="flex items-center gap-2 font-['Poppins',sans-serif] font-semibold text-sm text-white px-5 py-2.5 rounded-full"
-              style={{ backgroundColor: "#C8893A" }}
-              whileHover={{ backgroundColor: "#B5782F" }}
+              style={{ backgroundColor: "#59797D" }}
+              whileHover={{ backgroundColor: "#406064" }}
               whileTap={{ scale: 0.97 }}
             >
               Next Lesson

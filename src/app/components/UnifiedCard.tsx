@@ -54,13 +54,13 @@ export default function UnifiedCard({
         />
 
         {badge && (
-          <span className="absolute top-3 left-3 bg-[#1C3243] text-white rounded-full px-3 py-1 font-['Poppins',sans-serif] text-[10px] font-semibold">
+          <span className="absolute top-3 left-3 bg-[#1C3243] text-white rounded-full px-3 py-1 font-['Poppins',sans-serif] text-xs font-semibold">
             {badge}
           </span>
         )}
 
         {avatar && (
-          <span className="absolute bottom-3 left-3 w-8 h-8 rounded-full bg-[#90B3B6] border-2 border-white flex items-center justify-center font-['Poppins',sans-serif] text-white text-[10px] font-semibold">
+          <span className="absolute bottom-3 left-3 w-8 h-8 rounded-full bg-[#90B3B6] border-2 border-white flex items-center justify-center font-['Poppins',sans-serif] text-[#1c3243] text-xs font-semibold">
             {avatar}
           </span>
         )}
@@ -78,7 +78,7 @@ export default function UnifiedCard({
         )}
 
         {metadata && (
-          <p className="font-['Poppins',sans-serif] text-[#90B3B6] text-xs mt-2">
+          <p className="font-['Poppins',sans-serif] text-[#406064] text-xs mt-2">
             {metadata}
           </p>
         )}
@@ -104,7 +104,7 @@ export default function UnifiedCard({
           )}
 
           {footer && (
-            <p className="font-['Poppins',sans-serif] text-[#9AA4AC] text-[11px] text-center mt-3">
+            <p className="font-['Poppins',sans-serif] text-[#435766] text-xs text-center mt-3">
               {footer}
             </p>
           )}

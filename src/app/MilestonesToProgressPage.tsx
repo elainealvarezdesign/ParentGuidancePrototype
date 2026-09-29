@@ -114,11 +114,11 @@ export default function MilestonesToProgressPage() {
         <div className="max-w-[1280px] mx-auto px-6 h-10 flex items-center gap-2">
           <Link
             to="/on-demand-courses"
-            className="font-['Poppins',sans-serif] text-xs text-[#59797D] hover:text-[#406064] no-underline transition-colors shrink-0"
+            className="font-['Poppins',sans-serif] text-xs text-[#406064] hover:text-[#1c3243] no-underline transition-colors shrink-0"
           >
             ← Back to courses
           </Link>
-          <ChevronRight size={13} className="text-[#acbcbe] shrink-0" />
+          <ChevronRight size={13} className="text-[#435766] shrink-0" />
           <span className="font-['Poppins',sans-serif] text-xs font-semibold text-[#1C3243] truncate">
             {COURSE_TITLE}
           </span>
@@ -149,7 +149,7 @@ export default function MilestonesToProgressPage() {
 
             {/* Course info */}
             <div className="flex-1 p-6 flex flex-col gap-4 lg:border-r border-[#dee8e9]">
-              <span className="self-start font-['Poppins',sans-serif] font-semibold text-[10px] uppercase tracking-[1.4px] text-[#59797D] bg-[#EAF1F1] border border-[#90B3B6]/40 px-3 py-1 rounded-[4px]">
+              <span className="self-start font-['Poppins',sans-serif] font-semibold text-[11px] uppercase tracking-[1.4px] text-[#406064] bg-[#EAF1F1] border border-[#90B3B6]/40 px-3 py-1 rounded-[4px]">
                 Child & Teen Development
               </span>
 
@@ -174,11 +174,11 @@ export default function MilestonesToProgressPage() {
                 {INSTRUCTORS.map(inst => (
                   <div key={inst.name} className="flex items-center gap-2.5">
                     <div className="w-8 h-8 rounded-full bg-[#59797D] flex items-center justify-center shrink-0">
-                      <span className="font-['Poppins',sans-serif] font-bold text-white text-[10px]">{inst.initials}</span>
+                      <span className="font-['Poppins',sans-serif] font-bold text-white text-xs">{inst.initials}</span>
                     </div>
                     <div className="min-w-0">
                       <span className="font-['Poppins',sans-serif] font-semibold text-[#1C3243] text-sm">{inst.name}</span>
-                      <span className="font-['Poppins',sans-serif] text-[#acbcbe] text-[10px] ml-1.5">{inst.credential}</span>
+                      <span className="font-['Poppins',sans-serif] text-[#435766] text-xs ml-1.5">{inst.credential}</span>
                     </div>
                   </div>
                 ))}
@@ -231,7 +231,7 @@ export default function MilestonesToProgressPage() {
                         }`}
                         whileTap={{ scale: 0.98 }}
                       >
-                        <span className={`w-6 h-6 rounded-full flex items-center justify-center text-[11px] font-bold shrink-0 transition-colors ${
+                        <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold shrink-0 transition-colors ${
                           isActive ? "bg-[#1C3243] text-white" : "bg-[#F0EDEB] text-[#435766]"
                         }`}>
                           {lesson.id}
@@ -258,7 +258,7 @@ export default function MilestonesToProgressPage() {
                   >
                     <ChevronLeft size={13} />
                   </button>
-                  <span className="font-['Poppins',sans-serif] text-[11px] text-[#435766]">
+                  <span className="font-['Poppins',sans-serif] text-xs text-[#435766]">
                     {outlinePage} of {totalOutlinePages}
                   </span>
                   <button
@@ -308,11 +308,11 @@ export default function MilestonesToProgressPage() {
               <div key={inst.name} className="flex flex-col gap-2">
                 <div className="flex items-center gap-2.5">
                   <div className="w-10 h-10 rounded-full bg-[#59797D] flex items-center justify-center shrink-0">
-                    <span className="font-['Poppins',sans-serif] font-bold text-white text-[11px]">{inst.initials}</span>
+                    <span className="font-['Poppins',sans-serif] font-bold text-white text-xs">{inst.initials}</span>
                   </div>
                   <div>
                     <p className="font-['Poppins',sans-serif] font-semibold text-[#1C3243] text-sm">{inst.name}</p>
-                    <p className="font-['Poppins',sans-serif] text-[#59797D] text-[10px]">{inst.credential}</p>
+                    <p className="font-['Poppins',sans-serif] text-[#59797D] text-xs">{inst.credential}</p>
                   </div>
                 </div>
                 <p className="font-['Poppins',sans-serif] text-[#435766] text-xs leading-relaxed">{inst.bio}</p>
@@ -343,7 +343,7 @@ export default function MilestonesToProgressPage() {
                   <img src={rec.img} alt={rec.title} className="w-[80px] h-[64px] rounded-[8px] object-cover shrink-0" />
                   <div className="flex flex-col justify-center gap-1">
                     <p className="font-['Poppins',sans-serif] font-semibold text-[#1C3243] text-xs leading-snug">{rec.title}</p>
-                    <p className="font-['Poppins',sans-serif] text-[#acbcbe] text-[10px]">{rec.lessons} lessons &nbsp;•&nbsp; {rec.duration}</p>
+                    <p className="font-['Poppins',sans-serif] text-[#435766] text-xs">{rec.lessons} lessons &nbsp;•&nbsp; {rec.duration}</p>
                   </div>
                 </motion.div>
               );

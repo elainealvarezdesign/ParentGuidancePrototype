@@ -216,14 +216,14 @@ export default function MilestonesLessonPage() {
       {/* Breadcrumb */}
       <div className="bg-[#EEF0F0] border-b border-[#DDE0E0] pt-14 shrink-0">
         <div className="max-w-[1280px] mx-auto px-6 h-10 flex items-center gap-2">
-          <Link to="/on-demand-courses" className="font-['Poppins',sans-serif] text-xs text-[#59797D] hover:text-[#406064] no-underline transition-colors shrink-0">
+          <Link to="/on-demand-courses" className="font-['Poppins',sans-serif] text-xs text-[#406064] hover:text-[#1c3243] no-underline transition-colors shrink-0">
             ← Back to courses
           </Link>
-          <ChevronRight size={13} className="text-[#acbcbe] shrink-0" />
-          <Link to={`/courses/${COURSE_SLUG}`} className="font-['Poppins',sans-serif] text-xs text-[#59797D] hover:text-[#406064] no-underline transition-colors truncate">
+          <ChevronRight size={13} className="text-[#435766] shrink-0" />
+          <Link to={`/courses/${COURSE_SLUG}`} className="font-['Poppins',sans-serif] text-xs text-[#406064] hover:text-[#1c3243] no-underline transition-colors truncate">
             {COURSE_TITLE}
           </Link>
-          <ChevronRight size={13} className="text-[#acbcbe] shrink-0" />
+          <ChevronRight size={13} className="text-[#435766] shrink-0" />
           <span className="font-['Poppins',sans-serif] text-xs font-semibold text-[#1C3243] shrink-0">{lesson.title}</span>
         </div>
       </div>
@@ -238,12 +238,12 @@ export default function MilestonesLessonPage() {
           <div className="flex items-start justify-between gap-4">
             <div>
               <div className="flex items-center gap-2 mb-1">
-                <span className="font-['Poppins',sans-serif] font-semibold text-[10px] uppercase tracking-[1.4px] text-[#59797D] bg-[#EAF1F1] px-2.5 py-0.5 rounded-[4px]">
+                <span className="font-['Poppins',sans-serif] font-semibold text-[11px] uppercase tracking-[1.4px] text-[#406064] bg-[#EAF1F1] px-2.5 py-0.5 rounded-[4px]">
                   Lesson {lesson.id} of {LESSONS.length}
                 </span>
-                <span className="font-['Poppins',sans-serif] text-[10px] text-[#acbcbe]">{lesson.duration}</span>
+                <span className="font-['Poppins',sans-serif] text-xs text-[#435766]">{lesson.duration}</span>
               </div>
-              <p className="font-['Poppins',sans-serif] text-[10px] text-[#90B3B6] mb-1">{lesson.module}</p>
+              <p className="font-['Poppins',sans-serif] text-xs text-[#406064] mb-1">{lesson.module}</p>
               <h1 className="font-['Poppins',sans-serif] font-bold text-[#1C3243] text-xl leading-tight">{lesson.title}</h1>
             </div>
             <motion.button
@@ -272,7 +272,7 @@ export default function MilestonesLessonPage() {
               className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${playing ? "opacity-50" : "opacity-75"}`}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-            <div className="absolute top-3 left-3 bg-black/60 text-white font-['Poppins',sans-serif] text-[11px] font-semibold px-2 py-0.5 rounded">
+            <div className="absolute top-3 left-3 bg-black/60 text-white font-['Poppins',sans-serif] text-xs font-semibold px-2 py-0.5 rounded">
               {lesson.duration}
             </div>
 
@@ -305,7 +305,7 @@ export default function MilestonesLessonPage() {
                   <button className="text-white/80 hover:text-white transition-colors" onClick={e => { e.stopPropagation(); setPlaying(p => !p); }}>
                     {playing ? <Pause size={15} fill="white" /> : <Play size={15} fill="white" className="ml-0.5" />}
                   </button>
-                  <span className="font-['Poppins',sans-serif] text-white/80 text-[11px]">{elapsedStr} / {lesson.duration}</span>
+                  <span className="font-['Poppins',sans-serif] text-white/80 text-xs">{elapsedStr} / {lesson.duration}</span>
                   <Volume2 size={14} className="text-white/60 hover:text-white cursor-pointer transition-colors" onClick={e => e.stopPropagation()} />
                 </div>
                 <div className="flex items-center gap-3">
@@ -363,7 +363,7 @@ export default function MilestonesLessonPage() {
                           <FileText size={14} className="text-[#90B3B6]" />
                           <span className="font-['Poppins',sans-serif] text-sm text-[#1C3243]">{r.label}</span>
                         </div>
-                        <span className="font-['Poppins',sans-serif] text-[10px] font-semibold text-[#59797D] bg-[#EAF1F1] px-2 py-0.5 rounded-full">{r.type}</span>
+                        <span className="font-['Poppins',sans-serif] text-xs font-semibold text-[#59797D] bg-[#EAF1F1] px-2 py-0.5 rounded-full">{r.type}</span>
                       </div>
                     ))}
                   </motion.div>
@@ -382,7 +382,7 @@ export default function MilestonesLessonPage() {
                 <div className="flex-1 h-1.5 bg-[#dee8e9] rounded-full overflow-hidden">
                   <div className="h-full bg-[#59797D] rounded-full transition-all duration-500" style={{ width: `${(completed.size / LESSONS.length) * 100}%` }} />
                 </div>
-                <span className="font-['Poppins',sans-serif] text-[10px] text-[#435766] shrink-0">{completed.size}/{LESSONS.length}</span>
+                <span className="font-['Poppins',sans-serif] text-xs text-[#435766] shrink-0">{completed.size}/{LESSONS.length}</span>
               </div>
             </div>
 
@@ -395,7 +395,7 @@ export default function MilestonesLessonPage() {
                 return (
                   <div key={l.id}>
                     {showModule && (
-                      <p className="font-['Poppins',sans-serif] font-bold text-[10px] text-[#1C3243] px-4 pt-3 pb-1 leading-snug bg-[#F9F4F1]">
+                      <p className="font-['Poppins',sans-serif] font-bold text-xs text-[#1C3243] px-4 pt-3 pb-1 leading-snug bg-[#F9F4F1]">
                         {l.module}
                       </p>
                     )}
@@ -404,16 +404,16 @@ export default function MilestonesLessonPage() {
                       className={`flex items-center gap-3 px-4 py-3 text-left w-full transition-colors ${isActive ? "bg-[#EAF1F1]" : "hover:bg-[#F9F4F1]"}`}
                       whileTap={{ scale: 0.98 }}
                     >
-                      <span className={`w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0 transition-colors ${
+                      <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold shrink-0 transition-colors ${
                         isDone ? "bg-[#59797D] text-white" : isActive ? "bg-[#1C3243] text-white" : "bg-[#F0EDEB] text-[#435766]"
                       }`}>
                         {isDone ? <CheckCircle2 size={12} /> : l.id}
                       </span>
                       <div className="flex-1 min-w-0">
-                        <p className={`font-['Poppins',sans-serif] text-[11px] leading-snug truncate ${isActive ? "font-semibold text-[#1C3243]" : "text-[#435766]"}`}>
+                        <p className={`font-['Poppins',sans-serif] text-xs leading-snug truncate ${isActive ? "font-semibold text-[#1C3243]" : "text-[#435766]"}`}>
                           {l.title}
                         </p>
-                        <p className="font-['Poppins',sans-serif] text-[10px] text-[#acbcbe] mt-0.5">{l.duration}</p>
+                        <p className="font-['Poppins',sans-serif] text-xs text-[#435766] mt-0.5">{l.duration}</p>
                       </div>
                       {isActive && <Play size={10} fill="#59797D" className="text-[#59797D] shrink-0" />}
                     </motion.button>
@@ -458,8 +458,8 @@ export default function MilestonesLessonPage() {
             <motion.button
               onClick={() => goToLesson(nextLesson.id)}
               className="flex items-center gap-2 font-['Poppins',sans-serif] font-semibold text-sm text-white px-5 py-2.5 rounded-full"
-              style={{ backgroundColor: "#C8893A" }}
-              whileHover={{ backgroundColor: "#B5782F" }}
+              style={{ backgroundColor: "#59797D" }}
+              whileHover={{ backgroundColor: "#406064" }}
               whileTap={{ scale: 0.97 }}
             >
               Next Lesson <ChevronRight size={15} />

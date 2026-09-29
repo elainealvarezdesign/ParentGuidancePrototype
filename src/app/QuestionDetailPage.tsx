@@ -206,15 +206,15 @@ export default function QuestionDetailPage() {
         <div className="max-w-[1280px] mx-auto px-6 h-10 flex items-center gap-2">
           <Link
             to="/ask-a-therapist"
-            className="font-['Poppins',sans-serif] text-xs text-[#59797D] hover:text-[#406064] no-underline transition-colors shrink-0"
+            className="font-['Poppins',sans-serif] text-xs text-[#406064] hover:text-[#1c3243] no-underline transition-colors shrink-0"
           >
             ← Back to Questions
           </Link>
-          <ChevronRight size={13} className="text-[#acbcbe] shrink-0" />
-          <span className="font-['Poppins',sans-serif] font-semibold text-[10px] uppercase tracking-[1.2px] text-[#59797D] bg-[#EAF1F1] px-2 py-0.5 rounded-[4px] shrink-0">
+          <ChevronRight size={13} className="text-[#435766] shrink-0" />
+          <span className="font-['Poppins',sans-serif] font-semibold text-[11px] uppercase tracking-[1.2px] text-[#406064] bg-[#EAF1F1] px-2 py-0.5 rounded-[4px] shrink-0">
             {question.category}
           </span>
-          <ChevronRight size={13} className="text-[#acbcbe] shrink-0" />
+          <ChevronRight size={13} className="text-[#435766] shrink-0" />
           <span className="font-['Poppins',sans-serif] text-xs font-semibold text-[#1C3243] truncate">
             {question.question}
           </span>
@@ -229,13 +229,13 @@ export default function QuestionDetailPage() {
 
           {/* Question heading */}
           <div>
-            <span className="inline-block font-['Poppins',sans-serif] font-semibold text-[10px] uppercase tracking-[1.4px] text-[#59797D] bg-[#EAF1F1] border border-[#90B3B6]/40 px-2.5 py-0.5 rounded-[4px] mb-2">
+            <span className="inline-block font-['Poppins',sans-serif] font-semibold text-[11px] uppercase tracking-[1.4px] text-[#406064] bg-[#EAF1F1] border border-[#90B3B6]/40 px-2.5 py-0.5 rounded-[4px] mb-2">
               {question.category}
             </span>
             <h1 className="font-['Poppins',sans-serif] font-bold text-[#1C3243] text-xl leading-snug">
               {question.question}
             </h1>
-            <p className="font-['Poppins',sans-serif] text-[#acbcbe] text-xs mt-1">— User Submitted</p>
+            <p className="font-['Poppins',sans-serif] text-[#435766] text-xs mt-1">— User Submitted</p>
           </div>
 
           {/* ── Video player ── */}
@@ -255,7 +255,7 @@ export default function QuestionDetailPage() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
 
             {/* Duration badge */}
-            <div className="absolute top-3 left-3 bg-black/60 text-white font-['Poppins',sans-serif] text-[11px] font-semibold px-2 py-0.5 rounded">
+            <div className="absolute top-3 left-3 bg-black/60 text-white font-['Poppins',sans-serif] text-xs font-semibold px-2 py-0.5 rounded">
               {question.duration}
             </div>
 
@@ -298,7 +298,7 @@ export default function QuestionDetailPage() {
                   <button className="text-white/80 hover:text-white transition-colors" onClick={(e) => { e.stopPropagation(); setPlaying((p) => !p); }}>
                     {playing ? <Pause size={15} fill="white" /> : <Play size={15} fill="white" className="ml-0.5" />}
                   </button>
-                  <span className="font-['Poppins',sans-serif] text-white/80 text-[11px]">
+                  <span className="font-['Poppins',sans-serif] text-white/80 text-xs">
                     {elapsedStr} / {question.duration}
                   </span>
                   <Volume2 size={14} className="text-white/60 hover:text-white cursor-pointer transition-colors" onClick={(e) => e.stopPropagation()} />
@@ -368,9 +368,9 @@ export default function QuestionDetailPage() {
                   className="flex items-center gap-3 bg-white border border-[#dee8e9] rounded-[12px] p-4 hover:border-[#90B3B6] transition-colors group"
                   whileHover={{ y: -2, boxShadow: "0 6px 20px rgba(0,0,0,0.07)" }}
                 >
-                  <ChevronLeft size={16} className="text-[#acbcbe] group-hover:text-[#59797D] transition-colors shrink-0" />
+                  <ChevronLeft size={16} className="text-[#435766] group-hover:text-[#59797D] transition-colors shrink-0" />
                   <div className="min-w-0">
-                    <p className="font-['Poppins',sans-serif] text-[10px] text-[#acbcbe] uppercase tracking-[1px] mb-0.5">Previous</p>
+                    <p className="font-['Poppins',sans-serif] text-[11px] text-[#435766] uppercase tracking-[1px] mb-0.5">Previous</p>
                     <p className="font-['Poppins',sans-serif] text-xs font-semibold text-[#1C3243] truncate">{prevQ.question}</p>
                   </div>
                 </motion.div>
@@ -387,10 +387,10 @@ export default function QuestionDetailPage() {
                   whileHover={{ y: -2, boxShadow: "0 6px 20px rgba(0,0,0,0.07)" }}
                 >
                   <div className="min-w-0 flex-1">
-                    <p className="font-['Poppins',sans-serif] text-[10px] text-[#acbcbe] uppercase tracking-[1px] mb-0.5">Next</p>
+                    <p className="font-['Poppins',sans-serif] text-[11px] text-[#435766] uppercase tracking-[1px] mb-0.5">Next</p>
                     <p className="font-['Poppins',sans-serif] text-xs font-semibold text-[#1C3243] truncate">{nextQ.question}</p>
                   </div>
-                  <ChevronRight size={16} className="text-[#acbcbe] group-hover:text-[#59797D] transition-colors shrink-0" />
+                  <ChevronRight size={16} className="text-[#435766] group-hover:text-[#59797D] transition-colors shrink-0" />
                 </motion.div>
               </Link>
             ) : <div className="flex-1" />}
@@ -402,14 +402,14 @@ export default function QuestionDetailPage() {
 
           {/* Therapist card */}
           <div className="bg-white rounded-[16px] border border-[#dee8e9] p-5 flex flex-col gap-3" style={{ boxShadow: "0 2px 10px rgba(0,0,0,0.04)" }}>
-            <p className="font-['Poppins',sans-serif] font-semibold text-[10px] uppercase tracking-[1.2px] text-[#acbcbe]">Answered by</p>
+            <p className="font-['Poppins',sans-serif] font-semibold text-[11px] uppercase tracking-[1.2px] text-[#435766]">Answered by</p>
             <div className="flex items-center gap-3">
               <div className="w-11 h-11 rounded-full bg-[#90B3B6] flex items-center justify-center shrink-0">
-                <span className="font-['Poppins',sans-serif] font-bold text-white text-sm">KS</span>
+                <span className="font-['Poppins',sans-serif] font-bold text-[#1c3243] text-sm">KS</span>
               </div>
               <div>
                 <p className="font-['Poppins',sans-serif] font-semibold text-[#1C3243] text-sm">{question.therapist}</p>
-                <p className="font-['Poppins',sans-serif] text-[#59797D] text-[11px]">{question.credential}</p>
+                <p className="font-['Poppins',sans-serif] text-[#59797D] text-xs">{question.credential}</p>
               </div>
             </div>
             <p className="font-['Poppins',sans-serif] text-[#435766] text-xs leading-relaxed">
@@ -431,7 +431,7 @@ export default function QuestionDetailPage() {
             <div className="relative p-5 flex flex-col gap-3">
               <div className="flex items-center gap-2">
                 <MessageCircle size={14} className="text-[#90B3B6]" />
-                <span className="font-['Poppins',sans-serif] font-semibold text-[10px] uppercase tracking-[1.2px] text-[#90B3B6]">Ask a Therapist</span>
+                <span className="font-['Poppins',sans-serif] font-semibold text-[11px] uppercase tracking-[1.2px] text-[#406064]">Ask a Therapist</span>
               </div>
               <p className="font-['Poppins',sans-serif] font-bold text-white text-base leading-snug">
                 Have a question of your own?
@@ -465,7 +465,7 @@ export default function QuestionDetailPage() {
                   style={{ color: "inherit" }}
                 >
                   <div className="flex items-start gap-2.5">
-                    <span className="font-['Poppins',sans-serif] font-semibold text-[9px] uppercase tracking-[1px] text-[#59797D] bg-[#EAF1F1] px-1.5 py-0.5 rounded shrink-0 mt-0.5">
+                    <span className="font-['Poppins',sans-serif] font-semibold text-[11px] uppercase tracking-[1px] text-[#406064] bg-[#EAF1F1] px-1.5 py-0.5 rounded shrink-0 mt-0.5">
                       {item.category}
                     </span>
                     <p className="font-['Poppins',sans-serif] text-xs text-[#1c3243] leading-snug group-hover:text-[#59797D] transition-colors line-clamp-2">
@@ -508,7 +508,7 @@ export default function QuestionDetailPage() {
               <div className="bg-[#1C3243] px-6 py-5">
                 <div className="flex items-center gap-2 mb-1">
                   <MessageCircle size={14} className="text-[#90B3B6]" />
-                  <span className="font-['Poppins',sans-serif] text-[10px] font-semibold uppercase tracking-[1.2px] text-[#90B3B6]">Ask a Therapist</span>
+                  <span className="font-['Poppins',sans-serif] text-[11px] font-semibold uppercase tracking-[1.2px] text-[#90B3B6]">Ask a Therapist</span>
                 </div>
                 <h3 className="font-['Poppins',sans-serif] font-bold text-white text-lg">Submit Your Question</h3>
               </div>
@@ -535,7 +535,7 @@ export default function QuestionDetailPage() {
                     <label className="font-['Poppins',sans-serif] text-xs font-semibold text-[#1C3243] block mb-1.5">Your Question</label>
                     <textarea
                       rows={4}
-                      className="w-full border border-[#dee8e9] rounded-[10px] px-3.5 py-2.5 font-['Poppins',sans-serif] text-sm text-[#1C3243] placeholder:text-[#acbcbe] outline-none focus:border-[#59797D] resize-none transition-colors"
+                      className="w-full border border-[#dee8e9] rounded-[10px] px-3.5 py-2.5 font-['Poppins',sans-serif] text-sm text-[#1C3243] placeholder:text-[#59797d] outline-none focus:border-[#59797D] resize-none transition-colors"
                       placeholder="What's your parenting question?"
                       value={submitQ}
                       onChange={(e) => setSubmitQ(e.target.value)}
@@ -545,7 +545,7 @@ export default function QuestionDetailPage() {
                     <label className="font-['Poppins',sans-serif] text-xs font-semibold text-[#1C3243] block mb-1.5">Email</label>
                     <input
                       type="email"
-                      className="w-full border border-[#dee8e9] rounded-[10px] px-3.5 py-2.5 font-['Poppins',sans-serif] text-sm text-[#1C3243] placeholder:text-[#acbcbe] outline-none focus:border-[#59797D] transition-colors"
+                      className="w-full border border-[#dee8e9] rounded-[10px] px-3.5 py-2.5 font-['Poppins',sans-serif] text-sm text-[#1C3243] placeholder:text-[#59797d] outline-none focus:border-[#59797D] transition-colors"
                       placeholder="your@email.com"
                       value={submitEmail}
                       onChange={(e) => setSubmitEmail(e.target.value)}

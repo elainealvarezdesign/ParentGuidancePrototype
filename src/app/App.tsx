@@ -305,7 +305,7 @@ function Hero() {
             <path d="M18 18L16.5 16.5" stroke="#333" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
           </svg>
           <input
-            className="flex-1 font-['Poppins',sans-serif] text-sm text-gray-700 bg-transparent outline-none placeholder:text-gray-400"
+            className="flex-1 font-['Poppins',sans-serif] text-sm text-gray-700 bg-transparent outline-none placeholder:text-[#59797d]"
             placeholder="Anxiety in Children"
             onFocus={() => setFocused(true)}
             onBlur={() => setFocused(false)}
@@ -385,10 +385,10 @@ function ResourceCard({ card, index }: { card: typeof resourceCards[0]; index: n
         >
           {card.title}
         </p>
-        <p className="font-['Poppins',sans-serif] text-[9px] leading-normal" style={{ color: card.color }}>
+        <p className="font-['Poppins',sans-serif] text-xs leading-normal" style={{ color: card.color }}>
           {card.desc}
         </p>
-        <p className="font-['Poppins',sans-serif] font-medium text-[9px] text-[#90b3b6] underline">Learn More</p>
+        <p className="font-['Poppins',sans-serif] font-medium text-xs text-[#1c3243] underline">Learn More</p>
       </div>
     </motion.div>
   );
@@ -404,7 +404,7 @@ function ResourceSection() {
           ))}
         </div>
         <FadeIn className="flex justify-end mt-3">
-          <a href="#" className="font-['Poppins',sans-serif] text-sm text-[#65b3b2] underline hover:text-[#59797d] transition-colors">
+          <a href="#" className="font-['Poppins',sans-serif] text-sm text-[#406064] underline hover:text-[#59797d] transition-colors">
             view more
           </a>
         </FadeIn>

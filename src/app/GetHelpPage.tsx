@@ -170,7 +170,7 @@ export default function GetHelpPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <p className="font-['Poppins',sans-serif] text-[#59797d] text-xs font-semibold tracking-[0.16em] uppercase mb-5">
+              <p className="font-['Poppins',sans-serif] text-[#406064] text-xs font-semibold tracking-[0.16em] uppercase mb-5">
                 Get Help
               </p>
               <h1 className="font-['Poppins',sans-serif] text-[#1c3243] font-bold text-[38px] md:text-[50px] leading-[1.08] tracking-[-0.02em]">
@@ -263,7 +263,7 @@ export default function GetHelpPage() {
       <section className="bg-[#f5f5f5] px-6 md:px-10 lg:px-14 py-16">
         <div className="max-w-[1280px] mx-auto">
           <div className="text-center max-w-[680px] mx-auto">
-            <p className="font-['Poppins',sans-serif] text-[#59797d] text-xs font-semibold tracking-[0.14em] uppercase">
+            <p className="font-['Poppins',sans-serif] text-[#406064] text-xs font-semibold tracking-[0.14em] uppercase">
               Trusted support
             </p>
             <h2 className="font-['Poppins',sans-serif] font-bold text-[#1c3243] text-3xl md:text-4xl mt-3">

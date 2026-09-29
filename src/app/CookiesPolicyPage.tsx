@@ -141,7 +141,7 @@ export default function CookiesPolicyPage() {
     <main className="min-h-screen bg-[#F9F4F1]">
       <section className="px-6 pb-14 pt-28 md:px-10 lg:px-14">
         <div className="mx-auto max-w-[1100px]">
-          <p className="mb-3 font-['Poppins',sans-serif] text-sm font-semibold uppercase tracking-[0.14em] text-[#59797D]">
+          <p className="mb-3 font-['Poppins',sans-serif] text-sm font-semibold uppercase tracking-[0.14em] text-[#406064]">
             Legal
           </p>
 
@@ -217,7 +217,7 @@ export default function CookiesPolicyPage() {
 
   <div className="mt-6 grid gap-4 md:grid-cols-3">
     <div className="rounded-xl border border-[#dee8e9] bg-[#F9F4F1] p-5">
-      <span className="rounded-full bg-[#DCECED] px-3 py-1 font-['Poppins',sans-serif] text-xs font-semibold text-[#59797D]">
+      <span className="rounded-full bg-[#DCECED] px-3 py-1 font-['Poppins',sans-serif] text-xs font-semibold text-[#406064]">
         Session
       </span>
 
@@ -233,7 +233,7 @@ export default function CookiesPolicyPage() {
     
 
     <div className="rounded-xl border border-[#dee8e9] bg-[#F9F4F1] p-5">
-      <span className="rounded-full bg-[#DCECED] px-3 py-1 font-['Poppins',sans-serif] text-xs font-semibold text-[#59797D]">
+      <span className="rounded-full bg-[#DCECED] px-3 py-1 font-['Poppins',sans-serif] text-xs font-semibold text-[#406064]">
         Persistent
       </span>
 
@@ -248,7 +248,7 @@ export default function CookiesPolicyPage() {
     </div>
 
     <div className="rounded-xl border border-[#dee8e9] bg-[#F9F4F1] p-5">
-      <span className="rounded-full bg-[#DCECED] px-3 py-1 font-['Poppins',sans-serif] text-xs font-semibold text-[#59797D]">
+      <span className="rounded-full bg-[#DCECED] px-3 py-1 font-['Poppins',sans-serif] text-xs font-semibold text-[#406064]">
         Persistent
       </span>
 
@@ -269,7 +269,7 @@ export default function CookiesPolicyPage() {
       The Cookies We Use
     </h2>
 
-    <span className="w-fit rounded-full bg-[#DCECED] px-3 py-1 font-['Poppins',sans-serif] text-xs font-semibold text-[#59797D]">
+    <span className="w-fit rounded-full bg-[#DCECED] px-3 py-1 font-['Poppins',sans-serif] text-xs font-semibold text-[#406064]">
       Necessary · {necessaryCookies.length}
     </span>
   </div>
@@ -329,7 +329,7 @@ export default function CookiesPolicyPage() {
       Functional Cookies
     </h3>
 
-    <span className="w-fit rounded-full bg-[#DCECED] px-3 py-1 font-['Poppins',sans-serif] text-xs font-semibold text-[#59797D]">
+    <span className="w-fit rounded-full bg-[#DCECED] px-3 py-1 font-['Poppins',sans-serif] text-xs font-semibold text-[#406064]">
       Functional · {functionalCookies.length}
     </span>
   </div>
@@ -382,7 +382,7 @@ export default function CookiesPolicyPage() {
       Analytics Cookies
     </h3>
 
-    <span className="w-fit rounded-full bg-[#DCECED] px-3 py-1 font-['Poppins',sans-serif] text-xs font-semibold text-[#59797D]">
+    <span className="w-fit rounded-full bg-[#DCECED] px-3 py-1 font-['Poppins',sans-serif] text-xs font-semibold text-[#406064]">
       Analytics · {analyticsCookies.length}
     </span>
   </div>
@@ -436,7 +436,7 @@ export default function CookiesPolicyPage() {
       Performance Cookies
     </h3>
 
-    <span className="w-fit rounded-full bg-[#DCECED] px-3 py-1 font-['Poppins',sans-serif] text-xs font-semibold text-[#59797D]">
+    <span className="w-fit rounded-full bg-[#DCECED] px-3 py-1 font-['Poppins',sans-serif] text-xs font-semibold text-[#406064]">
       Performance · {performanceCookies.length}
     </span>
   </div>

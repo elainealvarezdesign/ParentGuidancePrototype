@@ -10,10 +10,16 @@ Está ordenada por impacto.
 | ✅ ~~No hay estilos de foco visibles~~ | Todos los botones y enlaces | **Resuelto** con una regla global en `src/styles/accessibility.css` |
 | ✅ ~~No se respeta reduced‑motion~~ | Toda la app | **Resuelto**: `MotionConfig` en `App.tsx`, regla CSS en `accessibility.css` y scroll sin animación en `utils/motion.ts` |
 | Cards de la home no alcanzables con teclado | Home (`App.tsx`) | Las cards usan `onClick` en elementos que no son enlaces ni botones: convertirlas en `<a>`/`<Link>` |
-| Texto en sage `#90b3b6` (2.3:1) | 41 usos de `text-[#90b3b6]` | Cambiar a `text-pg-teal-dark` o `text-pg-slate` |
-| Texto en mist `#acbcbe` (2.0:1) | 36 usos de `text-[#acbcbe]` y 11 placeholders | Texto: `text-pg-slate`; placeholder: `placeholder:text-pg-teal` (4.7:1) |
-| Texto de 9–11px | 75 usos (`text-[9px]`, `text-[10px]`, `text-[11px]`) | Subir a 12px (`text-xs`); solo el eyebrow en mayúsculas puede quedarse en 11px |
-| Texto `#9aa4ac` (2.5:1) | Footer de `UnifiedCard` | `text-pg-slate` |
+| ✅ ~~Texto en sage `#90b3b6` sobre fondos claros~~ | 41 usos | **Resuelto**: pasa a teal dark `#406064`. Se mantiene sage sobre navy, donde sí cumple (5.9:1) |
+| ✅ ~~Texto en mist `#acbcbe`~~ | 36 textos y 11 placeholders | **Resuelto**: texto → slate `#435766`; todos los placeholders → teal `#59797d` |
+| ✅ ~~Texto de 9–11px~~ | 75 usos | **Resuelto**: todo a 12px, salvo los eyebrows en mayúsculas, que quedan en 11px |
+| ✅ ~~Texto `#9aa4ac` (2.5:1)~~ | Footer de `UnifiedCard` | **Resuelto**: slate |
+| ✅ ~~Teal `#59797d` pequeño sobre crema o tintes (3.9–4.3:1)~~ | 39 textos (eyebrows, chips, breadcrumbs, links) | **Resuelto**: teal dark `#406064` |
+| ✅ ~~Texto blanco sobre sage (2.3:1)~~ | Números de pasos, avatares | **Resuelto**: navy sobre sage (5.9:1) |
+| ✅ ~~"Learn More" sage sobre sage (1:1, invisible)~~ | Cards de la home | **Resuelto**: navy |
+| ✅ ~~Botón "Next Lesson" blanco sobre ámbar (3.0:1)~~ | Lecciones | **Resuelto**: pasa a Primary teal |
+| Separadores "•" en `#d0cbca` (1.6:1) | Detalle de curso | Son decorativos, se dejan así (conviene añadir `aria-hidden`) |
+| Testimonios en 3 columnas en móvil | Parent Coaching (390px) | El texto queda en columnas de ~80px. Pasar a 1 columna o carrusel en móvil |
 
 ## 5.2 Colores fuera de paleta
 
@@ -58,6 +64,6 @@ Está ordenada por impacto.
 
 1. Importar `tokens.css`. Las páginas no cambian (usan hex sueltos), pero los componentes `ui/` de shadcn y el fondo base pasan a los colores PG. Revisar visualmente.
 2. ✅ `MotionConfig reducedMotion="user"` y estilos de foco (hecho).
-3. Arreglar el contraste: sage, mist y los tamaños de 9–10px.
+3. ✅ Arreglar el contraste: sage, mist y los tamaños de 9–11px (hecho).
 4. Unificar los botones en un componente.
 5. Reemplazar los hex sueltos por clases `pg-*`, página por página.

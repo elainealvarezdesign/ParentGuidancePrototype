@@ -204,7 +204,7 @@ export default function HomePageV1() {
               <div className="bg-white rounded-3xl px-5 py-2.5 flex items-center gap-3 shadow-sm max-w-[440px]" style={{ boxShadow: "0 2px 16px rgba(0,0,0,0.07)" }}>
                 <Search size={18} className="text-gray-400 shrink-0" />
                 <input
-                  className="flex-1 font-['Poppins',sans-serif] text-sm text-gray-700 bg-transparent outline-none placeholder:text-gray-400"
+                  className="flex-1 font-['Poppins',sans-serif] text-sm text-gray-700 bg-transparent outline-none placeholder:text-[#59797d]"
                   placeholder="Anxiety in Children"
                 />
                 <button className="bg-[#59797d] hover:bg-[#406064] transition-colors text-white font-['Poppins',sans-serif] font-medium text-sm px-5 py-2.5 rounded-xl">
@@ -256,7 +256,7 @@ export default function HomePageV1() {
             <div className="w-1 h-5 rounded-full bg-[#90b3b6]" />
             <span className="font-['Poppins',sans-serif] font-semibold text-[#1c3243] text-lg">Browse All Resources</span>
             <div className="bg-[#e8f1f1] rounded-full px-2.5 py-0.5">
-              <span className="font-['Poppins',sans-serif] font-medium text-[#90b3b6] text-[11px]">24 resources</span>
+              <span className="font-['Poppins',sans-serif] font-medium text-[#406064] text-xs">24 resources</span>
             </div>
           </div>
 
@@ -282,7 +282,7 @@ export default function HomePageV1() {
           </div>
 
           <div className="flex justify-center mt-10 mb-12">
-            <a href="#" className="inline-flex items-center gap-2 font-['Poppins',sans-serif] font-semibold text-sm text-[#59797d] border border-[#90b3b6] px-6 py-3 rounded-[8px] hover:bg-[#f0f6f6] transition-colors">
+            <a href="#" className="inline-flex items-center gap-2 font-['Poppins',sans-serif] font-semibold text-sm text-[#406064] border border-[#90b3b6] px-6 py-3 rounded-[8px] hover:bg-[#f0f6f6] transition-colors">
               View more resources <ArrowRight size={14} />
             </a>
           </div>

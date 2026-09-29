@@ -50,18 +50,18 @@ export default function CourseDetailPage() {
         <div className="max-w-[1280px] mx-auto px-6 h-10 flex items-center gap-2">
           <Link
             to="/on-demand-courses"
-            className="font-['Poppins',sans-serif] text-xs text-[#59797D] hover:text-[#406064] no-underline transition-colors shrink-0"
+            className="font-['Poppins',sans-serif] text-xs text-[#406064] hover:text-[#1c3243] no-underline transition-colors shrink-0"
           >
             ← Back to courses
           </Link>
-          <ChevronRight size={13} className="text-[#acbcbe] shrink-0" />
+          <ChevronRight size={13} className="text-[#435766] shrink-0" />
           <Link
             to="/on-demand-courses"
-            className="font-['Poppins',sans-serif] text-xs text-[#59797D] hover:text-[#406064] no-underline transition-colors truncate"
+            className="font-['Poppins',sans-serif] text-xs text-[#406064] hover:text-[#1c3243] no-underline transition-colors truncate"
           >
             {COURSE_TITLE}
           </Link>
-          <ChevronRight size={13} className="text-[#acbcbe] shrink-0" />
+          <ChevronRight size={13} className="text-[#435766] shrink-0" />
           <span className="font-['Poppins',sans-serif] text-xs font-semibold text-[#1C3243] shrink-0">
             {currentLesson.title}
           </span>
@@ -93,7 +93,7 @@ export default function CourseDetailPage() {
 
             {/* Center — course info */}
             <div className="flex-1 p-6 flex flex-col gap-4 lg:border-r border-[#dee8e9]">
-              <span className="self-start font-['Poppins',sans-serif] font-semibold text-[10px] uppercase tracking-[1.4px] text-[#59797D] bg-[#EAF1F1] border border-[#90B3B6]/40 px-3 py-1 rounded-[4px]">
+              <span className="self-start font-['Poppins',sans-serif] font-semibold text-[11px] uppercase tracking-[1.4px] text-[#406064] bg-[#EAF1F1] border border-[#90B3B6]/40 px-3 py-1 rounded-[4px]">
                 Self-Guided Course
               </span>
 
@@ -174,7 +174,7 @@ export default function CourseDetailPage() {
                       whileTap={{ scale: 0.98 }}
                     >
                       <span
-                        className={`w-6 h-6 rounded-full flex items-center justify-center text-[11px] font-bold shrink-0 transition-colors ${
+                        className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold shrink-0 transition-colors ${
                           isActive ? "bg-[#1C3243] text-white" : "bg-[#F0EDEB] text-[#435766]"
                         }`}
                       >
@@ -248,7 +248,7 @@ export default function CourseDetailPage() {
                   <p className="font-['Poppins',sans-serif] font-semibold text-[#1C3243] text-xs leading-snug">
                     {rec.title}
                   </p>
-                  <p className="font-['Poppins',sans-serif] text-[#acbcbe] text-[10px]">
+                  <p className="font-['Poppins',sans-serif] text-[#435766] text-xs">
                     {rec.lessons} lessons &nbsp;•&nbsp; {rec.duration}
                   </p>
                 </div>

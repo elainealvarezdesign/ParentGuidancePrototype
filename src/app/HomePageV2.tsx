@@ -189,7 +189,7 @@ export default function HomePageV2() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <p className="font-['Poppins',sans-serif] text-[#59797d] text-xs font-semibold tracking-[0.16em] uppercase mb-5">
+              <p className="font-['Poppins',sans-serif] text-[#406064] text-xs font-semibold tracking-[0.16em] uppercase mb-5">
                 For Parents
               </p>
               {/* Heading/H1 - Medium - 2XL: Poppins Medium 48/56 */}
@@ -242,7 +242,7 @@ export default function HomePageV2() {
             <div>
               <div className="w-full bg-white rounded-full shadow-[0_10px_28px_rgba(0,0,0,0.28)] pl-5 pr-1 py-1 flex items-center gap-2 transition-shadow focus-within:shadow-[0_12px_32px_rgba(0,0,0,0.34)]">
                 <input
-                  className="flex-1 min-w-0 font-['Poppins',sans-serif] text-[14px] font-medium text-[#1c3243] bg-transparent outline-none placeholder:text-gray-400 placeholder:font-normal py-1.5"
+                  className="flex-1 min-w-0 font-['Poppins',sans-serif] text-[14px] font-medium text-[#1c3243] bg-transparent outline-none placeholder:text-[#59797d] placeholder:font-normal py-1.5"
                   placeholder="Anxiety in Children"
                 />
                 <button className="bg-[#1c3243] hover:bg-[#284054] transition-colors text-white shrink-0 flex items-center gap-1.5 font-['Poppins',sans-serif] text-[13px] font-semibold pl-5 pr-4 py-2.5 rounded-full">
@@ -315,7 +315,7 @@ export default function HomePageV2() {
           </div>
 
           <div className="flex justify-center mt-10">
-            <a href="#" className="inline-flex items-center gap-2 font-['Poppins',sans-serif] font-semibold text-sm text-[#59797d] border border-[#90b3b6] px-6 py-3 rounded-[8px] hover:bg-[#f0f6f6] transition-colors">
+            <a href="#" className="inline-flex items-center gap-2 font-['Poppins',sans-serif] font-semibold text-sm text-[#406064] border border-[#90b3b6] px-6 py-3 rounded-[8px] hover:bg-[#f0f6f6] transition-colors">
               View more resources <ArrowRight size={14} />
             </a>
           </div>

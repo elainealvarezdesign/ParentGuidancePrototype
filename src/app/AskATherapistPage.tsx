@@ -171,7 +171,7 @@ function SubmitModal({ onClose }: { onClose: () => void }) {
           </div>
           <div>
             <h3 className="font-['Poppins',sans-serif] font-bold text-white text-base leading-tight">Ask a Therapist</h3>
-            <p className="font-['Poppins',sans-serif] text-[#90b3b6] text-[11px]">Licensed therapists respond within 48 hours</p>
+            <p className="font-['Poppins',sans-serif] text-[#406064] text-xs">Licensed therapists respond within 48 hours</p>
           </div>
           <button
             onClick={onClose}
@@ -193,7 +193,7 @@ function SubmitModal({ onClose }: { onClose: () => void }) {
                 placeholder="What would you like to ask our therapists about your child's mental health?"
                 rows={4}
                 required
-                className="font-['Poppins',sans-serif] text-sm text-[#1c3243] placeholder:text-[#acbcbe] border border-[#e8ebed] rounded-[8px] px-4 py-3 outline-none focus:border-[#90b3b6] transition-colors resize-none"
+                className="font-['Poppins',sans-serif] text-sm text-[#1c3243] placeholder:text-[#59797d] border border-[#e8ebed] rounded-[8px] px-4 py-3 outline-none focus:border-[#90b3b6] transition-colors resize-none"
               />
             </div>
             <div className="flex gap-4">
@@ -203,7 +203,7 @@ function SubmitModal({ onClose }: { onClose: () => void }) {
                   value={name}
                   onChange={e => setName(e.target.value)}
                   placeholder="Optional"
-                  className="font-['Poppins',sans-serif] text-sm text-[#1c3243] placeholder:text-[#acbcbe] border border-[#e8ebed] rounded-[8px] px-4 py-2.5 outline-none focus:border-[#90b3b6] transition-colors"
+                  className="font-['Poppins',sans-serif] text-sm text-[#1c3243] placeholder:text-[#59797d] border border-[#e8ebed] rounded-[8px] px-4 py-2.5 outline-none focus:border-[#90b3b6] transition-colors"
                 />
               </div>
               <div className="flex flex-col gap-1.5 flex-1">
@@ -216,11 +216,11 @@ function SubmitModal({ onClose }: { onClose: () => void }) {
                   placeholder="your@email.com"
                   type="email"
                   required
-                  className="font-['Poppins',sans-serif] text-sm text-[#1c3243] placeholder:text-[#acbcbe] border border-[#e8ebed] rounded-[8px] px-4 py-2.5 outline-none focus:border-[#90b3b6] transition-colors"
+                  className="font-['Poppins',sans-serif] text-sm text-[#1c3243] placeholder:text-[#59797d] border border-[#e8ebed] rounded-[8px] px-4 py-2.5 outline-none focus:border-[#90b3b6] transition-colors"
                 />
               </div>
             </div>
-            <p className="font-['Poppins',sans-serif] text-[#acbcbe] text-[11px] leading-relaxed">
+            <p className="font-['Poppins',sans-serif] text-[#435766] text-xs leading-relaxed">
               Your question may be published anonymously to help other parents. Your email is for notification only and will not be shared publicly.
             </p>
             <motion.button
@@ -286,14 +286,14 @@ function QACard({ item, index }: { item: QAItem; index: number }) {
         />
         {/* Category pill */}
         <div className="absolute top-3 left-3">
-          <span className="font-['Poppins',sans-serif] font-semibold text-[10px] text-white bg-[#1c3243]/80 backdrop-blur-sm px-2.5 py-1 rounded-full">
+          <span className="font-['Poppins',sans-serif] font-semibold text-xs text-white bg-[#1c3243]/80 backdrop-blur-sm px-2.5 py-1 rounded-full">
             {item.category}
           </span>
         </div>
         {/* Therapist avatar */}
         <div className="absolute bottom-3 left-3">
           <div className="w-7 h-7 rounded-full bg-[#90b3b6] border-2 border-white flex items-center justify-center shadow-sm">
-            <span className="font-['Poppins',sans-serif] font-bold text-white text-[9px]">KS</span>
+            <span className="font-['Poppins',sans-serif] font-bold text-[#1c3243] text-xs">KS</span>
           </div>
         </div>
       </div>
@@ -312,7 +312,7 @@ function QACard({ item, index }: { item: QAItem; index: number }) {
             View Answer <ArrowRight size={12} />
           </motion.div>
         </Link>
-        <p className="font-['Poppins',sans-serif] text-[#acbcbe] text-[10px] text-center">
+        <p className="font-['Poppins',sans-serif] text-[#435766] text-xs text-center">
           Answered by: <span className="text-[#435766] font-medium">{item.therapist}</span>
         </p>
       </div>
@@ -363,7 +363,7 @@ export default function AskATherapistPage() {
         transition={{ duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] }}
       >
         {/* Latest badge */}
-        <div className="inline-flex items-center gap-2 bg-[#59797d] text-white font-['Poppins',sans-serif] font-semibold text-[10px] uppercase tracking-[0.16em] px-4 py-2 rounded-md mb-8">
+        <div className="inline-flex items-center gap-2 bg-[#59797d] text-white font-['Poppins',sans-serif] font-semibold text-[11px] uppercase tracking-[0.16em] px-4 py-2 rounded-md mb-8">
           <span className="w-1.5 h-1.5 rounded-full bg-white/80" />
           Latest Answer
         </div>
@@ -376,16 +376,16 @@ export default function AskATherapistPage() {
         {/* Therapist */}
         <div className="flex items-center gap-3 mb-10">
           <div className="w-9 h-9 rounded-full bg-[#90b3b6] flex items-center justify-center">
-            <span className="font-['Poppins',sans-serif] font-semibold text-white text-[11px]">
+            <span className="font-['Poppins',sans-serif] font-semibold text-[#1c3243] text-xs">
               KS
             </span>
           </div>
 
           <div>
-            <p className="font-['Poppins',sans-serif] font-semibold text-[#90b3b6] text-sm leading-tight">
+            <p className="font-['Poppins',sans-serif] font-semibold text-[#406064] text-sm leading-tight">
               {FEATURED.therapist}
             </p>
-            <p className="font-['Poppins',sans-serif] text-[#90b3b6] text-[11px]">
+            <p className="font-['Poppins',sans-serif] text-[#406064] text-xs">
               {FEATURED.credential}
             </p>
           </div>
@@ -445,7 +445,7 @@ export default function AskATherapistPage() {
         value={search}
         onChange={(event) => handleSearch(event.target.value)}
         placeholder="Search questions..."
-        className="w-full bg-[#f9f4f1] font-['Poppins',sans-serif] text-sm text-[#1c3243] placeholder:text-[#90b3b6] pl-9 pr-9 py-2.5 rounded-lg outline-none focus:ring-2 focus:ring-[#90b3b6]/30"
+        className="w-full bg-[#f9f4f1] font-['Poppins',sans-serif] text-sm text-[#1c3243] placeholder:text-[#59797d] pl-9 pr-9 py-2.5 rounded-lg outline-none focus:ring-2 focus:ring-[#90b3b6]/30"
       />
 
       {search && (
@@ -565,19 +565,19 @@ export default function AskATherapistPage() {
                 <div className="w-1 h-5 rounded-full bg-[#90b3b6]" />
                 <span className="font-['Poppins',sans-serif] font-semibold text-[#1c3243] text-lg">Browse All</span>
                 <div className="bg-[#e8f1f1] rounded-full px-2.5 py-0.5">
-                  <span className="font-['Poppins',sans-serif] font-medium text-[#90b3b6] text-[11px]">
+                  <span className="font-['Poppins',sans-serif] font-medium text-[#406064] text-xs">
                     {filtered.length} questions
                   </span>
                 </div>
               </div>
               {/* Search */}
               <div className="relative">
-                <Search size={13} className="absolute left-3 top-1/2 -translate-y-1/2 text-[#acbcbe] pointer-events-none" />
+                <Search size={13} className="absolute left-3 top-1/2 -translate-y-1/2 text-[#435766] pointer-events-none" />
                 <input
                   value={search}
                   onChange={e => handleSearch(e.target.value)}
                   placeholder="Search questions…"
-                  className="font-['Poppins',sans-serif] text-[12px] text-[#1c3243] placeholder:text-[#acbcbe] border border-[#e8ebed] rounded-[8px] pl-8 pr-4 py-2 w-[200px] outline-none focus:border-[#90b3b6] bg-white transition-colors"
+                  className="font-['Poppins',sans-serif] text-[12px] text-[#1c3243] placeholder:text-[#59797d] border border-[#e8ebed] rounded-[8px] pl-8 pr-4 py-2 w-[200px] outline-none focus:border-[#90b3b6] bg-white transition-colors"
                 />
               </div>
             </div>
@@ -611,7 +611,7 @@ export default function AskATherapistPage() {
               </div>
             ) : (
               <div className="flex flex-col items-center justify-center py-20 text-center">
-                <MessageCircle size={36} className="text-[#acbcbe] mb-3" />
+                <MessageCircle size={36} className="text-[#435766] mb-3" />
                 <p className="font-['Poppins',sans-serif] font-semibold text-[#1c3243] text-sm">No questions found</p>
                 <p className="font-['Poppins',sans-serif] text-[#435766] text-xs mt-1.5">Try a different category or search term</p>
                 <motion.button
@@ -630,7 +630,7 @@ export default function AskATherapistPage() {
                 <motion.button
                   onClick={() => setPage(p => Math.max(1, p - 1))}
                   disabled={page === 1}
-                  className="flex items-center gap-1 font-['Poppins',sans-serif] text-sm font-medium text-[#59797d] px-3 py-2 rounded-[8px] border border-[#90b3b6] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                  className="flex items-center gap-1 font-['Poppins',sans-serif] text-sm font-medium text-[#406064] px-3 py-2 rounded-[8px] border border-[#90b3b6] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
                   whileHover={page > 1 ? { backgroundColor: "#f0f6f6" } : {}}
                 >
                   <ChevronLeft size={14} /> Previous
@@ -656,7 +656,7 @@ export default function AskATherapistPage() {
                 <motion.button
                   onClick={() => setPage(p => Math.min(totalPages, p + 1))}
                   disabled={page === totalPages}
-                  className="flex items-center gap-1 font-['Poppins',sans-serif] text-sm font-medium text-[#59797d] px-3 py-2 rounded-[8px] border border-[#90b3b6] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                  className="flex items-center gap-1 font-['Poppins',sans-serif] text-sm font-medium text-[#406064] px-3 py-2 rounded-[8px] border border-[#90b3b6] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
                   whileHover={page < totalPages ? { backgroundColor: "#f0f6f6" } : {}}
                 >
                   Next <ChevronRight size={14} />

@@ -329,7 +329,7 @@ function Hero() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
-          <span className="font-['Poppins',sans-serif] text-xs font-semibold uppercase tracking-[1.4px] text-[#90b3b6]">
+          <span className="font-['Poppins',sans-serif] text-xs font-semibold uppercase tracking-[1.4px] text-[#406064]">
             On-Demand Courses
           </span>
           <h1 className="font-['Poppins',sans-serif] font-bold text-[#1c3243] text-[40px] leading-[1.15]">
@@ -484,7 +484,7 @@ export default function OnDemandCoursesPage() {
         <div className="max-w-[1280px] mx-auto px-10 py-3 flex items-center gap-4">
           {/* Search */}
           <div className="relative shrink-0 w-64">
-            <svg className="absolute left-3 top-1/2 -translate-y-1/2 text-[#acbcbe]" width="14" height="14" viewBox="0 0 16.732 16.732" fill="none">
+            <svg className="absolute left-3 top-1/2 -translate-y-1/2 text-[#435766]" width="14" height="14" viewBox="0 0 16.732 16.732" fill="none">
               <g>
                 <path d={svgPaths.p40de600} stroke="#acbcbe" strokeWidth="1.394" />
                 <path d={svgPaths.p3de73700} stroke="#acbcbe" strokeLinecap="round" strokeWidth="1.394" />
@@ -494,10 +494,10 @@ export default function OnDemandCoursesPage() {
               value={search}
               onChange={e => setSearchAndReset(e.target.value)}
               placeholder="Search courses…"
-              className="w-full bg-[#f9f4f1] font-['Poppins',sans-serif] text-sm text-[#1c3243] placeholder:text-[#acbcbe] pl-9 pr-4 py-2 rounded-lg outline-none border border-transparent focus:border-[#90b3b6] focus:bg-white transition-all"
+              className="w-full bg-[#f9f4f1] font-['Poppins',sans-serif] text-sm text-[#1c3243] placeholder:text-[#59797d] pl-9 pr-4 py-2 rounded-lg outline-none border border-transparent focus:border-[#90b3b6] focus:bg-white transition-all"
             />
             {search && (
-              <button onClick={() => setSearchAndReset("")} className="absolute right-3 top-1/2 -translate-y-1/2 text-[#acbcbe] hover:text-[#435766]">
+              <button onClick={() => setSearchAndReset("")} className="absolute right-3 top-1/2 -translate-y-1/2 text-[#435766] hover:text-[#435766]">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
                   <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
                 </svg>
@@ -519,7 +519,7 @@ export default function OnDemandCoursesPage() {
               >
                 {t}
                 {t !== "All" && (
-                  <span className="ml-1 opacity-60 text-[10px]">{countByTopic[t] ?? 0}</span>
+                  <span className="ml-1 opacity-60 text-xs">{countByTopic[t] ?? 0}</span>
                 )}
               </button>
             ))}
@@ -579,7 +579,7 @@ export default function OnDemandCoursesPage() {
             <span className="font-['Poppins',sans-serif] font-semibold text-[#1c3243] text-base">
               {activeTopic === "All" ? "All Courses" : activeTopic}
             </span>
-            <span className="bg-[#e8f1f1] font-['Poppins',sans-serif] text-[#59797d] text-xs font-semibold px-2.5 py-0.5 rounded-full">
+            <span className="bg-[#e8f1f1] font-['Poppins',sans-serif] text-[#406064] text-xs font-semibold px-2.5 py-0.5 rounded-full">
               {filtered.length}
             </span>
           </div>
@@ -595,7 +595,7 @@ export default function OnDemandCoursesPage() {
               </span>
             )}
             {activeTopic !== "All" && (
-              <button onClick={() => setTopicAndReset("All")} className="font-['Poppins',sans-serif] text-xs text-[#acbcbe] hover:text-[#435766] transition-colors">
+              <button onClick={() => setTopicAndReset("All")} className="font-['Poppins',sans-serif] text-xs text-[#435766] hover:text-[#435766] transition-colors">
                 Clear filters
               </button>
             )}
@@ -618,7 +618,7 @@ export default function OnDemandCoursesPage() {
                   <circle cx="11" cy="11" r="8" stroke="currentColor" strokeWidth="1.5" />
                   <path d="M21 21l-4.35-4.35" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                 </svg>
-                <p className="font-['Poppins',sans-serif] text-[#acbcbe] text-sm">No courses found.</p>
+                <p className="font-['Poppins',sans-serif] text-[#435766] text-sm">No courses found.</p>
                 <button onClick={() => { setSearchAndReset(""); setTopicAndReset("All"); }} className="font-['Poppins',sans-serif] text-xs text-[#59797d] underline">Clear all filters</button>
               </div>
             ) : (
@@ -633,7 +633,7 @@ export default function OnDemandCoursesPage() {
             <button
               onClick={() => { setPage(p => Math.max(1, p - 1)); window.scrollTo({ top: 0, behavior: scrollBehavior() }); }}
               disabled={page === 1}
-              className="font-['Poppins',sans-serif] text-sm font-medium text-[#59797d] px-4 py-2 rounded-lg border border-[#90b3b6] hover:bg-[#f0f6f6] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+              className="font-['Poppins',sans-serif] text-sm font-medium text-[#406064] px-4 py-2 rounded-lg border border-[#90b3b6] hover:bg-[#f0f6f6] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
             >
               ← Prev
             </button>
@@ -654,7 +654,7 @@ export default function OnDemandCoursesPage() {
             <button
               onClick={() => { setPage(p => Math.min(totalPages, p + 1)); window.scrollTo({ top: 0, behavior: scrollBehavior() }); }}
               disabled={page === totalPages}
-              className="font-['Poppins',sans-serif] text-sm font-medium text-[#59797d] px-4 py-2 rounded-lg border border-[#90b3b6] hover:bg-[#f0f6f6] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+              className="font-['Poppins',sans-serif] text-sm font-medium text-[#406064] px-4 py-2 rounded-lg border border-[#90b3b6] hover:bg-[#f0f6f6] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
             >
               Next →
             </button>
@@ -680,7 +680,7 @@ export default function OnDemandCoursesPage() {
           <div className="relative z-10 h-full flex items-center px-14">
             <div className="flex flex-col gap-2 max-w-lg">
               <h3 className="font-['Poppins',sans-serif] font-bold text-white text-xl">Looking for additional help?</h3>
-              <p className="font-['Poppins',sans-serif] text-[#90b3b6] text-sm leading-relaxed">
+              <p className="font-['Poppins',sans-serif] text-[#406064] text-sm leading-relaxed">
                 {"Our expert coaches work one-on-one with you. "}
                 <span className="font-semibold text-white">{"Services may be free through your child's school district."}</span>
               </p>

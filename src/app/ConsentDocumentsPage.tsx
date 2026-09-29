@@ -140,7 +140,7 @@ export default function ConsentDocumentsPage() {
     <main className="min-h-screen bg-[#F9F4F1] print:bg-white">
       <section className="px-6 pb-14 pt-28 md:px-10 lg:px-14 print:hidden">
         <div className="mx-auto max-w-[1100px]">
-          <p className="mb-3 font-['Poppins',sans-serif] text-sm font-semibold uppercase tracking-[0.14em] text-[#59797D]">
+          <p className="mb-3 font-['Poppins',sans-serif] text-sm font-semibold uppercase tracking-[0.14em] text-[#406064]">
             Legal
           </p>
 

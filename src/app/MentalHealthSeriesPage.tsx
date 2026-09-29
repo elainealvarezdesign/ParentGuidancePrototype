@@ -54,7 +54,7 @@ function TypeBadge({ type }: { type: ResourceType }) {
           <path d={svgPaths.p308c8130} fill="#59797D" />
         </svg>
       </div>
-      <span className="font-['Poppins',sans-serif] font-semibold leading-[15px] text-[#59797d] text-[10px] whitespace-nowrap">Video</span>
+      <span className="font-['Poppins',sans-serif] font-semibold leading-[15px] text-[#59797d] text-xs whitespace-nowrap">Video</span>
     </div>
   );
   if (type === "Article") return (
@@ -65,7 +65,7 @@ function TypeBadge({ type }: { type: ResourceType }) {
           <path d={svgPaths.p4aa5c80} fill="#1c3243" />
         </svg>
       </div>
-      <span className="font-['Poppins',sans-serif] font-semibold leading-[15px] text-[#1c3243] text-[10px] whitespace-nowrap">Article</span>
+      <span className="font-['Poppins',sans-serif] font-semibold leading-[15px] text-[#1c3243] text-xs whitespace-nowrap">Article</span>
     </div>
   );
   if (type === "Guide") return (
@@ -75,7 +75,7 @@ function TypeBadge({ type }: { type: ResourceType }) {
           <path d={svgPaths.p2a787c0} fill="#6B5C8D" />
         </svg>
       </div>
-      <span className="font-['Poppins',sans-serif] font-semibold leading-[15px] text-[#6b5c8d] text-[10px] whitespace-nowrap">Guide</span>
+      <span className="font-['Poppins',sans-serif] font-semibold leading-[15px] text-[#6b5c8d] text-xs whitespace-nowrap">Guide</span>
     </div>
   );
   if (type === "Worksheet") return (
@@ -85,12 +85,12 @@ function TypeBadge({ type }: { type: ResourceType }) {
           <path d={svgPaths.p1ad4ca80} fill="#8D6B3A" />
         </svg>
       </div>
-      <span className="font-['Poppins',sans-serif] font-semibold leading-[15px] text-[#8d6b3a] text-[10px] whitespace-nowrap">Worksheet</span>
+      <span className="font-['Poppins',sans-serif] font-semibold leading-[15px] text-[#8d6b3a] text-xs whitespace-nowrap">Worksheet</span>
     </div>
   );
   return (
     <div className="bg-[#fdecea] relative rounded-[9999px] shrink-0 flex gap-[6px] items-center px-[10px] py-[4px]">
-      <span className="font-['Poppins',sans-serif] font-semibold leading-[15px] text-[#c0392b] text-[10px] whitespace-nowrap">Tool</span>
+      <span className="font-['Poppins',sans-serif] font-semibold leading-[15px] text-[#c0392b] text-xs whitespace-nowrap">Tool</span>
     </div>
   );
 }
@@ -112,7 +112,7 @@ function ResourceCard({ resource, index }: { resource: typeof RESOURCE_LIBRARY[0
         <TypeBadge type={resource.type} />
         {resource.isNew && (
           <div className="bg-[#59797d] rounded-[9999px] px-[8px] py-[2px] inline-flex items-center">
-            <span className="font-['Poppins',sans-serif] font-semibold leading-[15px] text-white text-[10px] whitespace-nowrap">New</span>
+            <span className="font-['Poppins',sans-serif] font-semibold leading-[15px] text-white text-xs whitespace-nowrap">New</span>
           </div>
         )}
       </div>
@@ -136,10 +136,10 @@ function ResourceCard({ resource, index }: { resource: typeof RESOURCE_LIBRARY[0
         <div aria-hidden className="absolute border-[#f5f5f5] border-solid border-t inset-0 pointer-events-none" />
         <div className="flex items-center justify-between">
           <div className="bg-[#f9f4f1] rounded-[9999px] px-[8px] py-[2px] inline-flex items-center">
-            <span className="font-['Poppins',sans-serif] font-medium leading-[15px] text-[#90b3b6] text-[10px] whitespace-nowrap">{resource.category}</span>
+            <span className="font-['Poppins',sans-serif] font-medium leading-[15px] text-[#406064] text-xs whitespace-nowrap">{resource.category}</span>
           </div>
           <div className="flex gap-[8px] items-center">
-            <span className="font-['Poppins',sans-serif] leading-[15px] text-[#acbcbe] text-[10px] whitespace-nowrap">{resource.duration}</span>
+            <span className="font-['Poppins',sans-serif] leading-[15px] text-[#435766] text-xs whitespace-nowrap">{resource.duration}</span>
             <svg className="size-[14px] group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 14 14">
               <path d={svgPaths.p7f8ed00} stroke="#C0CDD4" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.16667" />
             </svg>
@@ -172,7 +172,7 @@ function ResourceLibrary() {
           <div className="bg-[#90b3b6] h-[20px] rounded-[9999px] w-[4px]" />
           <p className="font-['Poppins',sans-serif] font-semibold leading-[28px] text-[#1c3243] text-[18px] whitespace-nowrap">Resource Library</p>
           <div className="bg-[#e8f1f1] rounded-[9999px] px-[8px] py-[2px] inline-flex items-center">
-            <p className="font-['Poppins',sans-serif] font-medium leading-[16px] text-[#90b3b6] text-[12px] whitespace-nowrap">{RESOURCE_LIBRARY.length} resources</p>
+            <p className="font-['Poppins',sans-serif] font-medium leading-[16px] text-[#406064] text-[12px] whitespace-nowrap">{RESOURCE_LIBRARY.length} resources</p>
           </div>
         </div>
 
@@ -188,7 +188,7 @@ function ResourceLibrary() {
             value={libSearch}
             onChange={e => setLibSearch(e.target.value)}
             placeholder="Filter resources…"
-            className="absolute bg-white h-[34px] left-0 rounded-[14px] top-0 w-[208px] border border-[#e8ebed] pl-[37px] pr-[17px] py-[9px] font-['Poppins',sans-serif] text-[12px] text-[#1c3243] placeholder:text-[#c0cdd4] outline-none focus:border-[#90b3b6] transition-colors"
+            className="absolute bg-white h-[34px] left-0 rounded-[14px] top-0 w-[208px] border border-[#e8ebed] pl-[37px] pr-[17px] py-[9px] font-['Poppins',sans-serif] text-[12px] text-[#1c3243] placeholder:text-[#59797d] outline-none focus:border-[#90b3b6] transition-colors"
           />
         </div>
       </div>
@@ -220,7 +220,7 @@ function ResourceLibrary() {
             <ResourceCard key={r.title} resource={r} index={i} />
           ))}
           {filtered.length === 0 && (
-            <div className="col-span-3 text-center py-14 font-['Poppins',sans-serif] text-[#acbcbe] text-sm">
+            <div className="col-span-3 text-center py-14 font-['Poppins',sans-serif] text-[#435766] text-sm">
               No resources match your filters.
             </div>
           )}
@@ -313,7 +313,7 @@ function EventPopup({ state, onClose }: { state: EventPopupState; onClose: () =>
             </div>
             <div>
               <p className="font-['Poppins',sans-serif] text-xs font-semibold text-[#1c3243]">{ev.date}</p>
-              <p className="font-['Poppins',sans-serif] text-[11px] text-[#90b3b6] font-medium">{ev.time}</p>
+              <p className="font-['Poppins',sans-serif] text-xs text-[#406064] font-medium">{ev.time}</p>
             </div>
           </div>
 
@@ -335,7 +335,7 @@ function EventPopup({ state, onClose }: { state: EventPopupState; onClose: () =>
           </motion.a>
 
           {/* Copy link */}
-          <button className="font-['Poppins',sans-serif] text-[11px] text-center w-full" style={{ color: accent }}>
+          <button className="font-['Poppins',sans-serif] text-xs text-center w-full" style={{ color: accent }}>
             Copy event link
           </button>
         </div>
@@ -365,7 +365,7 @@ function EventPill({ ev, popup, onEventClick, compact = false }: {
   return (
     <motion.button
       onClick={e => onEventClick(ev, e)}
-      className={`rounded-lg font-['Poppins',sans-serif] font-medium text-white text-left w-full cursor-pointer truncate ${compact ? "text-[10px] px-1.5 py-0.5 leading-[14px]" : "text-xs px-2 py-1"}`}
+      className={`rounded-lg font-['Poppins',sans-serif] font-medium text-white text-left w-full cursor-pointer truncate ${compact ? "text-xs px-1.5 py-0.5 leading-[14px]" : "text-xs px-2 py-1"}`}
       style={{ background: active ? (ev.color === "teal" ? "#59797d" : "#1a2838") : (ev.color === "teal" ? "#90b3b6" : "#1c3243") }}
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.97 }}
@@ -387,7 +387,7 @@ function MonthView({ year, month, popup, onEventClick }: { year: number; month: 
     <div className="bg-white rounded-2xl overflow-hidden" style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
       <div className="grid grid-cols-7 border-b border-[#f0f0f0]">
         {DAY_NAMES_SHORT.map(d => (
-          <div key={d} className="text-center py-2.5 font-['Poppins',sans-serif] text-xs font-semibold text-[#acbcbe] uppercase tracking-[0.6px]">{d}</div>
+          <div key={d} className="text-center py-2.5 font-['Poppins',sans-serif] text-xs font-semibold text-[#435766] uppercase tracking-[0.6px]">{d}</div>
         ))}
       </div>
       <div className="grid grid-cols-7">
@@ -425,7 +425,7 @@ function WeekView({ weekStart, popup, onEventClick }: { weekStart: Date; popup: 
           const isToday = d.toDateString() === today.toDateString();
           return (
             <div key={i} className="flex flex-col items-center py-3 gap-1">
-              <span className="font-['Poppins',sans-serif] text-[10px] font-semibold uppercase tracking-[0.6px] text-[#acbcbe]">{DAY_NAMES_SHORT[d.getDay()]}</span>
+              <span className="font-['Poppins',sans-serif] text-[11px] font-semibold uppercase tracking-[0.6px] text-[#435766]">{DAY_NAMES_SHORT[d.getDay()]}</span>
               <span className={`w-7 h-7 flex items-center justify-center rounded-full font-['Poppins',sans-serif] font-semibold text-sm ${isToday ? "bg-[#59797d] text-white" : "text-[#1c3243]"}`}>{d.getDate()}</span>
             </div>
           );
@@ -458,12 +458,12 @@ function DayView({ date, popup, onEventClick }: { date: Date; popup: EventPopupS
       </div>
       <div className="p-5 flex flex-col gap-3 min-h-[200px]">
         {evs.length === 0 && (
-          <p className="font-['Poppins',sans-serif] text-sm text-[#acbcbe] text-center mt-8">No events scheduled for this day.</p>
+          <p className="font-['Poppins',sans-serif] text-sm text-[#435766] text-center mt-8">No events scheduled for this day.</p>
         )}
         {evs.map((ev, i) => (
           <div key={i} className="flex gap-4 items-start">
             <div className="shrink-0 w-16 text-right">
-              <span className="font-['Poppins',sans-serif] text-[11px] text-[#90b3b6] font-medium leading-tight">{ev.time.split("–")[0].trim()}</span>
+              <span className="font-['Poppins',sans-serif] text-xs text-[#406064] font-medium leading-tight">{ev.time.split("–")[0].trim()}</span>
             </div>
             <EventPill ev={ev} popup={popup} onEventClick={onEventClick} />
           </div>
@@ -618,7 +618,7 @@ function ContentPage({ state, district, onReset }: { state: string; district: st
               value={search}
               onChange={e => setSearch(e.target.value)}
               placeholder="Search resources and events…"
-              className="flex-1 font-['Poppins',sans-serif] text-[14px] text-[#333] placeholder:text-[#aaa] outline-none bg-transparent"
+              className="flex-1 font-['Poppins',sans-serif] text-[14px] text-[#333] placeholder:text-[#59797d] outline-none bg-transparent"
             />
             <button
               className="bg-[#90b3b6] rounded-[8px] px-[16px] py-[6px] font-['Poppins',sans-serif] font-medium text-[14px] text-[#fff] whitespace-nowrap hover:bg-[#59797d] transition-colors"
@@ -674,7 +674,7 @@ function ContentPage({ state, district, onReset }: { state: string; district: st
               <div className="bg-[#90b3b6] h-[20px] rounded-[9999px] w-[4px]" />
               <p className="font-['Poppins',sans-serif] font-semibold leading-[28px] text-[#1c3243] text-[18px] whitespace-nowrap">Upcoming Events</p>
               <div className="bg-[#e8f1f1] rounded-[9999px] px-[8px] py-[2px] inline-flex items-center">
-                <p className="font-['Poppins',sans-serif] font-medium leading-[16px] text-[#90b3b6] text-[12px] whitespace-nowrap">{filteredEvents.length} total</p>
+                <p className="font-['Poppins',sans-serif] font-medium leading-[16px] text-[#406064] text-[12px] whitespace-nowrap">{filteredEvents.length} total</p>
               </div>
             </div>
           </div>
@@ -694,19 +694,19 @@ function ContentPage({ state, district, onReset }: { state: string; district: st
                 <div className="shrink-0 rounded-xl px-4 py-3 flex flex-col items-center justify-center min-w-[60px]"
                   style={{ background: ev.color === "teal" ? "#e8f1f1" : "#eef0f3" }}>
                   <span className="font-['Poppins',sans-serif] font-bold text-xl leading-none" style={{ color: ev.color === "teal" ? "#59797d" : "#1c3243" }}>{ev.day}</span>
-                  <span className="font-['Poppins',sans-serif] text-[10px] font-semibold uppercase tracking-wide mt-0.5" style={{ color: ev.color === "teal" ? "#90b3b6" : "#6b7c8d" }}>
+                  <span className="font-['Poppins',sans-serif] text-[11px] font-semibold uppercase tracking-wide mt-0.5" style={{ color: ev.color === "teal" ? "#90b3b6" : "#6b7c8d" }}>
                     {ev.date.split(",")[1]?.trim().split(" ")[0]}
                   </span>
                 </div>
                 <div className="flex flex-col gap-1 flex-1">
                   <div className="flex items-center gap-2 flex-wrap">
                     <h3 className="font-['Poppins',sans-serif] font-semibold text-[#1c3243] text-sm group-hover:text-[#59797d] transition-colors">{ev.title}</h3>
-                    <span className="font-['Poppins',sans-serif] text-[10px] font-semibold px-2 py-0.5 rounded-full text-white"
+                    <span className="font-['Poppins',sans-serif] text-xs font-semibold px-2 py-0.5 rounded-full text-white"
                       style={{ background: ev.color === "teal" ? "#90b3b6" : "#1c3243" }}>
                       {ev.color === "teal" ? "Session" : "Workshop"}
                     </span>
                   </div>
-                  <p className="font-['Poppins',sans-serif] text-xs text-[#90b3b6] font-medium">{ev.time}</p>
+                  <p className="font-['Poppins',sans-serif] text-xs text-[#406064] font-medium">{ev.time}</p>
                   <p className="font-['Poppins',sans-serif] text-sm text-[#435766] leading-relaxed mt-0.5">{ev.desc}</p>
                 </div>
                 <motion.button
@@ -721,7 +721,7 @@ function ContentPage({ state, district, onReset }: { state: string; district: st
             ))}
 
             {filteredEvents.length === 0 && (
-              <div className="text-center py-16 font-['Poppins',sans-serif] text-[#acbcbe] text-sm">No events match your search.</div>
+              <div className="text-center py-16 font-['Poppins',sans-serif] text-[#435766] text-sm">No events match your search.</div>
             )}
           </div>
 
@@ -764,7 +764,7 @@ function FormPage({ onSubmit }: { onSubmit: (state: string, district: string) =>
             transition={{ duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
             <motion.span
-              className="font-['Poppins',sans-serif] font-semibold text-[#90b3b6] text-sm uppercase tracking-widest"
+              className="font-['Poppins',sans-serif] font-semibold text-[#406064] text-sm uppercase tracking-widest"
               initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.5 }}
             >
               Mental Health Series
@@ -782,7 +782,7 @@ function FormPage({ onSubmit }: { onSubmit: (state: string, district: string) =>
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3, duration: 0.5 }}
             >
               {"Don't see your state? "}
-              <a href="#" className="text-[#59797d] underline hover:text-[#90b3b6] transition-colors">Get in touch with our team.</a>
+              <a href="#" className="text-[#406064] underline hover:text-[#1c3243] transition-colors">Get in touch with our team.</a>
             </motion.p>
             <motion.div
               className="flex flex-col gap-4"

@@ -18,7 +18,7 @@ export default function ContactUsPage() {
     <main className="min-h-screen bg-[#F9F4F1]">
       <section className="px-6 pb-14 pt-28 md:px-10 lg:px-14">
         <div className="mx-auto max-w-[1100px] text-center">
-          <p className="mb-3 font-['Poppins',sans-serif] text-sm font-semibold uppercase tracking-[0.14em] text-[#59797D]">
+          <p className="mb-3 font-['Poppins',sans-serif] text-sm font-semibold uppercase tracking-[0.14em] text-[#406064]">
             Contact Us
           </p>
 
@@ -45,7 +45,7 @@ export default function ContactUsPage() {
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
                     required
-                    className="rounded-[8px] border border-[#dee8e9] px-4 py-2.5 font-['Poppins',sans-serif] text-sm text-[#1C3243] outline-none transition-colors placeholder:text-[#acbcbe] focus:border-[#90b3b6]"
+                    className="rounded-[8px] border border-[#dee8e9] px-4 py-2.5 font-['Poppins',sans-serif] text-sm text-[#1C3243] outline-none transition-colors placeholder:text-[#59797d] focus:border-[#90b3b6]"
                   />
                 </div>
 
@@ -58,7 +58,7 @@ export default function ContactUsPage() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    className="rounded-[8px] border border-[#dee8e9] px-4 py-2.5 font-['Poppins',sans-serif] text-sm text-[#1C3243] outline-none transition-colors placeholder:text-[#acbcbe] focus:border-[#90b3b6]"
+                    className="rounded-[8px] border border-[#dee8e9] px-4 py-2.5 font-['Poppins',sans-serif] text-sm text-[#1C3243] outline-none transition-colors placeholder:text-[#59797d] focus:border-[#90b3b6]"
                   />
                 </div>
               </div>
@@ -68,7 +68,7 @@ export default function ContactUsPage() {
                 <input
                   value={subject}
                   onChange={(e) => setSubject(e.target.value)}
-                  className="rounded-[8px] border border-[#dee8e9] px-4 py-2.5 font-['Poppins',sans-serif] text-sm text-[#1C3243] outline-none transition-colors placeholder:text-[#acbcbe] focus:border-[#90b3b6]"
+                  className="rounded-[8px] border border-[#dee8e9] px-4 py-2.5 font-['Poppins',sans-serif] text-sm text-[#1C3243] outline-none transition-colors placeholder:text-[#59797d] focus:border-[#90b3b6]"
                 />
               </div>
 
@@ -81,7 +81,7 @@ export default function ContactUsPage() {
                   onChange={(e) => setMessage(e.target.value)}
                   rows={5}
                   required
-                  className="resize-none rounded-[8px] border border-[#dee8e9] px-4 py-3 font-['Poppins',sans-serif] text-sm text-[#1C3243] outline-none transition-colors placeholder:text-[#acbcbe] focus:border-[#90b3b6]"
+                  className="resize-none rounded-[8px] border border-[#dee8e9] px-4 py-3 font-['Poppins',sans-serif] text-sm text-[#1C3243] outline-none transition-colors placeholder:text-[#59797d] focus:border-[#90b3b6]"
                 />
               </div>
 
