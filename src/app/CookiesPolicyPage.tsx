@@ -1,3 +1,5 @@
+import { LegalActions, BackToTopButton, downloadTextFile } from "./legal/LegalActions";
+
 const necessaryCookies = [
   {
     name: "elementor",
@@ -136,16 +138,23 @@ const performanceCookies = [
     duration: "1 year",
   },
 ];
+const DOCUMENT_ID = "cookies-policy-document";
+
+function handleDownload() {
+  const body = document.getElementById(DOCUMENT_ID)?.innerText ?? "";
+  downloadTextFile("ParentGuidance-Cookies-Policy.txt", `COOKIES POLICY\n\n${body.trim()}\n`);
+}
+
 export default function CookiesPolicyPage() {
   return (
-    <main className="min-h-screen bg-[#F9F4F1]">
-      <section className="px-6 pb-14 pt-28 md:px-10 lg:px-14">
-        <div className="mx-auto max-w-[1100px]">
+    <main className="min-h-screen bg-[#F9F4F1] print:bg-white">
+      <section className="px-6 pb-14 pt-28 md:px-10 lg:px-14 print:p-0 print:pb-6">
+        <div className="mx-auto max-w-[1100px] print:max-w-none">
           <p className="mb-3 font-['Poppins',sans-serif] text-sm font-semibold uppercase tracking-[0.14em] text-[#406064]">
             Legal
           </p>
 
-          <h1 className="font-['Poppins',sans-serif] text-4xl font-bold text-[#1C3243] md:text-5xl">
+          <h1 id="cookies-policy-title" tabIndex={-1} className="focus:outline-none font-['Poppins',sans-serif] text-4xl font-bold text-[#1C3243] md:text-5xl">
             Cookies Policy
           </h1>
 
@@ -153,11 +162,13 @@ export default function CookiesPolicyPage() {
             Learn how Parent Guidance uses cookies and similar technologies to
             improve your experience on our website.
           </p>
+
+          <LegalActions onDownload={handleDownload} />
         </div>
       </section>
 
-  <section className="px-6 pb-20 md:px-10 lg:px-14">
-  <div className="mx-auto max-w-[1100px] rounded-2xl border border-[#dee8e9] bg-white p-7 shadow-[0_8px_24px_rgba(28,50,67,0.06)] md:p-10">
+  <section className="px-6 pb-20 md:px-10 lg:px-14 print:p-0">
+  <div id={DOCUMENT_ID} className="mx-auto max-w-[1100px] rounded-2xl border border-[#dee8e9] bg-white p-7 shadow-[0_8px_24px_rgba(28,50,67,0.06)] md:p-10 print:max-w-none print:rounded-none print:border-0 print:p-0 print:shadow-none">
     <div className="border-b border-[#dee8e9] pb-8">
   <p className="mb-6 font-['Poppins',sans-serif] text-sm font-semibold text-[#59797D]">
     Last updated: November 27, 2024
@@ -617,6 +628,7 @@ export default function CookiesPolicyPage() {
   </div>
 </div>
     </div>
+    <BackToTopButton focusId="cookies-policy-title" />
   </section>
 </main>
   );

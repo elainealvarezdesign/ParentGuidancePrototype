@@ -1,4 +1,3 @@
-import { Download, Printer } from "lucide-react";
 import {
   TERMS_EFFECTIVE_DATE,
   TERMS_INTRO,
@@ -6,22 +5,11 @@ import {
   buildLegalPlainText,
 } from "./legal/legalContent";
 import LegalDocumentBody from "./legal/LegalDocumentBody";
+import { LegalActions, downloadTextFile } from "./legal/LegalActions";
 
 function handleDownload() {
   const text = buildLegalPlainText("Terms of Use", TERMS_EFFECTIVE_DATE, "Introduction", TERMS_INTRO, TERMS_SECTIONS);
-  const blob = new Blob([text], { type: "text/plain;charset=utf-8" });
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement("a");
-  link.href = url;
-  link.download = "ParentGuidance-Terms-of-Use.txt";
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-  URL.revokeObjectURL(url);
-}
-
-function handlePrint() {
-  window.print();
+  downloadTextFile("ParentGuidance-Terms-of-Use.txt", text);
 }
 
 export default function TermsOfUsePage() {
@@ -42,25 +30,7 @@ export default function TermsOfUsePage() {
             websites, the Online Education Platform, and related services.
           </p>
 
-          <div className="mt-7 flex flex-wrap gap-3">
-            <button
-              type="button"
-              onClick={handleDownload}
-              className="inline-flex items-center gap-2 rounded-lg bg-[#59797D] px-5 py-3 font-['Poppins',sans-serif] text-sm font-semibold text-white transition hover:bg-[#1C3243] focus:outline-none focus:ring-2 focus:ring-[#59797D] focus:ring-offset-2"
-            >
-              <Download size={16} />
-              Download
-            </button>
-
-            <button
-              type="button"
-              onClick={handlePrint}
-              className="inline-flex items-center gap-2 rounded-lg border border-[#90b3b6] px-5 py-3 font-['Poppins',sans-serif] text-sm font-semibold text-[#406064] transition hover:bg-[#F0F6F6] focus:outline-none focus:ring-2 focus:ring-[#59797D] focus:ring-offset-2"
-            >
-              <Printer size={16} />
-              Print
-            </button>
-          </div>
+          <LegalActions onDownload={handleDownload} />
         </div>
       </section>
 
