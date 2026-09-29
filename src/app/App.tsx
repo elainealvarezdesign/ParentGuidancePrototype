@@ -10,7 +10,7 @@ import LessonPage from "./LessonPage";
 import QuestionDetailPage from "./QuestionDetailPage";
 import MilestonesToProgressPage from "./MilestonesToProgressPage";
 import MilestonesLessonPage from "./MilestonesLessonPage";
-import { motion, useInView, AnimatePresence } from "motion/react";
+import { motion, useInView, AnimatePresence, MotionConfig } from "motion/react";
 import svgPaths from "@/imports/HomePagePgV2/svg-2e7k4ll6gf.ts";
 import imgStaffGuidance from "@/imports/StaffGuidance.png";
 import imgElizaChat from "@/imports/elizachat_logo_horizontal.svg";
@@ -866,5 +866,11 @@ const router = createBrowserRouter([
 ]);
 
 export default function App() {
-  return <RouterProvider router={router} />;
+  // reducedMotion="user": si el sistema pide reducir movimiento, motion desactiva
+  // desplazamientos y escalas (las transiciones de opacidad se mantienen).
+  return (
+    <MotionConfig reducedMotion="user">
+      <RouterProvider router={router} />
+    </MotionConfig>
+  );
 }

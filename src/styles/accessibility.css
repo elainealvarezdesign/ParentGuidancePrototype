@@ -1,0 +1,45 @@
+/*
+ * Accesibilidad global — ver docs/guidelines/02-botones.md y 04-movimiento.md
+ *
+ * Este archivo no usa @layer a propósito: así tiene prioridad sobre utilidades
+ * como `outline-none` o `focus:ring-*` que ya existen en los componentes.
+ */
+
+/* Foco visible: anillo teal dark (#406064) con halo blanco por dentro y por fuera,
+   para que se vea igual sobre fondos claros (crema, blanco) y oscuros (navy). */
+:where(
+  a[href],
+  button,
+  input,
+  select,
+  textarea,
+  summary,
+  [role="button"],
+  [role="link"],
+  [role="tab"],
+  [role="menuitem"],
+  [role="option"],
+  [tabindex]:not([tabindex="-1"])
+):focus-visible {
+  outline: 2px solid #406064;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 6px #ffffff;
+}
+
+/* Reduced motion: quien lo pide en su sistema ve la interfaz en su estado final,
+   sin desplazamientos ni animaciones decorativas. Las animaciones de `motion`
+   se controlan con <MotionConfig reducedMotion="user"> en App.tsx. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

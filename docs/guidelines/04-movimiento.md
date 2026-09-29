@@ -72,8 +72,7 @@ Sí se usa (es una web de contenidos, no una herramienta), pero con suavidad y *
 
 ## 4.3 Contrato de reduced‑motion (obligatorio)
 
-Hoy el prototipo **no respeta** `prefers-reduced-motion`. La solución es de una línea: envolver la app en
-`MotionConfig`:
+Implementado. La app está envuelta en `MotionConfig`:
 
 ```tsx
 // src/app/App.tsx
@@ -90,6 +89,8 @@ export default function App() {
 
 Con `reducedMotion="user"`, `motion` desactiva los desplazamientos y escalas para quien tenga activada la
 opción del sistema, y mantiene los cambios de opacidad. Para las transiciones CSS, `tokens.css` ya incluye
-la regla global de `@media (prefers-reduced-motion: reduce)`.
+la regla global de `@media (prefers-reduced-motion: reduce)`, y el prototipo la aplica en
+`src/styles/accessibility.css`. Los `window.scrollTo` usan `scrollBehavior()` de `src/app/utils/motion.ts`,
+que devuelve `"auto"` en lugar de `"smooth"` cuando el usuario pide reducir movimiento.
 
 Regla: **ningún contenido puede quedar oculto** (`opacity: 0`) si la animación no se ejecuta.

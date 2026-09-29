@@ -1,5 +1,6 @@
 import { useState, useMemo, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
+import { scrollBehavior } from "./utils/motion";
 import { useNavigate } from "react-router";
 import svgPaths from "@/imports/CreateLivePrototypeWithTransitions/svg-aw5njrtmbl";
 import imgParentAndChild from "@/imports/CreateLivePrototypeWithTransitions/5adf607043d952ed1bbbfdfe5254ee778ed8a6e8.png";
@@ -630,7 +631,7 @@ export default function OnDemandCoursesPage() {
         {totalPages > 1 && (
           <div className="flex items-center justify-center gap-1.5 pt-10">
             <button
-              onClick={() => { setPage(p => Math.max(1, p - 1)); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+              onClick={() => { setPage(p => Math.max(1, p - 1)); window.scrollTo({ top: 0, behavior: scrollBehavior() }); }}
               disabled={page === 1}
               className="font-['Poppins',sans-serif] text-sm font-medium text-[#59797d] px-4 py-2 rounded-lg border border-[#90b3b6] hover:bg-[#f0f6f6] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
             >
@@ -639,7 +640,7 @@ export default function OnDemandCoursesPage() {
             {Array.from({ length: totalPages }, (_, i) => i + 1).map(p => (
               <button
                 key={p}
-                onClick={() => { setPage(p); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+                onClick={() => { setPage(p); window.scrollTo({ top: 0, behavior: scrollBehavior() }); }}
                 className="font-['Poppins',sans-serif] text-sm font-medium w-[43px] h-[43px] rounded-lg flex items-center justify-center transition-all"
                 style={{
                   background: page === p ? "#59797d" : "white",
@@ -651,7 +652,7 @@ export default function OnDemandCoursesPage() {
               </button>
             ))}
             <button
-              onClick={() => { setPage(p => Math.min(totalPages, p + 1)); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+              onClick={() => { setPage(p => Math.min(totalPages, p + 1)); window.scrollTo({ top: 0, behavior: scrollBehavior() }); }}
               disabled={page === totalPages}
               className="font-['Poppins',sans-serif] text-sm font-medium text-[#59797d] px-4 py-2 rounded-lg border border-[#90b3b6] hover:bg-[#f0f6f6] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
             >

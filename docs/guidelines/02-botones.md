@@ -45,8 +45,9 @@ navegación, no de la acción. Así el usuario aprende que el teal significa "pu
 | Loading | Spinner de 16px + "Enviando…", `aria-busy="true"`, sin clics | igual |
 | Disabled | `bg-pg-line text-pg-slate`, cursor `not-allowed` | `border-pg-line text-pg-slate` |
 
-Hoy **ningún botón tiene estilo de foco visible** (no hay clases `focus-visible:`). Es el pendiente de
-accesibilidad más importante: quien navega con teclado no ve dónde está.
+El foco visible está aplicado de forma global en `src/styles/accessibility.css`: todo enlace, botón o campo
+muestra un anillo teal dark de 2px con halo blanco al navegar con teclado, sobre fondos claros y oscuros.
+Los componentes nuevos no necesitan añadir clases de foco.
 
 ## 2.4 Implementación de referencia
 

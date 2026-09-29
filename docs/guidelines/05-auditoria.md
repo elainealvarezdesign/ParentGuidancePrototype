@@ -7,8 +7,9 @@ Está ordenada por impacto.
 
 | Problema | Dónde | Solución |
 |----------|-------|----------|
-| No hay estilos de foco visibles | Todos los botones y enlaces | Añadir `focus-visible:ring-2 ring-pg-teal-dark ring-offset-2` (ver [Botones](./02-botones.md)) |
-| No se respeta reduced‑motion | Toda la app | `<MotionConfig reducedMotion="user">` en `App.tsx` |
+| ✅ ~~No hay estilos de foco visibles~~ | Todos los botones y enlaces | **Resuelto** con una regla global en `src/styles/accessibility.css` |
+| ✅ ~~No se respeta reduced‑motion~~ | Toda la app | **Resuelto**: `MotionConfig` en `App.tsx`, regla CSS en `accessibility.css` y scroll sin animación en `utils/motion.ts` |
+| Cards de la home no alcanzables con teclado | Home (`App.tsx`) | Las cards usan `onClick` en elementos que no son enlaces ni botones: convertirlas en `<a>`/`<Link>` |
 | Texto en sage `#90b3b6` (2.3:1) | 41 usos de `text-[#90b3b6]` | Cambiar a `text-pg-teal-dark` o `text-pg-slate` |
 | Texto en mist `#acbcbe` (2.0:1) | 36 usos de `text-[#acbcbe]` y 11 placeholders | Texto: `text-pg-slate`; placeholder: `placeholder:text-pg-teal` (4.7:1) |
 | Texto de 9–11px | 75 usos (`text-[9px]`, `text-[10px]`, `text-[11px]`) | Subir a 12px (`text-xs`); solo el eyebrow en mayúsculas puede quedarse en 11px |
@@ -56,7 +57,7 @@ Está ordenada por impacto.
 ## 5.5 Orden de migración sugerido
 
 1. Importar `tokens.css`. Las páginas no cambian (usan hex sueltos), pero los componentes `ui/` de shadcn y el fondo base pasan a los colores PG. Revisar visualmente.
-2. `MotionConfig reducedMotion="user"` y estilos de foco. Mucho impacto con poco trabajo.
+2. ✅ `MotionConfig reducedMotion="user"` y estilos de foco (hecho).
 3. Arreglar el contraste: sage, mist y los tamaños de 9–10px.
 4. Unificar los botones en un componente.
 5. Reemplazar los hex sueltos por clases `pg-*`, página por página.

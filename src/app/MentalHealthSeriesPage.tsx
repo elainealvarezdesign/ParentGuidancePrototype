@@ -1,5 +1,6 @@
 import { useState, type MouseEvent } from "react";
 import { motion } from "motion/react";
+import { scrollBehavior } from "./utils/motion";
 import svgPaths from "@/imports/MentalHealthPage/svg-8lpz1a5k3k";
 import imgImage13 from "@/imports/MentalHealthPage/f075cf3868341d1ced5b7049edc0996923832898.png";
 import imgRectangle79 from "@/imports/HomePagePgV2/ece298d0ec2c16f10310d45724b276a6035cb503.png";
@@ -855,10 +856,10 @@ export default function MentalHealthSeriesPage() {
 
   function handleSubmit(s: string, d: string) {
     setState(s); setDistrict(d); setView("content");
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: scrollBehavior() });
   }
 
   return view === "content"
-    ? <ContentPage state={state} district={district} onReset={() => { setView("form"); window.scrollTo({ top: 0, behavior: "smooth" }); }} />
+    ? <ContentPage state={state} district={district} onReset={() => { setView("form"); window.scrollTo({ top: 0, behavior: scrollBehavior() }); }} />
     : <FormPage onSubmit={handleSubmit} />;
 }
