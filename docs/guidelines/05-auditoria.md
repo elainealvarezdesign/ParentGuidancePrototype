@@ -19,7 +19,8 @@ Está ordenada por impacto.
 | ✅ ~~"Learn More" sage sobre sage (1:1, invisible)~~ | Cards de la home | **Resuelto**: navy |
 | ✅ ~~Botón "Next Lesson" blanco sobre ámbar (3.0:1)~~ | Lecciones | **Resuelto**: pasa a Primary teal |
 | Separadores "•" en `#d0cbca` (1.6:1) | Detalle de curso | Son decorativos, se dejan así (conviene añadir `aria-hidden`) |
-| Testimonios en 3 columnas en móvil | Parent Coaching (390px) | El texto queda en columnas de ~80px. Pasar a 1 columna o carrusel en móvil |
+| ✅ ~~Testimonios en 3 columnas en móvil~~ | Parent Coaching | **Resuelto**: 1 columna hasta 1024px, 3 columnas en desktop |
+| La navegación no cabe en móvil | Header (todas las páginas) | Los enlaces se salen de la pantalla a 390px y generan scroll horizontal. Añadir menú hamburguesa |
 
 ## 5.2 Colores fuera de paleta
 

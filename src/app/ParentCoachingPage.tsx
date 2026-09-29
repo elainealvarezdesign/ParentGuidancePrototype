@@ -388,7 +388,7 @@ export default function ParentCoachingPage() {
       </section>
 
       {/* ── Testimonials ── */}
-      <section className="bg-[#f9f4f1] px-14 py-14">
+      <section className="bg-[#f9f4f1] px-6 md:px-10 lg:px-14 py-14">
         <div className="max-w-[1280px] mx-auto flex justify-center">
           <div className="w-full max-w-[1024px]">
             <div className="flex items-center gap-2 mb-1">
@@ -397,7 +397,7 @@ export default function ParentCoachingPage() {
             </div>
             <h2 className="font-['Poppins',sans-serif] font-bold text-[#1c3243] text-2xl leading-8 mt-3">Real families. Real change.</h2>
 
-            <div className="grid grid-cols-3 gap-5 mt-8 items-stretch">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mt-8 items-stretch">
               {TESTIMONIALS.map((t, i) => (
                 <motion.div
                   key={t.name}
