@@ -349,20 +349,20 @@ function Hero() {
         transition={{ duration: 0.7, delay: 0.3 }}
         className="mt-14"
       >
-        <h1 className="font-['Poppins',sans-serif] font-black text-[#59797d] text-4xl leading-relaxed whitespace-nowrap">
+        <h1 className="font-['Poppins',sans-serif] font-black text-[#59797d] text-3xl md:text-4xl leading-tight md:leading-relaxed md:whitespace-nowrap">
           {"Discover "}
           <em className="font-['Poppins',sans-serif] italic font-black">Resources</em>
           {" That Can Help"}
         </h1>
       </motion.div>
       <motion.p
-        className="font-['Poppins',sans-serif] text-[#1c3243] text-xl text-center leading-relaxed mt-4 max-w-2xl"
+        className="font-['Poppins',sans-serif] text-[#1c3243] text-lg md:text-xl text-center leading-relaxed mt-4 max-w-2xl"
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.5 }}
       >
-        Find trusted guidance, practical tips, and expert resources
-        <br />
+        Find trusted guidance, practical tips, and expert resources{" "}
+        <br className="hidden md:block" />
         to help you navigate everyday parenting challenges.
       </motion.p>
 
@@ -374,7 +374,7 @@ function Hero() {
         transition={{ duration: 0.6, delay: 0.65 }}
       >
         <div
-          className="bg-white rounded-3xl px-6 py-3 flex items-center gap-3 shadow-sm"
+          className="bg-white rounded-3xl pl-5 pr-2 md:px-6 py-2 md:py-3 flex items-center gap-3 shadow-sm"
           style={{
             boxShadow: focused
               ? "0 0 0 2px #90b3b6, 0 4px 24px rgba(144,179,182,0.18)"
@@ -387,7 +387,7 @@ function Hero() {
             <path d="M18 18L16.5 16.5" stroke="#333" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
           </svg>
           <input
-            className="flex-1 font-['Poppins',sans-serif] text-sm text-gray-700 bg-transparent outline-none placeholder:text-[#59797d]"
+            className="flex-1 min-w-0 font-['Poppins',sans-serif] text-sm text-gray-700 bg-transparent outline-none placeholder:text-[#59797d]"
             placeholder="Anxiety in Children"
             onFocus={() => setFocused(true)}
             onBlur={() => setFocused(false)}
@@ -444,7 +444,7 @@ function ResourceCard({ card, index }: { card: typeof resourceCards[0]; index: n
   return (
     <motion.div
       ref={ref}
-      className="bg-[#90b3b6] rounded-t-2xl w-44 flex-shrink-0 overflow-hidden cursor-pointer"
+      className="bg-[#90b3b6] rounded-t-2xl w-full lg:w-44 flex-shrink-0 overflow-hidden cursor-pointer"
       initial={{ opacity: 0, y: 40 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.55, delay: index * 0.1 }}
@@ -478,9 +478,9 @@ function ResourceCard({ card, index }: { card: typeof resourceCards[0]; index: n
 
 function ResourceSection() {
   return (
-    <section className="bg-[#f9f4f1] px-14 pb-16">
-      <div className="flex flex-col w-fit mx-auto">
-        <div className="flex gap-5">
+    <section className="bg-[#f9f4f1] px-6 md:px-10 lg:px-14 pb-16">
+      <div className="flex flex-col w-full max-w-md lg:max-w-none lg:w-fit mx-auto">
+        <div className="grid grid-cols-2 gap-4 lg:flex lg:gap-5">
           {resourceCards.map((card, i) => (
             <ResourceCard key={i} card={card} index={i} />
           ))}
@@ -523,13 +523,13 @@ function FeatureRow({ feat, index }: { feat: typeof features[0]; index: number }
   return (
     <motion.div
       ref={ref}
-      className={`flex items-center gap-24 ${feat.reverse ? "flex-row-reverse" : ""}`}
+      className={`flex flex-col md:flex-row items-center gap-8 md:gap-24 ${feat.reverse ? "md:flex-row-reverse" : ""}`}
       initial={{ opacity: 0, x: feat.reverse ? 48 : -48 }}
       animate={inView ? { opacity: 1, x: 0 } : {}}
       transition={{ duration: 0.7, delay: index * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
       <motion.div
-        className="w-80 h-60 rounded-[8px] overflow-hidden flex-shrink-0 relative"
+        className="w-full max-w-80 md:w-80 h-60 rounded-[8px] overflow-hidden flex-shrink-0 relative"
         whileHover={{ scale: 1.03 }}
         transition={{ duration: 0.35 }}
       >
@@ -537,8 +537,8 @@ function FeatureRow({ feat, index }: { feat: typeof features[0]; index: number }
         <img src={feat.img} alt="" className="absolute inset-0 w-full h-full object-cover" />
       </motion.div>
       <div className="flex flex-col gap-2 max-w-sm">
-        <p className="font-['Poppins',sans-serif] font-black text-[#59797d] text-3xl leading-relaxed">{feat.title}</p>
-        <p className="font-['Poppins',sans-serif] text-[#1c3243] text-lg leading-relaxed">{feat.desc}</p>
+        <p className="font-['Poppins',sans-serif] font-black text-[#59797d] text-2xl md:text-3xl leading-relaxed">{feat.title}</p>
+        <p className="font-['Poppins',sans-serif] text-[#1c3243] text-base md:text-lg leading-relaxed">{feat.desc}</p>
       </div>
     </motion.div>
   );
@@ -546,13 +546,13 @@ function FeatureRow({ feat, index }: { feat: typeof features[0]; index: number }
 
 function WhySection() {
   return (
-    <section className="bg-[#f9f4f1] py-20 px-14 flex flex-col items-center gap-20">
+    <section className="bg-[#f9f4f1] py-14 md:py-20 px-6 md:px-10 lg:px-14 flex flex-col items-center gap-12 md:gap-20">
       <FadeUp className="flex flex-col items-center gap-4 max-w-3xl text-center">
         <span className="font-['Poppins',sans-serif] font-semibold text-[#2c3e50] text-base uppercase tracking-wider">Why</span>
-        <h2 className="font-['Poppins',sans-serif] font-bold text-[#2c3e50] text-4xl leading-tight tracking-tight">
+        <h2 className="font-['Poppins',sans-serif] font-bold text-[#2c3e50] text-3xl md:text-4xl leading-tight tracking-tight">
           Built on real clinical experience
         </h2>
-        <p className="font-['Poppins',sans-serif] text-[#2c3e50] text-xl leading-relaxed">
+        <p className="font-['Poppins',sans-serif] text-[#2c3e50] text-lg md:text-xl leading-relaxed">
           We believe every parent deserves access to expert guidance. Our resources are built on real clinical experience
           and designed with your family in mind.
         </p>
@@ -597,7 +597,7 @@ function FaqItem({ item, index }: { item: typeof faqs[0]; index: number }) {
       whileHover={{ boxShadow: "0px 20px 40px -12px rgba(149,149,149,0.35)" }}
       onClick={() => setOpen((o) => !o)}
     >
-      <div className="flex items-center justify-between px-8 py-6">
+      <div className="flex items-center justify-between px-5 md:px-8 py-5 md:py-6">
         <span className="font-['Poppins',sans-serif] font-bold text-[#1b1139] text-lg leading-snug opacity-88 flex-1 pr-4">
           {item.question}
         </span>
@@ -618,7 +618,7 @@ function FaqItem({ item, index }: { item: typeof faqs[0]; index: number }) {
         transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
         style={{ overflow: "hidden" }}
       >
-        <div className="px-8 pb-6 flex flex-col gap-3">
+        <div className="px-5 md:px-8 pb-6 flex flex-col gap-3">
           <div className="w-5 h-[3px] bg-[#52bd95] rounded-full opacity-80" />
           <p className="font-['Poppins',sans-serif] text-[#363049] text-sm leading-relaxed opacity-70">
             {item.answer}
@@ -633,19 +633,19 @@ function FaqSection() {
   const left = faqs.slice(0, Math.ceil(faqs.length / 2));
   const right = faqs.slice(Math.ceil(faqs.length / 2));
   return (
-    <section className="bg-[#f9f4f1] py-16 px-14">
+    <section className="bg-[#f9f4f1] py-16 px-6 md:px-10 lg:px-14">
       <FadeUp className="text-center mb-10">
         <h2 className="font-['Poppins',sans-serif] font-bold text-[#1c3243] text-2xl capitalize">
           Frequently Ask Questions
         </h2>
       </FadeUp>
-      <div className="flex gap-8 max-w-[1280px] mx-auto">
+      <div className="flex flex-col md:flex-row gap-5 md:gap-8 max-w-[1280px] mx-auto">
         <div className="flex flex-col gap-5 flex-1">
           {left.map((item, i) => (
             <FaqItem key={i} item={item} index={i} />
           ))}
         </div>
-        <div className="flex flex-col gap-5 flex-1 pt-8">
+        <div className="flex flex-col gap-5 flex-1 md:pt-8">
           {right.map((item, i) => (
             <FaqItem key={i} item={item} index={i} />
           ))}
@@ -720,10 +720,10 @@ function NewsletterSection() {
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
   return (
-    <section className="bg-[#90b3b6] py-16 px-14 flex justify-center">
-      <FadeUp className="flex gap-8 items-center max-w-[1280px] w-full">
+    <section className="bg-[#90b3b6] py-16 px-6 md:px-10 lg:px-14 flex justify-center">
+      <FadeUp className="flex flex-col md:flex-row gap-8 items-center max-w-[1280px] w-full">
         <motion.div
-          className="w-[480px] h-56 rounded-2xl overflow-hidden relative flex-shrink-0"
+          className="w-full md:w-[480px] h-56 rounded-2xl overflow-hidden relative md:flex-shrink-0"
           whileHover={{ scale: 1.02 }}
           transition={{ duration: 0.35 }}
         >
@@ -731,7 +731,7 @@ function NewsletterSection() {
           <img src={imgRectangle328} alt="" className="absolute inset-0 w-full h-full object-cover" />
         </motion.div>
         <div className="flex flex-col gap-5">
-          <h2 className="font-['Poppins',sans-serif] font-bold text-[#1b1139] text-5xl leading-tight">Join Us!</h2>
+          <h2 className="font-['Poppins',sans-serif] font-bold text-[#1b1139] text-4xl md:text-5xl leading-tight">Join Us!</h2>
           <p className="font-['Poppins',sans-serif] text-[#1b1139] text-sm leading-relaxed max-w-sm">
             Subscribe to our weekly newsletter and be a part of our journey to self discovery and love.
           </p>
@@ -746,13 +746,13 @@ function NewsletterSection() {
           ) : (
             <div className="flex border border-[#f4f6f9] rounded-2xl overflow-hidden bg-[#f9f9f9] max-w-md">
               <input
-                className="flex-1 px-5 py-3.5 bg-transparent font-['Poppins',sans-serif] text-sm text-gray-700 outline-none placeholder:text-[#737373]"
+                className="flex-1 min-w-0 px-5 py-3.5 bg-transparent font-['Poppins',sans-serif] text-sm text-gray-700 outline-none placeholder:text-[#737373]"
                 placeholder="Your Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
               <motion.button
-                className="bg-[#59797d] text-white font-['Poppins',sans-serif] text-sm px-7 py-3.5 whitespace-nowrap"
+                className="bg-[#59797d] text-white font-['Poppins',sans-serif] text-sm px-5 md:px-7 py-3.5 whitespace-nowrap"
                 whileHover={{ backgroundColor: "#4a6b6f" }}
                 whileTap={{ scale: 0.97 }}
                 onClick={() => email && setSubscribed(true)}

@@ -22,7 +22,8 @@ Está ordenada por impacto.
 | ✅ ~~Testimonios en 3 columnas en móvil~~ | Parent Coaching | **Resuelto**: 1 columna hasta 1024px, 3 columnas en desktop |
 | ✅ ~~La navegación no cabe en móvil~~ | Header | **Resuelto**: menú con botón ☰ por debajo de 1024px (se cierra con Esc, al tocar fuera o al navegar) |
 | ✅ ~~Footer desborda en móvil~~ | Todas las páginas | **Resuelto**: columnas apiladas en móvil |
-| Scroll horizontal en móvil (390px) | Home, Home V1, On-Demand Courses, Ask a Therapist, pregunta, lección de Milestones | Heros y filas de filtros con anchos fijos. Hacerlos responsive o dejar que la fila de filtros haga scroll dentro de su contenedor |
+| ✅ ~~Home desborda en móvil~~ | Home | **Resuelto**: título que ajusta línea, cards en 2×2, filas imagen+texto y FAQ apiladas |
+| Scroll horizontal en móvil (390px) | Home V1, On-Demand Courses, Ask a Therapist, pregunta, lección de Milestones | Heros y filas de filtros con anchos fijos. Hacerlos responsive o dejar que la fila de filtros haga scroll dentro de su contenedor |
 
 ## 5.2 Colores fuera de paleta
 
