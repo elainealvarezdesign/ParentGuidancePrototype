@@ -431,7 +431,7 @@ export default function QuestionDetailPage() {
             <div className="relative p-5 flex flex-col gap-3">
               <div className="flex items-center gap-2">
                 <MessageCircle size={14} className="text-[#90B3B6]" />
-                <span className="font-['Poppins',sans-serif] font-semibold text-[11px] uppercase tracking-[1.2px] text-[#406064]">Ask a Therapist</span>
+                <span className="font-['Poppins',sans-serif] font-semibold text-[11px] uppercase tracking-[1.2px] text-[#90B3B6]">Ask a Therapist</span>
               </div>
               <p className="font-['Poppins',sans-serif] font-bold text-white text-base leading-snug">
                 Have a question of your own?

@@ -669,8 +669,8 @@ export default function OnDemandCoursesPage() {
           <div className="absolute inset-0 rounded-lg overflow-hidden">
             <img
               alt=""
-              className="absolute w-full max-w-none"
-              style={{ height: "318%", top: "-71.45%", left: "0.04%" }}
+              className="absolute inset-0 w-full h-full object-cover"
+              style={{ objectPosition: "center 38%" }}
               src={imgContainer}
             />
           </div>
@@ -680,7 +680,7 @@ export default function OnDemandCoursesPage() {
           <div className="relative z-10 h-full flex items-center px-14">
             <div className="flex flex-col gap-2 max-w-lg">
               <h3 className="font-['Poppins',sans-serif] font-bold text-white text-xl">Looking for additional help?</h3>
-              <p className="font-['Poppins',sans-serif] text-[#406064] text-sm leading-relaxed">
+              <p className="font-['Poppins',sans-serif] text-[#90b3b6] text-sm leading-relaxed">
                 {"Our expert coaches work one-on-one with you. "}
                 <span className="font-semibold text-white">{"Services may be free through your child's school district."}</span>
               </p>
