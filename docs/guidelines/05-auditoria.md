@@ -1,0 +1,62 @@
+# 5. Auditoría del prototipo
+
+Revisión de `src/app` (sin contar `components/ui`, que son componentes base de shadcn) frente a estas guías.
+Está ordenada por impacto.
+
+## 5.1 Accesibilidad (prioridad alta)
+
+| Problema | Dónde | Solución |
+|----------|-------|----------|
+| No hay estilos de foco visibles | Todos los botones y enlaces | Añadir `focus-visible:ring-2 ring-pg-teal-dark ring-offset-2` (ver [Botones](./02-botones.md)) |
+| No se respeta reduced‑motion | Toda la app | `<MotionConfig reducedMotion="user">` en `App.tsx` |
+| Texto en sage `#90b3b6` (2.3:1) | 41 usos de `text-[#90b3b6]` | Cambiar a `text-pg-teal-dark` o `text-pg-slate` |
+| Texto en mist `#acbcbe` (2.0:1) | 36 usos de `text-[#acbcbe]` y 11 placeholders | Texto: `text-pg-slate`; placeholder: `placeholder:text-pg-teal` (4.7:1) |
+| Texto de 9–11px | 75 usos (`text-[9px]`, `text-[10px]`, `text-[11px]`) | Subir a 12px (`text-xs`); solo el eyebrow en mayúsculas puede quedarse en 11px |
+| Texto `#9aa4ac` (2.5:1) | Footer de `UnifiedCard` | `text-pg-slate` |
+
+## 5.2 Colores fuera de paleta
+
+| Hex actual | Usos | Dónde | Reemplazar por |
+|------------|------|-------|----------------|
+| `#1b1139` (morado muy oscuro) | 17 | App, HomePageV2, AskATherapist | `pg-navy` `#1c3243` |
+| `#2c3e50` | 7 | App, Home V1/V2 | `pg-navy` |
+| `#0d1b2a` | 3 | Lesson, MilestonesLesson, QuestionDetail | `pg-navy` |
+| `#363049`, `#293a41` | 6 | Varios | `pg-navy` |
+| `#58595b`, `#333`, `#333333` | 9 | App | `pg-slate` `#435766` |
+| `#6f9296`, `#76979a`, `#7da3a6`, `#4a6b6f` | 9 | Hovers varios | `pg-teal` o `pg-teal-dark` |
+| `#97b4b5`, `#a1bfb9` | 5 | Decoración | `pg-sage` `#90b3b6` |
+| `#e8f1f1`, `#dceced`, `#edf5f5` | 22 | Fondos suaves | `pg-tint` `#eaf1f1` |
+| `#f5f5f5`, `#f7f7f7`, `#f0f0f0`, `#fafafa`, `#f9f9f9` | 22 | Fondos grises | `pg-tint-soft` o `white` (el gris neutro no pertenece a la marca) |
+| `#e8ebed`, `#dde0e0`, `#e0e0e0`, `#dedcdc` | 16 | Bordes | `pg-line` `#dee8e9` |
+| `#ebe8e5`, `#f1eeee`, `#ebe8eb` | 9 | Divisores sobre crema | `pg-cream-dark` `#f0edeb` |
+| `#c8893a`, `#b5782f`, `#8d6b3a` | 9 | Lecciones (acento ámbar) | Relleno: dejar `#c8893a`; texto: `pg-warning` `#8a5a1c` |
+| `#52bd95` | 3 | Punto "en vivo" | Se mantiene como relleno decorativo |
+| `#6b5c8d`, `#e8a497` | 4 | MentalHealthSeries, HomeV2 | Revisar si son intencionales; si no, `pg-teal` / `pg-sage` |
+
+## 5.3 Consistencia
+
+| Tema | Situación actual | Estándar |
+|------|------------------|----------|
+| Botones | Teal/navy/blanco, radios 8/12/16px y píldora, alturas variadas | [Botones](./02-botones.md): teal, 8px, 36/44/52px |
+| Radios | 15 valores distintos | 6 tokens: 4 / 8 / 12 / 16 / 28 / full |
+| Sombras | 11 recetas, algunas con negro | 3 tokens teñidos de navy |
+| Contenedores | 1000 / 1024 / 1100 / 1180 / 1280px | 3 tokens: 680 / 1100 / 1280 |
+| Tema shadcn (`theme.css`) | Colores por defecto de shadcn (`--primary: #030213`) | Mapear `--primary`, `--ring`, `--border`, etc. a la paleta PG para que los componentes `ui/` hereden la marca |
+| Fuente | `font-['Poppins',sans-serif]` repetido 487 veces | Definirla una vez en `body` con `tokens.css` |
+| Duraciones de animación | 12 valores | 4 bandas (ver [Movimiento](./04-movimiento.md)) |
+
+## 5.4 Otros
+
+- `src/imports` incluye capturas completas de parentguidance.org (unos 19 MB) y otras imágenes que el código no usa (`QB_united.png`, `ADDO.png`, `image.png`, `pasted_text`…). Se
+  pueden mover fuera del repositorio.
+- El `<title>` y la descripción de `index.html` son los genéricos de Figma Make ("Enables designers to
+  create interactive prototypes…").
+- Hay dos versiones de la home (`HomePageV1`, `HomePageV2`). Conviene decidir cuál es la vigente.
+
+## 5.5 Orden de migración sugerido
+
+1. Importar `tokens.css`. Las páginas no cambian (usan hex sueltos), pero los componentes `ui/` de shadcn y el fondo base pasan a los colores PG. Revisar visualmente.
+2. `MotionConfig reducedMotion="user"` y estilos de foco. Mucho impacto con poco trabajo.
+3. Arreglar el contraste: sage, mist y los tamaños de 9–10px.
+4. Unificar los botones en un componente.
+5. Reemplazar los hex sueltos por clases `pg-*`, página por página.

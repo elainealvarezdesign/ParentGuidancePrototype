@@ -1,181 +1,119 @@
-# 2. Botones — `Button` y `Button_Icon`
+# 2. Botones
 
-Basado en la documentación del componente de Figma (`Scalar_Design_System-Components`,
-`Button` 59:21923 y `Button_Icon` 205:709). Es la parte de las fuentes que se adopta casi íntegra,
-porque ya está pensada para interfaz de producto.
+Hoy el prototipo tiene botones con distintos colores (teal, navy, blanco), radios (8px, 12px, píldora) y
+alturas. Esta guía los reduce a un solo sistema, partiendo del botón más repetido: el de `UnifiedCard`
+(teal, 8px, Poppins semibold 14px, hover teal dark).
 
-`Button_Icon` es la variante solo‑icono del mismo componente: comparte estilos, tipos, tamaños y estados.
+## 2.1 Estilos
 
-## 2.1 Anatomía
+| Estilo | Aspecto | Cuándo |
+|--------|---------|--------|
+| **Primary** | Fondo `pg-teal`, texto blanco; hover `pg-teal-dark` | La acción principal de la sección: "Ver curso", "Reservar sesión", "Enviar pregunta" |
+| **Secondary** | Fondo blanco, borde 1px `pg-teal`, texto `pg-teal-dark`; hover fondo `pg-tint` | Acción de apoyo junto a un Primary ("Cancelar", "Ver detalles") |
+| **Tertiary** | Solo texto `pg-teal-dark`, subrayado en hover | Acciones de baja prioridad: "Ver más", "Saltar" |
+| **Inverse** | Fondo blanco, texto `pg-navy`; hover `pg-cream` | Acción principal **sobre fondos navy o teal** |
+| **Inverse secondary** | Fondo `white/5`, borde `white/20`, texto blanco; hover `white/10` | Acción de apoyo sobre fondos oscuros |
 
-| Elemento | Descripción |
-|----------|-------------|
-| Contenedor | Lleva relleno, borde y radio (`--radius-sm`, 4px), todos ligados a variables |
-| Label | Inter Semi Bold, centrado; el tamaño cambia con Size |
-| Icono(s) | Slot opcional al inicio o al final; `Button_Icon` usa solo este slot |
-| Padding interno | Escala con Size para mantener el equilibrio óptico con el label |
+> **Un solo Primary por sección.** Si hay más acciones, pasan a Secondary o Tertiary.
 
-## 2.2 Cuatro ejes
+El botón navy (`#1c3243`) del buscador pasa a Primary teal, porque el navy es el color del texto y de la
+navegación, no de la acción. Así el usuario aprende que el teal significa "puedo hacer clic".
 
-### Style — jerarquía visual
+## 2.2 Tamaños
 
-| Style | Aspecto | Cuándo |
-|-------|---------|--------|
-| **Primary** | Relleno Brand/500, texto blanco | La acción principal de la pantalla o sección ("Guardar", "Continuar") |
-| **Secondary** | Borde + texto Brand/500, sin relleno | Acción de apoyo junto a una Primary ("Cancelar"), o acción de énfasis medio |
-| **Tertiary** | Solo texto Brand/500 | Acciones de baja prioridad: "Ver más", acciones opcionales o de descarte |
+| Tamaño | Alto | Padding | Texto | Cuándo |
+|--------|------|---------|-------|--------|
+| **S** | 36px | `px-4` | 14px / 600 | Solo desktop, en UI densa (filtros, acciones de fila) |
+| **M** | 44px | `px-5` | 14px / 600 | **Por defecto** |
+| **L** | 52px | `px-7` | 16px / 600 | CTA de hero y pantallas clave en móvil |
 
-> **Máximo un Primary por vista o sección.** Las acciones extra se degradan a Secondary/Tertiary.
+- Radio `rounded-pg-md` (8px) en todos los tamaños.
+- La forma **píldora** (`rounded-full`) se reserva para chips, badges, filtros y el buscador. No para botones
+  de acción.
+- Icono opcional a la derecha (flecha `→` o icono lucide de 16px) con `gap-2`. Si el icono es decorativo,
+  lleva `aria-hidden="true"`.
+- `w-full` solo dentro de cards o en móvil.
 
-### Type — intención semántica
+## 2.3 Estados
 
-Independiente del Style: un Primary/Negative y un Tertiary/Negative significan lo mismo con distinto peso.
+| Estado | Primary | Secondary |
+|--------|---------|-----------|
+| Default | `bg-pg-teal text-white` | `bg-white border-pg-teal text-pg-teal-dark` |
+| Hover | `bg-pg-teal-dark` | `bg-pg-tint` |
+| Pressed | `scale 0.97` (motion `whileTap`) | igual |
+| Focus | Anillo 2px `pg-teal-dark` con 2px de separación | igual |
+| Loading | Spinner de 16px + "Enviando…", `aria-busy="true"`, sin clics | igual |
+| Disabled | `bg-pg-line text-pg-slate`, cursor `not-allowed` | `border-pg-line text-pg-slate` |
 
-| Type | Color | Cuándo |
-|------|-------|--------|
-| **Main** | `#037de8` | Acción neutra — la gran mayoría de los botones |
-| **Positive** | `#00b04f` | Confirma o completa algo favorable ("Aprobar", "Publicar") |
-| **Warning** | `#cc8800` | Acción reversible pero con consecuencias ("Sobrescribir borrador") |
-| **Negative** | `#cb0000` | Acción destructiva o irreversible ("Eliminar"). **Siempre con paso de confirmación** |
-
-### Size
-
-| Size | Alto | Tipografía | Cuándo |
-|------|------|-----------|--------|
-| **S** | 20px | S — 12/16, Semi Bold | UI densa en escritorio: acciones de fila de tabla, toolbars compactas |
-| **M** | 40px | L — 16/24, Semi Bold | **Por defecto**: formularios, modales, cards |
-| **L** | 60px | 2XL — 20/28, Semi Bold | CTA de alto énfasis, pantallas táctiles, onboarding |
-
-Padding y tamaño de label escalan juntos. Nunca sobrescribir uno de ellos en una instancia.
-
-### State
-
-| State | Disparador | Cambio visual (Primary/Main) |
-|-------|-----------|------------------------------|
-| Default | Reposo | Relleno `--brand-500` |
-| Hover | Puntero encima | Relleno `--brand-600` (un paso más oscuro) |
-| Pressed | Click / toque | Relleno `--brand-700` (dos pasos más oscuro) |
-| Selected | Toggle activo persistente | `--brand-700` + acento `--brand-400`, distinto del Pressed momentáneo |
-| Focus | Foco de teclado | Anillo exterior de 2px en `--brand-400` |
-| Loading | Acción asíncrona en curso | 70 % de opacidad, label "Cargando…" (idealmente con spinner) |
-| Disabled | Acción no disponible | Relleno `--neutral-300`, label `--neutral-600`; mismo aspecto para todos los Types |
-
-En Figma, Focus y Loading solo existen para `Type=Main` (y Loading solo en Size M). En código los aplicamos
-a todos los Types y Sizes con el mismo patrón, que es la recomendación de la propia auditoría.
-
-## 2.3 Button_Icon
-
-- **Usar** cuando la acción se reconoce universalmente por su icono (cerrar, editar, eliminar, más/kebab,
-  expandir/colapsar) y falta espacio horizontal.
-- **Evitar** cuando la acción es ambigua: usar label visible o, como mínimo, un tooltip.
-- Mide lo mismo de alto que `Button` en cada Size (20/40/60px) y es cuadrado.
-- **Siempre** lleva nombre accesible (`aria-label`).
+Hoy **ningún botón tiene estilo de foco visible** (no hay clases `focus-visible:`). Es el pendiente de
+accesibilidad más importante: quien navega con teclado no ve dónde está.
 
 ## 2.4 Implementación de referencia
 
-```css
-.btn {
-  display: inline-flex; align-items: center; justify-content: center; gap: var(--space-s);
-  font: 600 var(--text-l)/var(--leading-l) var(--font-sans);
-  height: 40px; padding: 0 var(--space-m);
-  border-radius: var(--radius-sm); border: 1px solid transparent;
-  white-space: nowrap; cursor: pointer;
-  transition: transform var(--dur-micro-fast) var(--ease-expo),
-              background-color var(--dur-micro) var(--ease-standard),
-              border-color var(--dur-micro) var(--ease-standard),
-              color var(--dur-micro) var(--ease-standard),
-              box-shadow var(--dur-micro) var(--ease-standard);
+```tsx
+// src/app/components/Button.tsx
+import { motion } from "motion/react";
+import { cn } from "./ui/utils";
+
+const base =
+  "inline-flex items-center justify-center gap-2 rounded-pg-md font-semibold transition-colors " +
+  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pg-teal-dark focus-visible:ring-offset-2 " +
+  "disabled:cursor-not-allowed";
+
+const styles = {
+  primary:   "bg-pg-teal text-white hover:bg-pg-teal-dark disabled:bg-pg-line disabled:text-pg-slate",
+  secondary: "bg-white border border-pg-teal text-pg-teal-dark hover:bg-pg-tint disabled:border-pg-line disabled:text-pg-slate",
+  tertiary:  "text-pg-teal-dark hover:underline underline-offset-4 disabled:text-pg-slate",
+  inverse:   "bg-white text-pg-navy hover:bg-pg-cream focus-visible:ring-white focus-visible:ring-offset-pg-navy",
+  "inverse-secondary": "bg-white/5 border border-white/20 text-white hover:bg-white/10 focus-visible:ring-white focus-visible:ring-offset-pg-navy",
+};
+
+const sizes = {
+  s: "min-h-9 px-4 text-sm",
+  m: "min-h-11 px-5 text-sm",
+  l: "min-h-13 px-7 text-base",
+};
+
+export function Button({ variant = "primary", size = "m", loading, className, children, ...props }) {
+  return (
+    <motion.button
+      whileTap={{ scale: 0.97 }}
+      aria-busy={loading || undefined}
+      disabled={props.disabled || loading}
+      className={cn(base, styles[variant], sizes[size], tertiaryPadding(variant), className)}
+      {...props}
+    >
+      {children}
+    </motion.button>
+  );
 }
-.btn--s { height: 20px; padding: 0 var(--space-s); font-size: var(--text-s); line-height: var(--leading-s); }
-.btn--l { height: 60px; padding: 0 var(--space-l); font-size: var(--text-2xl); line-height: var(--leading-2xl); }
 
-.btn:active { transform: translateY(1px) scale(0.985); }
-.btn:focus-visible { outline: 2px solid var(--brand-400); outline-offset: 2px; }
-
-/* Primary */
-.btn--primary         { background: var(--btn-color); color: var(--neutral-white); }
-.btn--primary:hover   { background: var(--btn-color-hover); }
-.btn--primary:active  { background: var(--btn-color-pressed); }
-
-/* Secondary */
-.btn--secondary        { background: transparent; color: var(--btn-color); border-color: var(--btn-color); }
-.btn--secondary:hover  { background: rgba(3, 125, 232, 0.07); } /* Brand/500 al 7 % */
-
-/* Tertiary */
-.btn--tertiary         { background: transparent; color: var(--btn-color); padding-inline: var(--space-xxs); }
-.btn--tertiary:hover   { text-decoration: underline; }
-
-/* Type: define el color base que consumen los Styles */
-.btn               { --btn-color: var(--brand-500); --btn-color-hover: var(--brand-600); --btn-color-pressed: var(--brand-700); }
-.btn--positive     { --btn-color: var(--text-positive); }
-.btn--warning      { --btn-color: var(--text-warning); }
-.btn--negative     { --btn-color: var(--text-negative); }
-.btn--positive, .btn--warning, .btn--negative {
-  --btn-color-hover: var(--btn-color); --btn-color-pressed: var(--btn-color);
-}
-.btn--positive:hover, .btn--warning:hover, .btn--negative:hover { filter: brightness(0.92); }
-
-/* Loading */
-.btn[aria-busy="true"] { opacity: 0.7; pointer-events: none; }
-
-/* Disabled — igual para todos los Types */
-.btn:disabled {
-  background: var(--neutral-300); border-color: var(--neutral-300);
-  color: var(--neutral-600); cursor: not-allowed; transform: none;
-}
-.btn--tertiary:disabled { background: transparent; border-color: transparent; }
-
-/* Button_Icon */
-.btn--icon       { width: 40px; padding: 0; }
-.btn--icon.btn--s { width: 20px; }
-.btn--icon.btn--l { width: 60px; }
+const tertiaryPadding = (v) => (v === "tertiary" ? "px-1 min-h-0" : "");
 ```
 
-```html
-<button class="btn btn--primary">Guardar cambios</button>
-<button class="btn btn--secondary">Cancelar</button>
-<button class="btn btn--primary btn--negative">Eliminar perfil</button>
-<button class="btn btn--primary" aria-busy="true">Cargando…</button>
-<button class="btn btn--tertiary btn--icon" aria-label="Cerrar"><svg aria-hidden="true">…</svg></button>
-```
-
-> Para los Types semánticos, los estados Hover/Pressed no tienen tokens propios en Figma. Hasta que existan,
-> usar el mismo color base y marcar el hover con `filter: brightness(0.92)` en lugar de inventar un hex.
+El proyecto ya incluye `src/app/components/ui/button.tsx` (shadcn), pero con los colores por defecto de
+shadcn. Se puede adaptar ese archivo con estas variantes en lugar de crear uno nuevo.
 
 ## 2.5 Accesibilidad
 
-- **Contraste**: Primary (`#037de8` sobre blanco) y los rellenos semánticos cumplen WCAG AA con texto blanco.
-  Re‑verificar si cambia algún token.
-- **Teclado**: alcanzable con Tab y activable con Enter/Espacio. Foco siempre visible (`:focus-visible`).
-- **Lector de pantalla**: usar `<button>` nativo (o `role="button"`). `Button_Icon` con `aria-label`.
-- **Loading**: marcar con `aria-busy="true"` y evitar doble envío.
-- **Deshabilitado**: usar el atributo `disabled` (sale del orden de tabulación) y explicar el motivo con
-  texto de ayuda cercano si no es obvio.
-
-### Área táctil
-
-El tamaño S (20px) está por debajo del mínimo recomendado de 44×44px. Reglas:
-
-- En pantallas táctiles o móviles usar **M o L**.
-- Si S es inevitable, ampliar el área de toque sin cambiar el aspecto:
-
-```css
-.btn--s { position: relative; }
-.btn--s::after { content: ''; position: absolute; inset: -12px; }
-```
+- Usar `<button>` para acciones y `<a>` para navegación. No usar `<div onClick>`.
+- Área táctil mínima de **44×44px** en móvil (tamaño M o L).
+- Los enlaces externos (`target="_blank"`) deben avisar: icono de enlace externo + texto oculto
+  "(se abre en una pestaña nueva)".
+- Los botones de solo icono llevan `aria-label` ("Cerrar", "Menú").
+- Disabled: explicar el motivo con un texto de ayuda cercano si no es evidente.
+- En la página **Get Help** (líneas de crisis), los botones de llamada/texto usan `<a href="tel:…">` y
+  `<a href="sms:…">` y el tamaño L, para que se puedan tocar sin esfuerzo en un momento de estrés.
 
 ## 2.6 Do / Don't
 
 **Do**
-- Un solo Primary por pantalla o sección lógica.
-- Type acorde a la consecuencia real; Negative siempre con confirmación.
-- Labels cortos que empiecen con verbo: "Guardar cambios", no "Haz clic aquí para guardar tus cambios".
-- Un solo Size por superficie (no mezclar S y L en la misma fila).
+- Un Primary por sección, en teal.
+- Labels cortos que empiezan con verbo: "Ver curso", "Reservar sesión".
+- El mismo tamaño en todos los botones de una misma fila.
 
 **Don't**
-- Varios Primary en la misma sección.
-- Warning o Negative para acciones neutras "para llamar la atención".
-- Confiar solo en el estado Disabled para explicar por qué algo no está disponible.
-- Sobrescribir padding, radio o tamaño de fuente en una instancia: si ningún Size encaja, es un hueco del
-  sistema y se reporta.
-- Usar Tertiary para la acción principal de la página.
+- Botones en navy, sage o mist.
+- Mezclar botones píldora y rectangulares en la misma pantalla.
+- `whileHover` con escala mayor de 1.02 en botones: se siente inestable.
+- Texto de botón en 10–11px.

@@ -1,61 +1,64 @@
-**Add your own guidelines here**
-<!--
+# Parent Guidance — Guidelines
 
-System Guidelines
+Parent Guidance (parentguidance.org) supports families with mental health resources, coaching, courses and
+crisis help. The UI must feel warm, calm and trustworthy. Full guidelines (Spanish) live in
+`docs/guidelines/`; design tokens live in `docs/guidelines/tokens.css`.
 
-Use this file to provide the AI with rules and guidelines you want it to follow.
-This template outlines a few examples of things you can add. You can add your own sections and format it to suit your needs
+# General
 
-TIP: More context isn't always better. It can confuse the LLM. Try and add the most important rules you need
+* Use flexbox and grid for layout; avoid absolute positioning unless required (badges, overlays).
+* Keep components small; reuse `UnifiedCard` for any resource/course/series card.
+* Never hard-code hex colors, font sizes, radii or shadows. Use the `pg-*` tokens below.
+* Every page must work at 375px, 768px and 1280px.
 
-# General guidelines
+# Colors
 
-Any general rules you want the AI to follow.
-For example:
+* Page background: cream `#f9f4f1`. Cards/panels: white. Soft surfaces: tint `#eaf1f1`; hover `#f0f6f6`.
+* Headings and primary text: navy `#1c3243`. Body text: slate `#435766`.
+* Action color (buttons, links, active states): teal `#59797d`; hover/pressed: teal dark `#406064`.
+* Decorative accent: sage `#90b3b6` (color blocks, large icons). Never use sage or mist `#acbcbe` for text.
+* Borders and dividers: line `#dee8e9`.
+* On sage backgrounds use navy text, never white.
+* Small teal text on cream or tint must use teal dark `#406064` (contrast).
+* Do not use other hex values (no purples, no neutral greys, no pure black).
 
-* Only use absolute positioning when necessary. Opt for responsive and well structured layouts that use flexbox and grid by default
-* Refactor code as you go to keep code clean
-* Keep file sizes small and put helper functions and components in their own files.
+# Typography
 
---------------
+* Poppins only (400, 500, 600, 700).
+* Scale: display 38/50px bold · h1 28/40px medium · h2 24px bold · h3 20px bold · h4 16px bold ·
+  body-lg 16px · body 14px (default) · small 12px · eyebrow 11px semibold uppercase, tracking 0.12em.
+* Minimum text size 12px (only the uppercase eyebrow may be 11px).
+* Brand emphasis in headlines: one word in italics, same color.
 
-# Design system guidelines
-Rules for how the AI should make generations look like your company's design system
+# Layout
 
-Additionally, if you select a design system to use in the prompt box, you can reference
-your design system's components, tokens, variables and components.
-For example:
+* Container max-width 1280px; detail pages 1100px; long reading text 680px.
+* Horizontal padding: `px-6 md:px-10 lg:px-14`.
+* Section vertical padding: `py-14 md:py-20`. Alternate section backgrounds (cream, white, tint, navy)
+  instead of divider lines.
+* Grids degrade in steps: 4 → 2 → 1 or 3 → 2 → 1 columns.
+* Radii: buttons/inputs 8px · cards 16px · small panels 12px · hero blocks 28px · chips/badges/avatars full.
+* Shadows are navy-tinted: card `0 8px 24px rgba(28,50,67,0.06)`, card hover `0.14` opacity,
+  overlay `0 24px 60px rgba(28,50,67,0.28)`.
 
-* Use a base font-size of 14px
-* Date formats should always be in the format “Jun 10”
-* The bottom toolbar should only ever have a maximum of 4 items
-* Never use the floating action button with the bottom toolbar
-* Chips should always come in sets of 3 or more
-* Don't use a dropdown if there are 2 or fewer options
+# Buttons
 
-You can also create sub sections and add more specific details
-For example:
+* Primary: teal background, white text, 8px radius, Poppins semibold 14px, min height 44px; hover teal dark.
+* Secondary: white background, 1px teal border, teal-dark text; hover tint background.
+* Tertiary: teal-dark text only, underline on hover.
+* On navy backgrounds: white button with navy text (hover cream), or translucent white outline button.
+* Only one Primary button per section. Labels start with a verb ("View course", "Book a session").
+* Pill shape is only for chips, badges, filters and the search bar — not for action buttons.
+* Every button and link needs a visible focus style: 2px teal-dark ring with 2px offset.
+* Icon-only buttons need an `aria-label`. Minimum touch target 44×44px.
 
+# Motion
 
-## Button
-The Button component is a fundamental interactive element in our design system, designed to trigger actions or navigate
-users through the application. It provides visual feedback and clear affordances to enhance user experience.
-
-### Usage
-Buttons should be used for important actions that users need to take, such as form submissions, confirming choices,
-or initiating processes. They communicate interactivity and should have clear, action-oriented labels.
-
-### Variants
-* Primary Button
-  * Purpose : Used for the main action in a section or page
-  * Visual Style : Bold, filled with the primary brand color
-  * Usage : One primary button per section to guide users toward the most important action
-* Secondary Button
-  * Purpose : Used for alternative or supporting actions
-  * Visual Style : Outlined with the primary color, transparent background
-  * Usage : Can appear alongside a primary button for less important actions
-* Tertiary Button
-  * Purpose : Used for the least important actions
-  * Visual Style : Text-only with no border, using primary color
-  * Usage : For actions that should be available but not emphasized
--->
+* Use `motion/react`. Wrap the app in `<MotionConfig reducedMotion="user">`.
+* Scroll reveal: `initial={{ opacity: 0, y: 16 }}`, `whileInView={{ opacity: 1, y: 0 }}`,
+  `viewport={{ once: true, margin: "-60px" }}`, duration 0.55s, ease `[0.25, 0.46, 0.45, 0.94]`.
+* Stagger grid items by 0.06s (first 6 only). Do not animate the hero or the first visible block.
+* Buttons: `whileTap={{ scale: 0.97 }}`; hover color via Tailwind `hover:` classes.
+* Card hover: stronger shadow and at most `y: -2`. No scaling cards, no bouncy springs, no infinite
+  decorative animations.
+* No entrance animations on the Get Help (crisis) page — content must be visible immediately.

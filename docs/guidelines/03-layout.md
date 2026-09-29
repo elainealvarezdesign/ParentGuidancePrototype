@@ -1,105 +1,90 @@
-# 3. Layout y grid
+# 3. Layout
 
-Estructura, breakpoints y ritmo vertical. Colores, radios y tipografía vienen de [Fundamentos](./01-fundamentos.md);
-el movimiento, de [Movimiento](./04-movimiento.md).
+## 3.1 Contenedores
 
-## 3.1 Contenedor
+El prototipo usa varios anchos máximos (1280, 1180, 1100, 1024, 1000px…). Se consolidan en tres:
 
-Dos variables controlan todo el layout horizontal. No hay framework de 12 columnas.
+| Token | Ancho | Tailwind | Uso |
+|-------|-------|----------|-----|
+| `page` | 1280px | `max-w-pg-page` | Contenedor por defecto: navegación, secciones, grids de cards (36 usos) |
+| `content` | 1100px | `max-w-pg-content` | Páginas de detalle con columna lateral (curso, lección, pregunta) |
+| `reading` | 680px | `max-w-pg-reading` | Texto largo: legales, artículos, formularios de una columna |
 
-```css
-:root {
-  --wrap: 1160px;                                        /* ancho máximo de contenido */
-  --px: max(24px, calc((100vw - var(--wrap)) / 2));      /* margen lateral fluido, mínimo 24px */
-}
+### Márgenes laterales (gutter)
+
+El patrón que más se repite es:
+
+```tsx
+<section className="px-6 md:px-10 lg:px-14">
+  <div className="max-w-pg-page mx-auto">…</div>
+</section>
 ```
 
-- Fondos que deben llegar de borde a borde (barra de navegación, cabeceras con fondo): aplicar
-  `padding-inline: var(--px)` directamente.
-- Contenido: `max-width: var(--wrap); margin-inline: auto;`.
-- En móvil, el margen lateral mínimo es **16px** (`--px-mobile`), por debajo de 480px.
-- Nunca usar márgenes en px fijos para centrar contenido.
+- Móvil: 24px · Tablet (≥ 768): 40px · Desktop (≥ 1024): 56px.
+- El fondo de la sección llega de borde a borde; el contenido se centra dentro.
 
 ## 3.2 Breakpoints
 
-| Breakpoint | Dirección | Qué cambia |
-|------------|-----------|-----------|
-| 1200px | max‑width | Grids anchos de 3–4 columnas pasan a 2 |
-| 1024px | max‑width | Layouts de dos paneles (sidebar + contenido, 5fr/7fr) se apilan; KPIs de 4 pasan a 2 |
-| 768px | max‑width | Grids restantes a 1 columna; formularios en 2 columnas pasan a 1 |
-| 480px | max‑width | Todo apilado; KPIs a 1 columna; margen lateral 16px |
+Se usan los de Tailwind. El prototipo trabaja sobre todo con `md`:
 
-> **Degradación escalonada:** los grids multicolumna bajan primero a 2 columnas y luego a 1, nunca de N a 1
-> de golpe.
+| Prefijo | Desde | Qué cambia |
+|---------|-------|-----------|
+| (base) | 0 | Todo en una columna, gutter 24px, títulos en tamaño móvil |
+| `sm` | 640px | Grids de cards pasan a 2 columnas |
+| `md` | 768px | Títulos en tamaño desktop, navegación completa, layouts de 2 columnas |
+| `lg` | 1024px | Grids de 3–4 columnas, columna lateral en páginas de detalle, gutter 56px |
+| `xl` | 1280px | Solo ajustes finos; el contenedor ya está en su ancho máximo |
+
+**Degradación por etapas** (principio de Scalar): 4 → 2 → 1 o 3 → 2 → 1 columnas, nunca de 4 a 1 de golpe.
+
+```tsx
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+```
 
 ## 3.3 Ritmo vertical
 
-Los paddings de sección de marketing (96–150px) **no se usan**. En producto el espacio vertical se toma de
-la escala de espaciado:
+| Contexto | Móvil → desktop | Tailwind |
+|----------|-----------------|----------|
+| Sección estándar | 56 → 80px | `py-14 md:py-20` |
+| Sección compacta (listados, filtros) | 40 → 56px | `py-10 md:py-14` |
+| Hero de página | 64 → 96px | `py-16 md:py-24` |
+| Título de sección → contenido | 32px | `mb-8` |
+| Entre cards de un grid | 20px | `gap-5` |
+| Dentro de una card | 16px | `p-4`, `mt-2` entre textos |
 
-| Contexto | Espaciado | Token |
-|----------|-----------|-------|
-| Entre elementos de un grupo (label → campo, título → texto) | 8px | `--space-s` |
-| Entre campos o filas de un bloque | 16px | `--space-m` |
-| Padding interior de card / panel | 24px | `--space-l` |
-| Entre bloques de una página | 32px | `--space-xl` |
-| Entre secciones grandes / cabecera de página → contenido | 48px | `--space-48` |
-| Padding superior/inferior de la página | 48–64px | `--space-48` / `--space-64` |
+Las secciones se alternan por **color de fondo** (cream → white → tint → navy) en lugar de líneas divisorias.
 
 ## 3.4 Patrones de grid
 
-Elegir el patrón más cercano en lugar de inventar una proporción nueva.
+| Patrón | Clases | Uso |
+|--------|--------|-----|
+| Cards de recursos | `grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5` | Home, listados de series y cursos |
+| Cards destacadas | `grid-cols-1 md:grid-cols-3 gap-6` | Coaching, planes, profesionales |
+| Detalle + lateral | `grid-cols-1 lg:grid-cols-[1fr_320px] gap-10` | Curso, lección, pregunta |
+| Texto + imagen | `grid-cols-1 md:grid-cols-2 gap-10 items-center` | Heros y secciones explicativas |
+| Recursos de ayuda | `grid-cols-2 md:grid-cols-3 gap-4` | Logos de líneas de crisis en Get Help |
 
-| Patrón | `grid-template-columns` | Uso en Parent Guidance |
-|--------|-------------------------|------------------------|
-| Cabecera con acción | `1fr auto` | Título + botón(es) a la derecha; el texto ocupa el resto |
-| Título + descripción | `auto 1fr` | Título que abraza su contenido y descripción que llena |
-| Fila de KPIs | `repeat(4, 1fr)` | Cuatro métricas iguales |
-| Cards de contenido | `repeat(3, 1fr)` | Tres cards equivalentes (guías, recursos, perfiles) |
-| Dos columnas equilibradas | `1fr 1fr` | Formularios, comparaciones |
-| Lista + detalle | `5fr 7fr` | Panel estrecho junto a uno más ancho |
-| Contenido + lateral | `3fr 2fr` | Contenido principal con columna de apoyo |
-| Riel fijo + contenido | `260px 1fr` | Navegación lateral o filtros junto al contenido |
-| Contenido que puede desbordar | `minmax(0, 1.35fr) minmax(0, 1fr)` | Tablas o gráficos anchos; `minmax(0, …)` evita el overflow |
+## 3.5 Card estándar (`UnifiedCard`)
 
-**Regla:** si ningún patrón encaja, preferir una proporción asimétrica (5fr/7fr, 3fr/2fr) antes que una
-división exacta. Las divisiones iguales se reservan para KPIs y cards equivalentes.
+`UnifiedCard` es el patrón de card de referencia y conviene usarlo en todas las páginas:
 
-Gaps de grid: `--space-m` (16px) en UI densa, `--space-l` (24px) por defecto, `--space-xl` (32px) entre
-paneles grandes.
+- Fondo blanco, `rounded-pg-xl` (16px), borde `pg-line`, sombra `card`.
+- Imagen de 150px de alto arriba (`object-cover`, o `object-contain` con padding para logos).
+- Contenido con `p-4`: título `h4` navy, descripción `small` slate, metadatos `small` teal dark.
+- Botón Primary `w-full` anclado abajo (`mt-auto`), así todas las cards de una fila alinean su botón.
+- Badge opcional: píldora navy con texto blanco en la esquina superior izquierda.
 
-## 3.5 Divisores hairline
+Variante de color (home): bloque inferior en `pg-sage` con texto `pg-navy` (contraste 5.9:1). El texto blanco
+sobre sage no se permite.
 
-Seña de identidad del sistema: en lugar de cards con sombra y gutters, el grid se dibuja con bordes de
-1–2px compartidos. Es el patrón de card por defecto.
-
-```css
-/* Grid de cards sin doble borde: cada celda dibuja derecha + abajo; la primera columna añade izquierda */
-.card-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--rule); }
-.card-grid > * { border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: var(--space-l); }
-.card-grid > :nth-child(3n + 1) { border-left: 1px solid var(--rule); }
-
-/* Fila de KPIs: regla fuerte arriba y abajo, hairlines entre columnas */
-.kpis { display: grid; grid-template-columns: repeat(4, 1fr);
-        border-block: 2px solid var(--rule-heavy); }
-.kpi { padding: var(--space-l); border-right: 1px solid var(--rule); }
-.kpi:last-child { border-right: none; }
-
-/* Técnica del gap de 1px: más simple que bordes por celda */
-.cells { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); }
-.cells > * { background: var(--neutral-white); }
-```
-
-Hover en cards interactivos: solo cambio de fondo a `--neutral-100` (sin lift ni sombra, sin spotlight).
-
-> La técnica del gap de 1px es la más robusta cuando el número de columnas cambia por breakpoint, porque no
-> depende de selectores `nth-child`.
+Hover de cards clicables: sombra `card-hover` y, como mucho, `y: -2px`. Sin escalar la card.
 
 ## 3.6 Checklist para una pantalla nueva
 
-1. Centrar el contenido con `max-width: var(--wrap)` y `padding-inline: var(--px)`.
-2. Encabezado de página con un tamaño de la escala (4XL o 3XL) y, si hay acción principal, patrón `1fr auto`.
-3. Elegir el grid en la tabla 3.4.
-4. Separar contenido con divisores hairline antes de recurrir a sombras.
-5. Espaciado vertical desde la tabla 3.3.
-6. Añadir la degradación escalonada: 1024 → 2 columnas o apilar, 768 → apilar, 480 → una columna.
+1. Fondo de página `pg-cream`, contenedor `max-w-pg-page` con gutter `px-6 md:px-10 lg:px-14`.
+2. Un solo `display` o `h1` por página.
+3. Secciones con `py-14 md:py-20`, alternando el color de fondo.
+4. Grid tomado de la tabla 3.4, con degradación por etapas.
+5. Cards con `UnifiedCard`.
+6. Un Primary teal por sección.
+7. Revisar en 375px, 768px y 1280px.
