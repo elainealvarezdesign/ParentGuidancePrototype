@@ -117,10 +117,10 @@ function Sessions({ topic }: { topic: Topic }) {
             const spanish = s.language === "Español";
             return (
               <article key={s.title + s.time} className={`${card} flex gap-4 p-5`} lang={spanish ? "es" : undefined}>
-                <div className={`${font} w-16 shrink-0 rounded-xl bg-[#eaf1f1] py-2 text-center text-[#406064]`}>
-                  <span className="block text-[11px] font-semibold uppercase tracking-[0.1em]">{s.month}</span>
-                  <span className="block text-[26px] font-bold leading-tight text-[#1c3243]">{s.day}</span>
-                  <span className="block text-[11px] font-semibold uppercase tracking-[0.1em]">{s.weekday}</span>
+                <div className={`${font} flex h-[72px] w-[72px] shrink-0 flex-col items-center justify-center self-start rounded-xl bg-[#eaf1f1] text-center text-[#406064]`}>
+                  <span className="block text-[11px] font-semibold uppercase leading-none tracking-[0.1em]">{s.month}</span>
+                  <span className="my-1 block text-2xl font-bold leading-none text-[#1c3243]">{s.day}</span>
+                  <span className="block text-[11px] font-semibold uppercase leading-none tracking-[0.1em]">{s.weekday}</span>
                 </div>
                 <div className="flex min-w-0 flex-1 flex-col">
                   <h3 className={`${font} text-[15px] font-bold leading-snug text-[#1c3243]`}>{s.title}</h3>
