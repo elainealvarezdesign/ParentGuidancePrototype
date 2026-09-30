@@ -654,8 +654,8 @@ function ContentPage({ state, district, onReset }: { state: string; district: st
               <div className="bg-[#90b3b6] h-[20px] rounded-[9999px] w-[4px]" />
               <p className="font-['Poppins',sans-serif] font-semibold leading-[28px] text-[#1c3243] text-[18px] whitespace-nowrap">Monthly Calendar</p>
             </div>
-            <motion.a
-              href="#"
+            <MotionLink
+              to="/mental-health-series/events"
               className="relative rounded-[14px] shrink-0 flex gap-[8px] items-center px-[21px] py-[9px] no-underline"
               style={{ border: "1px solid #90b3b6" }}
               whileHover={{ scale: 1.03, backgroundColor: "#59797d", color: "#fff" }}
@@ -665,7 +665,7 @@ function ContentPage({ state, district, onReset }: { state: string; district: st
               <svg className="relative shrink-0 size-[13px]" fill="none" viewBox="0 0 13 13">
                 <path d={svgPaths.p2d0d8080} stroke="#59797D" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.08333" />
               </svg>
-            </motion.a>
+            </MotionLink>
           </div>
           <Calendar />
         </section>
