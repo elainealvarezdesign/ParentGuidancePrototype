@@ -7,6 +7,9 @@ import imgImageDrKevinSkinner from "@/imports/ParentCoaching-1/f73b6da28c9de1bc7
 import imgImageDrAyannaAbrams from "@/imports/ParentCoaching-1/4ae6e6a5882781f770da126f3d55e6d0598e2dcc.png";
 import imgImageDrJamesBerry from "@/imports/ParentCoaching-1/a8af2d71a7869f81a13a31906cb46acc027f51d4.png";
 
+/** Noble Health sign-up for Parent Guidance coaching */
+const SIGN_UP_URL = "https://app.noble.health/auth/parent-guidance/default/get-started?lang=en";
+
 /* ─── Data ─── */
 const BENEFITS = [
   {
@@ -194,8 +197,9 @@ export default function ParentCoachingPage() {
               {" — so you can show up for your child with confidence, clarity, and real tools."}
             </p>
             <div className="flex items-center gap-3">
-              <ButtonAnchor href="#how-it-works">
+              <ButtonAnchor href={SIGN_UP_URL} target="_blank" rel="noopener noreferrer">
                 Sign up now!
+                <span className="sr-only"> (opens in a new tab)</span>
               </ButtonAnchor>
               <ButtonAnchor href="#how-it-works" variant="secondary">
                 How it works
@@ -363,9 +367,10 @@ export default function ParentCoachingPage() {
               </div>
             </div>
 
-            <Button className="mt-10">
+            <ButtonAnchor href={SIGN_UP_URL} target="_blank" rel="noopener noreferrer" className="mt-10">
               Start Now!
-            </Button>
+              <span className="sr-only"> (opens in a new tab)</span>
+            </ButtonAnchor>
           </div>
         </div>
       </section>
