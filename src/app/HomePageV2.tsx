@@ -107,14 +107,13 @@ function FaqRow({ item, index }: { item: typeof FAQS[0]; index: number }) {
   const [open, setOpen] = useState(item.defaultOpen);
   return (
     <motion.div
-      className="bg-white rounded-pg-md shadow-pg-card overflow-hidden cursor-pointer"
+      className="bg-white rounded-pg-md shadow-pg-card overflow-hidden"
       initial={{ opacity: 0, y: 18 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.35, delay: index * 0.05 }}
-      onClick={() => setOpen((o) => !o)}
     >
-      <div className="flex items-center justify-between px-8 py-6">
+      <button type="button" aria-expanded={open} onClick={() => setOpen((o) => !o)} className="w-full text-left flex items-center justify-between px-8 py-6">
         <span className="font-['Poppins',sans-serif] font-bold text-pg-navy text-lg leading-snug opacity-88 flex-1 pr-4">
           {item.question}
         </span>
@@ -124,7 +123,7 @@ function FaqRow({ item, index }: { item: typeof FAQS[0]; index: number }) {
             <div className="absolute left-1/2 top-0 h-full w-[3px] bg-pg-navy rounded-full opacity-80 -translate-x-1/2" />
           </div>
         </motion.div>
-      </div>
+      </button>
       <motion.div
         initial={false}
         animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }}

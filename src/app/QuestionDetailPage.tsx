@@ -222,7 +222,7 @@ export default function QuestionDetailPage() {
       </div>
 
       {/* ── Body ── */}
-      <div className="flex-1 max-w-pg-page mx-auto w-full px-6 py-8 flex gap-6">
+      <div className="flex-1 max-w-pg-page mx-auto w-full px-6 md:px-10 py-8 flex flex-col lg:flex-row gap-6">
 
         {/* ── Left: video + transcript ── */}
         <div className="flex-1 flex flex-col gap-5 min-w-0">
@@ -358,11 +358,11 @@ export default function QuestionDetailPage() {
           </div>
 
           {/* ── Previous / Next ── */}
-          <div className="flex items-center gap-3">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-3">
             {prevQ ? (
               <Link
                 to={`/ask-a-therapist/${prevQ.id}`}
-                className="flex-1 no-underline"
+                className="flex-1 min-w-0 no-underline"
               >
                 <motion.div
                   className="flex items-center gap-3 bg-white border border-pg-line rounded-pg-lg p-4 hover:border-pg-sage transition-colors group"
@@ -375,12 +375,12 @@ export default function QuestionDetailPage() {
                   </div>
                 </motion.div>
               </Link>
-            ) : <div className="flex-1" />}
+            ) : <div className="hidden sm:block flex-1" />}
 
             {nextQ ? (
               <Link
                 to={`/ask-a-therapist/${nextQ.id}`}
-                className="flex-1 no-underline"
+                className="flex-1 min-w-0 no-underline"
               >
                 <motion.div
                   className="flex items-center gap-3 bg-white border border-pg-line rounded-pg-lg p-4 hover:border-pg-sage transition-colors group text-right"
@@ -393,12 +393,12 @@ export default function QuestionDetailPage() {
                   <ChevronRight size={16} className="text-pg-slate group-hover:text-pg-teal transition-colors shrink-0" />
                 </motion.div>
               </Link>
-            ) : <div className="flex-1" />}
+            ) : <div className="hidden sm:block flex-1" />}
           </div>
         </div>
 
         {/* ── Right sidebar ── */}
-        <div className="w-[300px] shrink-0 flex flex-col gap-4">
+        <div className="w-full lg:w-[300px] shrink-0 flex flex-col gap-4">
 
           {/* Therapist card */}
           <div className="bg-white rounded-pg-xl border border-pg-line p-5 flex flex-col gap-3" style={{ boxShadow: "0 8px 24px rgba(28,50,67,0.06)" }}>

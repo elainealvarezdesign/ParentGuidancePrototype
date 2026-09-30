@@ -24,6 +24,8 @@ import imgCookCenter from "@/imports/CCHC_Logo-greyscale-1.png";
 import imgStaffGuidance from "@/imports/StaffGuidance.png";
 import imgElizaChat from "@/imports/elizachat_logo_horizontal.svg";
 
+const MotionLink = motion.create(Link);
+
 const imgHeroBanner =
   "https://images.unsplash.com/photo-1560707856-3af2ff5ea652?auto=format&fit=crop&w=1400&h=900&q=80";
 
@@ -105,14 +107,13 @@ function FaqItem({ item, index }: { item: typeof FAQS[0]; index: number }) {
   const [open, setOpen] = useState(item.defaultOpen);
   return (
     <motion.div
-      className="bg-white rounded-pg-md shadow-pg-card overflow-hidden cursor-pointer"
+      className="bg-white rounded-pg-md shadow-pg-card overflow-hidden"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.55, delay: index * 0.06 }}
-      onClick={() => setOpen((o) => !o)}
     >
-      <div className="flex items-center justify-between px-8 py-6">
+      <button type="button" aria-expanded={open} onClick={() => setOpen((o) => !o)} className="w-full text-left flex items-center justify-between px-8 py-6">
         <span className="font-['Poppins',sans-serif] font-bold text-pg-navy text-lg leading-snug opacity-88 flex-1 pr-4">
           {item.question}
         </span>
@@ -126,7 +127,7 @@ function FaqItem({ item, index }: { item: typeof FAQS[0]; index: number }) {
             <div className="absolute left-1/2 top-0 h-full w-[3px] bg-pg-navy rounded-full opacity-80 -translate-x-1/2" />
           </div>
         </motion.div>
-      </div>
+      </button>
       <motion.div
         initial={false}
         animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }}
@@ -183,7 +184,7 @@ export default function HomePageV1() {
   const right = FAQS.slice(Math.ceil(FAQS.length / 2));
 
   return (
-    <main className="pt-14 bg-pg-cream min-h-screen">
+    <main className="pt-14 bg-pg-cream min-h-screen overflow-x-clip">
       {/* ── HERO ── */}
       <section className="bg-pg-cream overflow-hidden">
         <div className="max-w-pg-page mx-auto px-6 md:px-10 lg:px-14 py-14 md:py-20">
@@ -317,8 +318,9 @@ export default function HomePageV1() {
               </div>
             </motion.div>
 
-            <motion.div
-              className="group relative overflow-hidden rounded-pg-2xl min-h-[340px] cursor-pointer"
+            <MotionLink
+              to="/ask-a-therapist"
+              className="group relative block overflow-hidden rounded-pg-2xl min-h-[340px] no-underline"
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
@@ -339,11 +341,11 @@ export default function HomePageV1() {
                     Licensed clinicians, ready when you are.
                   </p>
                 </div>
-                <span className="shrink-0 w-12 h-12 rounded-full bg-white text-pg-navy flex items-center justify-center transition-transform duration-(--pg-dur-base) group-hover:translate-x-1">
+                <span className="shrink-0 w-12 h-12 rounded-full bg-white text-pg-navy flex items-center justify-center transition-transform duration-(--pg-dur-base) group-hover:translate-x-1" aria-hidden="true">
                   <ArrowRight size={18} />
                 </span>
               </div>
-            </motion.div>
+            </MotionLink>
           </div>
         </div>
       </section>

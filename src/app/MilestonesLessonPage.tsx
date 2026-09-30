@@ -219,17 +219,17 @@ export default function MilestonesLessonPage() {
           <Link to="/on-demand-courses" className="font-['Poppins',sans-serif] text-xs text-pg-teal-dark hover:text-pg-navy no-underline transition-colors shrink-0">
             ← Back to courses
           </Link>
-          <ChevronRight size={13} className="text-pg-slate shrink-0" />
-          <Link to={`/courses/${COURSE_SLUG}`} className="font-['Poppins',sans-serif] text-xs text-pg-teal-dark hover:text-pg-navy no-underline transition-colors truncate">
+          <ChevronRight size={13} className="text-pg-slate shrink-0 hidden sm:block" />
+          <Link to={`/courses/${COURSE_SLUG}`} className="font-['Poppins',sans-serif] text-xs text-pg-teal-dark hover:text-pg-navy no-underline transition-colors truncate min-w-0 hidden sm:block">
             {COURSE_TITLE}
           </Link>
           <ChevronRight size={13} className="text-pg-slate shrink-0" />
-          <span className="font-['Poppins',sans-serif] text-xs font-semibold text-pg-navy shrink-0">{lesson.title}</span>
+          <span className="font-['Poppins',sans-serif] text-xs font-semibold text-pg-navy truncate min-w-0">{lesson.title}</span>
         </div>
       </div>
 
       {/* Main layout */}
-      <div className="flex-1 max-w-pg-page mx-auto w-full px-6 py-6 flex gap-6">
+      <div className="flex-1 max-w-pg-page mx-auto w-full px-6 py-6 flex flex-col lg:flex-row gap-6">
 
         {/* Left: video + content */}
         <div className="flex-1 flex flex-col gap-4 min-w-0">
@@ -374,8 +374,8 @@ export default function MilestonesLessonPage() {
         </div>
 
         {/* Right sidebar */}
-        <div className="w-[280px] shrink-0">
-          <div className="bg-white rounded-pg-xl border border-pg-line overflow-hidden sticky top-20" style={{ boxShadow: "0 8px 24px rgba(28,50,67,0.06)" }}>
+        <div className="w-full lg:w-[280px] shrink-0">
+          <div className="bg-white rounded-pg-xl border border-pg-line overflow-hidden lg:sticky lg:top-20" style={{ boxShadow: "0 8px 24px rgba(28,50,67,0.06)" }}>
             <div className="p-4 border-b border-pg-line">
               <p className="font-['Poppins',sans-serif] font-bold text-pg-navy text-sm">Course outline</p>
               <div className="mt-2 flex items-center gap-2">
@@ -433,12 +433,14 @@ export default function MilestonesLessonPage() {
 
       {/* Bottom nav */}
       <div className="border-t border-pg-line bg-white shrink-0">
-        <div className="max-w-pg-page mx-auto px-6 h-16 flex items-center justify-between">
+        <div className="max-w-pg-page mx-auto px-6 h-16 flex items-center justify-between gap-3">
           {prevLesson ? (
             <motion.button onClick={() => goToLesson(prevLesson.id)}
               className="flex items-center gap-1.5 font-['Poppins',sans-serif] font-medium text-sm text-pg-teal hover:text-pg-teal-dark transition-colors"
               whileTap={{ scale: 0.97 }}>
-              <ChevronLeft size={15} /> {prevLesson.title}
+              <ChevronLeft size={15} aria-hidden="true" />
+              <span className="sm:hidden">Previous</span>
+              <span className="hidden sm:inline">{prevLesson.title}</span>
             </motion.button>
           ) : (
             <Link to={`/courses/${COURSE_SLUG}`} className="font-['Poppins',sans-serif] text-sm text-pg-teal hover:text-pg-teal-dark no-underline transition-colors">
@@ -446,9 +448,9 @@ export default function MilestonesLessonPage() {
             </Link>
           )}
 
-          <div className="flex items-center gap-1.5">
+          <div className="hidden sm:flex items-center gap-1.5">
             {LESSONS.map(l => (
-              <button key={l.id} onClick={() => goToLesson(l.id)}
+              <button key={l.id} onClick={() => goToLesson(l.id)} aria-label={l.title} aria-current={l.id === lesson.id ? "step" : undefined}
                 className={`rounded-full transition-all duration-(--pg-dur-fast) ${l.id === lesson.id ? "w-5 h-2 bg-pg-navy" : completed.has(l.id) ? "w-2 h-2 bg-pg-teal" : "w-2 h-2 bg-pg-mist hover:bg-pg-sage"}`}
               />
             ))}

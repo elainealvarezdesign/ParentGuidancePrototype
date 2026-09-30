@@ -482,9 +482,9 @@ export default function OnDemandCoursesPage() {
 
       {/* ── Sticky filter bar ── */}
       <div className="bg-white border-b border-pg-line sticky top-14 z-30" style={{ boxShadow: "0 8px 24px rgba(28,50,67,0.06)" }}>
-        <div className="max-w-pg-page mx-auto px-10 py-3 flex items-center gap-4">
+        <div className="max-w-pg-page mx-auto px-6 md:px-10 py-3 flex flex-wrap md:flex-nowrap items-center gap-3 md:gap-4">
           {/* Search */}
-          <div className="relative shrink-0 w-64">
+          <div className="relative min-w-0 flex-1 md:flex-none md:w-64">
             <svg className="absolute left-3 top-1/2 -translate-y-1/2 text-pg-slate" width="14" height="14" viewBox="0 0 16.732 16.732" fill="none">
               <g>
                 <path d={svgPaths.p40de600} stroke="#acbcbe" strokeWidth="1.394" />
@@ -507,7 +507,7 @@ export default function OnDemandCoursesPage() {
           </div>
 
           {/* Topic pills — scrollable */}
-          <div ref={topicsRef} className="flex items-center gap-1.5 overflow-x-auto flex-1 scrollbar-hide py-0.5">
+          <div ref={topicsRef} className="order-last basis-full md:order-none md:basis-auto flex items-center gap-1.5 overflow-x-auto flex-1 min-w-0 scrollbar-hide py-0.5">
             {TOPICS.map(t => (
               <button
                 key={t}

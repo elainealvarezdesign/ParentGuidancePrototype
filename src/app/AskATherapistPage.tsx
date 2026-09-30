@@ -347,7 +347,7 @@ export default function AskATherapistPage() {
   }
 
   return (
-    <div className="bg-pg-cream min-h-screen">
+    <div className="bg-pg-cream min-h-screen overflow-x-clip">
 
       {/* ── HERO ── */}
      {/* — HERO — */}
@@ -432,10 +432,10 @@ export default function AskATherapistPage() {
   className="bg-white border-y border-pg-cream-dark sticky top-14 z-30"
   style={{ boxShadow: "0 8px 24px rgba(28,50,67,0.06)" }}
 >
-  <div className="max-w-pg-page mx-auto px-6 md:px-10 py-3 flex items-center gap-4">
+  <div className="max-w-pg-page mx-auto px-6 md:px-10 py-3 flex flex-wrap md:flex-nowrap items-center gap-3 md:gap-4">
 
     {/* Search */}
-    <div className="relative shrink-0 w-64">
+    <div className="relative min-w-0 flex-1 md:flex-none md:w-64">
       <Search
         size={14}
         className="absolute left-3 top-1/2 -translate-y-1/2 text-pg-sage"
@@ -461,7 +461,7 @@ export default function AskATherapistPage() {
     </div>
 
     {/* Category filters */}
-    <div className="flex items-center gap-2 overflow-x-auto flex-1 py-0.5">
+    <div className="order-last basis-full md:order-none md:basis-auto flex items-center gap-2 overflow-x-auto flex-1 min-w-0 py-0.5">
       {CATEGORIES.map((category) => {
         const selected = activeCategory === category;
 
@@ -501,10 +501,10 @@ export default function AskATherapistPage() {
 </section>
       {/* ── MAIN CONTENT ── */}
       <section className="bg-pg-tint-soft py-14">
-        <div className="max-w-pg-page mx-auto px-14 flex gap-8 items-start">
+        <div className="max-w-pg-page mx-auto px-6 md:px-10 lg:px-14 flex flex-col lg:flex-row gap-8 items-stretch lg:items-start">
 
           {/* LEFT SIDEBAR */}
-          <div className="w-[248px] shrink-0 flex flex-col gap-5 sticky top-20">
+          <div className="w-full lg:w-[248px] shrink-0 flex flex-col gap-5 lg:sticky lg:top-20">
 
             {/* Submit card */}
             <motion.div
@@ -537,7 +537,7 @@ export default function AskATherapistPage() {
 
             {/* Sidebar photo */}
             <motion.div
-              className="relative overflow-hidden rounded-pg-xl"
+              className="relative overflow-hidden rounded-pg-xl hidden lg:block"
               style={{ height: "190px" }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -560,7 +560,7 @@ export default function AskATherapistPage() {
           <div className="flex-1 min-w-0">
 
             {/* Section header */}
-            <div className="flex items-center justify-between mb-5">
+            <div className="flex flex-wrap items-center justify-between gap-3 mb-5">
               <div className="flex items-center gap-2.5">
                 <div className="w-1 h-5 rounded-full bg-pg-sage" />
                 <span className="font-['Poppins',sans-serif] font-semibold text-pg-navy text-lg">Browse All</span>
@@ -571,13 +571,13 @@ export default function AskATherapistPage() {
                 </div>
               </div>
               {/* Search */}
-              <div className="relative">
+              <div className="relative w-full sm:w-auto">
                 <Search size={13} className="absolute left-3 top-1/2 -translate-y-1/2 text-pg-slate pointer-events-none" />
                 <input
                   value={search}
                   onChange={e => handleSearch(e.target.value)}
                   placeholder="Search questions…"
-                  className="font-['Poppins',sans-serif] text-[12px] text-pg-navy placeholder:text-pg-teal border border-pg-line rounded-pg-md pl-8 pr-4 py-2 w-[200px] outline-none focus:border-pg-sage bg-white transition-colors"
+                  className="font-['Poppins',sans-serif] text-[12px] text-pg-navy placeholder:text-pg-teal border border-pg-line rounded-pg-md pl-8 pr-4 py-2 w-full sm:w-[200px] outline-none focus:border-pg-sage bg-white transition-colors"
                 />
               </div>
             </div>
@@ -604,7 +604,7 @@ export default function AskATherapistPage() {
 
             {/* Q&A Grid */}
             {paginated.length > 0 ? (
-              <div className="grid grid-cols-3 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
                 {paginated.map((item, i) => (
                   <QACard key={item.id} item={item} index={i} />
                 ))}
@@ -626,7 +626,7 @@ export default function AskATherapistPage() {
 
             {/* Pagination */}
             {totalPages > 1 && (
-              <div className="flex items-center justify-center gap-2 mt-10">
+              <div className="flex flex-wrap items-center justify-center gap-2 mt-10">
                 <motion.button
                   onClick={() => setPage(p => Math.max(1, p - 1))}
                   disabled={page === 1}
@@ -668,11 +668,10 @@ export default function AskATherapistPage() {
       </section>
 
       {/* ── CTA BANNER ── */}
-      <section className="bg-pg-sage px-14 py-14">
-        <div className="max-w-pg-page mx-auto flex items-center gap-12">
+      <section className="bg-pg-sage px-6 md:px-10 lg:px-14 py-14">
+        <div className="max-w-pg-page mx-auto flex flex-col md:flex-row md:items-center gap-8 lg:gap-12">
           <motion.div
-            className="relative overflow-hidden rounded-pg-xl shrink-0"
-            style={{ width: "420px", height: "210px" }}
+            className="relative overflow-hidden rounded-pg-xl shrink-0 w-full md:w-[340px] lg:w-[420px] h-[210px]"
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.35 }}
           >
@@ -691,7 +690,7 @@ export default function AskATherapistPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.55 }}
           >
-            <h2 className="font-['Poppins',sans-serif] font-bold text-pg-navy text-4xl leading-tight max-w-md">
+            <h2 className="font-['Poppins',sans-serif] font-bold text-pg-navy text-3xl md:text-4xl leading-tight max-w-md">
               Looking for additional help?
             </h2>
             <p className="font-['Poppins',sans-serif] text-pg-navy text-sm leading-relaxed max-w-sm">

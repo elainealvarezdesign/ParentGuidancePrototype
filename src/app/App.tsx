@@ -414,6 +414,7 @@ const resourceCards = [
   {
     img: imgRectangle75,
     overlay: true,
+    to: "/mental-health-series",
     title: "Mental Health\nSeries",
     desc: "Dive into a wealth of knowledge tailored for parents",
     color: "var(--pg-navy)",
@@ -421,6 +422,7 @@ const resourceCards = [
   {
     img: imgRectangle76,
     overlay: false,
+    to: "/parent-coaching",
     title: "Coaching for\nLasting changes",
     desc: "Dive into a wealth of knowledge tailored for parents",
     color: "var(--pg-navy)",
@@ -428,6 +430,7 @@ const resourceCards = [
   {
     img: imgRectangle77,
     overlay: true,
+    to: "/on-demand-courses",
     title: "On-demand\nCourses",
     desc: "Dive into a wealth of knowledge tailored for parents",
     color: "var(--pg-navy)",
@@ -435,19 +438,23 @@ const resourceCards = [
   {
     img: imgRectangle78,
     overlay: false,
+    to: "/mental-health-series",
     title: "Mental Health\nSeries",
     desc: "Dive into a wealth of knowledge tailored for parents",
     color: "var(--pg-navy)",
   },
 ];
 
+const MotionLink = motion.create(Link);
+
 function ResourceCard({ card, index }: { card: typeof resourceCards[0]; index: number }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
   return (
-    <motion.div
+    <MotionLink
       ref={ref}
-      className="bg-pg-sage rounded-t-pg-xl w-full lg:w-44 flex-shrink-0 overflow-hidden cursor-pointer"
+      to={card.to}
+      className="group block no-underline bg-pg-sage rounded-t-pg-xl w-full lg:w-44 flex-shrink-0 overflow-hidden"
       initial={{ opacity: 0, y: 40 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.55, delay: index * 0.1 }}
@@ -456,12 +463,7 @@ function ResourceCard({ card, index }: { card: typeof resourceCards[0]; index: n
       <div className="h-32 relative overflow-hidden rounded-t-pg-md">
         <img src={card.img} alt="" className="w-full h-full object-cover rounded-t-pg-md" />
         {card.overlay && <div className="absolute inset-0 bg-black/20 rounded-t-pg-md" />}
-        <motion.div
-          className="absolute inset-0 bg-pg-sage/20"
-          initial={{ opacity: 0 }}
-          whileHover={{ opacity: 1 }}
-          transition={{ duration: 0.22 }}
-        />
+        <div className="absolute inset-0 bg-pg-sage/20 opacity-0 transition-opacity duration-(--pg-dur-fast) group-hover:opacity-100 group-focus-visible:opacity-100" />
       </div>
       <div className="px-4 pt-3 pb-4 flex flex-col gap-2">
         <p
@@ -473,9 +475,9 @@ function ResourceCard({ card, index }: { card: typeof resourceCards[0]; index: n
         <p className="font-['Poppins',sans-serif] text-xs leading-normal" style={{ color: card.color }}>
           {card.desc}
         </p>
-        <p className="font-['Poppins',sans-serif] font-medium text-xs text-pg-navy underline">Learn More</p>
+        <span className="font-['Poppins',sans-serif] font-medium text-xs text-pg-navy underline">Learn More</span>
       </div>
-    </motion.div>
+    </MotionLink>
   );
 }
 
@@ -489,9 +491,9 @@ function ResourceSection() {
           ))}
         </div>
         <FadeIn className="flex justify-end mt-3">
-          <a href="#" className="font-['Poppins',sans-serif] text-sm text-pg-teal-dark underline hover:text-pg-teal transition-colors">
+          <Link to="/mental-health-series" className="font-['Poppins',sans-serif] text-sm text-pg-teal-dark underline hover:text-pg-teal transition-colors">
             view more
-          </a>
+          </Link>
         </FadeIn>
       </div>
     </section>
@@ -593,14 +595,13 @@ function FaqItem({ item, index }: { item: typeof faqs[0]; index: number }) {
   return (
     <motion.div
       ref={ref}
-      className="bg-white rounded-pg-md shadow-pg-card overflow-hidden cursor-pointer"
+      className="bg-white rounded-pg-md shadow-pg-card overflow-hidden"
       initial={{ opacity: 0, y: 20 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.55, delay: index * 0.06 }}
       whileHover={{ boxShadow: "0 24px 60px rgba(28,50,67,0.28)" }}
-      onClick={() => setOpen((o) => !o)}
     >
-      <div className="flex items-center justify-between px-5 md:px-8 py-5 md:py-6">
+      <button type="button" aria-expanded={open} onClick={() => setOpen((o) => !o)} className="w-full text-left flex items-center justify-between px-5 md:px-8 py-5 md:py-6">
         <span className="font-['Poppins',sans-serif] font-bold text-pg-navy text-lg leading-snug opacity-88 flex-1 pr-4">
           {item.question}
         </span>
@@ -614,7 +615,7 @@ function FaqItem({ item, index }: { item: typeof faqs[0]; index: number }) {
             <div className="absolute left-1/2 top-0 h-full w-[3px] bg-pg-navy rounded-full opacity-80 -translate-x-1/2" />
           </div>
         </motion.div>
-      </div>
+      </button>
       <motion.div
         initial={false}
         animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }}
@@ -901,7 +902,7 @@ function Footer() {
 /* ── Home page ── */
 function HomePage() {
   return (
-    <div className="bg-pg-cream min-h-screen">
+    <div className="bg-pg-cream min-h-screen overflow-x-clip">
       <Hero />
       <ResourceSection />
       <WhySection />
