@@ -1,6 +1,6 @@
 # 1. Fundamentos
 
-Todos los valores están en [`tokens.css`](./tokens.css) como variables CSS y como clases de Tailwind
+Todos los valores están en [`tokens.css`](../../src/styles/tokens.css) como variables CSS y como clases de Tailwind
 (`bg-pg-navy`, `text-pg-slate`, etc.). Entre paréntesis, el número de veces que aparece hoy cada valor en el
 prototipo.
 
@@ -40,8 +40,8 @@ sobre blanco y crema; conviene validarlos en Figma antes de usarlos de forma gen
 | Aviso | `#8a5a1c` `pg-warning` | `#f7eddc` `pg-warning-soft` | 5.9:1 blanco · 5.4:1 crema |
 | Error | `#b42318` `pg-error` | `#fdecea` `pg-error-soft` | 6.6:1 blanco · 6.0:1 crema |
 
-El verde `#52bd95` (punto "en vivo") y el ámbar `#c8893a` (lecciones) que ya existen pueden quedarse como
-**rellenos decorativos**, pero no como texto: 2.3:1 y 3.0:1.
+El verde `#52bd95` (punto "en vivo", token `pg-live`) y el ámbar `#c8893a` (lecciones, token `pg-amber`) se
+mantienen como **rellenos decorativos**, pero no como texto: 2.3:1 y 3.0:1.
 
 ### Combinaciones de contraste aprobadas
 

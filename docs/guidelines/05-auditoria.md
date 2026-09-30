@@ -25,36 +25,37 @@ Está ordenada por impacto.
 | ✅ ~~Home desborda en móvil~~ | Home | **Resuelto**: título que ajusta línea, cards en 2×2, filas imagen+texto y FAQ apiladas |
 | Scroll horizontal en móvil (390px) | Home V1, On-Demand Courses, Ask a Therapist, pregunta, lección de Milestones | Heros y filas de filtros con anchos fijos. Hacerlos responsive o dejar que la fila de filtros haga scroll dentro de su contenedor |
 
-## 5.2 Colores fuera de paleta
+## 5.2 Colores fuera de paleta ✅
 
-| Hex actual | Usos | Dónde | Reemplazar por |
-|------------|------|-------|----------------|
-| `#1b1139` (morado muy oscuro) | 17 | App, HomePageV2, AskATherapist | `pg-navy` `#1c3243` |
-| `#2c3e50` | 7 | App, Home V1/V2 | `pg-navy` |
-| `#0d1b2a` | 3 | Lesson, MilestonesLesson, QuestionDetail | `pg-navy` |
-| `#363049`, `#293a41` | 6 | Varios | `pg-navy` |
-| `#58595b`, `#333`, `#333333` | 9 | App | `pg-slate` `#435766` |
-| `#6f9296`, `#76979a`, `#7da3a6`, `#4a6b6f` | 9 | Hovers varios | `pg-teal` o `pg-teal-dark` |
-| `#97b4b5`, `#a1bfb9` | 5 | Decoración | `pg-sage` `#90b3b6` |
-| `#e8f1f1`, `#dceced`, `#edf5f5` | 22 | Fondos suaves | `pg-tint` `#eaf1f1` |
-| `#f5f5f5`, `#f7f7f7`, `#f0f0f0`, `#fafafa`, `#f9f9f9` | 22 | Fondos grises | `pg-tint-soft` o `white` (el gris neutro no pertenece a la marca) |
-| `#e8ebed`, `#dde0e0`, `#e0e0e0`, `#dedcdc` | 16 | Bordes | `pg-line` `#dee8e9` |
-| `#ebe8e5`, `#f1eeee`, `#ebe8eb` | 9 | Divisores sobre crema | `pg-cream-dark` `#f0edeb` |
-| `#c8893a`, `#b5782f`, `#8d6b3a` | 9 | Lecciones (acento ámbar) | Relleno: dejar `#c8893a`; texto: `pg-warning` `#8a5a1c` |
-| `#52bd95` | 3 | Punto "en vivo" | Se mantiene como relleno decorativo |
-| `#6b5c8d`, `#e8a497` | 4 | MentalHealthSeries, HomeV2 | Revisar si son intencionales; si no, `pg-teal` / `pg-sage` |
+**Resuelto.** Las ~1.140 clases de color con hex (90 valores distintos) usan ahora los tokens `pg-*`. Los tonos
+fuera de paleta se consolidaron así:
+
+| Antes | Ahora |
+|-------|-------|
+| `#1b1139`, `#2c3e50`, `#0d1b2a`, `#363049`, `#293a41`, `#1a2838`, `#172c3a` | `pg-navy` |
+| `#58595b`, `#333`, `#6c777f`, `#737373` | `pg-slate` |
+| `#6f9296`, `#76979a`, `#7da3a6`, `#7a9ea0`, `#6d8c94` / `#4a6b6f` | `pg-teal` / `pg-teal-dark` |
+| `#97b4b5`, `#a1bfb9` | `pg-sage` |
+| `#e8f1f1`, `#dceced`, `#edf5f5` | `pg-tint` |
+| Grises neutros (`#f5f5f5`, `#f0f0f0`, `#fafafa`…) y `#eef3f3` | `pg-tint-soft` |
+| Bordes grises (`#e8ebed`, `#dde0e0`, `#e0e0e0`…) | `pg-line` |
+| Divisores cálidos (`#ebe8e5`, `#f1eeee`…) | `pg-cream-dark` |
+| `#c8893a` / `#52bd95` | nuevos tokens `pg-amber` / `pg-live` (solo decorativos) |
+
+Se dejan como hex, a propósito: los colores de los logos SVG (arte de marca), las paletas de categorías de cursos y
+temas (colores de datos) y los valores dentro de props de animación (`whileHover`), que ya usan valores de la paleta.
 
 ## 5.3 Consistencia
 
-| Tema | Situación actual | Estándar |
-|------|------------------|----------|
-| Botones | Teal/navy/blanco, radios 8/12/16px y píldora, alturas variadas | [Botones](./02-botones.md): teal, 8px, 36/44/52px |
-| Radios | 15 valores distintos | 6 tokens: 4 / 8 / 12 / 16 / 28 / full |
-| Sombras | 11 recetas, algunas con negro | 3 tokens teñidos de navy |
-| Contenedores | 1000 / 1024 / 1100 / 1180 / 1280px | 3 tokens: 680 / 1100 / 1280 |
-| Tema shadcn (`theme.css`) | Colores por defecto de shadcn (`--primary: #030213`) | Mapear `--primary`, `--ring`, `--border`, etc. a la paleta PG para que los componentes `ui/` hereden la marca |
-| Fuente | `font-['Poppins',sans-serif]` repetido 487 veces | Definirla una vez en `body` con `tokens.css` |
-| Duraciones de animación | 12 valores | 4 bandas (ver [Movimiento](./04-movimiento.md)) |
+| Tema | Estado |
+|------|--------|
+| ✅ Radios | 27 variantes → tokens `rounded-pg-sm/md/lg/xl/2xl` (4/8/12/16/28px) y `rounded-full` |
+| ✅ Sombras | 30 recetas (clases e inline) → `shadow-pg-card`, `shadow-pg-card-hover`, `shadow-pg-overlay` |
+| ✅ Contenedores | 1280/1180 → `max-w-pg-page`; 1100/1024/1000 → `max-w-pg-content`; 680 → `max-w-pg-reading` |
+| ✅ Duraciones | 16 valores → 4 bandas (0.15 / 0.22 / 0.35 / 0.55 s); clases `duration-(--pg-dur-*)` en CSS |
+| ✅ Tema shadcn | `tokens.css` mapea `--primary`, `--ring`, `--border`… a la paleta PG |
+| Botones | Pendiente: unificarlos en un componente ([Botones](./02-botones.md)) |
+| Fuente | Pendiente: quitar `font-['Poppins',sans-serif]` de cada elemento (ya se aplica en `body`) |
 
 ## 5.4 Otros
 
@@ -66,8 +67,8 @@ Está ordenada por impacto.
 
 ## 5.5 Orden de migración sugerido
 
-1. Importar `tokens.css`. Las páginas no cambian (usan hex sueltos), pero los componentes `ui/` de shadcn y el fondo base pasan a los colores PG. Revisar visualmente.
+1. ✅ Importar `tokens.css` (hecho, en `src/styles/`).
 2. ✅ `MotionConfig reducedMotion="user"` y estilos de foco (hecho).
 3. ✅ Arreglar el contraste: sage, mist y los tamaños de 9–11px (hecho).
 4. Unificar los botones en un componente.
-5. Reemplazar los hex sueltos por clases `pg-*`, página por página.
+5. ✅ Reemplazar los hex sueltos por clases `pg-*` y consolidar radios, sombras, anchos y duraciones (hecho).

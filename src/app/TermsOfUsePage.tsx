@@ -14,18 +14,18 @@ function handleDownload() {
 
 export default function TermsOfUsePage() {
   return (
-    <main className="min-h-screen bg-[#F9F4F1] print:bg-white">
+    <main className="min-h-screen bg-pg-cream print:bg-white">
       <section className="px-6 pb-14 pt-28 md:px-10 lg:px-14 print:hidden">
-        <div className="mx-auto max-w-[1100px]">
-          <p className="mb-3 font-['Poppins',sans-serif] text-sm font-semibold uppercase tracking-[0.14em] text-[#406064]">
+        <div className="mx-auto max-w-pg-content">
+          <p className="mb-3 font-['Poppins',sans-serif] text-sm font-semibold uppercase tracking-[0.14em] text-pg-teal-dark">
             Legal
           </p>
 
-          <h1 id="terms-of-use-title" tabIndex={-1} className="focus:outline-none font-['Poppins',sans-serif] text-4xl font-bold text-[#1C3243] md:text-5xl">
+          <h1 id="terms-of-use-title" tabIndex={-1} className="focus:outline-none font-['Poppins',sans-serif] text-4xl font-bold text-pg-navy md:text-5xl">
             Terms of Use
           </h1>
 
-          <p className="mt-4 max-w-[680px] font-['Poppins',sans-serif] text-base leading-7 text-[#435766]">
+          <p className="mt-4 max-w-pg-reading font-['Poppins',sans-serif] text-base leading-7 text-pg-slate">
             Please read these Terms of Use carefully before accessing or using Parent Guidance's
             websites, the Online Education Platform, and related services.
           </p>
@@ -35,7 +35,7 @@ export default function TermsOfUsePage() {
       </section>
 
       <section className="px-6 pb-20 pt-10 md:px-10 lg:px-14 print:p-0">
-        <div className="mx-auto max-w-[1100px] rounded-2xl border border-[#dee8e9] bg-white p-7 shadow-[0_8px_24px_rgba(28,50,67,0.06)] md:p-10 print:max-w-none print:rounded-none print:border-0 print:p-0 print:shadow-none">
+        <div className="mx-auto max-w-pg-content rounded-pg-xl border border-pg-line bg-white p-7 shadow-pg-card md:p-10 print:max-w-none print:rounded-none print:border-0 print:p-0 print:shadow-none">
           <LegalDocumentBody
             effectiveDate={TERMS_EFFECTIVE_DATE}
             introHeading="Introduction"

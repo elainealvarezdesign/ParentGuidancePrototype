@@ -6,10 +6,10 @@ import { SAMPLE_REGISTER_URL } from "./links";
 export type EventCategory = "qa" | "workshop" | "support" | "course";
 
 export const CATEGORIES: Record<EventCategory, { label: string; swatch: string; pill: string }> = {
-  qa:       { label: "Live Q&A",      swatch: "#59797d", pill: "bg-[#59797d] text-white" },
-  workshop: { label: "Workshop",      swatch: "#1c3243", pill: "bg-[#1c3243] text-white" },
-  support:  { label: "Support group", swatch: "#90b3b6", pill: "bg-[#90b3b6] text-[#1c3243]" },
-  course:   { label: "Course update", swatch: "#406064", pill: "bg-[#eaf1f1] text-[#406064] ring-1 ring-inset ring-[#90b3b6]" },
+  qa:       { label: "Live Q&A",      swatch: "var(--pg-teal)", pill: "bg-pg-teal text-white" },
+  workshop: { label: "Workshop",      swatch: "var(--pg-navy)", pill: "bg-pg-navy text-white" },
+  support:  { label: "Support group", swatch: "var(--pg-sage)", pill: "bg-pg-sage text-pg-navy" },
+  course:   { label: "Course update", swatch: "var(--pg-teal-dark)", pill: "bg-pg-tint text-pg-teal-dark ring-1 ring-inset ring-pg-sage" },
 };
 
 export type SeriesEvent = {

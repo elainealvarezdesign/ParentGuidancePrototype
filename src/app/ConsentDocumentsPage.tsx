@@ -77,7 +77,7 @@ function AccordionItem({ doc, isOpen, onToggle }: { doc: Document; isOpen: boole
   return (
     <div
       data-consent-doc={doc.id}
-      className="overflow-hidden rounded-2xl border border-[#dee8e9] bg-white shadow-[0_8px_24px_rgba(28,50,67,0.06)] print:rounded-none print:border-0 print:shadow-none"
+      className="overflow-hidden rounded-pg-xl border border-pg-line bg-white shadow-pg-card print:rounded-none print:border-0 print:shadow-none"
     >
       <div className="flex flex-wrap items-center justify-between gap-3 px-6 py-5 md:px-8 print:hidden">
         <button
@@ -86,11 +86,11 @@ function AccordionItem({ doc, isOpen, onToggle }: { doc: Document; isOpen: boole
           className="flex flex-1 items-center gap-3 text-left"
           aria-expanded={isOpen}
         >
-          <span className="h-2 w-2 rounded-full bg-[#59797D]" />
-          <span className="font-['Poppins',sans-serif] text-xl font-bold text-[#1C3243]">{doc.title}</span>
+          <span className="h-2 w-2 rounded-full bg-pg-teal" />
+          <span className="font-['Poppins',sans-serif] text-xl font-bold text-pg-navy">{doc.title}</span>
           <ChevronDown
             size={18}
-            className={`ml-1 text-[#59797D] transition-transform ${isOpen ? "rotate-180" : ""}`}
+            className={`ml-1 text-pg-teal transition-transform ${isOpen ? "rotate-180" : ""}`}
           />
         </button>
 
@@ -98,7 +98,7 @@ function AccordionItem({ doc, isOpen, onToggle }: { doc: Document; isOpen: boole
           <button
             type="button"
             onClick={() => downloadDocument(doc)}
-            className="inline-flex items-center gap-2 rounded-lg bg-[#59797D] px-4 py-2 font-['Poppins',sans-serif] text-sm font-semibold text-white transition hover:bg-[#1C3243] focus:outline-none focus:ring-2 focus:ring-[#59797D] focus:ring-offset-2"
+            className="inline-flex items-center gap-2 rounded-pg-md bg-pg-teal px-4 py-2 font-['Poppins',sans-serif] text-sm font-semibold text-white transition hover:bg-pg-navy focus:outline-none focus:ring-2 focus:ring-pg-teal focus:ring-offset-2"
           >
             <Download size={15} />
             Download
@@ -107,7 +107,7 @@ function AccordionItem({ doc, isOpen, onToggle }: { doc: Document; isOpen: boole
           <button
             type="button"
             onClick={() => printDocument(doc.id)}
-            className="inline-flex items-center gap-2 rounded-lg border border-[#90b3b6] px-4 py-2 font-['Poppins',sans-serif] text-sm font-semibold text-[#59797D] transition hover:bg-[#F0F6F6] focus:outline-none focus:ring-2 focus:ring-[#59797D] focus:ring-offset-2"
+            className="inline-flex items-center gap-2 rounded-pg-md border border-pg-sage px-4 py-2 font-['Poppins',sans-serif] text-sm font-semibold text-pg-teal transition hover:bg-pg-tint-soft focus:outline-none focus:ring-2 focus:ring-pg-teal focus:ring-offset-2"
           >
             <Printer size={15} />
             Print
@@ -115,7 +115,7 @@ function AccordionItem({ doc, isOpen, onToggle }: { doc: Document; isOpen: boole
         </div>
       </div>
 
-      <h2 className="hidden px-6 pt-6 font-['Poppins',sans-serif] text-2xl font-bold text-[#1C3243] print:block print:px-0">
+      <h2 className="hidden px-6 pt-6 font-['Poppins',sans-serif] text-2xl font-bold text-pg-navy print:block print:px-0">
         {doc.title}
       </h2>
 
@@ -138,18 +138,18 @@ export default function ConsentDocumentsPage() {
   const [openId, setOpenId] = useState<string>(DOCUMENTS[0].id);
 
   return (
-    <main className="min-h-screen bg-[#F9F4F1] print:bg-white">
+    <main className="min-h-screen bg-pg-cream print:bg-white">
       <section className="px-6 pb-14 pt-28 md:px-10 lg:px-14 print:hidden">
-        <div className="mx-auto max-w-[1100px]">
-          <p className="mb-3 font-['Poppins',sans-serif] text-sm font-semibold uppercase tracking-[0.14em] text-[#406064]">
+        <div className="mx-auto max-w-pg-content">
+          <p className="mb-3 font-['Poppins',sans-serif] text-sm font-semibold uppercase tracking-[0.14em] text-pg-teal-dark">
             Legal
           </p>
 
-          <h1 id="consent-documents-title" tabIndex={-1} className="focus:outline-none font-['Poppins',sans-serif] text-4xl font-bold text-[#1C3243] md:text-5xl">
+          <h1 id="consent-documents-title" tabIndex={-1} className="focus:outline-none font-['Poppins',sans-serif] text-4xl font-bold text-pg-navy md:text-5xl">
             Consent Documents
           </h1>
 
-          <p className="mt-4 max-w-[680px] font-['Poppins',sans-serif] text-base leading-7 text-[#435766]">
+          <p className="mt-4 max-w-pg-reading font-['Poppins',sans-serif] text-base leading-7 text-pg-slate">
             Review, download or print the Terms of Use and Privacy Policy that apply to your
             access to and use of Parent Guidance's Services.
           </p>
@@ -157,7 +157,7 @@ export default function ConsentDocumentsPage() {
       </section>
 
       <section className="px-6 pb-20 md:px-10 lg:px-14 print:p-0">
-        <div className="mx-auto flex max-w-[1100px] flex-col gap-6 print:gap-0">
+        <div className="mx-auto flex max-w-pg-content flex-col gap-6 print:gap-0">
           {DOCUMENTS.map((doc) => (
             <AccordionItem
               key={doc.id}

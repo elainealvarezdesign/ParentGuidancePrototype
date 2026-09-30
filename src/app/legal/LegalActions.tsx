@@ -21,7 +21,7 @@ export function LegalActions({ onDownload }: { onDownload: () => void }) {
       <button
         type="button"
         onClick={onDownload}
-        className="inline-flex items-center gap-2 rounded-lg bg-[#59797D] px-5 py-3 font-['Poppins',sans-serif] text-sm font-semibold text-white transition hover:bg-[#1C3243] focus:outline-none focus:ring-2 focus:ring-[#59797D] focus:ring-offset-2"
+        className="inline-flex items-center gap-2 rounded-pg-md bg-pg-teal px-5 py-3 font-['Poppins',sans-serif] text-sm font-semibold text-white transition hover:bg-pg-navy focus:outline-none focus:ring-2 focus:ring-pg-teal focus:ring-offset-2"
       >
         <Download size={16} aria-hidden="true" />
         Download
@@ -30,7 +30,7 @@ export function LegalActions({ onDownload }: { onDownload: () => void }) {
       <button
         type="button"
         onClick={() => window.print()}
-        className="inline-flex items-center gap-2 rounded-lg border border-[#90b3b6] px-5 py-3 font-['Poppins',sans-serif] text-sm font-semibold text-[#406064] transition hover:bg-[#F0F6F6] focus:outline-none focus:ring-2 focus:ring-[#59797D] focus:ring-offset-2"
+        className="inline-flex items-center gap-2 rounded-pg-md border border-pg-sage px-5 py-3 font-['Poppins',sans-serif] text-sm font-semibold text-pg-teal-dark transition hover:bg-pg-tint-soft focus:outline-none focus:ring-2 focus:ring-pg-teal focus:ring-offset-2"
       >
         <Printer size={16} aria-hidden="true" />
         Print
@@ -54,7 +54,7 @@ export function BackToTopButton({ focusId }: { focusId: string }) {
       <button
         type="button"
         onClick={handleClick}
-        className="inline-flex items-center gap-2 rounded-lg border border-[#90b3b6] px-5 py-3 font-['Poppins',sans-serif] text-sm font-semibold text-[#406064] transition hover:bg-[#F0F6F6]"
+        className="inline-flex items-center gap-2 rounded-pg-md border border-pg-sage px-5 py-3 font-['Poppins',sans-serif] text-sm font-semibold text-pg-teal-dark transition hover:bg-pg-tint-soft"
       >
         <ArrowUp size={16} aria-hidden="true" />
         Back to top

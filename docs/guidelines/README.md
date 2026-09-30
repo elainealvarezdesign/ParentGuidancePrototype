@@ -18,7 +18,7 @@ Guías del prototipo **PG-Live** (parentguidance.org), escritas a partir del **c
 | 3 | [Layout](./03-layout.md) | Contenedores, márgenes, breakpoints, ritmo vertical y cards |
 | 4 | [Movimiento](./04-movimiento.md) | Animaciones con `motion`, duraciones, easing y reduced‑motion |
 | 5 | [Auditoría del prototipo](./05-auditoria.md) | Colores fuera de paleta, problemas de contraste y pendientes |
-| — | [`tokens.css`](./tokens.css) | Variables CSS + mapeo a Tailwind v4, listo para importar |
+| — | [`tokens.css`](../../src/styles/tokens.css) | Variables CSS + mapeo a Tailwind v4 (en `src/styles/`, ya importado en la app) |
 
 `guidelines/Guidelines.md` (en la raíz) es la versión resumida de estas guías para **Figma Make**, que es el
 archivo que su IA lee al generar pantallas.
@@ -52,8 +52,9 @@ sentirse **cálida, calmada y confiable**:
 ## Regla #1
 
 > Ningún color, tamaño de fuente, radio o sombra se escribe como valor suelto (`text-[#1c3243]`,
-> `text-[10px]`, `shadow-[…]`). Se usan los tokens de [`tokens.css`](./tokens.css). Si falta algo, primero se
+> `text-[10px]`, `shadow-[…]`). Se usan los tokens de [`tokens.css`](../../src/styles/tokens.css). Si falta algo, primero se
 > añade como token aquí (y en Figma) y después se usa.
 
-Hoy el prototipo escribe los colores como valores sueltos en cada clase: hay más de 1.200 usos de hex
-repartidos en 90 valores distintos. La [auditoría](./05-auditoria.md) indica cómo migrar.
+Las clases del prototipo ya usan los tokens (`bg-pg-navy`, `rounded-pg-xl`, `shadow-pg-card`, `max-w-pg-page`,
+`duration-(--pg-dur-base)`…). Quedan como hex a propósito los colores de los logos SVG y las paletas de categorías
+de cursos (colores de datos). Ver la [auditoría](./05-auditoria.md).

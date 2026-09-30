@@ -2,7 +2,7 @@
 
 Parent Guidance (parentguidance.org) supports families with mental health resources, coaching, courses and
 crisis help. The UI must feel warm, calm and trustworthy. Full guidelines (Spanish) live in
-`docs/guidelines/`; design tokens live in `docs/guidelines/tokens.css`.
+`docs/guidelines/`; design tokens live in `src/styles/tokens.css` (Tailwind classes: `bg-pg-navy`, `text-pg-slate`, `rounded-pg-md`, `shadow-pg-card`, `max-w-pg-page`).
 
 # General
 

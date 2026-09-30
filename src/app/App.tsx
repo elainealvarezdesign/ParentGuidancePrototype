@@ -49,7 +49,7 @@ function FadeUp({ children, delay = 0, className = "" }: { children: React.React
       className={className}
       initial={{ opacity: 0, y: 32 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.65, delay, ease: [0.25, 0.46, 0.45, 0.94] }}
+      transition={{ duration: 0.55, delay, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
       {children}
     </motion.div>
@@ -65,7 +65,7 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
       className={className}
       initial={{ opacity: 0 }}
       animate={inView ? { opacity: 1 } : {}}
-      transition={{ duration: 0.7, delay }}
+      transition={{ duration: 0.55, delay }}
     >
       {children}
     </motion.div>
@@ -81,7 +81,7 @@ function SlideIn({ children, from = "left", delay = 0, className = "" }: { child
       className={className}
       initial={{ opacity: 0, x: from === "left" ? -48 : 48 }}
       animate={inView ? { opacity: 1, x: 0 } : {}}
-      transition={{ duration: 0.7, delay, ease: [0.25, 0.46, 0.45, 0.94] }}
+      transition={{ duration: 0.55, delay, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
       {children}
     </motion.div>
@@ -149,15 +149,15 @@ function LanguageDropdown() {
         className="flex items-center gap-1 cursor-pointer group relative"
         aria-expanded={open}
       >
-        <span className="font-['Poppins',sans-serif] text-[#97b4b5] text-xs font-medium">{language}</span>
+        <span className="font-['Poppins',sans-serif] text-pg-sage text-xs font-medium">{language}</span>
         <svg
-          className={`w-3.5 h-3.5 text-[#97b4b5] transition-transform ${open ? "rotate-180" : "group-hover:translate-y-0.5"}`}
+          className={`w-3.5 h-3.5 text-pg-sage transition-transform ${open ? "rotate-180" : "group-hover:translate-y-0.5"}`}
           fill="none"
           viewBox="0 0 24 24"
         >
           <path clipRule="evenodd" d={svgPaths.pee47f00} fill="#97b4b5" fillRule="evenodd" />
         </svg>
-        {open && <span className="absolute -bottom-[18px] left-0 right-0 h-0.5 bg-[#90b3b6] rounded-full" />}
+        {open && <span className="absolute -bottom-[18px] left-0 right-0 h-0.5 bg-pg-sage rounded-full" />}
       </button>
 
       <AnimatePresence>
@@ -167,7 +167,7 @@ function LanguageDropdown() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -6 }}
             transition={{ duration: 0.15 }}
-            className="absolute right-0 top-[32px] z-50 min-w-[160px] overflow-hidden rounded-[12px] border border-[#dee8e9] bg-white py-2 shadow-[0_8px_24px_rgba(28,50,67,0.14)]"
+            className="absolute right-0 top-[32px] z-50 min-w-[160px] overflow-hidden rounded-pg-lg border border-pg-line bg-white py-2 shadow-pg-card-hover"
           >
             {LANGUAGES.filter((l) => l !== language).map((l) => (
               <button
@@ -177,7 +177,7 @@ function LanguageDropdown() {
                   setLanguage(l);
                   setOpen(false);
                 }}
-                className="block w-full px-5 py-2.5 text-left font-['Poppins',sans-serif] text-sm text-[#1c3243] transition-colors hover:bg-[#f9f4f1] hover:text-[#59797d]"
+                className="block w-full px-5 py-2.5 text-left font-['Poppins',sans-serif] text-sm text-pg-navy transition-colors hover:bg-pg-cream hover:text-pg-teal"
               >
                 {l}
               </button>
@@ -232,33 +232,33 @@ function Navbar() {
   }
 
   function getLinkColor(l: { label: string; to: string }) {
-    if (isActive(l.to)) return "#90b3b6";
+    if (isActive(l.to)) return "var(--pg-sage)";
     return "white";
   }
 
   return (
     <motion.nav
-      className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 lg:px-10 h-14 bg-[#1c3243] print:hidden"
+      className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 lg:px-10 h-14 bg-pg-navy print:hidden"
       animate={{ boxShadow: scrolled ? "0 4px 24px rgba(0,0,0,0.18)" : "none" }}
-      transition={{ duration: 0.3 }}
+      transition={{ duration: 0.35 }}
     >
-      <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }}>
+      <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.55 }}>
         <Logo />
       </motion.div>
       <motion.div
         className="hidden lg:flex items-center gap-6"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
+        transition={{ duration: 0.55, delay: 0.2 }}
       >
         {links.map((l) => {
           const baseColor = getLinkColor(l);
-          const hoverColor = "#90b3b6";
+          const hoverColor = "var(--pg-sage)";
           return (
             <Link
               key={l.label}
               to={l.to}
-              className="font-['Poppins',sans-serif] text-xs font-medium whitespace-nowrap transition-colors duration-200 relative"
+              className="font-['Poppins',sans-serif] text-xs font-medium whitespace-nowrap transition-colors duration-(--pg-dur-fast) relative"
               style={{ color: baseColor }}
               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = hoverColor; }}
               onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = baseColor; }}
@@ -266,7 +266,7 @@ function Navbar() {
               {l.label}
               {/* Active underline indicator */}
               {isActive(l.to) && (
-                <span className="absolute -bottom-[18px] left-0 right-0 h-0.5 bg-[#90b3b6] rounded-full" />
+                <span className="absolute -bottom-[18px] left-0 right-0 h-0.5 bg-pg-sage rounded-full" />
               )}
             </Link>
           );
@@ -278,7 +278,7 @@ function Navbar() {
       <button
         ref={menuButtonRef}
         type="button"
-        className="lg:hidden flex items-center justify-center w-11 h-11 -mr-2 rounded-lg text-white hover:bg-white/10 transition-colors"
+        className="lg:hidden flex items-center justify-center w-11 h-11 -mr-2 rounded-pg-md text-white hover:bg-white/10 transition-colors"
         aria-expanded={menuOpen}
         aria-controls="mobile-menu"
         aria-label={menuOpen ? "Close menu" : "Open menu"}
@@ -292,7 +292,7 @@ function Navbar() {
           <>
             {/* Dimmed page behind the menu; tap to close */}
             <motion.div
-              className="lg:hidden fixed inset-0 top-14 bg-[#1c3243]/40"
+              className="lg:hidden fixed inset-0 top-14 bg-pg-navy/40"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -302,7 +302,7 @@ function Navbar() {
             />
             <motion.div
               id="mobile-menu"
-              className="lg:hidden absolute top-14 left-0 right-0 bg-[#1c3243] border-t border-white/10 px-6 pt-2 pb-6 shadow-[0_24px_60px_rgba(28,50,67,0.28)] max-h-[calc(100dvh-56px)] overflow-y-auto"
+              className="lg:hidden absolute top-14 left-0 right-0 bg-pg-navy border-t border-white/10 px-6 pt-2 pb-6 shadow-pg-overlay max-h-[calc(100dvh-56px)] overflow-y-auto"
               initial={{ opacity: 0, y: -8 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
@@ -318,10 +318,10 @@ function Navbar() {
                         to={l.to}
                         aria-current={active ? "page" : undefined}
                         className={`flex items-center gap-3 min-h-12 py-3 font-['Poppins',sans-serif] text-base font-medium transition-colors ${
-                          active ? "text-[#90b3b6]" : "text-white hover:text-[#90b3b6]"
+                          active ? "text-pg-sage" : "text-white hover:text-pg-sage"
                         }`}
                       >
-                        <span className={`w-1 h-5 rounded-full ${active ? "bg-[#90b3b6]" : "bg-transparent"}`} aria-hidden="true" />
+                        <span className={`w-1 h-5 rounded-full ${active ? "bg-pg-sage" : "bg-transparent"}`} aria-hidden="true" />
                         {l.label}
                       </Link>
                     </li>
@@ -329,7 +329,7 @@ function Navbar() {
                 })}
               </ul>
               <div className="mt-4 pt-4 border-t border-white/10 flex items-center justify-between">
-                <span className="font-['Poppins',sans-serif] text-xs font-semibold uppercase tracking-[1.2px] text-[#90b3b6]">Language</span>
+                <span className="font-['Poppins',sans-serif] text-xs font-semibold uppercase tracking-[1.2px] text-pg-sage">Language</span>
                 <LanguageDropdown />
               </div>
             </motion.div>
@@ -344,24 +344,24 @@ function Navbar() {
 function Hero() {
   const [focused, setFocused] = useState(false);
   return (
-    <section className="pt-[72px] bg-[#f9f4f1] min-h-[400px] flex flex-col items-center text-center px-6 pb-16">
+    <section className="pt-[72px] bg-pg-cream min-h-[400px] flex flex-col items-center text-center px-6 pb-16">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 0.3 }}
+        transition={{ duration: 0.55, delay: 0.3 }}
         className="mt-14"
       >
-        <h1 className="font-['Poppins',sans-serif] font-black text-[#59797d] text-3xl md:text-4xl leading-tight md:leading-relaxed md:whitespace-nowrap">
+        <h1 className="font-['Poppins',sans-serif] font-black text-pg-teal text-3xl md:text-4xl leading-tight md:leading-relaxed md:whitespace-nowrap">
           {"Discover "}
           <em className="font-['Poppins',sans-serif] italic font-black">Resources</em>
           {" That Can Help"}
         </h1>
       </motion.div>
       <motion.p
-        className="font-['Poppins',sans-serif] text-[#1c3243] text-lg md:text-xl text-center leading-relaxed mt-4 max-w-2xl"
+        className="font-['Poppins',sans-serif] text-pg-navy text-lg md:text-xl text-center leading-relaxed mt-4 max-w-2xl"
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 0.5 }}
+        transition={{ duration: 0.55, delay: 0.5 }}
       >
         Find trusted guidance, practical tips, and expert resources{" "}
         <br className="hidden md:block" />
@@ -373,10 +373,10 @@ function Hero() {
         className="mt-10 w-full max-w-3xl"
         initial={{ opacity: 0, y: 20, scale: 0.97 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ duration: 0.6, delay: 0.65 }}
+        transition={{ duration: 0.55, delay: 0.65 }}
       >
         <div
-          className="bg-white rounded-3xl pl-5 pr-2 md:px-6 py-2 md:py-3 flex items-center gap-3 shadow-sm"
+          className="bg-white rounded-pg-2xl pl-5 pr-2 md:px-6 py-2 md:py-3 flex items-center gap-3 shadow-pg-card"
           style={{
             boxShadow: focused
               ? "0 0 0 2px #90b3b6, 0 4px 24px rgba(144,179,182,0.18)"
@@ -389,14 +389,14 @@ function Hero() {
             <path d="M18 18L16.5 16.5" stroke="#333" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
           </svg>
           <input
-            className="flex-1 min-w-0 font-['Poppins',sans-serif] text-sm text-gray-700 bg-transparent outline-none placeholder:text-[#59797d]"
+            className="flex-1 min-w-0 font-['Poppins',sans-serif] text-sm text-gray-700 bg-transparent outline-none placeholder:text-pg-teal"
             placeholder="Anxiety in Children"
             onFocus={() => setFocused(true)}
             onBlur={() => setFocused(false)}
           />
           <motion.button
-            className="bg-[#90b3b6] text-gray-800 font-['Poppins',sans-serif] font-medium text-sm px-5 py-1.5 rounded-lg"
-            whileHover={{ scale: 1.04, backgroundColor: "#7da3a6" }}
+            className="bg-pg-sage text-gray-800 font-['Poppins',sans-serif] font-medium text-sm px-5 py-1.5 rounded-pg-md"
+            whileHover={{ scale: 1.04, backgroundColor: "var(--pg-teal)" }}
             whileTap={{ scale: 0.97 }}
             transition={{ duration: 0.15 }}
           >
@@ -415,28 +415,28 @@ const resourceCards = [
     overlay: true,
     title: "Mental Health\nSeries",
     desc: "Dive into a wealth of knowledge tailored for parents",
-    color: "#172c3a",
+    color: "var(--pg-navy)",
   },
   {
     img: imgRectangle76,
     overlay: false,
     title: "Coaching for\nLasting changes",
     desc: "Dive into a wealth of knowledge tailored for parents",
-    color: "#1c3243",
+    color: "var(--pg-navy)",
   },
   {
     img: imgRectangle77,
     overlay: true,
     title: "On-demand\nCourses",
     desc: "Dive into a wealth of knowledge tailored for parents",
-    color: "#1c3243",
+    color: "var(--pg-navy)",
   },
   {
     img: imgRectangle78,
     overlay: false,
     title: "Mental Health\nSeries",
     desc: "Dive into a wealth of knowledge tailored for parents",
-    color: "#1c3243",
+    color: "var(--pg-navy)",
   },
 ];
 
@@ -446,20 +446,20 @@ function ResourceCard({ card, index }: { card: typeof resourceCards[0]; index: n
   return (
     <motion.div
       ref={ref}
-      className="bg-[#90b3b6] rounded-t-2xl w-full lg:w-44 flex-shrink-0 overflow-hidden cursor-pointer"
+      className="bg-pg-sage rounded-t-pg-xl w-full lg:w-44 flex-shrink-0 overflow-hidden cursor-pointer"
       initial={{ opacity: 0, y: 40 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.55, delay: index * 0.1 }}
-      whileHover={{ y: -6, boxShadow: "0 16px 40px rgba(0,0,0,0.18)" }}
+      whileHover={{ y: -6, boxShadow: "0 8px 24px rgba(28,50,67,0.14)" }}
     >
-      <div className="h-32 relative overflow-hidden rounded-t-lg">
-        <img src={card.img} alt="" className="w-full h-full object-cover rounded-t-lg" />
-        {card.overlay && <div className="absolute inset-0 bg-black/20 rounded-t-lg" />}
+      <div className="h-32 relative overflow-hidden rounded-t-pg-md">
+        <img src={card.img} alt="" className="w-full h-full object-cover rounded-t-pg-md" />
+        {card.overlay && <div className="absolute inset-0 bg-black/20 rounded-t-pg-md" />}
         <motion.div
-          className="absolute inset-0 bg-[#90b3b6]/20"
+          className="absolute inset-0 bg-pg-sage/20"
           initial={{ opacity: 0 }}
           whileHover={{ opacity: 1 }}
-          transition={{ duration: 0.2 }}
+          transition={{ duration: 0.22 }}
         />
       </div>
       <div className="px-4 pt-3 pb-4 flex flex-col gap-2">
@@ -472,7 +472,7 @@ function ResourceCard({ card, index }: { card: typeof resourceCards[0]; index: n
         <p className="font-['Poppins',sans-serif] text-xs leading-normal" style={{ color: card.color }}>
           {card.desc}
         </p>
-        <p className="font-['Poppins',sans-serif] font-medium text-xs text-[#1c3243] underline">Learn More</p>
+        <p className="font-['Poppins',sans-serif] font-medium text-xs text-pg-navy underline">Learn More</p>
       </div>
     </motion.div>
   );
@@ -480,7 +480,7 @@ function ResourceCard({ card, index }: { card: typeof resourceCards[0]; index: n
 
 function ResourceSection() {
   return (
-    <section className="bg-[#f9f4f1] px-6 md:px-10 lg:px-14 pb-16">
+    <section className="bg-pg-cream px-6 md:px-10 lg:px-14 pb-16">
       <div className="flex flex-col w-full max-w-md lg:max-w-none lg:w-fit mx-auto">
         <div className="grid grid-cols-2 gap-4 lg:flex lg:gap-5">
           {resourceCards.map((card, i) => (
@@ -488,7 +488,7 @@ function ResourceSection() {
           ))}
         </div>
         <FadeIn className="flex justify-end mt-3">
-          <a href="#" className="font-['Poppins',sans-serif] text-sm text-[#406064] underline hover:text-[#59797d] transition-colors">
+          <a href="#" className="font-['Poppins',sans-serif] text-sm text-pg-teal-dark underline hover:text-pg-teal transition-colors">
             view more
           </a>
         </FadeIn>
@@ -528,10 +528,10 @@ function FeatureRow({ feat, index }: { feat: typeof features[0]; index: number }
       className={`flex flex-col md:flex-row items-center gap-8 md:gap-24 ${feat.reverse ? "md:flex-row-reverse" : ""}`}
       initial={{ opacity: 0, x: feat.reverse ? 48 : -48 }}
       animate={inView ? { opacity: 1, x: 0 } : {}}
-      transition={{ duration: 0.7, delay: index * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+      transition={{ duration: 0.55, delay: index * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
       <motion.div
-        className="w-full max-w-80 md:w-80 h-60 rounded-[8px] overflow-hidden flex-shrink-0 relative"
+        className="w-full max-w-80 md:w-80 h-60 rounded-pg-md overflow-hidden flex-shrink-0 relative"
         whileHover={{ scale: 1.03 }}
         transition={{ duration: 0.35 }}
       >
@@ -539,8 +539,8 @@ function FeatureRow({ feat, index }: { feat: typeof features[0]; index: number }
         <img src={feat.img} alt="" className="absolute inset-0 w-full h-full object-cover" />
       </motion.div>
       <div className="flex flex-col gap-2 max-w-sm">
-        <p className="font-['Poppins',sans-serif] font-black text-[#59797d] text-2xl md:text-3xl leading-relaxed">{feat.title}</p>
-        <p className="font-['Poppins',sans-serif] text-[#1c3243] text-base md:text-lg leading-relaxed">{feat.desc}</p>
+        <p className="font-['Poppins',sans-serif] font-black text-pg-teal text-2xl md:text-3xl leading-relaxed">{feat.title}</p>
+        <p className="font-['Poppins',sans-serif] text-pg-navy text-base md:text-lg leading-relaxed">{feat.desc}</p>
       </div>
     </motion.div>
   );
@@ -548,13 +548,13 @@ function FeatureRow({ feat, index }: { feat: typeof features[0]; index: number }
 
 function WhySection() {
   return (
-    <section className="bg-[#f9f4f1] py-14 md:py-20 px-6 md:px-10 lg:px-14 flex flex-col items-center gap-12 md:gap-20">
+    <section className="bg-pg-cream py-14 md:py-20 px-6 md:px-10 lg:px-14 flex flex-col items-center gap-12 md:gap-20">
       <FadeUp className="flex flex-col items-center gap-4 max-w-3xl text-center">
-        <span className="font-['Poppins',sans-serif] font-semibold text-[#2c3e50] text-base uppercase tracking-wider">Why</span>
-        <h2 className="font-['Poppins',sans-serif] font-bold text-[#2c3e50] text-3xl md:text-4xl leading-tight tracking-tight">
+        <span className="font-['Poppins',sans-serif] font-semibold text-pg-navy text-base uppercase tracking-wider">Why</span>
+        <h2 className="font-['Poppins',sans-serif] font-bold text-pg-navy text-3xl md:text-4xl leading-tight tracking-tight">
           Built on real clinical experience
         </h2>
-        <p className="font-['Poppins',sans-serif] text-[#2c3e50] text-lg md:text-xl leading-relaxed">
+        <p className="font-['Poppins',sans-serif] text-pg-navy text-lg md:text-xl leading-relaxed">
           We believe every parent deserves access to expert guidance. Our resources are built on real clinical experience
           and designed with your family in mind.
         </p>
@@ -592,15 +592,15 @@ function FaqItem({ item, index }: { item: typeof faqs[0]; index: number }) {
   return (
     <motion.div
       ref={ref}
-      className="bg-white rounded-lg shadow-[0px_16px_32px_-12px_rgba(149,149,149,0.25)] overflow-hidden cursor-pointer"
+      className="bg-white rounded-pg-md shadow-pg-card overflow-hidden cursor-pointer"
       initial={{ opacity: 0, y: 20 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.45, delay: index * 0.06 }}
-      whileHover={{ boxShadow: "0px 20px 40px -12px rgba(149,149,149,0.35)" }}
+      transition={{ duration: 0.55, delay: index * 0.06 }}
+      whileHover={{ boxShadow: "0 24px 60px rgba(28,50,67,0.28)" }}
       onClick={() => setOpen((o) => !o)}
     >
       <div className="flex items-center justify-between px-5 md:px-8 py-5 md:py-6">
-        <span className="font-['Poppins',sans-serif] font-bold text-[#1b1139] text-lg leading-snug opacity-88 flex-1 pr-4">
+        <span className="font-['Poppins',sans-serif] font-bold text-pg-navy text-lg leading-snug opacity-88 flex-1 pr-4">
           {item.question}
         </span>
         <motion.div
@@ -609,20 +609,20 @@ function FaqItem({ item, index }: { item: typeof faqs[0]; index: number }) {
           className="flex items-center justify-center w-5 h-5 shrink-0"
         >
           <div className="relative w-5 h-5">
-            <div className="absolute top-1/2 left-0 w-full h-[3px] bg-[#1b1139] rounded-full opacity-80 -translate-y-1/2" />
-            <div className="absolute left-1/2 top-0 h-full w-[3px] bg-[#1b1139] rounded-full opacity-80 -translate-x-1/2" />
+            <div className="absolute top-1/2 left-0 w-full h-[3px] bg-pg-navy rounded-full opacity-80 -translate-y-1/2" />
+            <div className="absolute left-1/2 top-0 h-full w-[3px] bg-pg-navy rounded-full opacity-80 -translate-x-1/2" />
           </div>
         </motion.div>
       </div>
       <motion.div
         initial={false}
         animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }}
-        transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+        transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
         style={{ overflow: "hidden" }}
       >
         <div className="px-5 md:px-8 pb-6 flex flex-col gap-3">
-          <div className="w-5 h-[3px] bg-[#52bd95] rounded-full opacity-80" />
-          <p className="font-['Poppins',sans-serif] text-[#363049] text-sm leading-relaxed opacity-70">
+          <div className="w-5 h-[3px] bg-pg-live rounded-full opacity-80" />
+          <p className="font-['Poppins',sans-serif] text-pg-navy text-sm leading-relaxed opacity-70">
             {item.answer}
           </p>
         </div>
@@ -635,13 +635,13 @@ function FaqSection() {
   const left = faqs.slice(0, Math.ceil(faqs.length / 2));
   const right = faqs.slice(Math.ceil(faqs.length / 2));
   return (
-    <section className="bg-[#f9f4f1] py-16 px-6 md:px-10 lg:px-14">
+    <section className="bg-pg-cream py-16 px-6 md:px-10 lg:px-14">
       <FadeUp className="text-center mb-10">
-        <h2 className="font-['Poppins',sans-serif] font-bold text-[#1c3243] text-2xl capitalize">
+        <h2 className="font-['Poppins',sans-serif] font-bold text-pg-navy text-2xl capitalize">
           Frequently Ask Questions
         </h2>
       </FadeUp>
-      <div className="flex flex-col md:flex-row gap-5 md:gap-8 max-w-[1280px] mx-auto">
+      <div className="flex flex-col md:flex-row gap-5 md:gap-8 max-w-pg-page mx-auto">
         <div className="flex flex-col gap-5 flex-1">
           {left.map((item, i) => (
             <FaqItem key={i} item={item} index={i} />
@@ -671,7 +671,7 @@ function PartnersCarousel() {
   const doubled = [...partnerLogos, ...partnerLogos, ...partnerLogos];
 
   return (
-    <section className="bg-[#f9f4f1] py-24 overflow-hidden">
+    <section className="bg-pg-cream py-24 overflow-hidden">
       <style>{`
         @keyframes marquee {
           0%   { transform: translateX(0); }
@@ -687,7 +687,7 @@ function PartnersCarousel() {
       `}</style>
 
       <FadeUp className="text-center mb-10">
-        <h3 className="font-['Poppins',sans-serif] font-semibold text-[#59797d] text-2xl">
+        <h3 className="font-['Poppins',sans-serif] font-semibold text-pg-teal text-2xl">
           Our passionate partners
         </h3>
       </FadeUp>
@@ -722,10 +722,10 @@ function NewsletterSection() {
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
   return (
-    <section className="bg-[#90b3b6] py-16 px-6 md:px-10 lg:px-14 flex justify-center">
-      <FadeUp className="flex flex-col md:flex-row gap-8 items-center max-w-[1280px] w-full">
+    <section className="bg-pg-sage py-16 px-6 md:px-10 lg:px-14 flex justify-center">
+      <FadeUp className="flex flex-col md:flex-row gap-8 items-center max-w-pg-page w-full">
         <motion.div
-          className="w-full md:w-[480px] h-56 rounded-2xl overflow-hidden relative md:flex-shrink-0"
+          className="w-full md:w-[480px] h-56 rounded-pg-xl overflow-hidden relative md:flex-shrink-0"
           whileHover={{ scale: 1.02 }}
           transition={{ duration: 0.35 }}
         >
@@ -733,29 +733,29 @@ function NewsletterSection() {
           <img src={imgRectangle328} alt="" className="absolute inset-0 w-full h-full object-cover" />
         </motion.div>
         <div className="flex flex-col gap-5">
-          <h2 className="font-['Poppins',sans-serif] font-bold text-[#1b1139] text-4xl md:text-5xl leading-tight">Join Us!</h2>
-          <p className="font-['Poppins',sans-serif] text-[#1b1139] text-sm leading-relaxed max-w-sm">
+          <h2 className="font-['Poppins',sans-serif] font-bold text-pg-navy text-4xl md:text-5xl leading-tight">Join Us!</h2>
+          <p className="font-['Poppins',sans-serif] text-pg-navy text-sm leading-relaxed max-w-sm">
             Subscribe to our weekly newsletter and be a part of our journey to self discovery and love.
           </p>
           {subscribed ? (
             <motion.p
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              className="font-['Poppins',sans-serif] text-[#1b1139] font-semibold text-base"
+              className="font-['Poppins',sans-serif] text-pg-navy font-semibold text-base"
             >
               ✓ Thanks for subscribing!
             </motion.p>
           ) : (
-            <div className="flex border border-[#f4f6f9] rounded-2xl overflow-hidden bg-[#f9f9f9] max-w-md">
+            <div className="flex border border-pg-tint-soft rounded-pg-xl overflow-hidden bg-pg-tint-soft max-w-md">
               <input
-                className="flex-1 min-w-0 px-5 py-3.5 bg-transparent font-['Poppins',sans-serif] text-sm text-gray-700 outline-none placeholder:text-[#737373]"
+                className="flex-1 min-w-0 px-5 py-3.5 bg-transparent font-['Poppins',sans-serif] text-sm text-gray-700 outline-none placeholder:text-pg-slate"
                 placeholder="Your Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
               <motion.button
-                className="bg-[#59797d] text-white font-['Poppins',sans-serif] text-sm px-5 md:px-7 py-3.5 whitespace-nowrap"
-                whileHover={{ backgroundColor: "#4a6b6f" }}
+                className="bg-pg-teal text-white font-['Poppins',sans-serif] text-sm px-5 md:px-7 py-3.5 whitespace-nowrap"
+                whileHover={{ backgroundColor: "var(--pg-teal-dark)" }}
                 whileTap={{ scale: 0.97 }}
                 onClick={() => email && setSubscribed(true)}
               >
@@ -820,8 +820,8 @@ function Footer() {
   const resourceLinks = ["Mental Health Series", "Parent Coaching", "On-Demand Courses", "Ask a Therapist"];
 
   return (
-    <footer className="bg-[#f9f4f1] px-6 md:px-10 lg:px-14 py-8 print:hidden">
-      <div className="max-w-[1280px] mx-auto flex flex-col md:flex-row gap-10 md:gap-20 items-start mb-10">
+    <footer className="bg-pg-cream px-6 md:px-10 lg:px-14 py-8 print:hidden">
+      <div className="max-w-pg-page mx-auto flex flex-col md:flex-row gap-10 md:gap-20 items-start mb-10">
         <div className="flex flex-col gap-6 md:gap-40 w-full md:w-[467px] md:shrink-0">
           <FooterLogo />
           <div className="flex gap-3 items-center">
@@ -831,26 +831,26 @@ function Footer() {
         </div>
         <div className="flex flex-col sm:flex-row flex-1 gap-8 sm:gap-16 md:justify-center">
           <div className="flex flex-col gap-3">
-            <p className="font-['Poppins',sans-serif] font-semibold text-[#58595b] text-sm">Our Company</p>
+            <p className="font-['Poppins',sans-serif] font-semibold text-pg-slate text-sm">Our Company</p>
             {companyLinks.map((l) => (
              <a
                 key={l}
                 href={FOOTER_LINK_HREFS[l] ?? "#"}
                 target={FOOTER_EXTERNAL_LINKS.has(l) ? "_blank" : undefined}
                 rel={FOOTER_EXTERNAL_LINKS.has(l) ? "noopener noreferrer" : undefined}
-                className="font-['Poppins',sans-serif] text-[#58595b] text-xs leading-relaxed hover:text-[#59797d]"
+                className="font-['Poppins',sans-serif] text-pg-slate text-xs leading-relaxed hover:text-pg-teal"
               >
                 {l}
               </a>
             ))}
           </div>
           <div className="flex flex-col gap-3">
-            <p className="font-['Poppins',sans-serif] font-semibold text-[#58595b] text-sm">Mental Health Resources</p>
+            <p className="font-['Poppins',sans-serif] font-semibold text-pg-slate text-sm">Mental Health Resources</p>
             {resourceLinks.map((l) => (
               <a
                 key={l}
                 href={FOOTER_LINK_HREFS[l] ?? "#"}
-                className="font-['Poppins',sans-serif] text-[#58595b] text-xs leading-relaxed hover:text-[#59797d] transition-colors py-1"
+                className="font-['Poppins',sans-serif] text-pg-slate text-xs leading-relaxed hover:text-pg-teal transition-colors py-1"
               >
                 {l}
               </a>
@@ -858,8 +858,8 @@ function Footer() {
           </div>
         </div>
       </div>
-      <div className="bg-[#a1bfb9] h-[1px] mb-6 opacity-60" />
-      <div className="flex flex-col-reverse items-start gap-4 sm:flex-row sm:items-center sm:justify-between max-w-[1280px] mx-auto">
+      <div className="bg-pg-sage h-[1px] mb-6 opacity-60" />
+      <div className="flex flex-col-reverse items-start gap-4 sm:flex-row sm:items-center sm:justify-between max-w-pg-page mx-auto">
         <div className="flex gap-3">
           {/* Social icons */}
           {[
@@ -889,7 +889,7 @@ function Footer() {
             </svg>
           </motion.div>
         </div>
-        <p className="font-['Poppins',sans-serif] text-[#1c3243] text-sm leading-relaxed sm:whitespace-nowrap">
+        <p className="font-['Poppins',sans-serif] text-pg-navy text-sm leading-relaxed sm:whitespace-nowrap">
           © 2026 ParentGuidance.org. All rights reserved.
         </p>
       </div>
@@ -900,7 +900,7 @@ function Footer() {
 /* ── Home page ── */
 function HomePage() {
   return (
-    <div className="bg-[#f9f4f1] min-h-screen">
+    <div className="bg-pg-cream min-h-screen">
       <Hero />
       <ResourceSection />
       <WhySection />

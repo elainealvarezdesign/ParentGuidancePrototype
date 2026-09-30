@@ -199,48 +199,48 @@ export default function QuestionDetailPage() {
   const elapsedStr = `${Math.floor(elapsedSecs / 60)}:${String(elapsedSecs % 60).padStart(2, "0")}`;
 
   return (
-    <div className="bg-[#F9F4F1] min-h-screen flex flex-col">
+    <div className="bg-pg-cream min-h-screen flex flex-col">
 
       {/* ── Breadcrumb ── */}
-      <div className="bg-[#EEF0F0] border-b border-[#DDE0E0] pt-14 shrink-0">
-        <div className="max-w-[1280px] mx-auto px-6 h-10 flex items-center gap-2">
+      <div className="bg-pg-tint-soft border-b border-pg-line pt-14 shrink-0">
+        <div className="max-w-pg-page mx-auto px-6 h-10 flex items-center gap-2">
           <Link
             to="/ask-a-therapist"
-            className="font-['Poppins',sans-serif] text-xs text-[#406064] hover:text-[#1c3243] no-underline transition-colors shrink-0"
+            className="font-['Poppins',sans-serif] text-xs text-pg-teal-dark hover:text-pg-navy no-underline transition-colors shrink-0"
           >
             ← Back to Questions
           </Link>
-          <ChevronRight size={13} className="text-[#435766] shrink-0" />
-          <span className="font-['Poppins',sans-serif] font-semibold text-[11px] uppercase tracking-[1.2px] text-[#406064] bg-[#EAF1F1] px-2 py-0.5 rounded-[4px] shrink-0">
+          <ChevronRight size={13} className="text-pg-slate shrink-0" />
+          <span className="font-['Poppins',sans-serif] font-semibold text-[11px] uppercase tracking-[1.2px] text-pg-teal-dark bg-pg-tint px-2 py-0.5 rounded-pg-sm shrink-0">
             {question.category}
           </span>
-          <ChevronRight size={13} className="text-[#435766] shrink-0" />
-          <span className="font-['Poppins',sans-serif] text-xs font-semibold text-[#1C3243] truncate">
+          <ChevronRight size={13} className="text-pg-slate shrink-0" />
+          <span className="font-['Poppins',sans-serif] text-xs font-semibold text-pg-navy truncate">
             {question.question}
           </span>
         </div>
       </div>
 
       {/* ── Body ── */}
-      <div className="flex-1 max-w-[1280px] mx-auto w-full px-6 py-8 flex gap-6">
+      <div className="flex-1 max-w-pg-page mx-auto w-full px-6 py-8 flex gap-6">
 
         {/* ── Left: video + transcript ── */}
         <div className="flex-1 flex flex-col gap-5 min-w-0">
 
           {/* Question heading */}
           <div>
-            <span className="inline-block font-['Poppins',sans-serif] font-semibold text-[11px] uppercase tracking-[1.4px] text-[#406064] bg-[#EAF1F1] border border-[#90B3B6]/40 px-2.5 py-0.5 rounded-[4px] mb-2">
+            <span className="inline-block font-['Poppins',sans-serif] font-semibold text-[11px] uppercase tracking-[1.4px] text-pg-teal-dark bg-pg-tint border border-pg-sage/40 px-2.5 py-0.5 rounded-pg-sm mb-2">
               {question.category}
             </span>
-            <h1 className="font-['Poppins',sans-serif] font-bold text-[#1C3243] text-xl leading-snug">
+            <h1 className="font-['Poppins',sans-serif] font-bold text-pg-navy text-xl leading-snug">
               {question.question}
             </h1>
-            <p className="font-['Poppins',sans-serif] text-[#435766] text-xs mt-1">— User Submitted</p>
+            <p className="font-['Poppins',sans-serif] text-pg-slate text-xs mt-1">— User Submitted</p>
           </div>
 
           {/* ── Video player ── */}
           <div
-            className="relative w-full rounded-[12px] overflow-hidden bg-[#0d1b2a] cursor-pointer select-none"
+            className="relative w-full rounded-pg-lg overflow-hidden bg-pg-navy cursor-pointer select-none"
             style={{ aspectRatio: "16/9" }}
             onClick={() => {
               setPlaying((p) => !p);
@@ -250,12 +250,12 @@ export default function QuestionDetailPage() {
             <img
               src={question.img}
               alt="Video thumbnail"
-              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${playing ? "opacity-50" : "opacity-75"}`}
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-(--pg-dur-base) ${playing ? "opacity-50" : "opacity-75"}`}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
 
             {/* Duration badge */}
-            <div className="absolute top-3 left-3 bg-black/60 text-white font-['Poppins',sans-serif] text-xs font-semibold px-2 py-0.5 rounded">
+            <div className="absolute top-3 left-3 bg-black/60 text-white font-['Poppins',sans-serif] text-xs font-semibold px-2 py-0.5 rounded-pg-sm">
               {question.duration}
             </div>
 
@@ -288,8 +288,8 @@ export default function QuestionDetailPage() {
                   setProgress(Math.round(((e.clientX - rect.left) / rect.width) * 100));
                 }}
               >
-                <div className="h-full bg-[#59797D] rounded-full relative" style={{ width: `${progress}%` }}>
-                  <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-[#59797D] rounded-full shadow" />
+                <div className="h-full bg-pg-teal rounded-full relative" style={{ width: `${progress}%` }}>
+                  <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-pg-teal rounded-full shadow-pg-card" />
                 </div>
               </div>
 
@@ -313,19 +313,19 @@ export default function QuestionDetailPage() {
           </div>
 
           {/* ── Transcript ── */}
-          <div className="bg-white rounded-[16px] border border-[#dee8e9] overflow-hidden" style={{ boxShadow: "0 2px 10px rgba(0,0,0,0.04)" }}>
+          <div className="bg-white rounded-pg-xl border border-pg-line overflow-hidden" style={{ boxShadow: "0 8px 24px rgba(28,50,67,0.06)" }}>
             <button
               onClick={() => setTranscriptOpen((o) => !o)}
-              className="w-full flex items-center justify-between px-5 py-4 hover:bg-[#F9F4F1] transition-colors"
+              className="w-full flex items-center justify-between px-5 py-4 hover:bg-pg-cream transition-colors"
             >
               <div className="flex items-center gap-2">
-                <CheckCircle2 size={14} className="text-[#59797D]" />
-                <span className="font-['Poppins',sans-serif] font-semibold text-sm text-[#1C3243]">
+                <CheckCircle2 size={14} className="text-pg-teal" />
+                <span className="font-['Poppins',sans-serif] font-semibold text-sm text-pg-navy">
                   Read Transcript
                 </span>
               </div>
-              <motion.div animate={{ rotate: transcriptOpen ? 180 : 0 }} transition={{ duration: 0.2 }}>
-                <ChevronDown size={16} className="text-[#435766]" />
+              <motion.div animate={{ rotate: transcriptOpen ? 180 : 0 }} transition={{ duration: 0.22 }}>
+                <ChevronDown size={16} className="text-pg-slate" />
               </motion.div>
             </button>
 
@@ -335,11 +335,11 @@ export default function QuestionDetailPage() {
                   initial={{ height: 0, opacity: 0 }}
                   animate={{ height: "auto", opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.25, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  transition={{ duration: 0.22, ease: [0.25, 0.46, 0.45, 0.94] }}
                   style={{ overflow: "hidden" }}
                 >
-                  <div className="px-5 pb-5 border-t border-[#dee8e9] pt-4">
-                    <p className="font-['Poppins',sans-serif] text-[#435766] text-sm leading-relaxed">
+                  <div className="px-5 pb-5 border-t border-pg-line pt-4">
+                    <p className="font-['Poppins',sans-serif] text-pg-slate text-sm leading-relaxed">
                       {question.transcript}
                     </p>
                   </div>
@@ -349,10 +349,10 @@ export default function QuestionDetailPage() {
           </div>
 
           {/* ── Disclaimer ── */}
-          <div className="flex gap-3 bg-[#FFF8F0] border border-[#F0D9BB] rounded-[12px] px-4 py-3">
-            <AlertCircle size={15} className="text-[#C8893A] shrink-0 mt-0.5" />
-            <p className="font-['Poppins',sans-serif] text-[#435766] text-xs leading-relaxed">
-              <span className="font-semibold text-[#1C3243]">Important: </span>
+          <div className="flex gap-3 bg-pg-warning-soft border border-pg-amber/40 rounded-pg-lg px-4 py-3">
+            <AlertCircle size={15} className="text-pg-amber shrink-0 mt-0.5" />
+            <p className="font-['Poppins',sans-serif] text-pg-slate text-xs leading-relaxed">
+              <span className="font-semibold text-pg-navy">Important: </span>
               The use of parentguidance.org and the content on this website does not form a therapist/patient relationship with any clinician or coach.
             </p>
           </div>
@@ -365,13 +365,13 @@ export default function QuestionDetailPage() {
                 className="flex-1 no-underline"
               >
                 <motion.div
-                  className="flex items-center gap-3 bg-white border border-[#dee8e9] rounded-[12px] p-4 hover:border-[#90B3B6] transition-colors group"
-                  whileHover={{ y: -2, boxShadow: "0 6px 20px rgba(0,0,0,0.07)" }}
+                  className="flex items-center gap-3 bg-white border border-pg-line rounded-pg-lg p-4 hover:border-pg-sage transition-colors group"
+                  whileHover={{ y: -2, boxShadow: "0 8px 24px rgba(28,50,67,0.14)" }}
                 >
-                  <ChevronLeft size={16} className="text-[#435766] group-hover:text-[#59797D] transition-colors shrink-0" />
+                  <ChevronLeft size={16} className="text-pg-slate group-hover:text-pg-teal transition-colors shrink-0" />
                   <div className="min-w-0">
-                    <p className="font-['Poppins',sans-serif] text-[11px] text-[#435766] uppercase tracking-[1px] mb-0.5">Previous</p>
-                    <p className="font-['Poppins',sans-serif] text-xs font-semibold text-[#1C3243] truncate">{prevQ.question}</p>
+                    <p className="font-['Poppins',sans-serif] text-[11px] text-pg-slate uppercase tracking-[1px] mb-0.5">Previous</p>
+                    <p className="font-['Poppins',sans-serif] text-xs font-semibold text-pg-navy truncate">{prevQ.question}</p>
                   </div>
                 </motion.div>
               </Link>
@@ -383,14 +383,14 @@ export default function QuestionDetailPage() {
                 className="flex-1 no-underline"
               >
                 <motion.div
-                  className="flex items-center gap-3 bg-white border border-[#dee8e9] rounded-[12px] p-4 hover:border-[#90B3B6] transition-colors group text-right"
-                  whileHover={{ y: -2, boxShadow: "0 6px 20px rgba(0,0,0,0.07)" }}
+                  className="flex items-center gap-3 bg-white border border-pg-line rounded-pg-lg p-4 hover:border-pg-sage transition-colors group text-right"
+                  whileHover={{ y: -2, boxShadow: "0 8px 24px rgba(28,50,67,0.14)" }}
                 >
                   <div className="min-w-0 flex-1">
-                    <p className="font-['Poppins',sans-serif] text-[11px] text-[#435766] uppercase tracking-[1px] mb-0.5">Next</p>
-                    <p className="font-['Poppins',sans-serif] text-xs font-semibold text-[#1C3243] truncate">{nextQ.question}</p>
+                    <p className="font-['Poppins',sans-serif] text-[11px] text-pg-slate uppercase tracking-[1px] mb-0.5">Next</p>
+                    <p className="font-['Poppins',sans-serif] text-xs font-semibold text-pg-navy truncate">{nextQ.question}</p>
                   </div>
-                  <ChevronRight size={16} className="text-[#435766] group-hover:text-[#59797D] transition-colors shrink-0" />
+                  <ChevronRight size={16} className="text-pg-slate group-hover:text-pg-teal transition-colors shrink-0" />
                 </motion.div>
               </Link>
             ) : <div className="flex-1" />}
@@ -401,37 +401,37 @@ export default function QuestionDetailPage() {
         <div className="w-[300px] shrink-0 flex flex-col gap-4">
 
           {/* Therapist card */}
-          <div className="bg-white rounded-[16px] border border-[#dee8e9] p-5 flex flex-col gap-3" style={{ boxShadow: "0 2px 10px rgba(0,0,0,0.04)" }}>
-            <p className="font-['Poppins',sans-serif] font-semibold text-[11px] uppercase tracking-[1.2px] text-[#435766]">Answered by</p>
+          <div className="bg-white rounded-pg-xl border border-pg-line p-5 flex flex-col gap-3" style={{ boxShadow: "0 8px 24px rgba(28,50,67,0.06)" }}>
+            <p className="font-['Poppins',sans-serif] font-semibold text-[11px] uppercase tracking-[1.2px] text-pg-slate">Answered by</p>
             <div className="flex items-center gap-3">
-              <div className="w-11 h-11 rounded-full bg-[#90B3B6] flex items-center justify-center shrink-0">
-                <span className="font-['Poppins',sans-serif] font-bold text-[#1c3243] text-sm">KS</span>
+              <div className="w-11 h-11 rounded-full bg-pg-sage flex items-center justify-center shrink-0">
+                <span className="font-['Poppins',sans-serif] font-bold text-pg-navy text-sm">KS</span>
               </div>
               <div>
-                <p className="font-['Poppins',sans-serif] font-semibold text-[#1C3243] text-sm">{question.therapist}</p>
-                <p className="font-['Poppins',sans-serif] text-[#59797D] text-xs">{question.credential}</p>
+                <p className="font-['Poppins',sans-serif] font-semibold text-pg-navy text-sm">{question.therapist}</p>
+                <p className="font-['Poppins',sans-serif] text-pg-teal text-xs">{question.credential}</p>
               </div>
             </div>
-            <p className="font-['Poppins',sans-serif] text-[#435766] text-xs leading-relaxed">
+            <p className="font-['Poppins',sans-serif] text-pg-slate text-xs leading-relaxed">
               Dr. Skinner is a Licensed Marriage and Family Therapist, bestselling author, and happiness researcher with over 20 years of clinical experience.
             </p>
           </div>
 
           {/* Submit your question */}
           <div
-            className="relative rounded-[16px] overflow-hidden"
-            style={{ boxShadow: "0 2px 10px rgba(0,0,0,0.07)" }}
+            className="relative rounded-pg-xl overflow-hidden"
+            style={{ boxShadow: "0 8px 24px rgba(28,50,67,0.06)" }}
           >
             <img
               src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=400&h=220&q=80"
               alt=""
               className="absolute inset-0 w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#1C3243]/90 via-[#1C3243]/60 to-[#1C3243]/30" />
+            <div className="absolute inset-0 bg-gradient-to-t from-pg-navy/90 via-pg-navy/60 to-pg-navy/30" />
             <div className="relative p-5 flex flex-col gap-3">
               <div className="flex items-center gap-2">
-                <MessageCircle size={14} className="text-[#90B3B6]" />
-                <span className="font-['Poppins',sans-serif] font-semibold text-[11px] uppercase tracking-[1.2px] text-[#90B3B6]">Ask a Therapist</span>
+                <MessageCircle size={14} className="text-pg-sage" />
+                <span className="font-['Poppins',sans-serif] font-semibold text-[11px] uppercase tracking-[1.2px] text-pg-sage">Ask a Therapist</span>
               </div>
               <p className="font-['Poppins',sans-serif] font-bold text-white text-base leading-snug">
                 Have a question of your own?
@@ -441,8 +441,8 @@ export default function QuestionDetailPage() {
               </p>
               <motion.button
                 onClick={() => setShowModal(true)}
-                className="self-start flex items-center gap-1.5 font-['Poppins',sans-serif] font-semibold text-xs text-[#1C3243] bg-white px-4 py-2 rounded-[8px]"
-                whileHover={{ backgroundColor: "#F9F4F1" }}
+                className="self-start flex items-center gap-1.5 font-['Poppins',sans-serif] font-semibold text-xs text-pg-navy bg-white px-4 py-2 rounded-pg-md"
+                whileHover={{ backgroundColor: "var(--pg-cream)" }}
                 whileTap={{ scale: 0.97 }}
               >
                 Submit Question
@@ -452,33 +452,33 @@ export default function QuestionDetailPage() {
           </div>
 
           {/* Related questions */}
-          <div className="bg-white rounded-[16px] border border-[#dee8e9] overflow-hidden" style={{ boxShadow: "0 2px 10px rgba(0,0,0,0.04)" }}>
-            <div className="px-4 py-3.5 border-b border-[#dee8e9]">
-              <p className="font-['Poppins',sans-serif] font-bold text-[#1C3243] text-sm">Related Questions</p>
+          <div className="bg-white rounded-pg-xl border border-pg-line overflow-hidden" style={{ boxShadow: "0 8px 24px rgba(28,50,67,0.06)" }}>
+            <div className="px-4 py-3.5 border-b border-pg-line">
+              <p className="font-['Poppins',sans-serif] font-bold text-pg-navy text-sm">Related Questions</p>
             </div>
-            <div className="flex flex-col divide-y divide-[#F5F5F5]">
+            <div className="flex flex-col divide-y divide-pg-tint-soft">
               {relatedItems.map((item) => (
                 <Link
                   key={item.id}
                   to={`/ask-a-therapist/${item.id}`}
-                  className="no-underline block group px-4 py-3.5 hover:bg-[#F9F4F1] transition-colors"
+                  className="no-underline block group px-4 py-3.5 hover:bg-pg-cream transition-colors"
                   style={{ color: "inherit" }}
                 >
                   <div className="flex items-start gap-2.5">
-                    <span className="font-['Poppins',sans-serif] font-semibold text-[11px] uppercase tracking-[1px] text-[#406064] bg-[#EAF1F1] px-1.5 py-0.5 rounded shrink-0 mt-0.5">
+                    <span className="font-['Poppins',sans-serif] font-semibold text-[11px] uppercase tracking-[1px] text-pg-teal-dark bg-pg-tint px-1.5 py-0.5 rounded-pg-sm shrink-0 mt-0.5">
                       {item.category}
                     </span>
-                    <p className="font-['Poppins',sans-serif] text-xs text-[#1c3243] leading-snug group-hover:text-[#59797D] transition-colors line-clamp-2">
+                    <p className="font-['Poppins',sans-serif] text-xs text-pg-navy leading-snug group-hover:text-pg-teal transition-colors line-clamp-2">
                       {item.question}
                     </p>
                   </div>
                 </Link>
               ))}
             </div>
-            <div className="px-4 py-3 border-t border-[#dee8e9]">
+            <div className="px-4 py-3 border-t border-pg-line">
               <Link
                 to="/ask-a-therapist"
-                className="font-['Poppins',sans-serif] text-xs text-[#59797D] hover:text-[#406064] no-underline transition-colors flex items-center gap-1"
+                className="font-['Poppins',sans-serif] text-xs text-pg-teal hover:text-pg-teal-dark no-underline transition-colors flex items-center gap-1"
               >
                 Browse all questions
                 <ChevronRight size={12} />
@@ -497,33 +497,33 @@ export default function QuestionDetailPage() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            <div className="absolute inset-0 bg-[#1C3243]/60 backdrop-blur-sm" onClick={() => setShowModal(false)} />
+            <div className="absolute inset-0 bg-pg-navy/60 backdrop-blur-sm" onClick={() => setShowModal(false)} />
             <motion.div
-              className="relative bg-white rounded-[20px] shadow-2xl w-full max-w-md overflow-hidden"
+              className="relative bg-white rounded-pg-xl shadow-pg-overlay w-full max-w-md overflow-hidden"
               initial={{ opacity: 0, y: 24, scale: 0.97 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 16, scale: 0.98 }}
-              transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+              transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
-              <div className="bg-[#1C3243] px-6 py-5">
+              <div className="bg-pg-navy px-6 py-5">
                 <div className="flex items-center gap-2 mb-1">
-                  <MessageCircle size={14} className="text-[#90B3B6]" />
-                  <span className="font-['Poppins',sans-serif] text-[11px] font-semibold uppercase tracking-[1.2px] text-[#90B3B6]">Ask a Therapist</span>
+                  <MessageCircle size={14} className="text-pg-sage" />
+                  <span className="font-['Poppins',sans-serif] text-[11px] font-semibold uppercase tracking-[1.2px] text-pg-sage">Ask a Therapist</span>
                 </div>
                 <h3 className="font-['Poppins',sans-serif] font-bold text-white text-lg">Submit Your Question</h3>
               </div>
 
               {submitted ? (
                 <div className="p-8 flex flex-col items-center gap-3 text-center">
-                  <div className="w-12 h-12 rounded-full bg-[#EAF1F1] flex items-center justify-center">
-                    <CheckCircle2 size={22} className="text-[#59797D]" />
+                  <div className="w-12 h-12 rounded-full bg-pg-tint flex items-center justify-center">
+                    <CheckCircle2 size={22} className="text-pg-teal" />
                   </div>
-                  <p className="font-['Poppins',sans-serif] font-bold text-[#1C3243] text-base">Question received!</p>
-                  <p className="font-['Poppins',sans-serif] text-[#435766] text-sm">We'll have a licensed therapist respond with a video answer. Check your email for updates.</p>
+                  <p className="font-['Poppins',sans-serif] font-bold text-pg-navy text-base">Question received!</p>
+                  <p className="font-['Poppins',sans-serif] text-pg-slate text-sm">We'll have a licensed therapist respond with a video answer. Check your email for updates.</p>
                   <motion.button
                     onClick={() => { setShowModal(false); setSubmitted(false); setSubmitQ(""); setSubmitEmail(""); }}
-                    className="mt-2 font-['Poppins',sans-serif] font-semibold text-sm text-white bg-[#59797D] px-6 py-2.5 rounded-[8px]"
-                    whileHover={{ backgroundColor: "#406064" }}
+                    className="mt-2 font-['Poppins',sans-serif] font-semibold text-sm text-white bg-pg-teal px-6 py-2.5 rounded-pg-md"
+                    whileHover={{ backgroundColor: "var(--pg-teal-dark)" }}
                     whileTap={{ scale: 0.97 }}
                   >
                     Done
@@ -532,20 +532,20 @@ export default function QuestionDetailPage() {
               ) : (
                 <form className="p-6 flex flex-col gap-4" onSubmit={(e) => { e.preventDefault(); if (submitQ.trim() && submitEmail.trim()) setSubmitted(true); }}>
                   <div>
-                    <label className="font-['Poppins',sans-serif] text-xs font-semibold text-[#1C3243] block mb-1.5">Your Question</label>
+                    <label className="font-['Poppins',sans-serif] text-xs font-semibold text-pg-navy block mb-1.5">Your Question</label>
                     <textarea
                       rows={4}
-                      className="w-full border border-[#dee8e9] rounded-[10px] px-3.5 py-2.5 font-['Poppins',sans-serif] text-sm text-[#1C3243] placeholder:text-[#59797d] outline-none focus:border-[#59797D] resize-none transition-colors"
+                      className="w-full border border-pg-line rounded-pg-md px-3.5 py-2.5 font-['Poppins',sans-serif] text-sm text-pg-navy placeholder:text-pg-teal outline-none focus:border-pg-teal resize-none transition-colors"
                       placeholder="What's your parenting question?"
                       value={submitQ}
                       onChange={(e) => setSubmitQ(e.target.value)}
                     />
                   </div>
                   <div>
-                    <label className="font-['Poppins',sans-serif] text-xs font-semibold text-[#1C3243] block mb-1.5">Email</label>
+                    <label className="font-['Poppins',sans-serif] text-xs font-semibold text-pg-navy block mb-1.5">Email</label>
                     <input
                       type="email"
-                      className="w-full border border-[#dee8e9] rounded-[10px] px-3.5 py-2.5 font-['Poppins',sans-serif] text-sm text-[#1C3243] placeholder:text-[#59797d] outline-none focus:border-[#59797D] transition-colors"
+                      className="w-full border border-pg-line rounded-pg-md px-3.5 py-2.5 font-['Poppins',sans-serif] text-sm text-pg-navy placeholder:text-pg-teal outline-none focus:border-pg-teal transition-colors"
                       placeholder="your@email.com"
                       value={submitEmail}
                       onChange={(e) => setSubmitEmail(e.target.value)}
@@ -555,14 +555,14 @@ export default function QuestionDetailPage() {
                     <button
                       type="button"
                       onClick={() => setShowModal(false)}
-                      className="flex-1 font-['Poppins',sans-serif] font-semibold text-sm text-[#435766] border border-[#dee8e9] py-2.5 rounded-[10px] hover:bg-[#F9F4F1] transition-colors"
+                      className="flex-1 font-['Poppins',sans-serif] font-semibold text-sm text-pg-slate border border-pg-line py-2.5 rounded-pg-md hover:bg-pg-cream transition-colors"
                     >
                       Cancel
                     </button>
                     <motion.button
                       type="submit"
-                      className="flex-1 font-['Poppins',sans-serif] font-semibold text-sm text-white bg-[#59797D] py-2.5 rounded-[10px]"
-                      whileHover={{ backgroundColor: "#406064" }}
+                      className="flex-1 font-['Poppins',sans-serif] font-semibold text-sm text-white bg-pg-teal py-2.5 rounded-pg-md"
+                      whileHover={{ backgroundColor: "var(--pg-teal-dark)" }}
                       whileTap={{ scale: 0.97 }}
                     >
                       Submit

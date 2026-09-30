@@ -1,10 +1,8 @@
 /*
  * Parent Guidance — design tokens
  * Extraídos del prototipo PG-Live (src/app). Ver docs/guidelines/ para el uso de cada token.
- *
- * Para usarlos, añade en src/styles/index.css (después de tailwind.css):
- *   @import '../../docs/guidelines/tokens.css';
- * o copia este archivo a src/styles/ e impórtalo desde ahí.
+ * Se importa en src/styles/index.css. Clases de Tailwind: bg-pg-navy, text-pg-slate, rounded-pg-md,
+ * shadow-pg-card, max-w-pg-page, duration-(--pg-dur-base)…
  */
 
 :root {
@@ -16,6 +14,8 @@
   --pg-teal-dark: #406064;
   --pg-sage: #90b3b6;
   --pg-mist: #acbcbe; /* solo decorativo, nunca texto */
+  --pg-amber: #c8893a; /* acento de lecciones; solo relleno decorativo, nunca texto */
+  --pg-live: #52bd95;  /* punto "en vivo"; solo decorativo */
 
   /* ---------- Superficies y bordes ---------- */
   --pg-cream: #f9f4f1;
@@ -81,6 +81,8 @@
   --color-pg-teal-dark: var(--pg-teal-dark);
   --color-pg-sage: var(--pg-sage);
   --color-pg-mist: var(--pg-mist);
+  --color-pg-amber: var(--pg-amber);
+  --color-pg-live: var(--pg-live);
   --color-pg-cream: var(--pg-cream);
   --color-pg-cream-dark: var(--pg-cream-dark);
   --color-pg-tint: var(--pg-tint);
@@ -115,13 +117,4 @@
 
 body {
   font-family: var(--pg-font);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
 }

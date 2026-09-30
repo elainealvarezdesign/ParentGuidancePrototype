@@ -117,7 +117,7 @@ function ResourceCard({
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.45, delay: index * 0.06 }}
+      transition={{ duration: 0.55, delay: index * 0.06 }}
       className="h-full"
     >
       <UnifiedCard
@@ -159,29 +159,29 @@ export default function GetHelpPage() {
   }, [activeCategory, search]);
 
   return (
-    <main className="pt-14 bg-[#f9f4f1] min-h-screen">
+    <main className="pt-14 bg-pg-cream min-h-screen">
       {/* Hero */}
-      <section className="overflow-hidden bg-[#f9f4f1]">
-        <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-14 py-14 md:py-20">
+      <section className="overflow-hidden bg-pg-cream">
+        <div className="max-w-pg-page mx-auto px-6 md:px-10 lg:px-14 py-14 md:py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-16">
             <motion.div
               className="max-w-[540px]"
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.55 }}
             >
-              <p className="font-['Poppins',sans-serif] text-[#406064] text-xs font-semibold tracking-[0.16em] uppercase mb-5">
+              <p className="font-['Poppins',sans-serif] text-pg-teal-dark text-xs font-semibold tracking-[0.16em] uppercase mb-5">
                 Get Help
               </p>
-              <h1 className="font-['Poppins',sans-serif] text-[#1c3243] font-bold text-[38px] md:text-[50px] leading-[1.08] tracking-[-0.02em]">
+              <h1 className="font-['Poppins',sans-serif] text-pg-navy font-bold text-[38px] md:text-[50px] leading-[1.08] tracking-[-0.02em]">
                 Find the right support, right when you need it.
               </h1>
-              <p className="font-['Poppins',sans-serif] text-[#435766] text-base md:text-lg leading-relaxed mt-6 max-w-[500px]">
+              <p className="font-['Poppins',sans-serif] text-pg-slate text-base md:text-lg leading-relaxed mt-6 max-w-[500px]">
                 Explore trusted crisis lines and mental health resources for you or someone you care about.
               </p>
-              <div className="mt-7 flex items-start gap-3 rounded-xl bg-white/70 border border-[#ebe8e5] px-4 py-4 max-w-[500px]">
-                <AlertCircle className="text-[#1c3243] shrink-0 mt-0.5" size={21} />
-                <p className="font-['Poppins',sans-serif] text-[#1c3243] text-sm leading-relaxed">
+              <div className="mt-7 flex items-start gap-3 rounded-pg-lg bg-white/70 border border-pg-cream-dark px-4 py-4 max-w-[500px]">
+                <AlertCircle className="text-pg-navy shrink-0 mt-0.5" size={21} />
+                <p className="font-['Poppins',sans-serif] text-pg-navy text-sm leading-relaxed">
                   If you or someone you know is in immediate danger, <strong>call 911.</strong>
                 </p>
               </div>
@@ -191,13 +191,13 @@ export default function GetHelpPage() {
               className="relative w-full max-w-[570px] mx-auto lg:mx-0 lg:ml-auto pb-9 pr-7 md:pb-12 md:pr-10"
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7, delay: 0.1 }}
+              transition={{ duration: 0.55, delay: 0.1 }}
             >
-              <div className="absolute right-0 bottom-0 w-[66%] h-[78%] rounded-2xl bg-[#90b3b6]" />
+              <div className="absolute right-0 bottom-0 w-[66%] h-[78%] rounded-pg-xl bg-pg-sage" />
               <img
                 src={getHelpHero}
                 alt="A parent calmly talking on the phone in a comfortable home"
-                className="relative z-10 w-full aspect-[16/10] object-cover rounded-2xl shadow-sm"
+                className="relative z-10 w-full aspect-[16/10] object-cover rounded-pg-xl shadow-pg-card"
               />
             </motion.div>
           </div>
@@ -205,9 +205,9 @@ export default function GetHelpPage() {
       </section>
 
      {/* Priority support */}
-<section className="bg-[#f9f4f1] px-8 md:px-14 lg:px-14 pb-14">
+<section className="bg-pg-cream px-8 md:px-14 lg:px-14 pb-14">
   <motion.div
-  className="max-w-[1180px] mx-auto bg-[#1c3243] rounded-[8px] px-8 md:px-16 py-10 md:py-12"
+  className="max-w-pg-page mx-auto bg-pg-navy rounded-pg-md px-8 md:px-16 py-10 md:py-12"
     initial={{ opacity: 0, y: 24 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true, margin: "-60px" }}
@@ -231,7 +231,7 @@ export default function GetHelpPage() {
         <div className="flex flex-col sm:flex-row flex-wrap justify-center md:justify-start gap-3 mt-5">
           <a
             href="tel:988"
-            className="inline-flex items-center justify-center gap-2 bg-[#59797d] text-white rounded-[8px] px-6 py-3.5 font-['Poppins',sans-serif] text-sm font-semibold hover:bg-[#6f9296] transition-colors"
+            className="inline-flex items-center justify-center gap-2 bg-pg-teal text-white rounded-pg-md px-6 py-3.5 font-['Poppins',sans-serif] text-sm font-semibold hover:bg-pg-teal transition-colors"
           >
             <Phone size={15} />
             Call 988
@@ -239,7 +239,7 @@ export default function GetHelpPage() {
 
           <a
             href="sms:988"
-            className="inline-flex items-center justify-center gap-2 bg-[#59797d] text-white rounded-[8px] px-6 py-3.5 font-['Poppins',sans-serif] text-sm font-semibold hover:bg-[#6f9296] transition-colors"
+            className="inline-flex items-center justify-center gap-2 bg-pg-teal text-white rounded-pg-md px-6 py-3.5 font-['Poppins',sans-serif] text-sm font-semibold hover:bg-pg-teal transition-colors"
           >
             <MessageCircle size={15} />
             Text 988
@@ -249,7 +249,7 @@ export default function GetHelpPage() {
             href="https://988lifeline.org/"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center justify-center gap-2 bg-[#59797d] text-white rounded-[8px] px-6 py-3.5 font-['Poppins',sans-serif] text-sm font-semibold hover:bg-[#6f9296] transition-colors"
+            className="inline-flex items-center justify-center gap-2 bg-pg-teal text-white rounded-pg-md px-6 py-3.5 font-['Poppins',sans-serif] text-sm font-semibold hover:bg-pg-teal transition-colors"
           >
             <Globe2 size={15} />
             Visit Website
@@ -260,31 +260,31 @@ export default function GetHelpPage() {
   </motion.div>
 </section>
 
-      <section className="bg-[#f5f5f5] px-6 md:px-10 lg:px-14 py-16">
-        <div className="max-w-[1280px] mx-auto">
-          <div className="text-center max-w-[680px] mx-auto">
-            <p className="font-['Poppins',sans-serif] text-[#406064] text-xs font-semibold tracking-[0.14em] uppercase">
+      <section className="bg-pg-tint-soft px-6 md:px-10 lg:px-14 py-16">
+        <div className="max-w-pg-page mx-auto">
+          <div className="text-center max-w-pg-reading mx-auto">
+            <p className="font-['Poppins',sans-serif] text-pg-teal-dark text-xs font-semibold tracking-[0.14em] uppercase">
               Trusted support
             </p>
-            <h2 className="font-['Poppins',sans-serif] font-bold text-[#1c3243] text-3xl md:text-4xl mt-3">
+            <h2 className="font-['Poppins',sans-serif] font-bold text-pg-navy text-3xl md:text-4xl mt-3">
               Browse support resources
             </h2>
           </div>
 
           <div className="mt-8 max-w-[900px] mx-auto">
             <div className="relative">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-[#76979a]" size={18} />
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-pg-teal" size={18} />
               <input
                 value={search}
                 onChange={(event) => setSearch(event.target.value)}
                 placeholder="Search resources..."
-                className="w-full bg-white border border-[#dedcdc] rounded-xl pl-12 pr-12 py-4 font-['Poppins',sans-serif] text-[#1c3243] text-sm outline-none focus:ring-2 focus:ring-[#90b3b6]/40"
+                className="w-full bg-white border border-pg-line rounded-pg-lg pl-12 pr-12 py-4 font-['Poppins',sans-serif] text-pg-navy text-sm outline-none focus:ring-2 focus:ring-pg-sage/40"
               />
               {search && (
                 <button
                   type="button"
                   onClick={() => setSearch("")}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-[#76979a] hover:text-[#1c3243]"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-pg-teal hover:text-pg-navy"
                   aria-label="Clear search"
                 >
                   <X size={18} />
@@ -303,8 +303,8 @@ export default function GetHelpPage() {
                   onClick={() => setActiveCategory(category)}
                   className={`rounded-full px-4 py-2 font-['Poppins',sans-serif] text-xs font-medium transition-colors ${
                     active
-                      ? "bg-[#1c3243] text-white"
-                      : "bg-white border border-[#dedcdc] text-[#435766] hover:bg-[#e8f1f1]"
+                      ? "bg-pg-navy text-white"
+                      : "bg-white border border-pg-line text-pg-slate hover:bg-pg-tint"
                   }`}
                 >
                   {category}
@@ -314,14 +314,14 @@ export default function GetHelpPage() {
           </div>
 
           {filteredResources.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 mt-9 max-w-[1000px] mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 mt-9 max-w-pg-content mx-auto">
               {filteredResources.map((resource, index) => (
                 <ResourceCard key={resource.name} resource={resource} index={index} />
               ))}
             </div>
           ) : (
-            <div className="mt-10 bg-white rounded-2xl border border-[#e3e1df] p-10 text-center">
-              <p className="font-['Poppins',sans-serif] font-semibold text-[#1c3243]">
+            <div className="mt-10 bg-white rounded-pg-xl border border-pg-cream-dark p-10 text-center">
+              <p className="font-['Poppins',sans-serif] font-semibold text-pg-navy">
                 No resources match your search.
               </p>
               <button
@@ -330,7 +330,7 @@ export default function GetHelpPage() {
                   setSearch("");
                   setActiveCategory("All");
                 }}
-                className="mt-4 text-[#59797d] font-['Poppins',sans-serif] text-sm font-semibold"
+                className="mt-4 text-pg-teal font-['Poppins',sans-serif] text-sm font-semibold"
               >
                 Clear filters
               </button>
@@ -338,26 +338,26 @@ export default function GetHelpPage() {
           )}
 
           <motion.div
-            className="mt-12 rounded-2xl bg-[#dceced] px-7 md:px-12 py-9 flex flex-col md:flex-row items-center gap-8 max-w-[1000px] mx-auto"
+            className="mt-12 rounded-pg-xl bg-pg-tint px-7 md:px-12 py-9 flex flex-col md:flex-row items-center gap-8 max-w-pg-content mx-auto"
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
           >
             <div className="w-24 h-24 rounded-full bg-white/70 flex items-center justify-center shrink-0">
-              <Signpost size={46} className="text-[#59797d]" />
+              <Signpost size={46} className="text-pg-teal" />
             </div>
             <div className="flex-1 text-center md:text-left">
-              <h2 className="font-['Poppins',sans-serif] font-bold text-[#1c3243] text-2xl md:text-3xl">
+              <h2 className="font-['Poppins',sans-serif] font-bold text-pg-navy text-2xl md:text-3xl">
 Not sure which resource  {" "}
 <span className="whitespace-nowrap">is right for you?</span>              </h2>
-              <p className="font-['Poppins',sans-serif] text-[#435766] text-sm md:text-base mt-2">
+              <p className="font-['Poppins',sans-serif] text-pg-slate text-sm md:text-base mt-2">
                 Answer a few simple questions to find the best place to start.
               </p>
             </div>
             <motion.button
               type="button"
-              className="inline-flex items-center gap-2 bg-[#59797d] text-white rounded-lg px-6 py-3.5 font-['Poppins',sans-serif] text-sm font-semibold shrink-0"
-              whileHover={{ backgroundColor: "#406064", x: 2 }}
+              className="inline-flex items-center gap-2 bg-pg-teal text-white rounded-pg-md px-6 py-3.5 font-['Poppins',sans-serif] text-sm font-semibold shrink-0"
+              whileHover={{ backgroundColor: "var(--pg-teal-dark)", x: 2 }}
               whileTap={{ scale: 0.98 }}
             >
               Help me choose <ArrowRight size={17} />
@@ -367,8 +367,8 @@ Not sure which resource  {" "}
       </section>
 
       {/* Trust strip */}
-      <section className="bg-white border-y border-[#ebe8e5] px-6 md:px-10 lg:px-14 py-8">
-        <div className="max-w-[1100px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-7">
+      <section className="bg-white border-y border-pg-cream-dark px-6 md:px-10 lg:px-14 py-8">
+        <div className="max-w-pg-content mx-auto grid grid-cols-1 md:grid-cols-3 gap-7">
           {[
             {
               icon: ShieldCheck,
@@ -387,12 +387,12 @@ Not sure which resource  {" "}
             },
           ].map(({ icon: Icon, title, copy }) => (
             <div key={title} className="flex items-center gap-4 md:justify-center">
-              <Icon size={34} className="text-[#59797d] shrink-0" />
+              <Icon size={34} className="text-pg-teal shrink-0" />
               <div>
-                <p className="font-['Poppins',sans-serif] text-[#1c3243] text-sm font-semibold">
+                <p className="font-['Poppins',sans-serif] text-pg-navy text-sm font-semibold">
                   {title}
                 </p>
-                <p className="font-['Poppins',sans-serif] text-[#6c777f] text-xs mt-1">
+                <p className="font-['Poppins',sans-serif] text-pg-slate text-xs mt-1">
                   {copy}
                 </p>
               </div>

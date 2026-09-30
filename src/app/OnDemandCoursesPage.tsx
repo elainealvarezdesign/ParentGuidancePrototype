@@ -321,37 +321,37 @@ const PER_PAGE = 9;
 /* ─── Hero ─── */
 function Hero() {
   return (
-    <section className="bg-[#f9f4f1] pt-24 pb-14 px-14 overflow-hidden">
-      <div className="max-w-[1280px] mx-auto grid grid-cols-2 gap-10 items-center">
+    <section className="bg-pg-cream pt-24 pb-14 px-14 overflow-hidden">
+      <div className="max-w-pg-page mx-auto grid grid-cols-2 gap-10 items-center">
         {/* Left */}
         <motion.div
           className="flex flex-col gap-5"
           initial={{ opacity: 0, x: -28 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
-          <span className="font-['Poppins',sans-serif] text-xs font-semibold uppercase tracking-[1.4px] text-[#406064]">
+          <span className="font-['Poppins',sans-serif] text-xs font-semibold uppercase tracking-[1.4px] text-pg-teal-dark">
             On-Demand Courses
           </span>
-          <h1 className="font-['Poppins',sans-serif] font-bold text-[#1c3243] text-[40px] leading-[1.15]">
+          <h1 className="font-['Poppins',sans-serif] font-bold text-pg-navy text-[40px] leading-[1.15]">
             {"Expert-led courses to help you "}
-            <em className="italic text-[#59797d]">parent with confidence.</em>
+            <em className="italic text-pg-teal">parent with confidence.</em>
           </h1>
-          <p className="font-['Poppins',sans-serif] text-[#435766] text-base leading-[26px] max-w-[380px]">
+          <p className="font-['Poppins',sans-serif] text-pg-slate text-base leading-[26px] max-w-[380px]">
             Learn at your own pace from licensed therapists — practical tools for the real challenges families face every day.
           </p>
           <div className="flex items-center gap-3 pt-1">
             <motion.a
               href="#courses"
-              className="font-['Poppins',sans-serif] font-semibold text-sm text-white bg-[#1c3243] px-6 py-3.5 rounded-lg no-underline"
-              whileHover={{ scale: 1.03, backgroundColor: "#1c3243" }}
+              className="font-['Poppins',sans-serif] font-semibold text-sm text-white bg-pg-navy px-6 py-3.5 rounded-pg-md no-underline"
+              whileHover={{ scale: 1.03, backgroundColor: "var(--pg-navy)" }}
               whileTap={{ scale: 0.97 }}
             >
               Browse all courses
             </motion.a>
             <motion.a
               href="/parent-coaching"
-              className="font-['Poppins',sans-serif] font-semibold text-sm text-[#1c3243] border border-[#1c3243] px-6 py-3.5 rounded-lg no-underline bg-transparent"
+              className="font-['Poppins',sans-serif] font-semibold text-sm text-pg-navy border border-pg-navy px-6 py-3.5 rounded-pg-md no-underline bg-transparent"
               whileHover={{ scale: 1.03, backgroundColor: "rgba(34,49,67,0.06)" }}
               whileTap={{ scale: 0.97 }}
             >
@@ -365,16 +365,16 @@ function Hero() {
           className="relative flex justify-center items-center py-4 pr-4"
           initial={{ opacity: 0, x: 28 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.65, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.55, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
           <div
-            className="absolute bg-[#90b3b6] rounded-lg z-0"
+            className="absolute bg-pg-sage rounded-pg-md z-0"
             style={{ width: "62%", aspectRatio: "1/1", bottom: 0, right: 0 }}
           />
           <img
             src={imgParentAndChild}
             alt="Parent and child learning together"
-            className="relative z-10 rounded-lg object-cover object-top shadow-md"
+            className="relative z-10 rounded-pg-md object-cover object-top shadow-pg-card"
             style={{ width: "65%", aspectRatio: "1/1", marginBottom: "24px", marginRight: "24px" }}
           />
         </motion.div>
@@ -477,15 +477,15 @@ export default function OnDemandCoursesPage() {
   }, []);
 
   return (
-    <div className="bg-[#f5f5f5] min-h-screen">
+    <div className="bg-pg-tint-soft min-h-screen">
       <Hero />
 
       {/* ── Sticky filter bar ── */}
-      <div className="bg-white border-b border-[#ebebeb] sticky top-14 z-30" style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.05)" }}>
-        <div className="max-w-[1280px] mx-auto px-10 py-3 flex items-center gap-4">
+      <div className="bg-white border-b border-pg-line sticky top-14 z-30" style={{ boxShadow: "0 8px 24px rgba(28,50,67,0.06)" }}>
+        <div className="max-w-pg-page mx-auto px-10 py-3 flex items-center gap-4">
           {/* Search */}
           <div className="relative shrink-0 w-64">
-            <svg className="absolute left-3 top-1/2 -translate-y-1/2 text-[#435766]" width="14" height="14" viewBox="0 0 16.732 16.732" fill="none">
+            <svg className="absolute left-3 top-1/2 -translate-y-1/2 text-pg-slate" width="14" height="14" viewBox="0 0 16.732 16.732" fill="none">
               <g>
                 <path d={svgPaths.p40de600} stroke="#acbcbe" strokeWidth="1.394" />
                 <path d={svgPaths.p3de73700} stroke="#acbcbe" strokeLinecap="round" strokeWidth="1.394" />
@@ -495,10 +495,10 @@ export default function OnDemandCoursesPage() {
               value={search}
               onChange={e => setSearchAndReset(e.target.value)}
               placeholder="Search courses…"
-              className="w-full bg-[#f9f4f1] font-['Poppins',sans-serif] text-sm text-[#1c3243] placeholder:text-[#59797d] pl-9 pr-4 py-2 rounded-lg outline-none border border-transparent focus:border-[#90b3b6] focus:bg-white transition-all"
+              className="w-full bg-pg-cream font-['Poppins',sans-serif] text-sm text-pg-navy placeholder:text-pg-teal pl-9 pr-4 py-2 rounded-pg-md outline-none border border-transparent focus:border-pg-sage focus:bg-white transition-all"
             />
             {search && (
-              <button onClick={() => setSearchAndReset("")} className="absolute right-3 top-1/2 -translate-y-1/2 text-[#435766] hover:text-[#435766]">
+              <button onClick={() => setSearchAndReset("")} className="absolute right-3 top-1/2 -translate-y-1/2 text-pg-slate hover:text-pg-slate">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
                   <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
                 </svg>
@@ -514,8 +514,8 @@ export default function OnDemandCoursesPage() {
                 onClick={() => setTopicAndReset(t)}
                 className="shrink-0 font-['Poppins',sans-serif] text-xs font-medium px-3 py-1.5 rounded-full whitespace-nowrap transition-all"
                 style={{
-                  background: activeTopic === t ? "#1c3243" : "#f0f0f0",
-                  color: activeTopic === t ? "#fff" : "#435766",
+                  background: activeTopic === t ? "var(--pg-navy)" : "var(--pg-tint-soft)",
+                  color: activeTopic === t ? "#ffffff" : "var(--pg-slate)",
                 }}
               >
                 {t}
@@ -530,7 +530,7 @@ export default function OnDemandCoursesPage() {
           <div ref={sortRef} className="relative shrink-0">
             <button
               onClick={() => setSortOpen(v => !v)}
-              className="flex items-center gap-2 font-['Poppins',sans-serif] text-xs font-medium text-[#435766] bg-[#f0f0f0] px-3 py-2 rounded-lg hover:bg-[#e8e8e8] transition-colors"
+              className="flex items-center gap-2 font-['Poppins',sans-serif] text-xs font-medium text-pg-slate bg-pg-tint-soft px-3 py-2 rounded-pg-md hover:bg-pg-line transition-colors"
             >
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
                 <path d="M3 6h18M6 12h12M10 18h4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
@@ -543,8 +543,8 @@ export default function OnDemandCoursesPage() {
             <AnimatePresence>
               {sortOpen && (
                 <motion.div
-                  className="absolute right-0 top-full mt-1.5 bg-white rounded-lg overflow-hidden z-50"
-                  style={{ boxShadow: "0 8px 24px rgba(0,0,0,0.12)", minWidth: 140 }}
+                  className="absolute right-0 top-full mt-1.5 bg-white rounded-pg-md overflow-hidden z-50"
+                  style={{ boxShadow: "0 8px 24px rgba(28,50,67,0.06)", minWidth: 140 }}
                   initial={{ opacity: 0, y: -6, scale: 0.97 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: -4, scale: 0.97 }}
@@ -556,8 +556,8 @@ export default function OnDemandCoursesPage() {
                       onClick={() => { setSort(k); setSortOpen(false); }}
                       className="w-full text-left px-4 py-2.5 font-['Poppins',sans-serif] text-xs transition-colors"
                       style={{
-                        background: sort === k ? "#f0f6f6" : "white",
-                        color: sort === k ? "#59797d" : "#435766",
+                        background: sort === k ? "var(--pg-tint-soft)" : "white",
+                        color: sort === k ? "var(--pg-teal)" : "var(--pg-slate)",
                         fontWeight: sort === k ? 600 : 400,
                       }}
                     >
@@ -572,23 +572,23 @@ export default function OnDemandCoursesPage() {
       </div>
 
       {/* ── Main content ── */}
-      <div id="courses" className="max-w-[1280px] mx-auto px-10 py-8">
+      <div id="courses" className="max-w-pg-page mx-auto px-10 py-8">
         {/* Result header */}
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-2">
-            <div className="w-1 h-5 rounded-full bg-[#90b3b6]" />
-            <span className="font-['Poppins',sans-serif] font-semibold text-[#1c3243] text-base">
+            <div className="w-1 h-5 rounded-full bg-pg-sage" />
+            <span className="font-['Poppins',sans-serif] font-semibold text-pg-navy text-base">
               {activeTopic === "All" ? "All Courses" : activeTopic}
             </span>
-            <span className="bg-[#e8f1f1] font-['Poppins',sans-serif] text-[#406064] text-xs font-semibold px-2.5 py-0.5 rounded-full">
+            <span className="bg-pg-tint font-['Poppins',sans-serif] text-pg-teal-dark text-xs font-semibold px-2.5 py-0.5 rounded-full">
               {filtered.length}
             </span>
           </div>
           <div className="flex items-center gap-2">
             {search && (
-              <span className="flex items-center gap-1.5 bg-[#f9f4f1] border border-[#90b3b6] text-[#59797d] font-['Poppins',sans-serif] text-xs px-2.5 py-1 rounded-full">
+              <span className="flex items-center gap-1.5 bg-pg-cream border border-pg-sage text-pg-teal font-['Poppins',sans-serif] text-xs px-2.5 py-1 rounded-full">
                 &ldquo;{search}&rdquo;
-                <button onClick={() => setSearchAndReset("")} className="hover:text-[#1c3243]">
+                <button onClick={() => setSearchAndReset("")} className="hover:text-pg-navy">
                   <svg width="10" height="10" viewBox="0 0 24 24" fill="none">
                     <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
                   </svg>
@@ -596,7 +596,7 @@ export default function OnDemandCoursesPage() {
               </span>
             )}
             {activeTopic !== "All" && (
-              <button onClick={() => setTopicAndReset("All")} className="font-['Poppins',sans-serif] text-xs text-[#435766] hover:text-[#435766] transition-colors">
+              <button onClick={() => setTopicAndReset("All")} className="font-['Poppins',sans-serif] text-xs text-pg-slate hover:text-pg-slate transition-colors">
                 Clear filters
               </button>
             )}
@@ -607,7 +607,7 @@ export default function OnDemandCoursesPage() {
         <AnimatePresence mode="wait">
           <motion.div
             key={`${activeTopic}-${search}-${sort}-${page}`}
-            className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 max-w-[1000px] mx-auto"
+            className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 max-w-pg-content mx-auto"
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
@@ -615,12 +615,12 @@ export default function OnDemandCoursesPage() {
           >
             {paginated.length === 0 ? (
               <div className="col-span-3 flex flex-col items-center justify-center py-24 gap-3">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" className="text-[#d0d8e0]">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" className="text-pg-mist">
                   <circle cx="11" cy="11" r="8" stroke="currentColor" strokeWidth="1.5" />
                   <path d="M21 21l-4.35-4.35" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                 </svg>
-                <p className="font-['Poppins',sans-serif] text-[#435766] text-sm">No courses found.</p>
-                <button onClick={() => { setSearchAndReset(""); setTopicAndReset("All"); }} className="font-['Poppins',sans-serif] text-xs text-[#59797d] underline">Clear all filters</button>
+                <p className="font-['Poppins',sans-serif] text-pg-slate text-sm">No courses found.</p>
+                <button onClick={() => { setSearchAndReset(""); setTopicAndReset("All"); }} className="font-['Poppins',sans-serif] text-xs text-pg-teal underline">Clear all filters</button>
               </div>
             ) : (
               paginated.map((course, i) => <CourseCard key={course.id} course={course} index={i} />)
@@ -634,7 +634,7 @@ export default function OnDemandCoursesPage() {
             <button
               onClick={() => { setPage(p => Math.max(1, p - 1)); window.scrollTo({ top: 0, behavior: scrollBehavior() }); }}
               disabled={page === 1}
-              className="font-['Poppins',sans-serif] text-sm font-medium text-[#406064] px-4 py-2 rounded-lg border border-[#90b3b6] hover:bg-[#f0f6f6] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+              className="font-['Poppins',sans-serif] text-sm font-medium text-pg-teal-dark px-4 py-2 rounded-pg-md border border-pg-sage hover:bg-pg-tint-soft disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
             >
               ← Prev
             </button>
@@ -642,10 +642,10 @@ export default function OnDemandCoursesPage() {
               <button
                 key={p}
                 onClick={() => { setPage(p); window.scrollTo({ top: 0, behavior: scrollBehavior() }); }}
-                className="font-['Poppins',sans-serif] text-sm font-medium w-[43px] h-[43px] rounded-lg flex items-center justify-center transition-all"
+                className="font-['Poppins',sans-serif] text-sm font-medium w-[43px] h-[43px] rounded-pg-md flex items-center justify-center transition-all"
                 style={{
-                  background: page === p ? "#59797d" : "white",
-                  color: page === p ? "#fff" : "#435766",
+                  background: page === p ? "var(--pg-teal)" : "white",
+                  color: page === p ? "#ffffff" : "var(--pg-slate)",
                   boxShadow: page === p ? "none" : "0 1px 3px rgba(0,0,0,0.07)",
                 }}
               >
@@ -655,7 +655,7 @@ export default function OnDemandCoursesPage() {
             <button
               onClick={() => { setPage(p => Math.min(totalPages, p + 1)); window.scrollTo({ top: 0, behavior: scrollBehavior() }); }}
               disabled={page === totalPages}
-              className="font-['Poppins',sans-serif] text-sm font-medium text-[#406064] px-4 py-2 rounded-lg border border-[#90b3b6] hover:bg-[#f0f6f6] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+              className="font-['Poppins',sans-serif] text-sm font-medium text-pg-teal-dark px-4 py-2 rounded-pg-md border border-pg-sage hover:bg-pg-tint-soft disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
             >
               Next →
             </button>
@@ -664,10 +664,10 @@ export default function OnDemandCoursesPage() {
       </div>
 
       {/* ── Bottom CTA ── */}
-      <div className="max-w-[1280px] mx-auto px-10 pb-14">
-        <div className="relative rounded-lg overflow-hidden" style={{ height: "248px" }}>
+      <div className="max-w-pg-page mx-auto px-10 pb-14">
+        <div className="relative rounded-pg-md overflow-hidden" style={{ height: "248px" }}>
           {/* Background image */}
-          <div className="absolute inset-0 rounded-lg overflow-hidden">
+          <div className="absolute inset-0 rounded-pg-md overflow-hidden">
             <img
               alt=""
               className="absolute inset-0 w-full h-full object-cover"
@@ -676,20 +676,20 @@ export default function OnDemandCoursesPage() {
             />
           </div>
           {/* Gradient overlay */}
-          <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-[rgba(34,49,67,0.9)] via-[rgba(34,49,67,0.7)] to-[rgba(34,49,67,0)]" />
+          <div className="absolute inset-0 rounded-pg-md bg-gradient-to-r from-[rgba(34,49,67,0.9)] via-[rgba(34,49,67,0.7)] to-[rgba(34,49,67,0)]" />
           {/* Content */}
           <div className="relative z-10 h-full flex items-center px-14">
             <div className="flex flex-col gap-2 max-w-lg">
               <h3 className="font-['Poppins',sans-serif] font-bold text-white text-xl">Looking for additional help?</h3>
-              <p className="font-['Poppins',sans-serif] text-[#90b3b6] text-sm leading-relaxed">
+              <p className="font-['Poppins',sans-serif] text-pg-sage text-sm leading-relaxed">
                 {"Our expert coaches work one-on-one with you. "}
                 <span className="font-semibold text-white">{"Services may be free through your child's school district."}</span>
               </p>
               <div className="mt-2">
                 <motion.a
                   href="/parent-coaching"
-                  className="inline-block font-['Poppins',sans-serif] font-semibold text-sm text-[#1c3243] bg-[#90b3b6] px-6 py-3 rounded-lg no-underline"
-                  whileHover={{ scale: 1.04, backgroundColor: "#59797d", color: "#fff" }}
+                  className="inline-block font-['Poppins',sans-serif] font-semibold text-sm text-pg-navy bg-pg-sage px-6 py-3 rounded-pg-md no-underline"
+                  whileHover={{ scale: 1.04, backgroundColor: "var(--pg-teal)", color: "#ffffff" }}
                   whileTap={{ scale: 0.97 }}
                 >
                   Get Started
