@@ -329,23 +329,23 @@ export default function GetHelpPage() {
           )}
 
           <motion.div
-            className="mt-12 rounded-pg-xl bg-pg-tint px-7 md:px-12 py-9 flex flex-col md:flex-row items-center gap-8 max-w-pg-content mx-auto"
+            className="mt-12 rounded-pg-xl bg-pg-sage px-7 md:px-12 py-9 flex flex-col md:flex-row items-center gap-8 max-w-pg-content mx-auto"
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
           >
             <div className="w-24 h-24 rounded-full bg-white/70 flex items-center justify-center shrink-0">
-              <Signpost size={46} className="text-pg-teal" />
+              <Signpost size={46} className="text-pg-teal-dark" aria-hidden="true" />
             </div>
             <div className="flex-1 text-center md:text-left">
               <h2 className="font-['Poppins',sans-serif] font-bold text-pg-navy text-2xl md:text-3xl">
 Not sure which resource  {" "}
 <span className="whitespace-nowrap">is right for you?</span>              </h2>
-              <p className="font-['Poppins',sans-serif] text-pg-slate text-sm md:text-base mt-2">
+              <p className="font-['Poppins',sans-serif] text-pg-navy text-sm md:text-base mt-2">
                 Answer a few simple questions to find the best place to start.
               </p>
             </div>
-            <Button className="shrink-0">
+            <Button variant="inverse" className="shrink-0">
               Help me choose <ArrowRight size={17} />
             </Button>
           </motion.div>

@@ -11,7 +11,7 @@ alturas. Esta guía los reduce a un solo sistema, partiendo del botón más repe
 | **Primary** | Fondo `pg-teal`, texto blanco; hover `pg-teal-dark` | La acción principal de la sección: "Ver curso", "Reservar sesión", "Enviar pregunta" |
 | **Secondary** | Fondo blanco, borde 1px `pg-teal`, texto `pg-teal-dark`; hover fondo `pg-tint` | Acción de apoyo junto a un Primary ("Cancelar", "Ver detalles") |
 | **Tertiary** | Solo texto `pg-teal-dark`, subrayado en hover | Acciones de baja prioridad: "Ver más", "Saltar" |
-| **Inverse** | Fondo blanco, texto `pg-navy`; hover `pg-cream` | Acción principal **sobre fondos navy o teal** |
+| **Inverse** | Fondo blanco, texto `pg-navy`; hover `pg-cream` | Acción principal **sobre fondos navy, teal o sage** |
 | **Inverse secondary** | Fondo `white/5`, borde `white/20`, texto blanco; hover `white/10` | Acción de apoyo sobre fondos oscuros |
 
 > **Un solo Primary por sección.** Si hay más acciones, pasan a Secondary o Tertiary.

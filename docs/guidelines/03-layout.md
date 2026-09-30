@@ -54,6 +54,11 @@ Se usan los de Tailwind. El prototipo trabaja sobre todo con `md`:
 
 Las secciones se alternan por **color de fondo** (cream → white → tint → navy) en lugar de líneas divisorias.
 
+Un bloque destacado **dentro** de una sección (banner, CTA) debe distinguirse del fondo de la sección: usar
+`pg-sage` (texto navy, botón Inverse), `pg-navy` (texto blanco, botón Inverse) o una card blanca con borde
+`pg-line` y sombra `card`. **No** poner `pg-tint` sobre `pg-tint-soft` ni `pg-cream-dark` sobre `pg-cream`:
+son casi el mismo color (1.04:1) y el bloque desaparece.
+
 ## 3.4 Patrones de grid
 
 | Patrón | Clases | Uso |
