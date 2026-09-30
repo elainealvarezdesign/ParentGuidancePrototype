@@ -1,3 +1,5 @@
+import { SAMPLE_REGISTER_URL } from "./links";
+
 /* Mental Health Series events, shown on /mental-health-series/events.
  * Times are Central Time. Events marked `sample` are illustrative prototype content. */
 
@@ -22,6 +24,8 @@ export type SeriesEvent = {
   end?: string;
   language?: "Español";
   sample?: boolean;
+  /** Registration page; defaults to the sample Zoom link */
+  registerUrl?: string;
 };
 
 export const EVENTS: SeriesEvent[] = [
@@ -38,6 +42,8 @@ export const EVENTS: SeriesEvent[] = [
   { id: "self-care", title: "Self-Care for Caregivers", description: "You can't pour from an empty cup. A session dedicated to parent wellbeing.", category: "support", date: "2025-08-21", start: "12:00", end: "13:00" },
   { id: "crisis", title: "Crisis Resources Workshop", description: "Know the signs, know the steps. A practical guide to crisis preparedness for families.", category: "workshop", date: "2025-08-25", start: "15:00", end: "16:00" },
 ];
+
+export const registerUrlFor = (e: SeriesEvent) => e.registerUrl ?? SAMPLE_REGISTER_URL;
 
 /* ── Formatting helpers ── */
 

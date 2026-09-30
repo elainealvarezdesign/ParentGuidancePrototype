@@ -1,7 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router";
 import { ArrowRight, CalendarDays, ChevronLeft, ListChecks, PlayCircle } from "lucide-react";
-import { getTopic, type Topic } from "./mhs/topics";
+import { getTopic, type Topic, type TopicVideo } from "./mhs/topics";
 import { BackToTopButton } from "./legal/LegalActions";
 
 const font = "font-['Poppins',sans-serif]";
@@ -74,33 +74,65 @@ function Hero({ topic }: { topic: Topic }) {
   );
 }
 
+function VideoCard({ video: v }: { video: TopicVideo }) {
+  const [playing, setPlaying] = useState(false);
+  const canPlay = Boolean(v.vimeoId);
+
+  return (
+    <article className={`${card} overflow-hidden`}>
+      <div className="relative aspect-video bg-[#1c3243]">
+        {playing && v.vimeoId ? (
+          <iframe
+            src={`https://player.vimeo.com/video/${v.vimeoId}?autoplay=1&dnt=1&title=0&byline=0&portrait=0`}
+            title={`${v.title} (video)`}
+            className="absolute inset-0 h-full w-full"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowFullScreen
+          />
+        ) : (
+          <>
+            <img src={v.image} alt="" className="absolute inset-0 h-full w-full object-cover" style={{ objectPosition: v.imagePosition ?? "center" }} />
+            <div className="absolute inset-0 bg-gradient-to-t from-[rgba(28,50,67,0.55)] to-transparent to-60%" aria-hidden="true" />
+            <span className={`${font} absolute left-3.5 top-3.5 rounded-full bg-[#1c3243] px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.08em] text-white`}>
+              {v.kind}
+            </span>
+            {canPlay ? (
+              <button
+                type="button"
+                onClick={() => setPlaying(true)}
+                aria-label={`Play ${v.title}, ${v.duration}`}
+                className="group absolute inset-0 grid place-items-center"
+              >
+                <span className="grid h-16 w-16 place-items-center rounded-full bg-white/95 shadow-[0_24px_60px_rgba(28,50,67,0.28)] transition-transform group-hover:scale-105">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="#406064" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>
+                </span>
+              </button>
+            ) : (
+              <span className="absolute left-1/2 top-1/2 grid h-16 w-16 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white/95 shadow-[0_24px_60px_rgba(28,50,67,0.28)]" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="#406064"><path d="M8 5v14l11-7z" /></svg>
+              </span>
+            )}
+            <span className={`${font} pointer-events-none absolute bottom-3 right-3.5 rounded-md bg-[#1c3243] px-2 py-0.5 text-xs font-semibold text-white`}>
+              <span className="sr-only">Duration </span>{v.duration}
+            </span>
+          </>
+        )}
+      </div>
+      <div className="p-5 md:px-6 md:pb-6">
+        <h3 className={`${font} text-lg font-bold text-[#1c3243]`}>{v.title}</h3>
+        <p className={`${font} mt-1.5 text-sm leading-relaxed text-[#435766]`}>{v.description}</p>
+      </div>
+    </article>
+  );
+}
+
 function Videos({ topic }: { topic: Topic }) {
   return (
     <section aria-labelledby="watch-title" className={`${gutter} bg-white py-14 md:py-20 print:hidden`}>
       <div className={container}>
         <SectionHeading eyebrow="Watch" title="Learn at your own pace" id="watch-title" />
         <div className="mt-7 grid grid-cols-1 gap-6 md:grid-cols-2">
-          {topic.videos.map((v) => (
-            <article key={v.kind} className={`${card} overflow-hidden`}>
-              <div className="relative aspect-video bg-[#eaf1f1]">
-                <img src={v.image} alt="" className="absolute inset-0 h-full w-full object-cover" style={{ objectPosition: v.imagePosition ?? "center" }} />
-                <div className="absolute inset-0 bg-gradient-to-t from-[rgba(28,50,67,0.55)] to-transparent to-60%" aria-hidden="true" />
-                <span className={`${font} absolute left-3.5 top-3.5 rounded-full bg-[#1c3243] px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.08em] text-white`}>
-                  {v.kind}
-                </span>
-                <span className="absolute left-1/2 top-1/2 grid h-16 w-16 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white/95 shadow-[0_24px_60px_rgba(28,50,67,0.28)]" aria-hidden="true">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="#406064"><path d="M8 5v14l11-7z" /></svg>
-                </span>
-                <span className={`${font} absolute bottom-3 right-3.5 rounded-md bg-[#1c3243] px-2 py-0.5 text-xs font-semibold text-white`}>
-                  <span className="sr-only">Duration </span>{v.duration}
-                </span>
-              </div>
-              <div className="p-5 md:px-6 md:pb-6">
-                <h3 className={`${font} text-lg font-bold text-[#1c3243]`}>{v.title}</h3>
-                <p className={`${font} mt-1.5 text-sm leading-relaxed text-[#435766]`}>{v.description}</p>
-              </div>
-            </article>
-          ))}
+          {topic.videos.map((v) => <VideoCard key={v.kind} video={v} />)}
         </div>
       </div>
     </section>
@@ -129,8 +161,9 @@ function Sessions({ topic }: { topic: Topic }) {
                     <span className={`${font} rounded-full px-2.5 py-0.5 text-xs font-medium ${spanish ? "bg-[#f0edeb] text-[#1c3243]" : "bg-[#eaf1f1] text-[#406064]"}`}>
                       {s.language}
                     </span>
-                    <a href="#" className={`${font} inline-flex min-h-9 items-center rounded-lg bg-[#59797d] px-4 text-sm font-semibold text-white transition-colors hover:bg-[#406064]`}>
+                    <a href={s.registerUrl} target="_blank" rel="noopener noreferrer" className={`${font} inline-flex min-h-9 items-center rounded-lg bg-[#59797d] px-4 text-sm font-semibold text-white transition-colors hover:bg-[#406064]`}>
                       {spanish ? "Registrarse" : "Register"}
+                      <span className="sr-only">{spanish ? " (se abre en una pestaña nueva)" : " (opens in a new tab)"}</span>
                     </a>
                   </div>
                 </div>

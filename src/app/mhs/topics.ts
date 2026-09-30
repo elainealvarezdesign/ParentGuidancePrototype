@@ -1,3 +1,4 @@
+import { SAMPLE_REGISTER_URL } from "./links";
 import imgInstantInsights from "@/imports/mhs/family-playing.jpg";
 import imgDeepDive from "@/imports/ParentCoaching-1/f73b6da28c9de1bc7946276ba9584e3cd46f8aec.png";
 import imgMakeFriends from "@/imports/mhs/kids-building-together.jpg";
@@ -14,6 +15,8 @@ export type TopicVideo = {
   duration: string;
   image: string;
   imagePosition?: string;
+  /** Vimeo video id (the number in vimeo.com/<id>). Without it the play button is decorative. */
+  vimeoId?: string;
 };
 
 export type TopicSession = {
@@ -23,6 +26,7 @@ export type TopicSession = {
   title: string;
   time: string;
   language: "English" | "Español";
+  registerUrl: string;
 };
 
 export type TopicTip = { label: string; text: string };
@@ -69,6 +73,7 @@ export const TOPICS: Topic[] = [
         description: "A short overview of the key ideas — a good place to start.",
         duration: "4:48",
         image: imgInstantInsights,
+        vimeoId: "951207522",
       },
       {
         kind: "Deep Dive",
@@ -76,13 +81,14 @@ export const TOPICS: Topic[] = [
         description: "The full session on building a healthy, confident identity.",
         duration: "30:20",
         image: imgDeepDive,
+        vimeoId: "995153311",
         imagePosition: "center 20%",
       },
     ],
     sessions: [
-      { month: "Nov", day: "16", weekday: "Mon", title: "Session 1 – Building Your Child's Confidence", time: "6:00 pm – 7:00 pm CST", language: "English" },
-      { month: "Nov", day: "16", weekday: "Mon", title: "Session 2 – Building Your Child's Confidence", time: "8:00 pm – 9:00 pm CST", language: "English" },
-      { month: "Feb", day: "25", weekday: "Thu", title: "Sesión 1 – Cómo Fortalecer la Confianza de Su Hijo", time: "6:00 pm – 7:00 pm CST", language: "Español" },
+      { month: "Nov", day: "16", weekday: "Mon", title: "Session 1 – Building Your Child's Confidence", time: "6:00 pm – 7:00 pm CST", language: "English", registerUrl: SAMPLE_REGISTER_URL },
+      { month: "Nov", day: "16", weekday: "Mon", title: "Session 2 – Building Your Child's Confidence", time: "8:00 pm – 9:00 pm CST", language: "English", registerUrl: SAMPLE_REGISTER_URL },
+      { month: "Feb", day: "25", weekday: "Thu", title: "Sesión 1 – Cómo Fortalecer la Confianza de Su Hijo", time: "6:00 pm – 7:00 pm CST", language: "Español", registerUrl: SAMPLE_REGISTER_URL },
     ],
     takeaways: [
       { title: "Encourage Open Identity Formation", text: "Help children question negative self-beliefs and keep an open mind about their identity. Challenge self-imposed labels and encourage positive self-reflection." },

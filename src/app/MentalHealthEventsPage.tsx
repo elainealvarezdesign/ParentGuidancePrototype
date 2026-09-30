@@ -8,6 +8,7 @@ import {
   formatStart,
   formatTimeRange,
   parseDate,
+  registerUrlFor,
   toKey,
   type EventCategory,
   type SeriesEvent,
@@ -43,8 +44,9 @@ function EventActions({ event }: { event: SeriesEvent }) {
   const spanish = event.language === "Español";
   return (
     <div className="mt-4 flex flex-wrap gap-2">
-      <a href="#" className={`${font} inline-flex min-h-10 items-center rounded-lg bg-[#59797d] px-4 text-[13px] font-semibold text-white transition-colors hover:bg-[#406064]`} lang={spanish ? "es" : undefined}>
+      <a href={registerUrlFor(event)} target="_blank" rel="noopener noreferrer" className={`${font} inline-flex min-h-10 items-center rounded-lg bg-[#59797d] px-4 text-[13px] font-semibold text-white transition-colors hover:bg-[#406064]`} lang={spanish ? "es" : undefined}>
         {spanish ? "Registrarse" : "Register"}
+        <span className="sr-only">{spanish ? " (se abre en una pestaña nueva)" : " (opens in a new tab)"}</span>
       </a>
       <button
         type="button"
