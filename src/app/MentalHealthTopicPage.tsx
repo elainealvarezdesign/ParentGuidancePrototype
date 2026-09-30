@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link, useParams } from "react-router";
 import { Button, ButtonAnchor, ButtonLink } from "./components/Button";
 import { ArrowRight, CalendarDays, ChevronLeft, ListChecks, PlayCircle } from "lucide-react";
@@ -293,8 +293,6 @@ export default function MentalHealthTopicPage() {
   const { slug } = useParams<{ slug: string }>();
   const topic = getTopic(slug);
 
-  // Open each topic at the top of the page (the app has no global scroll restoration)
-  useEffect(() => { window.scrollTo(0, 0); }, [slug]);
 
   if (!topic) {
     return (

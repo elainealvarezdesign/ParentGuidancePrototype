@@ -87,8 +87,6 @@ export default function MentalHealthEventsPage() {
   const [open, setOpen] = useState<{ event: SeriesEvent; anchor: DOMRect | null } | null>(null);
   const [params, setParams] = useSearchParams();
 
-  useEffect(() => { window.scrollTo(0, 0); }, []);
-
   // Shared links (?event=<id>, from "Copy event link") open that event's pop-up
   useEffect(() => {
     const shared = EVENTS.find((e) => e.id === params.get("event"));
@@ -107,7 +105,7 @@ export default function MentalHealthEventsPage() {
     if (params.has("event")) {
       const next = new URLSearchParams(params);
       next.delete("event");
-      setParams(next, { replace: true });
+      setParams(next, { replace: true, preventScrollReset: true });
     }
   }, [params, setParams]);
 

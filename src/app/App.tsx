@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { RouterProvider, createBrowserRouter, Outlet, Link, useLocation } from "react-router";
+import { RouterProvider, createBrowserRouter, Outlet, Link, ScrollRestoration, useLocation } from "react-router";
 import { Button } from "./components/Button";
 import MentalHealthSeriesPage from "./MentalHealthSeriesPage";
 import ParentCoachingPage from "./ParentCoachingPage";
@@ -909,6 +909,8 @@ function HomePage() {
 function Root() {
   return (
     <>
+      {/* New pages open at the top; back/forward returns to where you were */}
+      <ScrollRestoration />
       <Navbar />
       <Outlet />
       <Footer />
