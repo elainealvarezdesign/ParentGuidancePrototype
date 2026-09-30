@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import { buttonClass } from "./Button";
 
 type UnifiedCardProps = {
@@ -13,7 +14,10 @@ type UnifiedCardProps = {
   metadata?: string;
   footer?: string;
   buttonLabel: string;
+  /** External link, opens in a new tab */
   href?: string;
+  /** In-app route */
+  to?: string;
   onClick?: () => void;
 };
 
@@ -30,6 +34,7 @@ export default function UnifiedCard({
   footer,
   buttonLabel,
   href,
+  to,
   onClick,
 }: UnifiedCardProps) {
   const buttonClasses = buttonClass({ className: "w-full" });
@@ -85,7 +90,11 @@ export default function UnifiedCard({
         )}
 
         <div className="mt-auto pt-4">
-          {href ? (
+          {to ? (
+            <Link to={to} className={buttonClasses}>
+              {buttonContent}
+            </Link>
+          ) : href ? (
             <a
               href={href}
               target="_blank"

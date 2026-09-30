@@ -11,6 +11,9 @@ import imgRectangle79 from "@/imports/HomePagePgV2/ece298d0ec2c16f10310d45724b27
 import imgRectangle80 from "@/imports/HomePagePgV2/fb9567d2a70815a5c0307df9118cb49c401b72a3.png";
 import imgRectangle81 from "@/imports/HomePagePgV2/40e0ae4f954f871b7087c4354f1c8d0bf5926225.png";
 
+/* Only "Building Your Child's Confidence" has a topic page so far; the other resources open it as sample content */
+const SAMPLE_TOPIC_SLUG = "building-your-childs-confidence";
+
 /* ─── Static data ─── */
 const US_STATES = [
   "Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut",
@@ -105,7 +108,7 @@ const MotionLink = motion.create(Link);
 function ResourceCard({ resource, index }: { resource: typeof RESOURCE_LIBRARY[0]; index: number }) {
   return (
     <MotionLink
-      to={resource.slug ? `/mental-health-series/${resource.slug}` : "#"}
+      to={`/mental-health-series/${resource.slug ?? SAMPLE_TOPIC_SLUG}`}
       className="bg-white flex flex-col gap-[12px] items-start p-[20px] rounded-pg-xl shadow-pg-card no-underline group"
       initial={{ opacity: 0, y: 14 }}
       whileInView={{ opacity: 1, y: 0 }}

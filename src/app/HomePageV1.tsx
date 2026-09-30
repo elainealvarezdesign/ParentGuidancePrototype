@@ -104,6 +104,14 @@ const PARTNER_LOGOS = [
   { src: imgElizaChat, alt: "Eliza Chat", height: 36 },
 ];
 
+/* Where each "Explore" card leads (sample detail pages until each resource has its own) */
+const EXPLORE_ROUTES: Record<string, string> = {
+  "Mental Health": "/mental-health-series/building-your-childs-confidence",
+  Coaching: "/parent-coaching",
+  Courses: "/courses/milestones-to-progress",
+  "Ask a Therapist": "/ask-a-therapist/1",
+};
+
 function FaqItem({ item, index }: { item: typeof FAQS[0]; index: number }) {
   const [open, setOpen] = useState(item.defaultOpen);
   return (
@@ -278,6 +286,7 @@ export default function HomePageV1() {
                   title={card.title}
                   description={card.description}
                   buttonLabel="Explore"
+                  to={EXPLORE_ROUTES[card.badge]}
                 />
               </motion.div>
             ))}

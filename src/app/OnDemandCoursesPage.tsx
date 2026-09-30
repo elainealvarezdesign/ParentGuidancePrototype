@@ -317,6 +317,11 @@ const COURSES: Course[] = [
   },
 ];
 
+/* Only two courses have detail pages so far. The rest open one of them, alternating the full
+ * (Milestones) and short (Free Yourself) templates, so every card leads to example content. */
+const DETAIL_TEMPLATES = ["milestones-to-progress", "free-yourself-from-limiting-thoughts"];
+const detailSlugFor = (course: Course) => course.slug ?? DETAIL_TEMPLATES[COURSES.indexOf(course) % DETAIL_TEMPLATES.length];
+
 const PER_PAGE = 9;
 
 /* ─── Hero ─── */
@@ -411,7 +416,7 @@ function CourseCard({
         metadata={`${course.duration} • ${course.lessons} lessons`}
         footer={course.instructor}
         buttonLabel="Begin Course"
-        onClick={() => course.slug && navigate(`/courses/${course.slug}`)}
+        onClick={() => navigate(`/courses/${detailSlugFor(course)}`)}
       />
     </motion.div>
   );
