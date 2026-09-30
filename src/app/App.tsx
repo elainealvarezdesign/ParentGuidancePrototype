@@ -38,6 +38,7 @@ import HomePageV1 from "./HomePageV1";
 import HomePageV2 from "./HomePageV2";
 import MentalHealthTopicPage from "./MentalHealthTopicPage";
 import MentalHealthEventsPage from "./MentalHealthEventsPage";
+import NotFoundPage from "./NotFoundPage";
 
 /* ── animation helpers ── */
 function FadeUp({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
@@ -947,6 +948,7 @@ const router = createBrowserRouter([
       { path: "ask-a-therapist/:questionId", Component: QuestionDetailPage },
       { path: "courses/milestones-to-progress", Component: MilestonesToProgressPage },
       { path: "courses/milestones-to-progress/lesson/:lessonId", Component: MilestonesLessonPage },
+      { path: "*", Component: NotFoundPage },
     ],
   },
 ]);
