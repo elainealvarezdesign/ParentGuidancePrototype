@@ -434,9 +434,9 @@ const resourceCards = [
   {
     img: imgRectangle78,
     overlay: false,
-    to: "/mental-health-series",
-    title: "Mental Health\nSeries",
-    desc: "Dive into a wealth of knowledge tailored for parents",
+    to: "/ask-a-therapist",
+    title: "Ask a\nTherapist",
+    desc: "Get answers to your questions from licensed therapists",
     color: "var(--pg-navy)",
   },
 ];
