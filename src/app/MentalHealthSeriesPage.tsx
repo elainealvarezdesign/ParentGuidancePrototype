@@ -1,7 +1,9 @@
-import { useState, type MouseEvent } from "react";
+import { useCallback, useState, type MouseEvent } from "react";
 import { motion } from "motion/react";
 import { Link } from "react-router";
 import { scrollBehavior } from "./utils/motion";
+import { EventModal, type EventModalData } from "./mhs/EventModal";
+import { SAMPLE_REGISTER_URL } from "./mhs/links";
 import svgPaths from "@/imports/MentalHealthPage/svg-8lpz1a5k3k";
 import imgImage13 from "@/imports/MentalHealthPage/f075cf3868341d1ced5b7049edc0996923832898.png";
 import imgRectangle79 from "@/imports/HomePagePgV2/ece298d0ec2c16f10310d45724b276a6035cb503.png";
@@ -249,15 +251,15 @@ function ResourceLibrary() {
 
 /* ─── Calendar ─── */
 type CalendarView = "day" | "week" | "month";
-const EVENTS: { date: string; day: number; month: number; year: number; title: string; time: string; desc: string; color: "teal" | "navy" }[] = [
-  { date: "Thu, July 10", day: 10, month: 6, year: 2025, title: "Understanding Anxiety in Children", time: "4:00 PM – 5:00 PM", desc: "Live Q&A with a licensed child therapist. Bring your questions.", color: "teal" },
-  { date: "Tue, July 15", day: 15, month: 6, year: 2025, title: "Mindfulness & Stress Tools for Parents", time: "12:00 PM – 1:00 PM", desc: "Interactive workshop on breathing and grounding techniques you can share with your kids.", color: "navy" },
-  { date: "Thu, July 17", day: 17, month: 6, year: 2025, title: "Emotional Resilience – Module 2 Launch", time: "All day", desc: "New module now available in your dashboard.", color: "teal" },
-  { date: "Wed, July 23", day: 23, month: 6, year: 2025, title: "Parent Support Circle", time: "6:00 PM – 7:00 PM", desc: "Facilitated group session for parents navigating school-year challenges.", color: "navy" },
-  { date: "Fri, August 1", day: 1, month: 7, year: 2025, title: "Back-to-School Mental Health Prep", time: "2:00 PM – 3:00 PM", desc: "Strategies to ease school transitions and manage first-week anxiety.", color: "teal" },
-  { date: "Tue, August 12", day: 12, month: 7, year: 2025, title: "Teen Mental Health – Open Forum", time: "5:00 PM – 6:30 PM", desc: "For parents of middle and high schoolers. Topics include social pressure, identity, and digital wellbeing.", color: "navy" },
-  { date: "Thu, August 21", day: 21, month: 7, year: 2025, title: "Self-Care for Caregivers", time: "12:00 PM – 1:00 PM", desc: "You can't pour from an empty cup. A session dedicated to parent wellbeing.", color: "teal" },
-  { date: "Mon, August 25", day: 25, month: 7, year: 2025, title: "Crisis Resources Workshop", time: "3:00 PM – 4:00 PM", desc: "Know the signs, know the steps. A practical guide to crisis preparedness for families.", color: "navy" },
+const EVENTS: { id: string; date: string; day: number; month: number; year: number; title: string; time: string; desc: string; color: "teal" | "navy" }[] = [
+  { id: "anxiety", date: "Thu, July 10", day: 10, month: 6, year: 2025, title: "Understanding Anxiety in Children", time: "4:00 PM – 5:00 PM", desc: "Live Q&A with a licensed child therapist. Bring your questions.", color: "teal" },
+  { id: "mindfulness", date: "Tue, July 15", day: 15, month: 6, year: 2025, title: "Mindfulness & Stress Tools for Parents", time: "12:00 PM – 1:00 PM", desc: "Interactive workshop on breathing and grounding techniques you can share with your kids.", color: "navy" },
+  { id: "resilience-m2", date: "Thu, July 17", day: 17, month: 6, year: 2025, title: "Emotional Resilience – Module 2 Launch", time: "All day", desc: "New module now available in your dashboard.", color: "teal" },
+  { id: "support-jul23", date: "Wed, July 23", day: 23, month: 6, year: 2025, title: "Parent Support Circle", time: "6:00 PM – 7:00 PM", desc: "Facilitated group session for parents navigating school-year challenges.", color: "navy" },
+  { id: "back-to-school", date: "Fri, August 1", day: 1, month: 7, year: 2025, title: "Back-to-School Mental Health Prep", time: "2:00 PM – 3:00 PM", desc: "Strategies to ease school transitions and manage first-week anxiety.", color: "teal" },
+  { id: "teen-forum", date: "Tue, August 12", day: 12, month: 7, year: 2025, title: "Teen Mental Health – Open Forum", time: "5:00 PM – 6:30 PM", desc: "For parents of middle and high schoolers. Topics include social pressure, identity, and digital wellbeing.", color: "navy" },
+  { id: "self-care", date: "Thu, August 21", day: 21, month: 7, year: 2025, title: "Self-Care for Caregivers", time: "12:00 PM – 1:00 PM", desc: "You can't pour from an empty cup. A session dedicated to parent wellbeing.", color: "teal" },
+  { id: "crisis", date: "Mon, August 25", day: 25, month: 7, year: 2025, title: "Crisis Resources Workshop", time: "3:00 PM – 4:00 PM", desc: "Know the signs, know the steps. A practical guide to crisis preparedness for families.", color: "navy" },
 ];
 
 const EVENTS_PAGE_SIZE = 3;
@@ -267,85 +269,9 @@ function getFirstDayOfMonth(year: number, month: number) { return new Date(year,
 
 type EventPopupState = { event: typeof EVENTS[0]; anchorRect: DOMRect } | null;
 
-function EventPopup({ state, onClose }: { state: EventPopupState; onClose: () => void }) {
-  if (!state) return null;
-  const { event: ev, anchorRect } = state;
-
-  const isTeal = ev.color === "teal";
-  const accent = isTeal ? "var(--pg-teal)" : "var(--pg-navy)";
-  const accentLight = isTeal ? "var(--pg-tint)" : "var(--pg-tint-soft)";
-
-  return (
-    <>
-      {/* Backdrop to close */}
-      <div className="fixed inset-0 z-40" onClick={onClose} />
-
-      <motion.div
-        className="fixed z-50 w-[280px] rounded-pg-xl overflow-hidden"
-        style={{
-          top: anchorRect.bottom + 8,
-          left: Math.min(anchorRect.left, window.innerWidth - 296),
-          boxShadow: "0 8px 24px rgba(28,50,67,0.06)",
-        }}
-        initial={{ opacity: 0, y: -6, scale: 0.96 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        exit={{ opacity: 0, y: -4, scale: 0.97 }}
-        transition={{ duration: 0.22, ease: [0.25, 0.46, 0.45, 0.94] }}
-      >
-        {/* Colour header strip */}
-        <div className="px-4 pt-4 pb-3" style={{ background: accent }}>
-          <div className="flex items-start justify-between gap-2">
-            <p className="font-['Poppins',sans-serif] font-semibold text-white text-sm leading-snug">{ev.title}</p>
-            <button
-              onClick={onClose}
-              className="shrink-0 text-white/70 hover:text-white transition-colors mt-0.5"
-            >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-                <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-              </svg>
-            </button>
-          </div>
-        </div>
-
-        {/* Body */}
-        <div className="bg-white px-4 py-4 flex flex-col gap-3">
-          {/* Date + time */}
-          <div className="flex items-center gap-2">
-            <div className="shrink-0 rounded-pg-md px-2.5 py-1.5" style={{ background: accentLight }}>
-              <span className="font-['Poppins',sans-serif] font-bold text-lg leading-none" style={{ color: accent }}>{ev.day}</span>
-            </div>
-            <div>
-              <p className="font-['Poppins',sans-serif] text-xs font-semibold text-pg-navy">{ev.date}</p>
-              <p className="font-['Poppins',sans-serif] text-xs text-pg-teal-dark font-medium">{ev.time}</p>
-            </div>
-          </div>
-
-          {/* Description */}
-          <p className="font-['Poppins',sans-serif] text-xs text-pg-slate leading-relaxed">{ev.desc}</p>
-
-          {/* Register link */}
-          <motion.a
-            href="#"
-            className="flex items-center justify-center gap-2 w-full rounded-pg-lg py-2.5 font-['Poppins',sans-serif] font-semibold text-xs text-white no-underline"
-            style={{ background: accent }}
-            whileHover={{ scale: 1.03, opacity: 0.9 }}
-            whileTap={{ scale: 0.97 }}
-          >
-            Register for this event
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
-              <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </motion.a>
-
-          {/* Copy link */}
-          <button className="font-['Poppins',sans-serif] text-xs text-center w-full" style={{ color: accent }}>
-            Copy event link
-          </button>
-        </div>
-      </motion.div>
-    </>
-  );
-}
+const toModalData = (ev: typeof EVENTS[0]): EventModalData => ({
+  id: ev.id, title: ev.title, date: new Date(ev.year, ev.month, ev.day), time: ev.time, description: ev.desc, registerUrl: SAMPLE_REGISTER_URL,
+});
 
 const MONTH_NAMES = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 const DAY_NAMES_SHORT = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
@@ -367,6 +293,8 @@ function EventPill({ ev, popup, onEventClick, compact = false }: {
   const active = popup?.event === ev;
   return (
     <motion.button
+      type="button"
+      aria-haspopup="dialog"
       onClick={e => onEventClick(ev, e)}
       className={`rounded-pg-md font-['Poppins',sans-serif] font-medium text-white text-left w-full cursor-pointer truncate ${compact ? "text-xs px-1.5 py-0.5 leading-[14px]" : "text-xs px-2 py-1"}`}
       style={{ background: active ? (ev.color === "teal" ? "var(--pg-teal)" : "var(--pg-navy)") : (ev.color === "teal" ? "var(--pg-sage)" : "var(--pg-navy)") }}
@@ -480,6 +408,7 @@ function Calendar() {
   const [view, setView] = useState<CalendarView>("month");
   const [currentDate, setCurrentDate] = useState(new Date(2025, 6, 1));
   const [popup, setPopup] = useState<EventPopupState>(null);
+  const closePopup = useCallback(() => setPopup(null), []);
 
   function handleEventClick(ev: typeof EVENTS[0], e: MouseEvent) {
     e.stopPropagation();
@@ -567,7 +496,7 @@ function Calendar() {
         {view === "day" && <DayView date={currentDate} popup={popup} onEventClick={handleEventClick} />}
       </motion.div>
 
-      <EventPopup state={popup} onClose={() => setPopup(null)} />
+      <EventModal event={popup ? toModalData(popup.event) : null} anchor={popup?.anchorRect ?? null} onClose={closePopup} />
     </div>
   );
 }

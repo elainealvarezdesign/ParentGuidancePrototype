@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useState } from "react";
-import { Link } from "react-router";
+import { useCallback, useEffect, useMemo, useState, type MouseEvent } from "react";
+import { Link, useSearchParams } from "react-router";
 import { CalendarPlus, ChevronLeft, ChevronRight, Clock, Download, MapPin } from "lucide-react";
 import {
   CATEGORIES,
@@ -13,6 +13,7 @@ import {
   type EventCategory,
   type SeriesEvent,
 } from "./mhs/events";
+import { EventModal, type EventModalData } from "./mhs/EventModal";
 
 const font = "font-['Poppins',sans-serif]";
 const card = "rounded-pg-xl border border-pg-line bg-white shadow-pg-card";
@@ -24,6 +25,9 @@ type View = "month" | "list";
 
 const monthLabel = (d: Date) => d.toLocaleDateString("en-US", { month: "long", year: "numeric" });
 const longDate = (d: Date) => d.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" });
+const toModalData = (e: SeriesEvent): EventModalData => ({
+  id: e.id, title: e.title, date: parseDate(e.date), time: formatTimeRange(e), description: e.description, registerUrl: registerUrlFor(e), language: e.language,
+});
 const byDateTime = (a: SeriesEvent, b: SeriesEvent) => (a.date + (a.start ?? "00:00")).localeCompare(b.date + (b.start ?? "00:00"));
 
 function CategoryTag({ category }: { category: EventCategory }) {
@@ -83,8 +87,32 @@ export default function MentalHealthEventsPage() {
   const [selected, setSelected] = useState(toKey(INITIAL));
   const [filter, setFilter] = useState<Filter>("all");
   const [view, setView] = useState<View>("month");
+  const [open, setOpen] = useState<{ event: SeriesEvent; anchor: DOMRect | null } | null>(null);
+  const [params, setParams] = useSearchParams();
 
   useEffect(() => { window.scrollTo(0, 0); }, []);
+
+  // Shared links (?event=<id>, from "Copy event link") open that event's pop-up
+  useEffect(() => {
+    const shared = EVENTS.find((e) => e.id === params.get("event"));
+    if (!shared) return;
+    goToDate(shared.date);
+    setOpen({ event: shared, anchor: null });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  function openEvent(e: SeriesEvent, click: MouseEvent<HTMLElement>) {
+    setOpen({ event: e, anchor: click.currentTarget.getBoundingClientRect() });
+  }
+
+  const closeEvent = useCallback(() => {
+    setOpen(null);
+    if (params.has("event")) {
+      const next = new URLSearchParams(params);
+      next.delete("event");
+      setParams(next, { replace: true });
+    }
+  }, [params, setParams]);
 
   const events = useMemo(() => EVENTS.filter((e) => filter === "all" || e.category === filter).sort(byDateTime), [filter]);
   const byDay = useMemo(() => {
@@ -221,35 +249,46 @@ export default function MentalHealthEventsPage() {
                   const key = toKey(date);
                   const dayEvents = byDay.get(key) ?? [];
                   const isSelected = key === selected;
+                  const dayLabel = `${longDate(date)}, ${dayEvents.length === 0 ? "no events" : `${dayEvents.length} event${dayEvents.length > 1 ? "s" : ""}`}`;
                   return (
-                    <button
-                      key={key}
-                      type="button"
-                      onClick={() => setSelected(key)}
-                      aria-pressed={isSelected}
-                      aria-label={`${longDate(date)}, ${dayEvents.length === 0 ? "no events" : `${dayEvents.length} event${dayEvents.length > 1 ? "s" : ""}`}`}
-                      className={`flex min-h-[52px] min-w-0 flex-col items-center gap-1 border-b border-r border-pg-tint-soft p-1 text-left transition-colors hover:bg-pg-tint-soft lg:min-h-[118px] lg:items-stretch lg:gap-1.5 lg:p-2 [&:nth-child(7n)]:border-r-0 ${isSelected ? "bg-pg-tint-soft" : "bg-white"}`}
-                    >
-                      <span className={`${font} grid h-7 w-7 place-items-center rounded-full text-[13px] font-semibold ${isSelected ? "bg-pg-teal text-white" : "text-pg-navy"}`}>
-                        {date.getDate()}
-                      </span>
+                    <div key={key} className={`relative min-h-[52px] min-w-0 border-b border-r border-pg-tint-soft transition-colors hover:bg-pg-tint-soft lg:min-h-[118px] [&:nth-child(7n)]:border-r-0 ${isSelected ? "bg-pg-tint-soft" : "bg-white"}`}>
+                      {/* The whole cell selects the day; event pills sit above it and open the event pop-up */}
+                      <button
+                        type="button"
+                        onClick={() => setSelected(key)}
+                        aria-pressed={isSelected}
+                        aria-label={dayLabel}
+                        className="absolute inset-0 flex flex-col items-center gap-1 p-1 lg:items-start lg:p-2"
+                      >
+                        <span className={`${font} grid h-7 w-7 place-items-center rounded-full text-[13px] font-semibold ${isSelected ? "bg-pg-teal text-white" : "text-pg-navy"}`}>
+                          {date.getDate()}
+                        </span>
+                        {/* Mobile: dots */}
+                        <span className="flex gap-[3px] lg:hidden" aria-hidden="true">
+                          {dayEvents.slice(0, 3).map((e) => (
+                            <span key={e.id} className="h-1.5 w-1.5 rounded-full" style={{ background: CATEGORIES[e.category].swatch }} />
+                          ))}
+                        </span>
+                      </button>
                       {/* Desktop: event pills */}
-                      <span className="hidden flex-col gap-1 lg:flex">
-                        {dayEvents.slice(0, 3).map((e) => (
-                          <span key={e.id} className={`${font} block rounded-pg-md px-1.5 py-1 text-xs leading-tight ${CATEGORIES[e.category].pill}`}>
-                            <span className="block text-xs font-semibold opacity-90">{formatStart(e)}</span>
-                            <span className="line-clamp-2 font-medium">{e.title}</span>
-                          </span>
-                        ))}
-                        {dayEvents.length > 3 && <span className={`${font} text-xs font-semibold text-pg-teal-dark`}>+{dayEvents.length - 3} more</span>}
-                      </span>
-                      {/* Mobile: dots */}
-                      <span className="flex gap-[3px] lg:hidden" aria-hidden="true">
-                        {dayEvents.slice(0, 3).map((e) => (
-                          <span key={e.id} className="h-1.5 w-1.5 rounded-full" style={{ background: CATEGORIES[e.category].swatch }} />
-                        ))}
-                      </span>
-                    </button>
+                      {dayEvents.length > 0 && (
+                        <div className="pointer-events-none relative hidden flex-col gap-1 px-2 pb-2 pt-[42px] lg:flex">
+                          {dayEvents.slice(0, 3).map((e) => (
+                            <button
+                              key={e.id}
+                              type="button"
+                              onClick={(click) => { setSelected(key); openEvent(e, click); }}
+                              aria-haspopup="dialog"
+                              className={`${font} pointer-events-auto block w-full rounded-pg-md px-1.5 py-1 text-left text-xs leading-tight transition-[filter] hover:brightness-110 ${CATEGORIES[e.category].pill}`}
+                            >
+                              <span className="block text-xs font-semibold opacity-90">{formatStart(e)}</span>
+                              <span className="line-clamp-2 font-medium">{e.title}</span>
+                            </button>
+                          ))}
+                          {dayEvents.length > 3 && <span className={`${font} text-xs font-semibold text-pg-teal-dark`}>+{dayEvents.length - 3} more</span>}
+                        </div>
+                      )}
+                    </div>
                   );
                 })}
               </div>
@@ -304,7 +343,8 @@ export default function MentalHealthEventsPage() {
                     <li key={e.id}>
                       <button
                         type="button"
-                        onClick={() => { goToDate(e.date); setView("month"); }}
+                        onClick={(click) => { goToDate(e.date); openEvent(e, click); }}
+                        aria-haspopup="dialog"
                         className="relative flex w-full gap-3 rounded-pg-lg border border-pg-tint-soft py-2.5 pl-3.5 pr-3 text-left transition-colors hover:bg-pg-tint-soft"
                       >
                         <span className="absolute bottom-2.5 left-0 top-2.5 w-[3px] rounded-pg-sm" style={{ background: CATEGORIES[e.category].swatch }} aria-hidden="true" />
@@ -343,6 +383,8 @@ export default function MentalHealthEventsPage() {
           </aside>
         </div>
       </div>
+
+      <EventModal event={open ? toModalData(open.event) : null} anchor={open?.anchor ?? null} onClose={closeEvent} />
     </main>
   );
 }
