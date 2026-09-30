@@ -1,3 +1,4 @@
+import { Button, ButtonLink } from "./components/Button";
 import { useState } from "react";
 import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
@@ -244,10 +245,10 @@ export default function HomePageV2() {
                   className="flex-1 min-w-0 font-['Poppins',sans-serif] text-[14px] font-medium text-pg-navy bg-transparent outline-none placeholder:text-pg-teal placeholder:font-normal py-1.5"
                   placeholder="Anxiety in Children"
                 />
-                <button className="bg-pg-navy hover:bg-pg-navy-hover transition-colors text-white shrink-0 flex items-center gap-1.5 font-['Poppins',sans-serif] text-[13px] font-semibold pl-5 pr-4 py-2.5 rounded-full">
+                <Button size="s" className="shrink-0 rounded-full">
                   Search
                   <ArrowRight size={13} />
-                </button>
+                </Button>
               </div>
 
               <p className="font-['Poppins',sans-serif] text-white/70 text-xs mt-4 mb-2.5">
@@ -314,9 +315,9 @@ export default function HomePageV2() {
           </div>
 
           <div className="flex justify-center mt-10">
-            <a href="#" className="inline-flex items-center gap-2 font-['Poppins',sans-serif] font-semibold text-sm text-pg-teal-dark border border-pg-sage px-6 py-3 rounded-pg-md hover:bg-pg-tint-soft transition-colors">
+            <ButtonLink to="/mental-health-series" variant="secondary">
               View more resources <ArrowRight size={14} />
-            </a>
+            </ButtonLink>
           </div>
         </div>
       </section>
@@ -448,12 +449,9 @@ export default function HomePageV2() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
-                <button
-                  className="bg-pg-sage hover:bg-pg-sage/80 transition-colors text-pg-navy font-['Poppins',sans-serif] font-semibold text-sm px-6 py-3 rounded-pg-lg whitespace-nowrap"
-                  onClick={() => email && setSubscribed(true)}
-                >
+                <Button variant="inverse" onClick={() => email && setSubscribed(true)} className="shrink-0 whitespace-nowrap">
                   Subscribe
-                </button>
+                </Button>
               </div>
             )}
             <p className="font-['Poppins',sans-serif] font-normal text-white/60 text-xs mt-3">

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router";
+import { Button, ButtonAnchor, ButtonLink } from "./components/Button";
 import { ArrowRight, CalendarDays, ChevronLeft, ListChecks, PlayCircle } from "lucide-react";
 import { getTopic, type Topic, type TopicVideo } from "./mhs/topics";
 import { BackToTopButton } from "./legal/LegalActions";
@@ -161,10 +162,10 @@ function Sessions({ topic }: { topic: Topic }) {
                     <span className={`${font} rounded-full px-2.5 py-0.5 text-xs font-medium ${spanish ? "bg-pg-cream-dark text-pg-navy" : "bg-pg-tint text-pg-teal-dark"}`}>
                       {s.language}
                     </span>
-                    <a href={s.registerUrl} target="_blank" rel="noopener noreferrer" className={`${font} inline-flex min-h-9 items-center rounded-pg-md bg-pg-teal px-4 text-sm font-semibold text-white transition-colors hover:bg-pg-teal-dark`}>
+                    <ButtonAnchor href={s.registerUrl} target="_blank" rel="noopener noreferrer">
                       {spanish ? "Registrarse" : "Register"}
                       <span className="sr-only">{spanish ? " (se abre en una pestaña nueva)" : " (opens in a new tab)"}</span>
-                    </a>
+                    </ButtonAnchor>
                   </div>
                 </div>
               </article>
@@ -258,9 +259,9 @@ function Resources({ topic }: { topic: Topic }) {
             <h2 className={`${font} text-xl font-medium text-white md:text-2xl`}>For school leaders &amp; community organizers</h2>
             <p className={`${font} mt-1.5 text-sm text-pg-sage`}>Share this topic with your families and find materials for your community.</p>
           </div>
-          <Link to="/contact-us" className={`${font} inline-flex min-h-11 shrink-0 items-center gap-2 rounded-pg-md bg-white px-5 text-sm font-semibold text-pg-navy no-underline transition-colors hover:bg-pg-cream`}>
+          <ButtonLink to="/contact-us" variant="inverse" className="shrink-0">
             Get additional resources <ArrowRight size={16} aria-hidden="true" />
-          </Link>
+          </ButtonLink>
         </div>
 
         <BackToTopButton focusId="topic-title" />
@@ -278,10 +279,10 @@ function Newsletter() {
           <h2 id="newsletter-title" className={`${font} mt-1 text-[28px] font-bold leading-tight text-pg-navy md:text-4xl`}>Subscribe to our newsletter</h2>
           <p className={`${font} mt-1.5 text-sm text-pg-navy`}>New topics, live sessions and tools, straight to your inbox.</p>
         </div>
-        <form className="flex w-full max-w-[460px] overflow-hidden rounded-pg-lg bg-white" onSubmit={(e) => e.preventDefault()}>
+        <form className="flex w-full max-w-[460px] items-center gap-2 rounded-pg-lg bg-white p-1.5" onSubmit={(e) => e.preventDefault()}>
           <label htmlFor="topic-newsletter-email" className="sr-only">Email address</label>
-          <input id="topic-newsletter-email" type="email" placeholder="Your email" className={`${font} min-w-0 flex-1 bg-transparent px-4 py-3.5 text-sm text-pg-navy placeholder:text-pg-teal outline-none`} />
-          <button type="submit" className={`${font} bg-pg-teal px-5 text-sm font-semibold text-white transition-colors hover:bg-pg-teal-dark`}>Subscribe</button>
+          <input id="topic-newsletter-email" type="email" placeholder="Your email" className={`${font} min-w-0 flex-1 bg-transparent px-3 py-2.5 text-sm text-pg-navy placeholder:text-pg-teal outline-none`} />
+          <Button type="submit" className="shrink-0">Subscribe</Button>
         </form>
       </div>
     </section>

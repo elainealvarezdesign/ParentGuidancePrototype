@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Button } from "./components/Button";
 import { motion } from "motion/react";
 import { AlertTriangle, ArrowRight, CheckCircle } from "lucide-react";
 
@@ -85,15 +86,10 @@ export default function ContactUsPage() {
                 />
               </div>
 
-              <motion.button
-                type="submit"
-                className="flex items-center justify-center gap-2 rounded-pg-md bg-pg-teal py-3 font-['Poppins',sans-serif] text-sm font-semibold text-white"
-                whileHover={{ backgroundColor: "var(--pg-teal-dark)" }}
-                whileTap={{ scale: 0.97 }}
-              >
+              <Button type="submit" className="w-full">
                 Send message
                 <ArrowRight size={16} />
-              </motion.button>
+              </Button>
 
               <div className="border-t border-pg-line pt-5">
                 <div className="flex items-center gap-3 rounded-pg-md bg-pg-tint px-4 py-3">
@@ -123,20 +119,9 @@ export default function ContactUsPage() {
                 Thank you for reaching out. Our team will get back to you as soon as possible.
               </p>
 
-              <motion.button
-                onClick={() => {
-                  setSubmitted(false);
-                  setFullName("");
-                  setEmail("");
-                  setSubject("");
-                  setMessage("");
-                }}
-                className="mt-2 rounded-pg-md bg-pg-teal px-8 py-3 font-['Poppins',sans-serif] text-sm font-semibold text-white"
-                whileHover={{ backgroundColor: "var(--pg-teal-dark)" }}
-                whileTap={{ scale: 0.97 }}
-              >
+              <Button onClick={() => { setSubmitted(false); setFullName(""); setEmail(""); setSubject(""); setMessage(""); }} className="mt-2">
                 Done
-              </motion.button>
+              </Button>
             </div>
           )}
         </div>

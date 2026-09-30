@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useParams, useNavigate } from "react-router";
+import { Button } from "./components/Button";
 import { motion, AnimatePresence } from "motion/react";
 import {
   ChevronRight, ChevronLeft, Play, Pause, Volume2, Maximize2,
@@ -439,15 +440,10 @@ export default function QuestionDetailPage() {
               <p className="font-['Poppins',sans-serif] text-white/70 text-xs leading-relaxed">
                 Submit your parenting question and get a personalized video response from one of our licensed therapists.
               </p>
-              <motion.button
-                onClick={() => setShowModal(true)}
-                className="self-start flex items-center gap-1.5 font-['Poppins',sans-serif] font-semibold text-xs text-pg-navy bg-white px-4 py-2 rounded-pg-md"
-                whileHover={{ backgroundColor: "var(--pg-cream)" }}
-                whileTap={{ scale: 0.97 }}
-              >
+              <Button variant="inverse" size="s" onClick={() => setShowModal(true)} className="self-start gap-1.5">
                 Submit Question
                 <ArrowRight size={12} />
-              </motion.button>
+              </Button>
             </div>
           </div>
 
@@ -520,14 +516,9 @@ export default function QuestionDetailPage() {
                   </div>
                   <p className="font-['Poppins',sans-serif] font-bold text-pg-navy text-base">Question received!</p>
                   <p className="font-['Poppins',sans-serif] text-pg-slate text-sm">We'll have a licensed therapist respond with a video answer. Check your email for updates.</p>
-                  <motion.button
-                    onClick={() => { setShowModal(false); setSubmitted(false); setSubmitQ(""); setSubmitEmail(""); }}
-                    className="mt-2 font-['Poppins',sans-serif] font-semibold text-sm text-white bg-pg-teal px-6 py-2.5 rounded-pg-md"
-                    whileHover={{ backgroundColor: "var(--pg-teal-dark)" }}
-                    whileTap={{ scale: 0.97 }}
-                  >
+                  <Button onClick={() => { setShowModal(false); setSubmitted(false); setSubmitQ(""); setSubmitEmail(""); }} className="mt-2">
                     Done
-                  </motion.button>
+                  </Button>
                 </div>
               ) : (
                 <form className="p-6 flex flex-col gap-4" onSubmit={(e) => { e.preventDefault(); if (submitQ.trim() && submitEmail.trim()) setSubmitted(true); }}>
@@ -552,21 +543,12 @@ export default function QuestionDetailPage() {
                     />
                   </div>
                   <div className="flex gap-3 mt-1">
-                    <button
-                      type="button"
-                      onClick={() => setShowModal(false)}
-                      className="flex-1 font-['Poppins',sans-serif] font-semibold text-sm text-pg-slate border border-pg-line py-2.5 rounded-pg-md hover:bg-pg-cream transition-colors"
-                    >
+                    <Button variant="secondary" onClick={() => setShowModal(false)} className="flex-1">
                       Cancel
-                    </button>
-                    <motion.button
-                      type="submit"
-                      className="flex-1 font-['Poppins',sans-serif] font-semibold text-sm text-white bg-pg-teal py-2.5 rounded-pg-md"
-                      whileHover={{ backgroundColor: "var(--pg-teal-dark)" }}
-                      whileTap={{ scale: 0.97 }}
-                    >
+                    </Button>
+                    <Button type="submit" className="flex-1">
                       Submit
-                    </motion.button>
+                    </Button>
                   </div>
                 </form>
               )}

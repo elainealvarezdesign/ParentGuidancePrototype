@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useParams, useNavigate } from "react-router";
+import { Button } from "./components/Button";
 import { motion, AnimatePresence } from "motion/react";
 import {
   Play, Pause, Volume2, Maximize2, Settings, Captions,
@@ -246,18 +247,10 @@ export default function MilestonesLessonPage() {
               <p className="font-['Poppins',sans-serif] text-xs text-pg-teal-dark mb-1">{lesson.module}</p>
               <h1 className="font-['Poppins',sans-serif] font-bold text-pg-navy text-xl leading-tight">{lesson.title}</h1>
             </div>
-            <motion.button
-              onClick={markComplete}
-              className={`shrink-0 flex items-center gap-1.5 font-['Poppins',sans-serif] text-xs font-semibold px-3 py-2 rounded-pg-md border transition-colors ${
-                completed.has(lesson.id)
-                  ? "bg-pg-tint border-pg-teal text-pg-teal"
-                  : "bg-white border-pg-line text-pg-slate hover:border-pg-teal hover:text-pg-teal"
-              }`}
-              whileTap={{ scale: 0.96 }}
-            >
+            <Button variant="secondary" size="s" onClick={markComplete} aria-pressed={completed.has(lesson.id)} className={`shrink-0 gap-1.5 ${completed.has(lesson.id) ? "bg-pg-tint" : ""}`}>
               {completed.has(lesson.id) ? <CheckCircle2 size={13} /> : <Circle size={13} />}
               {completed.has(lesson.id) ? "Completed" : "Mark complete"}
-            </motion.button>
+            </Button>
           </div>
 
           {/* Video player */}
@@ -435,13 +428,11 @@ export default function MilestonesLessonPage() {
       <div className="border-t border-pg-line bg-white shrink-0">
         <div className="max-w-pg-page mx-auto px-6 h-16 flex items-center justify-between gap-3">
           {prevLesson ? (
-            <motion.button onClick={() => goToLesson(prevLesson.id)}
-              className="flex items-center gap-1.5 font-['Poppins',sans-serif] font-medium text-sm text-pg-teal hover:text-pg-teal-dark transition-colors"
-              whileTap={{ scale: 0.97 }}>
+            <Button variant="tertiary" onClick={() => goToLesson(prevLesson.id)} className="gap-1.5">
               <ChevronLeft size={15} aria-hidden="true" />
               <span className="sm:hidden">Previous</span>
               <span className="hidden sm:inline">{prevLesson.title}</span>
-            </motion.button>
+            </Button>
           ) : (
             <Link to={`/courses/${COURSE_SLUG}`} className="font-['Poppins',sans-serif] text-sm text-pg-teal hover:text-pg-teal-dark no-underline transition-colors">
               Back to Course
@@ -457,25 +448,13 @@ export default function MilestonesLessonPage() {
           </div>
 
           {nextLesson ? (
-            <motion.button
-              onClick={() => goToLesson(nextLesson.id)}
-              className="flex items-center gap-2 font-['Poppins',sans-serif] font-semibold text-sm text-white px-5 py-2.5 rounded-full"
-              style={{ backgroundColor: "var(--pg-teal)" }}
-              whileHover={{ backgroundColor: "var(--pg-teal-dark)" }}
-              whileTap={{ scale: 0.97 }}
-            >
+            <Button onClick={() => goToLesson(nextLesson.id)}>
               Next Lesson <ChevronRight size={15} />
-            </motion.button>
+            </Button>
           ) : (
-            <motion.button
-              onClick={() => { markComplete(); navigate(`/courses/${COURSE_SLUG}`); }}
-              className="flex items-center gap-2 font-['Poppins',sans-serif] font-semibold text-sm text-white px-5 py-2.5 rounded-full"
-              style={{ backgroundColor: "var(--pg-teal)" }}
-              whileHover={{ backgroundColor: "var(--pg-teal-dark)" }}
-              whileTap={{ scale: 0.97 }}
-            >
+            <Button onClick={() => { markComplete(); navigate(`/courses/${COURSE_SLUG}`); }}>
               Finish Course <CheckCircle2 size={15} />
-            </motion.button>
+            </Button>
           )}
         </div>
       </div>

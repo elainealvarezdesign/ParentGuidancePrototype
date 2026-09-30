@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { RouterProvider, createBrowserRouter, Outlet, Link, useLocation } from "react-router";
+import { Button } from "./components/Button";
 import MentalHealthSeriesPage from "./MentalHealthSeriesPage";
 import ParentCoachingPage from "./ParentCoachingPage";
 import OnDemandCoursesPage from "./OnDemandCoursesPage";
@@ -395,14 +396,9 @@ function Hero() {
             onFocus={() => setFocused(true)}
             onBlur={() => setFocused(false)}
           />
-          <motion.button
-            className="bg-pg-sage text-gray-800 font-['Poppins',sans-serif] font-medium text-sm px-5 py-1.5 rounded-pg-md"
-            whileHover={{ scale: 1.04, backgroundColor: "var(--pg-teal)" }}
-            whileTap={{ scale: 0.97 }}
-            transition={{ duration: 0.15 }}
-          >
+          <Button size="s" className="shrink-0">
             Search
-          </motion.button>
+          </Button>
         </div>
       </motion.div>
     </section>
@@ -748,21 +744,16 @@ function NewsletterSection() {
               ✓ Thanks for subscribing!
             </motion.p>
           ) : (
-            <div className="flex border border-pg-tint-soft rounded-pg-xl overflow-hidden bg-pg-tint-soft max-w-md">
+            <div className="flex items-center gap-2 rounded-pg-xl bg-pg-tint-soft p-1.5 max-w-md">
               <input
-                className="flex-1 min-w-0 px-5 py-3.5 bg-transparent font-['Poppins',sans-serif] text-sm text-gray-700 outline-none placeholder:text-pg-slate"
+                className="flex-1 min-w-0 px-4 py-2.5 bg-transparent font-['Poppins',sans-serif] text-sm text-gray-700 outline-none placeholder:text-pg-slate"
                 placeholder="Your Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
-              <motion.button
-                className="bg-pg-teal text-white font-['Poppins',sans-serif] text-sm px-5 md:px-7 py-3.5 whitespace-nowrap"
-                whileHover={{ backgroundColor: "var(--pg-teal-dark)" }}
-                whileTap={{ scale: 0.97 }}
-                onClick={() => email && setSubscribed(true)}
-              >
+              <Button onClick={() => email && setSubscribed(true)} className="shrink-0 whitespace-nowrap">
                 Subscribe
-              </motion.button>
+              </Button>
             </div>
           )}
         </div>

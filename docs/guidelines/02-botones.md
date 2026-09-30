@@ -49,51 +49,24 @@ El foco visible está aplicado de forma global en `src/styles/accessibility.css`
 muestra un anillo teal dark de 2px con halo blanco al navegar con teclado, sobre fondos claros y oscuros.
 Los componentes nuevos no necesitan añadir clases de foco.
 
-## 2.4 Implementación de referencia
+## 2.4 Componente
 
-```tsx
-// src/app/components/Button.tsx
-import { motion } from "motion/react";
-import { cn } from "./ui/utils";
+Los botones del prototipo usan [`src/app/components/Button.tsx`](../../src/app/components/Button.tsx):
 
-const base =
-  "inline-flex items-center justify-center gap-2 rounded-pg-md font-semibold transition-colors " +
-  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pg-teal-dark focus-visible:ring-offset-2 " +
-  "disabled:cursor-not-allowed";
+| Componente | Para qué | Ejemplo |
+|------------|----------|---------|
+| `<Button>` | Acciones (enviar, abrir, descargar) | `<Button variant="secondary" size="s" onClick={…}>Today</Button>` |
+| `<ButtonLink>` | Navegación dentro de la app (`react-router`) | `<ButtonLink to="/ask-a-therapist">View Answer</ButtonLink>` |
+| `<ButtonAnchor>` | Enlaces externos, `mailto:`, `tel:`, `sms:` y anclas `#` | `<ButtonAnchor href="tel:988" variant="inverse" size="l">Call 988</ButtonAnchor>` |
+| `buttonClass()` | Solo las clases, para elementos que no pueden usar los componentes | `className={buttonClass({ variant: "secondary" })}` |
 
-const styles = {
-  primary:   "bg-pg-teal text-white hover:bg-pg-teal-dark disabled:bg-pg-line disabled:text-pg-slate",
-  secondary: "bg-white border border-pg-teal text-pg-teal-dark hover:bg-pg-tint disabled:border-pg-line disabled:text-pg-slate",
-  tertiary:  "text-pg-teal-dark hover:underline underline-offset-4 disabled:text-pg-slate",
-  inverse:   "bg-white text-pg-navy hover:bg-pg-cream focus-visible:ring-white focus-visible:ring-offset-pg-navy",
-  "inverse-secondary": "bg-white/5 border border-white/20 text-white hover:bg-white/10 focus-visible:ring-white focus-visible:ring-offset-pg-navy",
-};
-
-const sizes = {
-  s: "min-h-9 px-4 text-sm",
-  m: "min-h-11 px-5 text-sm",
-  l: "min-h-13 px-7 text-base",
-};
-
-export function Button({ variant = "primary", size = "m", loading, className, children, ...props }) {
-  return (
-    <motion.button
-      whileTap={{ scale: 0.97 }}
-      aria-busy={loading || undefined}
-      disabled={props.disabled || loading}
-      className={cn(base, styles[variant], sizes[size], tertiaryPadding(variant), className)}
-      {...props}
-    >
-      {children}
-    </motion.button>
-  );
-}
-
-const tertiaryPadding = (v) => (v === "tertiary" ? "px-1 min-h-0" : "");
-```
-
-El proyecto ya incluye `src/app/components/ui/button.tsx` (shadcn), pero con los colores por defecto de
-shadcn. Se puede adaptar ese archivo con estas variantes en lugar de crear uno nuevo.
+- Props: `variant` (`primary` por defecto, `secondary`, `tertiary`, `inverse`, `inverse-secondary`) y `size`
+  (`s`, `m` por defecto, `l`). `<Button>` acepta también `loading`.
+- Todos llevan `whileTap={{ scale: 0.97 }}` y ningún `whileHover` con escala; el hover es solo de color.
+- `className` sirve para el layout (`w-full`, `mt-4`, `shrink-0`), no para cambiar colores, radios ni tamaños.
+- Excepción: el botón "Search" dentro de una barra de búsqueda en píldora puede llevar `rounded-full`, porque
+  forma parte de la barra.
+- En newsletters, el botón va **dentro** de la caja del input (con `p-1.5` y `gap-2`), no pegado al borde.
 
 ## 2.5 Accesibilidad
 

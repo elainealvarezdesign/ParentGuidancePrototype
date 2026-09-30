@@ -1,6 +1,7 @@
 import { useCallback, useState, type MouseEvent } from "react";
 import { motion } from "motion/react";
 import { Link } from "react-router";
+import { Button, ButtonAnchor, ButtonLink } from "./components/Button";
 import { scrollBehavior } from "./utils/motion";
 import { EventModal, type EventModalData } from "./mhs/EventModal";
 import { SAMPLE_REGISTER_URL } from "./mhs/links";
@@ -235,14 +236,9 @@ function ResourceLibrary() {
       {/* Show all button */}
       {filtered.length > 9 && (
         <div className="flex items-start justify-center pt-[24px] w-full">
-          <motion.button
-            onClick={() => setExpanded(v => !v)}
-            className="bg-pg-sage border border-pg-sage rounded-pg-lg px-[33px] py-[13px] font-['Poppins',sans-serif] font-semibold leading-[20px] text-[14px] text-center text-white whitespace-nowrap"
-            whileHover={{ scale: 1.03, backgroundColor: "var(--pg-teal)" }}
-            whileTap={{ scale: 0.97 }}
-          >
+          <Button variant="secondary" onClick={() => setExpanded(v => !v)} className="whitespace-nowrap">
             {expanded ? "Show fewer resources" : `Show all ${filtered.length} resources`}
-          </motion.button>
+          </Button>
         </div>
       )}
     </div>
@@ -452,8 +448,10 @@ function Calendar() {
         {/* Prev / label / next */}
         <div className="flex items-center gap-3">
           <button
+            type="button"
             onClick={goPrev}
-            className="w-8 h-8 flex items-center justify-center rounded-pg-md border border-pg-line text-pg-navy hover:bg-pg-cream transition-colors"
+            aria-label={"Previous"}
+            className="w-9 h-9 flex items-center justify-center rounded-pg-md border border-pg-line text-pg-navy hover:bg-pg-cream transition-colors"
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
               <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -461,8 +459,10 @@ function Calendar() {
           </button>
           <span className="font-['Poppins',sans-serif] font-semibold text-pg-navy text-sm min-w-[180px] text-center">{getHeaderLabel()}</span>
           <button
+            type="button"
             onClick={goNext}
-            className="w-8 h-8 flex items-center justify-center rounded-pg-md border border-pg-line text-pg-navy hover:bg-pg-cream transition-colors"
+            aria-label={"Next"}
+            className="w-9 h-9 flex items-center justify-center rounded-pg-md border border-pg-line text-pg-navy hover:bg-pg-cream transition-colors"
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
               <path d="M9 18l6-6-6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -552,11 +552,9 @@ function ContentPage({ state, district, onReset }: { state: string; district: st
               placeholder="Search resources and events…"
               className="flex-1 font-['Poppins',sans-serif] text-[14px] text-pg-slate placeholder:text-pg-teal outline-none bg-transparent"
             />
-            <button
-              className="bg-pg-sage rounded-pg-md px-[16px] py-[6px] font-['Poppins',sans-serif] font-medium text-[14px] text-white whitespace-nowrap hover:bg-pg-teal transition-colors"
-            >
+            <Button size="s" className="shrink-0">
               Search
-            </button>
+            </Button>
           </motion.div>
 
           {/* Hero image — matches Figma "image 13" */}
@@ -583,18 +581,12 @@ function ContentPage({ state, district, onReset }: { state: string; district: st
               <div className="bg-pg-sage h-[20px] rounded-full w-[4px]" />
               <p className="font-['Poppins',sans-serif] font-semibold leading-[28px] text-pg-navy text-[18px] whitespace-nowrap">Monthly Calendar</p>
             </div>
-            <MotionLink
-              to="/mental-health-series/events"
-              className="relative rounded-pg-lg shrink-0 flex gap-[8px] items-center px-[21px] py-[9px] no-underline"
-              style={{ border: "1px solid #90b3b6" }}
-              whileHover={{ scale: 1.03, backgroundColor: "var(--pg-teal)", color: "#ffffff" }}
-              whileTap={{ scale: 0.97 }}
-            >
+            <ButtonLink to="/mental-health-series/events" variant="secondary" size="s" className="shrink-0">
               <span className="font-['Poppins',sans-serif] font-semibold leading-[16px] text-pg-teal text-[12px] whitespace-nowrap group-hover:text-white">View all events</span>
               <svg className="relative shrink-0 size-[13px]" fill="none" viewBox="0 0 13 13">
                 <path d={svgPaths.p2d0d8080} stroke="#59797D" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.08333" />
               </svg>
-            </MotionLink>
+            </ButtonLink>
           </div>
           <Calendar />
         </section>
@@ -641,14 +633,9 @@ function ContentPage({ state, district, onReset }: { state: string; district: st
                   <p className="font-['Poppins',sans-serif] text-xs text-pg-teal-dark font-medium">{ev.time}</p>
                   <p className="font-['Poppins',sans-serif] text-sm text-pg-slate leading-relaxed mt-0.5">{ev.desc}</p>
                 </div>
-                <motion.button
-                  className="shrink-0 self-center font-['Poppins',sans-serif] text-xs font-semibold px-4 py-2 rounded-pg-md border transition-colors"
-                  style={{ borderColor: ev.color === "teal" ? "var(--pg-sage)" : "var(--pg-navy)", color: ev.color === "teal" ? "var(--pg-teal)" : "var(--pg-navy)" }}
-                  whileHover={{ scale: 1.04, backgroundColor: ev.color === "teal" ? "var(--pg-sage)" : "var(--pg-navy)", color: "#ffffff" }}
-                  whileTap={{ scale: 0.97 }}
-                >
-                  Register
-                </motion.button>
+                <ButtonAnchor href={SAMPLE_REGISTER_URL} target="_blank" rel="noopener noreferrer" variant="secondary" size="s" className="shrink-0 self-center">
+                  Register<span className="sr-only"> (opens in a new tab)</span>
+                </ButtonAnchor>
               </motion.div>
             ))}
 
@@ -659,17 +646,12 @@ function ContentPage({ state, district, onReset }: { state: string; district: st
 
           {eventsVisible < filteredEvents.length && (
             <div className="flex justify-center mt-6">
-              <motion.button
-                onClick={() => setEventsVisible(v => v + EVENTS_PAGE_SIZE)}
-                className="font-['Poppins',sans-serif] text-sm font-semibold text-pg-teal border border-pg-sage px-8 py-3 rounded-pg-lg flex items-center gap-2 hover:bg-pg-teal hover:text-white transition-colors"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-              >
+              <Button variant="secondary" onClick={() => setEventsVisible(v => v + EVENTS_PAGE_SIZE)}>
                 Load more events
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
                   <path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
-              </motion.button>
+              </Button>
             </div>
           )}
         </section>
@@ -749,16 +731,9 @@ function FormPage({ onSubmit }: { onSubmit: (state: string, district: string) =>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#90b3b6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
                 </div>
               </div>
-              <motion.button
-                onClick={() => onSubmit(selectedState, selectedDistrict)}
-                disabled={!selectedState || !selectedDistrict}
-                className="font-['Poppins',sans-serif] font-semibold text-white text-sm px-8 py-4 rounded-pg-xl disabled:opacity-40 disabled:cursor-not-allowed"
-                style={{ background: "var(--pg-navy)" }}
-                whileHover={selectedState && selectedDistrict ? { scale: 1.03, backgroundColor: "var(--pg-navy)" } : {}}
-                whileTap={selectedState && selectedDistrict ? { scale: 0.97 } : {}}
-              >
+              <Button size="l" onClick={() => onSubmit(selectedState, selectedDistrict)} disabled={!selectedState || !selectedDistrict}>
                 Continue
-              </motion.button>
+              </Button>
             </motion.div>
           </motion.div>
         </div>

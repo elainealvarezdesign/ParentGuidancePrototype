@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { ButtonLink } from "./components/Button";
 
 const font = "font-['Poppins',sans-serif]";
 
@@ -13,15 +13,15 @@ export default function NotFoundPage() {
           The link may be out of date, or the page may have moved. Try one of these instead:
         </p>
         <div className="mt-7 flex flex-wrap justify-center gap-3">
-          <Link to="/" className={`${font} inline-flex min-h-11 items-center rounded-pg-md bg-pg-teal px-5 text-sm font-semibold text-white transition-colors hover:bg-pg-teal-dark`}>
+          <ButtonLink to="/">
             Go to home
-          </Link>
-          <Link to="/mental-health-series" className={`${font} inline-flex min-h-11 items-center rounded-pg-md border border-pg-teal bg-white px-5 text-sm font-semibold text-pg-teal-dark transition-colors hover:bg-pg-tint`}>
+          </ButtonLink>
+          <ButtonLink to="/mental-health-series" variant="secondary">
             Mental Health Series
-          </Link>
-          <Link to="/get-help" className={`${font} inline-flex min-h-11 items-center rounded-pg-md px-3 text-sm font-semibold text-pg-teal-dark underline-offset-4 hover:underline`}>
+          </ButtonLink>
+          <ButtonLink to="/get-help" variant="tertiary">
             Get help now
-          </Link>
+          </ButtonLink>
         </div>
       </div>
     </main>

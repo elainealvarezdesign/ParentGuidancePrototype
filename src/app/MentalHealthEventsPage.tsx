@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState, type MouseEvent } from "react";
 import { Link, useSearchParams } from "react-router";
+import { Button, ButtonAnchor } from "./components/Button";
 import { CalendarPlus, ChevronLeft, ChevronRight, Clock, Download, MapPin } from "lucide-react";
 import {
   CATEGORIES,
@@ -48,18 +49,14 @@ function EventActions({ event }: { event: SeriesEvent }) {
   const spanish = event.language === "Español";
   return (
     <div className="mt-4 flex flex-wrap gap-2">
-      <a href={registerUrlFor(event)} target="_blank" rel="noopener noreferrer" className={`${font} inline-flex min-h-10 items-center rounded-pg-md bg-pg-teal px-4 text-[13px] font-semibold text-white transition-colors hover:bg-pg-teal-dark`} lang={spanish ? "es" : undefined}>
+      <ButtonAnchor href={registerUrlFor(event)} target="_blank" rel="noopener noreferrer" lang={spanish ? "es" : undefined}>
         {spanish ? "Registrarse" : "Register"}
         <span className="sr-only">{spanish ? " (se abre en una pestaña nueva)" : " (opens in a new tab)"}</span>
-      </a>
-      <button
-        type="button"
-        onClick={() => downloadIcs(`${event.id}.ics`, [event])}
-        className={`${font} inline-flex min-h-10 items-center gap-1.5 rounded-pg-md border border-pg-teal bg-white px-4 text-[13px] font-semibold text-pg-teal-dark transition-colors hover:bg-pg-tint`}
-      >
+      </ButtonAnchor>
+      <Button variant="secondary" onClick={() => downloadIcs(`${event.id}.ics`, [event])}>
         <CalendarPlus size={16} aria-hidden="true" />
         Add to calendar
-      </button>
+      </Button>
     </div>
   );
 }
@@ -193,9 +190,9 @@ export default function MentalHealthEventsPage() {
             <button type="button" onClick={() => goToMonth(1)} aria-label="Next month" className="grid h-9 w-9 place-items-center rounded-pg-md border border-pg-line bg-white text-pg-teal-dark hover:bg-pg-tint-soft">
               <ChevronRight size={18} aria-hidden="true" />
             </button>
-            <button type="button" onClick={goToToday} className={`${font} ml-1 h-9 rounded-pg-md border border-pg-teal bg-white px-3.5 text-[13px] font-semibold text-pg-teal-dark hover:bg-pg-tint`}>
+            <Button variant="secondary" size="s" onClick={goToToday} className="ml-1">
               Today
-            </button>
+            </Button>
           </div>
           <div className="inline-flex rounded-pg-md bg-pg-tint p-[3px]" role="group" aria-label="Calendar view">
             {(["month", "list"] as View[]).map((v) => (
@@ -371,14 +368,10 @@ export default function MentalHealthEventsPage() {
             <section className="rounded-pg-xl bg-pg-navy p-5 text-white" aria-labelledby="sync-title">
               <h2 id="sync-title" className={`${font} text-base font-bold`}>Never miss a session</h2>
               <p className={`${font} mt-1 text-[13px] text-pg-sage`}>Add every Parent Guidance event to Google, Outlook or Apple Calendar.</p>
-              <button
-                type="button"
-                onClick={() => downloadIcs("parent-guidance-events.ics", EVENTS)}
-                className={`${font} mt-4 inline-flex min-h-10 items-center gap-2 rounded-pg-md bg-white px-4 text-[13px] font-semibold text-pg-navy transition-colors hover:bg-pg-cream`}
-              >
+              <Button variant="inverse" onClick={() => downloadIcs("parent-guidance-events.ics", EVENTS)} className="mt-4">
                 <Download size={16} aria-hidden="true" />
                 Download calendar (.ics)
-              </button>
+              </Button>
             </section>
           </aside>
         </div>

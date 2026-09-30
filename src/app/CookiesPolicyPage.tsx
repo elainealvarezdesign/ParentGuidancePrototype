@@ -1,3 +1,4 @@
+import { ButtonAnchor, buttonClass } from "./components/Button";
 import { LegalActions, BackToTopButton, downloadTextFile } from "./legal/LegalActions";
 
 const necessaryCookies = [
@@ -522,7 +523,7 @@ export default function CookiesPolicyPage() {
     href="https://support.google.com/accounts/answer/32050"
     target="_blank"
     rel="noopener noreferrer"
-    className="rounded-pg-md border border-pg-line px-4 py-3 font-semibold text-pg-teal transition hover:bg-pg-cream"
+    className={buttonClass({ variant: "secondary", className: "justify-start" })}
   >
     Google Chrome
   </a>
@@ -531,7 +532,7 @@ export default function CookiesPolicyPage() {
     href="http://support.microsoft.com/kb/278835"
     target="_blank"
     rel="noopener noreferrer"
-    className="rounded-pg-md border border-pg-line px-4 py-3 font-semibold text-pg-teal transition hover:bg-pg-cream"
+    className={buttonClass({ variant: "secondary", className: "justify-start" })}
   >
     Internet Explorer
   </a>
@@ -540,7 +541,7 @@ export default function CookiesPolicyPage() {
     href="https://support.mozilla.org/en-US/kb/delete-cookies-remove-info-websites-stored"
     target="_blank"
     rel="noopener noreferrer"
-    className="rounded-pg-md border border-pg-line px-4 py-3 font-semibold text-pg-teal transition hover:bg-pg-cream"
+    className={buttonClass({ variant: "secondary", className: "justify-start" })}
   >
     Mozilla Firefox
   </a>
@@ -549,7 +550,7 @@ export default function CookiesPolicyPage() {
     href="https://support.apple.com/guide/safari/manage-cookies-and-website-data-sfri11471/mac"
     target="_blank"
     rel="noopener noreferrer"
-    className="rounded-pg-md border border-pg-line px-4 py-3 font-semibold text-pg-teal transition hover:bg-pg-cream"
+    className={buttonClass({ variant: "secondary", className: "justify-start" })}
   >
     Apple Safari
   </a>
@@ -575,7 +576,7 @@ export default function CookiesPolicyPage() {
       href="https://optout.aboutads.info/"
       target="_blank"
       rel="noopener noreferrer"
-      className="rounded-pg-md border border-pg-line px-4 py-3 font-semibold text-pg-teal transition hover:bg-pg-cream"
+      className={buttonClass({ variant: "secondary", className: "justify-start" })}
     >
       United States
     </a>
@@ -584,7 +585,7 @@ export default function CookiesPolicyPage() {
       href="https://youradchoices.ca/en/tools"
       target="_blank"
       rel="noopener noreferrer"
-      className="rounded-pg-md border border-pg-line px-4 py-3 font-semibold text-pg-teal transition hover:bg-pg-cream"
+      className={buttonClass({ variant: "secondary", className: "justify-start" })}
     >
       Canada
     </a>
@@ -593,7 +594,7 @@ export default function CookiesPolicyPage() {
       href="https://youronlinechoices.eu/"
       target="_blank"
       rel="noopener noreferrer"
-      className="rounded-pg-md border border-pg-line px-4 py-3 font-semibold text-pg-teal transition hover:bg-pg-cream"
+      className={buttonClass({ variant: "secondary", className: "justify-start" })}
     >
       European Union
     </a>
@@ -602,7 +603,7 @@ export default function CookiesPolicyPage() {
       href="https://www.youronlinechoices.com/uk/"
       target="_blank"
       rel="noopener noreferrer"
-      className="rounded-pg-md border border-pg-line px-4 py-3 font-semibold text-pg-teal transition hover:bg-pg-cream"
+      className={buttonClass({ variant: "secondary", className: "justify-start" })}
     >
       United Kingdom
     </a>
@@ -618,12 +619,9 @@ export default function CookiesPolicyPage() {
     us by email.
   </p>
 
-  <a
-    href="mailto:privacy@cookcenter.org"
-    className="mt-4 inline-flex rounded-pg-md bg-pg-teal px-5 py-3 font-semibold text-white transition hover:bg-pg-navy focus:outline-none focus:ring-2 focus:ring-pg-teal focus:ring-offset-2"
-  >
+  <ButtonAnchor href="mailto:privacy@cookcenter.org" className="mt-4">
     privacy@cookcenter.org
-  </a>
+  </ButtonAnchor>
 </div>
   </div>
 </div>

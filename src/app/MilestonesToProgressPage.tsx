@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router";
+import { ButtonLink } from "./components/Button";
 import { motion } from "motion/react";
 import { ChevronRight, ChevronLeft, Clock, Play } from "lucide-react";
 
@@ -184,17 +185,10 @@ export default function MilestonesToProgressPage() {
                 ))}
               </div>
 
-              <Link to={`/courses/${COURSE_SLUG}/lesson/1`} className="self-start no-underline mt-auto">
-                <motion.div
-                  className="flex items-center gap-2 font-['Poppins',sans-serif] font-semibold text-sm text-white px-6 py-3 rounded-pg-md min-h-[44px]"
-                  style={{ backgroundColor: "var(--pg-teal)" }}
-                  whileHover={{ backgroundColor: "var(--pg-teal-dark)" }}
-                  whileTap={{ scale: 0.97 }}
-                >
-                  Start course
-                  <ChevronRight size={15} />
-                </motion.div>
-              </Link>
+              <ButtonLink to={`/courses/${COURSE_SLUG}/lesson/1`} className="self-start mt-auto">
+                Start course
+                <ChevronRight size={16} aria-hidden="true" />
+              </ButtonLink>
             </div>
 
             {/* Course outline sidebar */}

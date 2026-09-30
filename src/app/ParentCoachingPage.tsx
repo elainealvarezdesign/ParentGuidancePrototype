@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { Button, ButtonAnchor } from "./components/Button";
 import { motion, useInView } from "motion/react";
 import svgPaths from "@/imports/ParentCoaching-1/svg-g80g54ayas";
 import imgImageParentHuggingChild from "@/imports/ParentCoaching-1/38518ee84636136dc3ed60b783115620c287b3ee.png";
@@ -193,22 +194,12 @@ export default function ParentCoachingPage() {
               {" — so you can show up for your child with confidence, clarity, and real tools."}
             </p>
             <div className="flex items-center gap-3">
-              <motion.a
-                href="#how-it-works"
-                className="font-['Poppins',sans-serif] font-semibold text-sm text-white bg-pg-teal px-6 py-3.5 rounded-pg-xl no-underline"
-                whileHover={{ scale: 1.03, backgroundColor: "var(--pg-teal-dark)" }}
-                whileTap={{ scale: 0.97 }}
-              >
+              <ButtonAnchor href="#how-it-works">
                 Sign up now!
-              </motion.a>
-              <motion.a
-                href="#how-it-works"
-                className="font-['Poppins',sans-serif] font-semibold text-sm text-pg-teal-dark border border-pg-sage px-6 py-3.5 rounded-pg-xl no-underline bg-transparent"
-                whileHover={{ scale: 1.03, backgroundColor: "rgba(144,179,182,0.08)" }}
-                whileTap={{ scale: 0.97 }}
-              >
+              </ButtonAnchor>
+              <ButtonAnchor href="#how-it-works" variant="secondary">
                 How it works
-              </motion.a>
+              </ButtonAnchor>
             </div>
           </motion.div>
 
@@ -327,13 +318,9 @@ export default function ParentCoachingPage() {
                         </span>
                       ))}
                     </div>
-                    <motion.button
-                      className="w-full font-['Poppins',sans-serif] font-semibold text-xs text-white bg-pg-navy py-2.5 rounded-pg-lg mt-1"
-                      whileHover={{ backgroundColor: "var(--pg-navy)" }}
-                      whileTap={{ scale: 0.97 }}
-                    >
+                    <Button className="mt-1 w-full">
                       Begin Course
-                    </motion.button>
+                    </Button>
                   </div>
                 </motion.div>
               ))}
@@ -376,13 +363,9 @@ export default function ParentCoachingPage() {
               </div>
             </div>
 
-            <motion.button
-              className="mt-10 font-['Poppins',sans-serif] font-semibold text-sm text-white bg-pg-teal px-6 py-3.5 rounded-pg-xl"
-              whileHover={{ scale: 1.03, backgroundColor: "var(--pg-teal-dark)" }}
-              whileTap={{ scale: 0.97 }}
-            >
+            <Button className="mt-10">
               Start Now!
-            </motion.button>
+            </Button>
           </div>
         </div>
       </section>

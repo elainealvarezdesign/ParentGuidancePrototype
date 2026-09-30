@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Button } from "./components/Button";
 import { ChevronDown, Download, Printer } from "lucide-react";
 import {
   TERMS_EFFECTIVE_DATE,
@@ -95,23 +96,15 @@ function AccordionItem({ doc, isOpen, onToggle }: { doc: Document; isOpen: boole
         </button>
 
         <div className="flex gap-2">
-          <button
-            type="button"
-            onClick={() => downloadDocument(doc)}
-            className="inline-flex items-center gap-2 rounded-pg-md bg-pg-teal px-4 py-2 font-['Poppins',sans-serif] text-sm font-semibold text-white transition hover:bg-pg-navy focus:outline-none focus:ring-2 focus:ring-pg-teal focus:ring-offset-2"
-          >
+          <Button size="s" onClick={() => downloadDocument(doc)}>
             <Download size={15} />
             Download
-          </button>
+          </Button>
 
-          <button
-            type="button"
-            onClick={() => printDocument(doc.id)}
-            className="inline-flex items-center gap-2 rounded-pg-md border border-pg-sage px-4 py-2 font-['Poppins',sans-serif] text-sm font-semibold text-pg-teal transition hover:bg-pg-tint-soft focus:outline-none focus:ring-2 focus:ring-pg-teal focus:ring-offset-2"
-          >
+          <Button variant="secondary" size="s" onClick={() => printDocument(doc.id)}>
             <Printer size={15} />
             Print
-          </button>
+          </Button>
         </div>
       </div>
 

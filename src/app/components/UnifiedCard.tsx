@@ -1,3 +1,5 @@
+import { buttonClass } from "./Button";
+
 type UnifiedCardProps = {
   image: string;
   imageAlt: string;
@@ -30,8 +32,7 @@ export default function UnifiedCard({
   href,
   onClick,
 }: UnifiedCardProps) {
-  const buttonClasses =
-    "w-full min-h-[40px] bg-pg-teal hover:bg-pg-teal-dark text-white rounded-pg-md px-5 py-2 flex items-center justify-center gap-2 font-['Poppins',sans-serif] text-sm font-semibold transition-colors";
+  const buttonClasses = buttonClass({ className: "w-full" });
 
   const buttonContent = (
     <>

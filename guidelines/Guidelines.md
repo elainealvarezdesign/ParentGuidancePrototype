@@ -43,6 +43,9 @@ crisis help. The UI must feel warm, calm and trustworthy. Full guidelines (Spani
 
 # Buttons
 
+* Use the components in `src/app/components/Button.tsx`: `<Button>` for actions, `<ButtonLink to>` for in-app
+  links, `<ButtonAnchor href>` for external, mailto, tel and sms links. Props: `variant`, `size` (`s` 36px,
+  `m` 44px default, `l` 52px). Never restyle colors, radius or height through `className`.
 * Primary: teal background, white text, 8px radius, Poppins semibold 14px, min height 44px; hover teal dark.
 * Secondary: white background, 1px teal border, teal-dark text; hover tint background.
 * Tertiary: teal-dark text only, underline on hover.

@@ -54,7 +54,7 @@ temas (colores de datos) y los valores dentro de props de animación (`whileHove
 | ✅ Contenedores | 1280/1180 → `max-w-pg-page`; 1100/1024/1000 → `max-w-pg-content`; 680 → `max-w-pg-reading` |
 | ✅ Duraciones | 16 valores → 4 bandas (0.15 / 0.22 / 0.35 / 0.55 s); clases `duration-(--pg-dur-*)` en CSS |
 | ✅ Tema shadcn | `tokens.css` mapea `--primary`, `--ring`, `--border`… a la paleta PG |
-| Botones | Pendiente: unificarlos en un componente ([Botones](./02-botones.md)) |
+| ✅ Botones | ~45 botones de acción en 17 archivos → `<Button>`, `<ButtonLink>` y `<ButtonAnchor>` ([Botones](./02-botones.md)): 8px, alturas 36/44/52, sin navy ni sage, sin píldoras |
 | Fuente | Pendiente: quitar `font-['Poppins',sans-serif]` de cada elemento (ya se aplica en `body`) |
 
 ## 5.4 Otros
@@ -70,5 +70,5 @@ temas (colores de datos) y los valores dentro de props de animación (`whileHove
 1. ✅ Importar `tokens.css` (hecho, en `src/styles/`).
 2. ✅ `MotionConfig reducedMotion="user"` y estilos de foco (hecho).
 3. ✅ Arreglar el contraste: sage, mist y los tamaños de 9–11px (hecho).
-4. Unificar los botones en un componente.
+4. ✅ Unificar los botones en un componente (hecho).
 5. ✅ Reemplazar los hex sueltos por clases `pg-*` y consolidar radios, sombras, anchos y duraciones (hecho).

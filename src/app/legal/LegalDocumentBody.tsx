@@ -1,3 +1,4 @@
+import { ButtonAnchor } from "../components/Button";
 import { isLegalSubItem, type LegalSection } from "./legalContent";
 
 type Props = {
@@ -69,12 +70,9 @@ export default function LegalDocumentBody({
           {contactBody}
         </p>
 
-        <a
-          href={`mailto:${contactEmail}`}
-          className="mt-4 inline-flex rounded-pg-md bg-pg-teal px-5 py-3 font-['Poppins',sans-serif] font-semibold text-white transition hover:bg-pg-navy focus:outline-none focus:ring-2 focus:ring-pg-teal focus:ring-offset-2 print:hidden"
-        >
+        <ButtonAnchor href={`mailto:${contactEmail}`} className="mt-4 print:hidden">
           {contactEmail}
-        </a>
+        </ButtonAnchor>
       </div>
     </>
   );

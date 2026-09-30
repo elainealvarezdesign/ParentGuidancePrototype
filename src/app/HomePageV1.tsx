@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router";
+import { Button, ButtonLink } from "./components/Button";
 import { motion } from "motion/react";
 import {
   Search,
@@ -208,9 +209,9 @@ export default function HomePageV1() {
                   className="flex-1 font-['Poppins',sans-serif] text-sm text-gray-700 bg-transparent outline-none placeholder:text-pg-teal"
                   placeholder="Anxiety in Children"
                 />
-                <button className="bg-pg-teal hover:bg-pg-teal-dark transition-colors text-white font-['Poppins',sans-serif] font-medium text-sm px-5 py-2.5 rounded-pg-lg">
+                <Button size="s" className="shrink-0">
                   Search
-                </button>
+                </Button>
               </div>
             </motion.div>
 
@@ -283,9 +284,9 @@ export default function HomePageV1() {
           </div>
 
           <div className="flex justify-center mt-10 mb-12">
-            <a href="#" className="inline-flex items-center gap-2 font-['Poppins',sans-serif] font-semibold text-sm text-pg-teal-dark border border-pg-sage px-6 py-3 rounded-pg-md hover:bg-pg-tint-soft transition-colors">
+            <ButtonLink to="/mental-health-series" variant="secondary">
               View more resources <ArrowRight size={14} />
-            </a>
+            </ButtonLink>
           </div>
 
           {/* Feature cards: quiz CTA + expert therapists */}
@@ -308,13 +309,13 @@ export default function HomePageV1() {
                 Answer a few quick questions and we'll point you to the right resources.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3 mt-8">
-                <button className="inline-flex items-center gap-2 bg-white text-pg-navy hover:bg-pg-cream transition-colors font-['Poppins',sans-serif] font-semibold text-sm px-6 py-3 rounded-full">
+                <Button variant="inverse">
                   <Send size={14} />
                   Take the Quiz
-                </button>
-                <button className="inline-flex items-center gap-2 bg-white/5 text-white border border-white/20 hover:bg-white/10 transition-colors font-['Poppins',sans-serif] font-medium text-sm px-6 py-3 rounded-full">
+                </Button>
+                <Button variant="inverse-secondary">
                   Learn more
-                </button>
+                </Button>
               </div>
             </motion.div>
 
@@ -439,19 +440,16 @@ export default function HomePageV1() {
             {subscribed ? (
               <p className="font-['Poppins',sans-serif] text-pg-navy font-semibold text-base">✓ Thanks for subscribing!</p>
             ) : (
-              <div className="flex border border-pg-tint-soft rounded-pg-xl overflow-hidden bg-pg-tint-soft max-w-md">
+              <div className="flex items-center gap-2 rounded-pg-xl bg-pg-tint-soft p-1.5 max-w-md">
                 <input
-                  className="flex-1 px-5 py-3.5 bg-transparent font-['Poppins',sans-serif] text-sm text-gray-700 outline-none placeholder:text-pg-slate"
+                  className="flex-1 min-w-0 px-4 py-2.5 bg-transparent font-['Poppins',sans-serif] text-sm text-gray-700 outline-none placeholder:text-pg-slate"
                   placeholder="Your Email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
-                <button
-                  className="bg-pg-teal hover:bg-pg-teal-dark transition-colors text-white font-['Poppins',sans-serif] text-sm px-7 py-3.5 whitespace-nowrap"
-                  onClick={() => email && setSubscribed(true)}
-                >
+                <Button onClick={() => email && setSubscribed(true)} className="shrink-0 whitespace-nowrap">
                   Subscribe
-                </button>
+                </Button>
               </div>
             )}
           </motion.div>

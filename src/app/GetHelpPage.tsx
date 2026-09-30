@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { Button, ButtonAnchor } from "./components/Button";
 import { motion } from "motion/react";
 import {
   AlertCircle,
@@ -229,31 +230,21 @@ export default function GetHelpPage() {
         </p>
 
         <div className="flex flex-col sm:flex-row flex-wrap justify-center md:justify-start gap-3 mt-5">
-          <a
-            href="tel:988"
-            className="inline-flex items-center justify-center gap-2 bg-pg-teal text-white rounded-pg-md px-6 py-3.5 font-['Poppins',sans-serif] text-sm font-semibold hover:bg-pg-teal transition-colors"
-          >
-            <Phone size={15} />
+          <ButtonAnchor href="tel:988" variant="inverse" size="l">
+            <Phone size={16} aria-hidden="true" />
             Call 988
-          </a>
+          </ButtonAnchor>
 
-          <a
-            href="sms:988"
-            className="inline-flex items-center justify-center gap-2 bg-pg-teal text-white rounded-pg-md px-6 py-3.5 font-['Poppins',sans-serif] text-sm font-semibold hover:bg-pg-teal transition-colors"
-          >
-            <MessageCircle size={15} />
+          <ButtonAnchor href="sms:988" variant="inverse" size="l">
+            <MessageCircle size={16} aria-hidden="true" />
             Text 988
-          </a>
+          </ButtonAnchor>
 
-          <a
-            href="https://988lifeline.org/"
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center justify-center gap-2 bg-pg-teal text-white rounded-pg-md px-6 py-3.5 font-['Poppins',sans-serif] text-sm font-semibold hover:bg-pg-teal transition-colors"
-          >
-            <Globe2 size={15} />
+          <ButtonAnchor href="https://988lifeline.org/" target="_blank" rel="noopener noreferrer" variant="inverse-secondary" size="l">
+            <Globe2 size={16} aria-hidden="true" />
             Visit Website
-          </a>
+            <span className="sr-only"> (opens in a new tab)</span>
+          </ButtonAnchor>
         </div>
       </div>
     </div>
@@ -354,14 +345,9 @@ Not sure which resource  {" "}
                 Answer a few simple questions to find the best place to start.
               </p>
             </div>
-            <motion.button
-              type="button"
-              className="inline-flex items-center gap-2 bg-pg-teal text-white rounded-pg-md px-6 py-3.5 font-['Poppins',sans-serif] text-sm font-semibold shrink-0"
-              whileHover={{ backgroundColor: "var(--pg-teal-dark)", x: 2 }}
-              whileTap={{ scale: 0.98 }}
-            >
+            <Button className="shrink-0">
               Help me choose <ArrowRight size={17} />
-            </motion.button>
+            </Button>
           </motion.div>
         </div>
       </section>

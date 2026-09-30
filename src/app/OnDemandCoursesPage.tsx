@@ -2,6 +2,7 @@ import { useState, useMemo, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { scrollBehavior } from "./utils/motion";
 import { useNavigate } from "react-router";
+import { Button, ButtonAnchor, ButtonLink } from "./components/Button";
 import svgPaths from "@/imports/CreateLivePrototypeWithTransitions/svg-aw5njrtmbl";
 import imgParentAndChild from "@/imports/CreateLivePrototypeWithTransitions/5adf607043d952ed1bbbfdfe5254ee778ed8a6e8.png";
 import imgContainer from "@/imports/get-help-hero.png";
@@ -341,22 +342,12 @@ function Hero() {
             Learn at your own pace from licensed therapists — practical tools for the real challenges families face every day.
           </p>
           <div className="flex items-center gap-3 pt-1">
-            <motion.a
-              href="#courses"
-              className="font-['Poppins',sans-serif] font-semibold text-sm text-white bg-pg-navy px-6 py-3.5 rounded-pg-md no-underline"
-              whileHover={{ scale: 1.03, backgroundColor: "var(--pg-navy)" }}
-              whileTap={{ scale: 0.97 }}
-            >
+            <ButtonAnchor href="#courses">
               Browse all courses
-            </motion.a>
-            <motion.a
-              href="/parent-coaching"
-              className="font-['Poppins',sans-serif] font-semibold text-sm text-pg-navy border border-pg-navy px-6 py-3.5 rounded-pg-md no-underline bg-transparent"
-              whileHover={{ scale: 1.03, backgroundColor: "rgba(34,49,67,0.06)" }}
-              whileTap={{ scale: 0.97 }}
-            >
+            </ButtonAnchor>
+            <ButtonLink to="/parent-coaching" variant="secondary">
               Meet the coaches
-            </motion.a>
+            </ButtonLink>
           </div>
         </motion.div>
 
@@ -631,13 +622,9 @@ export default function OnDemandCoursesPage() {
         {/* Pagination */}
         {totalPages > 1 && (
           <div className="flex items-center justify-center gap-1.5 pt-10">
-            <button
-              onClick={() => { setPage(p => Math.max(1, p - 1)); window.scrollTo({ top: 0, behavior: scrollBehavior() }); }}
-              disabled={page === 1}
-              className="font-['Poppins',sans-serif] text-sm font-medium text-pg-teal-dark px-4 py-2 rounded-pg-md border border-pg-sage hover:bg-pg-tint-soft disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
-            >
+            <Button variant="secondary" size="s" onClick={() => { setPage(p => Math.max(1, p - 1)); window.scrollTo({ top: 0, behavior: scrollBehavior() }); }} disabled={page === 1}>
               ← Prev
-            </button>
+            </Button>
             {Array.from({ length: totalPages }, (_, i) => i + 1).map(p => (
               <button
                 key={p}
@@ -652,13 +639,9 @@ export default function OnDemandCoursesPage() {
                 {p}
               </button>
             ))}
-            <button
-              onClick={() => { setPage(p => Math.min(totalPages, p + 1)); window.scrollTo({ top: 0, behavior: scrollBehavior() }); }}
-              disabled={page === totalPages}
-              className="font-['Poppins',sans-serif] text-sm font-medium text-pg-teal-dark px-4 py-2 rounded-pg-md border border-pg-sage hover:bg-pg-tint-soft disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
-            >
+            <Button variant="secondary" size="s" onClick={() => { setPage(p => Math.min(totalPages, p + 1)); window.scrollTo({ top: 0, behavior: scrollBehavior() }); }} disabled={page === totalPages}>
               Next →
-            </button>
+            </Button>
           </div>
         )}
       </div>
@@ -686,14 +669,9 @@ export default function OnDemandCoursesPage() {
                 <span className="font-semibold text-white">{"Services may be free through your child's school district."}</span>
               </p>
               <div className="mt-2">
-                <motion.a
-                  href="/parent-coaching"
-                  className="inline-block font-['Poppins',sans-serif] font-semibold text-sm text-pg-navy bg-pg-sage px-6 py-3 rounded-pg-md no-underline"
-                  whileHover={{ scale: 1.04, backgroundColor: "var(--pg-teal)", color: "#ffffff" }}
-                  whileTap={{ scale: 0.97 }}
-                >
+                <ButtonLink to="/parent-coaching" variant="inverse">
                   Get Started
-                </motion.a>
+                </ButtonLink>
               </div>
             </div>
           </div>

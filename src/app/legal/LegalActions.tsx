@@ -1,3 +1,4 @@
+import { Button } from "../components/Button";
 import { ArrowUp, Download, Printer } from "lucide-react";
 import { scrollBehavior } from "../utils/motion";
 
@@ -18,23 +19,15 @@ export function downloadTextFile(fileName: string, text: string) {
 export function LegalActions({ onDownload }: { onDownload: () => void }) {
   return (
     <div className="mt-7 flex flex-wrap gap-3 print:hidden">
-      <button
-        type="button"
-        onClick={onDownload}
-        className="inline-flex items-center gap-2 rounded-pg-md bg-pg-teal px-5 py-3 font-['Poppins',sans-serif] text-sm font-semibold text-white transition hover:bg-pg-navy focus:outline-none focus:ring-2 focus:ring-pg-teal focus:ring-offset-2"
-      >
+      <Button onClick={onDownload}>
         <Download size={16} aria-hidden="true" />
         Download
-      </button>
+      </Button>
 
-      <button
-        type="button"
-        onClick={() => window.print()}
-        className="inline-flex items-center gap-2 rounded-pg-md border border-pg-sage px-5 py-3 font-['Poppins',sans-serif] text-sm font-semibold text-pg-teal-dark transition hover:bg-pg-tint-soft focus:outline-none focus:ring-2 focus:ring-pg-teal focus:ring-offset-2"
-      >
+      <Button variant="secondary" onClick={() => window.print()}>
         <Printer size={16} aria-hidden="true" />
         Print
-      </button>
+      </Button>
     </div>
   );
 }
@@ -51,14 +44,10 @@ export function BackToTopButton({ focusId }: { focusId: string }) {
 
   return (
     <div className="mt-10 flex justify-center print:hidden">
-      <button
-        type="button"
-        onClick={handleClick}
-        className="inline-flex items-center gap-2 rounded-pg-md border border-pg-sage px-5 py-3 font-['Poppins',sans-serif] text-sm font-semibold text-pg-teal-dark transition hover:bg-pg-tint-soft"
-      >
+      <Button variant="secondary" onClick={handleClick}>
         <ArrowUp size={16} aria-hidden="true" />
         Back to top
-      </button>
+      </Button>
     </div>
   );
 }

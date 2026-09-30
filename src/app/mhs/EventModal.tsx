@@ -1,4 +1,5 @@
 import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from "react";
+import { Button, ButtonAnchor } from "../components/Button";
 import { AnimatePresence, motion } from "motion/react";
 import { ArrowRight, Check, X } from "lucide-react";
 
@@ -143,25 +144,16 @@ function Card({ event, anchor, onClose }: { event: EventModalData; anchor: DOMRe
 
             <p className={`${font} mt-4 text-sm leading-relaxed text-pg-slate`}>{event.description}</p>
 
-            <a
-              href={event.registerUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`${font} mt-5 flex min-h-11 w-full items-center justify-center gap-2 rounded-pg-lg bg-pg-teal px-4 text-sm font-semibold text-white transition-colors hover:bg-pg-teal-dark`}
-            >
+            <ButtonAnchor href={event.registerUrl} target="_blank" rel="noopener noreferrer" className="mt-5 w-full">
               {spanish ? "Regístrate a este evento" : "Register for this event"}
               <ArrowRight size={16} aria-hidden="true" />
               <span className="sr-only">{spanish ? " (se abre en una pestaña nueva)" : " (opens in a new tab)"}</span>
-            </a>
+            </ButtonAnchor>
 
-            <button
-              type="button"
-              onClick={handleCopy}
-              className={`${font} mt-2 flex min-h-10 w-full items-center justify-center gap-1.5 rounded-pg-md text-[13px] font-medium text-pg-teal-dark transition-colors hover:bg-pg-tint-soft`}
-            >
+            <Button variant="tertiary" onClick={handleCopy} className="mt-1 w-full gap-1.5 font-medium">
               {copied && <Check size={15} aria-hidden="true" />}
               {copied ? (spanish ? "Enlace copiado" : "Link copied") : (spanish ? "Copiar enlace del evento" : "Copy event link")}
-            </button>
+            </Button>
             <span className="sr-only" aria-live="polite">{copied ? (spanish ? "Enlace copiado" : "Event link copied to clipboard") : ""}</span>
           </div>
         </motion.div>

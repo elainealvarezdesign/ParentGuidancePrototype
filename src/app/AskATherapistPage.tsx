@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { Link } from "react-router";
+import { Button, ButtonLink } from "./components/Button";
 import { motion, useInView } from "motion/react";
 import { MessageCircle, Send, Search, ChevronLeft, ChevronRight, X, ArrowRight, CheckCircle } from "lucide-react";
 import imgFeaturedTherapist from "@/imports/05AskATherapist/7af58431d48866bcf252a78cb8709dda98a31204.jpg";
@@ -171,11 +171,13 @@ function SubmitModal({ onClose }: { onClose: () => void }) {
           </div>
           <div>
             <h3 className="font-['Poppins',sans-serif] font-bold text-white text-base leading-tight">Ask a Therapist</h3>
-            <p className="font-['Poppins',sans-serif] text-pg-teal-dark text-xs">Licensed therapists respond within 48 hours</p>
+            <p className="font-['Poppins',sans-serif] text-pg-sage text-xs">Licensed therapists respond within 48 hours</p>
           </div>
           <button
+            type="button"
             onClick={onClose}
-            className="ml-auto text-pg-sage hover:text-white transition-colors"
+            aria-label="Close"
+            className="ml-auto grid h-11 w-11 place-items-center rounded-pg-md text-pg-sage hover:bg-white/10 hover:text-white transition-colors"
           >
             <X size={18} />
           </button>
@@ -223,15 +225,10 @@ function SubmitModal({ onClose }: { onClose: () => void }) {
             <p className="font-['Poppins',sans-serif] text-pg-slate text-xs leading-relaxed">
               Your question may be published anonymously to help other parents. Your email is for notification only and will not be shared publicly.
             </p>
-            <motion.button
-              type="submit"
-              className="flex items-center justify-center gap-2 bg-pg-teal text-white font-['Poppins',sans-serif] font-semibold text-sm py-3 rounded-pg-md"
-              whileHover={{ backgroundColor: "var(--pg-teal-dark)" }}
-              whileTap={{ scale: 0.97 }}
-            >
+            <Button type="submit" className="w-full">
               <Send size={14} />
               Submit Question
-            </motion.button>
+            </Button>
           </form>
         ) : (
           <div className="px-8 py-12 flex flex-col items-center text-center gap-4">
@@ -247,14 +244,9 @@ function SubmitModal({ onClose }: { onClose: () => void }) {
             <p className="font-['Poppins',sans-serif] text-pg-slate text-sm leading-relaxed max-w-xs">
               Thank you! Our team will review your question and a licensed therapist will respond within 48 hours.
             </p>
-            <motion.button
-              onClick={onClose}
-              className="mt-2 bg-pg-teal text-white font-['Poppins',sans-serif] font-semibold text-sm px-8 py-3 rounded-pg-md"
-              whileHover={{ backgroundColor: "var(--pg-teal-dark)" }}
-              whileTap={{ scale: 0.97 }}
-            >
+            <Button onClick={onClose} className="mt-2">
               Done
-            </motion.button>
+            </Button>
           </div>
         )}
       </motion.div>
@@ -303,15 +295,9 @@ function QACard({ item, index }: { item: QAItem; index: number }) {
         <p className="font-['Poppins',sans-serif] font-semibold text-pg-navy text-sm leading-[1.5] group-hover:text-pg-teal transition-colors flex-1">
           {item.question}
         </p>
-        <Link to={`/ask-a-therapist/${item.id}`} className="no-underline">
-          <motion.div
-            className="w-full font-['Poppins',sans-serif] font-semibold text-xs text-white bg-pg-teal py-2.5 rounded-pg-md flex items-center justify-center gap-1.5"
-            whileHover={{ backgroundColor: "var(--pg-teal-dark)" }}
-            whileTap={{ scale: 0.97 }}
-          >
-            View Answer <ArrowRight size={12} />
-          </motion.div>
-        </Link>
+        <ButtonLink to={`/ask-a-therapist/${item.id}`} className="w-full">
+          View Answer <ArrowRight size={16} aria-hidden="true" />
+        </ButtonLink>
         <p className="font-['Poppins',sans-serif] text-pg-slate text-xs text-center">
           Answered by: <span className="text-pg-slate font-medium">{item.therapist}</span>
         </p>
@@ -392,14 +378,10 @@ export default function AskATherapistPage() {
         </div>
 
         {/* CTA */}
-        <motion.button
-          className="inline-flex items-center gap-3 font-['Poppins',sans-serif] font-semibold text-sm text-white bg-pg-teal px-6 py-3 rounded-pg-md"
-          whileHover={{ scale: 1.03, backgroundColor: "var(--pg-teal-dark)" }}
-          whileTap={{ scale: 0.97 }}
-        >
+        <ButtonLink to="/ask-a-therapist/1">
           View Answer
           <ArrowRight size={14} />
-        </motion.button>
+        </ButtonLink>
       </motion.div>
 
       {/* Right image */}
@@ -524,15 +506,10 @@ export default function AskATherapistPage() {
                   Our therapists answer the difficult questions you have about your child.
                 </p>
               </div>
-              <motion.button
-                onClick={() => setShowModal(true)}
-                className="w-full font-['Poppins',sans-serif] font-semibold text-sm text-pg-navy bg-pg-sage py-3 rounded-pg-md flex items-center justify-center gap-2"
-                whileHover={{ backgroundColor: "var(--pg-teal)" }}
-                whileTap={{ scale: 0.97 }}
-              >
+              <Button variant="inverse" onClick={() => setShowModal(true)} className="w-full">
                 <Send size={13} />
                 Submit Question
-              </motion.button>
+              </Button>
             </motion.div>
 
             {/* Sidebar photo */}
@@ -614,27 +591,18 @@ export default function AskATherapistPage() {
                 <MessageCircle size={36} className="text-pg-slate mb-3" />
                 <p className="font-['Poppins',sans-serif] font-semibold text-pg-navy text-sm">No questions found</p>
                 <p className="font-['Poppins',sans-serif] text-pg-slate text-xs mt-1.5">Try a different category or search term</p>
-                <motion.button
-                  onClick={() => { setActiveCategory("All"); setSearch(""); }}
-                  className="mt-4 font-['Poppins',sans-serif] font-semibold text-xs text-pg-teal border border-pg-sage px-4 py-2 rounded-pg-md"
-                  whileHover={{ backgroundColor: "var(--pg-tint-soft)" }}
-                >
+                <Button variant="secondary" size="s" onClick={() => { setActiveCategory("All"); setSearch(""); }} className="mt-4">
                   Clear filters
-                </motion.button>
+                </Button>
               </div>
             )}
 
             {/* Pagination */}
             {totalPages > 1 && (
               <div className="flex flex-wrap items-center justify-center gap-2 mt-10">
-                <motion.button
-                  onClick={() => setPage(p => Math.max(1, p - 1))}
-                  disabled={page === 1}
-                  className="flex items-center gap-1 font-['Poppins',sans-serif] text-sm font-medium text-pg-teal-dark px-3 py-2 rounded-pg-md border border-pg-sage disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
-                  whileHover={page > 1 ? { backgroundColor: "var(--pg-tint-soft)" } : {}}
-                >
+                <Button variant="secondary" size="s" onClick={() => setPage(p => Math.max(1, p - 1))} disabled={page === 1} className="gap-1 px-3">
                   <ChevronLeft size={14} /> Previous
-                </motion.button>
+                </Button>
 
                 <div className="flex gap-1">
                   {Array.from({ length: totalPages }, (_, i) => i + 1).map(p => (
@@ -653,14 +621,9 @@ export default function AskATherapistPage() {
                   ))}
                 </div>
 
-                <motion.button
-                  onClick={() => setPage(p => Math.min(totalPages, p + 1))}
-                  disabled={page === totalPages}
-                  className="flex items-center gap-1 font-['Poppins',sans-serif] text-sm font-medium text-pg-teal-dark px-3 py-2 rounded-pg-md border border-pg-sage disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
-                  whileHover={page < totalPages ? { backgroundColor: "var(--pg-tint-soft)" } : {}}
-                >
+                <Button variant="secondary" size="s" onClick={() => setPage(p => Math.min(totalPages, p + 1))} disabled={page === totalPages} className="gap-1 px-3">
                   Next <ChevronRight size={14} />
-                </motion.button>
+                </Button>
               </div>
             )}
           </div>
@@ -697,13 +660,9 @@ export default function AskATherapistPage() {
               Our expert coaches will work one-on-one with you as you navigate your child's ups and downs.{" "}
               <strong>These services may be free to you through your child's school district.</strong>
             </p>
-            <motion.button
-              className="self-start font-['Poppins',sans-serif] font-semibold text-sm text-white bg-pg-teal px-6 py-3 rounded-pg-md inline-flex items-center gap-2"
-              whileHover={{ scale: 1.03, backgroundColor: "var(--pg-teal-dark)" }}
-              whileTap={{ scale: 0.97 }}
-            >
+            <ButtonLink to="/parent-coaching" className="self-start">
               Get Started <ArrowRight size={14} />
-            </motion.button>
+            </ButtonLink>
           </motion.div>
         </div>
       </section>
