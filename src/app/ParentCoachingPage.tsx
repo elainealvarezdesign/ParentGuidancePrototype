@@ -175,11 +175,11 @@ export default function ParentCoachingPage() {
     <div className="bg-pg-cream min-h-screen">
 
       {/* ── Hero ── */}
-      <section className="bg-pg-cream pt-24 pb-14 px-14 overflow-hidden">
-        <div className="max-w-pg-page mx-auto grid grid-cols-2 gap-12 items-center">
+      <section className="bg-pg-cream pt-24 pb-14 px-6 md:px-10 lg:px-14 overflow-hidden">
+        <div className="max-w-pg-page mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
           {/* Left */}
           <motion.div
-            className="flex flex-col gap-6 pb-16"
+            className="flex flex-col gap-6 lg:pb-16"
             initial={{ opacity: 0, x: -28 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}
@@ -187,7 +187,7 @@ export default function ParentCoachingPage() {
             <span className="font-['Poppins',sans-serif] text-xs font-semibold uppercase tracking-[1.2px] text-pg-teal-dark">
               Parent Coaching
             </span>
-            <h1 className="font-['Poppins',sans-serif] font-bold text-pg-navy text-[36px] leading-[1.25] max-w-[488px]">
+            <h1 className="font-['Poppins',sans-serif] font-bold text-pg-navy text-[30px] sm:text-[36px] leading-[1.25] max-w-[488px]">
               {"A better way to navigate your "}
               <em className="italic text-pg-teal">{"child's mental health."}</em>
             </h1>
@@ -196,7 +196,7 @@ export default function ParentCoachingPage() {
               <em className="italic">you</em>
               {" — so you can show up for your child with confidence, clarity, and real tools."}
             </p>
-            <div className="flex items-center gap-3">
+            <div className="flex flex-wrap items-center gap-3">
               <ButtonAnchor href={SIGN_UP_URL} target="_blank" rel="noopener noreferrer">
                 Sign up now!
                 <span className="sr-only"> (opens in a new tab)</span>
@@ -209,48 +209,50 @@ export default function ParentCoachingPage() {
 
           {/* Right — photo with offset teal block */}
           <motion.div
-            className="relative flex justify-center"
-            style={{ height: "444px" }}
+            className="flex justify-center"
             initial={{ opacity: 0, x: 28 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.55, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            {/* Teal offset block — top-right corner, rounded-tr-pg-sm only */}
-            <div
-              className="absolute bg-pg-sage"
-              style={{
-                width: "334px",
-                height: "367px",
-                left: "63px",
-                top: "50px",
-                borderTopRightRadius: "32px",
-              }}
-            />
-            {/* Photo on top */}
-            <div
-              className="absolute rounded-pg-xl overflow-hidden"
-              style={{
-                width: "334px",
-                height: "418px",
-                left: 0,
-                top: 0,
-                boxShadow: "0 8px 24px rgba(28,50,67,0.06)",
-              }}
-            >
-              <img
-                src={imgImageParentHuggingChild}
-                alt="Parent hugging child"
-                className="w-full h-full object-cover"
+            {/* Photo + offset block, centered as one group in the column */}
+            <div className="relative shrink-0 w-[300px] h-[336px] sm:w-[397px] sm:h-[444px]">
+              {/* Teal offset block — top-right corner, rounded-tr-pg-sm only */}
+              <div
+                className="absolute bg-pg-sage"
+                style={{
+                  width: "84.1%",
+                  height: "82.7%",
+                  left: "15.9%",
+                  top: "11.3%",
+                  borderTopRightRadius: "32px",
+                }}
               />
+              {/* Photo on top */}
+              <div
+                className="absolute rounded-pg-xl overflow-hidden"
+                style={{
+                  width: "84.1%",
+                  height: "94.1%",
+                  left: 0,
+                  top: 0,
+                  boxShadow: "0 8px 24px rgba(28,50,67,0.06)",
+                }}
+              >
+                <img
+                  src={imgImageParentHuggingChild}
+                  alt="Parent hugging child"
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
           </motion.div>
         </div>
       </section>
 
       {/* ── Benefits ── */}
-      <section className="bg-pg-navy px-14 py-12">
+      <section className="bg-pg-navy px-6 md:px-10 lg:px-14 py-12">
         <div className="max-w-pg-page mx-auto flex justify-center">
-          <div className="grid grid-cols-4 gap-6 max-w-pg-content w-full">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 max-w-pg-content w-full">
             {BENEFITS.map((b, i) => (
               <motion.div
                 key={b.title}
@@ -334,7 +336,7 @@ export default function ParentCoachingPage() {
       </section>
 
       {/* ── How It Works ── */}
-      <section id="how-it-works" className="bg-white px-14 py-14">
+      <section id="how-it-works" className="bg-white px-6 md:px-10 lg:px-14 py-14">
         <div className="max-w-pg-page mx-auto flex justify-center">
           <div className="w-full max-w-pg-content flex flex-col items-center">
             <div className="flex items-center gap-2 mb-1 self-start">
@@ -349,7 +351,7 @@ export default function ParentCoachingPage() {
             <div className="relative w-full" style={{ minHeight: "160px" }}>
               <div
                 ref={connectorRef}
-                className="absolute top-7 overflow-hidden bg-pg-line"
+                className="absolute top-7 hidden lg:block overflow-hidden bg-pg-line"
                 style={{ left: "128px", right: "128px", height: "1px" }}
               >
                 <motion.div
@@ -360,7 +362,7 @@ export default function ParentCoachingPage() {
                 />
               </div>
 
-              <div className="grid grid-cols-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-10">
                 {STEPS.map((step, i) => (
                   <ProcessStep key={step.num} {...step} index={i} />
                 ))}
