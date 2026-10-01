@@ -550,10 +550,14 @@ function Calendar() {
   );
 }
 
+/** "Welcome to the Mental Health Series" video on Vimeo */
+const WELCOME_VIMEO_ID = "1037509342";
+
 /* ─── Content page ─── */
 function ContentPage({ state, district, onReset }: { state: string; district: string; onReset: () => void }) {
   const [search, setSearch] = useState("");
   const [eventsVisible, setEventsVisible] = useState(EVENTS_PAGE_SIZE);
+  const [welcomePlaying, setWelcomePlaying] = useState(false);
 
   const filteredEvents = search
     ? EVENTS.filter(e => e.title.toLowerCase().includes(search.toLowerCase()) || e.desc.toLowerCase().includes(search.toLowerCase()))
@@ -606,13 +610,30 @@ function ContentPage({ state, district, onReset }: { state: string; district: st
             </Button>
           </motion.div>
 
-          {/* Hero image — matches Figma "image 13" */}
+          {/* Welcome video — the Figma "image 13" poster plays the Vimeo video in place */}
           <motion.div
-            className="rounded-pg-2xl overflow-hidden shrink-0 w-full max-w-[659px]"
-            style={{ aspectRatio: "659.5 / 416.47" }}
+            className="relative rounded-pg-2xl overflow-hidden shrink-0 w-full max-w-[659px] bg-white shadow-pg-card"
+            style={{ aspectRatio: welcomePlaying ? "16 / 9" : "659.5 / 416.47" }}
             initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.55 }}
           >
-            <img alt="Mental Health Series" className="w-full h-full object-cover" src={imgImage13} />
+            {welcomePlaying ? (
+              <iframe
+                src={`https://player.vimeo.com/video/${WELCOME_VIMEO_ID}?autoplay=1&dnt=1&title=0&byline=0&portrait=0`}
+                title="Welcome to the Mental Health Series (video)"
+                className="absolute inset-0 h-full w-full bg-pg-navy"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowFullScreen
+              />
+            ) : (
+              <button
+                type="button"
+                onClick={() => setWelcomePlaying(true)}
+                aria-label="Play video: Welcome to the Mental Health Series"
+                className="group block h-full w-full"
+              >
+                <img alt="" className="w-full h-full object-cover transition-opacity group-hover:opacity-90" src={imgImage13} />
+              </button>
+            )}
           </motion.div>
         </div>
       </div>
