@@ -1,7 +1,7 @@
 # 5. Auditoría del prototipo
 
-Revisión de `src/app` (sin contar `components/ui`, que son componentes base de shadcn) frente a estas guías.
-Está ordenada por impacto.
+Registro de la revisión de `src/app` (sin contar `components/ui`, componentes base de shadcn) frente a estas guías:
+qué se encontró, cómo se resolvió y qué queda pendiente (sección 5.7).
 
 ## 5.1 Accesibilidad (prioridad alta)
 
@@ -9,7 +9,7 @@ Está ordenada por impacto.
 |----------|-------|----------|
 | ✅ ~~No hay estilos de foco visibles~~ | Todos los botones y enlaces | **Resuelto** con una regla global en `src/styles/accessibility.css` |
 | ✅ ~~No se respeta reduced‑motion~~ | Toda la app | **Resuelto**: `MotionConfig` en `App.tsx`, regla CSS en `accessibility.css` y scroll sin animación en `utils/motion.ts` |
-| Cards de la home no alcanzables con teclado | Home (`App.tsx`) | Las cards usan `onClick` en elementos que no son enlaces ni botones: convertirlas en `<a>`/`<Link>` |
+| ✅ ~~Cards de la home no alcanzables con teclado~~ | Home, V1 y V2 | **Resuelto**: las cards son enlaces y las FAQ son botones con `aria-expanded` |
 | ✅ ~~Texto en sage `#90b3b6` sobre fondos claros~~ | 41 usos | **Resuelto**: pasa a teal dark `#406064`. Se mantiene sage sobre navy, donde sí cumple (5.9:1) |
 | ✅ ~~Texto en mist `#acbcbe`~~ | 36 textos y 11 placeholders | **Resuelto**: texto → slate `#435766`; todos los placeholders → teal `#59797d` |
 | ✅ ~~Texto de 9–11px~~ | 75 usos | **Resuelto**: todo a 12px, salvo los eyebrows en mayúsculas, que quedan en 11px |
@@ -18,12 +18,12 @@ Está ordenada por impacto.
 | ✅ ~~Texto blanco sobre sage (2.3:1)~~ | Números de pasos, avatares | **Resuelto**: navy sobre sage (5.9:1) |
 | ✅ ~~"Learn More" sage sobre sage (1:1, invisible)~~ | Cards de la home | **Resuelto**: navy |
 | ✅ ~~Botón "Next Lesson" blanco sobre ámbar (3.0:1)~~ | Lecciones | **Resuelto**: pasa a Primary teal |
-| Separadores "•" en `#d0cbca` (1.6:1) | Detalle de curso | Son decorativos, se dejan así (conviene añadir `aria-hidden`) |
+| ✅ ~~Separadores "•" de bajo contraste~~ | Detalle de curso | **Resuelto**: decorativos en `pg-mist` con `aria-hidden` |
 | ✅ ~~Testimonios en 3 columnas en móvil~~ | Parent Coaching | **Resuelto**: 1 columna hasta 1024px, 3 columnas en desktop |
 | ✅ ~~La navegación no cabe en móvil~~ | Header | **Resuelto**: menú con botón ☰ por debajo de 1024px (se cierra con Esc, al tocar fuera o al navegar) |
 | ✅ ~~Footer desborda en móvil~~ | Todas las páginas | **Resuelto**: columnas apiladas en móvil |
 | ✅ ~~Home desborda en móvil~~ | Home | **Resuelto**: título que ajusta línea, cards en 2×2, filas imagen+texto y FAQ apiladas |
-| Scroll horizontal en móvil (390px) | Home V1, On-Demand Courses, Ask a Therapist, pregunta, lección de Milestones | Heros y filas de filtros con anchos fijos. Hacerlos responsive o dejar que la fila de filtros haga scroll dentro de su contenedor |
+| ✅ ~~Scroll horizontal y layouts rotos en móvil y tablet~~ | Todas las páginas | **Resuelto**: sin scroll lateral en 390/768/1024/1280px (anchos fijos solo desde `lg`) |
 
 ## 5.2 Colores fuera de paleta ✅
 
@@ -64,9 +64,9 @@ temas (colores de datos) y los valores dentro de props de animación (`whileHove
   `image.png`…), el componente de Figma Make sin usar `CreateLivePrototypeWithTransitions/index.tsx` y `pasted_text`:
   la carpeta pasó de 38 MB a 8,8 MB.
 - ✅ El `<title>` y la descripción de `index.html` ya hablan de Parent Guidance.
-- Hay dos versiones de la home (`HomePageV1`, `HomePageV2`). Conviene decidir cuál es la vigente.
+- Hay dos versiones de la home (`HomePageV1`, `HomePageV2`) además de la principal. Pendiente decidir cuál queda (5.7).
 
-## 5.5 Orden de migración sugerido
+## 5.5 Migración (completada)
 
 1. ✅ Importar `tokens.css` (hecho, en `src/styles/`).
 2. ✅ `MotionConfig reducedMotion="user"` y estilos de foco (hecho).
@@ -84,10 +84,21 @@ Revisión del código de `src/app` y de las 21 pantallas en el navegador (390, 7
 | Tipografía | Todos los tamaños en la escala: 13→14, 15→16, 18→20 (títulos) o 16 (párrafos), 22→24; títulos de página y de sección destacada en h1 28/40; `display` 38/50 solo en las homes. `font-black` → `font-bold`. El texto de 11px es solo de eyebrows en mayúsculas |
 | Radios y sombras | Solo tokens `rounded-pg-*` / `shadow-pg-*` (las clases de Tailwind que quedan son de `components/ui`, que no usa ninguna página) |
 | Botones | Todos los de acción usan `<Button>`, `<ButtonLink>` o `<ButtonAnchor>` |
-| Movimiento | Sin hovers con escala mayor de 1.02 ni springs con rebote |
+| Movimiento | Sin hovers con escala mayor de 1.02 ni springs con rebote; Get Help sin animaciones de entrada (`initial={false}`) |
 | Contraste | 1.685 textos revisados; las únicas alertas son textos sobre fotos (que el análisis no puede medir) y los separadores "•", ahora `aria-hidden` |
 | Responsive | Sin scroll lateral en 390/768/1024/1280. Footer y "Join Us!" pasan a filas desde 1024px |
 
 Después se quitaron también los grises genéricos de Tailwind (`text-gray-700/400` → `pg-navy`/`pg-slate`) y los colores sueltos de iconos (`#333`, `#acbcbe`, `#C0CDD4`, `#8D6B3A`) en favor de `currentColor` o tokens.
 
 Quedan como valores sueltos, a propósito: anchos de lectura (`max-w-[480px]`…) en textos de heros y los colores de logos SVG y de las paletas de categorías.
+
+## 5.7 Pendientes
+
+| Tema | Detalle | Quién |
+|------|---------|-------|
+| Botones sin función | "Help me choose" (Get Help), "Take the Quiz" y "Learn more" (Home V1), "Featured" (Ask a Therapist) | Diseño/desarrollo |
+| Redes sociales | Faltan las URLs de Facebook, Instagram, YouTube y LinkedIn (Vimeo ya está enlazado) | Contenido |
+| Contenido de ejemplo | Eventos y enlaces de registro de muestra; cursos y recursos sin página propia abren plantillas de ejemplo | Contenido |
+| Textos repetidos | Tres cards de la home repiten "Dive into a wealth of knowledge tailored for parents" | Contenido |
+| Homes | Decidir entre la home principal, V1 y V2 | Producto |
+| Estados de color | Validar en Figma `pg-success`, `pg-warning` y `pg-error` (ya se usan en badges y avisos) | Diseño |

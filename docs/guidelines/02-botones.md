@@ -1,8 +1,8 @@
 # 2. Botones
 
-Hoy el prototipo tiene botones con distintos colores (teal, navy, blanco), radios (8px, 12px, píldora) y
-alturas. Esta guía los reduce a un solo sistema, partiendo del botón más repetido: el de `UnifiedCard`
-(teal, 8px, Poppins semibold 14px, hover teal dark).
+Todos los botones de acción del prototipo salen de un solo sistema, construido a partir del botón más
+repetido en el diseño original (el de `UnifiedCard`: teal, 8px, Poppins semibold 14px, hover teal dark) y
+implementado en el componente [`Button.tsx`](../../src/app/components/Button.tsx) (sección 2.4).
 
 ## 2.1 Estilos
 
@@ -16,14 +16,17 @@ alturas. Esta guía los reduce a un solo sistema, partiendo del botón más repe
 
 > **Un solo Primary por sección.** Si hay más acciones, pasan a Secondary o Tertiary.
 
-El botón navy (`#1c3243`) del buscador pasa a Primary teal, porque el navy es el color del texto y de la
-navegación, no de la acción. Así el usuario aprende que el teal significa "puedo hacer clic".
+No hay botones navy ni sage: el navy es el color del texto y de la navegación, no de la acción. Así el usuario
+aprende que el teal significa "puedo hacer clic".
+
+Sobre fondo **sage** (banners como "Not sure which resource is right for you?") la acción principal es
+**Inverse**: el teal sobre sage casi no se distingue.
 
 ## 2.2 Tamaños
 
 | Tamaño | Alto | Padding | Texto | Cuándo |
 |--------|------|---------|-------|--------|
-| **S** | 36px | `px-4` | 14px / 600 | Solo desktop, en UI densa (filtros, acciones de fila) |
+| **S** | 36px | `px-4` | 14px / 600 | UI densa: barras de herramientas, paginación, "Register" en filas de eventos. En móvil, solo si el botón ocupa el ancho completo |
 | **M** | 44px | `px-5` | 14px / 600 | **Por defecto** |
 | **L** | 52px | `px-7` | 16px / 600 | CTA de hero y pantallas clave en móvil |
 
@@ -67,6 +70,18 @@ Los botones del prototipo usan [`src/app/components/Button.tsx`](../../src/app/c
 - Excepción: el botón "Search" dentro de una barra de búsqueda en píldora puede llevar `rounded-full`, porque
   forma parte de la barra.
 - En newsletters, el botón va **dentro** de la caja del input (con `p-1.5` y `gap-2`), no pegado al borde.
+
+### Controles que no son botones de acción
+
+Estos elementos tienen su propio estilo y **no** usan `<Button>`:
+
+| Control | Estilo |
+|---------|--------|
+| Chips de filtro | `rounded-full text-xs font-medium px-4 py-2`; activo `bg-pg-navy text-white`, inactivo `bg-pg-cream-dark text-pg-slate`, con `aria-pressed` |
+| Menú "Featured" (ordenar) | `rounded-pg-md bg-pg-cream-dark text-xs font-medium px-4 py-2.5`, iconos lucide `ListFilter` + `ChevronDown` de 14px, centrados con el texto |
+| Selector segmentado (Month/List, Day/Week/Month) | Contenedor `bg-pg-tint-soft`; opción activa blanca con `shadow-pg-card` y `aria-pressed` |
+| Paginación numérica | Cuadrados de 36–44px; página actual navy o teal; Prev/Next como `<Button variant="secondary" size="s">` |
+| Botones de solo icono | 36–44px, `rounded-pg-md`, `aria-label` obligatorio (flechas del calendario, cerrar, menú) |
 
 ## 2.5 Accesibilidad
 

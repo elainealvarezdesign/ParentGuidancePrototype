@@ -115,7 +115,7 @@ function ResourceCard({
 }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 24 }}
+      initial={false}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.55, delay: index * 0.06 }}
@@ -167,7 +167,7 @@ export default function GetHelpPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-16">
             <motion.div
               className="max-w-[540px]"
-              initial={{ opacity: 0, y: 24 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55 }}
             >
@@ -190,7 +190,7 @@ export default function GetHelpPage() {
 
             <motion.div
               className="relative w-full max-w-[570px] mx-auto lg:mx-0 lg:ml-auto pb-9 pr-7 md:pb-12 md:pr-10"
-              initial={{ opacity: 0, x: 30 }}
+              initial={false}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.55, delay: 0.1 }}
             >
@@ -209,7 +209,7 @@ export default function GetHelpPage() {
 <section className="bg-pg-cream px-8 md:px-14 lg:px-14 pb-14">
   <motion.div
   className="max-w-pg-page mx-auto bg-pg-navy rounded-pg-md px-8 md:px-16 py-10 md:py-12"
-    initial={{ opacity: 0, y: 24 }}
+    initial={false}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true, margin: "-60px" }}
   >
@@ -330,7 +330,7 @@ export default function GetHelpPage() {
 
           <motion.div
             className="mt-12 rounded-pg-xl bg-pg-sage px-7 md:px-12 py-9 flex flex-col md:flex-row items-center gap-8 max-w-pg-content mx-auto"
-            initial={{ opacity: 0, y: 24 }}
+            initial={false}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
           >

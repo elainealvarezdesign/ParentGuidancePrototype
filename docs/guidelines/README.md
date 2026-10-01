@@ -3,25 +3,34 @@
 Guías del prototipo **PG-Live** (parentguidance.org), escritas a partir del **código real del prototipo**
 (`src/app`) y ordenadas con el método del sistema de diseño de Scalar.
 
-- **La identidad visual** (colores, tipografía, radios, sombras, estilo de botones y animación) sale de lo que
-  ya usa el prototipo. Contamos qué valores aparecen en el código y con qué frecuencia; los más usados se
-  convierten en tokens y los sueltos se consolidan.
+- **La identidad visual** (colores, tipografía, radios, sombras, botones y animación) sale de lo que ya usaba el
+  prototipo: los valores más repetidos se convirtieron en tokens y los sueltos se consolidaron.
 - **El método** viene de Scalar: todo sale de tokens, escalas cerradas, jerarquía de botones, accesibilidad y
   contrato de reduced‑motion.
+
+> **Estado:** el prototipo ya cumple estas guías (auditoría final en la [sección 5.6](./05-auditoria.md)).
+> Cada pantalla o componente nuevo debe seguirlas desde el principio.
 
 ## Índice
 
 | # | Guía | Contenido |
 |---|------|-----------|
-| 1 | [Fundamentos](./01-fundamentos.md) | Paleta, tipografía Poppins, espaciado, radios y sombras |
-| 2 | [Botones](./02-botones.md) | Estilos, tamaños, estados y accesibilidad |
-| 3 | [Layout](./03-layout.md) | Contenedores, márgenes, breakpoints, ritmo vertical y cards |
+| 1 | [Fundamentos](./01-fundamentos.md) | Paleta, contraste, tipografía Poppins, espaciado, radios y sombras |
+| 2 | [Botones](./02-botones.md) | Estilos, tamaños, estados, el componente `<Button>` y accesibilidad |
+| 3 | [Layout](./03-layout.md) | Contenedores, breakpoints, ritmo vertical, grids y patrones (cards, barra de filtros, banners, pop-ups, video) |
 | 4 | [Movimiento](./04-movimiento.md) | Animaciones con `motion`, duraciones, easing y reduced‑motion |
-| 5 | [Auditoría del prototipo](./05-auditoria.md) | Colores fuera de paleta, problemas de contraste y pendientes |
-| — | [`tokens.css`](../../src/styles/tokens.css) | Variables CSS + mapeo a Tailwind v4 (en `src/styles/`, ya importado en la app) |
+| 5 | [Auditoría del prototipo](./05-auditoria.md) | Qué se corrigió, cómo se verificó y qué queda pendiente |
 
-`guidelines/Guidelines.md` (en la raíz) es la versión resumida de estas guías para **Figma Make**, que es el
-archivo que su IA lee al generar pantallas.
+## Dónde vive cada cosa
+
+| Archivo | Qué es |
+|---------|--------|
+| [`src/styles/tokens.css`](../../src/styles/tokens.css) | Variables CSS (`--pg-*`) y su mapeo a Tailwind v4 (`bg-pg-navy`, `rounded-pg-md`, `shadow-pg-card`, `max-w-pg-page`…) |
+| [`src/styles/accessibility.css`](../../src/styles/accessibility.css) | Foco visible global y regla de reduced‑motion |
+| [`src/app/components/Button.tsx`](../../src/app/components/Button.tsx) | `<Button>`, `<ButtonLink>`, `<ButtonAnchor>` y `buttonClass()` |
+| [`src/app/components/UnifiedCard.tsx`](../../src/app/components/UnifiedCard.tsx) | Card estándar (recursos, cursos, líneas de ayuda) |
+| [`src/app/mhs/EventModal.tsx`](../../src/app/mhs/EventModal.tsx) | Pop-up de evento (patrón de diálogo accesible) |
+| [`guidelines/Guidelines.md`](../../guidelines/Guidelines.md) | Resumen en inglés para **Figma Make** (el archivo que lee su IA al generar pantallas) |
 
 ## Personalidad visual
 
@@ -45,16 +54,22 @@ sentirse **cálida, calmada y confiable**:
 
 **Descartado:**
 - La paleta azul de Scalar (`#037de8`…) y la tipografía Inter: Parent Guidance tiene su propia marca.
-- El contenedor de 1160px de Scalar: el prototipo ya usa 1280px.
+- El contenedor de 1160px de Scalar: el prototipo usa 1280px.
 - GSAP/ScrollTrigger, parallax, marquee, bento con spotlight y el diagrama "Living Model": no encajan con
   una web de apoyo a familias y el prototipo ya usa `motion`.
 
 ## Regla #1
 
 > Ningún color, tamaño de fuente, radio o sombra se escribe como valor suelto (`text-[#1c3243]`,
-> `text-[10px]`, `shadow-[…]`). Se usan los tokens de [`tokens.css`](../../src/styles/tokens.css). Si falta algo, primero se
-> añade como token aquí (y en Figma) y después se usa.
+> `text-[13px]`, `shadow-[…]`, `text-gray-700`). Se usan los tokens de [`tokens.css`](../../src/styles/tokens.css).
+> Si falta algo, primero se añade como token aquí (y en Figma) y después se usa.
 
-Las clases del prototipo ya usan los tokens (`bg-pg-navy`, `rounded-pg-xl`, `shadow-pg-card`, `max-w-pg-page`,
-`duration-(--pg-dur-base)`…). Quedan como hex a propósito los colores de los logos SVG y las paletas de categorías
-de cursos (colores de datos). Ver la [auditoría](./05-auditoria.md).
+Excepciones aceptadas: los colores de los logos SVG (arte de marca), las paletas de categorías de cursos
+(colores de datos) y los anchos de lectura de textos de hero (`max-w-[480px]`…).
+
+## Cómo comprobar una pantalla
+
+1. Revisarla en **390, 768, 1024 y 1280px**: sin scroll lateral y sin texto apretado.
+2. Recorrerla con el teclado (Tab, Enter, Esc): todo lo clicable se alcanza y muestra el foco.
+3. Contraste AA en todo el texto (tabla de la [sección 1.1](./01-fundamentos.md#combinaciones-de-contraste-aprobadas)).
+4. Botones con el componente, títulos en la escala, sin animaciones que reboten.
