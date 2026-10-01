@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "./components/Button";
 import { motion } from "motion/react";
-import { AlertTriangle, ArrowRight, CheckCircle } from "lucide-react";
+import { AlertTriangle, ArrowRight, CheckCircle } from "./components/icons";
 
 export default function ContactUsPage() {
   const [fullName, setFullName] = useState("");

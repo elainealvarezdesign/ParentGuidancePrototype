@@ -33,7 +33,7 @@ Sobre fondo **sage** (banners como "Not sure which resource is right for you?") 
 - Radio `rounded-pg-md` (8px) en todos los tamaños.
 - La forma **píldora** (`rounded-full`) se reserva para chips, badges, filtros y el buscador. No para botones
   de acción.
-- Icono opcional a la derecha (flecha `→` o icono lucide de 16px) con `gap-2`. Si el icono es decorativo,
+- Icono opcional a la derecha (flecha `→` o icono Material Outlined de 16px) con `gap-2`. Si el icono es decorativo,
   lleva `aria-hidden="true"`.
 - `w-full` solo dentro de cards o en móvil.
 
@@ -78,7 +78,7 @@ Estos elementos tienen su propio estilo y **no** usan `<Button>`:
 | Control | Estilo |
 |---------|--------|
 | Chips de filtro | `rounded-full text-xs font-medium px-4 py-2`; activo `bg-pg-navy text-white`, inactivo `bg-pg-cream-dark text-pg-slate`, con `aria-pressed` |
-| Menú "Featured" (ordenar) | `rounded-pg-md bg-pg-cream-dark text-xs font-medium px-4 py-2.5`, iconos lucide `ListFilter` + `ChevronDown` de 14px, centrados con el texto |
+| Menú "Featured" (ordenar) | `rounded-pg-md bg-pg-cream-dark text-xs font-medium px-4 py-2.5`, iconos `ListFilter` (filter_list) + `ChevronDown` (expand_more) de 14px, centrados con el texto |
 | Selector segmentado (Month/List, Day/Week/Month) | Contenedor `bg-pg-tint-soft`; opción activa blanca con `shadow-pg-card` y `aria-pressed` |
 | Paginación numérica | Cuadrados de 36–44px; página actual navy o teal; Prev/Next como `<Button variant="secondary" size="s">` |
 | Botones de solo icono | 36–44px, `rounded-pg-md`, `aria-label` obligatorio (flechas del calendario, cerrar, menú) |

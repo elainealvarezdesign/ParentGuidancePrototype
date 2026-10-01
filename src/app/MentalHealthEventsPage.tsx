@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useState, type MouseEvent } from "react";
 import { Link, useSearchParams } from "react-router";
 import { Button, ButtonAnchor } from "./components/Button";
-import { CalendarPlus, ChevronLeft, ChevronRight, Clock, Download, MapPin } from "lucide-react";
+import { CalendarPlus, ChevronLeft, ChevronRight, Clock, Download, MapPin } from "./components/icons";
 import {
   CATEGORIES,
   EVENTS,

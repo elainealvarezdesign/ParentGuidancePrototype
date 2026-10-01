@@ -1,5 +1,5 @@
 import { useState, useMemo, useRef, useEffect } from "react";
-import { ChevronDown, ListFilter } from "lucide-react";
+import { ChevronDown, ListFilter } from "./components/icons";
 import { motion, AnimatePresence } from "motion/react";
 import { scrollBehavior } from "./utils/motion";
 import { useNavigate } from "react-router";

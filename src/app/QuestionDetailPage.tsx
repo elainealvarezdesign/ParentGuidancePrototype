@@ -6,7 +6,7 @@ import {
   ChevronRight, ChevronLeft, Play, Pause, Volume2, Maximize2,
   Settings, Captions, ChevronDown, ChevronUp, MessageCircle, ArrowRight,
   CheckCircle2, AlertCircle,
-} from "lucide-react";
+} from "./components/icons";
 
 type QAItem = {
   id: number;

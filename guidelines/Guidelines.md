@@ -84,6 +84,13 @@ crisis help. The UI must feel warm, calm and trustworthy. Full guidelines (Spani
   `aria-label`. Minimum touch target 44×44px. External links opening a new tab say so to screen readers.
 * Crisis call/text buttons on Get Help use `tel:`/`sms:` links in size L.
 
+# Icons
+
+* Material Icons, Outlined style only (`@mui/icons-material`). Import them from `src/app/components/icons.tsx`
+  (e.g. `import { Search } from "./components/icons"`), never from another icon library.
+* Size with `size` in px: 14–16px in controls, 18–20px in icon-only buttons. Color via `currentColor` and a
+  text class. Decorative icons get `aria-hidden="true"`.
+
 # Motion
 
 * Use `motion/react`. The app is wrapped in `<MotionConfig reducedMotion="user">`.

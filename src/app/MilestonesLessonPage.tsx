@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "motion/react";
 import {
   Play, Pause, Volume2, Maximize2, Settings, Captions,
   ChevronRight, ChevronLeft, CheckCircle2, Circle, BookOpen, FileText, Paperclip,
-} from "lucide-react";
+} from "./components/icons";
 
 const COURSE_SLUG = "milestones-to-progress";
 const COURSE_TITLE = "Milestones to Progress: Guiding your child from birth through the early school years";

@@ -136,7 +136,13 @@ el color de fondo (tint, sage o navy).
 
 ## 1.6 Iconos
 
-- Librería: **lucide-react**, 14–16px en controles y 18–20px en botones de solo icono.
+- Librería: **Material Icons, estilo Outlined** (`@mui/icons-material`). No se mezclan otros estilos (Filled,
+  Rounded, Sharp) ni otras librerías.
+- Siempre se importan desde [`src/app/components/icons.tsx`](../../src/app/components/icons.tsx), nunca directo de
+  `@mui/icons-material`: `import { Search } from "./components/icons"`. Si falta un icono, se añade ahí con su
+  versión `…Outlined`.
+- Tamaño con `size` en px: 14–16px en controles y 18–20px en botones de solo icono
+  (`<Search size={16} aria-hidden="true" />`).
 - Color con `currentColor` y una clase de texto (`text-pg-slate`, `text-pg-sage`…), nunca un hex en el SVG.
 - Iconos decorativos con `aria-hidden="true"`; botones de solo icono con `aria-label`.
 - Excepción: los SVG de logos (Parent Guidance, partners, redes sociales) conservan sus colores de marca.

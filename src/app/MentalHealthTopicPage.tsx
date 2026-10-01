@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useParams } from "react-router";
 import { Button, ButtonAnchor, ButtonLink } from "./components/Button";
-import { ArrowRight, CalendarDays, ChevronLeft, ListChecks, PlayCircle } from "lucide-react";
+import { ArrowRight, CalendarDays, ChevronLeft, ListChecks, PlayCircle } from "./components/icons";
 import { getTopic, type Topic, type TopicVideo } from "./mhs/topics";
 import { BackToTopButton } from "./legal/LegalActions";
 

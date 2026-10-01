@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button } from "./components/Button";
-import { ChevronDown, Download, Printer } from "lucide-react";
+import { ChevronDown, Download, Printer } from "./components/icons";
 import {
   TERMS_EFFECTIVE_DATE,
   TERMS_INTRO,

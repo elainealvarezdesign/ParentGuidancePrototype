@@ -64,6 +64,8 @@ temas (colores de datos) y los valores dentro de props de animación (`whileHove
   `image.png`…), el componente de Figma Make sin usar `CreateLivePrototypeWithTransitions/index.tsx` y `pasted_text`:
   la carpeta pasó de 38 MB a 8,8 MB.
 - ✅ El `<title>` y la descripción de `index.html` ya hablan de Parent Guidance.
+- ✅ Iconos: los ~55 iconos de lucide-react pasaron a **Material Icons Outlined** a través de `components/icons.tsx`,
+  y se quitó lucide-react del proyecto.
 - Hay dos versiones de la home (`HomePageV1`, `HomePageV2`) además de la principal. Pendiente decidir cuál queda (5.7).
 
 ## 5.5 Migración (completada)

@@ -13,7 +13,7 @@ import {
   ShieldCheck,
   Signpost,
   X,
-} from "lucide-react";
+} from "./components/icons";
 import getHelpHero from "@/imports/get-help-hero.png";
 import logo988 from "@/imports/get-help-logos/988-suicide-crisis-lifeline.png";
 import logoCrisisText from "@/imports/get-help-logos/Crisis-Text_line.jpeg";

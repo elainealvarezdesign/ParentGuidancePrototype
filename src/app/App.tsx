@@ -12,7 +12,7 @@ import QuestionDetailPage from "./QuestionDetailPage";
 import MilestonesToProgressPage from "./MilestonesToProgressPage";
 import MilestonesLessonPage from "./MilestonesLessonPage";
 import { motion, useInView, AnimatePresence, MotionConfig } from "motion/react";
-import { Menu, X } from "lucide-react";
+import { Menu, X } from "./components/icons";
 import svgPaths from "@/imports/HomePagePgV2/svg-2e7k4ll6gf.ts";
 import imgStaffGuidance from "@/imports/StaffGuidance.png";
 import imgElizaChat from "@/imports/elizachat_logo_horizontal.svg";

@@ -64,6 +64,8 @@ and values inside animation props (`whileHover`), which already use palette valu
   `ADDO.png`, `image.png`…), the unused Figma Make component `CreateLivePrototypeWithTransitions/index.tsx` and
   `pasted_text`: the folder went from 38 MB to 8.8 MB.
 - ✅ The `<title>` and description in `index.html` now talk about Parent Guidance.
+- ✅ Icons: the ~55 lucide-react icons moved to **Material Icons Outlined** through `components/icons.tsx`, and
+  lucide-react was removed from the project.
 - There are two versions of the home page (`HomePageV1`, `HomePageV2`) in addition to the main one. Still to
   decide which one stays (5.7).
 

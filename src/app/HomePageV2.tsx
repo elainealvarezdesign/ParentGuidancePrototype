@@ -1,7 +1,7 @@
 import { Button, ButtonLink } from "./components/Button";
 import { useState } from "react";
 import { motion } from "motion/react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight } from "./components/icons";
 import UnifiedCard from "./components/UnifiedCard";
 
 import imgMentalHealth from "@/imports/HomePagePgV2/b75247b5542e76cdf5c675041b7a6e465e33ef23.png";

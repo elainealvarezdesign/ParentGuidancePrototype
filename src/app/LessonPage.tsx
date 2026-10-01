@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "motion/react";
 import {
   Play, Pause, Volume2, Maximize2, Settings, Captions,
   ChevronRight, ChevronLeft, CheckCircle2, Circle, BookOpen, FileText, Paperclip,
-} from "lucide-react";
+} from "./components/icons";
 
 const COURSE_SLUG = "free-yourself-from-limiting-thoughts";
 const COURSE_TITLE = "4 Questions To Free Yourself From Limiting Thoughts";

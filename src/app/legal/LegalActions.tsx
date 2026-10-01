@@ -1,5 +1,5 @@
 import { Button } from "../components/Button";
-import { ArrowUp, Download, Printer } from "lucide-react";
+import { ArrowUp, Download, Printer } from "../components/icons";
 import { scrollBehavior } from "../utils/motion";
 
 /** Saves a plain-text file in the browser. */

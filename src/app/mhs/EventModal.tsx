@@ -1,7 +1,7 @@
 import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from "react";
 import { Button, ButtonAnchor } from "../components/Button";
 import { AnimatePresence, motion } from "motion/react";
-import { ArrowRight, Check, X } from "lucide-react";
+import { ArrowRight, Check, X } from "../components/icons";
 
 /* Event pop-up used by the Mental Health Series calendars (Figma: "Calendar" event card).
  * On tablet/desktop it opens next to the event that was clicked; on phones it is centered. */
