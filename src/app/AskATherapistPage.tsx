@@ -545,25 +545,6 @@ export default function AskATherapistPage() {
               </div>
             </div>
 
-            {/* Category tabs */}
-            <div className="flex gap-1.5 flex-wrap mb-7">
-              {CATEGORIES.map(cat => (
-                <motion.button
-                  key={cat}
-                  onClick={() => handleCategoryChange(cat)}
-                  className="font-medium text-[12px] px-4 py-2 rounded-full whitespace-nowrap transition-colors"
-                  style={{
-                    background: activeCategory === cat ? "var(--pg-navy)" : "#ffffff",
-                    color: activeCategory === cat ? "#ffffff" : "var(--pg-slate)",
-                    boxShadow: activeCategory === cat ? "none" : "var(--pg-shadow-card)",
-                  }}
-                  whileTap={{ scale: 0.97 }}
-                >
-                  {cat}
-                </motion.button>
-              ))}
-            </div>
-
             {/* Q&A Grid */}
             {paginated.length > 0 ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
