@@ -317,7 +317,7 @@ export default function MilestonesLessonPage() {
                 <button
                   key={tab}
                   onClick={() => setActiveTab(tab)}
-                  className={`flex items-center gap-1.5 px-5 py-3.5 text-xs font-semibold transition-colors border-b-2 ${
+                  className={`flex flex-1 sm:flex-none items-center justify-center gap-1.5 px-2 sm:px-5 py-3.5 text-xs font-semibold whitespace-nowrap transition-colors border-b-2 ${
                     activeTab === tab ? "border-pg-teal text-pg-teal" : "border-transparent text-pg-slate hover:text-pg-navy"
                   }`}
                 >

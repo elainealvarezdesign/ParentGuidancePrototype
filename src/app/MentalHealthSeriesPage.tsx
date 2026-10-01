@@ -176,7 +176,7 @@ function ResourceLibrary() {
   return (
     <div className="relative shrink-0 w-full flex flex-col items-start">
       {/* Header */}
-      <div className="flex items-start justify-between w-full">
+      <div className="flex flex-wrap items-start justify-between gap-3 w-full">
         <div className="flex gap-[8px] items-center">
           <div className="bg-pg-sage h-[20px] rounded-full w-[4px]" />
           <p className="font-semibold leading-[28px] text-pg-navy text-[18px] whitespace-nowrap">Resource Library</p>
@@ -186,7 +186,7 @@ function ResourceLibrary() {
         </div>
 
         {/* Filter search */}
-        <div className="h-[34px] relative w-[208px]">
+        <div className="h-[34px] relative w-full sm:w-[208px]">
           <div className="absolute left-[12px] size-[14px] top-[10px]">
             <svg className="absolute block inset-0 size-full" fill="none" viewBox="0 0 14 14">
               <path d={svgPaths.p2725de00} stroke="#acbcbe" strokeWidth="1.16667" />
@@ -197,7 +197,7 @@ function ResourceLibrary() {
             value={libSearch}
             onChange={e => setLibSearch(e.target.value)}
             placeholder="Filter resources…"
-            className="absolute bg-white h-[34px] left-0 rounded-pg-lg top-0 w-[208px] border border-pg-line pl-[37px] pr-[17px] py-[9px] text-[12px] text-pg-navy placeholder:text-pg-teal outline-none focus:border-pg-sage transition-colors"
+            className="absolute bg-white h-[34px] left-0 rounded-pg-lg top-0 w-full border border-pg-line pl-[37px] pr-[17px] py-[9px] text-[12px] text-pg-navy placeholder:text-pg-teal outline-none focus:border-pg-sage transition-colors"
           />
         </div>
       </div>
@@ -224,7 +224,7 @@ function ResourceLibrary() {
 
       {/* Card grid */}
       <div className="pt-[24px] w-full">
-        <div className="grid grid-cols-3 gap-x-[16px] gap-y-[16px] w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-[16px] gap-y-[16px] w-full">
           {visible.map((r, i) => (
             <ResourceCard key={r.title} resource={r} index={i} />
           ))}
@@ -460,7 +460,7 @@ function Calendar() {
               <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </button>
-          <span className="font-semibold text-pg-navy text-sm min-w-[180px] text-center">{getHeaderLabel()}</span>
+          <span className="font-semibold text-pg-navy text-sm sm:min-w-[180px] text-center">{getHeaderLabel()}</span>
           <button
             type="button"
             onClick={goNext}
@@ -523,7 +523,7 @@ function ContentPage({ state, district, onReset }: { state: string; district: st
       transition={{ duration: 0.35 }}
     >
       {/* ── Hero: matches Figma ContentPage + ContainerMargin ── */}
-      <div className="bg-pg-cream relative shrink-0 w-full flex flex-col items-center justify-end pt-24 pb-14 px-14">
+      <div className="bg-pg-cream relative shrink-0 w-full flex flex-col items-center justify-end pt-24 pb-14 px-6 md:px-10 lg:px-14">
         <div className="flex flex-col items-center gap-[24px] max-w-[825px] w-full">
 
           {/* Heading + location */}
@@ -572,22 +572,22 @@ function ContentPage({ state, district, onReset }: { state: string; district: st
       </div>
 
       {/* ── Body sections ── */}
-      <div className="max-w-[912px] mx-auto px-14 py-12 flex flex-col gap-14">
+      <div className="max-w-[912px] mx-auto px-6 md:px-10 lg:px-14 py-12 flex flex-col gap-14">
 
         {/* Resource Library */}
         <ResourceLibrary />
 
         {/* Monthly Calendar */}
         <section>
-          <div className="flex items-center justify-between mb-6">
+          <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
             <div className="flex gap-[8px] items-center">
               <div className="bg-pg-sage h-[20px] rounded-full w-[4px]" />
               <p className="font-semibold leading-[28px] text-pg-navy text-[18px] whitespace-nowrap">Monthly Calendar</p>
             </div>
             <ButtonLink to="/mental-health-series/events" variant="secondary" size="s" className="shrink-0">
-              <span className="font-semibold leading-[16px] text-pg-teal text-[12px] whitespace-nowrap group-hover:text-white">View all events</span>
-              <svg className="relative shrink-0 size-[13px]" fill="none" viewBox="0 0 13 13">
-                <path d={svgPaths.p2d0d8080} stroke="#59797D" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.08333" />
+              View all events
+              <svg className="relative shrink-0 size-[13px]" fill="none" viewBox="0 0 13 13" aria-hidden="true">
+                <path d={svgPaths.p2d0d8080} stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.08333" />
               </svg>
             </ButtonLink>
           </div>
@@ -610,7 +610,7 @@ function ContentPage({ state, district, onReset }: { state: string; district: st
             {shownEvents.map((ev, i) => (
               <motion.div
                 key={ev.title}
-                className="bg-white rounded-pg-xl px-6 py-5 flex items-start gap-5 cursor-pointer group"
+                className="bg-white rounded-pg-xl px-5 sm:px-6 py-5 flex flex-wrap sm:flex-nowrap items-start gap-4 sm:gap-5 group"
                 style={{ boxShadow: "0 8px 24px rgba(28,50,67,0.06)" }}
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -620,23 +620,23 @@ function ContentPage({ state, district, onReset }: { state: string; district: st
               >
                 <div className="shrink-0 rounded-pg-lg px-4 py-3 flex flex-col items-center justify-center min-w-[60px]"
                   style={{ background: ev.color === "teal" ? "var(--pg-tint)" : "var(--pg-tint-soft)" }}>
-                  <span className="font-bold text-xl leading-none" style={{ color: ev.color === "teal" ? "var(--pg-teal)" : "var(--pg-navy)" }}>{ev.day}</span>
-                  <span className="text-[11px] font-semibold uppercase tracking-wide mt-0.5" style={{ color: ev.color === "teal" ? "var(--pg-sage)" : "#6b7c8d" }}>
+                  <span className="font-bold text-xl leading-none" style={{ color: ev.color === "teal" ? "var(--pg-teal-dark)" : "var(--pg-navy)" }}>{ev.day}</span>
+                  <span className="text-[11px] font-semibold uppercase tracking-wide mt-0.5 text-pg-teal-dark">
                     {ev.date.split(",")[1]?.trim().split(" ")[0]}
                   </span>
                 </div>
-                <div className="flex flex-col gap-1 flex-1">
+                <div className="flex flex-col gap-1 flex-1 min-w-0">
                   <div className="flex items-center gap-2 flex-wrap">
                     <h3 className="font-semibold text-pg-navy text-sm group-hover:text-pg-teal transition-colors">{ev.title}</h3>
-                    <span className="text-xs font-semibold px-2 py-0.5 rounded-full text-white"
-                      style={{ background: ev.color === "teal" ? "var(--pg-sage)" : "var(--pg-navy)" }}>
+                    <span className="text-xs font-semibold px-2 py-0.5 rounded-full"
+                      style={{ background: ev.color === "teal" ? "var(--pg-sage)" : "var(--pg-navy)", color: ev.color === "teal" ? "var(--pg-navy)" : "#ffffff" }}>
                       {ev.color === "teal" ? "Session" : "Workshop"}
                     </span>
                   </div>
                   <p className="text-xs text-pg-teal-dark font-medium">{ev.time}</p>
                   <p className="text-sm text-pg-slate leading-relaxed mt-0.5">{ev.desc}</p>
                 </div>
-                <ButtonAnchor href={SAMPLE_REGISTER_URL} target="_blank" rel="noopener noreferrer" variant="secondary" size="s" className="shrink-0 self-center">
+                <ButtonAnchor href={SAMPLE_REGISTER_URL} target="_blank" rel="noopener noreferrer" variant="secondary" size="s" className="shrink-0 self-center w-full sm:w-auto">
                   Register<span className="sr-only"> (opens in a new tab)</span>
                 </ButtonAnchor>
               </motion.div>
@@ -671,9 +671,9 @@ function FormPage({ onSubmit }: { onSubmit: (state: string, district: string) =>
 
   return (
     <div className="bg-pg-cream min-h-[calc(100vh-72px)] flex flex-col">
-      <div className="flex flex-1 relative overflow-hidden">
+      <div className="flex flex-1 flex-col lg:flex-row relative overflow-hidden">
         {/* Left */}
-        <div className="flex flex-col justify-center px-20 py-20 w-[52%] z-10 relative">
+        <div className="flex flex-col justify-center px-6 md:px-10 lg:px-20 pt-24 pb-10 lg:py-20 w-full lg:w-[52%] z-10 relative">
           <motion.div
             className="flex flex-col gap-8 max-w-md"
             initial={{ opacity: 0, x: -32 }}
@@ -687,7 +687,7 @@ function FormPage({ onSubmit }: { onSubmit: (state: string, district: string) =>
               Mental Health Series
             </motion.span>
             <motion.h1
-              className="font-bold text-pg-navy text-4xl leading-tight"
+              className="font-bold text-pg-navy text-3xl md:text-4xl leading-tight"
               initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.55 }}
             >
               What{" "}
@@ -741,7 +741,7 @@ function FormPage({ onSubmit }: { onSubmit: (state: string, district: string) =>
           </motion.div>
         </div>
         {/* Right */}
-        <div className="w-[48%] relative flex items-center justify-center overflow-hidden">
+        <div className="w-full lg:w-[48%] min-h-[340px] sm:min-h-[420px] lg:min-h-0 relative flex items-center justify-center overflow-hidden">
           <div className="absolute bottom-[-80px] right-[-80px] w-[110%] h-[85%] rounded-tl-pg-2xl" style={{ background: "var(--pg-sage)" }} />
           <motion.div
             className="relative z-10 rounded-pg-2xl overflow-hidden shadow-pg-overlay"

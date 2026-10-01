@@ -327,8 +327,8 @@ const PER_PAGE = 9;
 /* ─── Hero ─── */
 function Hero() {
   return (
-    <section className="bg-pg-cream pt-24 pb-14 px-14 overflow-hidden">
-      <div className="max-w-pg-page mx-auto grid grid-cols-2 gap-10 items-center">
+    <section className="bg-pg-cream pt-24 pb-14 px-6 md:px-10 lg:px-14 overflow-hidden">
+      <div className="max-w-pg-page mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
         {/* Left */}
         <motion.div
           className="flex flex-col gap-5"
@@ -339,14 +339,14 @@ function Hero() {
           <span className="text-xs font-semibold uppercase tracking-[1.4px] text-pg-teal-dark">
             On-Demand Courses
           </span>
-          <h1 className="font-bold text-pg-navy text-[40px] leading-[1.15]">
+          <h1 className="font-bold text-pg-navy text-[32px] sm:text-[40px] leading-[1.15]">
             {"Expert-led courses to help you "}
             <em className="italic text-pg-teal">parent with confidence.</em>
           </h1>
           <p className="text-pg-slate text-base leading-[26px] max-w-[380px]">
             Learn at your own pace from licensed therapists — practical tools for the real challenges families face every day.
           </p>
-          <div className="flex items-center gap-3 pt-1">
+          <div className="flex flex-wrap items-center gap-3 pt-1">
             <ButtonAnchor href="#courses">
               Browse all courses
             </ButtonAnchor>
@@ -358,7 +358,7 @@ function Hero() {
 
         {/* Right — photo with offset teal block */}
         <motion.div
-          className="relative flex justify-center items-center py-4 pr-4"
+          className="relative flex justify-center items-center py-4 pr-4 mx-auto w-full max-w-[420px] lg:max-w-none"
           initial={{ opacity: 0, x: 28 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.55, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
@@ -627,7 +627,7 @@ export default function OnDemandCoursesPage() {
         {/* Pagination */}
         {totalPages > 1 && (
           <div className="flex items-center justify-center gap-1.5 pt-10">
-            <Button variant="secondary" size="s" onClick={() => { setPage(p => Math.max(1, p - 1)); window.scrollTo({ top: 0, behavior: scrollBehavior() }); }} disabled={page === 1}>
+            <Button variant="secondary" size="s" onClick={() => { setPage(p => Math.max(1, p - 1)); window.scrollTo({ top: 0, behavior: scrollBehavior() }); }} disabled={page === 1} className="whitespace-nowrap">
               ← Prev
             </Button>
             {Array.from({ length: totalPages }, (_, i) => i + 1).map(p => (
@@ -644,7 +644,7 @@ export default function OnDemandCoursesPage() {
                 {p}
               </button>
             ))}
-            <Button variant="secondary" size="s" onClick={() => { setPage(p => Math.min(totalPages, p + 1)); window.scrollTo({ top: 0, behavior: scrollBehavior() }); }} disabled={page === totalPages}>
+            <Button variant="secondary" size="s" onClick={() => { setPage(p => Math.min(totalPages, p + 1)); window.scrollTo({ top: 0, behavior: scrollBehavior() }); }} disabled={page === totalPages} className="whitespace-nowrap">
               Next →
             </Button>
           </div>
