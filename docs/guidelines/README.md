@@ -25,6 +25,9 @@ Guías del prototipo **PG-Live** (parentguidance.org), escritas a partir del **c
 (`Parent-Guidance-Guias-de-diseno-completas.pdf`). Se generan a partir de estos archivos `.md`; si una guía
 cambia, hay que volver a generarlos.
 
+**English version:** las mismas guías en inglés están en [`docs/guidelines/en/`](./en/README.md), con sus PDF en
+`docs/guidelines/pdf/en/`.
+
 ## Dónde vive cada cosa
 
 | Archivo | Qué es |
