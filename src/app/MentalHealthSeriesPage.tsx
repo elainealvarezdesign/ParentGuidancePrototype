@@ -195,72 +195,75 @@ function ResourceLibrary() {
   const visible = expanded ? sorted : sorted.slice(0, 9);
 
   return (
-    <div className="relative shrink-0 w-full flex flex-col items-start">
+    <div className="w-full">
+      {/* Filter bar: full width and sticky while browsing the library, like On-Demand Courses and Ask a Therapist */}
+      <div className="bg-white border-y border-pg-line sticky top-14 z-30 shadow-pg-card">
+        <div className="max-w-pg-page mx-auto px-6 md:px-10 py-3 flex flex-wrap md:flex-nowrap items-center gap-3 md:gap-4">
+          <div className="relative min-w-0 flex-1 md:flex-none md:w-64">
+            <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-pg-sage pointer-events-none" aria-hidden="true" />
+            <input
+              value={libSearch}
+              onChange={e => setLibSearch(e.target.value)}
+              placeholder="Search resources…"
+              aria-label="Search resources"
+              className="w-full bg-pg-cream text-sm text-pg-navy placeholder:text-pg-teal pl-9 pr-4 py-2.5 rounded-pg-md outline-none border border-transparent focus:border-pg-sage focus:bg-white transition-colors"
+            />
+          </div>
+
+          <div className="order-last basis-full md:order-none md:basis-auto flex items-center gap-2 overflow-x-auto flex-1 min-w-0 py-0.5">
+            {CATEGORIES.map(cat => (
+              <button
+                key={cat}
+                type="button"
+                aria-pressed={activeCategory === cat}
+                onClick={() => setActiveCategory(cat)}
+                className={`shrink-0 text-xs font-medium px-4 py-2 rounded-full whitespace-nowrap transition-colors ${
+                  activeCategory === cat ? "bg-pg-navy text-white" : "bg-pg-cream-dark text-pg-slate hover:bg-pg-tint"
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+
+          <div ref={sortRef} className="relative shrink-0">
+            <button
+              type="button"
+              onClick={() => setSortOpen(v => !v)}
+              aria-haspopup="listbox"
+              aria-expanded={sortOpen}
+              className="inline-flex items-center gap-2 bg-pg-cream-dark text-pg-slate text-xs font-medium px-4 py-2.5 rounded-pg-md hover:bg-pg-tint transition-colors"
+            >
+              <ListFilter size={14} aria-hidden="true" />
+              {RESOURCE_SORT_LABELS[sort]}
+              <ChevronDown size={14} aria-hidden="true" className={`transition-transform ${sortOpen ? "rotate-180" : ""}`} />
+            </button>
+            {sortOpen && (
+              <ul role="listbox" aria-label="Sort resources" className="absolute right-0 top-full mt-1.5 z-30 min-w-[140px] bg-white rounded-pg-md shadow-pg-overlay overflow-hidden py-1">
+                {(Object.keys(RESOURCE_SORT_LABELS) as ResourceSort[]).map(k => (
+                  <li key={k} role="option" aria-selected={sort === k}>
+                    <button
+                      type="button"
+                      onClick={() => { setSort(k); setSortOpen(false); }}
+                      className={`w-full text-left px-4 py-2.5 text-xs transition-colors hover:bg-pg-tint-soft ${sort === k ? "bg-pg-tint-soft text-pg-teal-dark font-semibold" : "text-pg-slate"}`}
+                    >
+                      {RESOURCE_SORT_LABELS[k]}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </div>
+      </div>
+
+      <div className="max-w-pg-page mx-auto px-6 md:px-10 pt-10">
       {/* Header */}
       <div className="flex gap-[8px] items-center">
         <div className="bg-pg-sage h-[20px] rounded-full w-[4px]" />
         <p className="font-semibold leading-[28px] text-pg-navy text-[18px] whitespace-nowrap">Resource Library</p>
         <div className="bg-pg-tint rounded-full px-[8px] py-[2px] inline-flex items-center">
           <p className="font-medium leading-[16px] text-pg-teal-dark text-[12px] whitespace-nowrap">{RESOURCE_LIBRARY.length} resources</p>
-        </div>
-      </div>
-
-      {/* Filter bar: same pattern as On-Demand Courses and Ask a Therapist */}
-      <div className="mt-5 w-full bg-white rounded-pg-xl shadow-pg-card px-4 py-3 flex flex-wrap md:flex-nowrap items-center gap-3">
-        <div className="relative min-w-0 flex-1 md:flex-none md:w-56">
-          <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-pg-teal-dark pointer-events-none" aria-hidden="true" />
-          <input
-            value={libSearch}
-            onChange={e => setLibSearch(e.target.value)}
-            placeholder="Search resources…"
-            aria-label="Search resources"
-            className="w-full bg-pg-cream text-sm text-pg-navy placeholder:text-pg-teal pl-9 pr-4 py-2.5 rounded-pg-md outline-none border border-transparent focus:border-pg-sage focus:bg-white transition-colors"
-          />
-        </div>
-
-        <div className="order-last basis-full md:order-none md:basis-auto flex items-center gap-2 overflow-x-auto flex-1 min-w-0 py-0.5">
-          {CATEGORIES.map(cat => (
-            <button
-              key={cat}
-              type="button"
-              aria-pressed={activeCategory === cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`shrink-0 text-xs font-medium px-4 py-2 rounded-full whitespace-nowrap transition-colors ${
-                activeCategory === cat ? "bg-pg-navy text-white" : "bg-pg-cream-dark text-pg-slate hover:bg-pg-tint"
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-
-        <div ref={sortRef} className="relative shrink-0">
-          <button
-            type="button"
-            onClick={() => setSortOpen(v => !v)}
-            aria-haspopup="listbox"
-            aria-expanded={sortOpen}
-            className="inline-flex items-center gap-2 bg-pg-cream-dark text-pg-slate text-xs font-medium px-4 py-2.5 rounded-pg-md hover:bg-pg-tint transition-colors"
-          >
-            <ListFilter size={14} aria-hidden="true" />
-            {RESOURCE_SORT_LABELS[sort]}
-            <ChevronDown size={14} aria-hidden="true" className={`transition-transform ${sortOpen ? "rotate-180" : ""}`} />
-          </button>
-          {sortOpen && (
-            <ul role="listbox" aria-label="Sort resources" className="absolute right-0 top-full mt-1.5 z-30 min-w-[140px] bg-white rounded-pg-md shadow-pg-overlay overflow-hidden py-1">
-              {(Object.keys(RESOURCE_SORT_LABELS) as ResourceSort[]).map(k => (
-                <li key={k} role="option" aria-selected={sort === k}>
-                  <button
-                    type="button"
-                    onClick={() => { setSort(k); setSortOpen(false); }}
-                    className={`w-full text-left px-4 py-2.5 text-xs transition-colors hover:bg-pg-tint-soft ${sort === k ? "bg-pg-tint-soft text-pg-teal-dark font-semibold" : "text-pg-slate"}`}
-                  >
-                    {RESOURCE_SORT_LABELS[k]}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          )}
         </div>
       </div>
 
@@ -286,6 +289,7 @@ function ResourceLibrary() {
           </Button>
         </div>
       )}
+      </div>
     </div>
   );
 }
@@ -614,10 +618,10 @@ function ContentPage({ state, district, onReset }: { state: string; district: st
       </div>
 
       {/* ── Body sections ── */}
-      <div className="max-w-[912px] mx-auto px-6 md:px-10 lg:px-14 py-12 flex flex-col gap-14">
+      {/* Resource Library (with its sticky filter bar) */}
+      <ResourceLibrary />
 
-        {/* Resource Library */}
-        <ResourceLibrary />
+      <div className="max-w-pg-page mx-auto px-6 md:px-10 py-14 flex flex-col gap-14">
 
         {/* Monthly Calendar */}
         <section>

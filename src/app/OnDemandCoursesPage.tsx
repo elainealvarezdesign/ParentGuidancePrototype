@@ -492,7 +492,7 @@ export default function OnDemandCoursesPage() {
               value={search}
               onChange={e => setSearchAndReset(e.target.value)}
               placeholder="Search courses…"
-              className="w-full bg-pg-cream text-sm text-pg-navy placeholder:text-pg-teal pl-9 pr-4 py-2 rounded-pg-md outline-none border border-transparent focus:border-pg-sage focus:bg-white transition-all"
+              className="w-full bg-pg-cream text-sm text-pg-navy placeholder:text-pg-teal pl-9 pr-4 py-2.5 rounded-pg-md outline-none border border-transparent focus:border-pg-sage focus:bg-white transition-all"
             />
             {search && (
               <button onClick={() => setSearchAndReset("")} className="absolute right-3 top-1/2 -translate-y-1/2 text-pg-slate hover:text-pg-slate">
@@ -504,16 +504,16 @@ export default function OnDemandCoursesPage() {
           </div>
 
           {/* Topic pills — scrollable */}
-          <div ref={topicsRef} className="order-last basis-full md:order-none md:basis-auto flex items-center gap-1.5 overflow-x-auto flex-1 min-w-0 scrollbar-hide py-0.5">
+          <div ref={topicsRef} className="order-last basis-full md:order-none md:basis-auto flex items-center gap-2 overflow-x-auto flex-1 min-w-0 scrollbar-hide py-0.5">
             {TOPICS.map(t => (
               <button
                 key={t}
+                type="button"
+                aria-pressed={activeTopic === t}
                 onClick={() => setTopicAndReset(t)}
-                className="shrink-0 text-xs font-medium px-3 py-1.5 rounded-full whitespace-nowrap transition-all"
-                style={{
-                  background: activeTopic === t ? "var(--pg-navy)" : "var(--pg-tint-soft)",
-                  color: activeTopic === t ? "#ffffff" : "var(--pg-slate)",
-                }}
+                className={`shrink-0 text-xs font-medium px-4 py-2 rounded-full whitespace-nowrap transition-colors ${
+                  activeTopic === t ? "bg-pg-navy text-white" : "bg-pg-cream-dark text-pg-slate hover:bg-pg-tint"
+                }`}
               >
                 {t}
                 {t !== "All" && (
