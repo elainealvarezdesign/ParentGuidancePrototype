@@ -1,4 +1,5 @@
-import { useCallback, useState, type MouseEvent } from "react";
+import { useCallback, useEffect, useRef, useState, type MouseEvent } from "react";
+import { ChevronDown, ListFilter, Search } from "lucide-react";
 import { motion } from "motion/react";
 import { Link } from "react-router";
 import { Button, ButtonAnchor, ButtonLink } from "./components/Button";
@@ -160,66 +161,107 @@ function ResourceCard({ resource, index }: { resource: typeof RESOURCE_LIBRARY[0
 }
 
 /* ─── Resource Library ─── */
+type ResourceSort = "featured" | "az" | "type";
+const RESOURCE_SORT_LABELS: Record<ResourceSort, string> = { featured: "Featured", az: "A → Z", type: "Type" };
+
 function ResourceLibrary() {
   const [activeCategory, setActiveCategory] = useState<ResourceCategory>("All");
   const [libSearch, setLibSearch] = useState("");
   const [expanded, setExpanded] = useState(false);
+  const [sort, setSort] = useState<ResourceSort>("featured");
+  const [sortOpen, setSortOpen] = useState(false);
+  const sortRef = useRef<HTMLDivElement>(null);
+
+  // Close the sort menu on outside click or Escape
+  useEffect(() => {
+    if (!sortOpen) return;
+    const onDown = (e: globalThis.MouseEvent) => { if (!sortRef.current?.contains(e.target as Node)) setSortOpen(false); };
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setSortOpen(false); };
+    document.addEventListener("mousedown", onDown);
+    document.addEventListener("keydown", onKey);
+    return () => { document.removeEventListener("mousedown", onDown); document.removeEventListener("keydown", onKey); };
+  }, [sortOpen]);
 
   const filtered = RESOURCE_LIBRARY.filter(r => {
     const matchCat = activeCategory === "All" || r.category === activeCategory;
     const matchSearch = !libSearch || r.title.toLowerCase().includes(libSearch.toLowerCase()) || r.desc.toLowerCase().includes(libSearch.toLowerCase());
     return matchCat && matchSearch;
   });
+  const sorted =
+    sort === "az" ? [...filtered].sort((a, b) => a.title.localeCompare(b.title))
+    : sort === "type" ? [...filtered].sort((a, b) => a.type.localeCompare(b.type))
+    : [...filtered].sort((a, b) => Number(!!b.isNew) - Number(!!a.isNew));
 
-  const visible = expanded ? filtered : filtered.slice(0, 9);
+  const visible = expanded ? sorted : sorted.slice(0, 9);
 
   return (
     <div className="relative shrink-0 w-full flex flex-col items-start">
       {/* Header */}
-      <div className="flex flex-wrap items-start justify-between gap-3 w-full">
-        <div className="flex gap-[8px] items-center">
-          <div className="bg-pg-sage h-[20px] rounded-full w-[4px]" />
-          <p className="font-semibold leading-[28px] text-pg-navy text-[18px] whitespace-nowrap">Resource Library</p>
-          <div className="bg-pg-tint rounded-full px-[8px] py-[2px] inline-flex items-center">
-            <p className="font-medium leading-[16px] text-pg-teal-dark text-[12px] whitespace-nowrap">{RESOURCE_LIBRARY.length} resources</p>
-          </div>
-        </div>
-
-        {/* Filter search */}
-        <div className="h-[34px] relative w-full sm:w-[208px]">
-          <div className="absolute left-[12px] size-[14px] top-[10px]">
-            <svg className="absolute block inset-0 size-full" fill="none" viewBox="0 0 14 14">
-              <path d={svgPaths.p2725de00} stroke="#acbcbe" strokeWidth="1.16667" />
-              <path d="M9.625 9.625L12.25 12.25" stroke="#acbcbe" strokeLinecap="round" strokeWidth="1.16667" />
-            </svg>
-          </div>
-          <input
-            value={libSearch}
-            onChange={e => setLibSearch(e.target.value)}
-            placeholder="Filter resources…"
-            className="absolute bg-white h-[34px] left-0 rounded-pg-lg top-0 w-full border border-pg-line pl-[37px] pr-[17px] py-[9px] text-[12px] text-pg-navy placeholder:text-pg-teal outline-none focus:border-pg-sage transition-colors"
-          />
+      <div className="flex gap-[8px] items-center">
+        <div className="bg-pg-sage h-[20px] rounded-full w-[4px]" />
+        <p className="font-semibold leading-[28px] text-pg-navy text-[18px] whitespace-nowrap">Resource Library</p>
+        <div className="bg-pg-tint rounded-full px-[8px] py-[2px] inline-flex items-center">
+          <p className="font-medium leading-[16px] text-pg-teal-dark text-[12px] whitespace-nowrap">{RESOURCE_LIBRARY.length} resources</p>
         </div>
       </div>
 
-      {/* Category tabs */}
-      <div className="flex gap-[6px] items-start pt-[20px] flex-wrap">
-        {CATEGORIES.map(cat => (
-          <motion.button
-            key={cat}
-            onClick={() => setActiveCategory(cat)}
-            className="rounded-full px-[16px] py-[8px] font-medium leading-[16px] text-[12px] text-center whitespace-nowrap"
-            style={{
-              background: activeCategory === cat ? "var(--pg-navy)" : "#ffffff",
-              color: activeCategory === cat ? "#ffffff" : "var(--pg-slate)",
-              boxShadow: activeCategory === cat ? "none" : "0px 1px 2px rgba(0,0,0,0.07)",
-            }}
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
+      {/* Filter bar: same pattern as On-Demand Courses and Ask a Therapist */}
+      <div className="mt-5 w-full bg-white rounded-pg-xl shadow-pg-card px-4 py-3 flex flex-wrap md:flex-nowrap items-center gap-3">
+        <div className="relative min-w-0 flex-1 md:flex-none md:w-56">
+          <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-pg-teal-dark pointer-events-none" aria-hidden="true" />
+          <input
+            value={libSearch}
+            onChange={e => setLibSearch(e.target.value)}
+            placeholder="Search resources…"
+            aria-label="Search resources"
+            className="w-full bg-pg-cream text-sm text-pg-navy placeholder:text-pg-teal pl-9 pr-4 py-2.5 rounded-pg-md outline-none border border-transparent focus:border-pg-sage focus:bg-white transition-colors"
+          />
+        </div>
+
+        <div className="order-last basis-full md:order-none md:basis-auto flex items-center gap-2 overflow-x-auto flex-1 min-w-0 py-0.5">
+          {CATEGORIES.map(cat => (
+            <button
+              key={cat}
+              type="button"
+              aria-pressed={activeCategory === cat}
+              onClick={() => setActiveCategory(cat)}
+              className={`shrink-0 text-xs font-medium px-4 py-2 rounded-full whitespace-nowrap transition-colors ${
+                activeCategory === cat ? "bg-pg-navy text-white" : "bg-pg-cream-dark text-pg-slate hover:bg-pg-tint"
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
+        <div ref={sortRef} className="relative shrink-0">
+          <button
+            type="button"
+            onClick={() => setSortOpen(v => !v)}
+            aria-haspopup="listbox"
+            aria-expanded={sortOpen}
+            className="inline-flex items-center gap-2 bg-pg-cream-dark text-pg-slate text-xs font-medium px-4 py-2.5 rounded-pg-md hover:bg-pg-tint transition-colors"
           >
-            {cat}
-          </motion.button>
-        ))}
+            <ListFilter size={14} aria-hidden="true" />
+            {RESOURCE_SORT_LABELS[sort]}
+            <ChevronDown size={14} aria-hidden="true" className={`transition-transform ${sortOpen ? "rotate-180" : ""}`} />
+          </button>
+          {sortOpen && (
+            <ul role="listbox" aria-label="Sort resources" className="absolute right-0 top-full mt-1.5 z-30 min-w-[140px] bg-white rounded-pg-md shadow-pg-overlay overflow-hidden py-1">
+              {(Object.keys(RESOURCE_SORT_LABELS) as ResourceSort[]).map(k => (
+                <li key={k} role="option" aria-selected={sort === k}>
+                  <button
+                    type="button"
+                    onClick={() => { setSort(k); setSortOpen(false); }}
+                    className={`w-full text-left px-4 py-2.5 text-xs transition-colors hover:bg-pg-tint-soft ${sort === k ? "bg-pg-tint-soft text-pg-teal-dark font-semibold" : "text-pg-slate"}`}
+                  >
+                    {RESOURCE_SORT_LABELS[k]}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
       </div>
 
       {/* Card grid */}

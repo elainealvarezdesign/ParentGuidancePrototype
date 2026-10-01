@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import { Button, ButtonLink } from "./components/Button";
 import { motion, useInView } from "motion/react";
-import { MessageCircle, Send, Search, ChevronDown, ChevronLeft, ChevronRight, X, ArrowRight, CheckCircle } from "lucide-react";
+import { MessageCircle, Send, Search, ChevronDown, ListFilter, ChevronLeft, ChevronRight, X, ArrowRight, CheckCircle } from "lucide-react";
 import imgFeaturedTherapist from "@/imports/05AskATherapist/7af58431d48866bcf252a78cb8709dda98a31204.jpg";
 import imgSidebarTherapist from "@/imports/05AskATherapist/bf73af5e36126dc41ee73d1f5f81e395e37ead59.jpg";
 import imgCtaBackground from "@/imports/05AskATherapist/7da52df8b36aa7daa4e656a1f0b1284a37a44402.jpg";
@@ -467,13 +467,9 @@ export default function AskATherapistPage() {
     {/* Featured control */}
     <button
       type="button"
-      className="shrink-0 inline-flex items-center gap-2 bg-pg-cream-dark text-pg-slate text-xs font-medium px-4 py-2.5 rounded-pg-md"
+      className="shrink-0 inline-flex items-center gap-2 bg-pg-cream-dark text-pg-slate text-xs font-medium px-4 py-2.5 rounded-pg-md hover:bg-pg-tint transition-colors"
     >
-      <span className="flex flex-col gap-[2px]">
-        <span className="block w-3 h-px bg-current" />
-        <span className="block w-2 h-px bg-current" />
-        <span className="block w-1 h-px bg-current" />
-      </span>
+      <ListFilter size={14} aria-hidden="true" />
 
       Featured
       <ChevronDown size={14} aria-hidden="true" />

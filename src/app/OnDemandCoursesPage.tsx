@@ -1,4 +1,5 @@
 import { useState, useMemo, useRef, useEffect } from "react";
+import { ChevronDown, ListFilter } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { scrollBehavior } from "./utils/motion";
 import { useNavigate } from "react-router";
@@ -525,16 +526,15 @@ export default function OnDemandCoursesPage() {
           {/* Sort dropdown */}
           <div ref={sortRef} className="relative shrink-0">
             <button
+              type="button"
               onClick={() => setSortOpen(v => !v)}
-              className="flex items-center gap-2 text-xs font-medium text-pg-slate bg-pg-tint-soft px-3 py-2 rounded-pg-md hover:bg-pg-line transition-colors"
+              aria-haspopup="listbox"
+              aria-expanded={sortOpen}
+              className="inline-flex items-center gap-2 text-xs font-medium text-pg-slate bg-pg-cream-dark px-4 py-2.5 rounded-pg-md hover:bg-pg-tint transition-colors"
             >
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
-                <path d="M3 6h18M6 12h12M10 18h4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-              </svg>
+              <ListFilter size={14} aria-hidden="true" />
               {SORT_LABELS[sort]}
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" className={`transition-transform ${sortOpen ? "rotate-180" : ""}`}>
-                <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
+              <ChevronDown size={14} aria-hidden="true" className={`transition-transform ${sortOpen ? "rotate-180" : ""}`} />
             </button>
             <AnimatePresence>
               {sortOpen && (
