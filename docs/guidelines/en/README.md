@@ -21,9 +21,9 @@ Guidelines for the **PG-Live** prototype (parentguidance.org), written from the 
 | 4 | [Motion](./04-motion.md) | Animation with `motion`, durations, easing and reduced‑motion |
 | 5 | [Prototype audit](./05-audit.md) | What was fixed, how it was verified and what is still pending |
 
-**PDF version:** [`docs/guidelines/pdf/en/`](../pdf/en/) has one PDF per guide plus one with all of them
+**PDF version:** [`docs/guidelines/pdf/`](../pdf/) has one PDF per guide plus one with all of them
 (`Parent-Guidance-Design-Guidelines-complete.pdf`). They are generated from these `.md` files; when a guide
-changes, they need to be generated again. The Spanish version lives in `docs/guidelines/`.
+changes, they need to be generated again. The Spanish version lives in `docs/guidelines/` and its PDFs in `docs/guidelines/pdf/es/`.
 
 ## Where everything lives
 
