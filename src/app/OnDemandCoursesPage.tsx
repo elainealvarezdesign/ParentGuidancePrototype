@@ -482,10 +482,10 @@ export default function OnDemandCoursesPage() {
         <div className="max-w-pg-page mx-auto px-6 md:px-10 py-3 flex flex-wrap md:flex-nowrap items-center gap-3 md:gap-4">
           {/* Search */}
           <div className="relative min-w-0 flex-1 md:flex-none md:w-64">
-            <svg className="absolute left-3 top-1/2 -translate-y-1/2 text-pg-slate" width="14" height="14" viewBox="0 0 16.732 16.732" fill="none">
+            <svg className="absolute left-3 top-1/2 -translate-y-1/2 text-pg-sage" width="14" height="14" viewBox="0 0 16.732 16.732" fill="none">
               <g>
-                <path d={svgPaths.p40de600} stroke="#acbcbe" strokeWidth="1.394" />
-                <path d={svgPaths.p3de73700} stroke="#acbcbe" strokeLinecap="round" strokeWidth="1.394" />
+                <path d={svgPaths.p40de600} stroke="currentColor" strokeWidth="1.394" />
+                <path d={svgPaths.p3de73700} stroke="currentColor" strokeLinecap="round" strokeWidth="1.394" />
               </g>
             </svg>
             <input

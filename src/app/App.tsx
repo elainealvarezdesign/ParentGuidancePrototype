@@ -386,12 +386,12 @@ function Hero() {
             transition: "box-shadow 0.25s ease",
           }}
         >
-          <svg className="w-5 h-5 text-gray-400 shrink-0" fill="none" viewBox="0 0 20 20">
-            <path d={svgPaths.pb1c300} stroke="#333" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
-            <path d="M18 18L16.5 16.5" stroke="#333" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
+          <svg className="w-5 h-5 text-pg-slate shrink-0" fill="none" viewBox="0 0 20 20">
+            <path d={svgPaths.pb1c300} stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
+            <path d="M18 18L16.5 16.5" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
           </svg>
           <input
-            className="flex-1 min-w-0 text-sm text-gray-700 bg-transparent outline-none placeholder:text-pg-teal"
+            className="flex-1 min-w-0 text-sm text-pg-navy bg-transparent outline-none placeholder:text-pg-teal"
             placeholder="Anxiety in Children"
             onFocus={() => setFocused(true)}
             onBlur={() => setFocused(false)}
@@ -720,7 +720,7 @@ function NewsletterSection() {
   const [subscribed, setSubscribed] = useState(false);
   return (
     <section className="bg-pg-sage py-16 px-6 md:px-10 lg:px-14 flex justify-center">
-      <FadeUp className="flex flex-col lg:flex-row gap-8 items-center max-w-pg-page w-full">
+      <FadeUp className="flex flex-col lg:flex-row lg:justify-center gap-8 lg:gap-12 items-center max-w-pg-page w-full">
         <motion.div
           className="w-full lg:w-[480px] h-56 rounded-pg-xl overflow-hidden relative lg:flex-shrink-0"
           whileHover={{ scale: 1.02 }}
@@ -729,7 +729,7 @@ function NewsletterSection() {
           <img src={imgRectangle327} alt="" className="absolute inset-0 w-full h-full object-cover" />
           <img src={imgRectangle328} alt="" className="absolute inset-0 w-full h-full object-cover" />
         </motion.div>
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-5 w-full lg:w-[440px] lg:shrink-0">
           <h2 className="font-bold text-pg-navy text-[28px] md:text-[40px] leading-tight">Join Us!</h2>
           <p className="text-pg-navy text-sm leading-relaxed max-w-sm">
             Subscribe to our weekly newsletter and be a part of our journey to self discovery and love.
@@ -745,7 +745,7 @@ function NewsletterSection() {
           ) : (
             <div className="flex items-center gap-2 rounded-pg-xl bg-pg-tint-soft p-1.5 max-w-md">
               <input
-                className="flex-1 min-w-0 px-4 py-2.5 bg-transparent text-sm text-gray-700 outline-none placeholder:text-pg-slate"
+                className="flex-1 min-w-0 px-4 py-2.5 bg-transparent text-sm text-pg-navy outline-none placeholder:text-pg-slate"
                 placeholder="Your Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}

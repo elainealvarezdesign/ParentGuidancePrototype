@@ -88,4 +88,6 @@ Revisión del código de `src/app` y de las 21 pantallas en el navegador (390, 7
 | Contraste | 1.685 textos revisados; las únicas alertas son textos sobre fotos (que el análisis no puede medir) y los separadores "•", ahora `aria-hidden` |
 | Responsive | Sin scroll lateral en 390/768/1024/1280. Footer y "Join Us!" pasan a filas desde 1024px |
 
+Después se quitaron también los grises genéricos de Tailwind (`text-gray-700/400` → `pg-navy`/`pg-slate`) y los colores sueltos de iconos (`#333`, `#acbcbe`, `#C0CDD4`, `#8D6B3A`) en favor de `currentColor` o tokens.
+
 Quedan como valores sueltos, a propósito: anchos de lectura (`max-w-[480px]`…) en textos de heros y los colores de logos SVG y de las paletas de categorías.

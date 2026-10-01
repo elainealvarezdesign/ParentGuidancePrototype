@@ -212,9 +212,9 @@ export default function HomePageV1() {
               </p>
 
               <div className="bg-white rounded-pg-2xl px-5 py-2.5 flex items-center gap-3 shadow-pg-card max-w-[440px]" style={{ boxShadow: "var(--pg-shadow-card)" }}>
-                <Search size={18} className="text-gray-400 shrink-0" />
+                <Search size={18} className="text-pg-slate shrink-0" />
                 <input
-                  className="flex-1 text-sm text-gray-700 bg-transparent outline-none placeholder:text-pg-teal"
+                  className="flex-1 text-sm text-pg-navy bg-transparent outline-none placeholder:text-pg-teal"
                   placeholder="Anxiety in Children"
                 />
                 <Button size="s" className="shrink-0">
@@ -451,7 +451,7 @@ export default function HomePageV1() {
             ) : (
               <div className="flex items-center gap-2 rounded-pg-xl bg-pg-tint-soft p-1.5 max-w-md">
                 <input
-                  className="flex-1 min-w-0 px-4 py-2.5 bg-transparent text-sm text-gray-700 outline-none placeholder:text-pg-slate"
+                  className="flex-1 min-w-0 px-4 py-2.5 bg-transparent text-sm text-pg-navy outline-none placeholder:text-pg-slate"
                   placeholder="Your Email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}

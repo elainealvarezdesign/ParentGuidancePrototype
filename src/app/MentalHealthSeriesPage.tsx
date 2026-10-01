@@ -90,7 +90,7 @@ function TypeBadge({ type }: { type: ResourceType }) {
     <div className="bg-pg-warning-soft relative rounded-full shrink-0 flex gap-[6px] items-center px-[10px] py-[4px]">
       <div className="relative shrink-0 size-[16px]">
         <svg className="block size-full" fill="none" viewBox="0 0 12.0017 12">
-          <path d={svgPaths.p1ad4ca80} fill="#8D6B3A" />
+          <path d={svgPaths.p1ad4ca80} fill="var(--pg-warning)" />
         </svg>
       </div>
       <span className="font-semibold leading-[15px] text-pg-warning text-xs whitespace-nowrap">Worksheet</span>
@@ -151,7 +151,7 @@ function ResourceCard({ resource, index }: { resource: typeof RESOURCE_LIBRARY[0
           <div className="flex gap-[8px] items-center">
             <span className="leading-[15px] text-pg-slate text-xs whitespace-nowrap">{resource.duration}</span>
             <svg className="size-[14px] group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 14 14">
-              <path d={svgPaths.p7f8ed00} stroke="#C0CDD4" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.16667" />
+              <path d={svgPaths.p7f8ed00} stroke="var(--pg-teal)" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.16667" />
             </svg>
           </div>
         </div>
@@ -595,9 +595,9 @@ function ContentPage({ state, district, onReset }: { state: string; district: st
             style={{ boxShadow: "var(--pg-shadow-card)" }}
             initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.55 }}
           >
-            <svg className="shrink-0 size-[16px]" fill="none" viewBox="0 0 16.3333 16.3333">
-              <path d={svgPaths.pb1c300} stroke="#333333" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
-              <path d="M14.8333 14.8333L13.5 13.5" stroke="#333333" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
+            <svg className="shrink-0 size-[16px] text-pg-slate" aria-hidden="true" fill="none" viewBox="0 0 16.3333 16.3333">
+              <path d={svgPaths.pb1c300} stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
+              <path d="M14.8333 14.8333L13.5 13.5" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
             </svg>
             <input
               value={search}
