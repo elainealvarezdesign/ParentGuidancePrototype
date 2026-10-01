@@ -151,15 +151,15 @@ export default function CookiesPolicyPage() {
     <main className="min-h-screen bg-pg-cream print:bg-white">
       <section className="px-6 pb-14 pt-28 md:px-10 lg:px-14 print:p-0 print:pb-6">
         <div className="mx-auto max-w-pg-content print:max-w-none">
-          <p className="mb-3 font-['Poppins',sans-serif] text-sm font-semibold uppercase tracking-[0.14em] text-pg-teal-dark">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.14em] text-pg-teal-dark">
             Legal
           </p>
 
-          <h1 id="cookies-policy-title" tabIndex={-1} className="focus:outline-none font-['Poppins',sans-serif] text-4xl font-bold text-pg-navy md:text-5xl">
+          <h1 id="cookies-policy-title" tabIndex={-1} className="focus:outline-none text-4xl font-bold text-pg-navy md:text-5xl">
             Cookies Policy
           </h1>
 
-          <p className="mt-4 max-w-pg-reading font-['Poppins',sans-serif] text-base leading-7 text-pg-slate">
+          <p className="mt-4 max-w-pg-reading text-base leading-7 text-pg-slate">
             Learn how Parent Guidance uses cookies and similar technologies to
             improve your experience on our website.
           </p>
@@ -171,15 +171,15 @@ export default function CookiesPolicyPage() {
   <section className="px-6 pb-20 md:px-10 lg:px-14 print:p-0">
   <div id={DOCUMENT_ID} className="mx-auto max-w-pg-content rounded-pg-xl border border-pg-line bg-white p-7 shadow-pg-card md:p-10 print:max-w-none print:rounded-none print:border-0 print:p-0 print:shadow-none">
     <div className="border-b border-pg-line pb-8">
-  <p className="mb-6 font-['Poppins',sans-serif] text-sm font-semibold text-pg-teal">
+  <p className="mb-6 text-sm font-semibold text-pg-teal">
     Last updated: November 27, 2024
   </p>
 
-  <h2 className="font-['Poppins',sans-serif] text-2xl font-bold text-pg-navy">
+  <h2 className="text-2xl font-bold text-pg-navy">
     About this policy
   </h2>
 
-  <div className="mt-4 space-y-4 font-['Poppins',sans-serif] text-base leading-7 text-pg-slate">
+  <div className="mt-4 space-y-4 text-base leading-7 text-pg-slate">
     <p>
       Parent Guidance uses cookies and similar tracking technologies to
       provide, maintain, secure and improve its website and services.
@@ -198,11 +198,11 @@ export default function CookiesPolicyPage() {
          </div>
       </div>
       <div className="border-b border-pg-line py-8">
-  <h2 className="font-['Poppins',sans-serif] text-2xl font-bold text-pg-navy">
+  <h2 className="text-2xl font-bold text-pg-navy">
     What are Cookies?
   </h2>
 
-  <div className="mt-4 space-y-4 font-['Poppins',sans-serif] text-base leading-7 text-pg-slate">
+  <div className="mt-4 space-y-4 text-base leading-7 text-pg-slate">
     <p>
       Cookies are small files placed on your computer, mobile device or other
       device when you visit a website. They can store information such as your
@@ -217,11 +217,11 @@ export default function CookiesPolicyPage() {
   </div>
 </div>
 <div className="border-b border-pg-line py-8">
-  <h2 className="font-['Poppins',sans-serif] text-2xl font-bold text-pg-navy">
+  <h2 className="text-2xl font-bold text-pg-navy">
     Types of Cookies We Use
   </h2>
 
-  <p className="mt-4 font-['Poppins',sans-serif] text-base leading-7 text-pg-slate">
+  <p className="mt-4 text-base leading-7 text-pg-slate">
     We use session and persistent cookies to support essential website
     functions, remember preferences and understand how visitors use our
     services.
@@ -229,15 +229,15 @@ export default function CookiesPolicyPage() {
 
   <div className="mt-6 grid gap-4 md:grid-cols-3">
     <div className="rounded-pg-lg border border-pg-line bg-pg-cream p-5">
-      <span className="rounded-full bg-pg-tint px-3 py-1 font-['Poppins',sans-serif] text-xs font-semibold text-pg-teal-dark">
+      <span className="rounded-full bg-pg-tint px-3 py-1 text-xs font-semibold text-pg-teal-dark">
         Session
       </span>
 
-      <h3 className="mt-4 font-['Poppins',sans-serif] text-lg font-bold text-pg-navy">
+      <h3 className="mt-4 text-lg font-bold text-pg-navy">
         Necessary cookies
       </h3>
 
-      <p className="mt-2 font-['Poppins',sans-serif] text-sm leading-6 text-pg-slate">
+      <p className="mt-2 text-sm leading-6 text-pg-slate">
         Support essential website features, authentication and account
         security.
       </p>
@@ -245,30 +245,30 @@ export default function CookiesPolicyPage() {
     
 
     <div className="rounded-pg-lg border border-pg-line bg-pg-cream p-5">
-      <span className="rounded-full bg-pg-tint px-3 py-1 font-['Poppins',sans-serif] text-xs font-semibold text-pg-teal-dark">
+      <span className="rounded-full bg-pg-tint px-3 py-1 text-xs font-semibold text-pg-teal-dark">
         Persistent
       </span>
 
-      <h3 className="mt-4 font-['Poppins',sans-serif] text-lg font-bold text-pg-navy">
+      <h3 className="mt-4 text-lg font-bold text-pg-navy">
         Functional cookies
       </h3>
 
-      <p className="mt-2 font-['Poppins',sans-serif] text-sm leading-6 text-pg-slate">
+      <p className="mt-2 text-sm leading-6 text-pg-slate">
         Remember choices such as login details, language and other
         preferences.
       </p>
     </div>
 
     <div className="rounded-pg-lg border border-pg-line bg-pg-cream p-5">
-      <span className="rounded-full bg-pg-tint px-3 py-1 font-['Poppins',sans-serif] text-xs font-semibold text-pg-teal-dark">
+      <span className="rounded-full bg-pg-tint px-3 py-1 text-xs font-semibold text-pg-teal-dark">
         Persistent
       </span>
 
-      <h3 className="mt-4 font-['Poppins',sans-serif] text-lg font-bold text-pg-navy">
+      <h3 className="mt-4 text-lg font-bold text-pg-navy">
         Analytics cookies
       </h3>
 
-      <p className="mt-2 font-['Poppins',sans-serif] text-sm leading-6 text-pg-slate">
+      <p className="mt-2 text-sm leading-6 text-pg-slate">
         Help measure website traffic, performance and how visitors interact
         with our services.
       </p>
@@ -277,11 +277,11 @@ export default function CookiesPolicyPage() {
 </div>
 <div className="border-b border-pg-line py-8">
   <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-    <h2 className="font-['Poppins',sans-serif] text-2xl font-bold text-pg-navy">
+    <h2 className="text-2xl font-bold text-pg-navy">
       The Cookies We Use
     </h2>
 
-    <span className="w-fit rounded-full bg-pg-tint px-3 py-1 font-['Poppins',sans-serif] text-xs font-semibold text-pg-teal-dark">
+    <span className="w-fit rounded-full bg-pg-tint px-3 py-1 text-xs font-semibold text-pg-teal-dark">
       Necessary · {necessaryCookies.length}
     </span>
   </div>
@@ -291,13 +291,13 @@ export default function CookiesPolicyPage() {
       <table className="w-full border-collapse text-left">
         <thead className="bg-pg-navy text-white">
           <tr>
-            <th className="px-5 py-4 font-['Poppins',sans-serif] text-sm font-semibold">
+            <th className="px-5 py-4 text-sm font-semibold">
               Cookie
             </th>
-            <th className="px-5 py-4 font-['Poppins',sans-serif] text-sm font-semibold">
+            <th className="px-5 py-4 text-sm font-semibold">
               Provider
             </th>
-            <th className="px-5 py-4 font-['Poppins',sans-serif] text-sm font-semibold">
+            <th className="px-5 py-4 text-sm font-semibold">
               Duration
             </th>
           </tr>
@@ -318,14 +318,14 @@ export default function CookiesPolicyPage() {
     {cookie.name}
   </div>
 
-  <p className="mt-2 max-w-[520px] font-['Poppins',sans-serif] text-sm font-normal leading-6 text-pg-slate">
+  <p className="mt-2 max-w-[520px] text-sm font-normal leading-6 text-pg-slate">
     {cookie.description}
   </p>
 </td>
-              <td className="px-5 py-4 font-['Poppins',sans-serif] text-sm text-pg-slate">
+              <td className="px-5 py-4 text-sm text-pg-slate">
                 {cookie.provider}
               </td>
-              <td className="px-5 py-4 font-['Poppins',sans-serif] text-sm text-pg-slate">
+              <td className="px-5 py-4 text-sm text-pg-slate">
                 {cookie.duration}
               </td>
             </tr>
@@ -337,11 +337,11 @@ export default function CookiesPolicyPage() {
 </div>
 <div className="border-b border-pg-line py-8">
   <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-    <h3 className="font-['Poppins',sans-serif] text-xl font-bold text-pg-navy">
+    <h3 className="text-xl font-bold text-pg-navy">
       Functional Cookies
     </h3>
 
-    <span className="w-fit rounded-full bg-pg-tint px-3 py-1 font-['Poppins',sans-serif] text-xs font-semibold text-pg-teal-dark">
+    <span className="w-fit rounded-full bg-pg-tint px-3 py-1 text-xs font-semibold text-pg-teal-dark">
       Functional · {functionalCookies.length}
     </span>
   </div>
@@ -351,13 +351,13 @@ export default function CookiesPolicyPage() {
       <table className="w-full border-collapse text-left">
         <thead className="bg-pg-navy text-white">
           <tr>
-            <th className="px-5 py-4 font-['Poppins',sans-serif] text-sm font-semibold">
+            <th className="px-5 py-4 text-sm font-semibold">
               Cookie
             </th>
-            <th className="px-5 py-4 font-['Poppins',sans-serif] text-sm font-semibold">
+            <th className="px-5 py-4 text-sm font-semibold">
               Provider
             </th>
-            <th className="px-5 py-4 font-['Poppins',sans-serif] text-sm font-semibold">
+            <th className="px-5 py-4 text-sm font-semibold">
               Duration
             </th>
           </tr>
@@ -376,10 +376,10 @@ export default function CookiesPolicyPage() {
               <td className="px-5 py-4 font-mono text-sm font-semibold text-pg-navy">
                 {cookie.name}
               </td>
-              <td className="px-5 py-4 font-['Poppins',sans-serif] text-sm text-pg-slate">
+              <td className="px-5 py-4 text-sm text-pg-slate">
                 {cookie.provider}
               </td>
-              <td className="px-5 py-4 font-['Poppins',sans-serif] text-sm text-pg-slate">
+              <td className="px-5 py-4 text-sm text-pg-slate">
                 {cookie.duration}
               </td>
             </tr>
@@ -390,11 +390,11 @@ export default function CookiesPolicyPage() {
   </div>
   <div className="border-b border-pg-line py-8">
   <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-    <h3 className="font-['Poppins',sans-serif] text-xl font-bold text-pg-navy">
+    <h3 className="text-xl font-bold text-pg-navy">
       Analytics Cookies
     </h3>
 
-    <span className="w-fit rounded-full bg-pg-tint px-3 py-1 font-['Poppins',sans-serif] text-xs font-semibold text-pg-teal-dark">
+    <span className="w-fit rounded-full bg-pg-tint px-3 py-1 text-xs font-semibold text-pg-teal-dark">
       Analytics · {analyticsCookies.length}
     </span>
   </div>
@@ -404,13 +404,13 @@ export default function CookiesPolicyPage() {
       <table className="w-full border-collapse text-left">
         <thead className="bg-pg-navy text-white">
           <tr>
-            <th className="px-5 py-4 font-['Poppins',sans-serif] text-sm font-semibold">
+            <th className="px-5 py-4 text-sm font-semibold">
               Cookie
             </th>
-            <th className="px-5 py-4 font-['Poppins',sans-serif] text-sm font-semibold">
+            <th className="px-5 py-4 text-sm font-semibold">
               Provider
             </th>
-            <th className="px-5 py-4 font-['Poppins',sans-serif] text-sm font-semibold">
+            <th className="px-5 py-4 text-sm font-semibold">
               Duration
             </th>
           </tr>
@@ -429,10 +429,10 @@ export default function CookiesPolicyPage() {
               <td className="px-5 py-4 font-mono text-sm font-semibold text-pg-navy">
                 {cookie.name}
               </td>
-              <td className="px-5 py-4 font-['Poppins',sans-serif] text-sm text-pg-slate">
+              <td className="px-5 py-4 text-sm text-pg-slate">
                 {cookie.provider}
               </td>
-              <td className="px-5 py-4 font-['Poppins',sans-serif] text-sm text-pg-slate">
+              <td className="px-5 py-4 text-sm text-pg-slate">
                 {cookie.duration}
               </td>
             </tr>
@@ -444,11 +444,11 @@ export default function CookiesPolicyPage() {
 </div>
 <div className="py-8">
   <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-    <h3 className="font-['Poppins',sans-serif] text-xl font-bold text-pg-navy">
+    <h3 className="text-xl font-bold text-pg-navy">
       Performance Cookies
     </h3>
 
-    <span className="w-fit rounded-full bg-pg-tint px-3 py-1 font-['Poppins',sans-serif] text-xs font-semibold text-pg-teal-dark">
+    <span className="w-fit rounded-full bg-pg-tint px-3 py-1 text-xs font-semibold text-pg-teal-dark">
       Performance · {performanceCookies.length}
     </span>
   </div>
@@ -458,13 +458,13 @@ export default function CookiesPolicyPage() {
       <table className="w-full border-collapse text-left">
         <thead className="bg-pg-navy text-white">
           <tr>
-            <th className="px-5 py-4 font-['Poppins',sans-serif] text-sm font-semibold">
+            <th className="px-5 py-4 text-sm font-semibold">
               Cookie
             </th>
-            <th className="px-5 py-4 font-['Poppins',sans-serif] text-sm font-semibold">
+            <th className="px-5 py-4 text-sm font-semibold">
               Provider
             </th>
-            <th className="px-5 py-4 font-['Poppins',sans-serif] text-sm font-semibold">
+            <th className="px-5 py-4 text-sm font-semibold">
               Duration
             </th>
           </tr>
@@ -483,10 +483,10 @@ export default function CookiesPolicyPage() {
               <td className="px-5 py-4 font-mono text-sm font-semibold text-pg-navy">
                 {cookie.name}
               </td>
-              <td className="px-5 py-4 font-['Poppins',sans-serif] text-sm text-pg-slate">
+              <td className="px-5 py-4 text-sm text-pg-slate">
                 {cookie.provider}
               </td>
-              <td className="px-5 py-4 font-['Poppins',sans-serif] text-sm text-pg-slate">
+              <td className="px-5 py-4 text-sm text-pg-slate">
                 {cookie.duration}
               </td>
             </tr>
@@ -498,11 +498,11 @@ export default function CookiesPolicyPage() {
 </div>
 </div>
 <div className="pt-8">
-  <h2 className="font-['Poppins',sans-serif] text-2xl font-bold text-pg-navy">
+  <h2 className="text-2xl font-bold text-pg-navy">
     Your Choices Regarding Cookies
   </h2>
 
-  <div className="mt-4 space-y-4 font-['Poppins',sans-serif] text-base leading-7 text-pg-slate">
+  <div className="mt-4 space-y-4 text-base leading-7 text-pg-slate">
     <p>
       You can choose whether to accept or decline cookies. Most web
       browsers accept cookies automatically, but you can usually modify
@@ -561,7 +561,7 @@ export default function CookiesPolicyPage() {
   website.
 </p>
 <div className="border-t border-pg-line pt-8">
-  <h3 className="font-['Poppins',sans-serif] text-xl font-bold text-pg-navy">
+  <h3 className="text-xl font-bold text-pg-navy">
     Advertising Opt-Out Options
   </h3>
 
@@ -610,7 +610,7 @@ export default function CookiesPolicyPage() {
   </div>
 </div>
 <div className="border-t border-pg-line pt-8">
-  <h2 className="font-['Poppins',sans-serif] text-2xl font-bold text-pg-navy">
+  <h2 className="text-2xl font-bold text-pg-navy">
     Contact Us
   </h2>
 

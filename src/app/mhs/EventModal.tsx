@@ -17,7 +17,6 @@ export type EventModalData = {
   language?: "Español";
 };
 
-const font = "font-['Poppins',sans-serif]";
 const WIDTH = 320;
 const GAP = 8;
 const MARGIN = 16;
@@ -117,7 +116,7 @@ function Card({ event, anchor, onClose }: { event: EventModalData; anchor: DOMRe
         >
           {/* Header */}
           <div className="flex items-start justify-between gap-3 bg-pg-teal px-5 py-4">
-            <h2 id={titleId} className={`${font} text-lg font-semibold leading-snug text-white`}>{event.title}</h2>
+            <h2 id={titleId} className={`text-lg font-semibold leading-snug text-white`}>{event.title}</h2>
             <button
               type="button"
               onClick={onClose}
@@ -131,18 +130,18 @@ function Card({ event, anchor, onClose }: { event: EventModalData; anchor: DOMRe
           {/* Body */}
           <div className="px-5 pb-4 pt-5">
             <div className="flex items-center gap-3">
-              <span className={`${font} grid h-11 w-11 shrink-0 place-items-center rounded-pg-md bg-pg-tint text-xl font-bold text-pg-teal-dark`} aria-hidden="true">
+              <span className={`grid h-11 w-11 shrink-0 place-items-center rounded-pg-md bg-pg-tint text-xl font-bold text-pg-teal-dark`} aria-hidden="true">
                 {event.date.getDate()}
               </span>
               <div>
-                <p className={`${font} text-[15px] font-semibold leading-tight text-pg-navy`}>
+                <p className={`text-[15px] font-semibold leading-tight text-pg-navy`}>
                   {event.date.toLocaleDateString(spanish ? "es-US" : "en-US", { weekday: "short", month: "long", day: "numeric" })}
                 </p>
-                <p className={`${font} mt-0.5 text-[13px] text-pg-teal`}>{event.time}{event.time !== "All day" ? " CT" : ""}</p>
+                <p className={`mt-0.5 text-[13px] text-pg-teal`}>{event.time}{event.time !== "All day" ? " CT" : ""}</p>
               </div>
             </div>
 
-            <p className={`${font} mt-4 text-sm leading-relaxed text-pg-slate`}>{event.description}</p>
+            <p className={`mt-4 text-sm leading-relaxed text-pg-slate`}>{event.description}</p>
 
             <ButtonAnchor href={event.registerUrl} target="_blank" rel="noopener noreferrer" className="mt-5 w-full">
               {spanish ? "Regístrate a este evento" : "Register for this event"}

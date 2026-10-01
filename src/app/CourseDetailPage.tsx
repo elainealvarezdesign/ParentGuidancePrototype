@@ -51,19 +51,19 @@ export default function CourseDetailPage() {
         <div className="max-w-pg-page mx-auto px-6 h-10 flex items-center gap-2">
           <Link
             to="/on-demand-courses"
-            className="font-['Poppins',sans-serif] text-xs text-pg-teal-dark hover:text-pg-navy no-underline transition-colors shrink-0"
+            className="text-xs text-pg-teal-dark hover:text-pg-navy no-underline transition-colors shrink-0"
           >
             ← Back to courses
           </Link>
           <ChevronRight size={13} className="text-pg-slate shrink-0" />
           <Link
             to="/on-demand-courses"
-            className="font-['Poppins',sans-serif] text-xs text-pg-teal-dark hover:text-pg-navy no-underline transition-colors truncate"
+            className="text-xs text-pg-teal-dark hover:text-pg-navy no-underline transition-colors truncate"
           >
             {COURSE_TITLE}
           </Link>
           <ChevronRight size={13} className="text-pg-slate shrink-0" />
-          <span className="font-['Poppins',sans-serif] text-xs font-semibold text-pg-navy shrink-0">
+          <span className="text-xs font-semibold text-pg-navy shrink-0">
             {currentLesson.title}
           </span>
         </div>
@@ -94,15 +94,15 @@ export default function CourseDetailPage() {
 
             {/* Center — course info */}
             <div className="flex-1 p-6 flex flex-col gap-4 lg:border-r border-pg-line">
-              <span className="self-start font-['Poppins',sans-serif] font-semibold text-[11px] uppercase tracking-[1.4px] text-pg-teal-dark bg-pg-tint border border-pg-sage/40 px-3 py-1 rounded-pg-sm">
+              <span className="self-start font-semibold text-[11px] uppercase tracking-[1.4px] text-pg-teal-dark bg-pg-tint border border-pg-sage/40 px-3 py-1 rounded-pg-sm">
                 Self-Guided Course
               </span>
 
-              <h1 className="font-['Poppins',sans-serif] font-bold text-pg-navy text-[24px] leading-[1.25]">
+              <h1 className="font-bold text-pg-navy text-[24px] leading-[1.25]">
                 {COURSE_TITLE}
               </h1>
 
-              <p className="font-['Poppins',sans-serif] text-pg-slate text-sm leading-relaxed">
+              <p className="text-pg-slate text-sm leading-relaxed">
                 Learn how to challenge limiting beliefs and build a more positive mindset.
                 Brett Williams, therapist, author, and happiness researcher teaches practical
                 tools to help you create lasting change.
@@ -110,9 +110,9 @@ export default function CourseDetailPage() {
 
               <div className="flex items-center gap-2 text-pg-slate">
                 <Clock size={13} className="text-pg-sage" />
-                <span className="font-['Poppins',sans-serif] text-sm">4 lessons</span>
+                <span className="text-sm">4 lessons</span>
                 <span className="text-pg-mist">•</span>
-                <span className="font-['Poppins',sans-serif] text-sm">Approx. 30 min</span>
+                <span className="text-sm">Approx. 30 min</span>
               </div>
 
               <div className="flex items-center gap-2.5">
@@ -121,7 +121,7 @@ export default function CourseDetailPage() {
                   alt="Brett Williams"
                   className="w-9 h-9 rounded-full object-cover shrink-0"
                 />
-                <span className="font-['Poppins',sans-serif] font-semibold text-pg-navy text-sm">
+                <span className="font-semibold text-pg-navy text-sm">
                   Brett Williams, LMFT
                 </span>
               </div>
@@ -134,12 +134,12 @@ export default function CourseDetailPage() {
 
             {/* Right — course outline */}
             <div className="w-full lg:w-[260px] shrink-0 p-6 flex flex-col gap-4">
-              <h2 className="font-['Poppins',sans-serif] font-bold text-pg-navy text-base">
+              <h2 className="font-bold text-pg-navy text-base">
                 Course outline
               </h2>
 
               <div className="flex flex-col gap-1.5">
-                <p className="font-['Poppins',sans-serif] text-pg-slate text-xs">
+                <p className="text-pg-slate text-xs">
                   0 of 4 lessons completed
                 </p>
                 <div className="h-1.5 bg-pg-line rounded-full overflow-hidden">
@@ -173,7 +173,7 @@ export default function CourseDetailPage() {
                         {lesson.id}
                       </span>
                       <span
-                        className={`font-['Poppins',sans-serif] text-xs flex-1 leading-snug ${
+                        className={`text-xs flex-1 leading-snug ${
                           isActive ? "font-semibold text-pg-navy" : "text-pg-slate"
                         }`}
                       >
@@ -199,10 +199,10 @@ export default function CourseDetailPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
-          <h2 className="font-['Poppins',sans-serif] font-bold text-pg-navy text-lg mb-3">
+          <h2 className="font-bold text-pg-navy text-lg mb-3">
             About this course
           </h2>
-          <p className="font-['Poppins',sans-serif] text-pg-slate text-sm leading-relaxed">
+          <p className="text-pg-slate text-sm leading-relaxed">
             What is happiness? What negative thoughts are holding you back? How do you change your
             negative thoughts and perspective? Join Brett Williams, therapist, author, and happiness
             researcher as he teaches how to achieve change and develop habits that will lead to
@@ -218,7 +218,7 @@ export default function CourseDetailPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
-          <h2 className="font-['Poppins',sans-serif] font-bold text-pg-navy text-lg mb-5">
+          <h2 className="font-bold text-pg-navy text-lg mb-5">
             You may also like
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -237,10 +237,10 @@ export default function CourseDetailPage() {
                   className="w-[80px] h-[64px] rounded-pg-md object-cover shrink-0"
                 />
                 <div className="flex flex-col justify-center gap-1">
-                  <p className="font-['Poppins',sans-serif] font-semibold text-pg-navy text-xs leading-snug">
+                  <p className="font-semibold text-pg-navy text-xs leading-snug">
                     {rec.title}
                   </p>
-                  <p className="font-['Poppins',sans-serif] text-pg-slate text-xs">
+                  <p className="text-pg-slate text-xs">
                     {rec.lessons} lessons &nbsp;•&nbsp; {rec.duration}
                   </p>
                 </div>

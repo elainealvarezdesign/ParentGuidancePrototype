@@ -123,7 +123,7 @@ function FaqRow({ item, index }: { item: typeof FAQS[0]; index: number }) {
       transition={{ duration: 0.35, delay: index * 0.05 }}
     >
       <button type="button" aria-expanded={open} onClick={() => setOpen((o) => !o)} className="w-full text-left flex items-center justify-between px-8 py-6">
-        <span className="font-['Poppins',sans-serif] font-bold text-pg-navy text-lg leading-snug opacity-88 flex-1 pr-4">
+        <span className="font-bold text-pg-navy text-lg leading-snug opacity-88 flex-1 pr-4">
           {item.question}
         </span>
         <motion.div animate={{ rotate: open ? 45 : 0 }} transition={{ duration: 0.22 }} className="flex items-center justify-center w-5 h-5 shrink-0">
@@ -141,7 +141,7 @@ function FaqRow({ item, index }: { item: typeof FAQS[0]; index: number }) {
       >
         <div className="px-8 pb-6 flex flex-col gap-3">
           <div className="w-5 h-[3px] bg-pg-live rounded-full opacity-80" />
-          <p className="font-['Poppins',sans-serif] text-pg-navy text-sm leading-relaxed opacity-70">{item.answer}</p>
+          <p className="text-pg-navy text-sm leading-relaxed opacity-70">{item.answer}</p>
         </div>
       </motion.div>
     </motion.div>
@@ -158,7 +158,7 @@ function PartnersCarousel() {
         .marquee-track-v2:hover { animation-play-state: paused; }
       `}</style>
       <motion.h3
-        className="font-['Poppins',sans-serif] font-semibold text-pg-teal text-2xl text-center mb-10"
+        className="font-semibold text-pg-teal text-2xl text-center mb-10"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
@@ -197,15 +197,15 @@ export default function HomePageV2() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55 }}
             >
-              <p className="font-['Poppins',sans-serif] text-pg-teal-dark text-xs font-semibold tracking-[0.16em] uppercase mb-5">
+              <p className="text-pg-teal-dark text-xs font-semibold tracking-[0.16em] uppercase mb-5">
                 For Parents
               </p>
               {/* Heading/H1 - Medium - 2XL: Poppins Medium 48/56 */}
-              <h1 className="font-['Poppins',sans-serif] text-pg-navy font-medium text-[34px] md:text-[48px] leading-[1.15] md:leading-[56px] tracking-normal">
+              <h1 className="text-pg-navy font-medium text-[34px] md:text-[48px] leading-[1.15] md:leading-[56px] tracking-normal">
                 Discover Resources That Can Help
               </h1>
               {/* Body/Medium - Regular: Poppins Regular 16/1.5 */}
-              <p className="font-['Poppins',sans-serif] font-normal text-pg-slate text-base leading-[1.5] mt-6 max-w-[500px]">
+              <p className="font-normal text-pg-slate text-base leading-[1.5] mt-6 max-w-[500px]">
                 Find trusted guidance, practical tips, and expert resources to help you navigate everyday parenting challenges.
               </p>
             </motion.div>
@@ -238,11 +238,11 @@ export default function HomePageV2() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center text-center md:text-left">
             <div>
               {/* Heading/H2 - Medium - XL: Poppins Medium 40/48 */}
-              <h2 className="font-['Poppins',sans-serif] font-medium text-white text-[26px] md:text-[40px] leading-[1.15] md:leading-[48px]">
+              <h2 className="font-medium text-white text-[26px] md:text-[40px] leading-[1.15] md:leading-[48px]">
                 Not sure where to start?
               </h2>
               {/* Body/Medium - Regular: Poppins Regular 16/1.5 */}
-              <p className="font-['Poppins',sans-serif] font-normal text-white/85 text-base leading-[1.5] mt-2">
+              <p className="font-normal text-white/85 text-base leading-[1.5] mt-2">
                 Search what's on your mind, or answer a few quick questions.
               </p>
             </div>
@@ -250,7 +250,7 @@ export default function HomePageV2() {
             <div>
               <div className="w-full bg-white rounded-full shadow-pg-overlay pl-5 pr-1 py-1 flex items-center gap-2 transition-shadow focus-within:shadow-pg-overlay">
                 <input
-                  className="flex-1 min-w-0 font-['Poppins',sans-serif] text-[14px] font-medium text-pg-navy bg-transparent outline-none placeholder:text-pg-teal placeholder:font-normal py-1.5"
+                  className="flex-1 min-w-0 text-[14px] font-medium text-pg-navy bg-transparent outline-none placeholder:text-pg-teal placeholder:font-normal py-1.5"
                   placeholder="Anxiety in Children"
                 />
                 <Button size="s" className="shrink-0 rounded-full">
@@ -259,14 +259,14 @@ export default function HomePageV2() {
                 </Button>
               </div>
 
-              <p className="font-['Poppins',sans-serif] text-white/70 text-xs mt-4 mb-2.5">
+              <p className="text-white/70 text-xs mt-4 mb-2.5">
                 Search for specific content related to these themes
               </p>
               <div className="flex flex-wrap gap-2 justify-center md:justify-start">
                 {SEARCH_THEMES.map((theme) => (
                   <button
                     key={theme.label}
-                    className="font-['Poppins',sans-serif] text-xs font-semibold px-4 py-2 rounded-full transition-transform hover:scale-105"
+                    className="text-xs font-semibold px-4 py-2 rounded-full transition-transform hover:scale-105"
                     style={{ background: theme.bg, color: theme.color }}
                   >
                     {theme.label}
@@ -283,13 +283,13 @@ export default function HomePageV2() {
         <div className="max-w-pg-page mx-auto">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
             {/* Heading/H2 - Medium - XL: Poppins Medium 40/48 */}
-            <h2 className="font-['Poppins',sans-serif] font-medium text-pg-navy text-[28px] md:text-[40px] leading-[1.15] md:leading-[48px]">Explore Resources</h2>
+            <h2 className="font-medium text-pg-navy text-[28px] md:text-[40px] leading-[1.15] md:leading-[48px]">Explore Resources</h2>
             <div className="flex items-center gap-2 overflow-x-auto">
               {CATEGORIES.map((cat) => (
                 <button
                   key={cat}
                   onClick={() => setActiveCategory(cat)}
-                  className="shrink-0 font-['Poppins',sans-serif] text-xs font-medium px-4 py-2 rounded-full transition-colors"
+                  className="shrink-0 text-xs font-medium px-4 py-2 rounded-full transition-colors"
                   style={{
                     background: activeCategory === cat ? "var(--pg-navy)" : "var(--pg-cream-dark)",
                     color: activeCategory === cat ? "#ffffff" : "var(--pg-slate)",
@@ -340,13 +340,13 @@ export default function HomePageV2() {
           viewport={{ once: true }}
           transition={{ duration: 0.55 }}
         >
-          <span className="font-['Poppins',sans-serif] font-semibold text-pg-navy text-base uppercase tracking-wider">Why</span>
+          <span className="font-semibold text-pg-navy text-base uppercase tracking-wider">Why</span>
           {/* Heading/H2 - Medium - XL: Poppins Medium 40/48 */}
-          <h2 className="font-['Poppins',sans-serif] font-medium text-pg-navy text-[28px] md:text-[40px] leading-[1.15] md:leading-[48px]">
+          <h2 className="font-medium text-pg-navy text-[28px] md:text-[40px] leading-[1.15] md:leading-[48px]">
             Built on real clinical experience
           </h2>
           {/* Body/Medium - Regular: Poppins Regular 16/1.5 */}
-          <p className="font-['Poppins',sans-serif] font-normal text-pg-slate text-base leading-[1.5] max-w-2xl">
+          <p className="font-normal text-pg-slate text-base leading-[1.5] max-w-2xl">
             We believe every parent deserves access to expert guidance. Our resources are built on real clinical experience and designed with your family in mind.
           </p>
         </motion.div>
@@ -371,11 +371,11 @@ export default function HomePageV2() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-pg-navy/85 via-pg-navy/10 to-pg-navy/75" />
                 <div className="relative">
-                  <h3 className="font-['Poppins',sans-serif] font-medium text-[28px] leading-[1.2]">{card.title}</h3>
-                  <p className="font-['Poppins',sans-serif] font-normal text-base leading-[1.5] mt-3 max-w-[300px] text-white/90">{card.desc}</p>
+                  <h3 className="font-medium text-[28px] leading-[1.2]">{card.title}</h3>
+                  <p className="font-normal text-base leading-[1.5] mt-3 max-w-[300px] text-white/90">{card.desc}</p>
                 </div>
                 <div className="relative">
-                  <span className="inline-block rounded-full border border-white px-4 py-1.5 font-['Poppins',sans-serif] text-xs font-medium">{card.tag}</span>
+                  <span className="inline-block rounded-full border border-white px-4 py-1.5 text-xs font-medium">{card.tag}</span>
                 </div>
               </motion.div>
             ) : (
@@ -394,11 +394,11 @@ export default function HomePageV2() {
                   className="h-40 w-full md:h-auto md:w-[42%] md:absolute md:right-4 md:top-4 md:bottom-4 rounded-pg-xl object-cover mb-5 md:mb-0"
                 />
                 <div className="relative md:max-w-[52%]">
-                  <h3 className="font-['Poppins',sans-serif] font-medium text-[28px] leading-[1.2]">{card.title}</h3>
-                  <p className="font-['Poppins',sans-serif] font-normal text-base leading-[1.5] mt-3">{card.desc}</p>
+                  <h3 className="font-medium text-[28px] leading-[1.2]">{card.title}</h3>
+                  <p className="font-normal text-base leading-[1.5] mt-3">{card.desc}</p>
                 </div>
                 <div className="relative mt-6 md:mt-0">
-                  <span className="inline-block rounded-full bg-pg-navy text-white px-4 py-1.5 font-['Poppins',sans-serif] text-xs font-medium">{card.tag}</span>
+                  <span className="inline-block rounded-full bg-pg-navy text-white px-4 py-1.5 text-xs font-medium">{card.tag}</span>
                 </div>
               </motion.div>
             );
@@ -409,7 +409,7 @@ export default function HomePageV2() {
       {/* ── FAQ (single column) ── */}
       <section className="bg-pg-cream py-16 px-6 md:px-10 lg:px-14">
         <motion.h2
-          className="font-['Poppins',sans-serif] font-bold text-pg-navy text-2xl text-center mb-10 capitalize"
+          className="font-bold text-pg-navy text-2xl text-center mb-10 capitalize"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -438,22 +438,22 @@ export default function HomePageV2() {
         >
           <div>
             {/* Heading/H2 - Medium - XL: Poppins Medium 40/48 */}
-            <h2 className="font-['Poppins',sans-serif] font-medium text-white text-[28px] md:text-[40px] leading-[1.15] md:leading-[48px]">Join Us!</h2>
+            <h2 className="font-medium text-white text-[28px] md:text-[40px] leading-[1.15] md:leading-[48px]">Join Us!</h2>
             {/* Body/Medium - Regular: Poppins Regular 16/1.5 */}
-            <p className="font-['Poppins',sans-serif] font-normal text-white/80 text-base leading-[1.5] mt-4 max-w-md">
+            <p className="font-normal text-white/80 text-base leading-[1.5] mt-4 max-w-md">
               Subscribe to our weekly newsletter and be a part of our journey to self discovery and love.
             </p>
           </div>
 
           <div>
-            <p className="font-['Poppins',sans-serif] font-normal text-white text-sm mb-3">Stay up to date</p>
+            <p className="font-normal text-white text-sm mb-3">Stay up to date</p>
             {subscribed ? (
-              <p className="font-['Poppins',sans-serif] text-pg-sage font-semibold text-base">✓ Thanks for subscribing!</p>
+              <p className="text-pg-sage font-semibold text-base">✓ Thanks for subscribing!</p>
             ) : (
               <div className="flex items-center gap-2 rounded-pg-xl bg-pg-navy-hover border border-white/10 p-1.5 focus-within:border-pg-sage/60 transition-colors">
                 <input
                   type="email"
-                  className="flex-1 min-w-0 px-4 py-3 bg-transparent font-['Poppins',sans-serif] text-sm text-white outline-none placeholder:text-white/60"
+                  className="flex-1 min-w-0 px-4 py-3 bg-transparent text-sm text-white outline-none placeholder:text-white/60"
                   placeholder="Enter your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -463,7 +463,7 @@ export default function HomePageV2() {
                 </Button>
               </div>
             )}
-            <p className="font-['Poppins',sans-serif] font-normal text-white/60 text-xs mt-3">
+            <p className="font-normal text-white/60 text-xs mt-3">
               By subscribing, you agree to our <a href="/cookies-policy" className="underline hover:text-white transition-colors">Privacy Policy</a>
             </p>
           </div>

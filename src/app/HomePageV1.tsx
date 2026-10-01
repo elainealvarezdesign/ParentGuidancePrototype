@@ -123,7 +123,7 @@ function FaqItem({ item, index }: { item: typeof FAQS[0]; index: number }) {
       transition={{ duration: 0.55, delay: index * 0.06 }}
     >
       <button type="button" aria-expanded={open} onClick={() => setOpen((o) => !o)} className="w-full text-left flex items-center justify-between px-8 py-6">
-        <span className="font-['Poppins',sans-serif] font-bold text-pg-navy text-lg leading-snug opacity-88 flex-1 pr-4">
+        <span className="font-bold text-pg-navy text-lg leading-snug opacity-88 flex-1 pr-4">
           {item.question}
         </span>
         <motion.div
@@ -145,7 +145,7 @@ function FaqItem({ item, index }: { item: typeof FAQS[0]; index: number }) {
       >
         <div className="px-8 pb-6 flex flex-col gap-3">
           <div className="w-5 h-[3px] bg-pg-live rounded-full opacity-80" />
-          <p className="font-['Poppins',sans-serif] text-pg-navy text-sm leading-relaxed opacity-70">{item.answer}</p>
+          <p className="text-pg-navy text-sm leading-relaxed opacity-70">{item.answer}</p>
         </div>
       </motion.div>
     </motion.div>
@@ -162,7 +162,7 @@ function PartnersCarousel() {
         .marquee-track-v1:hover { animation-play-state: paused; }
       `}</style>
       <motion.h3
-        className="font-['Poppins',sans-serif] font-semibold text-pg-teal text-2xl text-center mb-10"
+        className="font-semibold text-pg-teal text-2xl text-center mb-10"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
@@ -204,17 +204,17 @@ export default function HomePageV1() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
-              <h1 className="font-['Poppins',sans-serif] font-bold text-pg-navy text-[38px] md:text-[48px] leading-[1.08] tracking-[-0.02em] mb-5">
+              <h1 className="font-bold text-pg-navy text-[38px] md:text-[48px] leading-[1.08] tracking-[-0.02em] mb-5">
                 Discover Resources That Can Help
               </h1>
-              <p className="font-['Poppins',sans-serif] text-pg-slate text-base md:text-lg leading-relaxed mb-8 max-w-[480px]">
+              <p className="text-pg-slate text-base md:text-lg leading-relaxed mb-8 max-w-[480px]">
                 Find trusted guidance, practical tips, and expert resources to help you navigate everyday parenting challenges.
               </p>
 
               <div className="bg-white rounded-pg-2xl px-5 py-2.5 flex items-center gap-3 shadow-pg-card max-w-[440px]" style={{ boxShadow: "0 8px 24px rgba(28,50,67,0.06)" }}>
                 <Search size={18} className="text-gray-400 shrink-0" />
                 <input
-                  className="flex-1 font-['Poppins',sans-serif] text-sm text-gray-700 bg-transparent outline-none placeholder:text-pg-teal"
+                  className="flex-1 text-sm text-gray-700 bg-transparent outline-none placeholder:text-pg-teal"
                   placeholder="Anxiety in Children"
                 />
                 <Button size="s" className="shrink-0">
@@ -247,7 +247,7 @@ export default function HomePageV1() {
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className="shrink-0 font-['Poppins',sans-serif] text-xs font-medium px-4 py-2 rounded-full transition-colors"
+              className="shrink-0 text-xs font-medium px-4 py-2 rounded-full transition-colors"
               style={{
                 background: activeCategory === cat ? "var(--pg-navy)" : "var(--pg-cream-dark)",
                 color: activeCategory === cat ? "#ffffff" : "var(--pg-slate)",
@@ -264,9 +264,9 @@ export default function HomePageV1() {
         <div className="max-w-pg-page mx-auto px-6 md:px-10 lg:px-14">
           <div className="flex items-center gap-2.5 mb-6">
             <div className="w-1 h-5 rounded-full bg-pg-sage" />
-            <span className="font-['Poppins',sans-serif] font-semibold text-pg-navy text-lg">Browse All Resources</span>
+            <span className="font-semibold text-pg-navy text-lg">Browse All Resources</span>
             <div className="bg-pg-tint rounded-full px-2.5 py-0.5">
-              <span className="font-['Poppins',sans-serif] font-medium text-pg-teal-dark text-xs">24 resources</span>
+              <span className="font-medium text-pg-teal-dark text-xs">24 resources</span>
             </div>
           </div>
 
@@ -311,10 +311,10 @@ export default function HomePageV1() {
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.55 }}
             >
-              <h3 className="font-['Poppins',sans-serif] font-medium text-white text-[28px] leading-[1.2]">
+              <h3 className="font-medium text-white text-[28px] leading-[1.2]">
                 Not sure where to start?
               </h3>
-              <p className="font-['Poppins',sans-serif] font-normal text-white/70 text-base leading-[1.5] mt-3 max-w-[360px]">
+              <p className="font-normal text-white/70 text-base leading-[1.5] mt-3 max-w-[360px]">
                 Answer a few quick questions and we'll point you to the right resources.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3 mt-8">
@@ -344,10 +344,10 @@ export default function HomePageV1() {
               <div className="absolute inset-0 bg-gradient-to-t from-pg-navy via-pg-navy/40 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-8 flex items-end justify-between gap-4">
                 <div>
-                  <h3 className="font-['Poppins',sans-serif] font-medium text-white text-[28px] leading-[1.2] max-w-[320px]">
+                  <h3 className="font-medium text-white text-[28px] leading-[1.2] max-w-[320px]">
                     Expert therapists available to help
                   </h3>
-                  <p className="font-['Poppins',sans-serif] font-normal text-white/75 text-base leading-[1.5] mt-2">
+                  <p className="font-normal text-white/75 text-base leading-[1.5] mt-2">
                     Licensed clinicians, ready when you are.
                   </p>
                 </div>
@@ -369,11 +369,11 @@ export default function HomePageV1() {
           viewport={{ once: true }}
           transition={{ duration: 0.55 }}
         >
-          <span className="font-['Poppins',sans-serif] font-semibold text-pg-navy text-base uppercase tracking-wider">Why</span>
-          <h2 className="font-['Poppins',sans-serif] font-bold text-pg-navy text-4xl leading-tight tracking-tight">
+          <span className="font-semibold text-pg-navy text-base uppercase tracking-wider">Why</span>
+          <h2 className="font-bold text-pg-navy text-4xl leading-tight tracking-tight">
             Built on real clinical experience
           </h2>
-          <p className="font-['Poppins',sans-serif] text-pg-navy text-xl leading-relaxed">
+          <p className="text-pg-navy text-xl leading-relaxed">
             We believe every parent deserves access to expert guidance. Our resources are built on real clinical experience and designed with your family in mind.
           </p>
         </motion.div>
@@ -392,8 +392,8 @@ export default function HomePageV1() {
                 <img src={f.img} alt="" className="w-full h-full object-cover" />
               </div>
               <div className="flex flex-col gap-2 max-w-sm">
-                <p className="font-['Poppins',sans-serif] font-black text-pg-teal text-3xl leading-relaxed">{f.title}</p>
-                <p className="font-['Poppins',sans-serif] text-pg-navy text-lg leading-relaxed">{f.desc}</p>
+                <p className="font-black text-pg-teal text-3xl leading-relaxed">{f.title}</p>
+                <p className="text-pg-navy text-lg leading-relaxed">{f.desc}</p>
               </div>
             </motion.div>
           ))}
@@ -403,7 +403,7 @@ export default function HomePageV1() {
       {/* ── FAQ ── */}
       <section className="bg-pg-cream py-16 px-6 md:px-10 lg:px-14">
         <motion.h2
-          className="font-['Poppins',sans-serif] font-bold text-pg-navy text-2xl text-center mb-10 capitalize"
+          className="font-bold text-pg-navy text-2xl text-center mb-10 capitalize"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -442,16 +442,16 @@ export default function HomePageV1() {
             viewport={{ once: true }}
             transition={{ duration: 0.55 }}
           >
-            <h2 className="font-['Poppins',sans-serif] font-bold text-pg-navy text-4xl leading-tight max-w-md">Join Us!</h2>
-            <p className="font-['Poppins',sans-serif] text-pg-navy text-sm leading-relaxed max-w-sm">
+            <h2 className="font-bold text-pg-navy text-4xl leading-tight max-w-md">Join Us!</h2>
+            <p className="text-pg-navy text-sm leading-relaxed max-w-sm">
               Subscribe to our weekly newsletter and be a part of our journey to self discovery and love.
             </p>
             {subscribed ? (
-              <p className="font-['Poppins',sans-serif] text-pg-navy font-semibold text-base">✓ Thanks for subscribing!</p>
+              <p className="text-pg-navy font-semibold text-base">✓ Thanks for subscribing!</p>
             ) : (
               <div className="flex items-center gap-2 rounded-pg-xl bg-pg-tint-soft p-1.5 max-w-md">
                 <input
-                  className="flex-1 min-w-0 px-4 py-2.5 bg-transparent font-['Poppins',sans-serif] text-sm text-gray-700 outline-none placeholder:text-pg-slate"
+                  className="flex-1 min-w-0 px-4 py-2.5 bg-transparent text-sm text-gray-700 outline-none placeholder:text-pg-slate"
                   placeholder="Your Email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}

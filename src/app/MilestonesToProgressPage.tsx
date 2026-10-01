@@ -115,12 +115,12 @@ export default function MilestonesToProgressPage() {
         <div className="max-w-pg-page mx-auto px-6 h-10 flex items-center gap-2">
           <Link
             to="/on-demand-courses"
-            className="font-['Poppins',sans-serif] text-xs text-pg-teal-dark hover:text-pg-navy no-underline transition-colors shrink-0"
+            className="text-xs text-pg-teal-dark hover:text-pg-navy no-underline transition-colors shrink-0"
           >
             ← Back to courses
           </Link>
           <ChevronRight size={13} className="text-pg-slate shrink-0" />
-          <span className="font-['Poppins',sans-serif] text-xs font-semibold text-pg-navy truncate">
+          <span className="text-xs font-semibold text-pg-navy truncate">
             {COURSE_TITLE}
           </span>
         </div>
@@ -150,36 +150,36 @@ export default function MilestonesToProgressPage() {
 
             {/* Course info */}
             <div className="flex-1 p-6 flex flex-col gap-4 lg:border-r border-pg-line">
-              <span className="self-start font-['Poppins',sans-serif] font-semibold text-[11px] uppercase tracking-[1.4px] text-pg-teal-dark bg-pg-tint border border-pg-sage/40 px-3 py-1 rounded-pg-sm">
+              <span className="self-start font-semibold text-[11px] uppercase tracking-[1.4px] text-pg-teal-dark bg-pg-tint border border-pg-sage/40 px-3 py-1 rounded-pg-sm">
                 Child & Teen Development
               </span>
 
-              <h1 className="font-['Poppins',sans-serif] font-bold text-pg-navy text-[22px] leading-[1.25]">
+              <h1 className="font-bold text-pg-navy text-[22px] leading-[1.25]">
                 {COURSE_TITLE}
               </h1>
 
-              <p className="font-['Poppins',sans-serif] text-pg-slate text-sm leading-relaxed">
+              <p className="text-pg-slate text-sm leading-relaxed">
                 A supportive, science-informed course for parents navigating the early years — from birth through the first school days. Explore three expert-led modules covering development, real-life scenarios, and school support.
               </p>
 
               <div className="flex items-center gap-2 text-pg-slate">
                 <Clock size={13} className="text-pg-sage" />
-                <span className="font-['Poppins',sans-serif] text-sm">{TOTAL_LESSONS} lessons</span>
+                <span className="text-sm">{TOTAL_LESSONS} lessons</span>
                 <span className="text-pg-mist">•</span>
-                <span className="font-['Poppins',sans-serif] text-sm">3h 30m</span>
+                <span className="text-sm">3h 30m</span>
                 <span className="text-pg-mist">•</span>
-                <span className="font-['Poppins',sans-serif] text-sm">3 modules</span>
+                <span className="text-sm">3 modules</span>
               </div>
 
               <div className="flex flex-col gap-2">
                 {INSTRUCTORS.map(inst => (
                   <div key={inst.name} className="flex items-center gap-2.5">
                     <div className="w-8 h-8 rounded-full bg-pg-teal flex items-center justify-center shrink-0">
-                      <span className="font-['Poppins',sans-serif] font-bold text-white text-xs">{inst.initials}</span>
+                      <span className="font-bold text-white text-xs">{inst.initials}</span>
                     </div>
                     <div className="min-w-0">
-                      <span className="font-['Poppins',sans-serif] font-semibold text-pg-navy text-sm">{inst.name}</span>
-                      <span className="font-['Poppins',sans-serif] text-pg-slate text-xs ml-1.5">{inst.credential}</span>
+                      <span className="font-semibold text-pg-navy text-sm">{inst.name}</span>
+                      <span className="text-pg-slate text-xs ml-1.5">{inst.credential}</span>
                     </div>
                   </div>
                 ))}
@@ -193,11 +193,11 @@ export default function MilestonesToProgressPage() {
 
             {/* Course outline sidebar */}
             <div className="w-full lg:w-[280px] shrink-0 p-5 flex flex-col gap-3">
-              <h2 className="font-['Poppins',sans-serif] font-bold text-pg-navy text-base">Course outline</h2>
+              <h2 className="font-bold text-pg-navy text-base">Course outline</h2>
 
               {/* Progress */}
               <div className="flex flex-col gap-1.5">
-                <p className="font-['Poppins',sans-serif] text-pg-slate text-xs">
+                <p className="text-pg-slate text-xs">
                   0 of {TOTAL_LESSONS} lessons completed
                 </p>
                 <div className="h-1.5 bg-pg-line rounded-full overflow-hidden">
@@ -230,7 +230,7 @@ export default function MilestonesToProgressPage() {
                         }`}>
                           {lesson.id}
                         </span>
-                        <span className={`font-['Poppins',sans-serif] text-xs flex-1 leading-snug line-clamp-2 ${
+                        <span className={`text-xs flex-1 leading-snug line-clamp-2 ${
                           isActive ? "font-semibold text-pg-navy" : "text-pg-slate"
                         }`}>
                           {lesson.title}
@@ -252,7 +252,7 @@ export default function MilestonesToProgressPage() {
                   >
                     <ChevronLeft size={13} />
                   </button>
-                  <span className="font-['Poppins',sans-serif] text-xs text-pg-slate">
+                  <span className="text-xs text-pg-slate">
                     {outlinePage} of {totalOutlinePages}
                   </span>
                   <button
@@ -276,8 +276,8 @@ export default function MilestonesToProgressPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
-          <h2 className="font-['Poppins',sans-serif] font-bold text-pg-navy text-lg mb-4">About this course</h2>
-          <div className="font-['Poppins',sans-serif] text-pg-slate text-sm leading-relaxed flex flex-col gap-3">
+          <h2 className="font-bold text-pg-navy text-lg mb-4">About this course</h2>
+          <div className="text-pg-slate text-sm leading-relaxed flex flex-col gap-3">
             <p>
               <span className="font-semibold text-pg-navy">Milestones to Progress</span> is a supportive, science-informed course for parents navigating the early years — from birth through the first school days.
             </p>
@@ -302,14 +302,14 @@ export default function MilestonesToProgressPage() {
               <div key={inst.name} className="flex flex-col gap-2">
                 <div className="flex items-center gap-2.5">
                   <div className="w-10 h-10 rounded-full bg-pg-teal flex items-center justify-center shrink-0">
-                    <span className="font-['Poppins',sans-serif] font-bold text-white text-xs">{inst.initials}</span>
+                    <span className="font-bold text-white text-xs">{inst.initials}</span>
                   </div>
                   <div>
-                    <p className="font-['Poppins',sans-serif] font-semibold text-pg-navy text-sm">{inst.name}</p>
-                    <p className="font-['Poppins',sans-serif] text-pg-teal text-xs">{inst.credential}</p>
+                    <p className="font-semibold text-pg-navy text-sm">{inst.name}</p>
+                    <p className="text-pg-teal text-xs">{inst.credential}</p>
                   </div>
                 </div>
-                <p className="font-['Poppins',sans-serif] text-pg-slate text-xs leading-relaxed">{inst.bio}</p>
+                <p className="text-pg-slate text-xs leading-relaxed">{inst.bio}</p>
               </div>
             ))}
           </div>
@@ -323,7 +323,7 @@ export default function MilestonesToProgressPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
-          <h2 className="font-['Poppins',sans-serif] font-bold text-pg-navy text-lg mb-5">You may also like</h2>
+          <h2 className="font-bold text-pg-navy text-lg mb-5">You may also like</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {RECOMMENDATIONS.map((rec, i) => {
               const card = (
@@ -336,8 +336,8 @@ export default function MilestonesToProgressPage() {
                 >
                   <img src={rec.img} alt={rec.title} className="w-[80px] h-[64px] rounded-pg-md object-cover shrink-0" />
                   <div className="flex flex-col justify-center gap-1">
-                    <p className="font-['Poppins',sans-serif] font-semibold text-pg-navy text-xs leading-snug">{rec.title}</p>
-                    <p className="font-['Poppins',sans-serif] text-pg-slate text-xs">{rec.lessons} lessons &nbsp;•&nbsp; {rec.duration}</p>
+                    <p className="font-semibold text-pg-navy text-xs leading-snug">{rec.title}</p>
+                    <p className="text-pg-slate text-xs">{rec.lessons} lessons &nbsp;•&nbsp; {rec.duration}</p>
                   </div>
                 </motion.div>
               );

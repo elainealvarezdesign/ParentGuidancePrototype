@@ -61,8 +61,8 @@ mantienen como **rellenos decorativos**, pero no como texto: 2.3:1 y 3.0:1.
 
 ## 1.2 Tipografía
 
-**Poppins** es la única familia (400, 500, 600 y 700). Hoy se repite `font-['Poppins',sans-serif]` en cada
-elemento (487 veces). Con `tokens.css` se define una vez en el `body` y basta con la clase `font-sans`.
+**Poppins** es la única familia (400, 500, 600 y 700). Se define una sola vez en el `body` (`tokens.css`) y la
+heredan todos los elementos, incluidos botones e inputs. No hace falta añadir clases de fuente.
 
 ### Escala
 

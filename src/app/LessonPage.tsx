@@ -104,19 +104,19 @@ export default function LessonPage() {
         <div className="max-w-pg-page mx-auto px-6 h-10 flex items-center gap-2">
           <Link
             to="/on-demand-courses"
-            className="font-['Poppins',sans-serif] text-xs text-pg-teal-dark hover:text-pg-navy no-underline transition-colors shrink-0"
+            className="text-xs text-pg-teal-dark hover:text-pg-navy no-underline transition-colors shrink-0"
           >
             ← Back to courses
           </Link>
           <ChevronRight size={13} className="text-pg-slate shrink-0" />
           <Link
             to={`/courses/${COURSE_SLUG}`}
-            className="font-['Poppins',sans-serif] text-xs text-pg-teal-dark hover:text-pg-navy no-underline transition-colors truncate"
+            className="text-xs text-pg-teal-dark hover:text-pg-navy no-underline transition-colors truncate"
           >
             {COURSE_TITLE}
           </Link>
           <ChevronRight size={13} className="text-pg-slate shrink-0" />
-          <span className="font-['Poppins',sans-serif] text-xs font-semibold text-pg-navy shrink-0">
+          <span className="text-xs font-semibold text-pg-navy shrink-0">
             {lesson.title}
           </span>
         </div>
@@ -132,14 +132,14 @@ export default function LessonPage() {
           <div className="flex items-start justify-between gap-4">
             <div>
               <div className="flex items-center gap-2 mb-1">
-                <span className="font-['Poppins',sans-serif] font-semibold text-[11px] uppercase tracking-[1.4px] text-pg-teal-dark bg-pg-tint px-2.5 py-0.5 rounded-pg-sm">
+                <span className="font-semibold text-[11px] uppercase tracking-[1.4px] text-pg-teal-dark bg-pg-tint px-2.5 py-0.5 rounded-pg-sm">
                   Lesson {lesson.id} of {LESSONS.length}
                 </span>
-                <span className="font-['Poppins',sans-serif] text-xs text-pg-slate">
+                <span className="text-xs text-pg-slate">
                   {lesson.duration}
                 </span>
               </div>
-              <h1 className="font-['Poppins',sans-serif] font-bold text-pg-navy text-xl leading-tight">
+              <h1 className="font-bold text-pg-navy text-xl leading-tight">
                 {lesson.title}
               </h1>
             </div>
@@ -175,7 +175,7 @@ export default function LessonPage() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
 
             {/* Duration badge */}
-            <div className="absolute top-3 left-3 bg-black/60 text-white font-['Poppins',sans-serif] text-xs font-semibold px-2 py-0.5 rounded-pg-sm">
+            <div className="absolute top-3 left-3 bg-black/60 text-white text-xs font-semibold px-2 py-0.5 rounded-pg-sm">
               {lesson.duration}
             </div>
 
@@ -226,7 +226,7 @@ export default function LessonPage() {
                   >
                     {playing ? <Pause size={16} fill="white" /> : <Play size={16} className="ml-0.5" fill="white" />}
                   </button>
-                  <span className="font-['Poppins',sans-serif] text-white/80 text-xs">
+                  <span className="text-white/80 text-xs">
                     {Math.floor((parseInt(lesson.duration.split(":")[0]) * 60 + parseInt(lesson.duration.split(":")[1])) * progress / 100 / 60).toString().padStart(2, "0")}:
                     {Math.floor((parseInt(lesson.duration.split(":")[0]) * 60 + parseInt(lesson.duration.split(":")[1])) * progress / 100 % 60).toString().padStart(2, "0")}
                     {" / "}
@@ -251,7 +251,7 @@ export default function LessonPage() {
                 <button
                   key={tab}
                   onClick={() => setActiveTab(tab)}
-                  className={`flex items-center gap-1.5 px-5 py-3.5 font-['Poppins',sans-serif] text-xs font-semibold transition-colors border-b-2 ${
+                  className={`flex items-center gap-1.5 px-5 py-3.5 text-xs font-semibold transition-colors border-b-2 ${
                     activeTab === tab
                       ? "border-pg-teal text-pg-teal"
                       : "border-transparent text-pg-slate hover:text-pg-navy"
@@ -271,7 +271,7 @@ export default function LessonPage() {
                 {activeTab === "Overview" && (
                   <motion.p
                     key="overview"
-                    className="font-['Poppins',sans-serif] text-pg-slate text-sm leading-relaxed"
+                    className="text-pg-slate text-sm leading-relaxed"
                     initial={{ opacity: 0, y: 6 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0 }}
@@ -292,7 +292,7 @@ export default function LessonPage() {
                     {lesson.takeaways.map((item, i) => (
                       <li key={i} className="flex items-start gap-2.5">
                         <CheckCircle2 size={14} className="text-pg-teal shrink-0 mt-0.5" />
-                        <span className="font-['Poppins',sans-serif] text-pg-navy text-sm leading-snug">{item}</span>
+                        <span className="text-pg-navy text-sm leading-snug">{item}</span>
                       </li>
                     ))}
                   </motion.ul>
@@ -310,9 +310,9 @@ export default function LessonPage() {
                       <div key={i} className="flex items-center justify-between p-3 rounded-pg-md border border-pg-line hover:border-pg-sage transition-colors cursor-pointer">
                         <div className="flex items-center gap-2.5">
                           <FileText size={14} className="text-pg-sage" />
-                          <span className="font-['Poppins',sans-serif] text-sm text-pg-navy">{r.label}</span>
+                          <span className="text-sm text-pg-navy">{r.label}</span>
                         </div>
-                        <span className="font-['Poppins',sans-serif] text-xs font-semibold text-pg-teal bg-pg-tint px-2 py-0.5 rounded-full">
+                        <span className="text-xs font-semibold text-pg-teal bg-pg-tint px-2 py-0.5 rounded-full">
                           {r.type}
                         </span>
                       </div>
@@ -328,7 +328,7 @@ export default function LessonPage() {
         <div className="w-[280px] shrink-0 flex flex-col gap-4">
           <div className="bg-white rounded-pg-xl border border-pg-line overflow-hidden sticky top-20" style={{ boxShadow: "0 8px 24px rgba(28,50,67,0.06)" }}>
             <div className="p-4 border-b border-pg-line">
-              <p className="font-['Poppins',sans-serif] font-bold text-pg-navy text-sm">Course outline</p>
+              <p className="font-bold text-pg-navy text-sm">Course outline</p>
               <div className="mt-2 flex items-center gap-2">
                 <div className="flex-1 h-1.5 bg-pg-line rounded-full overflow-hidden">
                   <div
@@ -336,7 +336,7 @@ export default function LessonPage() {
                     style={{ width: `${(completed.size / LESSONS.length) * 100}%` }}
                   />
                 </div>
-                <span className="font-['Poppins',sans-serif] text-xs text-pg-slate shrink-0">
+                <span className="text-xs text-pg-slate shrink-0">
                   {completed.size}/{LESSONS.length}
                 </span>
               </div>
@@ -365,12 +365,12 @@ export default function LessonPage() {
                       {isDone ? <CheckCircle2 size={13} /> : l.id}
                     </span>
                     <div className="flex-1 min-w-0">
-                      <p className={`font-['Poppins',sans-serif] text-xs leading-snug truncate ${
+                      <p className={`text-xs leading-snug truncate ${
                         isActive ? "font-semibold text-pg-navy" : "text-pg-slate"
                       }`}>
                         {l.title}
                       </p>
-                      <p className="font-['Poppins',sans-serif] text-xs text-pg-slate mt-0.5">{l.duration}</p>
+                      <p className="text-xs text-pg-slate mt-0.5">{l.duration}</p>
                     </div>
                     {isActive && <Play size={10} fill="#59797D" className="text-pg-teal shrink-0" />}
                   </motion.button>
@@ -381,7 +381,7 @@ export default function LessonPage() {
             <div className="p-4 border-t border-pg-line">
               <Link
                 to={`/courses/${COURSE_SLUG}`}
-                className="font-['Poppins',sans-serif] text-xs text-pg-teal hover:text-pg-teal-dark no-underline transition-colors flex items-center gap-1"
+                className="text-xs text-pg-teal hover:text-pg-teal-dark no-underline transition-colors flex items-center gap-1"
               >
                 <ChevronLeft size={13} />
                 Course overview
@@ -403,7 +403,7 @@ export default function LessonPage() {
           ) : (
             <Link
               to={`/courses/${COURSE_SLUG}`}
-              className="font-['Poppins',sans-serif] text-sm text-pg-teal hover:text-pg-teal-dark no-underline transition-colors"
+              className="text-sm text-pg-teal hover:text-pg-teal-dark no-underline transition-colors"
             >
               Back to Course
             </Link>

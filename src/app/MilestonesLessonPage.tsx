@@ -217,15 +217,15 @@ export default function MilestonesLessonPage() {
       {/* Breadcrumb */}
       <div className="bg-pg-tint-soft border-b border-pg-line pt-14 shrink-0">
         <div className="max-w-pg-page mx-auto px-6 h-10 flex items-center gap-2">
-          <Link to="/on-demand-courses" className="font-['Poppins',sans-serif] text-xs text-pg-teal-dark hover:text-pg-navy no-underline transition-colors shrink-0">
+          <Link to="/on-demand-courses" className="text-xs text-pg-teal-dark hover:text-pg-navy no-underline transition-colors shrink-0">
             ← Back to courses
           </Link>
           <ChevronRight size={13} className="text-pg-slate shrink-0 hidden sm:block" />
-          <Link to={`/courses/${COURSE_SLUG}`} className="font-['Poppins',sans-serif] text-xs text-pg-teal-dark hover:text-pg-navy no-underline transition-colors truncate min-w-0 hidden sm:block">
+          <Link to={`/courses/${COURSE_SLUG}`} className="text-xs text-pg-teal-dark hover:text-pg-navy no-underline transition-colors truncate min-w-0 hidden sm:block">
             {COURSE_TITLE}
           </Link>
           <ChevronRight size={13} className="text-pg-slate shrink-0" />
-          <span className="font-['Poppins',sans-serif] text-xs font-semibold text-pg-navy truncate min-w-0">{lesson.title}</span>
+          <span className="text-xs font-semibold text-pg-navy truncate min-w-0">{lesson.title}</span>
         </div>
       </div>
 
@@ -239,13 +239,13 @@ export default function MilestonesLessonPage() {
           <div className="flex items-start justify-between gap-4">
             <div>
               <div className="flex items-center gap-2 mb-1">
-                <span className="font-['Poppins',sans-serif] font-semibold text-[11px] uppercase tracking-[1.4px] text-pg-teal-dark bg-pg-tint px-2.5 py-0.5 rounded-pg-sm">
+                <span className="font-semibold text-[11px] uppercase tracking-[1.4px] text-pg-teal-dark bg-pg-tint px-2.5 py-0.5 rounded-pg-sm">
                   Lesson {lesson.id} of {LESSONS.length}
                 </span>
-                <span className="font-['Poppins',sans-serif] text-xs text-pg-slate">{lesson.duration}</span>
+                <span className="text-xs text-pg-slate">{lesson.duration}</span>
               </div>
-              <p className="font-['Poppins',sans-serif] text-xs text-pg-teal-dark mb-1">{lesson.module}</p>
-              <h1 className="font-['Poppins',sans-serif] font-bold text-pg-navy text-xl leading-tight">{lesson.title}</h1>
+              <p className="text-xs text-pg-teal-dark mb-1">{lesson.module}</p>
+              <h1 className="font-bold text-pg-navy text-xl leading-tight">{lesson.title}</h1>
             </div>
             <Button variant="secondary" size="s" onClick={markComplete} aria-pressed={completed.has(lesson.id)} className={`shrink-0 gap-1.5 ${completed.has(lesson.id) ? "bg-pg-tint" : ""}`}>
               {completed.has(lesson.id) ? <CheckCircle2 size={13} /> : <Circle size={13} />}
@@ -265,7 +265,7 @@ export default function MilestonesLessonPage() {
               className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-(--pg-dur-base) ${playing ? "opacity-50" : "opacity-75"}`}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-            <div className="absolute top-3 left-3 bg-black/60 text-white font-['Poppins',sans-serif] text-xs font-semibold px-2 py-0.5 rounded-pg-sm">
+            <div className="absolute top-3 left-3 bg-black/60 text-white text-xs font-semibold px-2 py-0.5 rounded-pg-sm">
               {lesson.duration}
             </div>
 
@@ -298,7 +298,7 @@ export default function MilestonesLessonPage() {
                   <button className="text-white/80 hover:text-white transition-colors" onClick={e => { e.stopPropagation(); setPlaying(p => !p); }}>
                     {playing ? <Pause size={15} fill="white" /> : <Play size={15} fill="white" className="ml-0.5" />}
                   </button>
-                  <span className="font-['Poppins',sans-serif] text-white/80 text-xs">{elapsedStr} / {lesson.duration}</span>
+                  <span className="text-white/80 text-xs">{elapsedStr} / {lesson.duration}</span>
                   <Volume2 size={14} className="text-white/60 hover:text-white cursor-pointer transition-colors" onClick={e => e.stopPropagation()} />
                 </div>
                 <div className="flex items-center gap-3">
@@ -317,7 +317,7 @@ export default function MilestonesLessonPage() {
                 <button
                   key={tab}
                   onClick={() => setActiveTab(tab)}
-                  className={`flex items-center gap-1.5 px-5 py-3.5 font-['Poppins',sans-serif] text-xs font-semibold transition-colors border-b-2 ${
+                  className={`flex items-center gap-1.5 px-5 py-3.5 text-xs font-semibold transition-colors border-b-2 ${
                     activeTab === tab ? "border-pg-teal text-pg-teal" : "border-transparent text-pg-slate hover:text-pg-navy"
                   }`}
                 >
@@ -331,7 +331,7 @@ export default function MilestonesLessonPage() {
             <div className="p-6">
               <AnimatePresence mode="wait">
                 {activeTab === "Overview" && (
-                  <motion.p key="ov" className="font-['Poppins',sans-serif] text-pg-slate text-sm leading-relaxed"
+                  <motion.p key="ov" className="text-pg-slate text-sm leading-relaxed"
                     initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.22 }}>
                     {lesson.description}
                   </motion.p>
@@ -342,7 +342,7 @@ export default function MilestonesLessonPage() {
                     {lesson.takeaways.map((item, i) => (
                       <li key={i} className="flex items-start gap-2.5">
                         <CheckCircle2 size={14} className="text-pg-teal shrink-0 mt-0.5" />
-                        <span className="font-['Poppins',sans-serif] text-pg-navy text-sm leading-snug">{item}</span>
+                        <span className="text-pg-navy text-sm leading-snug">{item}</span>
                       </li>
                     ))}
                   </motion.ul>
@@ -354,9 +354,9 @@ export default function MilestonesLessonPage() {
                       <div key={i} className="flex items-center justify-between p-3 rounded-pg-md border border-pg-line hover:border-pg-sage transition-colors cursor-pointer">
                         <div className="flex items-center gap-2.5">
                           <FileText size={14} className="text-pg-sage" />
-                          <span className="font-['Poppins',sans-serif] text-sm text-pg-navy">{r.label}</span>
+                          <span className="text-sm text-pg-navy">{r.label}</span>
                         </div>
-                        <span className="font-['Poppins',sans-serif] text-xs font-semibold text-pg-teal bg-pg-tint px-2 py-0.5 rounded-full">{r.type}</span>
+                        <span className="text-xs font-semibold text-pg-teal bg-pg-tint px-2 py-0.5 rounded-full">{r.type}</span>
                       </div>
                     ))}
                   </motion.div>
@@ -370,12 +370,12 @@ export default function MilestonesLessonPage() {
         <div className="w-full lg:w-[280px] shrink-0">
           <div className="bg-white rounded-pg-xl border border-pg-line overflow-hidden lg:sticky lg:top-20" style={{ boxShadow: "0 8px 24px rgba(28,50,67,0.06)" }}>
             <div className="p-4 border-b border-pg-line">
-              <p className="font-['Poppins',sans-serif] font-bold text-pg-navy text-sm">Course outline</p>
+              <p className="font-bold text-pg-navy text-sm">Course outline</p>
               <div className="mt-2 flex items-center gap-2">
                 <div className="flex-1 h-1.5 bg-pg-line rounded-full overflow-hidden">
                   <div className="h-full bg-pg-teal rounded-full transition-all duration-(--pg-dur-reveal)" style={{ width: `${(completed.size / LESSONS.length) * 100}%` }} />
                 </div>
-                <span className="font-['Poppins',sans-serif] text-xs text-pg-slate shrink-0">{completed.size}/{LESSONS.length}</span>
+                <span className="text-xs text-pg-slate shrink-0">{completed.size}/{LESSONS.length}</span>
               </div>
             </div>
 
@@ -388,7 +388,7 @@ export default function MilestonesLessonPage() {
                 return (
                   <div key={l.id}>
                     {showModule && (
-                      <p className="font-['Poppins',sans-serif] font-bold text-xs text-pg-navy px-4 pt-3 pb-1 leading-snug bg-pg-cream">
+                      <p className="font-bold text-xs text-pg-navy px-4 pt-3 pb-1 leading-snug bg-pg-cream">
                         {l.module}
                       </p>
                     )}
@@ -403,10 +403,10 @@ export default function MilestonesLessonPage() {
                         {isDone ? <CheckCircle2 size={12} /> : l.id}
                       </span>
                       <div className="flex-1 min-w-0">
-                        <p className={`font-['Poppins',sans-serif] text-xs leading-snug truncate ${isActive ? "font-semibold text-pg-navy" : "text-pg-slate"}`}>
+                        <p className={`text-xs leading-snug truncate ${isActive ? "font-semibold text-pg-navy" : "text-pg-slate"}`}>
                           {l.title}
                         </p>
-                        <p className="font-['Poppins',sans-serif] text-xs text-pg-slate mt-0.5">{l.duration}</p>
+                        <p className="text-xs text-pg-slate mt-0.5">{l.duration}</p>
                       </div>
                       {isActive && <Play size={10} fill="#59797D" className="text-pg-teal shrink-0" />}
                     </motion.button>
@@ -416,7 +416,7 @@ export default function MilestonesLessonPage() {
             </div>
 
             <div className="p-4 border-t border-pg-line">
-              <Link to={`/courses/${COURSE_SLUG}`} className="font-['Poppins',sans-serif] text-xs text-pg-teal hover:text-pg-teal-dark no-underline transition-colors flex items-center gap-1">
+              <Link to={`/courses/${COURSE_SLUG}`} className="text-xs text-pg-teal hover:text-pg-teal-dark no-underline transition-colors flex items-center gap-1">
                 <ChevronLeft size={13} /> Course overview
               </Link>
             </div>
@@ -434,7 +434,7 @@ export default function MilestonesLessonPage() {
               <span className="hidden sm:inline">{prevLesson.title}</span>
             </Button>
           ) : (
-            <Link to={`/courses/${COURSE_SLUG}`} className="font-['Poppins',sans-serif] text-sm text-pg-teal hover:text-pg-teal-dark no-underline transition-colors">
+            <Link to={`/courses/${COURSE_SLUG}`} className="text-sm text-pg-teal hover:text-pg-teal-dark no-underline transition-colors">
               Back to Course
             </Link>
           )}

@@ -41,6 +41,7 @@ fuera de paleta se consolidaron así:
 | Bordes grises (`#e8ebed`, `#dde0e0`, `#e0e0e0`…) | `pg-line` |
 | Divisores cálidos (`#ebe8e5`, `#f1eeee`…) | `pg-cream-dark` |
 | `#c8893a` / `#52bd95` | nuevos tokens `pg-amber` / `pg-live` (solo decorativos) |
+| `#6b5c8d` / `#f0edf7` (badge "Guide") | icono `pg-success` sobre `pg-success-soft`, texto `pg-navy` |
 
 Se dejan como hex, a propósito: los colores de los logos SVG (arte de marca), las paletas de categorías de cursos y
 temas (colores de datos) y los valores dentro de props de animación (`whileHover`), que ya usan valores de la paleta.
@@ -55,14 +56,14 @@ temas (colores de datos) y los valores dentro de props de animación (`whileHove
 | ✅ Duraciones | 16 valores → 4 bandas (0.15 / 0.22 / 0.35 / 0.55 s); clases `duration-(--pg-dur-*)` en CSS |
 | ✅ Tema shadcn | `tokens.css` mapea `--primary`, `--ring`, `--border`… a la paleta PG |
 | ✅ Botones | ~45 botones de acción en 17 archivos → `<Button>`, `<ButtonLink>` y `<ButtonAnchor>` ([Botones](./02-botones.md)): 8px, alturas 36/44/52, sin navy ni sage, sin píldoras |
-| Fuente | Pendiente: quitar `font-['Poppins',sans-serif]` de cada elemento (ya se aplica en `body`) |
+| ✅ Fuente | Se quitaron las 428 clases `font-['Poppins',sans-serif]`: Poppins se aplica una sola vez en `body` (`tokens.css`) |
 
 ## 5.4 Otros
 
-- `src/imports` incluye capturas completas de parentguidance.org (unos 19 MB) y otras imágenes que el código no usa (`QB_united.png`, `ADDO.png`, `image.png`, `pasted_text`…). Se
-  pueden mover fuera del repositorio.
-- El `<title>` y la descripción de `index.html` son los genéricos de Figma Make ("Enables designers to
-  create interactive prototypes…").
+- ✅ Se borraron de `src/imports` las capturas de parentguidance.org, las imágenes sin uso (`QB_united.png`, `ADDO.png`,
+  `image.png`…), el componente de Figma Make sin usar `CreateLivePrototypeWithTransitions/index.tsx` y `pasted_text`:
+  la carpeta pasó de 38 MB a 8,8 MB.
+- ✅ El `<title>` y la descripción de `index.html` ya hablan de Parent Guidance.
 - Hay dos versiones de la home (`HomePageV1`, `HomePageV2`). Conviene decidir cuál es la vigente.
 
 ## 5.5 Orden de migración sugerido

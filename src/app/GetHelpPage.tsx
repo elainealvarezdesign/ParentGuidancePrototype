@@ -171,18 +171,18 @@ export default function GetHelpPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55 }}
             >
-              <p className="font-['Poppins',sans-serif] text-pg-teal-dark text-xs font-semibold tracking-[0.16em] uppercase mb-5">
+              <p className="text-pg-teal-dark text-xs font-semibold tracking-[0.16em] uppercase mb-5">
                 Get Help
               </p>
-              <h1 className="font-['Poppins',sans-serif] text-pg-navy font-bold text-[38px] md:text-[50px] leading-[1.08] tracking-[-0.02em]">
+              <h1 className="text-pg-navy font-bold text-[38px] md:text-[50px] leading-[1.08] tracking-[-0.02em]">
                 Find the right support, right when you need it.
               </h1>
-              <p className="font-['Poppins',sans-serif] text-pg-slate text-base md:text-lg leading-relaxed mt-6 max-w-[500px]">
+              <p className="text-pg-slate text-base md:text-lg leading-relaxed mt-6 max-w-[500px]">
                 Explore trusted crisis lines and mental health resources for you or someone you care about.
               </p>
               <div className="mt-7 flex items-start gap-3 rounded-pg-lg bg-white/70 border border-pg-cream-dark px-4 py-4 max-w-[500px]">
                 <AlertCircle className="text-pg-navy shrink-0 mt-0.5" size={21} />
-                <p className="font-['Poppins',sans-serif] text-pg-navy text-sm leading-relaxed">
+                <p className="text-pg-navy text-sm leading-relaxed">
                   If you or someone you know is in immediate danger, <strong>call 911.</strong>
                 </p>
               </div>
@@ -221,11 +221,11 @@ export default function GetHelpPage() {
       />
 
       <div className="text-center md:text-left">
-        <h2 className="font-['Poppins',sans-serif] font-bold text-white text-[32px] md:text-[40px] leading-tight">
+        <h2 className="font-bold text-white text-[32px] md:text-[40px] leading-tight">
           Need Help Now?
         </h2>
 
-        <p className="font-['Poppins',sans-serif] text-white/85 text-base md:text-lg mt-2">
+        <p className="text-white/85 text-base md:text-lg mt-2">
           Free, Confidential Support is Available 24/7
         </p>
 
@@ -254,10 +254,10 @@ export default function GetHelpPage() {
       <section className="bg-pg-tint-soft px-6 md:px-10 lg:px-14 py-16">
         <div className="max-w-pg-page mx-auto">
           <div className="text-center max-w-pg-reading mx-auto">
-            <p className="font-['Poppins',sans-serif] text-pg-teal-dark text-xs font-semibold tracking-[0.14em] uppercase">
+            <p className="text-pg-teal-dark text-xs font-semibold tracking-[0.14em] uppercase">
               Trusted support
             </p>
-            <h2 className="font-['Poppins',sans-serif] font-bold text-pg-navy text-3xl md:text-4xl mt-3">
+            <h2 className="font-bold text-pg-navy text-3xl md:text-4xl mt-3">
               Browse support resources
             </h2>
           </div>
@@ -269,7 +269,7 @@ export default function GetHelpPage() {
                 value={search}
                 onChange={(event) => setSearch(event.target.value)}
                 placeholder="Search resources..."
-                className="w-full bg-white border border-pg-line rounded-pg-lg pl-12 pr-12 py-4 font-['Poppins',sans-serif] text-pg-navy text-sm outline-none focus:ring-2 focus:ring-pg-sage/40"
+                className="w-full bg-white border border-pg-line rounded-pg-lg pl-12 pr-12 py-4 text-pg-navy text-sm outline-none focus:ring-2 focus:ring-pg-sage/40"
               />
               {search && (
                 <button
@@ -292,7 +292,7 @@ export default function GetHelpPage() {
                   key={category}
                   type="button"
                   onClick={() => setActiveCategory(category)}
-                  className={`rounded-full px-4 py-2 font-['Poppins',sans-serif] text-xs font-medium transition-colors ${
+                  className={`rounded-full px-4 py-2 text-xs font-medium transition-colors ${
                     active
                       ? "bg-pg-navy text-white"
                       : "bg-white border border-pg-line text-pg-slate hover:bg-pg-tint"
@@ -312,7 +312,7 @@ export default function GetHelpPage() {
             </div>
           ) : (
             <div className="mt-10 bg-white rounded-pg-xl border border-pg-cream-dark p-10 text-center">
-              <p className="font-['Poppins',sans-serif] font-semibold text-pg-navy">
+              <p className="font-semibold text-pg-navy">
                 No resources match your search.
               </p>
               <button
@@ -321,7 +321,7 @@ export default function GetHelpPage() {
                   setSearch("");
                   setActiveCategory("All");
                 }}
-                className="mt-4 text-pg-teal font-['Poppins',sans-serif] text-sm font-semibold"
+                className="mt-4 text-pg-teal text-sm font-semibold"
               >
                 Clear filters
               </button>
@@ -338,10 +338,10 @@ export default function GetHelpPage() {
               <Signpost size={46} className="text-pg-teal-dark" aria-hidden="true" />
             </div>
             <div className="flex-1 text-center md:text-left">
-              <h2 className="font-['Poppins',sans-serif] font-bold text-pg-navy text-2xl md:text-3xl">
+              <h2 className="font-bold text-pg-navy text-2xl md:text-3xl">
 Not sure which resource  {" "}
 <span className="whitespace-nowrap">is right for you?</span>              </h2>
-              <p className="font-['Poppins',sans-serif] text-pg-navy text-sm md:text-base mt-2">
+              <p className="text-pg-navy text-sm md:text-base mt-2">
                 Answer a few simple questions to find the best place to start.
               </p>
             </div>
@@ -375,10 +375,10 @@ Not sure which resource  {" "}
             <div key={title} className="flex items-center gap-4 md:justify-center">
               <Icon size={34} className="text-pg-teal shrink-0" />
               <div>
-                <p className="font-['Poppins',sans-serif] text-pg-navy text-sm font-semibold">
+                <p className="text-pg-navy text-sm font-semibold">
                   {title}
                 </p>
-                <p className="font-['Poppins',sans-serif] text-pg-slate text-xs mt-1">
+                <p className="text-pg-slate text-xs mt-1">
                   {copy}
                 </p>
               </div>

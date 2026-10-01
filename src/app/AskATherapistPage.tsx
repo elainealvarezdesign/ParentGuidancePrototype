@@ -170,8 +170,8 @@ function SubmitModal({ onClose }: { onClose: () => void }) {
             <MessageCircle size={17} className="text-pg-sage" />
           </div>
           <div>
-            <h3 className="font-['Poppins',sans-serif] font-bold text-white text-base leading-tight">Ask a Therapist</h3>
-            <p className="font-['Poppins',sans-serif] text-pg-sage text-xs">Licensed therapists respond within 48 hours</p>
+            <h3 className="font-bold text-white text-base leading-tight">Ask a Therapist</h3>
+            <p className="text-pg-sage text-xs">Licensed therapists respond within 48 hours</p>
           </div>
           <button
             type="button"
@@ -186,7 +186,7 @@ function SubmitModal({ onClose }: { onClose: () => void }) {
         {!submitted ? (
           <form onSubmit={handleSubmit} className="p-8 flex flex-col gap-5">
             <div className="flex flex-col gap-1.5">
-              <label className="font-['Poppins',sans-serif] font-semibold text-pg-navy text-sm">
+              <label className="font-semibold text-pg-navy text-sm">
                 Your Question <span className="text-pg-teal">*</span>
               </label>
               <textarea
@@ -195,21 +195,21 @@ function SubmitModal({ onClose }: { onClose: () => void }) {
                 placeholder="What would you like to ask our therapists about your child's mental health?"
                 rows={4}
                 required
-                className="font-['Poppins',sans-serif] text-sm text-pg-navy placeholder:text-pg-teal border border-pg-line rounded-pg-md px-4 py-3 outline-none focus:border-pg-sage transition-colors resize-none"
+                className="text-sm text-pg-navy placeholder:text-pg-teal border border-pg-line rounded-pg-md px-4 py-3 outline-none focus:border-pg-sage transition-colors resize-none"
               />
             </div>
             <div className="flex gap-4">
               <div className="flex flex-col gap-1.5 flex-1">
-                <label className="font-['Poppins',sans-serif] font-semibold text-pg-navy text-sm">Your Name</label>
+                <label className="font-semibold text-pg-navy text-sm">Your Name</label>
                 <input
                   value={name}
                   onChange={e => setName(e.target.value)}
                   placeholder="Optional"
-                  className="font-['Poppins',sans-serif] text-sm text-pg-navy placeholder:text-pg-teal border border-pg-line rounded-pg-md px-4 py-2.5 outline-none focus:border-pg-sage transition-colors"
+                  className="text-sm text-pg-navy placeholder:text-pg-teal border border-pg-line rounded-pg-md px-4 py-2.5 outline-none focus:border-pg-sage transition-colors"
                 />
               </div>
               <div className="flex flex-col gap-1.5 flex-1">
-                <label className="font-['Poppins',sans-serif] font-semibold text-pg-navy text-sm">
+                <label className="font-semibold text-pg-navy text-sm">
                   Email <span className="text-pg-teal">*</span>
                 </label>
                 <input
@@ -218,11 +218,11 @@ function SubmitModal({ onClose }: { onClose: () => void }) {
                   placeholder="your@email.com"
                   type="email"
                   required
-                  className="font-['Poppins',sans-serif] text-sm text-pg-navy placeholder:text-pg-teal border border-pg-line rounded-pg-md px-4 py-2.5 outline-none focus:border-pg-sage transition-colors"
+                  className="text-sm text-pg-navy placeholder:text-pg-teal border border-pg-line rounded-pg-md px-4 py-2.5 outline-none focus:border-pg-sage transition-colors"
                 />
               </div>
             </div>
-            <p className="font-['Poppins',sans-serif] text-pg-slate text-xs leading-relaxed">
+            <p className="text-pg-slate text-xs leading-relaxed">
               Your question may be published anonymously to help other parents. Your email is for notification only and will not be shared publicly.
             </p>
             <Button type="submit" className="w-full">
@@ -240,8 +240,8 @@ function SubmitModal({ onClose }: { onClose: () => void }) {
             >
               <CheckCircle size={28} className="text-pg-teal" />
             </motion.div>
-            <h3 className="font-['Poppins',sans-serif] font-bold text-pg-navy text-xl">Question Submitted!</h3>
-            <p className="font-['Poppins',sans-serif] text-pg-slate text-sm leading-relaxed max-w-xs">
+            <h3 className="font-bold text-pg-navy text-xl">Question Submitted!</h3>
+            <p className="text-pg-slate text-sm leading-relaxed max-w-xs">
               Thank you! Our team will review your question and a licensed therapist will respond within 48 hours.
             </p>
             <Button onClick={onClose} className="mt-2">
@@ -278,27 +278,27 @@ function QACard({ item, index }: { item: QAItem; index: number }) {
         />
         {/* Category pill */}
         <div className="absolute top-3 left-3">
-          <span className="font-['Poppins',sans-serif] font-semibold text-xs text-white bg-pg-navy/80 backdrop-blur-sm px-2.5 py-1 rounded-full">
+          <span className="font-semibold text-xs text-white bg-pg-navy/80 backdrop-blur-sm px-2.5 py-1 rounded-full">
             {item.category}
           </span>
         </div>
         {/* Therapist avatar */}
         <div className="absolute bottom-3 left-3">
           <div className="w-7 h-7 rounded-full bg-pg-sage border-2 border-white flex items-center justify-center shadow-pg-card">
-            <span className="font-['Poppins',sans-serif] font-bold text-pg-navy text-xs">KS</span>
+            <span className="font-bold text-pg-navy text-xs">KS</span>
           </div>
         </div>
       </div>
 
       {/* Content */}
       <div className="p-5 flex flex-col gap-3 flex-1">
-        <p className="font-['Poppins',sans-serif] font-semibold text-pg-navy text-sm leading-[1.5] group-hover:text-pg-teal transition-colors flex-1">
+        <p className="font-semibold text-pg-navy text-sm leading-[1.5] group-hover:text-pg-teal transition-colors flex-1">
           {item.question}
         </p>
         <ButtonLink to={`/ask-a-therapist/${item.id}`} className="w-full">
           View Answer <ArrowRight size={16} aria-hidden="true" />
         </ButtonLink>
-        <p className="font-['Poppins',sans-serif] text-pg-slate text-xs text-center">
+        <p className="text-pg-slate text-xs text-center">
           Answered by: <span className="text-pg-slate font-medium">{item.therapist}</span>
         </p>
       </div>
@@ -349,29 +349,29 @@ export default function AskATherapistPage() {
         transition={{ duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}
       >
         {/* Latest badge */}
-        <div className="inline-flex items-center gap-2 bg-pg-teal text-white font-['Poppins',sans-serif] font-semibold text-[11px] uppercase tracking-[0.16em] px-4 py-2 rounded-pg-md mb-8">
+        <div className="inline-flex items-center gap-2 bg-pg-teal text-white font-semibold text-[11px] uppercase tracking-[0.16em] px-4 py-2 rounded-pg-md mb-8">
           <span className="w-1.5 h-1.5 rounded-full bg-white/80" />
           Latest Answer
         </div>
 
         {/* Question */}
-        <h1 className="font-['Poppins',sans-serif] font-bold text-pg-navy text-3xl md:text-[40px] leading-[1.08] mb-8">
+        <h1 className="font-bold text-pg-navy text-3xl md:text-[40px] leading-[1.08] mb-8">
           {FEATURED.question}
         </h1>
 
         {/* Therapist */}
         <div className="flex items-center gap-3 mb-10">
           <div className="w-9 h-9 rounded-full bg-pg-sage flex items-center justify-center">
-            <span className="font-['Poppins',sans-serif] font-semibold text-pg-navy text-xs">
+            <span className="font-semibold text-pg-navy text-xs">
               KS
             </span>
           </div>
 
           <div>
-            <p className="font-['Poppins',sans-serif] font-semibold text-pg-teal-dark text-sm leading-tight">
+            <p className="font-semibold text-pg-teal-dark text-sm leading-tight">
               {FEATURED.therapist}
             </p>
-            <p className="font-['Poppins',sans-serif] text-pg-teal-dark text-xs">
+            <p className="text-pg-teal-dark text-xs">
               {FEATURED.credential}
             </p>
           </div>
@@ -427,7 +427,7 @@ export default function AskATherapistPage() {
         value={search}
         onChange={(event) => handleSearch(event.target.value)}
         placeholder="Search questions..."
-        className="w-full bg-pg-cream font-['Poppins',sans-serif] text-sm text-pg-navy placeholder:text-pg-teal pl-9 pr-9 py-2.5 rounded-pg-md outline-none focus:ring-2 focus:ring-pg-sage/30"
+        className="w-full bg-pg-cream text-sm text-pg-navy placeholder:text-pg-teal pl-9 pr-9 py-2.5 rounded-pg-md outline-none focus:ring-2 focus:ring-pg-sage/30"
       />
 
       {search && (
@@ -452,7 +452,7 @@ export default function AskATherapistPage() {
             key={category}
             type="button"
             onClick={() => handleCategoryChange(category)}
-            className={`shrink-0 font-['Poppins',sans-serif] text-xs font-medium px-4 py-2 rounded-full transition-colors ${
+            className={`shrink-0 text-xs font-medium px-4 py-2 rounded-full transition-colors ${
               selected
                 ? "bg-pg-navy text-white"
                 : "bg-pg-cream-dark text-pg-slate hover:bg-pg-cream-dark"
@@ -467,7 +467,7 @@ export default function AskATherapistPage() {
     {/* Featured control */}
     <button
       type="button"
-      className="shrink-0 inline-flex items-center gap-3 bg-pg-cream-dark text-pg-slate font-['Poppins',sans-serif] text-xs font-medium px-4 py-2.5 rounded-pg-md"
+      className="shrink-0 inline-flex items-center gap-3 bg-pg-cream-dark text-pg-slate text-xs font-medium px-4 py-2.5 rounded-pg-md"
     >
       <span className="flex flex-col gap-[2px]">
         <span className="block w-3 h-px bg-current" />
@@ -499,10 +499,10 @@ export default function AskATherapistPage() {
                 <MessageCircle size={18} className="text-pg-sage" />
               </div>
               <div className="flex flex-col gap-1.5">
-                <h3 className="font-['Poppins',sans-serif] font-bold text-white text-base leading-snug">
+                <h3 className="font-bold text-white text-base leading-snug">
                   Have a question for our therapists?
                 </h3>
-                <p className="font-['Poppins',sans-serif] text-pg-sage text-xs leading-relaxed">
+                <p className="text-pg-sage text-xs leading-relaxed">
                   Our therapists answer the difficult questions you have about your child.
                 </p>
               </div>
@@ -526,7 +526,7 @@ export default function AskATherapistPage() {
                 className="w-full h-full object-cover rounded-pg-md"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-pg-navy/80 to-transparent rounded-pg-md" />
-              <p className="absolute bottom-4 left-4 right-4 font-['Poppins',sans-serif] font-semibold text-white text-xs leading-snug">
+              <p className="absolute bottom-4 left-4 right-4 font-semibold text-white text-xs leading-snug">
                 Expert therapists available to answer your questions
               </p>
             </motion.div>
@@ -540,9 +540,9 @@ export default function AskATherapistPage() {
             <div className="flex flex-wrap items-center justify-between gap-3 mb-5">
               <div className="flex items-center gap-2.5">
                 <div className="w-1 h-5 rounded-full bg-pg-sage" />
-                <span className="font-['Poppins',sans-serif] font-semibold text-pg-navy text-lg">Browse All</span>
+                <span className="font-semibold text-pg-navy text-lg">Browse All</span>
                 <div className="bg-pg-tint rounded-full px-2.5 py-0.5">
-                  <span className="font-['Poppins',sans-serif] font-medium text-pg-teal-dark text-xs">
+                  <span className="font-medium text-pg-teal-dark text-xs">
                     {filtered.length} questions
                   </span>
                 </div>
@@ -554,7 +554,7 @@ export default function AskATherapistPage() {
                   value={search}
                   onChange={e => handleSearch(e.target.value)}
                   placeholder="Search questions…"
-                  className="font-['Poppins',sans-serif] text-[12px] text-pg-navy placeholder:text-pg-teal border border-pg-line rounded-pg-md pl-8 pr-4 py-2 w-full sm:w-[200px] outline-none focus:border-pg-sage bg-white transition-colors"
+                  className="text-[12px] text-pg-navy placeholder:text-pg-teal border border-pg-line rounded-pg-md pl-8 pr-4 py-2 w-full sm:w-[200px] outline-none focus:border-pg-sage bg-white transition-colors"
                 />
               </div>
             </div>
@@ -565,7 +565,7 @@ export default function AskATherapistPage() {
                 <motion.button
                   key={cat}
                   onClick={() => handleCategoryChange(cat)}
-                  className="font-['Poppins',sans-serif] font-medium text-[12px] px-4 py-2 rounded-full whitespace-nowrap transition-colors"
+                  className="font-medium text-[12px] px-4 py-2 rounded-full whitespace-nowrap transition-colors"
                   style={{
                     background: activeCategory === cat ? "var(--pg-navy)" : "#ffffff",
                     color: activeCategory === cat ? "#ffffff" : "var(--pg-slate)",
@@ -589,8 +589,8 @@ export default function AskATherapistPage() {
             ) : (
               <div className="flex flex-col items-center justify-center py-20 text-center">
                 <MessageCircle size={36} className="text-pg-slate mb-3" />
-                <p className="font-['Poppins',sans-serif] font-semibold text-pg-navy text-sm">No questions found</p>
-                <p className="font-['Poppins',sans-serif] text-pg-slate text-xs mt-1.5">Try a different category or search term</p>
+                <p className="font-semibold text-pg-navy text-sm">No questions found</p>
+                <p className="text-pg-slate text-xs mt-1.5">Try a different category or search term</p>
                 <Button variant="secondary" size="s" onClick={() => { setActiveCategory("All"); setSearch(""); }} className="mt-4">
                   Clear filters
                 </Button>
@@ -609,7 +609,7 @@ export default function AskATherapistPage() {
                     <motion.button
                       key={p}
                       onClick={() => setPage(p)}
-                      className="w-9 h-9 font-['Poppins',sans-serif] text-sm font-medium rounded-pg-md transition-colors"
+                      className="w-9 h-9 text-sm font-medium rounded-pg-md transition-colors"
                       style={{
                         background: page === p ? "var(--pg-navy)" : "transparent",
                         color: page === p ? "#ffffff" : "var(--pg-navy)",
@@ -653,10 +653,10 @@ export default function AskATherapistPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.55 }}
           >
-            <h2 className="font-['Poppins',sans-serif] font-bold text-pg-navy text-3xl md:text-4xl leading-tight max-w-md">
+            <h2 className="font-bold text-pg-navy text-3xl md:text-4xl leading-tight max-w-md">
               Looking for additional help?
             </h2>
-            <p className="font-['Poppins',sans-serif] text-pg-navy text-sm leading-relaxed max-w-sm">
+            <p className="text-pg-navy text-sm leading-relaxed max-w-sm">
               Our expert coaches will work one-on-one with you as you navigate your child's ups and downs.{" "}
               <strong>These services may be free to you through your child's school district.</strong>
             </p>

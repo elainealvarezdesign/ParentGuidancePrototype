@@ -336,14 +336,14 @@ function Hero() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
-          <span className="font-['Poppins',sans-serif] text-xs font-semibold uppercase tracking-[1.4px] text-pg-teal-dark">
+          <span className="text-xs font-semibold uppercase tracking-[1.4px] text-pg-teal-dark">
             On-Demand Courses
           </span>
-          <h1 className="font-['Poppins',sans-serif] font-bold text-pg-navy text-[40px] leading-[1.15]">
+          <h1 className="font-bold text-pg-navy text-[40px] leading-[1.15]">
             {"Expert-led courses to help you "}
             <em className="italic text-pg-teal">parent with confidence.</em>
           </h1>
-          <p className="font-['Poppins',sans-serif] text-pg-slate text-base leading-[26px] max-w-[380px]">
+          <p className="text-pg-slate text-base leading-[26px] max-w-[380px]">
             Learn at your own pace from licensed therapists — practical tools for the real challenges families face every day.
           </p>
           <div className="flex items-center gap-3 pt-1">
@@ -491,7 +491,7 @@ export default function OnDemandCoursesPage() {
               value={search}
               onChange={e => setSearchAndReset(e.target.value)}
               placeholder="Search courses…"
-              className="w-full bg-pg-cream font-['Poppins',sans-serif] text-sm text-pg-navy placeholder:text-pg-teal pl-9 pr-4 py-2 rounded-pg-md outline-none border border-transparent focus:border-pg-sage focus:bg-white transition-all"
+              className="w-full bg-pg-cream text-sm text-pg-navy placeholder:text-pg-teal pl-9 pr-4 py-2 rounded-pg-md outline-none border border-transparent focus:border-pg-sage focus:bg-white transition-all"
             />
             {search && (
               <button onClick={() => setSearchAndReset("")} className="absolute right-3 top-1/2 -translate-y-1/2 text-pg-slate hover:text-pg-slate">
@@ -508,7 +508,7 @@ export default function OnDemandCoursesPage() {
               <button
                 key={t}
                 onClick={() => setTopicAndReset(t)}
-                className="shrink-0 font-['Poppins',sans-serif] text-xs font-medium px-3 py-1.5 rounded-full whitespace-nowrap transition-all"
+                className="shrink-0 text-xs font-medium px-3 py-1.5 rounded-full whitespace-nowrap transition-all"
                 style={{
                   background: activeTopic === t ? "var(--pg-navy)" : "var(--pg-tint-soft)",
                   color: activeTopic === t ? "#ffffff" : "var(--pg-slate)",
@@ -526,7 +526,7 @@ export default function OnDemandCoursesPage() {
           <div ref={sortRef} className="relative shrink-0">
             <button
               onClick={() => setSortOpen(v => !v)}
-              className="flex items-center gap-2 font-['Poppins',sans-serif] text-xs font-medium text-pg-slate bg-pg-tint-soft px-3 py-2 rounded-pg-md hover:bg-pg-line transition-colors"
+              className="flex items-center gap-2 text-xs font-medium text-pg-slate bg-pg-tint-soft px-3 py-2 rounded-pg-md hover:bg-pg-line transition-colors"
             >
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
                 <path d="M3 6h18M6 12h12M10 18h4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
@@ -550,7 +550,7 @@ export default function OnDemandCoursesPage() {
                     <button
                       key={k}
                       onClick={() => { setSort(k); setSortOpen(false); }}
-                      className="w-full text-left px-4 py-2.5 font-['Poppins',sans-serif] text-xs transition-colors"
+                      className="w-full text-left px-4 py-2.5 text-xs transition-colors"
                       style={{
                         background: sort === k ? "var(--pg-tint-soft)" : "white",
                         color: sort === k ? "var(--pg-teal)" : "var(--pg-slate)",
@@ -573,16 +573,16 @@ export default function OnDemandCoursesPage() {
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-2">
             <div className="w-1 h-5 rounded-full bg-pg-sage" />
-            <span className="font-['Poppins',sans-serif] font-semibold text-pg-navy text-base">
+            <span className="font-semibold text-pg-navy text-base">
               {activeTopic === "All" ? "All Courses" : activeTopic}
             </span>
-            <span className="bg-pg-tint font-['Poppins',sans-serif] text-pg-teal-dark text-xs font-semibold px-2.5 py-0.5 rounded-full">
+            <span className="bg-pg-tint text-pg-teal-dark text-xs font-semibold px-2.5 py-0.5 rounded-full">
               {filtered.length}
             </span>
           </div>
           <div className="flex items-center gap-2">
             {search && (
-              <span className="flex items-center gap-1.5 bg-pg-cream border border-pg-sage text-pg-teal font-['Poppins',sans-serif] text-xs px-2.5 py-1 rounded-full">
+              <span className="flex items-center gap-1.5 bg-pg-cream border border-pg-sage text-pg-teal text-xs px-2.5 py-1 rounded-full">
                 &ldquo;{search}&rdquo;
                 <button onClick={() => setSearchAndReset("")} className="hover:text-pg-navy">
                   <svg width="10" height="10" viewBox="0 0 24 24" fill="none">
@@ -592,7 +592,7 @@ export default function OnDemandCoursesPage() {
               </span>
             )}
             {activeTopic !== "All" && (
-              <button onClick={() => setTopicAndReset("All")} className="font-['Poppins',sans-serif] text-xs text-pg-slate hover:text-pg-slate transition-colors">
+              <button onClick={() => setTopicAndReset("All")} className="text-xs text-pg-slate hover:text-pg-slate transition-colors">
                 Clear filters
               </button>
             )}
@@ -615,8 +615,8 @@ export default function OnDemandCoursesPage() {
                   <circle cx="11" cy="11" r="8" stroke="currentColor" strokeWidth="1.5" />
                   <path d="M21 21l-4.35-4.35" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                 </svg>
-                <p className="font-['Poppins',sans-serif] text-pg-slate text-sm">No courses found.</p>
-                <button onClick={() => { setSearchAndReset(""); setTopicAndReset("All"); }} className="font-['Poppins',sans-serif] text-xs text-pg-teal underline">Clear all filters</button>
+                <p className="text-pg-slate text-sm">No courses found.</p>
+                <button onClick={() => { setSearchAndReset(""); setTopicAndReset("All"); }} className="text-xs text-pg-teal underline">Clear all filters</button>
               </div>
             ) : (
               paginated.map((course, i) => <CourseCard key={course.id} course={course} index={i} />)
@@ -634,7 +634,7 @@ export default function OnDemandCoursesPage() {
               <button
                 key={p}
                 onClick={() => { setPage(p); window.scrollTo({ top: 0, behavior: scrollBehavior() }); }}
-                className="font-['Poppins',sans-serif] text-sm font-medium w-[43px] h-[43px] rounded-pg-md flex items-center justify-center transition-all"
+                className="text-sm font-medium w-[43px] h-[43px] rounded-pg-md flex items-center justify-center transition-all"
                 style={{
                   background: page === p ? "var(--pg-teal)" : "white",
                   color: page === p ? "#ffffff" : "var(--pg-slate)",
@@ -668,8 +668,8 @@ export default function OnDemandCoursesPage() {
           {/* Content */}
           <div className="relative z-10 h-full flex items-center px-14">
             <div className="flex flex-col gap-2 max-w-lg">
-              <h3 className="font-['Poppins',sans-serif] font-bold text-white text-xl">Looking for additional help?</h3>
-              <p className="font-['Poppins',sans-serif] text-pg-sage text-sm leading-relaxed">
+              <h3 className="font-bold text-white text-xl">Looking for additional help?</h3>
+              <p className="text-pg-sage text-sm leading-relaxed">
                 {"Our expert coaches work one-on-one with you. "}
                 <span className="font-semibold text-white">{"Services may be free through your child's school district."}</span>
               </p>

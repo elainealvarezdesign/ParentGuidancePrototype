@@ -17,15 +17,15 @@ export default function TermsOfUsePage() {
     <main className="min-h-screen bg-pg-cream print:bg-white">
       <section className="px-6 pb-14 pt-28 md:px-10 lg:px-14 print:hidden">
         <div className="mx-auto max-w-pg-content">
-          <p className="mb-3 font-['Poppins',sans-serif] text-sm font-semibold uppercase tracking-[0.14em] text-pg-teal-dark">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.14em] text-pg-teal-dark">
             Legal
           </p>
 
-          <h1 id="terms-of-use-title" tabIndex={-1} className="focus:outline-none font-['Poppins',sans-serif] text-4xl font-bold text-pg-navy md:text-5xl">
+          <h1 id="terms-of-use-title" tabIndex={-1} className="focus:outline-none text-4xl font-bold text-pg-navy md:text-5xl">
             Terms of Use
           </h1>
 
-          <p className="mt-4 max-w-pg-reading font-['Poppins',sans-serif] text-base leading-7 text-pg-slate">
+          <p className="mt-4 max-w-pg-reading text-base leading-7 text-pg-slate">
             Please read these Terms of Use carefully before accessing or using Parent Guidance's
             websites, the Online Education Platform, and related services.
           </p>

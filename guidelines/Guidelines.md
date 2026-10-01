@@ -24,7 +24,7 @@ crisis help. The UI must feel warm, calm and trustworthy. Full guidelines (Spani
 
 # Typography
 
-* Poppins only (400, 500, 600, 700).
+* Poppins only (400, 500, 600, 700). It is set once on `body`; do not add `font-['Poppins',sans-serif]` classes.
 * Scale: display 38/50px bold · h1 28/40px medium · h2 24px bold · h3 20px bold · h4 16px bold ·
   body-lg 16px · body 14px (default) · small 12px · eyebrow 11px semibold uppercase, tracking 0.12em.
 * Minimum text size 12px (only the uppercase eyebrow may be 11px).

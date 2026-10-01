@@ -60,31 +60,31 @@ export default function UnifiedCard({
         />
 
         {badge && (
-          <span className="absolute top-3 left-3 bg-pg-navy text-white rounded-full px-3 py-1 font-['Poppins',sans-serif] text-xs font-semibold">
+          <span className="absolute top-3 left-3 bg-pg-navy text-white rounded-full px-3 py-1 text-xs font-semibold">
             {badge}
           </span>
         )}
 
         {avatar && (
-          <span className="absolute bottom-3 left-3 w-8 h-8 rounded-full bg-pg-sage border-2 border-white flex items-center justify-center font-['Poppins',sans-serif] text-pg-navy text-xs font-semibold">
+          <span className="absolute bottom-3 left-3 w-8 h-8 rounded-full bg-pg-sage border-2 border-white flex items-center justify-center text-pg-navy text-xs font-semibold">
             {avatar}
           </span>
         )}
       </div>
 
       <div className="p-4 flex flex-col flex-1">
-        <h3 className="font-['Poppins',sans-serif] font-bold text-pg-navy text-base leading-[1.4] min-h-[44px]">
+        <h3 className="font-bold text-pg-navy text-base leading-[1.4] min-h-[44px]">
           {title}
         </h3>
 
         {description && (
-          <p className="font-['Poppins',sans-serif] text-pg-slate text-xs leading-relaxed mt-2">
+          <p className="text-pg-slate text-xs leading-relaxed mt-2">
             {description}
           </p>
         )}
 
         {metadata && (
-          <p className="font-['Poppins',sans-serif] text-pg-teal-dark text-xs mt-2">
+          <p className="text-pg-teal-dark text-xs mt-2">
             {metadata}
           </p>
         )}
@@ -114,7 +114,7 @@ export default function UnifiedCard({
           )}
 
           {footer && (
-            <p className="font-['Poppins',sans-serif] text-pg-slate text-xs text-center mt-3">
+            <p className="text-pg-slate text-xs text-center mt-3">
               {footer}
             </p>
           )}

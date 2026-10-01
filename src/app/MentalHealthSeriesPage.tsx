@@ -58,10 +58,10 @@ function TypeBadge({ type }: { type: ResourceType }) {
     <div className="bg-pg-tint relative rounded-full shrink-0 flex gap-[6px] items-center px-[10px] py-[4px]">
       <div className="relative shrink-0 size-[16px]">
         <svg className="block size-full" fill="none" viewBox="0 0 13.3333 13.3333">
-          <path d={svgPaths.p308c8130} fill="#59797D" />
+          <path d={svgPaths.p308c8130} fill="var(--pg-teal-dark)" />
         </svg>
       </div>
-      <span className="font-['Poppins',sans-serif] font-semibold leading-[15px] text-pg-teal text-xs whitespace-nowrap">Video</span>
+      <span className="font-semibold leading-[15px] text-pg-teal-dark text-xs whitespace-nowrap">Video</span>
     </div>
   );
   if (type === "Article") return (
@@ -72,17 +72,17 @@ function TypeBadge({ type }: { type: ResourceType }) {
           <path d={svgPaths.p4aa5c80} fill="#1c3243" />
         </svg>
       </div>
-      <span className="font-['Poppins',sans-serif] font-semibold leading-[15px] text-pg-navy text-xs whitespace-nowrap">Article</span>
+      <span className="font-semibold leading-[15px] text-pg-navy text-xs whitespace-nowrap">Article</span>
     </div>
   );
   if (type === "Guide") return (
-    <div className="bg-[#f0edf7] relative rounded-full shrink-0 flex gap-[6px] items-center px-[10px] py-[4px]">
+    <div className="bg-pg-success-soft relative rounded-full shrink-0 flex gap-[6px] items-center px-[10px] py-[4px]">
       <div className="relative shrink-0 size-[16px]">
         <svg className="block size-full" fill="none" viewBox="0 0 12 13.3333">
-          <path d={svgPaths.p2a787c0} fill="#6B5C8D" />
+          <path d={svgPaths.p2a787c0} fill="var(--pg-success)" />
         </svg>
       </div>
-      <span className="font-['Poppins',sans-serif] font-semibold leading-[15px] text-[#6b5c8d] text-xs whitespace-nowrap">Guide</span>
+      <span className="font-semibold leading-[15px] text-pg-navy text-xs whitespace-nowrap">Guide</span>
     </div>
   );
   if (type === "Worksheet") return (
@@ -92,12 +92,12 @@ function TypeBadge({ type }: { type: ResourceType }) {
           <path d={svgPaths.p1ad4ca80} fill="#8D6B3A" />
         </svg>
       </div>
-      <span className="font-['Poppins',sans-serif] font-semibold leading-[15px] text-pg-warning text-xs whitespace-nowrap">Worksheet</span>
+      <span className="font-semibold leading-[15px] text-pg-warning text-xs whitespace-nowrap">Worksheet</span>
     </div>
   );
   return (
     <div className="bg-pg-error-soft relative rounded-full shrink-0 flex gap-[6px] items-center px-[10px] py-[4px]">
-      <span className="font-['Poppins',sans-serif] font-semibold leading-[15px] text-pg-error text-xs whitespace-nowrap">Tool</span>
+      <span className="font-semibold leading-[15px] text-pg-error text-xs whitespace-nowrap">Tool</span>
     </div>
   );
 }
@@ -121,21 +121,21 @@ function ResourceCard({ resource, index }: { resource: typeof RESOURCE_LIBRARY[0
         <TypeBadge type={resource.type} />
         {resource.isNew && (
           <div className="bg-pg-teal rounded-full px-[8px] py-[2px] inline-flex items-center">
-            <span className="font-['Poppins',sans-serif] font-semibold leading-[15px] text-white text-xs whitespace-nowrap">New</span>
+            <span className="font-semibold leading-[15px] text-white text-xs whitespace-nowrap">New</span>
           </div>
         )}
       </div>
 
       {/* Title */}
       <div className="w-full">
-        <p className="font-['Poppins',sans-serif] font-semibold leading-[19.25px] text-pg-navy text-[14px] group-hover:text-pg-teal transition-colors">
+        <p className="font-semibold leading-[19.25px] text-pg-navy text-[14px] group-hover:text-pg-teal transition-colors">
           {resource.title}
         </p>
       </div>
 
       {/* Description */}
       <div className="flex-1 min-h-px w-full">
-        <p className="font-['Poppins',sans-serif] leading-[19.5px] text-pg-slate text-[12px]">
+        <p className="leading-[19.5px] text-pg-slate text-[12px]">
           {resource.desc}
         </p>
       </div>
@@ -145,10 +145,10 @@ function ResourceCard({ resource, index }: { resource: typeof RESOURCE_LIBRARY[0
         <div aria-hidden className="absolute border-pg-tint-soft border-solid border-t inset-0 pointer-events-none" />
         <div className="flex items-center justify-between">
           <div className="bg-pg-cream rounded-full px-[8px] py-[2px] inline-flex items-center">
-            <span className="font-['Poppins',sans-serif] font-medium leading-[15px] text-pg-teal-dark text-xs whitespace-nowrap">{resource.category}</span>
+            <span className="font-medium leading-[15px] text-pg-teal-dark text-xs whitespace-nowrap">{resource.category}</span>
           </div>
           <div className="flex gap-[8px] items-center">
-            <span className="font-['Poppins',sans-serif] leading-[15px] text-pg-slate text-xs whitespace-nowrap">{resource.duration}</span>
+            <span className="leading-[15px] text-pg-slate text-xs whitespace-nowrap">{resource.duration}</span>
             <svg className="size-[14px] group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 14 14">
               <path d={svgPaths.p7f8ed00} stroke="#C0CDD4" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.16667" />
             </svg>
@@ -179,9 +179,9 @@ function ResourceLibrary() {
       <div className="flex items-start justify-between w-full">
         <div className="flex gap-[8px] items-center">
           <div className="bg-pg-sage h-[20px] rounded-full w-[4px]" />
-          <p className="font-['Poppins',sans-serif] font-semibold leading-[28px] text-pg-navy text-[18px] whitespace-nowrap">Resource Library</p>
+          <p className="font-semibold leading-[28px] text-pg-navy text-[18px] whitespace-nowrap">Resource Library</p>
           <div className="bg-pg-tint rounded-full px-[8px] py-[2px] inline-flex items-center">
-            <p className="font-['Poppins',sans-serif] font-medium leading-[16px] text-pg-teal-dark text-[12px] whitespace-nowrap">{RESOURCE_LIBRARY.length} resources</p>
+            <p className="font-medium leading-[16px] text-pg-teal-dark text-[12px] whitespace-nowrap">{RESOURCE_LIBRARY.length} resources</p>
           </div>
         </div>
 
@@ -197,7 +197,7 @@ function ResourceLibrary() {
             value={libSearch}
             onChange={e => setLibSearch(e.target.value)}
             placeholder="Filter resources…"
-            className="absolute bg-white h-[34px] left-0 rounded-pg-lg top-0 w-[208px] border border-pg-line pl-[37px] pr-[17px] py-[9px] font-['Poppins',sans-serif] text-[12px] text-pg-navy placeholder:text-pg-teal outline-none focus:border-pg-sage transition-colors"
+            className="absolute bg-white h-[34px] left-0 rounded-pg-lg top-0 w-[208px] border border-pg-line pl-[37px] pr-[17px] py-[9px] text-[12px] text-pg-navy placeholder:text-pg-teal outline-none focus:border-pg-sage transition-colors"
           />
         </div>
       </div>
@@ -208,7 +208,7 @@ function ResourceLibrary() {
           <motion.button
             key={cat}
             onClick={() => setActiveCategory(cat)}
-            className="rounded-full px-[16px] py-[8px] font-['Poppins',sans-serif] font-medium leading-[16px] text-[12px] text-center whitespace-nowrap"
+            className="rounded-full px-[16px] py-[8px] font-medium leading-[16px] text-[12px] text-center whitespace-nowrap"
             style={{
               background: activeCategory === cat ? "var(--pg-navy)" : "#ffffff",
               color: activeCategory === cat ? "#ffffff" : "var(--pg-slate)",
@@ -229,7 +229,7 @@ function ResourceLibrary() {
             <ResourceCard key={r.title} resource={r} index={i} />
           ))}
           {filtered.length === 0 && (
-            <div className="col-span-3 text-center py-14 font-['Poppins',sans-serif] text-pg-slate text-sm">
+            <div className="col-span-3 text-center py-14 text-pg-slate text-sm">
               No resources match your filters.
             </div>
           )}
@@ -295,7 +295,7 @@ function EventPill({ ev, popup, onEventClick, compact = false }: {
       type="button"
       aria-haspopup="dialog"
       onClick={e => onEventClick(ev, e)}
-      className={`rounded-pg-md font-['Poppins',sans-serif] font-medium text-white text-left w-full cursor-pointer truncate ${compact ? "text-xs px-1.5 py-0.5 leading-[14px]" : "text-xs px-2 py-1"}`}
+      className={`rounded-pg-md font-medium text-white text-left w-full cursor-pointer truncate ${compact ? "text-xs px-1.5 py-0.5 leading-[14px]" : "text-xs px-2 py-1"}`}
       style={{ background: active ? (ev.color === "teal" ? "var(--pg-teal)" : "var(--pg-navy)") : (ev.color === "teal" ? "var(--pg-sage)" : "var(--pg-navy)") }}
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.97 }}
@@ -317,7 +317,7 @@ function MonthView({ year, month, popup, onEventClick }: { year: number; month: 
     <div className="bg-white rounded-pg-xl overflow-hidden" style={{ boxShadow: "0 8px 24px rgba(28,50,67,0.06)" }}>
       <div className="grid grid-cols-7 border-b border-pg-tint-soft">
         {DAY_NAMES_SHORT.map(d => (
-          <div key={d} className="text-center py-2.5 font-['Poppins',sans-serif] text-xs font-semibold text-pg-slate uppercase tracking-[0.6px]">{d}</div>
+          <div key={d} className="text-center py-2.5 text-xs font-semibold text-pg-slate uppercase tracking-[0.6px]">{d}</div>
         ))}
       </div>
       <div className="grid grid-cols-7">
@@ -328,7 +328,7 @@ function MonthView({ year, month, popup, onEventClick }: { year: number; month: 
             <div key={idx} className={`min-h-[80px] p-1.5 border-b border-r border-pg-tint-soft flex flex-col gap-1 transition-colors ${day ? "hover:bg-pg-cream cursor-default" : "bg-pg-tint-soft"}`}>
               {day && (
                 <>
-                  <span className={`font-['Poppins',sans-serif] text-xs font-medium w-6 h-6 flex items-center justify-center rounded-full ${isToday ? "bg-pg-teal text-white" : "text-pg-slate"}`}>{day}</span>
+                  <span className={`text-xs font-medium w-6 h-6 flex items-center justify-center rounded-full ${isToday ? "bg-pg-teal text-white" : "text-pg-slate"}`}>{day}</span>
                   {evs.map((ev, i) => <EventPill key={i} ev={ev} popup={popup} onEventClick={onEventClick} compact />)}
                 </>
               )}
@@ -355,8 +355,8 @@ function WeekView({ weekStart, popup, onEventClick }: { weekStart: Date; popup: 
           const isToday = d.toDateString() === today.toDateString();
           return (
             <div key={i} className="flex flex-col items-center py-3 gap-1">
-              <span className="font-['Poppins',sans-serif] text-[11px] font-semibold uppercase tracking-[0.6px] text-pg-slate">{DAY_NAMES_SHORT[d.getDay()]}</span>
-              <span className={`w-7 h-7 flex items-center justify-center rounded-full font-['Poppins',sans-serif] font-semibold text-sm ${isToday ? "bg-pg-teal text-white" : "text-pg-navy"}`}>{d.getDate()}</span>
+              <span className="text-[11px] font-semibold uppercase tracking-[0.6px] text-pg-slate">{DAY_NAMES_SHORT[d.getDay()]}</span>
+              <span className={`w-7 h-7 flex items-center justify-center rounded-full font-semibold text-sm ${isToday ? "bg-pg-teal text-white" : "text-pg-navy"}`}>{d.getDate()}</span>
             </div>
           );
         })}
@@ -383,17 +383,17 @@ function DayView({ date, popup, onEventClick }: { date: Date; popup: EventPopupS
   return (
     <div className="bg-white rounded-pg-xl overflow-hidden" style={{ boxShadow: "0 8px 24px rgba(28,50,67,0.06)" }}>
       <div className="border-b border-pg-tint-soft px-5 py-4">
-        <p className="font-['Poppins',sans-serif] font-semibold text-pg-navy text-sm">{dayName}</p>
-        <p className="font-['Poppins',sans-serif] text-xs text-pg-sage mt-0.5">{monthName} {date.getDate()}, {date.getFullYear()}</p>
+        <p className="font-semibold text-pg-navy text-sm">{dayName}</p>
+        <p className="text-xs text-pg-sage mt-0.5">{monthName} {date.getDate()}, {date.getFullYear()}</p>
       </div>
       <div className="p-5 flex flex-col gap-3 min-h-[200px]">
         {evs.length === 0 && (
-          <p className="font-['Poppins',sans-serif] text-sm text-pg-slate text-center mt-8">No events scheduled for this day.</p>
+          <p className="text-sm text-pg-slate text-center mt-8">No events scheduled for this day.</p>
         )}
         {evs.map((ev, i) => (
           <div key={i} className="flex gap-4 items-start">
             <div className="shrink-0 w-16 text-right">
-              <span className="font-['Poppins',sans-serif] text-xs text-pg-teal-dark font-medium leading-tight">{ev.time.split("–")[0].trim()}</span>
+              <span className="text-xs text-pg-teal-dark font-medium leading-tight">{ev.time.split("–")[0].trim()}</span>
             </div>
             <EventPill ev={ev} popup={popup} onEventClick={onEventClick} />
           </div>
@@ -460,7 +460,7 @@ function Calendar() {
               <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </button>
-          <span className="font-['Poppins',sans-serif] font-semibold text-pg-navy text-sm min-w-[180px] text-center">{getHeaderLabel()}</span>
+          <span className="font-semibold text-pg-navy text-sm min-w-[180px] text-center">{getHeaderLabel()}</span>
           <button
             type="button"
             onClick={goNext}
@@ -479,7 +479,7 @@ function Calendar() {
             <button
               key={v}
               onClick={() => setView(v)}
-              className="font-['Poppins',sans-serif] text-xs font-medium px-3 py-1.5 rounded-pg-md capitalize transition-all"
+              className="text-xs font-medium px-3 py-1.5 rounded-pg-md capitalize transition-all"
               style={{
                 background: view === v ? "#ffffff" : "transparent",
                 color: view === v ? "var(--pg-navy)" : "var(--pg-slate)",
@@ -529,11 +529,11 @@ function ContentPage({ state, district, onReset }: { state: string; district: st
           {/* Heading + location */}
           <div className="w-full text-center">
             <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55 }}>
-              <p className="font-['Poppins',sans-serif] font-bold leading-[41.25px] text-pg-navy text-[30px] text-center">
+              <p className="font-bold leading-[41.25px] text-pg-navy text-[30px] text-center">
                 Welcome to the{" "}
-                <em className="font-['Poppins',sans-serif] font-bold italic text-pg-teal">Mental Health Series</em>
+                <em className="font-bold italic text-pg-teal">Mental Health Series</em>
               </p>
-              <p className="font-['Poppins',sans-serif] leading-[20px] text-pg-navy text-[14px] text-center mt-2">
+              <p className="leading-[20px] text-pg-navy text-[14px] text-center mt-2">
                 {district} · {state}
               </p>
             </motion.div>
@@ -553,7 +553,7 @@ function ContentPage({ state, district, onReset }: { state: string; district: st
               value={search}
               onChange={e => setSearch(e.target.value)}
               placeholder="Search resources and events…"
-              className="flex-1 font-['Poppins',sans-serif] text-[14px] text-pg-slate placeholder:text-pg-teal outline-none bg-transparent"
+              className="flex-1 text-[14px] text-pg-slate placeholder:text-pg-teal outline-none bg-transparent"
             />
             <Button size="s" className="shrink-0">
               Search
@@ -582,10 +582,10 @@ function ContentPage({ state, district, onReset }: { state: string; district: st
           <div className="flex items-center justify-between mb-6">
             <div className="flex gap-[8px] items-center">
               <div className="bg-pg-sage h-[20px] rounded-full w-[4px]" />
-              <p className="font-['Poppins',sans-serif] font-semibold leading-[28px] text-pg-navy text-[18px] whitespace-nowrap">Monthly Calendar</p>
+              <p className="font-semibold leading-[28px] text-pg-navy text-[18px] whitespace-nowrap">Monthly Calendar</p>
             </div>
             <ButtonLink to="/mental-health-series/events" variant="secondary" size="s" className="shrink-0">
-              <span className="font-['Poppins',sans-serif] font-semibold leading-[16px] text-pg-teal text-[12px] whitespace-nowrap group-hover:text-white">View all events</span>
+              <span className="font-semibold leading-[16px] text-pg-teal text-[12px] whitespace-nowrap group-hover:text-white">View all events</span>
               <svg className="relative shrink-0 size-[13px]" fill="none" viewBox="0 0 13 13">
                 <path d={svgPaths.p2d0d8080} stroke="#59797D" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.08333" />
               </svg>
@@ -599,9 +599,9 @@ function ContentPage({ state, district, onReset }: { state: string; district: st
           <div className="flex items-center justify-between mb-6">
             <div className="flex gap-[8px] items-center">
               <div className="bg-pg-sage h-[20px] rounded-full w-[4px]" />
-              <p className="font-['Poppins',sans-serif] font-semibold leading-[28px] text-pg-navy text-[18px] whitespace-nowrap">Upcoming Events</p>
+              <p className="font-semibold leading-[28px] text-pg-navy text-[18px] whitespace-nowrap">Upcoming Events</p>
               <div className="bg-pg-tint rounded-full px-[8px] py-[2px] inline-flex items-center">
-                <p className="font-['Poppins',sans-serif] font-medium leading-[16px] text-pg-teal-dark text-[12px] whitespace-nowrap">{filteredEvents.length} total</p>
+                <p className="font-medium leading-[16px] text-pg-teal-dark text-[12px] whitespace-nowrap">{filteredEvents.length} total</p>
               </div>
             </div>
           </div>
@@ -620,21 +620,21 @@ function ContentPage({ state, district, onReset }: { state: string; district: st
               >
                 <div className="shrink-0 rounded-pg-lg px-4 py-3 flex flex-col items-center justify-center min-w-[60px]"
                   style={{ background: ev.color === "teal" ? "var(--pg-tint)" : "var(--pg-tint-soft)" }}>
-                  <span className="font-['Poppins',sans-serif] font-bold text-xl leading-none" style={{ color: ev.color === "teal" ? "var(--pg-teal)" : "var(--pg-navy)" }}>{ev.day}</span>
-                  <span className="font-['Poppins',sans-serif] text-[11px] font-semibold uppercase tracking-wide mt-0.5" style={{ color: ev.color === "teal" ? "var(--pg-sage)" : "#6b7c8d" }}>
+                  <span className="font-bold text-xl leading-none" style={{ color: ev.color === "teal" ? "var(--pg-teal)" : "var(--pg-navy)" }}>{ev.day}</span>
+                  <span className="text-[11px] font-semibold uppercase tracking-wide mt-0.5" style={{ color: ev.color === "teal" ? "var(--pg-sage)" : "#6b7c8d" }}>
                     {ev.date.split(",")[1]?.trim().split(" ")[0]}
                   </span>
                 </div>
                 <div className="flex flex-col gap-1 flex-1">
                   <div className="flex items-center gap-2 flex-wrap">
-                    <h3 className="font-['Poppins',sans-serif] font-semibold text-pg-navy text-sm group-hover:text-pg-teal transition-colors">{ev.title}</h3>
-                    <span className="font-['Poppins',sans-serif] text-xs font-semibold px-2 py-0.5 rounded-full text-white"
+                    <h3 className="font-semibold text-pg-navy text-sm group-hover:text-pg-teal transition-colors">{ev.title}</h3>
+                    <span className="text-xs font-semibold px-2 py-0.5 rounded-full text-white"
                       style={{ background: ev.color === "teal" ? "var(--pg-sage)" : "var(--pg-navy)" }}>
                       {ev.color === "teal" ? "Session" : "Workshop"}
                     </span>
                   </div>
-                  <p className="font-['Poppins',sans-serif] text-xs text-pg-teal-dark font-medium">{ev.time}</p>
-                  <p className="font-['Poppins',sans-serif] text-sm text-pg-slate leading-relaxed mt-0.5">{ev.desc}</p>
+                  <p className="text-xs text-pg-teal-dark font-medium">{ev.time}</p>
+                  <p className="text-sm text-pg-slate leading-relaxed mt-0.5">{ev.desc}</p>
                 </div>
                 <ButtonAnchor href={SAMPLE_REGISTER_URL} target="_blank" rel="noopener noreferrer" variant="secondary" size="s" className="shrink-0 self-center">
                   Register<span className="sr-only"> (opens in a new tab)</span>
@@ -643,7 +643,7 @@ function ContentPage({ state, district, onReset }: { state: string; district: st
             ))}
 
             {filteredEvents.length === 0 && (
-              <div className="text-center py-16 font-['Poppins',sans-serif] text-pg-slate text-sm">No events match your search.</div>
+              <div className="text-center py-16 text-pg-slate text-sm">No events match your search.</div>
             )}
           </div>
 
@@ -681,21 +681,21 @@ function FormPage({ onSubmit }: { onSubmit: (state: string, district: string) =>
             transition={{ duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
             <motion.span
-              className="font-['Poppins',sans-serif] font-semibold text-pg-teal-dark text-sm uppercase tracking-widest"
+              className="font-semibold text-pg-teal-dark text-sm uppercase tracking-widest"
               initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.55 }}
             >
               Mental Health Series
             </motion.span>
             <motion.h1
-              className="font-['Poppins',sans-serif] font-bold text-pg-navy text-4xl leading-tight"
+              className="font-bold text-pg-navy text-4xl leading-tight"
               initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.55 }}
             >
               What{" "}
-              <em className="font-['Poppins',sans-serif] font-bold text-pg-teal" style={{ fontStyle: "italic" }}>state</em>{" "}
+              <em className="font-bold text-pg-teal" style={{ fontStyle: "italic" }}>state</em>{" "}
               does your child attend school in?
             </motion.h1>
             <motion.p
-              className="font-['Poppins',sans-serif] text-pg-slate text-base leading-relaxed"
+              className="text-pg-slate text-base leading-relaxed"
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3, duration: 0.55 }}
             >
               {"Don't see your state? "}
@@ -709,7 +709,7 @@ function FormPage({ onSubmit }: { onSubmit: (state: string, district: string) =>
                 <select
                   value={selectedState}
                   onChange={e => { setSelectedState(e.target.value); setSelectedDistrict(""); }}
-                  className="w-full appearance-none font-['Poppins',sans-serif] text-sm px-5 py-4 rounded-pg-xl outline-none cursor-pointer transition-all duration-(--pg-dur-fast)"
+                  className="w-full appearance-none text-sm px-5 py-4 rounded-pg-xl outline-none cursor-pointer transition-all duration-(--pg-dur-fast)"
                   style={{ background: selectedState ? "var(--pg-teal)" : "var(--pg-sage)", color: selectedState ? "#ffffff" : "var(--pg-navy)", boxShadow: "0 8px 24px rgba(28,50,67,0.06)" }}
                 >
                   <option value="" disabled style={{ color: "var(--pg-navy)", background: "var(--pg-cream)" }}>Select your state</option>
@@ -724,7 +724,7 @@ function FormPage({ onSubmit }: { onSubmit: (state: string, district: string) =>
                   value={selectedDistrict}
                   onChange={e => setSelectedDistrict(e.target.value)}
                   disabled={!selectedState}
-                  className="w-full appearance-none font-['Poppins',sans-serif] text-sm px-5 py-4 rounded-pg-xl outline-none transition-all duration-(--pg-dur-fast) cursor-pointer disabled:cursor-not-allowed"
+                  className="w-full appearance-none text-sm px-5 py-4 rounded-pg-xl outline-none transition-all duration-(--pg-dur-fast) cursor-pointer disabled:cursor-not-allowed"
                   style={{ background: selectedDistrict ? "var(--pg-tint-soft)" : "#ffffff", color: "var(--pg-navy)", border: "1.5px solid", borderColor: selectedDistrict ? "var(--pg-sage)" : "var(--pg-line)", boxShadow: "0 8px 24px rgba(28,50,67,0.06)", opacity: selectedState ? 1 : 0.5 }}
                 >
                   <option value="" disabled style={{ color: "var(--pg-mist)" }}>Select your district</option>

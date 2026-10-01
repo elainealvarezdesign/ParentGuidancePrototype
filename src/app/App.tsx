@@ -151,7 +151,7 @@ function LanguageDropdown() {
         className="flex items-center gap-1 cursor-pointer group relative"
         aria-expanded={open}
       >
-        <span className="font-['Poppins',sans-serif] text-pg-sage text-xs font-medium">{language}</span>
+        <span className="text-pg-sage text-xs font-medium">{language}</span>
         <svg
           className={`w-3.5 h-3.5 text-pg-sage transition-transform ${open ? "rotate-180" : "group-hover:translate-y-0.5"}`}
           fill="none"
@@ -179,7 +179,7 @@ function LanguageDropdown() {
                   setLanguage(l);
                   setOpen(false);
                 }}
-                className="block w-full px-5 py-2.5 text-left font-['Poppins',sans-serif] text-sm text-pg-navy transition-colors hover:bg-pg-cream hover:text-pg-teal"
+                className="block w-full px-5 py-2.5 text-left text-sm text-pg-navy transition-colors hover:bg-pg-cream hover:text-pg-teal"
               >
                 {l}
               </button>
@@ -260,7 +260,7 @@ function Navbar() {
             <Link
               key={l.label}
               to={l.to}
-              className="font-['Poppins',sans-serif] text-xs font-medium whitespace-nowrap transition-colors duration-(--pg-dur-fast) relative"
+              className="text-xs font-medium whitespace-nowrap transition-colors duration-(--pg-dur-fast) relative"
               style={{ color: baseColor }}
               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = hoverColor; }}
               onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = baseColor; }}
@@ -319,7 +319,7 @@ function Navbar() {
                         ref={i === 0 ? firstMenuLinkRef : undefined}
                         to={l.to}
                         aria-current={active ? "page" : undefined}
-                        className={`flex items-center gap-3 min-h-12 py-3 font-['Poppins',sans-serif] text-base font-medium transition-colors ${
+                        className={`flex items-center gap-3 min-h-12 py-3 text-base font-medium transition-colors ${
                           active ? "text-pg-sage" : "text-white hover:text-pg-sage"
                         }`}
                       >
@@ -331,7 +331,7 @@ function Navbar() {
                 })}
               </ul>
               <div className="mt-4 pt-4 border-t border-white/10 flex items-center justify-between">
-                <span className="font-['Poppins',sans-serif] text-xs font-semibold uppercase tracking-[1.2px] text-pg-sage">Language</span>
+                <span className="text-xs font-semibold uppercase tracking-[1.2px] text-pg-sage">Language</span>
                 <LanguageDropdown />
               </div>
             </motion.div>
@@ -353,14 +353,14 @@ function Hero() {
         transition={{ duration: 0.55, delay: 0.3 }}
         className="mt-14"
       >
-        <h1 className="font-['Poppins',sans-serif] font-black text-pg-teal text-3xl md:text-4xl leading-tight md:leading-relaxed md:whitespace-nowrap">
+        <h1 className="font-black text-pg-teal text-3xl md:text-4xl leading-tight md:leading-relaxed md:whitespace-nowrap">
           {"Discover "}
-          <em className="font-['Poppins',sans-serif] italic font-black">Resources</em>
+          <em className="italic font-black">Resources</em>
           {" That Can Help"}
         </h1>
       </motion.div>
       <motion.p
-        className="font-['Poppins',sans-serif] text-pg-navy text-lg md:text-xl text-center leading-relaxed mt-4 max-w-2xl"
+        className="text-pg-navy text-lg md:text-xl text-center leading-relaxed mt-4 max-w-2xl"
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.55, delay: 0.5 }}
@@ -391,7 +391,7 @@ function Hero() {
             <path d="M18 18L16.5 16.5" stroke="#333" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
           </svg>
           <input
-            className="flex-1 min-w-0 font-['Poppins',sans-serif] text-sm text-gray-700 bg-transparent outline-none placeholder:text-pg-teal"
+            className="flex-1 min-w-0 text-sm text-gray-700 bg-transparent outline-none placeholder:text-pg-teal"
             placeholder="Anxiety in Children"
             onFocus={() => setFocused(true)}
             onBlur={() => setFocused(false)}
@@ -463,15 +463,15 @@ function ResourceCard({ card, index }: { card: typeof resourceCards[0]; index: n
       </div>
       <div className="px-4 pt-3 pb-4 flex flex-col gap-2">
         <p
-          className="font-['Poppins',sans-serif] font-black text-[18px] leading-tight whitespace-pre-line"
+          className="font-black text-[18px] leading-tight whitespace-pre-line"
           style={{ color: card.color }}
         >
           {card.title}
         </p>
-        <p className="font-['Poppins',sans-serif] text-xs leading-normal" style={{ color: card.color }}>
+        <p className="text-xs leading-normal" style={{ color: card.color }}>
           {card.desc}
         </p>
-        <span className="font-['Poppins',sans-serif] font-medium text-xs text-pg-navy underline">Learn More</span>
+        <span className="font-medium text-xs text-pg-navy underline">Learn More</span>
       </div>
     </MotionLink>
   );
@@ -487,7 +487,7 @@ function ResourceSection() {
           ))}
         </div>
         <FadeIn className="flex justify-end mt-3">
-          <Link to="/mental-health-series" className="font-['Poppins',sans-serif] text-sm text-pg-teal-dark underline hover:text-pg-teal transition-colors">
+          <Link to="/mental-health-series" className="text-sm text-pg-teal-dark underline hover:text-pg-teal transition-colors">
             view more
           </Link>
         </FadeIn>
@@ -538,8 +538,8 @@ function FeatureRow({ feat, index }: { feat: typeof features[0]; index: number }
         <img src={feat.img} alt="" className="absolute inset-0 w-full h-full object-cover" />
       </motion.div>
       <div className="flex flex-col gap-2 max-w-sm">
-        <p className="font-['Poppins',sans-serif] font-black text-pg-teal text-2xl md:text-3xl leading-relaxed">{feat.title}</p>
-        <p className="font-['Poppins',sans-serif] text-pg-navy text-base md:text-lg leading-relaxed">{feat.desc}</p>
+        <p className="font-black text-pg-teal text-2xl md:text-3xl leading-relaxed">{feat.title}</p>
+        <p className="text-pg-navy text-base md:text-lg leading-relaxed">{feat.desc}</p>
       </div>
     </motion.div>
   );
@@ -549,11 +549,11 @@ function WhySection() {
   return (
     <section className="bg-pg-cream py-14 md:py-20 px-6 md:px-10 lg:px-14 flex flex-col items-center gap-12 md:gap-20">
       <FadeUp className="flex flex-col items-center gap-4 max-w-3xl text-center">
-        <span className="font-['Poppins',sans-serif] font-semibold text-pg-navy text-base uppercase tracking-wider">Why</span>
-        <h2 className="font-['Poppins',sans-serif] font-bold text-pg-navy text-3xl md:text-4xl leading-tight tracking-tight">
+        <span className="font-semibold text-pg-navy text-base uppercase tracking-wider">Why</span>
+        <h2 className="font-bold text-pg-navy text-3xl md:text-4xl leading-tight tracking-tight">
           Built on real clinical experience
         </h2>
-        <p className="font-['Poppins',sans-serif] text-pg-navy text-lg md:text-xl leading-relaxed">
+        <p className="text-pg-navy text-lg md:text-xl leading-relaxed">
           We believe every parent deserves access to expert guidance. Our resources are built on real clinical experience
           and designed with your family in mind.
         </p>
@@ -598,7 +598,7 @@ function FaqItem({ item, index }: { item: typeof faqs[0]; index: number }) {
       whileHover={{ boxShadow: "0 24px 60px rgba(28,50,67,0.28)" }}
     >
       <button type="button" aria-expanded={open} onClick={() => setOpen((o) => !o)} className="w-full text-left flex items-center justify-between px-5 md:px-8 py-5 md:py-6">
-        <span className="font-['Poppins',sans-serif] font-bold text-pg-navy text-lg leading-snug opacity-88 flex-1 pr-4">
+        <span className="font-bold text-pg-navy text-lg leading-snug opacity-88 flex-1 pr-4">
           {item.question}
         </span>
         <motion.div
@@ -620,7 +620,7 @@ function FaqItem({ item, index }: { item: typeof faqs[0]; index: number }) {
       >
         <div className="px-5 md:px-8 pb-6 flex flex-col gap-3">
           <div className="w-5 h-[3px] bg-pg-live rounded-full opacity-80" />
-          <p className="font-['Poppins',sans-serif] text-pg-navy text-sm leading-relaxed opacity-70">
+          <p className="text-pg-navy text-sm leading-relaxed opacity-70">
             {item.answer}
           </p>
         </div>
@@ -635,7 +635,7 @@ function FaqSection() {
   return (
     <section className="bg-pg-cream py-16 px-6 md:px-10 lg:px-14">
       <FadeUp className="text-center mb-10">
-        <h2 className="font-['Poppins',sans-serif] font-bold text-pg-navy text-2xl capitalize">
+        <h2 className="font-bold text-pg-navy text-2xl capitalize">
           Frequently Ask Questions
         </h2>
       </FadeUp>
@@ -685,7 +685,7 @@ function PartnersCarousel() {
       `}</style>
 
       <FadeUp className="text-center mb-10">
-        <h3 className="font-['Poppins',sans-serif] font-semibold text-pg-teal text-2xl">
+        <h3 className="font-semibold text-pg-teal text-2xl">
           Our passionate partners
         </h3>
       </FadeUp>
@@ -731,22 +731,22 @@ function NewsletterSection() {
           <img src={imgRectangle328} alt="" className="absolute inset-0 w-full h-full object-cover" />
         </motion.div>
         <div className="flex flex-col gap-5">
-          <h2 className="font-['Poppins',sans-serif] font-bold text-pg-navy text-4xl md:text-5xl leading-tight">Join Us!</h2>
-          <p className="font-['Poppins',sans-serif] text-pg-navy text-sm leading-relaxed max-w-sm">
+          <h2 className="font-bold text-pg-navy text-4xl md:text-5xl leading-tight">Join Us!</h2>
+          <p className="text-pg-navy text-sm leading-relaxed max-w-sm">
             Subscribe to our weekly newsletter and be a part of our journey to self discovery and love.
           </p>
           {subscribed ? (
             <motion.p
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              className="font-['Poppins',sans-serif] text-pg-navy font-semibold text-base"
+              className="text-pg-navy font-semibold text-base"
             >
               ✓ Thanks for subscribing!
             </motion.p>
           ) : (
             <div className="flex items-center gap-2 rounded-pg-xl bg-pg-tint-soft p-1.5 max-w-md">
               <input
-                className="flex-1 min-w-0 px-4 py-2.5 bg-transparent font-['Poppins',sans-serif] text-sm text-gray-700 outline-none placeholder:text-pg-slate"
+                className="flex-1 min-w-0 px-4 py-2.5 bg-transparent text-sm text-gray-700 outline-none placeholder:text-pg-slate"
                 placeholder="Your Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -824,26 +824,26 @@ function Footer() {
         </div>
         <div className="flex flex-col sm:flex-row flex-1 gap-8 sm:gap-16 md:justify-center">
           <div className="flex flex-col gap-3">
-            <p className="font-['Poppins',sans-serif] font-semibold text-pg-slate text-sm">Our Company</p>
+            <p className="font-semibold text-pg-slate text-sm">Our Company</p>
             {companyLinks.map((l) => (
              <a
                 key={l}
                 href={FOOTER_LINK_HREFS[l] ?? "#"}
                 target={FOOTER_EXTERNAL_LINKS.has(l) ? "_blank" : undefined}
                 rel={FOOTER_EXTERNAL_LINKS.has(l) ? "noopener noreferrer" : undefined}
-                className="font-['Poppins',sans-serif] text-pg-slate text-xs leading-relaxed hover:text-pg-teal"
+                className="text-pg-slate text-xs leading-relaxed hover:text-pg-teal"
               >
                 {l}
               </a>
             ))}
           </div>
           <div className="flex flex-col gap-3">
-            <p className="font-['Poppins',sans-serif] font-semibold text-pg-slate text-sm">Mental Health Resources</p>
+            <p className="font-semibold text-pg-slate text-sm">Mental Health Resources</p>
             {resourceLinks.map((l) => (
               <a
                 key={l}
                 href={FOOTER_LINK_HREFS[l] ?? "#"}
-                className="font-['Poppins',sans-serif] text-pg-slate text-xs leading-relaxed hover:text-pg-teal transition-colors py-1"
+                className="text-pg-slate text-xs leading-relaxed hover:text-pg-teal transition-colors py-1"
               >
                 {l}
               </a>
@@ -882,7 +882,7 @@ function Footer() {
             </svg>
           </motion.div>
         </div>
-        <p className="font-['Poppins',sans-serif] text-pg-navy text-sm leading-relaxed sm:whitespace-nowrap">
+        <p className="text-pg-navy text-sm leading-relaxed sm:whitespace-nowrap">
           © 2026 ParentGuidance.org. All rights reserved.
         </p>
       </div>

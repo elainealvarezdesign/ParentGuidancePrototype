@@ -141,11 +141,11 @@ function ProcessStep({ num, title, desc, index }: { num: string; title: string; 
         animate={inView ? { scale: 1 } : {}}
         transition={{ duration: 0.55, delay: index * 0.12, ease: [0.34, 1.56, 0.64, 1] }}
       >
-        <span className="font-['Poppins',sans-serif] font-bold text-pg-navy text-sm">{num}</span>
+        <span className="font-bold text-pg-navy text-sm">{num}</span>
       </motion.div>
       <div>
-        <p className="font-['Poppins',sans-serif] font-semibold text-pg-navy text-sm leading-5">{title}</p>
-        <p className="font-['Poppins',sans-serif] text-pg-slate text-xs leading-[1.625] mt-1.5 max-w-[224px] mx-auto">{desc}</p>
+        <p className="font-semibold text-pg-navy text-sm leading-5">{title}</p>
+        <p className="text-pg-slate text-xs leading-[1.625] mt-1.5 max-w-[224px] mx-auto">{desc}</p>
       </div>
     </motion.div>
   );
@@ -184,14 +184,14 @@ export default function ParentCoachingPage() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            <span className="font-['Poppins',sans-serif] text-xs font-semibold uppercase tracking-[1.2px] text-pg-teal-dark">
+            <span className="text-xs font-semibold uppercase tracking-[1.2px] text-pg-teal-dark">
               Parent Coaching
             </span>
-            <h1 className="font-['Poppins',sans-serif] font-bold text-pg-navy text-[30px] sm:text-[36px] leading-[1.25] max-w-[488px]">
+            <h1 className="font-bold text-pg-navy text-[30px] sm:text-[36px] leading-[1.25] max-w-[488px]">
               {"A better way to navigate your "}
               <em className="italic text-pg-teal">{"child's mental health."}</em>
             </h1>
-            <p className="font-['Poppins',sans-serif] text-pg-slate text-base leading-[26px] max-w-[384px]">
+            <p className="text-pg-slate text-base leading-[26px] max-w-[384px]">
               {"Work one-on-one with a therapist who coaches "}
               <em className="italic">you</em>
               {" — so you can show up for your child with confidence, clarity, and real tools."}
@@ -265,8 +265,8 @@ export default function ParentCoachingPage() {
                 <div className="relative w-6 h-6 overflow-hidden">
                   {b.icon}
                 </div>
-                <p className="font-['Poppins',sans-serif] font-semibold text-white text-sm leading-5">{b.title}</p>
-                <p className="font-['Poppins',sans-serif] text-pg-sage text-xs leading-[1.625] max-w-[238px]">{b.desc}</p>
+                <p className="font-semibold text-white text-sm leading-5">{b.title}</p>
+                <p className="text-pg-sage text-xs leading-[1.625] max-w-[238px]">{b.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -279,10 +279,10 @@ export default function ParentCoachingPage() {
           <div className="w-full max-w-pg-content">
             <div className="flex items-center gap-2 mb-1">
               <div className="w-1 h-5 rounded-full bg-pg-sage" />
-              <span className="font-['Poppins',sans-serif] font-semibold text-pg-teal-dark text-xs uppercase tracking-[1.2px]">Meet the coaches</span>
+              <span className="font-semibold text-pg-teal-dark text-xs uppercase tracking-[1.2px]">Meet the coaches</span>
             </div>
-            <h2 className="font-['Poppins',sans-serif] font-bold text-pg-navy text-2xl leading-8">Explore our Courses</h2>
-            <p className="font-['Poppins',sans-serif] text-pg-slate text-sm leading-5 mt-2 max-w-[512px]">
+            <h2 className="font-bold text-pg-navy text-2xl leading-8">Explore our Courses</h2>
+            <p className="text-pg-slate text-sm leading-5 mt-2 max-w-[512px]">
               Every coach on our platform holds and specializes in child and family mental health.
             </p>
 
@@ -306,20 +306,20 @@ export default function ParentCoachingPage() {
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute top-3 right-3 bg-pg-tint rounded-full px-2.5 py-1">
-                      <span className="font-['Poppins',sans-serif] font-semibold text-pg-teal text-xs">● Available</span>
+                      <span className="font-semibold text-pg-teal text-xs">● Available</span>
                     </div>
                   </div>
 
                   {/* Info */}
                   <div className="flex flex-col gap-3 p-5 flex-1">
                     <div>
-                      <p className="font-['Poppins',sans-serif] font-semibold text-pg-navy text-sm leading-5">{coach.name}</p>
-                      <p className="font-['Poppins',sans-serif] text-pg-teal-dark text-xs leading-4 mt-0.5">{coach.role}</p>
+                      <p className="font-semibold text-pg-navy text-sm leading-5">{coach.name}</p>
+                      <p className="text-pg-teal-dark text-xs leading-4 mt-0.5">{coach.role}</p>
                     </div>
-                    <p className="font-['Poppins',sans-serif] text-pg-slate text-xs leading-[1.625] flex-1">{coach.bio}</p>
+                    <p className="text-pg-slate text-xs leading-[1.625] flex-1">{coach.bio}</p>
                     <div className="flex flex-wrap gap-1.5">
                       {coach.tags.map(tag => (
-                        <span key={tag} className="font-['Poppins',sans-serif] font-medium text-pg-teal-dark text-xs bg-pg-cream px-2.5 py-1 rounded-full">
+                        <span key={tag} className="font-medium text-pg-teal-dark text-xs bg-pg-cream px-2.5 py-1 rounded-full">
                           {tag}
                         </span>
                       ))}
@@ -341,9 +341,9 @@ export default function ParentCoachingPage() {
           <div className="w-full max-w-pg-content flex flex-col items-center">
             <div className="flex items-center gap-2 mb-1 self-start">
               <div className="w-1 h-5 rounded-full bg-pg-sage" />
-              <span className="font-['Poppins',sans-serif] font-semibold text-pg-teal-dark text-xs uppercase tracking-[1.2px]">Process</span>
+              <span className="font-semibold text-pg-teal-dark text-xs uppercase tracking-[1.2px]">Process</span>
             </div>
-            <h2 className="font-['Poppins',sans-serif] font-bold text-pg-navy text-2xl leading-8 text-center mt-3 mb-10">
+            <h2 className="font-bold text-pg-navy text-2xl leading-8 text-center mt-3 mb-10">
               Getting started is simple
             </h2>
 
@@ -383,9 +383,9 @@ export default function ParentCoachingPage() {
           <div className="w-full max-w-pg-content">
             <div className="flex items-center gap-2 mb-1">
               <div className="w-1 h-5 rounded-full bg-pg-sage" />
-              <span className="font-['Poppins',sans-serif] font-semibold text-pg-teal-dark text-xs uppercase tracking-[1.2px]">{"Families we've supported"}</span>
+              <span className="font-semibold text-pg-teal-dark text-xs uppercase tracking-[1.2px]">{"Families we've supported"}</span>
             </div>
-            <h2 className="font-['Poppins',sans-serif] font-bold text-pg-navy text-2xl leading-8 mt-3">Real families. Real change.</h2>
+            <h2 className="font-bold text-pg-navy text-2xl leading-8 mt-3">Real families. Real change.</h2>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mt-8 items-stretch">
               {TESTIMONIALS.map((t, i) => (
@@ -399,12 +399,12 @@ export default function ParentCoachingPage() {
                   transition={{ duration: 0.55, delay: i * 0.1 }}
                 >
                   <QuoteIcon />
-                  <p className="font-['Poppins',sans-serif] italic text-pg-navy text-sm leading-[22.75px] flex-1">
+                  <p className="italic text-pg-navy text-sm leading-[22.75px] flex-1">
                     {t.quote}
                   </p>
                   <div className="border-t border-pg-tint-soft pt-3">
-                    <p className="font-['Poppins',sans-serif] font-semibold text-pg-navy text-xs leading-4">{t.name}</p>
-                    <p className="font-['Poppins',sans-serif] text-pg-teal-dark text-xs leading-[16.5px] mt-0.5">{t.meta}</p>
+                    <p className="font-semibold text-pg-navy text-xs leading-4">{t.name}</p>
+                    <p className="text-pg-teal-dark text-xs leading-[16.5px] mt-0.5">{t.meta}</p>
                   </div>
                 </motion.div>
               ))}

@@ -1,15 +1,14 @@
 import { ButtonLink } from "./components/Button";
 
-const font = "font-['Poppins',sans-serif]";
 
 /* Shown for any address that doesn't match a page (inside the normal header and footer). */
 export default function NotFoundPage() {
   return (
     <main className="bg-pg-cream px-6 pb-24 pt-32 md:px-10 lg:px-14">
       <div className="mx-auto max-w-pg-reading text-center">
-        <p className={`${font} text-[11px] font-semibold uppercase tracking-[0.12em] text-pg-teal-dark`}>Page not found</p>
-        <h1 className={`${font} mt-3 text-[28px] font-medium leading-tight text-pg-navy md:text-[40px]`}>We couldn't find that page</h1>
-        <p className={`${font} mt-3 text-base leading-relaxed text-pg-slate`}>
+        <p className={`text-[11px] font-semibold uppercase tracking-[0.12em] text-pg-teal-dark`}>Page not found</p>
+        <h1 className={`mt-3 text-[28px] font-medium leading-tight text-pg-navy md:text-[40px]`}>We couldn't find that page</h1>
+        <p className={`mt-3 text-base leading-relaxed text-pg-slate`}>
           The link may be out of date, or the page may have moved. Try one of these instead:
         </p>
         <div className="mt-7 flex flex-wrap justify-center gap-3">

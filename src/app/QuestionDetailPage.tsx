@@ -207,16 +207,16 @@ export default function QuestionDetailPage() {
         <div className="max-w-pg-page mx-auto px-6 h-10 flex items-center gap-2">
           <Link
             to="/ask-a-therapist"
-            className="font-['Poppins',sans-serif] text-xs text-pg-teal-dark hover:text-pg-navy no-underline transition-colors shrink-0"
+            className="text-xs text-pg-teal-dark hover:text-pg-navy no-underline transition-colors shrink-0"
           >
             ← Back to Questions
           </Link>
           <ChevronRight size={13} className="text-pg-slate shrink-0" />
-          <span className="font-['Poppins',sans-serif] font-semibold text-[11px] uppercase tracking-[1.2px] text-pg-teal-dark bg-pg-tint px-2 py-0.5 rounded-pg-sm shrink-0">
+          <span className="font-semibold text-[11px] uppercase tracking-[1.2px] text-pg-teal-dark bg-pg-tint px-2 py-0.5 rounded-pg-sm shrink-0">
             {question.category}
           </span>
           <ChevronRight size={13} className="text-pg-slate shrink-0" />
-          <span className="font-['Poppins',sans-serif] text-xs font-semibold text-pg-navy truncate">
+          <span className="text-xs font-semibold text-pg-navy truncate">
             {question.question}
           </span>
         </div>
@@ -230,13 +230,13 @@ export default function QuestionDetailPage() {
 
           {/* Question heading */}
           <div>
-            <span className="inline-block font-['Poppins',sans-serif] font-semibold text-[11px] uppercase tracking-[1.4px] text-pg-teal-dark bg-pg-tint border border-pg-sage/40 px-2.5 py-0.5 rounded-pg-sm mb-2">
+            <span className="inline-block font-semibold text-[11px] uppercase tracking-[1.4px] text-pg-teal-dark bg-pg-tint border border-pg-sage/40 px-2.5 py-0.5 rounded-pg-sm mb-2">
               {question.category}
             </span>
-            <h1 className="font-['Poppins',sans-serif] font-bold text-pg-navy text-xl leading-snug">
+            <h1 className="font-bold text-pg-navy text-xl leading-snug">
               {question.question}
             </h1>
-            <p className="font-['Poppins',sans-serif] text-pg-slate text-xs mt-1">— User Submitted</p>
+            <p className="text-pg-slate text-xs mt-1">— User Submitted</p>
           </div>
 
           {/* ── Video player ── */}
@@ -256,7 +256,7 @@ export default function QuestionDetailPage() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
 
             {/* Duration badge */}
-            <div className="absolute top-3 left-3 bg-black/60 text-white font-['Poppins',sans-serif] text-xs font-semibold px-2 py-0.5 rounded-pg-sm">
+            <div className="absolute top-3 left-3 bg-black/60 text-white text-xs font-semibold px-2 py-0.5 rounded-pg-sm">
               {question.duration}
             </div>
 
@@ -299,7 +299,7 @@ export default function QuestionDetailPage() {
                   <button className="text-white/80 hover:text-white transition-colors" onClick={(e) => { e.stopPropagation(); setPlaying((p) => !p); }}>
                     {playing ? <Pause size={15} fill="white" /> : <Play size={15} fill="white" className="ml-0.5" />}
                   </button>
-                  <span className="font-['Poppins',sans-serif] text-white/80 text-xs">
+                  <span className="text-white/80 text-xs">
                     {elapsedStr} / {question.duration}
                   </span>
                   <Volume2 size={14} className="text-white/60 hover:text-white cursor-pointer transition-colors" onClick={(e) => e.stopPropagation()} />
@@ -321,7 +321,7 @@ export default function QuestionDetailPage() {
             >
               <div className="flex items-center gap-2">
                 <CheckCircle2 size={14} className="text-pg-teal" />
-                <span className="font-['Poppins',sans-serif] font-semibold text-sm text-pg-navy">
+                <span className="font-semibold text-sm text-pg-navy">
                   Read Transcript
                 </span>
               </div>
@@ -340,7 +340,7 @@ export default function QuestionDetailPage() {
                   style={{ overflow: "hidden" }}
                 >
                   <div className="px-5 pb-5 border-t border-pg-line pt-4">
-                    <p className="font-['Poppins',sans-serif] text-pg-slate text-sm leading-relaxed">
+                    <p className="text-pg-slate text-sm leading-relaxed">
                       {question.transcript}
                     </p>
                   </div>
@@ -352,7 +352,7 @@ export default function QuestionDetailPage() {
           {/* ── Disclaimer ── */}
           <div className="flex gap-3 bg-pg-warning-soft border border-pg-amber/40 rounded-pg-lg px-4 py-3">
             <AlertCircle size={15} className="text-pg-amber shrink-0 mt-0.5" />
-            <p className="font-['Poppins',sans-serif] text-pg-slate text-xs leading-relaxed">
+            <p className="text-pg-slate text-xs leading-relaxed">
               <span className="font-semibold text-pg-navy">Important: </span>
               The use of parentguidance.org and the content on this website does not form a therapist/patient relationship with any clinician or coach.
             </p>
@@ -371,8 +371,8 @@ export default function QuestionDetailPage() {
                 >
                   <ChevronLeft size={16} className="text-pg-slate group-hover:text-pg-teal transition-colors shrink-0" />
                   <div className="min-w-0">
-                    <p className="font-['Poppins',sans-serif] text-[11px] text-pg-slate uppercase tracking-[1px] mb-0.5">Previous</p>
-                    <p className="font-['Poppins',sans-serif] text-xs font-semibold text-pg-navy truncate">{prevQ.question}</p>
+                    <p className="text-[11px] text-pg-slate uppercase tracking-[1px] mb-0.5">Previous</p>
+                    <p className="text-xs font-semibold text-pg-navy truncate">{prevQ.question}</p>
                   </div>
                 </motion.div>
               </Link>
@@ -388,8 +388,8 @@ export default function QuestionDetailPage() {
                   whileHover={{ y: -2, boxShadow: "0 8px 24px rgba(28,50,67,0.14)" }}
                 >
                   <div className="min-w-0 flex-1">
-                    <p className="font-['Poppins',sans-serif] text-[11px] text-pg-slate uppercase tracking-[1px] mb-0.5">Next</p>
-                    <p className="font-['Poppins',sans-serif] text-xs font-semibold text-pg-navy truncate">{nextQ.question}</p>
+                    <p className="text-[11px] text-pg-slate uppercase tracking-[1px] mb-0.5">Next</p>
+                    <p className="text-xs font-semibold text-pg-navy truncate">{nextQ.question}</p>
                   </div>
                   <ChevronRight size={16} className="text-pg-slate group-hover:text-pg-teal transition-colors shrink-0" />
                 </motion.div>
@@ -403,17 +403,17 @@ export default function QuestionDetailPage() {
 
           {/* Therapist card */}
           <div className="bg-white rounded-pg-xl border border-pg-line p-5 flex flex-col gap-3" style={{ boxShadow: "0 8px 24px rgba(28,50,67,0.06)" }}>
-            <p className="font-['Poppins',sans-serif] font-semibold text-[11px] uppercase tracking-[1.2px] text-pg-slate">Answered by</p>
+            <p className="font-semibold text-[11px] uppercase tracking-[1.2px] text-pg-slate">Answered by</p>
             <div className="flex items-center gap-3">
               <div className="w-11 h-11 rounded-full bg-pg-sage flex items-center justify-center shrink-0">
-                <span className="font-['Poppins',sans-serif] font-bold text-pg-navy text-sm">KS</span>
+                <span className="font-bold text-pg-navy text-sm">KS</span>
               </div>
               <div>
-                <p className="font-['Poppins',sans-serif] font-semibold text-pg-navy text-sm">{question.therapist}</p>
-                <p className="font-['Poppins',sans-serif] text-pg-teal text-xs">{question.credential}</p>
+                <p className="font-semibold text-pg-navy text-sm">{question.therapist}</p>
+                <p className="text-pg-teal text-xs">{question.credential}</p>
               </div>
             </div>
-            <p className="font-['Poppins',sans-serif] text-pg-slate text-xs leading-relaxed">
+            <p className="text-pg-slate text-xs leading-relaxed">
               Dr. Skinner is a Licensed Marriage and Family Therapist, bestselling author, and happiness researcher with over 20 years of clinical experience.
             </p>
           </div>
@@ -432,12 +432,12 @@ export default function QuestionDetailPage() {
             <div className="relative p-5 flex flex-col gap-3">
               <div className="flex items-center gap-2">
                 <MessageCircle size={14} className="text-pg-sage" />
-                <span className="font-['Poppins',sans-serif] font-semibold text-[11px] uppercase tracking-[1.2px] text-pg-sage">Ask a Therapist</span>
+                <span className="font-semibold text-[11px] uppercase tracking-[1.2px] text-pg-sage">Ask a Therapist</span>
               </div>
-              <p className="font-['Poppins',sans-serif] font-bold text-white text-base leading-snug">
+              <p className="font-bold text-white text-base leading-snug">
                 Have a question of your own?
               </p>
-              <p className="font-['Poppins',sans-serif] text-white/70 text-xs leading-relaxed">
+              <p className="text-white/70 text-xs leading-relaxed">
                 Submit your parenting question and get a personalized video response from one of our licensed therapists.
               </p>
               <Button variant="inverse" size="s" onClick={() => setShowModal(true)} className="self-start gap-1.5">
@@ -450,7 +450,7 @@ export default function QuestionDetailPage() {
           {/* Related questions */}
           <div className="bg-white rounded-pg-xl border border-pg-line overflow-hidden" style={{ boxShadow: "0 8px 24px rgba(28,50,67,0.06)" }}>
             <div className="px-4 py-3.5 border-b border-pg-line">
-              <p className="font-['Poppins',sans-serif] font-bold text-pg-navy text-sm">Related Questions</p>
+              <p className="font-bold text-pg-navy text-sm">Related Questions</p>
             </div>
             <div className="flex flex-col divide-y divide-pg-tint-soft">
               {relatedItems.map((item) => (
@@ -461,10 +461,10 @@ export default function QuestionDetailPage() {
                   style={{ color: "inherit" }}
                 >
                   <div className="flex items-start gap-2.5">
-                    <span className="font-['Poppins',sans-serif] font-semibold text-[11px] uppercase tracking-[1px] text-pg-teal-dark bg-pg-tint px-1.5 py-0.5 rounded-pg-sm shrink-0 mt-0.5">
+                    <span className="font-semibold text-[11px] uppercase tracking-[1px] text-pg-teal-dark bg-pg-tint px-1.5 py-0.5 rounded-pg-sm shrink-0 mt-0.5">
                       {item.category}
                     </span>
-                    <p className="font-['Poppins',sans-serif] text-xs text-pg-navy leading-snug group-hover:text-pg-teal transition-colors line-clamp-2">
+                    <p className="text-xs text-pg-navy leading-snug group-hover:text-pg-teal transition-colors line-clamp-2">
                       {item.question}
                     </p>
                   </div>
@@ -474,7 +474,7 @@ export default function QuestionDetailPage() {
             <div className="px-4 py-3 border-t border-pg-line">
               <Link
                 to="/ask-a-therapist"
-                className="font-['Poppins',sans-serif] text-xs text-pg-teal hover:text-pg-teal-dark no-underline transition-colors flex items-center gap-1"
+                className="text-xs text-pg-teal hover:text-pg-teal-dark no-underline transition-colors flex items-center gap-1"
               >
                 Browse all questions
                 <ChevronRight size={12} />
@@ -504,9 +504,9 @@ export default function QuestionDetailPage() {
               <div className="bg-pg-navy px-6 py-5">
                 <div className="flex items-center gap-2 mb-1">
                   <MessageCircle size={14} className="text-pg-sage" />
-                  <span className="font-['Poppins',sans-serif] text-[11px] font-semibold uppercase tracking-[1.2px] text-pg-sage">Ask a Therapist</span>
+                  <span className="text-[11px] font-semibold uppercase tracking-[1.2px] text-pg-sage">Ask a Therapist</span>
                 </div>
-                <h3 className="font-['Poppins',sans-serif] font-bold text-white text-lg">Submit Your Question</h3>
+                <h3 className="font-bold text-white text-lg">Submit Your Question</h3>
               </div>
 
               {submitted ? (
@@ -514,8 +514,8 @@ export default function QuestionDetailPage() {
                   <div className="w-12 h-12 rounded-full bg-pg-tint flex items-center justify-center">
                     <CheckCircle2 size={22} className="text-pg-teal" />
                   </div>
-                  <p className="font-['Poppins',sans-serif] font-bold text-pg-navy text-base">Question received!</p>
-                  <p className="font-['Poppins',sans-serif] text-pg-slate text-sm">We'll have a licensed therapist respond with a video answer. Check your email for updates.</p>
+                  <p className="font-bold text-pg-navy text-base">Question received!</p>
+                  <p className="text-pg-slate text-sm">We'll have a licensed therapist respond with a video answer. Check your email for updates.</p>
                   <Button onClick={() => { setShowModal(false); setSubmitted(false); setSubmitQ(""); setSubmitEmail(""); }} className="mt-2">
                     Done
                   </Button>
@@ -523,20 +523,20 @@ export default function QuestionDetailPage() {
               ) : (
                 <form className="p-6 flex flex-col gap-4" onSubmit={(e) => { e.preventDefault(); if (submitQ.trim() && submitEmail.trim()) setSubmitted(true); }}>
                   <div>
-                    <label className="font-['Poppins',sans-serif] text-xs font-semibold text-pg-navy block mb-1.5">Your Question</label>
+                    <label className="text-xs font-semibold text-pg-navy block mb-1.5">Your Question</label>
                     <textarea
                       rows={4}
-                      className="w-full border border-pg-line rounded-pg-md px-3.5 py-2.5 font-['Poppins',sans-serif] text-sm text-pg-navy placeholder:text-pg-teal outline-none focus:border-pg-teal resize-none transition-colors"
+                      className="w-full border border-pg-line rounded-pg-md px-3.5 py-2.5 text-sm text-pg-navy placeholder:text-pg-teal outline-none focus:border-pg-teal resize-none transition-colors"
                       placeholder="What's your parenting question?"
                       value={submitQ}
                       onChange={(e) => setSubmitQ(e.target.value)}
                     />
                   </div>
                   <div>
-                    <label className="font-['Poppins',sans-serif] text-xs font-semibold text-pg-navy block mb-1.5">Email</label>
+                    <label className="text-xs font-semibold text-pg-navy block mb-1.5">Email</label>
                     <input
                       type="email"
-                      className="w-full border border-pg-line rounded-pg-md px-3.5 py-2.5 font-['Poppins',sans-serif] text-sm text-pg-navy placeholder:text-pg-teal outline-none focus:border-pg-teal transition-colors"
+                      className="w-full border border-pg-line rounded-pg-md px-3.5 py-2.5 text-sm text-pg-navy placeholder:text-pg-teal outline-none focus:border-pg-teal transition-colors"
                       placeholder="your@email.com"
                       value={submitEmail}
                       onChange={(e) => setSubmitEmail(e.target.value)}

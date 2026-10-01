@@ -23,15 +23,15 @@ export default function LegalDocumentBody({
   return (
     <>
       <div className="border-b border-pg-line pb-8 print:border-0">
-        <p className="mb-6 font-['Poppins',sans-serif] text-sm font-semibold text-pg-teal">
+        <p className="mb-6 text-sm font-semibold text-pg-teal">
           Effective date: {effectiveDate}
         </p>
 
-        <h2 className="font-['Poppins',sans-serif] text-2xl font-bold text-pg-navy">
+        <h2 className="text-2xl font-bold text-pg-navy">
           {introHeading}
         </h2>
 
-        <div className="mt-4 space-y-4 font-['Poppins',sans-serif] text-base leading-7 text-pg-slate">
+        <div className="mt-4 space-y-4 text-base leading-7 text-pg-slate">
           {intro.map((p, i) => (
             <p key={i}>{p}</p>
           ))}
@@ -47,11 +47,11 @@ export default function LegalDocumentBody({
               : "pt-8 print:pt-6"
           }
         >
-          <h2 className="font-['Poppins',sans-serif] text-2xl font-bold text-pg-navy">
+          <h2 className="text-2xl font-bold text-pg-navy">
             {section.heading}
           </h2>
 
-          <div className="mt-4 space-y-4 font-['Poppins',sans-serif] text-base leading-7 text-pg-slate">
+          <div className="mt-4 space-y-4 text-base leading-7 text-pg-slate">
             {section.paragraphs.map((p, i) => (
               <p key={i} className={isLegalSubItem(p) ? "pl-5" : ""}>
                 {p}
@@ -62,11 +62,11 @@ export default function LegalDocumentBody({
       ))}
 
       <div className="border-t border-pg-line pt-8 print:border-0 print:pt-6">
-        <h2 className="font-['Poppins',sans-serif] text-2xl font-bold text-pg-navy">
+        <h2 className="text-2xl font-bold text-pg-navy">
           {contactHeading}
         </h2>
 
-        <p className="mt-4 font-['Poppins',sans-serif] text-base leading-7 text-pg-slate">
+        <p className="mt-4 text-base leading-7 text-pg-slate">
           {contactBody}
         </p>
 

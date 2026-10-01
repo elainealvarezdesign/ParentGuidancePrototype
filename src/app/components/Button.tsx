@@ -12,7 +12,7 @@ export type ButtonVariant = "primary" | "secondary" | "tertiary" | "inverse" | "
 export type ButtonSize = "s" | "m" | "l";
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-pg-md font-['Poppins',sans-serif] font-semibold no-underline " +
+  "inline-flex items-center justify-center gap-2 rounded-pg-md font-semibold no-underline " +
   "transition-colors duration-(--pg-dur-fast) disabled:cursor-not-allowed [&_svg]:shrink-0";
 
 const variants: Record<ButtonVariant, string> = {

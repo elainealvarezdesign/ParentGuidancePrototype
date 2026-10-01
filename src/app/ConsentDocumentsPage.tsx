@@ -88,7 +88,7 @@ function AccordionItem({ doc, isOpen, onToggle }: { doc: Document; isOpen: boole
           aria-expanded={isOpen}
         >
           <span className="h-2 w-2 rounded-full bg-pg-teal" />
-          <span className="font-['Poppins',sans-serif] text-xl font-bold text-pg-navy">{doc.title}</span>
+          <span className="text-xl font-bold text-pg-navy">{doc.title}</span>
           <ChevronDown
             size={18}
             className={`ml-1 text-pg-teal transition-transform ${isOpen ? "rotate-180" : ""}`}
@@ -108,7 +108,7 @@ function AccordionItem({ doc, isOpen, onToggle }: { doc: Document; isOpen: boole
         </div>
       </div>
 
-      <h2 className="hidden px-6 pt-6 font-['Poppins',sans-serif] text-2xl font-bold text-pg-navy print:block print:px-0">
+      <h2 className="hidden px-6 pt-6 text-2xl font-bold text-pg-navy print:block print:px-0">
         {doc.title}
       </h2>
 
@@ -134,15 +134,15 @@ export default function ConsentDocumentsPage() {
     <main className="min-h-screen bg-pg-cream print:bg-white">
       <section className="px-6 pb-14 pt-28 md:px-10 lg:px-14 print:hidden">
         <div className="mx-auto max-w-pg-content">
-          <p className="mb-3 font-['Poppins',sans-serif] text-sm font-semibold uppercase tracking-[0.14em] text-pg-teal-dark">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.14em] text-pg-teal-dark">
             Legal
           </p>
 
-          <h1 id="consent-documents-title" tabIndex={-1} className="focus:outline-none font-['Poppins',sans-serif] text-4xl font-bold text-pg-navy md:text-5xl">
+          <h1 id="consent-documents-title" tabIndex={-1} className="focus:outline-none text-4xl font-bold text-pg-navy md:text-5xl">
             Consent Documents
           </h1>
 
-          <p className="mt-4 max-w-pg-reading font-['Poppins',sans-serif] text-base leading-7 text-pg-slate">
+          <p className="mt-4 max-w-pg-reading text-base leading-7 text-pg-slate">
             Review, download or print the Terms of Use and Privacy Policy that apply to your
             access to and use of Parent Guidance's Services.
           </p>

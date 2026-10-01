@@ -16,7 +16,6 @@ import {
 } from "./mhs/events";
 import { EventModal, type EventModalData } from "./mhs/EventModal";
 
-const font = "font-['Poppins',sans-serif]";
 const card = "rounded-pg-xl border border-pg-line bg-white shadow-pg-card";
 const WEEKDAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 const INITIAL = parseDate("2025-07-10");
@@ -32,13 +31,13 @@ const toModalData = (e: SeriesEvent): EventModalData => ({
 const byDateTime = (a: SeriesEvent, b: SeriesEvent) => (a.date + (a.start ?? "00:00")).localeCompare(b.date + (b.start ?? "00:00"));
 
 function CategoryTag({ category }: { category: EventCategory }) {
-  return <span className={`${font} inline-flex rounded-full px-2 py-0.5 text-xs font-semibold ${CATEGORIES[category].pill}`}>{CATEGORIES[category].label}</span>;
+  return <span className={`inline-flex rounded-full px-2 py-0.5 text-xs font-semibold ${CATEGORIES[category].pill}`}>{CATEGORIES[category].label}</span>;
 }
 
 function DateBlock({ date, size = "md" }: { date: Date; size?: "sm" | "md" }) {
   const box = size === "sm" ? "h-11 w-11" : "h-14 w-14";
   return (
-    <div className={`${font} ${box} flex shrink-0 flex-col items-center justify-center rounded-pg-lg bg-pg-tint leading-none text-pg-teal-dark`} aria-hidden="true">
+    <div className={`${box} flex shrink-0 flex-col items-center justify-center rounded-pg-lg bg-pg-tint leading-none text-pg-teal-dark`} aria-hidden="true">
       <span className="text-[11px] font-semibold uppercase tracking-[0.08em]">{date.toLocaleDateString("en-US", { month: "short" })}</span>
       <span className={`${size === "sm" ? "text-[17px]" : "text-xl"} mt-0.5 font-bold text-pg-navy`}>{date.getDate()}</span>
     </div>
@@ -64,16 +63,16 @@ function EventActions({ event }: { event: SeriesEvent }) {
 function EventDetail({ event }: { event: SeriesEvent }) {
   return (
     <article className="border-t border-pg-line pt-4 first:border-t-0 first:pt-0" lang={event.language === "Español" ? "es" : undefined}>
-      <h3 className={`${font} text-lg font-bold leading-snug text-pg-navy`}>{event.title}</h3>
-      <ul className={`${font} mt-2 grid gap-1.5 text-[13px] text-pg-slate`}>
+      <h3 className={`text-lg font-bold leading-snug text-pg-navy`}>{event.title}</h3>
+      <ul className={`mt-2 grid gap-1.5 text-[13px] text-pg-slate`}>
         <li className="flex items-center gap-2"><Clock size={16} className="shrink-0 text-pg-teal-dark" aria-hidden="true" />{formatTimeRange(event)}{event.start ? " CT" : ""}</li>
         <li className="flex items-center gap-2"><MapPin size={16} className="shrink-0 text-pg-teal-dark" aria-hidden="true" />Online</li>
       </ul>
       <div className="mt-2.5 flex flex-wrap gap-1.5">
         <CategoryTag category={event.category} />
-        {event.language && <span className={`${font} inline-flex rounded-full bg-pg-cream-dark px-2 py-0.5 text-xs font-semibold text-pg-navy`}>{event.language}</span>}
+        {event.language && <span className={`inline-flex rounded-full bg-pg-cream-dark px-2 py-0.5 text-xs font-semibold text-pg-navy`}>{event.language}</span>}
       </div>
-      <p className={`${font} mt-3 text-[13px] leading-relaxed text-pg-slate`}>{event.description}</p>
+      <p className={`mt-3 text-[13px] leading-relaxed text-pg-slate`}>{event.description}</p>
       <EventActions event={event} />
     </article>
   );
@@ -157,7 +156,7 @@ export default function MentalHealthEventsPage() {
     : undefined;
 
   const chip = (active: boolean) =>
-    `${font} inline-flex h-9 shrink-0 items-center gap-2 rounded-full border px-3.5 text-[13px] font-medium transition-colors ${
+    `inline-flex h-9 shrink-0 items-center gap-2 rounded-full border px-3.5 text-[13px] font-medium transition-colors ${
       active ? "border-pg-navy bg-pg-navy text-white" : "border-pg-line bg-white text-pg-navy hover:bg-pg-tint-soft"
     }`;
 
@@ -165,16 +164,16 @@ export default function MentalHealthEventsPage() {
     <main className="bg-pg-cream px-6 pb-20 pt-20 md:px-10 md:pt-24 lg:px-14">
       <div className="mx-auto max-w-pg-page">
         {/* Header */}
-        <Link to="/mental-health-series" className={`${font} inline-flex items-center gap-1 text-xs font-medium text-pg-teal-dark hover:text-pg-navy`}>
+        <Link to="/mental-health-series" className={`inline-flex items-center gap-1 text-xs font-medium text-pg-teal-dark hover:text-pg-navy`}>
           <ChevronLeft size={16} aria-hidden="true" />
           Mental Health Series
         </Link>
-        <p className={`${font} mt-4 flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-pg-teal-dark`}>
+        <p className={`mt-4 flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-pg-teal-dark`}>
           <span className="h-[18px] w-1 rounded-full bg-pg-sage" aria-hidden="true" />
           Events
         </p>
-        <h1 className={`${font} mt-2 text-[28px] font-medium leading-[1.15] text-pg-navy md:text-[40px]`}>Live sessions &amp; events</h1>
-        <p className={`${font} mt-2 max-w-[640px] text-base leading-relaxed text-pg-slate`}>
+        <h1 className={`mt-2 text-[28px] font-medium leading-[1.15] text-pg-navy md:text-[40px]`}>Live sessions &amp; events</h1>
+        <p className={`mt-2 max-w-[640px] text-base leading-relaxed text-pg-slate`}>
           Join free live Q&amp;As, workshops and support groups with licensed therapists. All times are shown in Central Time (CT).
         </p>
 
@@ -184,7 +183,7 @@ export default function MentalHealthEventsPage() {
             <button type="button" onClick={() => goToMonth(-1)} aria-label="Previous month" className="grid h-9 w-9 place-items-center rounded-pg-md border border-pg-line bg-white text-pg-teal-dark hover:bg-pg-tint-soft">
               <ChevronLeft size={18} aria-hidden="true" />
             </button>
-            <h2 className={`${font} min-w-[150px] text-center text-xl font-bold text-pg-navy md:text-2xl`} aria-live="polite">{monthLabel(month)}</h2>
+            <h2 className={`min-w-[150px] text-center text-xl font-bold text-pg-navy md:text-2xl`} aria-live="polite">{monthLabel(month)}</h2>
             <button type="button" onClick={() => goToMonth(1)} aria-label="Next month" className="grid h-9 w-9 place-items-center rounded-pg-md border border-pg-line bg-white text-pg-teal-dark hover:bg-pg-tint-soft">
               <ChevronRight size={18} aria-hidden="true" />
             </button>
@@ -199,7 +198,7 @@ export default function MentalHealthEventsPage() {
                 type="button"
                 aria-pressed={view === v}
                 onClick={() => setView(v)}
-                className={`${font} h-8 rounded-pg-md px-3.5 text-[13px] ${view === v ? "bg-white font-semibold text-pg-navy shadow-pg-card" : "font-medium text-pg-slate"}`}
+                className={`h-8 rounded-pg-md px-3.5 text-[13px] ${view === v ? "bg-white font-semibold text-pg-navy shadow-pg-card" : "font-medium text-pg-slate"}`}
               >
                 {v === "month" ? "Month" : "List"}
               </button>
@@ -219,7 +218,7 @@ export default function MentalHealthEventsPage() {
         </div>
 
         {nearest && (
-          <div className={`${font} mt-4 flex flex-wrap items-center justify-between gap-3 rounded-pg-lg border border-pg-line bg-white px-4 py-3 text-sm text-pg-slate`}>
+          <div className={`mt-4 flex flex-wrap items-center justify-between gap-3 rounded-pg-lg border border-pg-line bg-white px-4 py-3 text-sm text-pg-slate`}>
             <span>No events scheduled in {monthLabel(month)}.</span>
             <button type="button" onClick={() => goToDate(nearest.date)} className="font-semibold text-pg-teal-dark underline underline-offset-4">
               Show {monthLabel(parseDate(nearest.date))}
@@ -233,7 +232,7 @@ export default function MentalHealthEventsPage() {
             <section className={`${card} overflow-hidden`} aria-label={`Calendar, ${monthLabel(month)}`}>
               <div className="grid grid-cols-7 border-b border-pg-line" aria-hidden="true">
                 {WEEKDAYS.map((d) => (
-                  <span key={d} className={`${font} py-2.5 text-center text-[11px] font-semibold uppercase tracking-[0.06em] text-pg-slate md:tracking-[0.1em]`}>{d}</span>
+                  <span key={d} className={`py-2.5 text-center text-[11px] font-semibold uppercase tracking-[0.06em] text-pg-slate md:tracking-[0.1em]`}>{d}</span>
                 ))}
               </div>
               <div className="grid grid-cols-7">
@@ -255,7 +254,7 @@ export default function MentalHealthEventsPage() {
                         aria-label={dayLabel}
                         className="absolute inset-0 flex flex-col items-center gap-1 p-1 lg:items-start lg:p-2"
                       >
-                        <span className={`${font} grid h-7 w-7 place-items-center rounded-full text-[13px] font-semibold ${isSelected ? "bg-pg-teal text-white" : "text-pg-navy"}`}>
+                        <span className={`grid h-7 w-7 place-items-center rounded-full text-[13px] font-semibold ${isSelected ? "bg-pg-teal text-white" : "text-pg-navy"}`}>
                           {date.getDate()}
                         </span>
                         {/* Mobile: dots */}
@@ -274,13 +273,13 @@ export default function MentalHealthEventsPage() {
                               type="button"
                               onClick={(click) => { setSelected(key); openEvent(e, click); }}
                               aria-haspopup="dialog"
-                              className={`${font} pointer-events-auto block w-full rounded-pg-md px-1.5 py-1 text-left text-xs leading-tight transition-[filter] hover:brightness-110 ${CATEGORIES[e.category].pill}`}
+                              className={`pointer-events-auto block w-full rounded-pg-md px-1.5 py-1 text-left text-xs leading-tight transition-[filter] hover:brightness-110 ${CATEGORIES[e.category].pill}`}
                             >
                               <span className="block text-xs font-semibold opacity-90">{formatStart(e)}</span>
                               <span className="line-clamp-2 font-medium">{e.title}</span>
                             </button>
                           ))}
-                          {dayEvents.length > 3 && <span className={`${font} text-xs font-semibold text-pg-teal-dark`}>+{dayEvents.length - 3} more</span>}
+                          {dayEvents.length > 3 && <span className={`text-xs font-semibold text-pg-teal-dark`}>+{dayEvents.length - 3} more</span>}
                         </div>
                       )}
                     </div>
@@ -292,19 +291,19 @@ export default function MentalHealthEventsPage() {
             /* List view */
             <section className={`${card} p-5 md:p-6`} aria-label={`Events in ${monthLabel(month)}`}>
               {monthEvents.length === 0 ? (
-                <p className={`${font} text-sm text-pg-slate`}>No events in {monthLabel(month)}.</p>
+                <p className={`text-sm text-pg-slate`}>No events in {monthLabel(month)}.</p>
               ) : (
                 <ol className="grid gap-4">
                   {monthEvents.map((e) => (
                     <li key={e.id} className="flex gap-4 rounded-pg-lg border border-pg-tint-soft p-4" lang={e.language === "Español" ? "es" : undefined}>
                       <DateBlock date={parseDate(e.date)} />
                       <div className="min-w-0 flex-1">
-                        <p className={`${font} text-xs text-pg-slate`}>{parseDate(e.date).toLocaleDateString("en-US", { weekday: "long" })} · {formatTimeRange(e)}{e.start ? " CT" : ""}</p>
-                        <h3 className={`${font} mt-0.5 text-base font-bold leading-snug text-pg-navy`}>{e.title}</h3>
-                        <p className={`${font} mt-1 text-[13px] leading-relaxed text-pg-slate`}>{e.description}</p>
+                        <p className={`text-xs text-pg-slate`}>{parseDate(e.date).toLocaleDateString("en-US", { weekday: "long" })} · {formatTimeRange(e)}{e.start ? " CT" : ""}</p>
+                        <h3 className={`mt-0.5 text-base font-bold leading-snug text-pg-navy`}>{e.title}</h3>
+                        <p className={`mt-1 text-[13px] leading-relaxed text-pg-slate`}>{e.description}</p>
                         <div className="mt-2 flex flex-wrap gap-1.5">
                           <CategoryTag category={e.category} />
-                          {e.language && <span className={`${font} inline-flex rounded-full bg-pg-cream-dark px-2 py-0.5 text-xs font-semibold text-pg-navy`}>{e.language}</span>}
+                          {e.language && <span className={`inline-flex rounded-full bg-pg-cream-dark px-2 py-0.5 text-xs font-semibold text-pg-navy`}>{e.language}</span>}
                         </div>
                         <EventActions event={e} />
                       </div>
@@ -319,19 +318,19 @@ export default function MentalHealthEventsPage() {
           <aside className="grid gap-4">
             {view === "month" && (
               <section className={`${card} p-5`} aria-live="polite" aria-label="Selected day">
-                <p className={`${font} text-[11px] font-semibold uppercase tracking-[0.12em] text-pg-teal-dark`}>{longDate(parseDate(selected))}</p>
+                <p className={`text-[11px] font-semibold uppercase tracking-[0.12em] text-pg-teal-dark`}>{longDate(parseDate(selected))}</p>
                 <div className="mt-2 grid gap-4">
                   {selectedEvents.length ? (
                     selectedEvents.map((e) => <EventDetail key={e.id} event={e} />)
                   ) : (
-                    <p className={`${font} text-sm text-pg-slate`}>No events on this day.</p>
+                    <p className={`text-sm text-pg-slate`}>No events on this day.</p>
                   )}
                 </div>
               </section>
             )}
 
             <section className={`${card} p-5`} aria-labelledby="upcoming-title">
-              <h2 id="upcoming-title" className={`${font} text-base font-bold text-pg-navy`}>Upcoming events</h2>
+              <h2 id="upcoming-title" className={`text-base font-bold text-pg-navy`}>Upcoming events</h2>
               {upcoming.length ? (
                 <ul className="mt-3.5 grid gap-2.5">
                   {upcoming.map((e) => (
@@ -345,8 +344,8 @@ export default function MentalHealthEventsPage() {
                         <span className="absolute bottom-2.5 left-0 top-2.5 w-[3px] rounded-pg-sm" style={{ background: CATEGORIES[e.category].swatch }} aria-hidden="true" />
                         <DateBlock date={parseDate(e.date)} size="sm" />
                         <span className="min-w-0">
-                          <span className={`${font} block text-[13px] font-semibold leading-snug text-pg-navy`}>{e.title}</span>
-                          <span className={`${font} mt-0.5 block text-xs text-pg-slate`}>{parseDate(e.date).toLocaleDateString("en-US", { weekday: "short" })} · {formatTimeRange(e)}</span>
+                          <span className={`block text-[13px] font-semibold leading-snug text-pg-navy`}>{e.title}</span>
+                          <span className={`mt-0.5 block text-xs text-pg-slate`}>{parseDate(e.date).toLocaleDateString("en-US", { weekday: "short" })} · {formatTimeRange(e)}</span>
                           <span className="mt-1.5 block"><CategoryTag category={e.category} /></span>
                         </span>
                       </button>
@@ -354,18 +353,18 @@ export default function MentalHealthEventsPage() {
                   ))}
                 </ul>
               ) : (
-                <p className={`${font} mt-3 text-sm text-pg-slate`}>No more events scheduled.</p>
+                <p className={`mt-3 text-sm text-pg-slate`}>No more events scheduled.</p>
               )}
               {view === "month" && (
-                <button type="button" onClick={() => setView("list")} className={`${font} mt-3 text-[13px] font-semibold text-pg-teal-dark hover:underline`}>
+                <button type="button" onClick={() => setView("list")} className={`mt-3 text-[13px] font-semibold text-pg-teal-dark hover:underline`}>
                   See all in list view →
                 </button>
               )}
             </section>
 
             <section className="rounded-pg-xl bg-pg-navy p-5 text-white" aria-labelledby="sync-title">
-              <h2 id="sync-title" className={`${font} text-base font-bold`}>Never miss a session</h2>
-              <p className={`${font} mt-1 text-[13px] text-pg-sage`}>Add every Parent Guidance event to Google, Outlook or Apple Calendar.</p>
+              <h2 id="sync-title" className={`text-base font-bold`}>Never miss a session</h2>
+              <p className={`mt-1 text-[13px] text-pg-sage`}>Add every Parent Guidance event to Google, Outlook or Apple Calendar.</p>
               <Button variant="inverse" onClick={() => downloadIcs("parent-guidance-events.ics", EVENTS)} className="mt-4">
                 <Download size={16} aria-hidden="true" />
                 Download calendar (.ics)
