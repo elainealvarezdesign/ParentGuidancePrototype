@@ -234,9 +234,9 @@ function SubmitModal({ onClose }: { onClose: () => void }) {
           <div className="px-8 py-12 flex flex-col items-center text-center gap-4">
             <motion.div
               className="w-16 h-16 rounded-full bg-pg-tint flex items-center justify-center"
-              initial={{ scale: 0.5 }}
-              animate={{ scale: 1 }}
-              transition={{ type: "spring", stiffness: 260, damping: 20 }}
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
               <CheckCircle size={28} className="text-pg-teal" />
             </motion.div>
@@ -263,11 +263,11 @@ function QACard({ item, index }: { item: QAItem; index: number }) {
     <motion.div
       ref={ref}
       className="bg-white rounded-pg-xl overflow-hidden flex flex-col cursor-pointer group"
-      style={{ boxShadow: "0 8px 24px rgba(28,50,67,0.06)" }}
+      style={{ boxShadow: "var(--pg-shadow-card)" }}
       initial={{ opacity: 0, y: 24 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.55, delay: (index % 9) * 0.06 }}
-      whileHover={{ y: -4, boxShadow: "0 8px 24px rgba(28,50,67,0.14)" }}
+      whileHover={{ y: -4, boxShadow: "var(--pg-shadow-card-hover)" }}
     >
       {/* Image */}
       <div className="relative overflow-hidden shrink-0" style={{ height: "176px" }}>
@@ -355,7 +355,7 @@ export default function AskATherapistPage() {
         </div>
 
         {/* Question */}
-        <h1 className="font-bold text-pg-navy text-3xl md:text-[40px] leading-[1.08] mb-8">
+        <h1 className="font-bold text-pg-navy text-[28px] md:text-[40px] leading-[1.08] mb-8">
           {FEATURED.question}
         </h1>
 
@@ -412,7 +412,7 @@ export default function AskATherapistPage() {
 {/* — FILTER BAR — */}
 <section
   className="bg-white border-y border-pg-cream-dark sticky top-14 z-30"
-  style={{ boxShadow: "0 8px 24px rgba(28,50,67,0.06)" }}
+  style={{ boxShadow: "var(--pg-shadow-card)" }}
 >
   <div className="max-w-pg-page mx-auto px-6 md:px-10 py-3 flex flex-wrap md:flex-nowrap items-center gap-3 md:gap-4">
 
@@ -536,7 +536,7 @@ export default function AskATherapistPage() {
             <div className="flex flex-wrap items-center justify-between gap-3 mb-5">
               <div className="flex items-center gap-2.5">
                 <div className="w-1 h-5 rounded-full bg-pg-sage" />
-                <span className="font-semibold text-pg-navy text-lg">Browse All</span>
+                <span className="font-semibold text-pg-navy text-xl">Browse All</span>
                 <div className="bg-pg-tint rounded-full px-2.5 py-0.5">
                   <span className="font-medium text-pg-teal-dark text-xs">
                     {filtered.length} questions
@@ -565,9 +565,8 @@ export default function AskATherapistPage() {
                   style={{
                     background: activeCategory === cat ? "var(--pg-navy)" : "#ffffff",
                     color: activeCategory === cat ? "#ffffff" : "var(--pg-slate)",
-                    boxShadow: activeCategory === cat ? "none" : "0 1px 2px rgba(0,0,0,0.07)",
+                    boxShadow: activeCategory === cat ? "none" : "var(--pg-shadow-card)",
                   }}
-                  whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
                 >
                   {cat}
@@ -649,7 +648,7 @@ export default function AskATherapistPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.55 }}
           >
-            <h2 className="font-bold text-pg-navy text-3xl md:text-4xl leading-tight max-w-md">
+            <h2 className="font-bold text-pg-navy text-[28px] md:text-[40px] leading-tight max-w-md">
               Looking for additional help?
             </h2>
             <p className="text-pg-navy text-sm leading-relaxed max-w-sm">

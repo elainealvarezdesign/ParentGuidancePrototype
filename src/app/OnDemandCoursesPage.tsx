@@ -340,7 +340,7 @@ function Hero() {
           <span className="text-xs font-semibold uppercase tracking-[1.4px] text-pg-teal-dark">
             On-Demand Courses
           </span>
-          <h1 className="font-bold text-pg-navy text-[32px] sm:text-[40px] leading-[1.15]">
+          <h1 className="font-bold text-pg-navy text-[28px] md:text-[40px] leading-[1.15]">
             {"Expert-led courses to help you "}
             <em className="italic text-pg-teal">parent with confidence.</em>
           </h1>
@@ -478,7 +478,7 @@ export default function OnDemandCoursesPage() {
       <Hero />
 
       {/* ── Sticky filter bar ── */}
-      <div className="bg-white border-b border-pg-line sticky top-14 z-30" style={{ boxShadow: "0 8px 24px rgba(28,50,67,0.06)" }}>
+      <div className="bg-white border-b border-pg-line sticky top-14 z-30" style={{ boxShadow: "var(--pg-shadow-card)" }}>
         <div className="max-w-pg-page mx-auto px-6 md:px-10 py-3 flex flex-wrap md:flex-nowrap items-center gap-3 md:gap-4">
           {/* Search */}
           <div className="relative min-w-0 flex-1 md:flex-none md:w-64">
@@ -540,7 +540,7 @@ export default function OnDemandCoursesPage() {
               {sortOpen && (
                 <motion.div
                   className="absolute right-0 top-full mt-1.5 bg-white rounded-pg-md overflow-hidden z-50"
-                  style={{ boxShadow: "0 8px 24px rgba(28,50,67,0.06)", minWidth: 140 }}
+                  style={{ boxShadow: "var(--pg-shadow-card)", minWidth: 140 }}
                   initial={{ opacity: 0, y: -6, scale: 0.97 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: -4, scale: 0.97 }}
@@ -638,7 +638,7 @@ export default function OnDemandCoursesPage() {
                 style={{
                   background: page === p ? "var(--pg-teal)" : "white",
                   color: page === p ? "#ffffff" : "var(--pg-slate)",
-                  boxShadow: page === p ? "none" : "0 1px 3px rgba(0,0,0,0.07)",
+                  boxShadow: page === p ? "none" : "var(--pg-shadow-card)",
                 }}
               >
                 {p}
@@ -664,7 +664,7 @@ export default function OnDemandCoursesPage() {
             />
           </div>
           {/* Gradient overlay */}
-          <div className="absolute inset-0 rounded-pg-md bg-gradient-to-r from-[rgba(34,49,67,0.9)] via-[rgba(34,49,67,0.7)] to-[rgba(34,49,67,0)]" />
+          <div className="absolute inset-0 rounded-pg-md bg-gradient-to-r from-pg-navy/90 via-pg-navy/70 to-pg-navy/0" />
           {/* Content */}
           <div className="relative z-10 h-full flex items-center px-14">
             <div className="flex flex-col gap-2 max-w-lg">

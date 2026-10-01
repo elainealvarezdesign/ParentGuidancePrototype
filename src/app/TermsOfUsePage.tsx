@@ -21,7 +21,7 @@ export default function TermsOfUsePage() {
             Legal
           </p>
 
-          <h1 id="terms-of-use-title" tabIndex={-1} className="focus:outline-none text-4xl font-bold text-pg-navy md:text-5xl">
+          <h1 id="terms-of-use-title" tabIndex={-1} className="focus:outline-none text-[28px] font-bold text-pg-navy md:text-[40px]">
             Terms of Use
           </h1>
 

@@ -241,7 +241,7 @@ function Navbar() {
   return (
     <motion.nav
       className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 lg:px-10 h-14 bg-pg-navy print:hidden"
-      animate={{ boxShadow: scrolled ? "0 4px 24px rgba(0,0,0,0.18)" : "none" }}
+      animate={{ boxShadow: scrolled ? "var(--pg-shadow-card-hover)" : "none" }}
       transition={{ duration: 0.35 }}
     >
       <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.55 }}>
@@ -353,14 +353,14 @@ function Hero() {
         transition={{ duration: 0.55, delay: 0.3 }}
         className="mt-14"
       >
-        <h1 className="font-black text-pg-teal text-3xl md:text-4xl leading-tight md:leading-relaxed md:whitespace-nowrap">
+        <h1 className="font-bold text-pg-teal text-[28px] md:text-[40px] leading-tight md:leading-relaxed lg:whitespace-nowrap">
           {"Discover "}
-          <em className="italic font-black">Resources</em>
+          <em className="italic font-bold">Resources</em>
           {" That Can Help"}
         </h1>
       </motion.div>
       <motion.p
-        className="text-pg-navy text-lg md:text-xl text-center leading-relaxed mt-4 max-w-2xl"
+        className="text-pg-navy text-base text-center leading-relaxed mt-4 max-w-2xl"
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.55, delay: 0.5 }}
@@ -382,7 +382,7 @@ function Hero() {
           style={{
             boxShadow: focused
               ? "0 0 0 2px #90b3b6, 0 4px 24px rgba(144,179,182,0.18)"
-              : "0 2px 16px rgba(0,0,0,0.07)",
+              : "var(--pg-shadow-card)",
             transition: "box-shadow 0.25s ease",
           }}
         >
@@ -454,7 +454,7 @@ function ResourceCard({ card, index }: { card: typeof resourceCards[0]; index: n
       initial={{ opacity: 0, y: 40 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.55, delay: index * 0.1 }}
-      whileHover={{ y: -6, boxShadow: "0 8px 24px rgba(28,50,67,0.14)" }}
+      whileHover={{ y: -6, boxShadow: "var(--pg-shadow-card-hover)" }}
     >
       <div className="h-32 relative overflow-hidden rounded-t-pg-md">
         <img src={card.img} alt="" className="w-full h-full object-cover rounded-t-pg-md" />
@@ -463,7 +463,7 @@ function ResourceCard({ card, index }: { card: typeof resourceCards[0]; index: n
       </div>
       <div className="px-4 pt-3 pb-4 flex flex-col gap-2">
         <p
-          className="font-black text-[18px] leading-tight whitespace-pre-line"
+          className="font-bold text-xl leading-tight whitespace-pre-line"
           style={{ color: card.color }}
         >
           {card.title}
@@ -531,15 +531,14 @@ function FeatureRow({ feat, index }: { feat: typeof features[0]; index: number }
     >
       <motion.div
         className="w-full max-w-80 md:w-80 h-60 rounded-pg-md overflow-hidden flex-shrink-0 relative"
-        whileHover={{ scale: 1.03 }}
         transition={{ duration: 0.35 }}
       >
         <img src={imgRectangle79} alt="" className="absolute inset-0 w-full h-full object-cover" />
         <img src={feat.img} alt="" className="absolute inset-0 w-full h-full object-cover" />
       </motion.div>
       <div className="flex flex-col gap-2 max-w-sm">
-        <p className="font-black text-pg-teal text-2xl md:text-3xl leading-relaxed">{feat.title}</p>
-        <p className="text-pg-navy text-base md:text-lg leading-relaxed">{feat.desc}</p>
+        <p className="font-bold text-pg-teal text-xl md:text-2xl leading-relaxed">{feat.title}</p>
+        <p className="text-pg-navy text-base leading-relaxed">{feat.desc}</p>
       </div>
     </motion.div>
   );
@@ -550,10 +549,10 @@ function WhySection() {
     <section className="bg-pg-cream py-14 md:py-20 px-6 md:px-10 lg:px-14 flex flex-col items-center gap-12 md:gap-20">
       <FadeUp className="flex flex-col items-center gap-4 max-w-3xl text-center">
         <span className="font-semibold text-pg-navy text-base uppercase tracking-wider">Why</span>
-        <h2 className="font-bold text-pg-navy text-3xl md:text-4xl leading-tight tracking-tight">
+        <h2 className="font-bold text-pg-navy text-[28px] md:text-[40px] leading-tight tracking-tight">
           Built on real clinical experience
         </h2>
-        <p className="text-pg-navy text-lg md:text-xl leading-relaxed">
+        <p className="text-pg-navy text-base leading-relaxed">
           We believe every parent deserves access to expert guidance. Our resources are built on real clinical experience
           and designed with your family in mind.
         </p>
@@ -595,10 +594,10 @@ function FaqItem({ item, index }: { item: typeof faqs[0]; index: number }) {
       initial={{ opacity: 0, y: 20 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.55, delay: index * 0.06 }}
-      whileHover={{ boxShadow: "0 24px 60px rgba(28,50,67,0.28)" }}
+      whileHover={{ boxShadow: "var(--pg-shadow-overlay)" }}
     >
       <button type="button" aria-expanded={open} onClick={() => setOpen((o) => !o)} className="w-full text-left flex items-center justify-between px-5 md:px-8 py-5 md:py-6">
-        <span className="font-bold text-pg-navy text-lg leading-snug opacity-88 flex-1 pr-4">
+        <span className="font-bold text-pg-navy text-xl leading-snug opacity-88 flex-1 pr-4">
           {item.question}
         </span>
         <motion.div
@@ -692,9 +691,9 @@ function PartnersCarousel() {
 
       <div className="relative">
         <div className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
-          style={{ background: "linear-gradient(to right, #f9f4f1, transparent)" }} />
+          style={{ background: "linear-gradient(to right, var(--pg-cream), transparent)" }} />
         <div className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
-          style={{ background: "linear-gradient(to left, #f9f4f1, transparent)" }} />
+          style={{ background: "linear-gradient(to left, var(--pg-cream), transparent)" }} />
 
         <div className="flex items-center marquee-track" style={{ width: "max-content" }}>
           {doubled.map((logo, i) => (
@@ -721,9 +720,9 @@ function NewsletterSection() {
   const [subscribed, setSubscribed] = useState(false);
   return (
     <section className="bg-pg-sage py-16 px-6 md:px-10 lg:px-14 flex justify-center">
-      <FadeUp className="flex flex-col md:flex-row gap-8 items-center max-w-pg-page w-full">
+      <FadeUp className="flex flex-col lg:flex-row gap-8 items-center max-w-pg-page w-full">
         <motion.div
-          className="w-full md:w-[480px] h-56 rounded-pg-xl overflow-hidden relative md:flex-shrink-0"
+          className="w-full lg:w-[480px] h-56 rounded-pg-xl overflow-hidden relative lg:flex-shrink-0"
           whileHover={{ scale: 1.02 }}
           transition={{ duration: 0.35 }}
         >
@@ -731,7 +730,7 @@ function NewsletterSection() {
           <img src={imgRectangle328} alt="" className="absolute inset-0 w-full h-full object-cover" />
         </motion.div>
         <div className="flex flex-col gap-5">
-          <h2 className="font-bold text-pg-navy text-4xl md:text-5xl leading-tight">Join Us!</h2>
+          <h2 className="font-bold text-pg-navy text-[28px] md:text-[40px] leading-tight">Join Us!</h2>
           <p className="text-pg-navy text-sm leading-relaxed max-w-sm">
             Subscribe to our weekly newsletter and be a part of our journey to self discovery and love.
           </p>
@@ -816,15 +815,15 @@ function Footer() {
 
   return (
     <footer className="bg-pg-cream px-6 md:px-10 lg:px-14 py-8 print:hidden">
-      <div className="max-w-pg-page mx-auto flex flex-col md:flex-row gap-10 md:gap-20 items-start mb-10">
-        <div className="flex flex-col gap-6 md:gap-40 w-full md:w-[467px] md:shrink-0">
+      <div className="max-w-pg-page mx-auto flex flex-col lg:flex-row gap-10 lg:gap-20 items-start mb-10">
+        <div className="flex flex-col gap-6 lg:gap-40 w-full lg:w-[467px] lg:shrink-0">
           <FooterLogo />
           <div className="flex gap-3 items-center">
             <img src={imgImage5} alt="Google Play" className="h-6 object-contain" />
             <img src={imgImage6} alt="App Store" className="h-6 object-contain" />
           </div>
         </div>
-        <div className="flex flex-col sm:flex-row flex-1 gap-8 sm:gap-16 md:justify-center">
+        <div className="flex flex-col sm:flex-row flex-1 gap-8 sm:gap-16 lg:justify-center">
           <div className="flex flex-col gap-3">
             <p className="font-semibold text-pg-slate text-sm">Our Company</p>
             {companyLinks.map((l) => (
@@ -860,20 +859,20 @@ function Footer() {
           {[
             { d: svgPaths.p327f8b00, vb: "0 0 17.9509 17.9509" },
           ].map((_, i) => (
-            <motion.div key={i} whileHover={{ scale: 1.15, y: -2 }} className="w-5 h-5 cursor-pointer">
+            <motion.div key={i} whileHover={{ y: -2 }} className="w-5 h-5 cursor-pointer">
               <svg fill="none" viewBox="0 0 17.9509 17.9509" className="w-full h-full">
                 <path d={svgPaths.p327f8b00} fill="#1c3243" />
               </svg>
             </motion.div>
           ))}
-          <motion.div whileHover={{ scale: 1.15, y: -2 }} className="w-5 h-5 cursor-pointer">
+          <motion.div whileHover={{ y: -2 }} className="w-5 h-5 cursor-pointer">
             <svg fill="none" viewBox="0 0 16.1558 16.1558" className="w-full h-full">
               <path clipRule="evenodd" d={svgPaths.p35d8fa00} fill="#1c3243" fillRule="evenodd" />
               <path d={svgPaths.p3238c200} fill="#1c3243" />
               <path clipRule="evenodd" d={svgPaths.p20c8c700} fill="#1c3243" fillRule="evenodd" />
             </svg>
           </motion.div>
-          <motion.div whileHover={{ scale: 1.15, y: -2 }} className="w-5 h-5 cursor-pointer">
+          <motion.div whileHover={{ y: -2 }} className="w-5 h-5 cursor-pointer">
             <svg fill="none" viewBox="0 0 17.9509 12.5817" className="w-full h-full">
               <path clipRule="evenodd" d={svgPaths.p3c318700} fill="#1c3243" fillRule="evenodd" />
             </svg>
@@ -883,7 +882,7 @@ function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Parent Guidance on Vimeo (opens in a new tab)"
-            whileHover={{ scale: 1.15, y: -2 }}
+            whileHover={{ y: -2 }}
             className="w-5 h-5 text-pg-navy"
           >
             {/* Vimeo logo (Simple Icons, CC0) */}
@@ -891,7 +890,7 @@ function Footer() {
               <path d="M23.977 6.416c-.105 2.338-1.739 5.543-4.894 9.609-3.268 4.247-6.026 6.37-8.29 6.37-1.409 0-2.578-1.294-3.553-3.881L5.322 11.4C4.603 8.816 3.834 7.522 3.01 7.522c-.179 0-.806.378-1.881 1.132L0 7.197a315.065 315.065 0 0 0 3.501-3.128C5.08 2.701 6.266 1.984 7.055 1.91c1.867-.18 3.016 1.1 3.447 3.838.465 2.953.789 4.789.971 5.507.539 2.45 1.131 3.674 1.776 3.674.502 0 1.256-.796 2.265-2.385 1.004-1.589 1.54-2.797 1.612-3.628.144-1.371-.395-2.061-1.614-2.061-.574 0-1.167.121-1.777.391 1.186-3.868 3.434-5.757 6.762-5.637 2.473.06 3.628 1.664 3.493 4.797l-.013.01z" />
             </svg>
           </motion.a>
-          <motion.div whileHover={{ scale: 1.15, y: -2 }} className="w-5 h-5 cursor-pointer">
+          <motion.div whileHover={{ y: -2 }} className="w-5 h-5 cursor-pointer">
             <svg fill="none" viewBox="0 0 16.1558 16.1558" className="w-full h-full">
               <path d={svgPaths.p397a0780} fill="#1c3243" />
             </svg>

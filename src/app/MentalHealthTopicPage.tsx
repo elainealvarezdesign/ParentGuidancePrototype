@@ -62,7 +62,7 @@ function Hero({ topic }: { topic: Topic }) {
                 <p className={`text-xs text-pg-slate`}>{topic.expert.role}</p>
               </div>
             </div>
-            <ul className={`mt-5 grid gap-3 border-t border-pg-line pt-4 text-[13px] text-pg-slate`}>
+            <ul className={`mt-5 grid gap-3 border-t border-pg-line pt-4 text-sm text-pg-slate`}>
               <li className="flex items-center gap-2.5"><PlayCircle size={16} className="shrink-0 text-pg-teal-dark" aria-hidden="true" />{topic.videos.length} videos · {topic.videos.map((v) => v.kind).join(" & ")}</li>
               <li className="flex items-center gap-2.5"><CalendarDays size={16} className="shrink-0 text-pg-teal-dark" aria-hidden="true" />{topic.sessions.length} live sessions · {[...new Set(topic.sessions.map((s) => s.language))].join(" & ")}</li>
               <li className="flex items-center gap-2.5"><ListChecks size={16} className="shrink-0 text-pg-teal-dark" aria-hidden="true" />{topic.takeaways.length} key takeaways</li>
@@ -119,7 +119,7 @@ function VideoCard({ video: v }: { video: TopicVideo }) {
         )}
       </div>
       <div className="p-5 md:px-6 md:pb-6">
-        <h3 className={`text-lg font-bold text-pg-navy`}>{v.title}</h3>
+        <h3 className={`text-xl font-bold text-pg-navy`}>{v.title}</h3>
         <p className={`mt-1.5 text-sm leading-relaxed text-pg-slate`}>{v.description}</p>
       </div>
     </article>
@@ -155,7 +155,7 @@ function Sessions({ topic }: { topic: Topic }) {
                   <span className="block text-[11px] font-semibold uppercase leading-none tracking-[0.1em]">{s.weekday}</span>
                 </div>
                 <div className="flex min-w-0 flex-1 flex-col">
-                  <h3 className={`text-[15px] font-bold leading-snug text-pg-navy`}>{s.title}</h3>
+                  <h3 className={`text-base font-bold leading-snug text-pg-navy`}>{s.title}</h3>
                   <p className={`mt-1 text-xs text-pg-slate`}>{s.time}</p>
                   <div className="mt-auto flex flex-wrap items-center justify-between gap-2 pt-3">
                     <span className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${spanish ? "bg-pg-cream-dark text-pg-navy" : "bg-pg-tint text-pg-teal-dark"}`}>
@@ -212,7 +212,7 @@ function Actions({ topic }: { topic: Topic }) {
                 <span className={`grid h-9 w-9 shrink-0 place-items-center rounded-full bg-pg-navy font-bold text-white`} aria-hidden="true">
                   {i + 1}
                 </span>
-                <h3 className={`text-lg font-bold leading-snug text-pg-navy md:text-xl`}>{a.title}</h3>
+                <h3 className={`text-xl font-bold leading-snug text-pg-navy md:text-xl`}>{a.title}</h3>
               </div>
               <dl className="mt-4 grid gap-4">
                 {a.tips.map((tip) => (
@@ -242,9 +242,9 @@ function Resources({ topic }: { topic: Topic }) {
                 <img src={r.image} alt="" className="h-36 w-full object-cover" />
                 <div className="flex flex-1 flex-col gap-2 p-4">
                   <span className={`self-start rounded-full bg-pg-tint px-2.5 py-0.5 text-xs font-medium text-pg-teal-dark`}>{r.type}</span>
-                  <h3 className={`text-[15px] font-bold leading-snug text-pg-navy`}>{r.title}</h3>
+                  <h3 className={`text-base font-bold leading-snug text-pg-navy`}>{r.title}</h3>
                   <p className={`flex-1 text-xs leading-relaxed text-pg-slate`}>{r.description}</p>
-                  <span className={`mt-1 inline-flex items-center gap-1.5 text-[13px] font-semibold text-pg-teal-dark group-hover:underline`}>
+                  <span className={`mt-1 inline-flex items-center gap-1.5 text-sm font-semibold text-pg-teal-dark group-hover:underline`}>
                     View topic <ArrowRight size={14} aria-hidden="true" />
                   </span>
                 </div>
@@ -275,7 +275,7 @@ function Newsletter() {
       <div className={`${container} flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between md:gap-10`}>
         <div>
           <p className={`text-[11px] font-semibold uppercase tracking-[0.12em] text-pg-navy`}>Let's keep in touch</p>
-          <h2 id="newsletter-title" className={`mt-1 text-[28px] font-bold leading-tight text-pg-navy md:text-4xl`}>Subscribe to our newsletter</h2>
+          <h2 id="newsletter-title" className={`mt-1 text-[28px] font-bold leading-tight text-pg-navy md:text-[40px]`}>Subscribe to our newsletter</h2>
           <p className={`mt-1.5 text-sm text-pg-navy`}>New topics, live sessions and tools, straight to your inbox.</p>
         </div>
         <form className="flex w-full max-w-[460px] items-center gap-2 rounded-pg-lg bg-white p-1.5" onSubmit={(e) => e.preventDefault()}>
@@ -297,7 +297,7 @@ export default function MentalHealthTopicPage() {
     return (
       <main className={`${gutter} min-h-[60vh] bg-pg-cream pb-20 pt-32`}>
         <div className={container}>
-          <h1 className={`text-3xl font-bold text-pg-navy`}>Topic not found</h1>
+          <h1 className={`text-[28px] font-bold text-pg-navy`}>Topic not found</h1>
           <Link to="/mental-health-series" className={`mt-4 inline-flex text-sm font-semibold text-pg-teal-dark underline`}>Back to Mental Health Series</Link>
         </div>
       </main>

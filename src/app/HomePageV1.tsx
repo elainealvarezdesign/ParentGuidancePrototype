@@ -123,7 +123,7 @@ function FaqItem({ item, index }: { item: typeof FAQS[0]; index: number }) {
       transition={{ duration: 0.55, delay: index * 0.06 }}
     >
       <button type="button" aria-expanded={open} onClick={() => setOpen((o) => !o)} className="w-full text-left flex items-center justify-between px-8 py-6">
-        <span className="font-bold text-pg-navy text-lg leading-snug opacity-88 flex-1 pr-4">
+        <span className="font-bold text-pg-navy text-xl leading-snug opacity-88 flex-1 pr-4">
           {item.question}
         </span>
         <motion.div
@@ -170,8 +170,8 @@ function PartnersCarousel() {
         Our Passionate Partners
       </motion.h3>
       <div className="relative">
-        <div className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: "linear-gradient(to right, #f9f4f1, transparent)" }} />
-        <div className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: "linear-gradient(to left, #f9f4f1, transparent)" }} />
+        <div className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: "linear-gradient(to right, var(--pg-cream), transparent)" }} />
+        <div className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: "linear-gradient(to left, var(--pg-cream), transparent)" }} />
         <div className="flex items-center marquee-track-v1" style={{ width: "max-content" }}>
           {doubled.map((logo, i) => (
             <div key={i} className="flex items-center justify-center flex-shrink-0 px-10">
@@ -204,14 +204,14 @@ export default function HomePageV1() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
-              <h1 className="font-bold text-pg-navy text-[38px] md:text-[48px] leading-[1.08] tracking-[-0.02em] mb-5">
+              <h1 className="font-bold text-pg-navy text-[38px] md:text-[50px] leading-[1.08] tracking-[-0.02em] mb-5">
                 Discover Resources That Can Help
               </h1>
-              <p className="text-pg-slate text-base md:text-lg leading-relaxed mb-8 max-w-[480px]">
+              <p className="text-pg-slate text-base leading-relaxed mb-8 max-w-[480px]">
                 Find trusted guidance, practical tips, and expert resources to help you navigate everyday parenting challenges.
               </p>
 
-              <div className="bg-white rounded-pg-2xl px-5 py-2.5 flex items-center gap-3 shadow-pg-card max-w-[440px]" style={{ boxShadow: "0 8px 24px rgba(28,50,67,0.06)" }}>
+              <div className="bg-white rounded-pg-2xl px-5 py-2.5 flex items-center gap-3 shadow-pg-card max-w-[440px]" style={{ boxShadow: "var(--pg-shadow-card)" }}>
                 <Search size={18} className="text-gray-400 shrink-0" />
                 <input
                   className="flex-1 text-sm text-gray-700 bg-transparent outline-none placeholder:text-pg-teal"
@@ -241,7 +241,7 @@ export default function HomePageV1() {
       </section>
 
       {/* ── FILTER BAR ── */}
-      <section className="bg-white border-y border-pg-cream-dark sticky top-14 z-30" style={{ boxShadow: "0 8px 24px rgba(28,50,67,0.06)" }}>
+      <section className="bg-white border-y border-pg-cream-dark sticky top-14 z-30" style={{ boxShadow: "var(--pg-shadow-card)" }}>
         <div className="max-w-pg-page mx-auto px-6 md:px-10 py-3 flex items-center gap-2 overflow-x-auto">
           {CATEGORIES.map((cat) => (
             <button
@@ -264,7 +264,7 @@ export default function HomePageV1() {
         <div className="max-w-pg-page mx-auto px-6 md:px-10 lg:px-14">
           <div className="flex items-center gap-2.5 mb-6">
             <div className="w-1 h-5 rounded-full bg-pg-sage" />
-            <span className="font-semibold text-pg-navy text-lg">Browse All Resources</span>
+            <span className="font-semibold text-pg-navy text-xl">Browse All Resources</span>
             <div className="bg-pg-tint rounded-full px-2.5 py-0.5">
               <span className="font-medium text-pg-teal-dark text-xs">24 resources</span>
             </div>
@@ -370,7 +370,7 @@ export default function HomePageV1() {
           transition={{ duration: 0.55 }}
         >
           <span className="font-semibold text-pg-navy text-base uppercase tracking-wider">Why</span>
-          <h2 className="font-bold text-pg-navy text-4xl leading-tight tracking-tight">
+          <h2 className="font-bold text-pg-navy text-[28px] md:text-[40px] leading-tight tracking-tight">
             Built on real clinical experience
           </h2>
           <p className="text-pg-navy text-xl leading-relaxed">
@@ -392,8 +392,8 @@ export default function HomePageV1() {
                 <img src={f.img} alt="" className="w-full h-full object-cover" />
               </div>
               <div className="flex flex-col gap-2 max-w-sm">
-                <p className="font-black text-pg-teal text-3xl leading-relaxed">{f.title}</p>
-                <p className="text-pg-navy text-lg leading-relaxed">{f.desc}</p>
+                <p className="font-bold text-pg-teal text-2xl leading-relaxed">{f.title}</p>
+                <p className="text-pg-navy text-base leading-relaxed">{f.desc}</p>
               </div>
             </motion.div>
           ))}
@@ -424,9 +424,9 @@ export default function HomePageV1() {
 
       {/* ── CTA / JOIN US ── */}
       <section className="bg-pg-sage px-6 md:px-10 lg:px-14 py-14">
-        <div className="max-w-pg-page mx-auto flex flex-col md:flex-row items-center justify-center gap-12">
+        <div className="max-w-pg-page mx-auto flex flex-col lg:flex-row items-center justify-center gap-12">
           <motion.div
-            className="relative overflow-hidden rounded-pg-xl shrink-0 w-full md:w-[420px] h-[240px] md:h-[210px]"
+            className="relative overflow-hidden rounded-pg-xl shrink-0 w-full lg:w-[420px] h-[240px] lg:h-[210px]"
             initial={{ opacity: 0, scale: 0.97 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -442,7 +442,7 @@ export default function HomePageV1() {
             viewport={{ once: true }}
             transition={{ duration: 0.55 }}
           >
-            <h2 className="font-bold text-pg-navy text-4xl leading-tight max-w-md">Join Us!</h2>
+            <h2 className="font-bold text-pg-navy text-[28px] md:text-[40px] leading-tight max-w-md">Join Us!</h2>
             <p className="text-pg-navy text-sm leading-relaxed max-w-sm">
               Subscribe to our weekly newsletter and be a part of our journey to self discovery and love.
             </p>

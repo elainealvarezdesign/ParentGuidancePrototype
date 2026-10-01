@@ -174,10 +174,10 @@ export default function GetHelpPage() {
               <p className="text-pg-teal-dark text-xs font-semibold tracking-[0.16em] uppercase mb-5">
                 Get Help
               </p>
-              <h1 className="text-pg-navy font-bold text-[38px] md:text-[50px] leading-[1.08] tracking-[-0.02em]">
+              <h1 className="text-pg-navy font-bold text-[28px] md:text-[40px] leading-[1.15]">
                 Find the right support, right when you need it.
               </h1>
-              <p className="text-pg-slate text-base md:text-lg leading-relaxed mt-6 max-w-[500px]">
+              <p className="text-pg-slate text-base leading-relaxed mt-6 max-w-[500px]">
                 Explore trusted crisis lines and mental health resources for you or someone you care about.
               </p>
               <div className="mt-7 flex items-start gap-3 rounded-pg-lg bg-white/70 border border-pg-cream-dark px-4 py-4 max-w-[500px]">
@@ -221,11 +221,11 @@ export default function GetHelpPage() {
       />
 
       <div className="text-center md:text-left">
-        <h2 className="font-bold text-white text-[32px] md:text-[40px] leading-tight">
+        <h2 className="font-bold text-white text-[28px] md:text-[40px] leading-tight">
           Need Help Now?
         </h2>
 
-        <p className="text-white/85 text-base md:text-lg mt-2">
+        <p className="text-white/85 text-base mt-2">
           Free, Confidential Support is Available 24/7
         </p>
 
@@ -257,7 +257,7 @@ export default function GetHelpPage() {
             <p className="text-pg-teal-dark text-xs font-semibold tracking-[0.14em] uppercase">
               Trusted support
             </p>
-            <h2 className="font-bold text-pg-navy text-3xl md:text-4xl mt-3">
+            <h2 className="font-bold text-pg-navy text-[28px] md:text-[40px] mt-3">
               Browse support resources
             </h2>
           </div>
@@ -338,7 +338,7 @@ export default function GetHelpPage() {
               <Signpost size={46} className="text-pg-teal-dark" aria-hidden="true" />
             </div>
             <div className="flex-1 text-center md:text-left">
-              <h2 className="font-bold text-pg-navy text-2xl md:text-3xl">
+              <h2 className="font-bold text-pg-navy text-2xl">
 Not sure which resource  {" "}
 <span className="whitespace-nowrap">is right for you?</span>              </h2>
               <p className="text-pg-navy text-sm md:text-base mt-2">

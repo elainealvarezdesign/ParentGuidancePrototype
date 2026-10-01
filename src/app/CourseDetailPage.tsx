@@ -75,7 +75,7 @@ export default function CourseDetailPage() {
         {/* ── Main course card ── */}
         <motion.div
           className="bg-white rounded-pg-xl overflow-hidden mb-4"
-          style={{ boxShadow: "0 8px 24px rgba(28,50,67,0.06)", border: "1px solid #dee8e9" }}
+          style={{ boxShadow: "var(--pg-shadow-card)", border: "1px solid var(--pg-line)" }}
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}
@@ -111,7 +111,7 @@ export default function CourseDetailPage() {
               <div className="flex items-center gap-2 text-pg-slate">
                 <Clock size={13} className="text-pg-sage" />
                 <span className="text-sm">4 lessons</span>
-                <span className="text-pg-mist">•</span>
+                <span className="text-pg-mist" aria-hidden="true">•</span>
                 <span className="text-sm">Approx. 30 min</span>
               </div>
 
@@ -194,12 +194,12 @@ export default function CourseDetailPage() {
         {/* ── About this course ── */}
         <motion.div
           className="bg-white rounded-pg-xl p-8 mb-4"
-          style={{ boxShadow: "0 8px 24px rgba(28,50,67,0.06)", border: "1px solid #dee8e9" }}
+          style={{ boxShadow: "var(--pg-shadow-card)", border: "1px solid var(--pg-line)" }}
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
-          <h2 className="font-bold text-pg-navy text-lg mb-3">
+          <h2 className="font-bold text-pg-navy text-xl mb-3">
             About this course
           </h2>
           <p className="text-pg-slate text-sm leading-relaxed">
@@ -213,12 +213,12 @@ export default function CourseDetailPage() {
         {/* ── You may also like ── */}
         <motion.div
           className="bg-white rounded-pg-xl p-8 mb-8"
-          style={{ boxShadow: "0 8px 24px rgba(28,50,67,0.06)", border: "1px solid #dee8e9" }}
+          style={{ boxShadow: "var(--pg-shadow-card)", border: "1px solid var(--pg-line)" }}
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
-          <h2 className="font-bold text-pg-navy text-lg mb-5">
+          <h2 className="font-bold text-pg-navy text-xl mb-5">
             You may also like
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -229,7 +229,7 @@ export default function CourseDetailPage() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 + i * 0.07, duration: 0.35 }}
-                whileHover={{ y: -2, boxShadow: "0 8px 24px rgba(28,50,67,0.14)" }}
+                whileHover={{ y: -2, boxShadow: "var(--pg-shadow-card-hover)" }}
               >
                 <img
                   src={rec.img}

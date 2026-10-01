@@ -39,7 +39,7 @@ function DateBlock({ date, size = "md" }: { date: Date; size?: "sm" | "md" }) {
   return (
     <div className={`${box} flex shrink-0 flex-col items-center justify-center rounded-pg-lg bg-pg-tint leading-none text-pg-teal-dark`} aria-hidden="true">
       <span className="text-[11px] font-semibold uppercase tracking-[0.08em]">{date.toLocaleDateString("en-US", { month: "short" })}</span>
-      <span className={`${size === "sm" ? "text-[17px]" : "text-xl"} mt-0.5 font-bold text-pg-navy`}>{date.getDate()}</span>
+      <span className={`${size === "sm" ? "text-xl" : "text-xl"} mt-0.5 font-bold text-pg-navy`}>{date.getDate()}</span>
     </div>
   );
 }
@@ -63,8 +63,8 @@ function EventActions({ event }: { event: SeriesEvent }) {
 function EventDetail({ event }: { event: SeriesEvent }) {
   return (
     <article className="border-t border-pg-line pt-4 first:border-t-0 first:pt-0" lang={event.language === "Español" ? "es" : undefined}>
-      <h3 className={`text-lg font-bold leading-snug text-pg-navy`}>{event.title}</h3>
-      <ul className={`mt-2 grid gap-1.5 text-[13px] text-pg-slate`}>
+      <h3 className={`text-xl font-bold leading-snug text-pg-navy`}>{event.title}</h3>
+      <ul className={`mt-2 grid gap-1.5 text-sm text-pg-slate`}>
         <li className="flex items-center gap-2"><Clock size={16} className="shrink-0 text-pg-teal-dark" aria-hidden="true" />{formatTimeRange(event)}{event.start ? " CT" : ""}</li>
         <li className="flex items-center gap-2"><MapPin size={16} className="shrink-0 text-pg-teal-dark" aria-hidden="true" />Online</li>
       </ul>
@@ -72,7 +72,7 @@ function EventDetail({ event }: { event: SeriesEvent }) {
         <CategoryTag category={event.category} />
         {event.language && <span className={`inline-flex rounded-full bg-pg-cream-dark px-2 py-0.5 text-xs font-semibold text-pg-navy`}>{event.language}</span>}
       </div>
-      <p className={`mt-3 text-[13px] leading-relaxed text-pg-slate`}>{event.description}</p>
+      <p className={`mt-3 text-sm leading-relaxed text-pg-slate`}>{event.description}</p>
       <EventActions event={event} />
     </article>
   );
@@ -156,7 +156,7 @@ export default function MentalHealthEventsPage() {
     : undefined;
 
   const chip = (active: boolean) =>
-    `inline-flex h-9 shrink-0 items-center gap-2 rounded-full border px-3.5 text-[13px] font-medium transition-colors ${
+    `inline-flex h-9 shrink-0 items-center gap-2 rounded-full border px-3.5 text-sm font-medium transition-colors ${
       active ? "border-pg-navy bg-pg-navy text-white" : "border-pg-line bg-white text-pg-navy hover:bg-pg-tint-soft"
     }`;
 
@@ -198,7 +198,7 @@ export default function MentalHealthEventsPage() {
                 type="button"
                 aria-pressed={view === v}
                 onClick={() => setView(v)}
-                className={`h-8 rounded-pg-md px-3.5 text-[13px] ${view === v ? "bg-white font-semibold text-pg-navy shadow-pg-card" : "font-medium text-pg-slate"}`}
+                className={`h-8 rounded-pg-md px-3.5 text-sm ${view === v ? "bg-white font-semibold text-pg-navy shadow-pg-card" : "font-medium text-pg-slate"}`}
               >
                 {v === "month" ? "Month" : "List"}
               </button>
@@ -254,7 +254,7 @@ export default function MentalHealthEventsPage() {
                         aria-label={dayLabel}
                         className="absolute inset-0 flex flex-col items-center gap-1 p-1 lg:items-start lg:p-2"
                       >
-                        <span className={`grid h-7 w-7 place-items-center rounded-full text-[13px] font-semibold ${isSelected ? "bg-pg-teal text-white" : "text-pg-navy"}`}>
+                        <span className={`grid h-7 w-7 place-items-center rounded-full text-sm font-semibold ${isSelected ? "bg-pg-teal text-white" : "text-pg-navy"}`}>
                           {date.getDate()}
                         </span>
                         {/* Mobile: dots */}
@@ -300,7 +300,7 @@ export default function MentalHealthEventsPage() {
                       <div className="min-w-0 flex-1">
                         <p className={`text-xs text-pg-slate`}>{parseDate(e.date).toLocaleDateString("en-US", { weekday: "long" })} · {formatTimeRange(e)}{e.start ? " CT" : ""}</p>
                         <h3 className={`mt-0.5 text-base font-bold leading-snug text-pg-navy`}>{e.title}</h3>
-                        <p className={`mt-1 text-[13px] leading-relaxed text-pg-slate`}>{e.description}</p>
+                        <p className={`mt-1 text-sm leading-relaxed text-pg-slate`}>{e.description}</p>
                         <div className="mt-2 flex flex-wrap gap-1.5">
                           <CategoryTag category={e.category} />
                           {e.language && <span className={`inline-flex rounded-full bg-pg-cream-dark px-2 py-0.5 text-xs font-semibold text-pg-navy`}>{e.language}</span>}
@@ -344,7 +344,7 @@ export default function MentalHealthEventsPage() {
                         <span className="absolute bottom-2.5 left-0 top-2.5 w-[3px] rounded-pg-sm" style={{ background: CATEGORIES[e.category].swatch }} aria-hidden="true" />
                         <DateBlock date={parseDate(e.date)} size="sm" />
                         <span className="min-w-0">
-                          <span className={`block text-[13px] font-semibold leading-snug text-pg-navy`}>{e.title}</span>
+                          <span className={`block text-sm font-semibold leading-snug text-pg-navy`}>{e.title}</span>
                           <span className={`mt-0.5 block text-xs text-pg-slate`}>{parseDate(e.date).toLocaleDateString("en-US", { weekday: "short" })} · {formatTimeRange(e)}</span>
                           <span className="mt-1.5 block"><CategoryTag category={e.category} /></span>
                         </span>
@@ -356,7 +356,7 @@ export default function MentalHealthEventsPage() {
                 <p className={`mt-3 text-sm text-pg-slate`}>No more events scheduled.</p>
               )}
               {view === "month" && (
-                <button type="button" onClick={() => setView("list")} className={`mt-3 text-[13px] font-semibold text-pg-teal-dark hover:underline`}>
+                <button type="button" onClick={() => setView("list")} className={`mt-3 text-sm font-semibold text-pg-teal-dark hover:underline`}>
                   See all in list view →
                 </button>
               )}
@@ -364,7 +364,7 @@ export default function MentalHealthEventsPage() {
 
             <section className="rounded-pg-xl bg-pg-navy p-5 text-white" aria-labelledby="sync-title">
               <h2 id="sync-title" className={`text-base font-bold`}>Never miss a session</h2>
-              <p className={`mt-1 text-[13px] text-pg-sage`}>Add every Parent Guidance event to Google, Outlook or Apple Calendar.</p>
+              <p className={`mt-1 text-sm text-pg-sage`}>Add every Parent Guidance event to Google, Outlook or Apple Calendar.</p>
               <Button variant="inverse" onClick={() => downloadIcs("parent-guidance-events.ics", EVENTS)} className="mt-4">
                 <Download size={16} aria-hidden="true" />
                 Download calendar (.ics)

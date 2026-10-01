@@ -187,7 +187,7 @@ export default function ParentCoachingPage() {
             <span className="text-xs font-semibold uppercase tracking-[1.2px] text-pg-teal-dark">
               Parent Coaching
             </span>
-            <h1 className="font-bold text-pg-navy text-[30px] sm:text-[36px] leading-[1.25] max-w-[488px]">
+            <h1 className="font-bold text-pg-navy text-[28px] md:text-[40px] leading-[1.25] max-w-[488px]">
               {"A better way to navigate your "}
               <em className="italic text-pg-teal">{"child's mental health."}</em>
             </h1>
@@ -235,7 +235,7 @@ export default function ParentCoachingPage() {
                   height: "94.1%",
                   left: 0,
                   top: 0,
-                  boxShadow: "0 8px 24px rgba(28,50,67,0.06)",
+                  boxShadow: "var(--pg-shadow-card)",
                 }}
               >
                 <img
@@ -291,12 +291,12 @@ export default function ParentCoachingPage() {
                 <motion.div
                   key={coach.name}
                   className="bg-white rounded-pg-xl overflow-hidden flex flex-col"
-                  style={{ boxShadow: "0 8px 24px rgba(28,50,67,0.06)" }}
+                  style={{ boxShadow: "var(--pg-shadow-card)" }}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-60px" }}
                   transition={{ duration: 0.55, delay: i * 0.1 }}
-                  whileHover={{ y: -4, boxShadow: "0 8px 24px rgba(28,50,67,0.14)" }}
+                  whileHover={{ y: -4, boxShadow: "var(--pg-shadow-card-hover)" }}
                 >
                   {/* Image */}
                   <div className="relative overflow-hidden shrink-0" style={{ height: "208px" }}>
@@ -392,7 +392,7 @@ export default function ParentCoachingPage() {
                 <motion.div
                   key={t.name}
                   className="bg-white rounded-pg-xl flex flex-col gap-4 p-6"
-                  style={{ boxShadow: "0 8px 24px rgba(28,50,67,0.06)" }}
+                  style={{ boxShadow: "var(--pg-shadow-card)" }}
                   initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-60px" }}

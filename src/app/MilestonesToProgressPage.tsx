@@ -131,7 +131,7 @@ export default function MilestonesToProgressPage() {
         {/* Main card */}
         <motion.div
           className="bg-white rounded-pg-xl overflow-hidden mb-4"
-          style={{ boxShadow: "0 8px 24px rgba(28,50,67,0.06)", border: "1px solid #dee8e9" }}
+          style={{ boxShadow: "var(--pg-shadow-card)", border: "1px solid var(--pg-line)" }}
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}
@@ -154,7 +154,7 @@ export default function MilestonesToProgressPage() {
                 Child & Teen Development
               </span>
 
-              <h1 className="font-bold text-pg-navy text-[22px] leading-[1.25]">
+              <h1 className="font-bold text-pg-navy text-2xl leading-[1.25]">
                 {COURSE_TITLE}
               </h1>
 
@@ -165,9 +165,9 @@ export default function MilestonesToProgressPage() {
               <div className="flex items-center gap-2 text-pg-slate">
                 <Clock size={13} className="text-pg-sage" />
                 <span className="text-sm">{TOTAL_LESSONS} lessons</span>
-                <span className="text-pg-mist">•</span>
+                <span className="text-pg-mist" aria-hidden="true">•</span>
                 <span className="text-sm">3h 30m</span>
-                <span className="text-pg-mist">•</span>
+                <span className="text-pg-mist" aria-hidden="true">•</span>
                 <span className="text-sm">3 modules</span>
               </div>
 
@@ -271,12 +271,12 @@ export default function MilestonesToProgressPage() {
         {/* About */}
         <motion.div
           className="bg-white rounded-pg-xl p-8 mb-4"
-          style={{ boxShadow: "0 8px 24px rgba(28,50,67,0.06)", border: "1px solid #dee8e9" }}
+          style={{ boxShadow: "var(--pg-shadow-card)", border: "1px solid var(--pg-line)" }}
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
-          <h2 className="font-bold text-pg-navy text-lg mb-4">About this course</h2>
+          <h2 className="font-bold text-pg-navy text-xl mb-4">About this course</h2>
           <div className="text-pg-slate text-sm leading-relaxed flex flex-col gap-3">
             <p>
               <span className="font-semibold text-pg-navy">Milestones to Progress</span> is a supportive, science-informed course for parents navigating the early years — from birth through the first school days.
@@ -318,12 +318,12 @@ export default function MilestonesToProgressPage() {
         {/* You may also like */}
         <motion.div
           className="bg-white rounded-pg-xl p-8"
-          style={{ boxShadow: "0 8px 24px rgba(28,50,67,0.06)", border: "1px solid #dee8e9" }}
+          style={{ boxShadow: "var(--pg-shadow-card)", border: "1px solid var(--pg-line)" }}
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
-          <h2 className="font-bold text-pg-navy text-lg mb-5">You may also like</h2>
+          <h2 className="font-bold text-pg-navy text-xl mb-5">You may also like</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {RECOMMENDATIONS.map((rec, i) => {
               const card = (
@@ -332,7 +332,7 @@ export default function MilestonesToProgressPage() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 + i * 0.07, duration: 0.35 }}
-                  whileHover={{ y: -2, boxShadow: "0 8px 24px rgba(28,50,67,0.14)" }}
+                  whileHover={{ y: -2, boxShadow: "var(--pg-shadow-card-hover)" }}
                 >
                   <img src={rec.img} alt={rec.title} className="w-[80px] h-[64px] rounded-pg-md object-cover shrink-0" />
                   <div className="flex flex-col justify-center gap-1">

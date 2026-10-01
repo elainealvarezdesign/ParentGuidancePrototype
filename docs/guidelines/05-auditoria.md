@@ -73,3 +73,19 @@ temas (colores de datos) y los valores dentro de props de animación (`whileHove
 3. ✅ Arreglar el contraste: sage, mist y los tamaños de 9–11px (hecho).
 4. ✅ Unificar los botones en un componente (hecho).
 5. ✅ Reemplazar los hex sueltos por clases `pg-*` y consolidar radios, sombras, anchos y duraciones (hecho).
+
+## 5.6 Auditoría final ✅
+
+Revisión del código de `src/app` y de las 21 pantallas en el navegador (390, 768, 1024 y 1280px).
+
+| Tema | Resultado |
+|------|-----------|
+| Colores | Sin hex en clases. Las sombras y bordes inline usan `var(--pg-shadow-*)` y `var(--pg-line)`; las sombras negras pasaron a las navy del sistema y el degradado `rgb(34,49,67)` a `pg-navy` |
+| Tipografía | Todos los tamaños en la escala: 13→14, 15→16, 18→20 (títulos) o 16 (párrafos), 22→24; títulos de página y de sección destacada en h1 28/40; `display` 38/50 solo en las homes. `font-black` → `font-bold`. El texto de 11px es solo de eyebrows en mayúsculas |
+| Radios y sombras | Solo tokens `rounded-pg-*` / `shadow-pg-*` (las clases de Tailwind que quedan son de `components/ui`, que no usa ninguna página) |
+| Botones | Todos los de acción usan `<Button>`, `<ButtonLink>` o `<ButtonAnchor>` |
+| Movimiento | Sin hovers con escala mayor de 1.02 ni springs con rebote |
+| Contraste | 1.685 textos revisados; las únicas alertas son textos sobre fotos (que el análisis no puede medir) y los separadores "•", ahora `aria-hidden` |
+| Responsive | Sin scroll lateral en 390/768/1024/1280. Footer y "Join Us!" pasan a filas desde 1024px |
+
+Quedan como valores sueltos, a propósito: anchos de lectura (`max-w-[480px]`…) en textos de heros y los colores de logos SVG y de las paletas de categorías.

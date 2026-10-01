@@ -116,7 +116,7 @@ function Card({ event, anchor, onClose }: { event: EventModalData; anchor: DOMRe
         >
           {/* Header */}
           <div className="flex items-start justify-between gap-3 bg-pg-teal px-5 py-4">
-            <h2 id={titleId} className={`text-lg font-semibold leading-snug text-white`}>{event.title}</h2>
+            <h2 id={titleId} className={`text-xl font-semibold leading-snug text-white`}>{event.title}</h2>
             <button
               type="button"
               onClick={onClose}
@@ -134,10 +134,10 @@ function Card({ event, anchor, onClose }: { event: EventModalData; anchor: DOMRe
                 {event.date.getDate()}
               </span>
               <div>
-                <p className={`text-[15px] font-semibold leading-tight text-pg-navy`}>
+                <p className={`text-base font-semibold leading-tight text-pg-navy`}>
                   {event.date.toLocaleDateString(spanish ? "es-US" : "en-US", { weekday: "short", month: "long", day: "numeric" })}
                 </p>
-                <p className={`mt-0.5 text-[13px] text-pg-teal`}>{event.time}{event.time !== "All day" ? " CT" : ""}</p>
+                <p className={`mt-0.5 text-sm text-pg-teal`}>{event.time}{event.time !== "All day" ? " CT" : ""}</p>
               </div>
             </div>
 

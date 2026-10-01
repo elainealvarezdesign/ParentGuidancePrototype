@@ -115,7 +115,7 @@ function ResourceCard({ resource, index }: { resource: typeof RESOURCE_LIBRARY[0
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.35, delay: (index % 9) * 0.04 }}
-      whileHover={{ y: -3, boxShadow: "0 8px 24px rgba(28,50,67,0.14)" }}
+      whileHover={{ y: -3, boxShadow: "var(--pg-shadow-card-hover)" }}
     >
       {/* Type + New badge row */}
       <div className="flex items-center justify-between w-full">
@@ -261,7 +261,7 @@ function ResourceLibrary() {
       {/* Header */}
       <div className="flex gap-[8px] items-center">
         <div className="bg-pg-sage h-[20px] rounded-full w-[4px]" />
-        <p className="font-semibold leading-[28px] text-pg-navy text-[18px] whitespace-nowrap">Resource Library</p>
+        <p className="font-semibold leading-[28px] text-pg-navy text-xl whitespace-nowrap">Resource Library</p>
         <div className="bg-pg-tint rounded-full px-[8px] py-[2px] inline-flex items-center">
           <p className="font-medium leading-[16px] text-pg-teal-dark text-[12px] whitespace-nowrap">{RESOURCE_LIBRARY.length} resources</p>
         </div>
@@ -360,7 +360,7 @@ function MonthView({ year, month, popup, onEventClick }: { year: number; month: 
   const today = new Date();
 
   return (
-    <div className="bg-white rounded-pg-xl overflow-hidden" style={{ boxShadow: "0 8px 24px rgba(28,50,67,0.06)" }}>
+    <div className="bg-white rounded-pg-xl overflow-hidden" style={{ boxShadow: "var(--pg-shadow-card)" }}>
       <div className="grid grid-cols-7 border-b border-pg-tint-soft">
         {DAY_NAMES_SHORT.map(d => (
           <div key={d} className="text-center py-2.5 text-xs font-semibold text-pg-slate uppercase tracking-[0.6px]">{d}</div>
@@ -395,7 +395,7 @@ function WeekView({ weekStart, popup, onEventClick }: { weekStart: Date; popup: 
   const today = new Date();
 
   return (
-    <div className="bg-white rounded-pg-xl overflow-hidden" style={{ boxShadow: "0 8px 24px rgba(28,50,67,0.06)" }}>
+    <div className="bg-white rounded-pg-xl overflow-hidden" style={{ boxShadow: "var(--pg-shadow-card)" }}>
       <div className="grid grid-cols-7 border-b border-pg-tint-soft">
         {days.map((d, i) => {
           const isToday = d.toDateString() === today.toDateString();
@@ -427,7 +427,7 @@ function DayView({ date, popup, onEventClick }: { date: Date; popup: EventPopupS
   const monthName = MONTH_NAMES[date.getMonth()];
 
   return (
-    <div className="bg-white rounded-pg-xl overflow-hidden" style={{ boxShadow: "0 8px 24px rgba(28,50,67,0.06)" }}>
+    <div className="bg-white rounded-pg-xl overflow-hidden" style={{ boxShadow: "var(--pg-shadow-card)" }}>
       <div className="border-b border-pg-tint-soft px-5 py-4">
         <p className="font-semibold text-pg-navy text-sm">{dayName}</p>
         <p className="text-xs text-pg-sage mt-0.5">{monthName} {date.getDate()}, {date.getFullYear()}</p>
@@ -529,7 +529,7 @@ function Calendar() {
               style={{
                 background: view === v ? "#ffffff" : "transparent",
                 color: view === v ? "var(--pg-navy)" : "var(--pg-slate)",
-                boxShadow: view === v ? "0 1px 3px rgba(0,0,0,0.1)" : "none",
+                boxShadow: view === v ? "var(--pg-shadow-card)" : "none",
               }}
             >
               {v}
@@ -579,7 +579,7 @@ function ContentPage({ state, district, onReset }: { state: string; district: st
           {/* Heading + location */}
           <div className="w-full text-center">
             <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55 }}>
-              <p className="font-bold leading-[41.25px] text-pg-navy text-[30px] text-center">
+              <p className="font-bold leading-tight text-pg-navy text-[28px] md:text-[40px] text-center">
                 Welcome to the{" "}
                 <em className="font-bold italic text-pg-teal">Mental Health Series</em>
               </p>
@@ -592,7 +592,7 @@ function ContentPage({ state, district, onReset }: { state: string; district: st
           {/* Search bar — matches Figma SearchBar */}
           <motion.div
             className="bg-white h-[60px] rounded-pg-2xl shrink-0 w-full max-w-[659px] flex items-center px-[24px] gap-[10px]"
-            style={{ boxShadow: "0 8px 24px rgba(28,50,67,0.06)" }}
+            style={{ boxShadow: "var(--pg-shadow-card)" }}
             initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.55 }}
           >
             <svg className="shrink-0 size-[16px]" fill="none" viewBox="0 0 16.3333 16.3333">
@@ -649,7 +649,7 @@ function ContentPage({ state, district, onReset }: { state: string; district: st
           <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
             <div className="flex gap-[8px] items-center">
               <div className="bg-pg-sage h-[20px] rounded-full w-[4px]" />
-              <p className="font-semibold leading-[28px] text-pg-navy text-[18px] whitespace-nowrap">Monthly Calendar</p>
+              <p className="font-semibold leading-[28px] text-pg-navy text-xl whitespace-nowrap">Monthly Calendar</p>
             </div>
             <ButtonLink to="/mental-health-series/events" variant="secondary" size="s" className="shrink-0">
               View all events
@@ -666,7 +666,7 @@ function ContentPage({ state, district, onReset }: { state: string; district: st
           <div className="flex items-center justify-between mb-6">
             <div className="flex gap-[8px] items-center">
               <div className="bg-pg-sage h-[20px] rounded-full w-[4px]" />
-              <p className="font-semibold leading-[28px] text-pg-navy text-[18px] whitespace-nowrap">Upcoming Events</p>
+              <p className="font-semibold leading-[28px] text-pg-navy text-xl whitespace-nowrap">Upcoming Events</p>
               <div className="bg-pg-tint rounded-full px-[8px] py-[2px] inline-flex items-center">
                 <p className="font-medium leading-[16px] text-pg-teal-dark text-[12px] whitespace-nowrap">{filteredEvents.length} total</p>
               </div>
@@ -678,12 +678,12 @@ function ContentPage({ state, district, onReset }: { state: string; district: st
               <motion.div
                 key={ev.title}
                 className="bg-white rounded-pg-xl px-5 sm:px-6 py-5 flex flex-wrap sm:flex-nowrap items-start gap-4 sm:gap-5 group"
-                style={{ boxShadow: "0 8px 24px rgba(28,50,67,0.06)" }}
+                style={{ boxShadow: "var(--pg-shadow-card)" }}
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.35, delay: i * 0.06 }}
-                whileHover={{ boxShadow: "0 8px 24px rgba(28,50,67,0.14)", y: -2 }}
+                whileHover={{ boxShadow: "var(--pg-shadow-card-hover)", y: -2 }}
               >
                 <div className="shrink-0 rounded-pg-lg px-4 py-3 flex flex-col items-center justify-center min-w-[60px]"
                   style={{ background: ev.color === "teal" ? "var(--pg-tint)" : "var(--pg-tint-soft)" }}>
@@ -754,7 +754,7 @@ function FormPage({ onSubmit }: { onSubmit: (state: string, district: string) =>
               Mental Health Series
             </motion.span>
             <motion.h1
-              className="font-bold text-pg-navy text-3xl md:text-4xl leading-tight"
+              className="font-bold text-pg-navy text-[28px] md:text-[40px] leading-tight"
               initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.55 }}
             >
               What{" "}
@@ -777,7 +777,7 @@ function FormPage({ onSubmit }: { onSubmit: (state: string, district: string) =>
                   value={selectedState}
                   onChange={e => { setSelectedState(e.target.value); setSelectedDistrict(""); }}
                   className="w-full appearance-none text-sm px-5 py-4 rounded-pg-xl outline-none cursor-pointer transition-all duration-(--pg-dur-fast)"
-                  style={{ background: selectedState ? "var(--pg-teal)" : "var(--pg-sage)", color: selectedState ? "#ffffff" : "var(--pg-navy)", boxShadow: "0 8px 24px rgba(28,50,67,0.06)" }}
+                  style={{ background: selectedState ? "var(--pg-teal)" : "var(--pg-sage)", color: selectedState ? "#ffffff" : "var(--pg-navy)", boxShadow: "var(--pg-shadow-card)" }}
                 >
                   <option value="" disabled style={{ color: "var(--pg-navy)", background: "var(--pg-cream)" }}>Select your state</option>
                   {US_STATES.map(s => <option key={s} value={s} style={{ color: "var(--pg-navy)", background: "var(--pg-cream)" }}>{s}</option>)}
@@ -792,7 +792,7 @@ function FormPage({ onSubmit }: { onSubmit: (state: string, district: string) =>
                   onChange={e => setSelectedDistrict(e.target.value)}
                   disabled={!selectedState}
                   className="w-full appearance-none text-sm px-5 py-4 rounded-pg-xl outline-none transition-all duration-(--pg-dur-fast) cursor-pointer disabled:cursor-not-allowed"
-                  style={{ background: selectedDistrict ? "var(--pg-tint-soft)" : "#ffffff", color: "var(--pg-navy)", border: "1.5px solid", borderColor: selectedDistrict ? "var(--pg-sage)" : "var(--pg-line)", boxShadow: "0 8px 24px rgba(28,50,67,0.06)", opacity: selectedState ? 1 : 0.5 }}
+                  style={{ background: selectedDistrict ? "var(--pg-tint-soft)" : "#ffffff", color: "var(--pg-navy)", border: "1.5px solid", borderColor: selectedDistrict ? "var(--pg-sage)" : "var(--pg-line)", boxShadow: "var(--pg-shadow-card)", opacity: selectedState ? 1 : 0.5 }}
                 >
                   <option value="" disabled style={{ color: "var(--pg-mist)" }}>Select your district</option>
                   {districts.map(d => <option key={d} value={d} style={{ color: "var(--pg-navy)", background: "#ffffff" }}>{d}</option>)}

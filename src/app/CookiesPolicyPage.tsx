@@ -155,7 +155,7 @@ export default function CookiesPolicyPage() {
             Legal
           </p>
 
-          <h1 id="cookies-policy-title" tabIndex={-1} className="focus:outline-none text-4xl font-bold text-pg-navy md:text-5xl">
+          <h1 id="cookies-policy-title" tabIndex={-1} className="focus:outline-none text-[28px] font-bold text-pg-navy md:text-[40px]">
             Cookies Policy
           </h1>
 
@@ -233,7 +233,7 @@ export default function CookiesPolicyPage() {
         Session
       </span>
 
-      <h3 className="mt-4 text-lg font-bold text-pg-navy">
+      <h3 className="mt-4 text-xl font-bold text-pg-navy">
         Necessary cookies
       </h3>
 
@@ -249,7 +249,7 @@ export default function CookiesPolicyPage() {
         Persistent
       </span>
 
-      <h3 className="mt-4 text-lg font-bold text-pg-navy">
+      <h3 className="mt-4 text-xl font-bold text-pg-navy">
         Functional cookies
       </h3>
 
@@ -264,7 +264,7 @@ export default function CookiesPolicyPage() {
         Persistent
       </span>
 
-      <h3 className="mt-4 text-lg font-bold text-pg-navy">
+      <h3 className="mt-4 text-xl font-bold text-pg-navy">
         Analytics cookies
       </h3>
 

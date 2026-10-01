@@ -23,7 +23,7 @@ export default function ContactUsPage() {
             Contact Us
           </p>
 
-          <h1 className="text-4xl font-bold text-pg-navy md:text-5xl">
+          <h1 className="text-[28px] font-bold text-pg-navy md:text-[40px]">
             How can we help?
           </h1>
 
@@ -106,9 +106,9 @@ export default function ContactUsPage() {
             <div className="flex flex-col items-center gap-4 py-8 text-center">
               <motion.div
                 className="flex h-16 w-16 items-center justify-center rounded-full bg-pg-tint"
-                initial={{ scale: 0.5 }}
-                animate={{ scale: 1 }}
-                transition={{ type: "spring", stiffness: 260, damping: 20 }}
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
               >
                 <CheckCircle size={28} className="text-pg-teal" />
               </motion.div>

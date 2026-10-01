@@ -244,7 +244,7 @@ export default function LessonPage() {
           </div>
 
           {/* ── Content tabs ── */}
-          <div className="bg-white rounded-pg-xl border border-pg-line overflow-hidden" style={{ boxShadow: "0 8px 24px rgba(28,50,67,0.06)" }}>
+          <div className="bg-white rounded-pg-xl border border-pg-line overflow-hidden" style={{ boxShadow: "var(--pg-shadow-card)" }}>
             {/* Tab bar */}
             <div className="flex border-b border-pg-line">
               {TABS.map((tab) => (
@@ -326,7 +326,7 @@ export default function LessonPage() {
 
         {/* ── Right sidebar: course outline ── */}
         <div className="w-full lg:w-[280px] shrink-0 flex flex-col gap-4">
-          <div className="bg-white rounded-pg-xl border border-pg-line overflow-hidden lg:sticky lg:top-20" style={{ boxShadow: "0 8px 24px rgba(28,50,67,0.06)" }}>
+          <div className="bg-white rounded-pg-xl border border-pg-line overflow-hidden lg:sticky lg:top-20" style={{ boxShadow: "var(--pg-shadow-card)" }}>
             <div className="p-4 border-b border-pg-line">
               <p className="font-bold text-pg-navy text-sm">Course outline</p>
               <div className="mt-2 flex items-center gap-2">

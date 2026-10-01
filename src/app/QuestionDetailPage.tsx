@@ -314,7 +314,7 @@ export default function QuestionDetailPage() {
           </div>
 
           {/* ── Transcript ── */}
-          <div className="bg-white rounded-pg-xl border border-pg-line overflow-hidden" style={{ boxShadow: "0 8px 24px rgba(28,50,67,0.06)" }}>
+          <div className="bg-white rounded-pg-xl border border-pg-line overflow-hidden" style={{ boxShadow: "var(--pg-shadow-card)" }}>
             <button
               onClick={() => setTranscriptOpen((o) => !o)}
               className="w-full flex items-center justify-between px-5 py-4 hover:bg-pg-cream transition-colors"
@@ -367,7 +367,7 @@ export default function QuestionDetailPage() {
               >
                 <motion.div
                   className="flex items-center gap-3 bg-white border border-pg-line rounded-pg-lg p-4 hover:border-pg-sage transition-colors group"
-                  whileHover={{ y: -2, boxShadow: "0 8px 24px rgba(28,50,67,0.14)" }}
+                  whileHover={{ y: -2, boxShadow: "var(--pg-shadow-card-hover)" }}
                 >
                   <ChevronLeft size={16} className="text-pg-slate group-hover:text-pg-teal transition-colors shrink-0" />
                   <div className="min-w-0">
@@ -385,7 +385,7 @@ export default function QuestionDetailPage() {
               >
                 <motion.div
                   className="flex items-center gap-3 bg-white border border-pg-line rounded-pg-lg p-4 hover:border-pg-sage transition-colors group text-right"
-                  whileHover={{ y: -2, boxShadow: "0 8px 24px rgba(28,50,67,0.14)" }}
+                  whileHover={{ y: -2, boxShadow: "var(--pg-shadow-card-hover)" }}
                 >
                   <div className="min-w-0 flex-1">
                     <p className="text-[11px] text-pg-slate uppercase tracking-[1px] mb-0.5">Next</p>
@@ -402,7 +402,7 @@ export default function QuestionDetailPage() {
         <div className="w-full lg:w-[300px] shrink-0 flex flex-col gap-4">
 
           {/* Therapist card */}
-          <div className="bg-white rounded-pg-xl border border-pg-line p-5 flex flex-col gap-3" style={{ boxShadow: "0 8px 24px rgba(28,50,67,0.06)" }}>
+          <div className="bg-white rounded-pg-xl border border-pg-line p-5 flex flex-col gap-3" style={{ boxShadow: "var(--pg-shadow-card)" }}>
             <p className="font-semibold text-[11px] uppercase tracking-[1.2px] text-pg-slate">Answered by</p>
             <div className="flex items-center gap-3">
               <div className="w-11 h-11 rounded-full bg-pg-sage flex items-center justify-center shrink-0">
@@ -421,7 +421,7 @@ export default function QuestionDetailPage() {
           {/* Submit your question */}
           <div
             className="relative rounded-pg-xl overflow-hidden"
-            style={{ boxShadow: "0 8px 24px rgba(28,50,67,0.06)" }}
+            style={{ boxShadow: "var(--pg-shadow-card)" }}
           >
             <img
               src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=400&h=220&q=80"
@@ -448,7 +448,7 @@ export default function QuestionDetailPage() {
           </div>
 
           {/* Related questions */}
-          <div className="bg-white rounded-pg-xl border border-pg-line overflow-hidden" style={{ boxShadow: "0 8px 24px rgba(28,50,67,0.06)" }}>
+          <div className="bg-white rounded-pg-xl border border-pg-line overflow-hidden" style={{ boxShadow: "var(--pg-shadow-card)" }}>
             <div className="px-4 py-3.5 border-b border-pg-line">
               <p className="font-bold text-pg-navy text-sm">Related Questions</p>
             </div>
@@ -506,7 +506,7 @@ export default function QuestionDetailPage() {
                   <MessageCircle size={14} className="text-pg-sage" />
                   <span className="text-[11px] font-semibold uppercase tracking-[1.2px] text-pg-sage">Ask a Therapist</span>
                 </div>
-                <h3 className="font-bold text-white text-lg">Submit Your Question</h3>
+                <h3 className="font-bold text-white text-xl">Submit Your Question</h3>
               </div>
 
               {submitted ? (

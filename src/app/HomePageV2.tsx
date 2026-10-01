@@ -123,7 +123,7 @@ function FaqRow({ item, index }: { item: typeof FAQS[0]; index: number }) {
       transition={{ duration: 0.35, delay: index * 0.05 }}
     >
       <button type="button" aria-expanded={open} onClick={() => setOpen((o) => !o)} className="w-full text-left flex items-center justify-between px-8 py-6">
-        <span className="font-bold text-pg-navy text-lg leading-snug opacity-88 flex-1 pr-4">
+        <span className="font-bold text-pg-navy text-xl leading-snug opacity-88 flex-1 pr-4">
           {item.question}
         </span>
         <motion.div animate={{ rotate: open ? 45 : 0 }} transition={{ duration: 0.22 }} className="flex items-center justify-center w-5 h-5 shrink-0">
@@ -201,7 +201,7 @@ export default function HomePageV2() {
                 For Parents
               </p>
               {/* Heading/H1 - Medium - 2XL: Poppins Medium 48/56 */}
-              <h1 className="text-pg-navy font-medium text-[34px] md:text-[48px] leading-[1.15] md:leading-[56px] tracking-normal">
+              <h1 className="text-pg-navy font-medium text-[38px] md:text-[50px] leading-[1.08] tracking-normal">
                 Discover Resources That Can Help
               </h1>
               {/* Body/Medium - Regular: Poppins Regular 16/1.5 */}
@@ -238,7 +238,7 @@ export default function HomePageV2() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center text-center md:text-left">
             <div>
               {/* Heading/H2 - Medium - XL: Poppins Medium 40/48 */}
-              <h2 className="font-medium text-white text-[26px] md:text-[40px] leading-[1.15] md:leading-[48px]">
+              <h2 className="font-medium text-white text-[28px] md:text-[40px] leading-[1.15] md:leading-[48px]">
                 Not sure where to start?
               </h2>
               {/* Body/Medium - Regular: Poppins Regular 16/1.5 */}
