@@ -1,6 +1,6 @@
 # 4. Movimiento
 
-El prototipo anima con **`motion`** (Framer Motion, `motion/react`). Principio de Scalar: movimiento **seguro
+El prototipo anima con **`motion`** (Framer Motion, `motion/react`). Principio: movimiento **seguro
 y sin prisa**, nunca rebotón, y siempre respetando reduced‑motion.
 
 ## 4.1 Tokens

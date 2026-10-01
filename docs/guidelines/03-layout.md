@@ -35,7 +35,7 @@ Se usan los de Tailwind. La regla práctica: **móvil y tablet apilan; desde `lg
 | `lg` | 1024px | **Navegación completa**, heros de 2 columnas, columna lateral en detalle y lecciones, footer en filas, grids de 3–4 columnas |
 | `xl` | 1280px | Ajustes finos (3 columnas de preguntas en Ask a Therapist); el contenedor ya está en su máximo |
 
-**Degradación por etapas** (principio de Scalar): 4 → 2 → 1 o 3 → 2 → 1 columnas, nunca de 4 a 1 de golpe.
+**Degradación por etapas**: 4 → 2 → 1 o 3 → 2 → 1 columnas, nunca de 4 a 1 de golpe.
 
 Todo lo que tenga un ancho fijo grande (barras laterales de 248–300px, imágenes de 420–480px) se aplica solo
 desde `lg` (`w-full lg:w-[300px]`). En tablet el ancho fijo es lo que provocaba scroll lateral.

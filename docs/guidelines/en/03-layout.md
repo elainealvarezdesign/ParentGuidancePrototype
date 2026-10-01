@@ -35,7 +35,7 @@ Tailwind's breakpoints are used. The rule of thumb: **mobile and tablet stack; c
 | `lg` | 1024px | **Full navigation**, 2-column heroes, sidebars on detail and lesson pages, footer in rows, 3–4 column grids |
 | `xl` | 1280px | Fine adjustments (3 columns of questions in Ask a Therapist); the container is already at its maximum |
 
-**Degrade in steps** (Scalar principle): 4 → 2 → 1 or 3 → 2 → 1 columns, never straight from 4 to 1.
+**Degrade in steps**: 4 → 2 → 1 or 3 → 2 → 1 columns, never straight from 4 to 1.
 
 Anything with a large fixed width (248–300px sidebars, 420–480px images) applies it only from `lg`
 (`w-full lg:w-[300px]`). On tablet, fixed widths were what caused horizontal scroll.

@@ -1,12 +1,12 @@
 # Parent Guidance — Design Guidelines
 
 Guidelines for the **PG-Live** prototype (parentguidance.org), written from the **prototype's real code**
-(`src/app`) and organized with the method of Scalar's design system.
+(`src/app`).
 
 - **The visual identity** (colors, typography, radii, shadows, buttons and animation) comes from what the
   prototype already used: the most repeated values became tokens and the one-off values were consolidated.
-- **The method** comes from Scalar: everything comes from tokens, closed scales, button hierarchy,
-  accessibility and a reduced‑motion contract.
+- **The method:** everything comes from tokens, closed scales, button hierarchy, accessibility and a
+  reduced‑motion contract.
 
 > **Status:** the prototype already follows these guidelines (final audit in [section 5.6](./05-audit.md)).
 > Every new screen or component must follow them from the start.
@@ -46,21 +46,14 @@ must feel **warm, calm and trustworthy**:
 - Calm motion: short, gentle entrances, nothing that bounces or blinks.
 - Readability first: the audience is parents, often on their phones and under stress.
 
-## What we took from Scalar and what we didn't
+## Principles
 
-**Adopted (the method):**
 - Token rule: no hex, size or shadow written "by hand"; everything comes from `tokens.css`.
 - Closed type and spacing scales; any new value is assigned the nearest step.
 - Button hierarchy: one Primary per section, labels that start with a verb, complete states
   (Focus, Loading, Disabled), 44px minimum touch area.
 - Grids that degrade in steps (3 → 2 → 1 columns).
 - Safe, unhurried motion with duration bands and a mandatory reduced‑motion contract.
-
-**Discarded:**
-- Scalar's blue palette (`#037de8`…) and the Inter typeface: Parent Guidance has its own brand.
-- Scalar's 1160px container: the prototype uses 1280px.
-- GSAP/ScrollTrigger, parallax, marquee, spotlight bento and the "Living Model" diagram: they don't fit a
-  website that supports families, and the prototype already uses `motion`.
 
 ## Rule #1
 

@@ -1,11 +1,11 @@
 # Parent Guidance — Guías de diseño
 
 Guías del prototipo **PG-Live** (parentguidance.org), escritas a partir del **código real del prototipo**
-(`src/app`) y ordenadas con el método del sistema de diseño de Scalar.
+(`src/app`).
 
 - **La identidad visual** (colores, tipografía, radios, sombras, botones y animación) sale de lo que ya usaba el
   prototipo: los valores más repetidos se convirtieron en tokens y los sueltos se consolidaron.
-- **El método** viene de Scalar: todo sale de tokens, escalas cerradas, jerarquía de botones, accesibilidad y
+- **El método:** todo sale de tokens, escalas cerradas, jerarquía de botones, accesibilidad y
   contrato de reduced‑motion.
 
 > **Estado:** el prototipo ya cumple estas guías (auditoría final en la [sección 5.6](./05-auditoria.md)).
@@ -49,21 +49,14 @@ sentirse **cálida, calmada y confiable**:
 - Movimiento sereno: entradas suaves y cortas, nada que rebote ni parpadee.
 - Legibilidad ante todo: la audiencia son padres, a menudo en el móvil y bajo estrés.
 
-## Qué tomamos de Scalar y qué no
+## Principios
 
-**Adoptado (el método):**
 - Regla de tokens: ningún hex, tamaño o sombra "a mano"; todo sale de `tokens.css`.
 - Escalas cerradas de tipo y espaciado; a cualquier valor nuevo se le asigna el paso más cercano.
 - Jerarquía de botones: un solo Primary por sección, labels que empiezan con verbo, estados completos
   (Focus, Loading, Disabled), mínimo 44px de área táctil.
 - Grids que degradan por etapas (3 → 2 → 1 columnas).
 - Movimiento seguro y sin prisa, con duraciones por bandas y un contrato de reduced‑motion obligatorio.
-
-**Descartado:**
-- La paleta azul de Scalar (`#037de8`…) y la tipografía Inter: Parent Guidance tiene su propia marca.
-- El contenedor de 1160px de Scalar: el prototipo usa 1280px.
-- GSAP/ScrollTrigger, parallax, marquee, bento con spotlight y el diagrama "Living Model": no encajan con
-  una web de apoyo a familias y el prototipo ya usa `motion`.
 
 ## Regla #1
 

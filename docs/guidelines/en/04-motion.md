@@ -1,6 +1,6 @@
 # 4. Motion
 
-The prototype animates with **`motion`** (Framer Motion, `motion/react`). Scalar principle: **safe, unhurried**
+The prototype animates with **`motion`** (Framer Motion, `motion/react`). Principle: **safe, unhurried**
 motion, never bouncy, and always respecting reduced‑motion.
 
 ## 4.1 Tokens
