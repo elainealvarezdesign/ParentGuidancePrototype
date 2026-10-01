@@ -543,16 +543,6 @@ export default function AskATherapistPage() {
                   </span>
                 </div>
               </div>
-              {/* Search */}
-              <div className="relative w-full sm:w-auto">
-                <Search size={13} className="absolute left-3 top-1/2 -translate-y-1/2 text-pg-slate pointer-events-none" />
-                <input
-                  value={search}
-                  onChange={e => handleSearch(e.target.value)}
-                  placeholder="Search questions…"
-                  className="text-[12px] text-pg-navy placeholder:text-pg-teal border border-pg-line rounded-pg-md pl-8 pr-4 py-2 w-full sm:w-[200px] outline-none focus:border-pg-sage bg-white transition-colors"
-                />
-              </div>
             </div>
 
             {/* Category tabs */}

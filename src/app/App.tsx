@@ -245,7 +245,9 @@ function Navbar() {
       transition={{ duration: 0.35 }}
     >
       <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.55 }}>
-        <Logo />
+        <Link to="/" aria-label="Parent Guidance home" className="flex items-center rounded-pg-sm">
+          <Logo />
+        </Link>
       </motion.div>
       <motion.div
         className="hidden lg:flex items-center gap-6"

@@ -7,7 +7,6 @@ import { scrollBehavior } from "./utils/motion";
 import { EventModal, type EventModalData } from "./mhs/EventModal";
 import { SAMPLE_REGISTER_URL } from "./mhs/links";
 import svgPaths from "@/imports/MentalHealthPage/svg-8lpz1a5k3k";
-import imgImage13 from "@/imports/MentalHealthPage/f075cf3868341d1ced5b7049edc0996923832898.png";
 import imgRectangle79 from "@/imports/HomePagePgV2/ece298d0ec2c16f10310d45724b276a6035cb503.png";
 import imgRectangle80 from "@/imports/HomePagePgV2/fb9567d2a70815a5c0307df9118cb49c401b72a3.png";
 import imgRectangle81 from "@/imports/HomePagePgV2/40e0ae4f954f871b7087c4354f1c8d0bf5926225.png";
@@ -557,7 +556,6 @@ const WELCOME_VIMEO_ID = "1037509342";
 function ContentPage({ state, district, onReset }: { state: string; district: string; onReset: () => void }) {
   const [search, setSearch] = useState("");
   const [eventsVisible, setEventsVisible] = useState(EVENTS_PAGE_SIZE);
-  const [welcomePlaying, setWelcomePlaying] = useState(false);
 
   const filteredEvents = search
     ? EVENTS.filter(e => e.title.toLowerCase().includes(search.toLowerCase()) || e.desc.toLowerCase().includes(search.toLowerCase()))
@@ -610,30 +608,18 @@ function ContentPage({ state, district, onReset }: { state: string; district: st
             </Button>
           </motion.div>
 
-          {/* Welcome video — the Figma "image 13" poster plays the Vimeo video in place */}
+          {/* Welcome video (Vimeo) — loads in place, no poster image */}
           <motion.div
-            className="relative rounded-pg-2xl overflow-hidden shrink-0 w-full max-w-[659px] bg-white shadow-pg-card"
-            style={{ aspectRatio: welcomePlaying ? "16 / 9" : "659.5 / 416.47" }}
+            className="relative rounded-pg-2xl overflow-hidden shrink-0 w-full max-w-[659px] aspect-video bg-pg-navy shadow-pg-card"
             initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.55 }}
           >
-            {welcomePlaying ? (
-              <iframe
-                src={`https://player.vimeo.com/video/${WELCOME_VIMEO_ID}?autoplay=1&dnt=1&title=0&byline=0&portrait=0`}
-                title="Welcome to the Mental Health Series (video)"
-                className="absolute inset-0 h-full w-full bg-pg-navy"
-                allow="autoplay; fullscreen; picture-in-picture"
-                allowFullScreen
-              />
-            ) : (
-              <button
-                type="button"
-                onClick={() => setWelcomePlaying(true)}
-                aria-label="Play video: Welcome to the Mental Health Series"
-                className="group block h-full w-full"
-              >
-                <img alt="" className="w-full h-full object-cover transition-opacity group-hover:opacity-90" src={imgImage13} />
-              </button>
-            )}
+            <iframe
+              src={`https://player.vimeo.com/video/${WELCOME_VIMEO_ID}?dnt=1&title=0&byline=0&portrait=0`}
+              title="Welcome to the Mental Health Series (video)"
+              className="absolute inset-0 h-full w-full"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowFullScreen
+            />
           </motion.div>
         </div>
       </div>
