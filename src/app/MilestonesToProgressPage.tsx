@@ -154,7 +154,7 @@ export default function MilestonesToProgressPage() {
                 Child & Teen Development
               </span>
 
-              <h1 className="font-bold text-pg-navy text-2xl leading-[1.25]">
+              <h1 className="font-bold text-pg-navy text-[28px] md:text-[40px] leading-[1.15]">
                 {COURSE_TITLE}
               </h1>
 

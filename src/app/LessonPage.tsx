@@ -129,8 +129,8 @@ export default function LessonPage() {
         <div className="flex-1 flex flex-col gap-4 min-w-0">
 
           {/* Lesson header */}
-          <div className="flex items-start justify-between gap-4">
-            <div>
+          <div className="flex flex-col items-start gap-3 sm:flex-row sm:justify-between sm:gap-4">
+            <div className="min-w-0">
               <div className="flex items-center gap-2 mb-1">
                 <span className="font-semibold text-[11px] uppercase tracking-pg-caps text-pg-teal-dark bg-pg-tint px-2.5 py-0.5 rounded-pg-sm">
                   Lesson {lesson.id} of {LESSONS.length}
@@ -139,7 +139,7 @@ export default function LessonPage() {
                   {lesson.duration}
                 </span>
               </div>
-              <h1 className="font-bold text-pg-navy text-xl leading-tight">
+              <h1 className="font-bold text-pg-navy text-[28px] md:text-[40px] leading-[1.15]">
                 {lesson.title}
               </h1>
             </div>
@@ -172,10 +172,10 @@ export default function LessonPage() {
             />
 
             {/* Overlay gradient */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-pg-navy/70 via-pg-navy/10 to-transparent" />
 
             {/* Duration badge */}
-            <div className="absolute top-3 left-3 bg-black/60 text-white text-xs font-semibold px-2 py-0.5 rounded-pg-sm">
+            <div className="absolute top-3 left-3 bg-pg-navy/60 text-white text-xs font-semibold px-2 py-0.5 rounded-pg-sm">
               {lesson.duration}
             </div>
 
@@ -200,7 +200,7 @@ export default function LessonPage() {
             </AnimatePresence>
 
             {/* Bottom controls bar */}
-            <div className="absolute bottom-0 left-0 right-0 px-4 pb-3 pt-8 bg-gradient-to-t from-black/80 to-transparent">
+            <div className="absolute bottom-0 left-0 right-0 px-4 pb-3 pt-8 bg-gradient-to-t from-pg-navy/80 to-transparent">
               {/* Progress bar */}
               <div
                 className="w-full h-1 bg-white/30 rounded-full mb-3 cursor-pointer"

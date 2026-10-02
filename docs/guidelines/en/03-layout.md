@@ -134,6 +134,10 @@ Download/Print on the right (on mobile the buttons wrap to a second line). Only 
 
 ### Video
 
+Gradients and overlays on video or photos use navy (`from-pg-navy/80`, `bg-pg-navy/60`), equivalent to
+*Background/Scrim* in Figma; never black.
+
+
 Vimeo videos use an `iframe` in `aspect-video`, `rounded-pg-2xl` (featured) or `rounded-pg-xl` (cards), with a
 descriptive `title`, `allow="autoplay; fullscreen; picture-in-picture"` and `dnt=1` in the URL. The Mental
 Health Series welcome video loads the player directly; topic page videos show a thumbnail and load the player

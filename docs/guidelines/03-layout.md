@@ -135,6 +135,10 @@ en tamaño S a la derecha (en móvil, los botones bajan a una segunda línea). S
 
 ### Video
 
+Los degradados y overlays sobre video o foto usan navy (`from-pg-navy/80`, `bg-pg-navy/60`), equivalente a
+*Background/Scrim* en Figma; nunca negro.
+
+
 Videos de Vimeo con `iframe` en `aspect-video`, `rounded-pg-2xl` (destacado) o `rounded-pg-xl` (cards), con
 `title` descriptivo, `allow="autoplay; fullscreen; picture-in-picture"` y `dnt=1` en la URL. El video de
 bienvenida de Mental Health Series carga el reproductor directamente; los de las páginas de tema muestran una

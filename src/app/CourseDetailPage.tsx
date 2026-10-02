@@ -98,7 +98,7 @@ export default function CourseDetailPage() {
                 Self-Guided Course
               </span>
 
-              <h1 className="font-bold text-pg-navy text-[24px] leading-[1.25]">
+              <h1 className="font-bold text-pg-navy text-[28px] md:text-[40px] leading-[1.15]">
                 {COURSE_TITLE}
               </h1>
 

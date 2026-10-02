@@ -236,8 +236,8 @@ export default function MilestonesLessonPage() {
         <div className="flex-1 flex flex-col gap-4 min-w-0">
 
           {/* Lesson header */}
-          <div className="flex items-start justify-between gap-4">
-            <div>
+          <div className="flex flex-col items-start gap-3 sm:flex-row sm:justify-between sm:gap-4">
+            <div className="min-w-0">
               <div className="flex items-center gap-2 mb-1">
                 <span className="font-semibold text-[11px] uppercase tracking-pg-caps text-pg-teal-dark bg-pg-tint px-2.5 py-0.5 rounded-pg-sm">
                   Lesson {lesson.id} of {LESSONS.length}
@@ -245,7 +245,7 @@ export default function MilestonesLessonPage() {
                 <span className="text-xs text-pg-slate">{lesson.duration}</span>
               </div>
               <p className="text-xs text-pg-teal-dark mb-1">{lesson.module}</p>
-              <h1 className="font-bold text-pg-navy text-xl leading-tight">{lesson.title}</h1>
+              <h1 className="font-bold text-pg-navy text-[28px] md:text-[40px] leading-[1.15]">{lesson.title}</h1>
             </div>
             <Button variant="secondary" size="s" onClick={markComplete} aria-pressed={completed.has(lesson.id)} className={`shrink-0 gap-1.5 ${completed.has(lesson.id) ? "bg-pg-tint" : ""}`}>
               {completed.has(lesson.id) ? <CheckCircle2 size={13} /> : <Circle size={13} />}
@@ -264,8 +264,8 @@ export default function MilestonesLessonPage() {
               alt="Lesson thumbnail"
               className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-(--pg-dur-base) ${playing ? "opacity-50" : "opacity-75"}`}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-            <div className="absolute top-3 left-3 bg-black/60 text-white text-xs font-semibold px-2 py-0.5 rounded-pg-sm">
+            <div className="absolute inset-0 bg-gradient-to-t from-pg-navy/70 via-pg-navy/10 to-transparent" />
+            <div className="absolute top-3 left-3 bg-pg-navy/60 text-white text-xs font-semibold px-2 py-0.5 rounded-pg-sm">
               {lesson.duration}
             </div>
 
@@ -284,7 +284,7 @@ export default function MilestonesLessonPage() {
               </motion.div>
             </AnimatePresence>
 
-            <div className="absolute bottom-0 left-0 right-0 px-4 pb-3 pt-8 bg-gradient-to-t from-black/80 to-transparent">
+            <div className="absolute bottom-0 left-0 right-0 px-4 pb-3 pt-8 bg-gradient-to-t from-pg-navy/80 to-transparent">
               <div
                 className="w-full h-1 bg-white/30 rounded-full mb-3 cursor-pointer"
                 onClick={e => { e.stopPropagation(); const r = e.currentTarget.getBoundingClientRect(); setProgress(Math.round(((e.clientX - r.left) / r.width) * 100)); }}

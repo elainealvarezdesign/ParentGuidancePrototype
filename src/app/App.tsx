@@ -460,7 +460,7 @@ function ResourceCard({ card, index }: { card: typeof resourceCards[0]; index: n
     >
       <div className="h-32 relative overflow-hidden rounded-t-pg-md">
         <img src={card.img} alt="" className="w-full h-full object-cover rounded-t-pg-md" />
-        {card.overlay && <div className="absolute inset-0 bg-black/20 rounded-t-pg-md" />}
+        {card.overlay && <div className="absolute inset-0 bg-pg-navy/20 rounded-t-pg-md" />}
         <div className="absolute inset-0 bg-pg-sage/20 opacity-0 transition-opacity duration-(--pg-dur-fast) group-hover:opacity-100 group-focus-visible:opacity-100" />
       </div>
       <div className="px-4 pt-3 pb-4 flex flex-col gap-2">

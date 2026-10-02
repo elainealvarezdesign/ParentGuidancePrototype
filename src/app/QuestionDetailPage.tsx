@@ -233,7 +233,7 @@ export default function QuestionDetailPage() {
             <span className="inline-block font-semibold text-[11px] uppercase tracking-pg-caps text-pg-teal-dark bg-pg-tint border border-pg-sage/40 px-2.5 py-0.5 rounded-pg-sm mb-2">
               {question.category}
             </span>
-            <h1 className="font-bold text-pg-navy text-xl leading-snug">
+            <h1 className="font-bold text-pg-navy text-[28px] md:text-[40px] leading-[1.15]">
               {question.question}
             </h1>
             <p className="text-pg-slate text-xs mt-1">— User Submitted</p>
@@ -253,10 +253,10 @@ export default function QuestionDetailPage() {
               alt="Video thumbnail"
               className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-(--pg-dur-base) ${playing ? "opacity-50" : "opacity-75"}`}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-pg-navy/70 via-pg-navy/10 to-transparent" />
 
             {/* Duration badge */}
-            <div className="absolute top-3 left-3 bg-black/60 text-white text-xs font-semibold px-2 py-0.5 rounded-pg-sm">
+            <div className="absolute top-3 left-3 bg-pg-navy/60 text-white text-xs font-semibold px-2 py-0.5 rounded-pg-sm">
               {question.duration}
             </div>
 
@@ -279,7 +279,7 @@ export default function QuestionDetailPage() {
             </AnimatePresence>
 
             {/* Controls */}
-            <div className="absolute bottom-0 left-0 right-0 px-4 pb-3 pt-8 bg-gradient-to-t from-black/80 to-transparent">
+            <div className="absolute bottom-0 left-0 right-0 px-4 pb-3 pt-8 bg-gradient-to-t from-pg-navy/80 to-transparent">
               {/* Progress */}
               <div
                 className="w-full h-1 bg-white/30 rounded-full mb-3 cursor-pointer"
