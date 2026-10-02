@@ -17,7 +17,7 @@ Guidelines for the **PG-Live** prototype (parentguidance.org), written from the 
 |---|-------|---------|
 | 1 | [Foundations](./01-foundations.md) | Palette, contrast, Poppins typography, spacing, radii and shadows |
 | 2 | [Buttons](./02-buttons.md) | Styles, sizes, states, the `<Button>` component and accessibility |
-| 3 | [Layout](./03-layout.md) | Containers, breakpoints, vertical rhythm, grids and patterns (cards, filter bar, banners, pop-ups, video) |
+| 3 | [Layout](./03-layout.md) | Containers, breakpoints, vertical rhythm, grids and patterns (cards, filter bar, banners, pop-ups, legal pages, video) and Figma components |
 | 4 | [Motion](./04-motion.md) | Animation with `motion`, durations, easing and reduced‑motion |
 | 5 | [Prototype audit](./05-audit.md) | What was fixed, how it was verified and what is still pending |
 

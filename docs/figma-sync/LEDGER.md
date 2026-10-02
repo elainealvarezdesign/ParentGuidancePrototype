@@ -46,3 +46,6 @@ Radius: XS 5:44(4) S 5:45(8) M 5:46(12) L 5:47(16) XL 5:48(24) Full 35:2
   Built with a clone+reflow converter (nav 133:93/133:99, footer 133:135/133:164, Desktop→Tablet/Mobile variants, heading step-down H1/H2→H2 on T, →H3/H4 on M) + manual fixes per screen.
   Events T/M: Calendar Breakpoint=Mobile (dot style) with first Row (header) hidden; pop-up T = Desktop popover under day 10; M = bottom sheet (Breakpoint Mobile) + Scrim rect 375x812.
   Action Card 360:66 Title now FILL + wraps. Breadcrumb texts on T/M truncate with ellipsis.
+- Oct 2: library cleanup: re-gridded sets 255:375, 48:88, 136:122, 136:145, 240:200, 136:221 (column, 40px padding/gap). Fallback sweep: 2 fixed on component pages, 0 on layouts.
+- Oct 2: Events pop-up matches EventModal: Scrim rect navy (158:61) 10% on D 356:8849 and T 381:1454; M 381:2067 = Desktop popover 320px centered in 812px viewport + navy 30% scrim.
+- Oct 2: prototype fix: MHS search input min-w-0 (no overflow at 375/768 on any route).

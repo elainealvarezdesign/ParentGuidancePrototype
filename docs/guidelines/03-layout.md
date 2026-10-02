@@ -117,8 +117,19 @@ navy, la caja es `bg-pg-navy-hover` y el botón Inverse).
 ### Pop-up de evento / diálogos
 
 [`EventModal`](../../src/app/mhs/EventModal.tsx): card de 320px con encabezado teal, `rounded-pg-xl`,
-`shadow-pg-overlay`. Junto al elemento que lo abre en desktop, centrado en móvil. `role="dialog"` con
+`shadow-pg-overlay`. Junto al elemento que lo abre en desktop y tablet (fondo `pg-navy/10`), centrado en móvil (fondo
+`pg-navy/30`, ancho `min(320px, 100vw − 32px)`). `role="dialog"` con
 `aria-modal`, foco atrapado, se cierra con Esc, la X o un clic fuera, y devuelve el foco al cerrar.
+
+### Páginas legales
+
+Terms of Use, Cookies Policy y Consent Documents comparten plantilla: encabezado con eyebrow **LEGAL** (sin
+barra), `h1`, intro de `max-w-pg-reading` y, debajo, los botones **Download** (Primary M, icono `file_download`)
+y **Print** (Secondary M, icono `print`). El texto va en una sola card blanca (`rounded-pg-xl`, `p-7 md:p-10`)
+con la fecha de vigencia en teal y secciones separadas por una línea `pg-line`.
+
+Consent Documents agrupa los documentos en cards desplegables: punto teal, título `h4`, chevron, y Download/Print
+en tamaño S a la derecha (en móvil, los botones bajan a una segunda línea). Solo un documento abierto a la vez.
 
 ### Video
 
@@ -134,7 +145,28 @@ miniatura y cargan el reproductor al hacer clic.
   navegar) y devuelve el foco.
 - Cada página nueva abre arriba (`ScrollRestoration`); atrás/adelante recupera la posición.
 
-## 3.7 Checklist para una pantalla nueva
+## 3.7 Componentes en Figma
+
+La librería de Figma ([Design system - PG](https://www.figma.com/design/mWOJYdAxkKGj0bWSO2ptGj/Design-system---PG))
+refleja el prototipo. Cada patrón de esta guía tiene su componente; al diseñar una pantalla nueva, se parte de
+ellos en vez de dibujar a mano.
+
+| Componente | Página de Figma | Equivale a |
+|------------|-----------------|------------|
+| Button (Primary, Secondary, Tertiary, Inverse, Inverse Secondary × S/M/L) | Buttons | `<Button>` (capítulo 2) |
+| Filter Bar (Desktop/Mobile), Search Field, Sort Menu, Filter Chip | Inputs & Nav | Barra de filtros (3.5) |
+| Section Header (título + contador), Section Eyebrow (con o sin barra) | Content Blocks | Título de sección con contador |
+| Photo CTA Banner, Split CTA Banner (Desktop/Tablet/Mobile), Promo Banner, Multi-action Banner | Content Blocks | Banners de cierre de página |
+| Hero Media (Portrait/Landscape) | Content Blocks | Imagen de los heros con bloque de color |
+| Outline Step, Course Mini Card, Instructor Line | Course & Media | Detalle de curso (temario, "You may also like", instructores) |
+| Video Card, Session Card, Takeaway Card, Action Card, Topic Resource Card | Cards | Página de tema de Mental Health Series |
+| Calendar (Desktop/Mobile), Event List Item, Event Popover | Calendar & Events | Página de eventos y pop-up |
+| Icon/… (Material Outlined, incluidos `download`, `print` y `vimeo`) | Icons | `src/app/components/icons.tsx` |
+
+Las pantallas completas están en **Layouts – Desktop / Tablet / Mobile** (1280, 768 y 375px). Si una pantalla
+del prototipo cambia, se actualiza también su frame en las tres páginas.
+
+## 3.8 Checklist para una pantalla nueva
 
 1. Fondo `pg-cream`, contenedor `max-w-pg-page` con gutter `px-6 md:px-10 lg:px-14`.
 2. Un solo `display` (solo en homes) o `h1` por página.

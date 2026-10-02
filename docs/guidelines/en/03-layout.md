@@ -116,8 +116,19 @@ the box is `bg-pg-navy-hover` and the button is Inverse).
 ### Event pop-up / dialogs
 
 [`EventModal`](../../../src/app/mhs/EventModal.tsx): 320px card with a teal header, `rounded-pg-xl`,
-`shadow-pg-overlay`. Next to the element that opens it on desktop, centered on mobile. `role="dialog"` with
+`shadow-pg-overlay`. Next to the element that opens it on desktop and tablet (`pg-navy/10` backdrop), centered on mobile
+(`pg-navy/30` backdrop, `min(320px, 100vw − 32px)` wide). `role="dialog"` with
 `aria-modal`, trapped focus, closes with Esc, the X or a click outside, and returns focus when closed.
+
+### Legal pages
+
+Terms of Use, Cookies Policy and Consent Documents share one template: a header with a **LEGAL** eyebrow (no
+bar), `h1`, a `max-w-pg-reading` intro and, below it, the **Download** (Primary M, `file_download` icon) and
+**Print** (Secondary M, `print` icon) buttons. The text sits in a single white card (`rounded-pg-xl`,
+`p-7 md:p-10`) with the effective date in teal and sections separated by a `pg-line` rule.
+
+Consent Documents groups the documents in collapsible cards: teal dot, `h4` title, chevron, and size S
+Download/Print on the right (on mobile the buttons wrap to a second line). Only one document is open at a time.
 
 ### Video
 
@@ -133,7 +144,28 @@ on click.
   navigation) and returns focus.
 - Every new page opens at the top (`ScrollRestoration`); back/forward restores the position.
 
-## 3.7 Checklist for a new screen
+## 3.7 Components in Figma
+
+The Figma library ([Design system - PG](https://www.figma.com/design/mWOJYdAxkKGj0bWSO2ptGj/Design-system---PG))
+mirrors the prototype. Every pattern in this guide has a component; start new screens from them instead of
+drawing by hand.
+
+| Component | Figma page | Maps to |
+|-----------|------------|---------|
+| Button (Primary, Secondary, Tertiary, Inverse, Inverse Secondary × S/M/L) | Buttons | `<Button>` (chapter 2) |
+| Filter Bar (Desktop/Mobile), Search Field, Sort Menu, Filter Chip | Inputs & Nav | Filter bar (3.5) |
+| Section Header (title + count), Section Eyebrow (with or without bar) | Content Blocks | Section title with a count |
+| Photo CTA Banner, Split CTA Banner (Desktop/Tablet/Mobile), Promo Banner, Multi-action Banner | Content Blocks | Page-closing banners |
+| Hero Media (Portrait/Landscape) | Content Blocks | Hero image with color block |
+| Outline Step, Course Mini Card, Instructor Line | Course & Media | Course detail (outline, "You may also like", instructors) |
+| Video Card, Session Card, Takeaway Card, Action Card, Topic Resource Card | Cards | Mental Health Series topic page |
+| Calendar (Desktop/Mobile), Event List Item, Event Popover | Calendar & Events | Events page and pop-up |
+| Icon/… (Material Outlined, including `download`, `print` and `vimeo`) | Icons | `src/app/components/icons.tsx` |
+
+Full screens live in **Layouts – Desktop / Tablet / Mobile** (1280, 768 and 375px). When a prototype screen
+changes, update its frame on all three pages too.
+
+## 3.8 Checklist for a new screen
 
 1. `pg-cream` background, `max-w-pg-page` container with a `px-6 md:px-10 lg:px-14` gutter.
 2. A single `display` (home pages only) or `h1` per page.

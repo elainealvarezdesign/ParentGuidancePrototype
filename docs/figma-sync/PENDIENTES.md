@@ -37,12 +37,18 @@ breadcrumb en Course Detail · Milestones.
 - Action Card: el título ahora hace salto de línea (antes se salía de la tarjeta en móvil).
 - Variable nueva: Accent Colors/Live (#52BD95).
 
+**Limpieza de la librería:** se reacomodaron 6 component sets con variantes encimadas o fuera del marco (Event
+Popover, Event Row, Promo Banner, Multi-action Banner, CTA Banner, Process Stepper) y se corrigieron los colores
+de respaldo de las variables (solo 2 estaban desfasados).
+
+**Pop-up de eventos:** igual que en el prototipo: fondo `pg-navy/10` en Desktop y Tablet, y en móvil una card
+centrada de 320px con fondo `pg-navy/30`.
+
+**Guías:** nueva sección 3.7 "Componentes en Figma" y patrón de páginas legales en `03-layout.md` (ES y EN);
+PDF regenerados.
+
 ## Pendiente
 
-1. **Limpieza de la librería:** ordenar los component sets cuyas variantes crecieron y quedaron encimadas;
-   revisar colores enlazados a variables que puedan verse negros en miniaturas.
-2. **Logo de Staff Guidance:** subir `src/imports/StaffGuidance.png` al componente
+1. **Logo de Staff Guidance:** subir `src/imports/StaffGuidance.png` al componente
    Partner Logo/Staff Guidance (desde aquí no se pudo: la red bloquea `mcp.figma.com`; se puede arrastrar a mano
    en Figma o permitir ese dominio en la configuración del entorno).
-3. **Guías:** documentar en `docs/guidelines` los componentes nuevos (Filter Bar, Section Header, botones Inverse,
-   etc.) y regenerar los PDF.

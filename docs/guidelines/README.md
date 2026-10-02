@@ -17,7 +17,7 @@ Guías del prototipo **PG-Live** (parentguidance.org), escritas a partir del **c
 |---|------|-----------|
 | 1 | [Fundamentos](./01-fundamentos.md) | Paleta, contraste, tipografía Poppins, espaciado, radios y sombras |
 | 2 | [Botones](./02-botones.md) | Estilos, tamaños, estados, el componente `<Button>` y accesibilidad |
-| 3 | [Layout](./03-layout.md) | Contenedores, breakpoints, ritmo vertical, grids y patrones (cards, barra de filtros, banners, pop-ups, video) |
+| 3 | [Layout](./03-layout.md) | Contenedores, breakpoints, ritmo vertical, grids y patrones (cards, barra de filtros, banners, pop-ups, legales, video) y componentes de Figma |
 | 4 | [Movimiento](./04-movimiento.md) | Animaciones con `motion`, duraciones, easing y reduced‑motion |
 | 5 | [Auditoría del prototipo](./05-auditoria.md) | Qué se corrigió, cómo se verificó y qué queda pendiente |
 
