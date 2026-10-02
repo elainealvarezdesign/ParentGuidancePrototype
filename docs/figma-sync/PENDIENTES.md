@@ -47,8 +47,12 @@ centrada de 320px con fondo `pg-navy/30`.
 **Guías:** nueva sección 3.7 "Componentes en Figma" y patrón de páginas legales en `03-layout.md` (ES y EN);
 PDF regenerados.
 
+**Colores de estado:** el prototipo adopta los de Figma (*Success / Warning / Error Colors → Contrast* y *→ Soft*):
+éxito `#117a3a` / `#d3f7df`, aviso `#a84b02` / `#feeab1`, error `#932f2f` / `#fdcfcf`. Todos cumplen AA.
+
+**Logo de Staff Guidance:** nuevo componente Partner Logo/Staff Guidance en la página Partners Logos (con su tile
+en el showcase) y colocado en la franja de partners de Home en Desktop, Tablet y Mobile.
+
 ## Pendiente
 
-1. **Logo de Staff Guidance:** subir `src/imports/StaffGuidance.png` al componente
-   Partner Logo/Staff Guidance (desde aquí no se pudo: la red bloquea `mcp.figma.com`; se puede arrastrar a mano
-   en Figma o permitir ese dominio en la configuración del entorno).
+Nada en la librería. La publicación se hace desde Figma (Assets → Publish library).

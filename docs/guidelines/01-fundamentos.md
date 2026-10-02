@@ -37,12 +37,13 @@ En uso en badges, avisos y validaciones. Cumplen AA sobre blanco y crema.
 
 | Estado | Texto / icono | Fondo suave | Dónde se usa |
 |--------|---------------|-------------|--------------|
-| Éxito | `#2f7a5f` `pg-success` | `#e6f2ec` `pg-success-soft` | Badge "Guide" (con texto navy) |
-| Aviso | `#8a5a1c` `pg-warning` | `#f7eddc` `pg-warning-soft` | Badge "Worksheet", aviso legal de Ask a Therapist |
-| Error | `#b42318` `pg-error` | `#fdecea` `pg-error-soft` | Badge "Tool", errores de formulario |
+| Éxito | `#117a3a` `pg-success` | `#d3f7df` `pg-success-soft` | Badge "Guide" (con texto navy) |
+| Aviso | `#a84b02` `pg-warning` | `#feeab1` `pg-warning-soft` | Badge "Worksheet", aviso legal de Ask a Therapist |
+| Error | `#932f2f` `pg-error` | `#fdcfcf` `pg-error-soft` | Badge "Tool", errores de formulario |
 
-`pg-success` sobre `pg-success-soft` da 4.49:1: para texto pequeño usar **navy** sobre el fondo verde y dejar el
-verde para el icono.
+Son los mismos valores que las variables de Figma *Success / Warning / Error Colors → Contrast* (texto) y *→ Soft*
+(fondo). Cada color de texto sobre su fondo suave cumple AA (4.69:1 éxito, 4.8:1 aviso, 5.58:1 error); en el badge
+"Guide" se mantiene el texto navy y el verde para el icono.
 
 ### Combinaciones de contraste aprobadas
 

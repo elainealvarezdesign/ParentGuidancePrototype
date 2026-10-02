@@ -103,4 +103,3 @@ Quedan como valores sueltos, a propósito: anchos de lectura (`max-w-[480px]`…
 | Contenido de ejemplo | Eventos y enlaces de registro de muestra; cursos y recursos sin página propia abren plantillas de ejemplo | Contenido |
 | Textos repetidos | Tres cards de la home repiten "Dive into a wealth of knowledge tailored for parents" | Contenido |
 | Homes | Decidir entre la home principal, V1 y V2 | Producto |
-| Estados de color | Validar en Figma `pg-success`, `pg-warning` y `pg-error` (ya se usan en badges y avisos) | Diseño |

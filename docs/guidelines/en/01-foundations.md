@@ -37,12 +37,13 @@ Used in badges, notices and validation. They meet AA on white and cream.
 
 | State | Text / icon | Soft background | Where it is used |
 |-------|-------------|-----------------|------------------|
-| Success | `#2f7a5f` `pg-success` | `#e6f2ec` `pg-success-soft` | "Guide" badge (with navy text) |
-| Warning | `#8a5a1c` `pg-warning` | `#f7eddc` `pg-warning-soft` | "Worksheet" badge, Ask a Therapist legal notice |
-| Error | `#b42318` `pg-error` | `#fdecea` `pg-error-soft` | "Tool" badge, form errors |
+| Success | `#117a3a` `pg-success` | `#d3f7df` `pg-success-soft` | "Guide" badge (with navy text) |
+| Warning | `#a84b02` `pg-warning` | `#feeab1` `pg-warning-soft` | "Worksheet" badge, Ask a Therapist legal notice |
+| Error | `#932f2f` `pg-error` | `#fdcfcf` `pg-error-soft` | "Tool" badge, form errors |
 
-`pg-success` on `pg-success-soft` gives 4.49:1: for small text use **navy** on the green background and keep
-green for the icon.
+They match the Figma variables *Success / Warning / Error Colors → Contrast* (text) and *→ Soft* (background).
+Each text color on its soft background passes AA (4.69:1 success, 4.8:1 warning, 5.58:1 error); the "Guide"
+badge keeps navy text and green for the icon.
 
 ### Approved contrast combinations
 

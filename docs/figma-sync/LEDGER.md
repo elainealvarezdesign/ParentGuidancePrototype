@@ -49,3 +49,5 @@ Radius: XS 5:44(4) S 5:45(8) M 5:46(12) L 5:47(16) XL 5:48(24) Full 35:2
 - Oct 2: library cleanup: re-gridded sets 255:375, 48:88, 136:122, 136:145, 240:200, 136:221 (column, 40px padding/gap). Fallback sweep: 2 fixed on component pages, 0 on layouts.
 - Oct 2: Events pop-up matches EventModal: Scrim rect navy (158:61) 10% on D 356:8849 and T 381:1454; M 381:2067 = Desktop popover 320px centered in 812px viewport + navy 30% scrim.
 - Oct 2: prototype fix: MHS search input min-w-0 (no overflow at 375/768 on any route).
+- Oct 2: Partner Logo/Staff Guidance = 394:14692 (112x64, image from user's rect 392:4861) on page 195:3017; showcase tile 394:14693; Home D/T/M instances 332:7045, 334:2081, 335:7037 swapped from the deleted placeholder 332:7040.
+- Oct 2: prototype status tokens switched to the Figma Contrast/Soft values (success #117a3a/#d3f7df, warning #a84b02/#feeab1, error #932f2f/#fdcfcf).

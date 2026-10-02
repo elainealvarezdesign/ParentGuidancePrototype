@@ -26,7 +26,7 @@ crisis help. The UI must feel warm, calm and trustworthy. Full guidelines (Spani
 * On sage backgrounds use navy text and white (Inverse) buttons, never white text.
 * Small teal text on cream or tint must use teal dark `#406064`.
 * Borders and dividers: line `#dee8e9`.
-* States: success `#2f7a5f` / `#e6f2ec`, warning `#8a5a1c` / `#f7eddc`, error `#b42318` / `#fdecea`.
+* States: success `#117a3a` / `#d3f7df`, warning `#a84b02` / `#feeab1`, error `#932f2f` / `#fdcfcf`.
 * A highlighted block inside a section must contrast with it: sage, navy, or a white card with border and
   shadow. Never tint on tint soft, or cream dark on cream.
 * No other colors (no purples, neutral greys or pure black) except logo art and course category colors.

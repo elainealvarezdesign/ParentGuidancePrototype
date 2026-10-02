@@ -106,4 +106,3 @@ and category palettes.
 | Sample content | Sample events and registration links; courses and resources without their own page open sample templates | Content |
 | Repeated copy | Three home cards repeat "Dive into a wealth of knowledge tailored for parents" | Content |
 | Home pages | Decide between the main home, V1 and V2 | Product |
-| State colors | Validate `pg-success`, `pg-warning` and `pg-error` in Figma (already used in badges and notices) | Design |
