@@ -48,7 +48,7 @@ export default function UnifiedCard({
 
   return (
     <article className="bg-white rounded-pg-xl overflow-hidden border border-pg-line shadow-pg-card flex flex-col h-full">
-      <div className="relative h-[150px] bg-pg-tint-soft overflow-hidden">
+      <div className={`relative h-[150px] overflow-hidden ${imageFit === "contain" ? "bg-white" : "bg-pg-tint-soft"}`}>
         <img
           src={image}
           alt={imageAlt}
