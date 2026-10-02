@@ -1,8 +1,7 @@
 # 2. Botones
 
-Todos los botones de acción del prototipo salen de un solo sistema, construido a partir del botón más
-repetido en el diseño original (el de `UnifiedCard`: teal, 8px, Poppins semibold 14px, hover teal dark) y
-implementado en el componente [`Button.tsx`](../../src/app/components/Button.tsx) (sección 2.4).
+Todos los botones de acción del prototipo salen de un solo sistema (teal, 8px, Poppins semibold 14px, hover
+teal dark), implementado en el componente [`Button.tsx`](../../src/app/components/Button.tsx) (sección 2.4).
 
 ## 2.1 Estilos
 

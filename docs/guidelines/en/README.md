@@ -3,12 +3,12 @@
 Guidelines for the **PG-Live** prototype (parentguidance.org), written from the **prototype's real code**
 (`src/app`).
 
-- **The visual identity** (colors, typography, radii, shadows, buttons and animation) comes from what the
-  prototype already used: the most repeated values became tokens and the one-off values were consolidated.
+- **The visual identity** (colors, typography, radii, shadows, buttons and animation) is defined with tokens and
+  closed scales.
 - **The method:** everything comes from tokens, closed scales, button hierarchy, accessibility and a
   reduced‑motion contract.
 
-> **Status:** the prototype already follows these guidelines (final audit in [section 5.6](./05-audit.md)).
+> **Status:** the prototype follows these guidelines ([chapter 5](./05-quality.md)).
 > Every new screen or component must follow them from the start.
 
 ## Contents
@@ -19,7 +19,7 @@ Guidelines for the **PG-Live** prototype (parentguidance.org), written from the 
 | 2 | [Buttons](./02-buttons.md) | Styles, sizes, states, the `<Button>` component and accessibility |
 | 3 | [Layout](./03-layout.md) | Containers, breakpoints, vertical rhythm, grids and patterns (cards, filter bar, banners, pop-ups, legal pages, video) and Figma components |
 | 4 | [Motion](./04-motion.md) | Animation with `motion`, durations, easing and reduced‑motion |
-| 5 | [Prototype audit](./05-audit.md) | What was fixed, how it was verified and what is still pending |
+| 5 | [Quality standards](./05-quality.md) | Accessibility, visual consistency, Figma and open items |
 
 **PDF version:** [`docs/guidelines/pdf/`](../pdf/) has one PDF per guide plus one with all of them
 (`Parent-Guidance-Design-Guidelines-complete.pdf`). They are generated from these `.md` files; when a guide

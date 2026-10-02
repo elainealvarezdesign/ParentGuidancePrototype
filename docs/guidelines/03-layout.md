@@ -38,7 +38,7 @@ Se usan los de Tailwind. La regla práctica: **móvil y tablet apilan; desde `lg
 **Degradación por etapas**: 4 → 2 → 1 o 3 → 2 → 1 columnas, nunca de 4 a 1 de golpe.
 
 Todo lo que tenga un ancho fijo grande (barras laterales de 248–300px, imágenes de 420–480px) se aplica solo
-desde `lg` (`w-full lg:w-[300px]`). En tablet el ancho fijo es lo que provocaba scroll lateral.
+desde `lg` (`w-full lg:w-[300px]`). Así no aparece scroll lateral en tablet.
 
 ## 3.3 Ritmo vertical
 

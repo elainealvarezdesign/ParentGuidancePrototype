@@ -3,12 +3,12 @@
 Guías del prototipo **PG-Live** (parentguidance.org), escritas a partir del **código real del prototipo**
 (`src/app`).
 
-- **La identidad visual** (colores, tipografía, radios, sombras, botones y animación) sale de lo que ya usaba el
-  prototipo: los valores más repetidos se convirtieron en tokens y los sueltos se consolidaron.
+- **La identidad visual** (colores, tipografía, radios, sombras, botones y animación) se define con tokens y
+  escalas cerradas.
 - **El método:** todo sale de tokens, escalas cerradas, jerarquía de botones, accesibilidad y
   contrato de reduced‑motion.
 
-> **Estado:** el prototipo ya cumple estas guías (auditoría final en la [sección 5.6](./05-auditoria.md)).
+> **Estado:** el prototipo cumple estas guías ([capítulo 5](./05-calidad.md)).
 > Cada pantalla o componente nuevo debe seguirlas desde el principio.
 
 ## Índice
@@ -19,7 +19,7 @@ Guías del prototipo **PG-Live** (parentguidance.org), escritas a partir del **c
 | 2 | [Botones](./02-botones.md) | Estilos, tamaños, estados, el componente `<Button>` y accesibilidad |
 | 3 | [Layout](./03-layout.md) | Contenedores, breakpoints, ritmo vertical, grids y patrones (cards, barra de filtros, banners, pop-ups, legales, video) y componentes de Figma |
 | 4 | [Movimiento](./04-movimiento.md) | Animaciones con `motion`, duraciones, easing y reduced‑motion |
-| 5 | [Auditoría del prototipo](./05-auditoria.md) | Qué se corrigió, cómo se verificó y qué queda pendiente |
+| 5 | [Estándares de calidad](./05-calidad.md) | Accesibilidad, consistencia visual, Figma y temas abiertos |
 
 **Versión PDF:** en [`docs/guidelines/pdf/es/`](./pdf/es/) hay un PDF por guía y uno con todas juntas
 (`Parent-Guidance-Guias-de-diseno-completas.pdf`). Se generan a partir de estos archivos `.md`; si una guía

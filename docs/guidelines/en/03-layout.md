@@ -38,7 +38,7 @@ Tailwind's breakpoints are used. The rule of thumb: **mobile and tablet stack; c
 **Degrade in steps**: 4 → 2 → 1 or 3 → 2 → 1 columns, never straight from 4 to 1.
 
 Anything with a large fixed width (248–300px sidebars, 420–480px images) applies it only from `lg`
-(`w-full lg:w-[300px]`). On tablet, fixed widths were what caused horizontal scroll.
+(`w-full lg:w-[300px]`). This keeps tablet free of horizontal scroll.
 
 ## 3.3 Vertical rhythm
 
