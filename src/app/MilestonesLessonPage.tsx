@@ -239,7 +239,7 @@ export default function MilestonesLessonPage() {
           <div className="flex items-start justify-between gap-4">
             <div>
               <div className="flex items-center gap-2 mb-1">
-                <span className="font-semibold text-[11px] uppercase tracking-[1.4px] text-pg-teal-dark bg-pg-tint px-2.5 py-0.5 rounded-pg-sm">
+                <span className="font-semibold text-[11px] uppercase tracking-pg-caps text-pg-teal-dark bg-pg-tint px-2.5 py-0.5 rounded-pg-sm">
                   Lesson {lesson.id} of {LESSONS.length}
                 </span>
                 <span className="text-xs text-pg-slate">{lesson.duration}</span>
@@ -295,8 +295,8 @@ export default function MilestonesLessonPage() {
               </div>
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <button className="text-white/80 hover:text-white transition-colors" onClick={e => { e.stopPropagation(); setPlaying(p => !p); }}>
-                    {playing ? <Pause size={15} fill="white" /> : <Play size={15} fill="white" className="ml-0.5" />}
+                  <button type="button" aria-label={playing ? "Pause video" : "Play video"} className="text-white/80 hover:text-white transition-colors" onClick={e => { e.stopPropagation(); setPlaying(p => !p); }}>
+                    {playing ? <Pause size={15} fill="white" aria-hidden="true" /> : <Play size={15} fill="white" className="ml-0.5" aria-hidden="true" />}
                   </button>
                   <span className="text-white/80 text-xs">{elapsedStr} / {lesson.duration}</span>
                   <Volume2 size={14} className="text-white/60 hover:text-white cursor-pointer transition-colors" onClick={e => e.stopPropagation()} />
@@ -408,7 +408,7 @@ export default function MilestonesLessonPage() {
                         </p>
                         <p className="text-xs text-pg-slate mt-0.5">{l.duration}</p>
                       </div>
-                      {isActive && <Play size={10} fill="#59797D" className="text-pg-teal shrink-0" />}
+                      {isActive && <Play size={10} fill="var(--pg-teal)" className="text-pg-teal shrink-0" />}
                     </motion.button>
                   </div>
                 );

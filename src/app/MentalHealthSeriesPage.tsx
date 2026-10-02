@@ -68,8 +68,8 @@ function TypeBadge({ type }: { type: ResourceType }) {
     <div className="bg-pg-tint-soft relative rounded-full shrink-0 flex gap-[6px] items-center px-[10px] py-[4px]">
       <div className="relative shrink-0 size-[16px]">
         <svg className="block size-full" fill="none" viewBox="0 0 12 12">
-          <path d={svgPaths.p26f92c80} fill="#1c3243" />
-          <path d={svgPaths.p4aa5c80} fill="#1c3243" />
+          <path d={svgPaths.p26f92c80} className="fill-pg-navy" />
+          <path d={svgPaths.p4aa5c80} className="fill-pg-navy" />
         </svg>
       </div>
       <span className="font-semibold leading-[15px] text-pg-navy text-xs whitespace-nowrap">Article</span>
@@ -362,7 +362,7 @@ function MonthView({ year, month, popup, onEventClick }: { year: number; month: 
     <div className="bg-white rounded-pg-xl overflow-hidden" style={{ boxShadow: "var(--pg-shadow-card)" }}>
       <div className="grid grid-cols-7 border-b border-pg-tint-soft">
         {DAY_NAMES_SHORT.map(d => (
-          <div key={d} className="text-center py-2.5 text-xs font-semibold text-pg-slate uppercase tracking-[0.6px]">{d}</div>
+          <div key={d} className="text-center py-2.5 text-xs font-semibold text-pg-slate uppercase tracking-pg-eyebrow">{d}</div>
         ))}
       </div>
       <div className="grid grid-cols-7">
@@ -400,7 +400,7 @@ function WeekView({ weekStart, popup, onEventClick }: { weekStart: Date; popup: 
           const isToday = d.toDateString() === today.toDateString();
           return (
             <div key={i} className="flex flex-col items-center py-3 gap-1">
-              <span className="text-[11px] font-semibold uppercase tracking-[0.6px] text-pg-slate">{DAY_NAMES_SHORT[d.getDay()]}</span>
+              <span className="text-[11px] font-semibold uppercase tracking-pg-caps text-pg-slate">{DAY_NAMES_SHORT[d.getDay()]}</span>
               <span className={`w-7 h-7 flex items-center justify-center rounded-full font-semibold text-sm ${isToday ? "bg-pg-teal text-white" : "text-pg-navy"}`}>{d.getDate()}</span>
             </div>
           );
@@ -526,7 +526,7 @@ function Calendar() {
               onClick={() => setView(v)}
               className="text-xs font-medium px-3 py-1.5 rounded-pg-md capitalize transition-all"
               style={{
-                background: view === v ? "#ffffff" : "transparent",
+                background: view === v ? "var(--pg-white)" : "transparent",
                 color: view === v ? "var(--pg-navy)" : "var(--pg-slate)",
                 boxShadow: view === v ? "var(--pg-shadow-card)" : "none",
               }}
@@ -674,7 +674,7 @@ function ContentPage({ state, district, onReset }: { state: string; district: st
                 <div className="shrink-0 rounded-pg-lg px-4 py-3 flex flex-col items-center justify-center min-w-[60px]"
                   style={{ background: ev.color === "teal" ? "var(--pg-tint)" : "var(--pg-tint-soft)" }}>
                   <span className="font-bold text-xl leading-none" style={{ color: ev.color === "teal" ? "var(--pg-teal-dark)" : "var(--pg-navy)" }}>{ev.day}</span>
-                  <span className="text-[11px] font-semibold uppercase tracking-wide mt-0.5 text-pg-teal-dark">
+                  <span className="text-[11px] font-semibold uppercase tracking-pg-caps mt-0.5 text-pg-teal-dark">
                     {ev.date.split(",")[1]?.trim().split(" ")[0]}
                   </span>
                 </div>
@@ -682,7 +682,7 @@ function ContentPage({ state, district, onReset }: { state: string; district: st
                   <div className="flex items-center gap-2 flex-wrap">
                     <h3 className="font-semibold text-pg-navy text-sm group-hover:text-pg-teal transition-colors">{ev.title}</h3>
                     <span className="text-xs font-semibold px-2 py-0.5 rounded-full"
-                      style={{ background: ev.color === "teal" ? "var(--pg-sage)" : "var(--pg-navy)", color: ev.color === "teal" ? "var(--pg-navy)" : "#ffffff" }}>
+                      style={{ background: ev.color === "teal" ? "var(--pg-sage)" : "var(--pg-navy)", color: ev.color === "teal" ? "var(--pg-navy)" : "var(--pg-white)" }}>
                       {ev.color === "teal" ? "Session" : "Workshop"}
                     </span>
                   </div>
@@ -734,7 +734,7 @@ function FormPage({ onSubmit }: { onSubmit: (state: string, district: string) =>
             transition={{ duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
             <motion.span
-              className="font-semibold text-pg-teal-dark text-sm uppercase tracking-widest"
+              className="font-semibold text-pg-teal-dark text-sm uppercase tracking-pg-eyebrowst"
               initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.55 }}
             >
               Mental Health Series
@@ -763,13 +763,13 @@ function FormPage({ onSubmit }: { onSubmit: (state: string, district: string) =>
                   value={selectedState}
                   onChange={e => { setSelectedState(e.target.value); setSelectedDistrict(""); }}
                   className="w-full appearance-none text-sm px-5 py-4 rounded-pg-xl outline-none cursor-pointer transition-all duration-(--pg-dur-fast)"
-                  style={{ background: selectedState ? "var(--pg-teal)" : "var(--pg-sage)", color: selectedState ? "#ffffff" : "var(--pg-navy)", boxShadow: "var(--pg-shadow-card)" }}
+                  style={{ background: selectedState ? "var(--pg-teal)" : "var(--pg-sage)", color: selectedState ? "var(--pg-white)" : "var(--pg-navy)", boxShadow: "var(--pg-shadow-card)" }}
                 >
                   <option value="" disabled style={{ color: "var(--pg-navy)", background: "var(--pg-cream)" }}>Select your state</option>
                   {US_STATES.map(s => <option key={s} value={s} style={{ color: "var(--pg-navy)", background: "var(--pg-cream)" }}>{s}</option>)}
                 </select>
                 <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke={selectedState ? "#fff" : "#1c3243"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke={selectedState ? "var(--pg-white)" : "var(--pg-navy)"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
                 </div>
               </div>
               <div className="relative">
@@ -778,13 +778,13 @@ function FormPage({ onSubmit }: { onSubmit: (state: string, district: string) =>
                   onChange={e => setSelectedDistrict(e.target.value)}
                   disabled={!selectedState}
                   className="w-full appearance-none text-sm px-5 py-4 rounded-pg-xl outline-none transition-all duration-(--pg-dur-fast) cursor-pointer disabled:cursor-not-allowed"
-                  style={{ background: selectedDistrict ? "var(--pg-tint-soft)" : "#ffffff", color: "var(--pg-navy)", border: "1.5px solid", borderColor: selectedDistrict ? "var(--pg-sage)" : "var(--pg-line)", boxShadow: "var(--pg-shadow-card)", opacity: selectedState ? 1 : 0.5 }}
+                  style={{ background: selectedDistrict ? "var(--pg-tint-soft)" : "var(--pg-white)", color: "var(--pg-navy)", border: "1.5px solid", borderColor: selectedDistrict ? "var(--pg-sage)" : "var(--pg-line)", boxShadow: "var(--pg-shadow-card)", opacity: selectedState ? 1 : 0.5 }}
                 >
                   <option value="" disabled style={{ color: "var(--pg-mist)" }}>Select your district</option>
-                  {districts.map(d => <option key={d} value={d} style={{ color: "var(--pg-navy)", background: "#ffffff" }}>{d}</option>)}
+                  {districts.map(d => <option key={d} value={d} style={{ color: "var(--pg-navy)", background: "var(--pg-white)" }}>{d}</option>)}
                 </select>
                 <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#90b3b6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" className="stroke-pg-sage" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
                 </div>
               </div>
               <Button size="l" onClick={() => onSubmit(selectedState, selectedDistrict)} disabled={!selectedState || !selectedDistrict}>

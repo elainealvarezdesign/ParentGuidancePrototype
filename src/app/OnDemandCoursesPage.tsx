@@ -56,22 +56,6 @@ const TOPICS: Topic[] = [
   "Technology",
 ];
 
-const TOPIC_COLORS: Record<string, string> = {
-  "Anxiety & Depression": "#90b3b6",
-  "Addiction & Recovery": "#7a9ea0",
-  "Ask a Therapist": "#1c3243",
-  "Body Image": "#a8c5a0",
-  "Behavior": "#8fa8b8",
-  "Bullying": "#b09ba8",
-  "Child & Teen Development": "#59797d",
-  "Grief and Loss": "#7a8fa0",
-  "Meditation & Mindfulness": "#90a890",
-  "Parent Support": "#6d8c94",
-  "Self Help": "#9aabb5",
-  "Suicide Prevention": "#6b7d88",
-  "Technology": "#8095a0",
-};
-
 /* ─── Course data ─── */
 interface Course {
   id: number;
@@ -337,7 +321,7 @@ function Hero() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
-          <span className="text-xs font-semibold uppercase tracking-[1.4px] text-pg-teal-dark">
+          <span className="text-xs font-semibold uppercase tracking-pg-eyebrow text-pg-teal-dark">
             On-Demand Courses
           </span>
           <h1 className="font-bold text-pg-navy text-[28px] md:text-[40px] leading-[1.15]">
@@ -637,7 +621,7 @@ export default function OnDemandCoursesPage() {
                 className="text-sm font-medium w-[43px] h-[43px] rounded-pg-md flex items-center justify-center transition-all"
                 style={{
                   background: page === p ? "var(--pg-teal)" : "white",
-                  color: page === p ? "#ffffff" : "var(--pg-slate)",
+                  color: page === p ? "var(--pg-white)" : "var(--pg-slate)",
                   boxShadow: page === p ? "none" : "var(--pg-shadow-card)",
                 }}
               >

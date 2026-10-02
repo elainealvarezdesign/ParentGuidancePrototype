@@ -94,7 +94,7 @@ export default function CourseDetailPage() {
 
             {/* Center — course info */}
             <div className="flex-1 p-6 flex flex-col gap-4 lg:border-r border-pg-line">
-              <span className="self-start font-semibold text-[11px] uppercase tracking-[1.4px] text-pg-teal-dark bg-pg-tint border border-pg-sage/40 px-3 py-1 rounded-pg-sm">
+              <span className="self-start font-semibold text-[11px] uppercase tracking-pg-caps text-pg-teal-dark bg-pg-tint border border-pg-sage/40 px-3 py-1 rounded-pg-sm">
                 Self-Guided Course
               </span>
 
@@ -180,7 +180,7 @@ export default function CourseDetailPage() {
                         {lesson.title}
                       </span>
                       {isActive && (
-                        <Play size={11} className="text-pg-teal shrink-0" fill="#59797D" />
+                        <Play size={11} className="text-pg-teal shrink-0" fill="var(--pg-teal)" />
                       )}
                     </motion.div>
                     </Link>

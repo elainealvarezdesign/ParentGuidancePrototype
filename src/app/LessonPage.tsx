@@ -132,7 +132,7 @@ export default function LessonPage() {
           <div className="flex items-start justify-between gap-4">
             <div>
               <div className="flex items-center gap-2 mb-1">
-                <span className="font-semibold text-[11px] uppercase tracking-[1.4px] text-pg-teal-dark bg-pg-tint px-2.5 py-0.5 rounded-pg-sm">
+                <span className="font-semibold text-[11px] uppercase tracking-pg-caps text-pg-teal-dark bg-pg-tint px-2.5 py-0.5 rounded-pg-sm">
                   Lesson {lesson.id} of {LESSONS.length}
                 </span>
                 <span className="text-xs text-pg-slate">
@@ -221,10 +221,12 @@ export default function LessonPage() {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <button
+                    type="button"
+                    aria-label={playing ? "Pause video" : "Play video"}
                     className="text-white/80 hover:text-white transition-colors"
                     onClick={(e) => { e.stopPropagation(); setPlaying((p) => !p); }}
                   >
-                    {playing ? <Pause size={16} fill="white" /> : <Play size={16} className="ml-0.5" fill="white" />}
+                    {playing ? <Pause size={16} fill="white" aria-hidden="true" /> : <Play size={16} className="ml-0.5" fill="white" aria-hidden="true" />}
                   </button>
                   <span className="text-white/80 text-xs">
                     {Math.floor((parseInt(lesson.duration.split(":")[0]) * 60 + parseInt(lesson.duration.split(":")[1])) * progress / 100 / 60).toString().padStart(2, "0")}:
@@ -372,7 +374,7 @@ export default function LessonPage() {
                       </p>
                       <p className="text-xs text-pg-slate mt-0.5">{l.duration}</p>
                     </div>
-                    {isActive && <Play size={10} fill="#59797D" className="text-pg-teal shrink-0" />}
+                    {isActive && <Play size={10} fill="var(--pg-teal)" className="text-pg-teal shrink-0" />}
                   </motion.button>
                 );
               })}

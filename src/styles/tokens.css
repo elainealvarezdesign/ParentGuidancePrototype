@@ -97,6 +97,10 @@
 
   --font-sans: var(--pg-font);
 
+  /* Letter spacing for UPPERCASE labels (Figma: Label/XSmall - Bold Caps 15%, Label/Small - SemiBold Caps 10%) */
+  --tracking-pg-caps: 0.15em;
+  --tracking-pg-eyebrow: 0.1em;
+
   --radius-pg-sm: 4px;
   --radius-pg-md: 8px;
   --radius-pg-lg: 12px;

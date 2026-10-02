@@ -25,9 +25,9 @@ const CATEGORIES: Category[] = ["All", "Mental Health", "Coaching", "Courses", "
 
 // Colors pulled from the PG Design System (Brand Color tokens): Navy Base, Cyan/Teal Base, Teal Base, Peach Base, Sage 30
 const SEARCH_THEMES = [
-  { label: "All", bg: "var(--pg-navy)", color: "#ffffff" },
+  { label: "All", bg: "var(--pg-navy)", color: "var(--pg-white)" },
   { label: "Courses", bg: "var(--pg-sage)", color: "var(--pg-navy)" },
-  { label: "Lessons", bg: "var(--pg-teal)", color: "#ffffff" },
+  { label: "Lessons", bg: "var(--pg-teal)", color: "var(--pg-white)" },
   { label: "Ask A Therapist", bg: "#e8a497", color: "var(--pg-navy)" },
   { label: "Instant Insights", bg: "var(--pg-mist)", color: "var(--pg-navy)" },
 ];
@@ -166,8 +166,8 @@ function PartnersCarousel() {
         Our Passionate Partners
       </motion.h3>
       <div className="relative">
-        <div className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: "linear-gradient(to right, #ffffff, transparent)" }} />
-        <div className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: "linear-gradient(to left, #ffffff, transparent)" }} />
+        <div className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: "linear-gradient(to right, var(--pg-white), transparent)" }} />
+        <div className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: "linear-gradient(to left, var(--pg-white), transparent)" }} />
         <div className="flex items-center marquee-track-v2" style={{ width: "max-content" }}>
           {doubled.map((logo, i) => (
             <div key={i} className="flex items-center justify-center flex-shrink-0 px-10">
@@ -197,7 +197,7 @@ export default function HomePageV2() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55 }}
             >
-              <p className="text-pg-teal-dark text-xs font-semibold tracking-[0.16em] uppercase mb-5">
+              <p className="text-pg-teal-dark text-xs font-semibold tracking-pg-eyebrow uppercase mb-5">
                 For Parents
               </p>
               {/* Heading/H1 - Medium - 2XL: Poppins Medium 48/56 */}
@@ -292,7 +292,7 @@ export default function HomePageV2() {
                   className="shrink-0 text-xs font-medium px-4 py-2 rounded-full transition-colors"
                   style={{
                     background: activeCategory === cat ? "var(--pg-navy)" : "var(--pg-cream-dark)",
-                    color: activeCategory === cat ? "#ffffff" : "var(--pg-slate)",
+                    color: activeCategory === cat ? "var(--pg-white)" : "var(--pg-slate)",
                   }}
                 >
                   {cat}
@@ -340,7 +340,7 @@ export default function HomePageV2() {
           viewport={{ once: true }}
           transition={{ duration: 0.55 }}
         >
-          <span className="font-semibold text-pg-navy text-base uppercase tracking-wider">Why</span>
+          <span className="font-semibold text-pg-navy text-base uppercase tracking-pg-eyebrow">Why</span>
           {/* Heading/H2 - Medium - XL: Poppins Medium 40/48 */}
           <h2 className="font-medium text-pg-navy text-[28px] md:text-[40px] leading-[1.15] md:leading-[48px]">
             Built on real clinical experience
@@ -429,7 +429,7 @@ export default function HomePageV2() {
           className="max-w-pg-page mx-auto rounded-pg-2xl md:rounded-pg-2xl border border-white/10 shadow-pg-overlay px-8 md:px-16 py-12 md:py-16 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center"
           style={{
             background:
-              "radial-gradient(90% 130% at 100% 0%, rgba(144,179,182,0.28) 0%, rgba(144,179,182,0) 55%), #1c3243",
+              "radial-gradient(90% 130% at 100% 0%, color-mix(in srgb, var(--pg-sage) 28%, transparent) 0%, color-mix(in srgb, var(--pg-sage) 0%, transparent) 55%), var(--pg-navy)",
           }}
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}

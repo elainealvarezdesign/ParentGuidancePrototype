@@ -97,25 +97,25 @@ function Logo() {
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 105 24">
         <g clipPath="url(#clip0_logo)">
           <path d={svgPaths.p37d85f80} fill="#90B4B6" />
-          <path d={svgPaths.p336c2a30} fill="#f9f4f1" />
-          <path d={svgPaths.p32c63380} fill="#f9f4f1" />
-          <path d={svgPaths.p1e05f500} fill="#f9f4f1" />
-          <path d={svgPaths.p847a600} fill="#f9f4f1" />
-          <path d={svgPaths.p168e6c00} fill="#f9f4f1" />
-          <path d={svgPaths.p2b3a1d00} fill="#f9f4f1" />
-          <path d={svgPaths.p3fa63800} fill="#f9f4f1" />
-          <path d={svgPaths.pf80fc40} fill="#f9f4f1" />
-          <path d={svgPaths.p6808200} fill="#f9f4f1" />
-          <path d={svgPaths.p2166ae80} fill="#f9f4f1" />
-          <path d={svgPaths.p29ca9340} fill="#f9f4f1" />
-          <path d={svgPaths.p49f4100} fill="#f9f4f1" />
-          <path d={svgPaths.p97f3000} fill="#f9f4f1" />
-          <path d={svgPaths.p32da5e00} fill="#f9f4f1" />
-          <path d={svgPaths.p38b34680} fill="#f9f4f1" />
-          <path d={svgPaths.p2bca3000} fill="#f9f4f1" />
-          <path d={svgPaths.p26a7d100} fill="#f9f4f1" />
-          <path d={svgPaths.p161a88c0} fill="#f9f4f1" />
-          <path d={svgPaths.p38cd2100} fill="#f9f4f1" />
+          <path d={svgPaths.p336c2a30} className="fill-pg-cream" />
+          <path d={svgPaths.p32c63380} className="fill-pg-cream" />
+          <path d={svgPaths.p1e05f500} className="fill-pg-cream" />
+          <path d={svgPaths.p847a600} className="fill-pg-cream" />
+          <path d={svgPaths.p168e6c00} className="fill-pg-cream" />
+          <path d={svgPaths.p2b3a1d00} className="fill-pg-cream" />
+          <path d={svgPaths.p3fa63800} className="fill-pg-cream" />
+          <path d={svgPaths.pf80fc40} className="fill-pg-cream" />
+          <path d={svgPaths.p6808200} className="fill-pg-cream" />
+          <path d={svgPaths.p2166ae80} className="fill-pg-cream" />
+          <path d={svgPaths.p29ca9340} className="fill-pg-cream" />
+          <path d={svgPaths.p49f4100} className="fill-pg-cream" />
+          <path d={svgPaths.p97f3000} className="fill-pg-cream" />
+          <path d={svgPaths.p32da5e00} className="fill-pg-cream" />
+          <path d={svgPaths.p38b34680} className="fill-pg-cream" />
+          <path d={svgPaths.p2bca3000} className="fill-pg-cream" />
+          <path d={svgPaths.p26a7d100} className="fill-pg-cream" />
+          <path d={svgPaths.p161a88c0} className="fill-pg-cream" />
+          <path d={svgPaths.p38cd2100} className="fill-pg-cream" />
         </g>
         <defs>
           <clipPath id="clip0_logo">
@@ -333,7 +333,7 @@ function Navbar() {
                 })}
               </ul>
               <div className="mt-4 pt-4 border-t border-white/10 flex items-center justify-between">
-                <span className="text-xs font-semibold uppercase tracking-[1.2px] text-pg-sage">Language</span>
+                <span className="text-xs font-semibold uppercase tracking-pg-eyebrow text-pg-sage">Language</span>
                 <LanguageDropdown />
               </div>
             </motion.div>
@@ -383,7 +383,7 @@ function Hero() {
           className="bg-white rounded-pg-2xl pl-5 pr-2 md:px-6 py-2 md:py-3 flex items-center gap-3 shadow-pg-card"
           style={{
             boxShadow: focused
-              ? "0 0 0 2px #90b3b6, 0 4px 24px rgba(144,179,182,0.18)"
+              ? "0 0 0 2px var(--pg-sage), 0 4px 24px color-mix(in srgb, var(--pg-sage) 18%, transparent)"
               : "var(--pg-shadow-card)",
             transition: "box-shadow 0.25s ease",
           }}
@@ -550,7 +550,7 @@ function WhySection() {
   return (
     <section className="bg-pg-cream py-14 md:py-20 px-6 md:px-10 lg:px-14 flex flex-col items-center gap-12 md:gap-20">
       <FadeUp className="flex flex-col items-center gap-4 max-w-3xl text-center">
-        <span className="font-semibold text-pg-navy text-base uppercase tracking-wider">Why</span>
+        <span className="font-semibold text-pg-navy text-base uppercase tracking-pg-eyebrow">Why</span>
         <h2 className="font-bold text-pg-navy text-[28px] md:text-[40px] leading-tight tracking-tight">
           Built on real clinical experience
         </h2>
@@ -863,20 +863,20 @@ function Footer() {
           ].map((_, i) => (
             <motion.div key={i} whileHover={{ y: -2 }} className="w-5 h-5 cursor-pointer">
               <svg fill="none" viewBox="0 0 17.9509 17.9509" className="w-full h-full">
-                <path d={svgPaths.p327f8b00} fill="#1c3243" />
+                <path d={svgPaths.p327f8b00} className="fill-pg-navy" />
               </svg>
             </motion.div>
           ))}
           <motion.div whileHover={{ y: -2 }} className="w-5 h-5 cursor-pointer">
             <svg fill="none" viewBox="0 0 16.1558 16.1558" className="w-full h-full">
-              <path clipRule="evenodd" d={svgPaths.p35d8fa00} fill="#1c3243" fillRule="evenodd" />
-              <path d={svgPaths.p3238c200} fill="#1c3243" />
-              <path clipRule="evenodd" d={svgPaths.p20c8c700} fill="#1c3243" fillRule="evenodd" />
+              <path clipRule="evenodd" d={svgPaths.p35d8fa00} className="fill-pg-navy" fillRule="evenodd" />
+              <path d={svgPaths.p3238c200} className="fill-pg-navy" />
+              <path clipRule="evenodd" d={svgPaths.p20c8c700} className="fill-pg-navy" fillRule="evenodd" />
             </svg>
           </motion.div>
           <motion.div whileHover={{ y: -2 }} className="w-5 h-5 cursor-pointer">
             <svg fill="none" viewBox="0 0 17.9509 12.5817" className="w-full h-full">
-              <path clipRule="evenodd" d={svgPaths.p3c318700} fill="#1c3243" fillRule="evenodd" />
+              <path clipRule="evenodd" d={svgPaths.p3c318700} className="fill-pg-navy" fillRule="evenodd" />
             </svg>
           </motion.div>
           <motion.a
@@ -894,7 +894,7 @@ function Footer() {
           </motion.a>
           <motion.div whileHover={{ y: -2 }} className="w-5 h-5 cursor-pointer">
             <svg fill="none" viewBox="0 0 16.1558 16.1558" className="w-full h-full">
-              <path d={svgPaths.p397a0780} fill="#1c3243" />
+              <path d={svgPaths.p397a0780} className="fill-pg-navy" />
             </svg>
           </motion.div>
         </div>

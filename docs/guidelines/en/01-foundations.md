@@ -93,6 +93,8 @@ Rules:
 - **12px minimum**; 11px only for UPPERCASE text (eyebrows, months in date blocks).
 - In Figma, uppercase text uses **Label/XSmall - Bold Caps** (11px, 15% tracking) or **Label/Small - SemiBold
   Caps** (12px, 10%), and quotes use **Body/Medium - Italic**. No component text is left without a style.
+- In code, uppercase tracking comes from two tokens: `tracking-pg-caps` (0.15em, 11px text) and
+  `tracking-pg-eyebrow` (0.1em, 12px and up). No one-off values (`tracking-[1.2px]`, `tracking-wider`…).
 - No in-between sizes outside the scale (13, 15, 18, 22, 30, 36px…): use the nearest step.
 - Brand emphasis in headlines: one word or phrase in teal *italics* ("Discover *Resources*…"), without
   changing the size.

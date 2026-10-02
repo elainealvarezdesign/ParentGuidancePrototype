@@ -212,7 +212,7 @@ export default function QuestionDetailPage() {
             ← Back to Questions
           </Link>
           <ChevronRight size={13} className="text-pg-slate shrink-0" />
-          <span className="font-semibold text-[11px] uppercase tracking-[1.2px] text-pg-teal-dark bg-pg-tint px-2 py-0.5 rounded-pg-sm shrink-0">
+          <span className="font-semibold text-[11px] uppercase tracking-pg-caps text-pg-teal-dark bg-pg-tint px-2 py-0.5 rounded-pg-sm shrink-0">
             {question.category}
           </span>
           <ChevronRight size={13} className="text-pg-slate shrink-0" />
@@ -230,7 +230,7 @@ export default function QuestionDetailPage() {
 
           {/* Question heading */}
           <div>
-            <span className="inline-block font-semibold text-[11px] uppercase tracking-[1.4px] text-pg-teal-dark bg-pg-tint border border-pg-sage/40 px-2.5 py-0.5 rounded-pg-sm mb-2">
+            <span className="inline-block font-semibold text-[11px] uppercase tracking-pg-caps text-pg-teal-dark bg-pg-tint border border-pg-sage/40 px-2.5 py-0.5 rounded-pg-sm mb-2">
               {question.category}
             </span>
             <h1 className="font-bold text-pg-navy text-xl leading-snug">
@@ -296,8 +296,8 @@ export default function QuestionDetailPage() {
 
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <button className="text-white/80 hover:text-white transition-colors" onClick={(e) => { e.stopPropagation(); setPlaying((p) => !p); }}>
-                    {playing ? <Pause size={15} fill="white" /> : <Play size={15} fill="white" className="ml-0.5" />}
+                  <button type="button" aria-label={playing ? "Pause video" : "Play video"} className="text-white/80 hover:text-white transition-colors" onClick={(e) => { e.stopPropagation(); setPlaying((p) => !p); }}>
+                    {playing ? <Pause size={15} fill="white" aria-hidden="true" /> : <Play size={15} fill="white" className="ml-0.5" aria-hidden="true" />}
                   </button>
                   <span className="text-white/80 text-xs">
                     {elapsedStr} / {question.duration}
@@ -371,7 +371,7 @@ export default function QuestionDetailPage() {
                 >
                   <ChevronLeft size={16} className="text-pg-slate group-hover:text-pg-teal transition-colors shrink-0" />
                   <div className="min-w-0">
-                    <p className="text-[11px] text-pg-slate uppercase tracking-[1px] mb-0.5">Previous</p>
+                    <p className="text-[11px] text-pg-slate uppercase tracking-pg-caps mb-0.5">Previous</p>
                     <p className="text-xs font-semibold text-pg-navy truncate">{prevQ.question}</p>
                   </div>
                 </motion.div>
@@ -388,7 +388,7 @@ export default function QuestionDetailPage() {
                   whileHover={{ y: -2, boxShadow: "var(--pg-shadow-card-hover)" }}
                 >
                   <div className="min-w-0 flex-1">
-                    <p className="text-[11px] text-pg-slate uppercase tracking-[1px] mb-0.5">Next</p>
+                    <p className="text-[11px] text-pg-slate uppercase tracking-pg-caps mb-0.5">Next</p>
                     <p className="text-xs font-semibold text-pg-navy truncate">{nextQ.question}</p>
                   </div>
                   <ChevronRight size={16} className="text-pg-slate group-hover:text-pg-teal transition-colors shrink-0" />
@@ -403,7 +403,7 @@ export default function QuestionDetailPage() {
 
           {/* Therapist card */}
           <div className="bg-white rounded-pg-xl border border-pg-line p-5 flex flex-col gap-3" style={{ boxShadow: "var(--pg-shadow-card)" }}>
-            <p className="font-semibold text-[11px] uppercase tracking-[1.2px] text-pg-slate">Answered by</p>
+            <p className="font-semibold text-[11px] uppercase tracking-pg-caps text-pg-slate">Answered by</p>
             <div className="flex items-center gap-3">
               <div className="w-11 h-11 rounded-full bg-pg-sage flex items-center justify-center shrink-0">
                 <span className="font-bold text-pg-navy text-sm">KS</span>
@@ -432,7 +432,7 @@ export default function QuestionDetailPage() {
             <div className="relative p-5 flex flex-col gap-3">
               <div className="flex items-center gap-2">
                 <MessageCircle size={14} className="text-pg-sage" />
-                <span className="font-semibold text-[11px] uppercase tracking-[1.2px] text-pg-sage">Ask a Therapist</span>
+                <span className="font-semibold text-[11px] uppercase tracking-pg-caps text-pg-sage">Ask a Therapist</span>
               </div>
               <p className="font-bold text-white text-base leading-snug">
                 Have a question of your own?
@@ -461,7 +461,7 @@ export default function QuestionDetailPage() {
                   style={{ color: "inherit" }}
                 >
                   <div className="flex items-start gap-2.5">
-                    <span className="font-semibold text-[11px] uppercase tracking-[1px] text-pg-teal-dark bg-pg-tint px-1.5 py-0.5 rounded-pg-sm shrink-0 mt-0.5">
+                    <span className="font-semibold text-[11px] uppercase tracking-pg-caps text-pg-teal-dark bg-pg-tint px-1.5 py-0.5 rounded-pg-sm shrink-0 mt-0.5">
                       {item.category}
                     </span>
                     <p className="text-xs text-pg-navy leading-snug group-hover:text-pg-teal transition-colors line-clamp-2">
@@ -504,7 +504,7 @@ export default function QuestionDetailPage() {
               <div className="bg-pg-navy px-6 py-5">
                 <div className="flex items-center gap-2 mb-1">
                   <MessageCircle size={14} className="text-pg-sage" />
-                  <span className="text-[11px] font-semibold uppercase tracking-[1.2px] text-pg-sage">Ask a Therapist</span>
+                  <span className="text-[11px] font-semibold uppercase tracking-pg-caps text-pg-sage">Ask a Therapist</span>
                 </div>
                 <h3 className="font-bold text-white text-xl">Submit Your Question</h3>
               </div>

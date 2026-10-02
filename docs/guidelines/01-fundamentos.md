@@ -93,6 +93,8 @@ Reglas:
 - **Mínimo 12px**; los 11px solo para texto en MAYÚSCULAS (eyebrows, meses de los bloques de fecha).
 - En Figma, los textos en mayúsculas usan **Label/XSmall - Bold Caps** (11px, 15% de tracking) o **Label/Small -
   SemiBold Caps** (12px, 10%), y las citas **Body/Medium - Italic**. Ningún texto de componente queda sin estilo.
+- En código, el tracking de las mayúsculas sale de dos tokens: `tracking-pg-caps` (0.15em, textos de 11px) y
+  `tracking-pg-eyebrow` (0.1em, 12px o más). No se usan valores sueltos (`tracking-[1.2px]`, `tracking-wider`…).
 - Fuera de la escala no hay tamaños intermedios (13, 15, 18, 22, 30, 36px…): se usa el paso más cercano.
 - Énfasis de marca en titulares: una palabra o frase en *itálica* teal ("Discover *Resources*…"), sin cambiar
   el tamaño.

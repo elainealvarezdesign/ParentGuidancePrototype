@@ -10,7 +10,7 @@ import { BackToTopButton } from "./legal/LegalActions";
 function SectionHeading({ eyebrow, title, id }: { eyebrow: string; title: string; id: string }) {
   return (
     <>
-      <p className={`flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-pg-teal-dark`}>
+      <p className={`flex items-center gap-2 text-[11px] font-semibold uppercase tracking-pg-caps text-pg-teal-dark`}>
         <span className="h-[18px] w-1 rounded-full bg-pg-sage" aria-hidden="true" />
         {eyebrow}
       </p>
@@ -37,7 +37,7 @@ function Hero({ topic }: { topic: Topic }) {
 
         <div className="mt-5 grid grid-cols-1 items-start gap-8 lg:grid-cols-[1fr_340px] lg:gap-14">
           <div>
-            <p className={`flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-pg-teal-dark`}>
+            <p className={`flex items-center gap-2 text-[11px] font-semibold uppercase tracking-pg-caps text-pg-teal-dark`}>
               <span className="h-[18px] w-1 rounded-full bg-pg-sage" aria-hidden="true" />
               Mental Health Series · {topic.category}
             </p>
@@ -92,8 +92,8 @@ function VideoCard({ video: v }: { video: TopicVideo }) {
         ) : (
           <>
             <img src={v.image} alt="" className="absolute inset-0 h-full w-full object-cover" style={{ objectPosition: v.imagePosition ?? "center" }} />
-            <div className="absolute inset-0 bg-gradient-to-t from-[rgba(28,50,67,0.55)] to-transparent to-60%" aria-hidden="true" />
-            <span className={`absolute left-3.5 top-3.5 rounded-full bg-pg-navy px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.08em] text-white`}>
+            <div className="absolute inset-0 bg-gradient-to-t from-[color-mix(in srgb, var(--pg-navy) 55%, transparent)] to-transparent to-60%" aria-hidden="true" />
+            <span className={`absolute left-3.5 top-3.5 rounded-full bg-pg-navy px-2.5 py-1 text-[11px] font-semibold uppercase tracking-pg-caps text-white`}>
               {v.kind}
             </span>
             {canPlay ? (
@@ -104,12 +104,12 @@ function VideoCard({ video: v }: { video: TopicVideo }) {
                 className="group absolute inset-0 grid place-items-center"
               >
                 <span className="grid h-16 w-16 place-items-center rounded-full bg-white/95 shadow-pg-overlay transition-transform group-hover:scale-105">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="#406064" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>
+                  <svg width="22" height="22" viewBox="0 0 24 24" className="fill-pg-teal-dark" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>
                 </span>
               </button>
             ) : (
               <span className="absolute left-1/2 top-1/2 grid h-16 w-16 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white/95 shadow-pg-overlay" aria-hidden="true">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="#406064"><path d="M8 5v14l11-7z" /></svg>
+                <svg width="22" height="22" viewBox="0 0 24 24" className="fill-pg-teal-dark"><path d="M8 5v14l11-7z" /></svg>
               </span>
             )}
             <span className={`pointer-events-none absolute bottom-3 right-3.5 rounded-pg-md bg-pg-navy px-2 py-0.5 text-xs font-semibold text-white`}>
@@ -150,9 +150,9 @@ function Sessions({ topic }: { topic: Topic }) {
             return (
               <article key={s.title + s.time} className={`${card} flex gap-4 p-5`} lang={spanish ? "es" : undefined}>
                 <div className={`flex h-[72px] w-[72px] shrink-0 flex-col items-center justify-center self-start rounded-pg-lg bg-pg-tint text-center text-pg-teal-dark`}>
-                  <span className="block text-[11px] font-semibold uppercase leading-none tracking-[0.1em]">{s.month}</span>
+                  <span className="block text-[11px] font-semibold uppercase leading-none tracking-pg-caps">{s.month}</span>
                   <span className="my-1 block text-2xl font-bold leading-none text-pg-navy">{s.day}</span>
-                  <span className="block text-[11px] font-semibold uppercase leading-none tracking-[0.1em]">{s.weekday}</span>
+                  <span className="block text-[11px] font-semibold uppercase leading-none tracking-pg-caps">{s.weekday}</span>
                 </div>
                 <div className="flex min-w-0 flex-1 flex-col">
                   <h3 className={`text-base font-bold leading-snug text-pg-navy`}>{s.title}</h3>
@@ -274,7 +274,7 @@ function Newsletter() {
     <section aria-labelledby="newsletter-title" className={`${gutter} bg-pg-sage py-14 md:py-16 print:hidden`}>
       <div className={`${container} flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between md:gap-10`}>
         <div>
-          <p className={`text-[11px] font-semibold uppercase tracking-[0.12em] text-pg-navy`}>Let's keep in touch</p>
+          <p className={`text-[11px] font-semibold uppercase tracking-pg-caps text-pg-navy`}>Let's keep in touch</p>
           <h2 id="newsletter-title" className={`mt-1 text-[28px] font-bold leading-tight text-pg-navy md:text-[40px]`}>Subscribe to our newsletter</h2>
           <p className={`mt-1.5 text-sm text-pg-navy`}>New topics, live sessions and tools, straight to your inbox.</p>
         </div>

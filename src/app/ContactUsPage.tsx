@@ -19,7 +19,7 @@ export default function ContactUsPage() {
     <main className="min-h-screen bg-pg-cream">
       <section className="px-6 pb-14 pt-28 md:px-10 lg:px-14">
         <div className="mx-auto max-w-pg-content text-center">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.14em] text-pg-teal-dark">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-pg-eyebrow text-pg-teal-dark">
             Contact Us
           </p>
 

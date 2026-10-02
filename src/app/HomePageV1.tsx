@@ -250,7 +250,7 @@ export default function HomePageV1() {
               className="shrink-0 text-xs font-medium px-4 py-2 rounded-full transition-colors"
               style={{
                 background: activeCategory === cat ? "var(--pg-navy)" : "var(--pg-cream-dark)",
-                color: activeCategory === cat ? "#ffffff" : "var(--pg-slate)",
+                color: activeCategory === cat ? "var(--pg-white)" : "var(--pg-slate)",
               }}
             >
               {cat}
@@ -304,7 +304,7 @@ export default function HomePageV1() {
               className="group relative overflow-hidden rounded-pg-2xl border border-white/10 min-h-[340px] px-8 py-10 flex flex-col items-center justify-center text-center"
               style={{
                 background:
-                  "radial-gradient(120% 90% at 50% 0%, rgba(144,179,182,0.38) 0%, rgba(144,179,182,0) 60%), #1c3243",
+                  "radial-gradient(120% 90% at 50% 0%, color-mix(in srgb, var(--pg-sage) 38%, transparent) 0%, color-mix(in srgb, var(--pg-sage) 0%, transparent) 60%), var(--pg-navy)",
               }}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -369,7 +369,7 @@ export default function HomePageV1() {
           viewport={{ once: true }}
           transition={{ duration: 0.55 }}
         >
-          <span className="font-semibold text-pg-navy text-base uppercase tracking-wider">Why</span>
+          <span className="font-semibold text-pg-navy text-base uppercase tracking-pg-eyebrow">Why</span>
           <h2 className="font-bold text-pg-navy text-[28px] md:text-[40px] leading-tight tracking-tight">
             Built on real clinical experience
           </h2>

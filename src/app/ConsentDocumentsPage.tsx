@@ -134,7 +134,7 @@ export default function ConsentDocumentsPage() {
     <main className="min-h-screen bg-pg-cream print:bg-white">
       <section className="px-6 pb-14 pt-28 md:px-10 lg:px-14 print:hidden">
         <div className="mx-auto max-w-pg-content">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.14em] text-pg-teal-dark">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-pg-eyebrow text-pg-teal-dark">
             Legal
           </p>
 

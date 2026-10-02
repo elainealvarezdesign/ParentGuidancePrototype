@@ -349,7 +349,7 @@ export default function AskATherapistPage() {
         transition={{ duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}
       >
         {/* Latest badge */}
-        <div className="inline-flex items-center gap-2 bg-pg-teal text-white font-semibold text-[11px] uppercase tracking-[0.16em] px-4 py-2 rounded-pg-md mb-8">
+        <div className="inline-flex items-center gap-2 bg-pg-teal text-white font-semibold text-[11px] uppercase tracking-pg-caps px-4 py-2 rounded-pg-md mb-8">
           <span className="w-1.5 h-1.5 rounded-full bg-white/80" />
           Latest Answer
         </div>
@@ -578,7 +578,7 @@ export default function AskATherapistPage() {
                       className="w-9 h-9 text-sm font-medium rounded-pg-md transition-colors"
                       style={{
                         background: page === p ? "var(--pg-navy)" : "transparent",
-                        color: page === p ? "#ffffff" : "var(--pg-navy)",
+                        color: page === p ? "var(--pg-white)" : "var(--pg-navy)",
                       }}
                       whileHover={page !== p ? { backgroundColor: "var(--pg-tint-soft)" } : {}}
                     >

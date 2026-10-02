@@ -20,7 +20,7 @@ import logoCrisisText from "@/imports/get-help-logos/Crisis-Text_line.jpeg";
 import logoMentalHealth from "@/imports/get-help-logos/mentalhealth.gov_1.png";
 import logoNIH from "@/imports/get-help-logos/NIH-Logo.png";
 import logoTrevor from "@/imports/get-help-logos/The_Trevor_Project_logo.svg.webp";
-import logoVeterans from "@/imports/get-help-logos/veterans-crisis-line.webp";
+import logoVeterans from "@/imports/get-help-logos/veterans-crisis-line.svg";
 import UnifiedCard from "./components/UnifiedCard";
 type ResourceCategory =
   | "All"
@@ -125,12 +125,7 @@ function ResourceCard({
         image={resource.logo}
         imageAlt={`${resource.name} logo`}
         imageFit="contain"
-        imageSize={
-          resource.name === "The Trevor Project" ||
-          resource.name === "Veterans Crisis Line"
-            ? "small"
-            : "default"
-        }
+        imageSize={resource.name === "The Trevor Project" ? "small" : "default"}
         badge={resource.category}
         title={resource.name}
         description={resource.description}
@@ -171,7 +166,7 @@ export default function GetHelpPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55 }}
             >
-              <p className="text-pg-teal-dark text-xs font-semibold tracking-[0.16em] uppercase mb-5">
+              <p className="text-pg-teal-dark text-xs font-semibold tracking-pg-eyebrow uppercase mb-5">
                 Get Help
               </p>
               <h1 className="text-pg-navy font-bold text-[28px] md:text-[40px] leading-[1.15]">
@@ -254,7 +249,7 @@ export default function GetHelpPage() {
       <section className="bg-pg-tint-soft px-6 md:px-10 lg:px-14 py-16">
         <div className="max-w-pg-page mx-auto">
           <div className="text-center max-w-pg-reading mx-auto">
-            <p className="text-pg-teal-dark text-xs font-semibold tracking-[0.14em] uppercase">
+            <p className="text-pg-teal-dark text-xs font-semibold tracking-pg-eyebrow uppercase">
               Trusted support
             </p>
             <h2 className="font-bold text-pg-navy text-[28px] md:text-[40px] mt-3">

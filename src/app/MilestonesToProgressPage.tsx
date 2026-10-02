@@ -150,7 +150,7 @@ export default function MilestonesToProgressPage() {
 
             {/* Course info */}
             <div className="flex-1 p-6 flex flex-col gap-4 lg:border-r border-pg-line">
-              <span className="self-start font-semibold text-[11px] uppercase tracking-[1.4px] text-pg-teal-dark bg-pg-tint border border-pg-sage/40 px-3 py-1 rounded-pg-sm">
+              <span className="self-start font-semibold text-[11px] uppercase tracking-pg-caps text-pg-teal-dark bg-pg-tint border border-pg-sage/40 px-3 py-1 rounded-pg-sm">
                 Child & Teen Development
               </span>
 
@@ -235,7 +235,7 @@ export default function MilestonesToProgressPage() {
                         }`}>
                           {lesson.title}
                         </span>
-                        {isActive && <Play size={11} className="text-pg-teal shrink-0" fill="#59797D" />}
+                        {isActive && <Play size={11} className="text-pg-teal shrink-0" fill="var(--pg-teal)" />}
                       </motion.div>
                     </Link>
                   );
@@ -246,21 +246,25 @@ export default function MilestonesToProgressPage() {
               {totalOutlinePages > 1 && (
                 <div className="flex items-center justify-between pt-2 border-t border-pg-line mt-1">
                   <button
+                    type="button"
+                    aria-label="Previous lessons"
                     onClick={() => setOutlinePage(p => Math.max(1, p - 1))}
                     disabled={outlinePage === 1}
-                    className="w-7 h-7 rounded-full border border-pg-line flex items-center justify-center text-pg-slate hover:border-pg-teal hover:text-pg-teal disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                    className="w-9 h-9 rounded-full border border-pg-line flex items-center justify-center text-pg-slate hover:border-pg-teal hover:text-pg-teal disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
                   >
-                    <ChevronLeft size={13} />
+                    <ChevronLeft size={16} aria-hidden="true" />
                   </button>
                   <span className="text-xs text-pg-slate">
                     {outlinePage} of {totalOutlinePages}
                   </span>
                   <button
+                    type="button"
+                    aria-label="Next lessons"
                     onClick={() => setOutlinePage(p => Math.min(totalOutlinePages, p + 1))}
                     disabled={outlinePage === totalOutlinePages}
-                    className="w-7 h-7 rounded-full border border-pg-line flex items-center justify-center text-pg-slate hover:border-pg-teal hover:text-pg-teal disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                    className="w-9 h-9 rounded-full border border-pg-line flex items-center justify-center text-pg-slate hover:border-pg-teal hover:text-pg-teal disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
                   >
-                    <ChevronRight size={13} />
+                    <ChevronRight size={16} aria-hidden="true" />
                   </button>
                 </div>
               )}

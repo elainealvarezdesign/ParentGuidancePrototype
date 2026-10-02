@@ -16,7 +16,7 @@ const BENEFITS = [
     icon: (
       <div className="absolute inset-[8.33%]">
         <svg className="absolute block inset-0 size-full" fill="none" viewBox="0 0 20 20">
-          <path d={svgPaths.p2c0f9c00} fill="#90B3B6" />
+          <path d={svgPaths.p2c0f9c00} className="fill-pg-sage" />
         </svg>
       </div>
     ),
@@ -27,7 +27,7 @@ const BENEFITS = [
     icon: (
       <div className="absolute inset-[8.35%_4.16%]">
         <svg className="absolute block inset-0 size-full" fill="none" viewBox="0 0 22.004 19.99">
-          <path d={svgPaths.p3329db00} fill="#90B3B6" />
+          <path d={svgPaths.p3329db00} className="fill-pg-sage" />
         </svg>
       </div>
     ),
@@ -38,7 +38,7 @@ const BENEFITS = [
     icon: (
       <div className="absolute inset-[6.25%_16.67%]">
         <svg className="absolute block inset-0 size-full" fill="none" viewBox="0 0 16 21">
-          <path d={svgPaths.p29f40100} fill="#90B3B6" />
+          <path d={svgPaths.p29f40100} className="fill-pg-sage" />
         </svg>
       </div>
     ),
@@ -49,7 +49,7 @@ const BENEFITS = [
     icon: (
       <div className="absolute inset-[8.33%_12.5%]">
         <svg className="absolute block inset-0 size-full" fill="none" viewBox="0 0 18 20">
-          <path d={svgPaths.p8324480} fill="#90B3B6" />
+          <path d={svgPaths.p8324480} className="fill-pg-sage" />
         </svg>
       </div>
     ),
@@ -158,7 +158,7 @@ function QuoteIcon() {
       <div className="relative w-4 h-4 overflow-hidden">
         <div className="absolute inset-[8.33%]">
           <svg className="absolute block inset-0 size-full" fill="none" viewBox="0 0 13.3333 13.3333">
-            <path d={svgPaths.p11a1c600} fill="#59797D" />
+            <path d={svgPaths.p11a1c600} className="fill-pg-teal" />
           </svg>
         </div>
       </div>
@@ -184,7 +184,7 @@ export default function ParentCoachingPage() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            <span className="text-xs font-semibold uppercase tracking-[1.2px] text-pg-teal-dark">
+            <span className="text-xs font-semibold uppercase tracking-pg-eyebrow text-pg-teal-dark">
               Parent Coaching
             </span>
             <h1 className="font-bold text-pg-navy text-[28px] md:text-[40px] leading-[1.25] max-w-[488px]">
@@ -279,7 +279,7 @@ export default function ParentCoachingPage() {
           <div className="w-full max-w-pg-content">
             <div className="flex items-center gap-2 mb-1">
               <div className="w-1 h-5 rounded-full bg-pg-sage" />
-              <span className="font-semibold text-pg-teal-dark text-xs uppercase tracking-[1.2px]">Meet the coaches</span>
+              <span className="font-semibold text-pg-teal-dark text-xs uppercase tracking-pg-eyebrow">Meet the coaches</span>
             </div>
             <h2 className="font-bold text-pg-navy text-2xl leading-8">Explore our Courses</h2>
             <p className="text-pg-slate text-sm leading-5 mt-2 max-w-[512px]">
@@ -341,7 +341,7 @@ export default function ParentCoachingPage() {
           <div className="w-full max-w-pg-content flex flex-col items-center">
             <div className="flex items-center gap-2 mb-1 self-start">
               <div className="w-1 h-5 rounded-full bg-pg-sage" />
-              <span className="font-semibold text-pg-teal-dark text-xs uppercase tracking-[1.2px]">Process</span>
+              <span className="font-semibold text-pg-teal-dark text-xs uppercase tracking-pg-eyebrow">Process</span>
             </div>
             <h2 className="font-bold text-pg-navy text-2xl leading-8 text-center mt-3 mb-10">
               Getting started is simple
@@ -383,7 +383,7 @@ export default function ParentCoachingPage() {
           <div className="w-full max-w-pg-content">
             <div className="flex items-center gap-2 mb-1">
               <div className="w-1 h-5 rounded-full bg-pg-sage" />
-              <span className="font-semibold text-pg-teal-dark text-xs uppercase tracking-[1.2px]">{"Families we've supported"}</span>
+              <span className="font-semibold text-pg-teal-dark text-xs uppercase tracking-pg-eyebrow">{"Families we've supported"}</span>
             </div>
             <h2 className="font-bold text-pg-navy text-2xl leading-8 mt-3">Real families. Real change.</h2>
 
