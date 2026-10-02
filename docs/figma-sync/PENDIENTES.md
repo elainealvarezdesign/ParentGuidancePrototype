@@ -18,6 +18,9 @@ Terms of Use, Cookies Policy y Consent Documents.
 y Layouts – Mobile (fila y = 7000), en el mismo orden que en Desktop. En móvil, el pop-up de Events es un
 bottom sheet con fondo oscurecido; en Tablet es el popover de escritorio junto al día 10.
 
+**Prototipo:** se corrigió el scroll horizontal en móvil de la página de contenido de Mental Health Series (el
+campo de búsqueda no podía encogerse). Ninguna ruta desborda ya a 375px ni a 768px.
+
 **Ajustes pequeños:** el reproductor de Lesson · Milestones dice "0:00 / 4:12" y se ocultó la flecha final del
 breadcrumb en Course Detail · Milestones.
 
@@ -41,7 +44,5 @@ breadcrumb en Course Detail · Milestones.
 2. **Logo de Staff Guidance:** subir `src/imports/StaffGuidance.png` al componente
    Partner Logo/Staff Guidance (desde aquí no se pudo: la red bloquea `mcp.figma.com`; se puede arrastrar a mano
    en Figma o permitir ese dominio en la configuración del entorno).
-3. **Prototipo (código):** en móvil, la página de contenido de Mental Health Series mide 437px de ancho en una
-   pantalla de 375px (scroll horizontal). Corregir.
-4. **Guías:** documentar en `docs/guidelines` los componentes nuevos (Filter Bar, Section Header, botones Inverse,
+3. **Guías:** documentar en `docs/guidelines` los componentes nuevos (Filter Bar, Section Header, botones Inverse,
    etc.) y regenerar los PDF.

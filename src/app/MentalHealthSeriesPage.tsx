@@ -601,7 +601,7 @@ function ContentPage({ state, district, onReset }: { state: string; district: st
               value={search}
               onChange={e => setSearch(e.target.value)}
               placeholder="Search resources and events…"
-              className="flex-1 text-[14px] text-pg-slate placeholder:text-pg-teal outline-none bg-transparent"
+              className="min-w-0 flex-1 text-[14px] text-pg-slate placeholder:text-pg-teal outline-none bg-transparent"
             />
             <Button size="s" className="shrink-0">
               Search
