@@ -56,3 +56,4 @@ Radius: XS 5:44(4) S 5:45(8) M 5:46(12) L 5:47(16) XL 5:48(24) Full 35:2
 - New text styles: Label/XSmall - Bold Caps (11, 15%), Label/Small - SemiBold Caps (12, 10%), Body/Medium - Italic (16); applied to the 5 unstyled texts. Typography page: new Labels section, header cleaned.
 - Oct 2: Veterans logo 399:30 rebuilt as 4 flattened vectors (one per color) to bake SVG rotation/skew that rendered distorted in the editor; constrainProportions on. Confirmed OK by user.
 - Oct 2: detail-page titles (Lesson FY/MS, Course Detail FY/MS, Ask Detail) now Heading/H2 - Bold - XL on D/T and Heading/H3 - Bold - L on M, matching the code h1 (28→40). Video Player already uses navy scrim (no black).
+- Oct 2: renamed Brand Color/Cyan/Cyan Base (VariableID:4:5, #90b3b6) → Brand Color/Sage/Sage Base (= pg-sage). Logo fills and Tertiary Contrast alias kept; Brand page text updated.

@@ -23,7 +23,7 @@ const imgHeroBanner =
 type Category = "All" | "Mental Health" | "Coaching" | "Courses" | "Ask a Therapist";
 const CATEGORIES: Category[] = ["All", "Mental Health", "Coaching", "Courses", "Ask a Therapist"];
 
-// Colors pulled from the PG Design System (Brand Color tokens): Navy Base, Cyan/Teal Base, Teal Base, Peach Base, Sage 30
+// Colors pulled from the PG Design System (Brand Color tokens): Navy Base, Sage Base, Teal Base, Peach Base, Sage 30
 const SEARCH_THEMES = [
   { label: "All", bg: "var(--pg-navy)", color: "var(--pg-white)" },
   { label: "Courses", bg: "var(--pg-sage)", color: "var(--pg-navy)" },
