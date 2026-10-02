@@ -60,3 +60,4 @@ Radius: XS 5:44(4) S 5:45(8) M 5:46(12) L 5:47(16) XL 5:48(24) Full 35:2
 - Oct 2: Colors page — Sage Base swatch (418:192) added first in the Brand Color/Sage row, bound to VariableID:4:5.
 - Oct 2: Colors page swatches added: Navy Hover (Navy row, after Base), Cream Dark (Cream row, after Base), Tint + Tint Soft (end of Teal row), new section Brand Color/Amber (419:42) with Amber Base. All bound to their variables.
 - Oct 2: Colors page semantic cards — the static 'alias'/'custom' line (83 cards) now shows the alias target ('= Navy/Navy Base') or the hex for custom values; text layer renamed 'Value'.
+- Oct 2: Focus/Ring repointed from coral (Accent) to Brand Color/Sage/Sage 80 (#406064) to match the prototype focus outline; Color Roles card + description updated. Buttons page header and Lesson Navigation description cleaned (no history, Next Lesson = Primary L).
