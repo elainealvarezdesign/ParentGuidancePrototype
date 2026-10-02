@@ -31,6 +31,10 @@ variable: `style={{ boxShadow: "var(--pg-shadow-card)" }}`, `animate={{ backgrou
 | Tint soft | `#f0f6f6` | `pg-tint-soft` | Fondo de secciones de listado; hover de filas |
 | Line | `#dee8e9` | `pg-line` | Bordes de cards, inputs y divisores |
 
+En Figma, estos tokens tienen su variable en *Semantic: Color Roles*: `pg-cream-dark` → **Background/Chip**,
+`pg-tint` → **Background/Tint**, `pg-tint-soft` → **Background/Tint Soft**, `pg-navy-hover` → **Background/Inverse
+Hover** y `pg-amber` → **Accent Colors/Amber** (cada una apunta a su primitiva en *Primitive Colors*).
+
 ### Estados
 
 En uso en badges, avisos y validaciones. Cumplen AA sobre blanco y crema.
@@ -87,6 +91,8 @@ heredan todos los elementos, incluidos botones e inputs: **no se añaden clases 
 
 Reglas:
 - **Mínimo 12px**; los 11px solo para texto en MAYÚSCULAS (eyebrows, meses de los bloques de fecha).
+- En Figma, los textos en mayúsculas usan **Label/XSmall - Bold Caps** (11px, 15% de tracking) o **Label/Small -
+  SemiBold Caps** (12px, 10%), y las citas **Body/Medium - Italic**. Ningún texto de componente queda sin estilo.
 - Fuera de la escala no hay tamaños intermedios (13, 15, 18, 22, 30, 36px…): se usa el paso más cercano.
 - Énfasis de marca en titulares: una palabra o frase en *itálica* teal ("Discover *Resources*…"), sin cambiar
   el tamaño.

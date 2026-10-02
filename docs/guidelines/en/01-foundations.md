@@ -31,6 +31,10 @@ Tailwind class (`bg-pg-navy`, `text-pg-slate`…). In inline styles or `motion` 
 | Tint soft | `#f0f6f6` | `pg-tint-soft` | Background of listing sections; row hover |
 | Line | `#dee8e9` | `pg-line` | Borders of cards and inputs, dividers |
 
+In Figma these tokens have their own variable in *Semantic: Color Roles*: `pg-cream-dark` → **Background/Chip**,
+`pg-tint` → **Background/Tint**, `pg-tint-soft` → **Background/Tint Soft**, `pg-navy-hover` → **Background/Inverse
+Hover** and `pg-amber` → **Accent Colors/Amber** (each one aliases its primitive in *Primitive Colors*).
+
 ### States
 
 Used in badges, notices and validation. They meet AA on white and cream.
@@ -87,6 +91,8 @@ element inherits it, including buttons and inputs: **do not add font classes**. 
 
 Rules:
 - **12px minimum**; 11px only for UPPERCASE text (eyebrows, months in date blocks).
+- In Figma, uppercase text uses **Label/XSmall - Bold Caps** (11px, 15% tracking) or **Label/Small - SemiBold
+  Caps** (12px, 10%), and quotes use **Body/Medium - Italic**. No component text is left without a style.
 - No in-between sizes outside the scale (13, 15, 18, 22, 30, 36px…): use the nearest step.
 - Brand emphasis in headlines: one word or phrase in teal *italics* ("Discover *Resources*…"), without
   changing the size.
