@@ -38,3 +38,11 @@ Radius: XS 5:44(4) S 5:45(8) M 5:46(12) L 5:47(16) XL 5:48(24) Full 35:2
 - Action Card 360:66 (Number#360:0 Title#360:1 Tip 1 label#360:2 Tip 1 text#360:3 Tip 2 label#360:4 Tip 2 text#360:5); Topic Resource Card 360:77 (Type#360:6 Title#360:7 Description#360:8 Link#360:9). NEXT: Topic page D at x8880,y4200
 - NEW D: MHS Topic 361:3766 (x8880,y4200). NEXT: Contact Us D (x10360,y4200), legal D (Terms/Cookies/Consent) row y=6800
 - NEW D: Contact Us 365:4294 (x10360,y4200). Text Input: radius S + light border.
+- Oct 2: Legal D row y=6800: Terms 368:4227 (x0), Cookies Policy 369:231 (x1480), Consent Documents 370:28 (x2960; accordion cards: header row Toggle[Dot, Title, Chevron expand_less/expand_more] + Actions[Button S Download/Print], Body). New comps Icon/download 368:9756, Icon/print 368:9762.
+- Oct 2: small fixes DONE: Milestones lesson time I352:3087;111:21 = "0:00 / 4:12"; Course Detail · Milestones trailing breadcrumb chevron hidden (I350:2642;103:23).
+- Oct 2: Tablet row y=4600 (x = i*968), Mobile row y=7000 (x = i*575), i = order of D row (0 CD Free, 1 CD Milestones, 2 Lesson Milestones, 3 State Select, 4 Events, 5 Events pop-up, 6 Topic, 7 Contact, 8 Terms, 9 Cookies, 10 Consent).
+  T: 375:28, 375:846, 379:28, 379:985, 381:28, 381:1454, 382:28, 372:316, 373:28, 373:724, 373:1214
+  M: 375:477, 375:1212, 379:552, 379:1231, 381:825, 381:2067, 382:711, 372:604, 373:415, 373:969, 373:1483
+  Built with a clone+reflow converter (nav 133:93/133:99, footer 133:135/133:164, Desktop→Tablet/Mobile variants, heading step-down H1/H2→H2 on T, →H3/H4 on M) + manual fixes per screen.
+  Events T/M: Calendar Breakpoint=Mobile (dot style) with first Row (header) hidden; pop-up T = Desktop popover under day 10; M = bottom sheet (Breakpoint Mobile) + Scrim rect 375x812.
+  Action Card 360:66 Title now FILL + wraps. Breadcrumb texts on T/M truncate with ellipsis.
