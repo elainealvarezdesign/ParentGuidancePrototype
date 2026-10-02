@@ -73,6 +73,8 @@ highlighted blocks inside a section, see [Highlighted blocks](./01-foundations.m
 
 - White background, `rounded-pg-xl`, `pg-line` border, `card` shadow.
 - 150px-tall image on top (`object-cover`, or `object-contain` with padding for logos).
+- With logos, the image area is white (`bg-white`), like the rest of the card; with photos, `bg-pg-tint-soft` only
+  shows while the image loads.
 - Content with `p-4`: navy `h4` title, slate `small` description, teal dark `small` metadata.
 - Full-width Primary button anchored at the bottom (`mt-auto`), so every card in a row aligns its button.
 - Destination: `to` (internal route, `<Link>`), `href` (external, new tab) or `onClick`.

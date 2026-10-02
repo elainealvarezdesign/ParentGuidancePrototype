@@ -74,6 +74,8 @@ divisorias. Para los bloques destacados dentro de una sección, ver
 
 - Fondo blanco, `rounded-pg-xl`, borde `pg-line`, sombra `card`.
 - Imagen de 150px de alto arriba (`object-cover`, o `object-contain` con padding para logos).
+- Con logos, la zona de la imagen es blanca (`bg-white`), igual que el resto de la card; con fotos, `bg-pg-tint-soft` solo
+  se ve mientras carga la imagen.
 - Contenido con `p-4`: título `h4` navy, descripción `small` slate, metadatos `small` teal dark.
 - Botón Primary `w-full` anclado abajo (`mt-auto`), así todas las cards de una fila alinean su botón.
 - Destino: `to` (ruta interna, `<Link>`), `href` (externo, pestaña nueva) u `onClick`.
