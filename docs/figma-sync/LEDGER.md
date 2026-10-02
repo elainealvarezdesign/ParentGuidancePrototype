@@ -58,3 +58,4 @@ Radius: XS 5:44(4) S 5:45(8) M 5:46(12) L 5:47(16) XL 5:48(24) Full 35:2
 - Oct 2: detail-page titles (Lesson FY/MS, Course Detail FY/MS, Ask Detail) now Heading/H2 - Bold - XL on D/T and Heading/H3 - Bold - L on M, matching the code h1 (28→40). Video Player already uses navy scrim (no black).
 - Oct 2: renamed Brand Color/Cyan/Cyan Base (VariableID:4:5, #90b3b6) → Brand Color/Sage/Sage Base (= pg-sage). Logo fills and Tertiary Contrast alias kept; Brand page text updated.
 - Oct 2: Colors page — Sage Base swatch (418:192) added first in the Brand Color/Sage row, bound to VariableID:4:5.
+- Oct 2: Colors page swatches added: Navy Hover (Navy row, after Base), Cream Dark (Cream row, after Base), Tint + Tint Soft (end of Teal row), new section Brand Color/Amber (419:42) with Amber Base. All bound to their variables.
