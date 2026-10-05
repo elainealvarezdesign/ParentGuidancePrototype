@@ -13,6 +13,8 @@ Figma Make export.
 
 ## Design guidelines
 
+- **Start here to build new screens:** [`DESIGN.md`](./DESIGN.md) — tokens, components, patterns and the steps to add a page
+
 - English: [`docs/guidelines/`](./docs/guidelines/README.md) · PDFs in [`docs/guidelines/pdf/`](./docs/guidelines/pdf/)
 - Spanish: [`docs/guidelines/es/`](./docs/guidelines/es/README.md) · PDFs in [`docs/guidelines/pdf/es/`](./docs/guidelines/pdf/es/)
 - Figma ↔ prototype sync status: [`docs/figma-sync/STATUS.md`](./docs/figma-sync/STATUS.md)
