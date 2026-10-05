@@ -13,9 +13,9 @@ Figma Make export.
 
 ## Design guidelines
 
-- English: [`docs/guidelines/en/`](./docs/guidelines/en/README.md) · PDFs in [`docs/guidelines/pdf/`](./docs/guidelines/pdf/)
-- Español: [`docs/guidelines/`](./docs/guidelines/README.md) · PDF en [`docs/guidelines/pdf/es/`](./docs/guidelines/pdf/es/)
-- Figma ↔ prototype sync status: [`docs/figma-sync/PENDIENTES.md`](./docs/figma-sync/PENDIENTES.md)
+- English: [`docs/guidelines/`](./docs/guidelines/README.md) · PDFs in [`docs/guidelines/pdf/`](./docs/guidelines/pdf/)
+- Spanish: [`docs/guidelines/es/`](./docs/guidelines/es/README.md) · PDFs in [`docs/guidelines/pdf/es/`](./docs/guidelines/pdf/es/)
+- Figma ↔ prototype sync status: [`docs/figma-sync/STATUS.md`](./docs/figma-sync/STATUS.md)
 - Project handoff: [`docs/handoff/`](./docs/handoff/README.md)
 - Design tokens: [`src/styles/tokens.css`](./src/styles/tokens.css)
 

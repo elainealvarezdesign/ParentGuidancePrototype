@@ -5,7 +5,7 @@ y sin prisa**, nunca rebotón, y siempre respetando reduced‑motion.
 
 ## 4.1 Tokens
 
-Las duraciones y curvas están en [`tokens.css`](../../src/styles/tokens.css):
+Las duraciones y curvas están en [`tokens.css`](../../../src/styles/tokens.css):
 
 | Banda | Duración | Variable CSS | Clase de Tailwind | Uso |
 |-------|----------|--------------|-------------------|-----|
@@ -70,7 +70,7 @@ Se usa con suavidad y **una sola vez**:
 - Cada navegación abre la página nueva arriba (`<ScrollRestoration />` en el layout raíz); atrás/adelante
   recupera la posición.
 - Los botones "Back to top" y cambios de página usan `scrollBehavior()` de
-  [`src/app/utils/motion.ts`](../../src/app/utils/motion.ts): `"smooth"`, o `"auto"` si el usuario pide reducir
+  [`src/app/utils/motion.ts`](../../../src/app/utils/motion.ts): `"smooth"`, o `"auto"` si el usuario pide reducir
   movimiento.
 
 ## 4.4 Contrato de reduced‑motion (obligatorio)
@@ -84,6 +84,6 @@ Implementado. La app está envuelta en `MotionConfig`:
 
 Con `reducedMotion="user"`, `motion` desactiva desplazamientos y escalas para quien tenga activada la opción
 del sistema, y mantiene los cambios de opacidad. Las transiciones CSS se desactivan con la regla
-`@media (prefers-reduced-motion: reduce)` de [`accessibility.css`](../../src/styles/accessibility.css).
+`@media (prefers-reduced-motion: reduce)` de [`accessibility.css`](../../../src/styles/accessibility.css).
 
 Regla: **ningún contenido puede quedar oculto** (`opacity: 0`) si la animación no se ejecuta.

@@ -1,7 +1,7 @@
 # 2. Buttons
 
 Every action button in the prototype comes from a single system (teal, 8px, Poppins semibold 14px, teal dark on
-hover), implemented in the [`Button.tsx`](../../../src/app/components/Button.tsx) component (section 2.4).
+hover), implemented in the [`Button.tsx`](../../src/app/components/Button.tsx) component (section 2.4).
 
 ## 2.1 Styles
 
@@ -53,7 +53,7 @@ components don't need to add focus classes.
 
 ## 2.4 Component
 
-The prototype's buttons use [`src/app/components/Button.tsx`](../../../src/app/components/Button.tsx):
+The prototype's buttons use [`src/app/components/Button.tsx`](../../src/app/components/Button.tsx):
 
 | Component | For | Example |
 |-----------|-----|---------|

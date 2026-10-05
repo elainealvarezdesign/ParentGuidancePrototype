@@ -3,7 +3,7 @@ import { Link } from "react-router";
 import { motion } from "motion/react";
 import { cn } from "./ui/utils";
 
-/* Parent Guidance buttons (docs/guidelines/02-botones.md).
+/* Parent Guidance buttons (docs/guidelines/02-buttons.md).
  * One radius (8px), three sizes, five styles. Use <Button> for actions, <ButtonLink> for in-app
  * navigation and <ButtonAnchor> for external, mail or tel links. `buttonClass()` gives the same
  * classes for the rare element that can't use these components. */

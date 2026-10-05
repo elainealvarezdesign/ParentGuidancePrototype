@@ -1,16 +1,16 @@
 # 3. Layout
 
-## 3.1 Contenedores
+## 3.1 Containers
 
-| Token | Ancho | Tailwind | Uso |
+| Token | Width | Tailwind | Use |
 |-------|-------|----------|-----|
-| `page` | 1280px | `max-w-pg-page` | Contenedor por defecto: navegación, secciones, barras de filtros, grids de cards, Mental Health Series |
-| `content` | 1100px | `max-w-pg-content` | Páginas de tema y de evento, banners centrados |
-| `reading` | 680px | `max-w-pg-reading` | Texto largo: legales, artículos, formularios de una columna |
+| `page` | 1280px | `max-w-pg-page` | Default container: navigation, sections, filter bars, card grids, Mental Health Series |
+| `content` | 1100px | `max-w-pg-content` | Topic and event pages, centered banners |
+| `reading` | 680px | `max-w-pg-reading` | Long text: legal pages, articles, single-column forms |
 
-Los textos de hero pueden limitar su ancho de lectura con `max-w-[480px]` o similar; no son contenedores.
+Hero text may limit its reading width with `max-w-[480px]` or similar; those are not containers.
 
-### Márgenes laterales (gutter)
+### Side margins (gutter)
 
 ```tsx
 <section className="px-6 md:px-10 lg:px-14">
@@ -18,166 +18,165 @@ Los textos de hero pueden limitar su ancho de lectura con `max-w-[480px]` o simi
 </section>
 ```
 
-- Móvil: 24px · Tablet (≥ 768): 40px · Desktop (≥ 1024): 56px.
-- El fondo de la sección llega de borde a borde; el contenido se centra dentro.
-- Si una sección tiene pocos elementos (p. ej. imagen + newsletter), el grupo se **centra** dentro del
-  contenedor (`lg:justify-center`), no se queda pegado a la izquierda.
+- Mobile: 24px · Tablet (≥ 768): 40px · Desktop (≥ 1024): 56px.
+- The section background runs edge to edge; the content is centered inside it.
+- If a section has few elements (e.g. image + newsletter), the group is **centered** inside the container
+  (`lg:justify-center`) instead of sticking to the left.
 
 ## 3.2 Breakpoints
 
-Se usan los de Tailwind. La regla práctica: **móvil y tablet apilan; desde `lg` se ponen en columnas**.
+Tailwind's breakpoints are used. The rule of thumb: **mobile and tablet stack; columns start at `lg`**.
 
-| Prefijo | Desde | Qué cambia |
-|---------|-------|-----------|
-| (base) | 0 | Una columna, gutter 24px, títulos en tamaño móvil, menú ☰ |
-| `sm` | 640px | Grids de cards a 2 columnas; botones de fila junto al contenido |
-| `md` | 768px | Títulos en tamaño desktop, gutter 40px, barras de filtros en una sola fila |
-| `lg` | 1024px | **Navegación completa**, heros de 2 columnas, columna lateral en detalle y lecciones, footer en filas, grids de 3–4 columnas |
-| `xl` | 1280px | Ajustes finos (3 columnas de preguntas en Ask a Therapist); el contenedor ya está en su máximo |
+| Prefix | From | What changes |
+|--------|------|--------------|
+| (base) | 0 | One column, 24px gutter, mobile-size headings, ☰ menu |
+| `sm` | 640px | Card grids go to 2 columns; row buttons sit next to the content |
+| `md` | 768px | Desktop-size headings, 40px gutter, filter bars on a single row |
+| `lg` | 1024px | **Full navigation**, 2-column heroes, sidebars on detail and lesson pages, footer in rows, 3–4 column grids |
+| `xl` | 1280px | Fine adjustments (3 columns of questions in Ask a Therapist); the container is already at its maximum |
 
-**Degradación por etapas**: 4 → 2 → 1 o 3 → 2 → 1 columnas, nunca de 4 a 1 de golpe.
+**Degrade in steps**: 4 → 2 → 1 or 3 → 2 → 1 columns, never straight from 4 to 1.
 
-Todo lo que tenga un ancho fijo grande (barras laterales de 248–300px, imágenes de 420–480px) se aplica solo
-desde `lg` (`w-full lg:w-[300px]`). Así no aparece scroll lateral en tablet.
+Anything with a large fixed width (248–300px sidebars, 420–480px images) applies it only from `lg`
+(`w-full lg:w-[300px]`). This keeps tablet free of horizontal scroll.
 
-## 3.3 Ritmo vertical
+## 3.3 Vertical rhythm
 
-| Contexto | Móvil → desktop | Tailwind |
-|----------|-----------------|----------|
-| Sección estándar | 56 → 80px | `py-14 md:py-20` |
-| Sección compacta (listados, filtros) | 40 → 56px | `py-10 md:py-14` |
-| Hero de página | 96px arriba (navbar fija de 56px) | `pt-24 pb-14` |
-| Título de sección → contenido | 24–32px | `mb-6` / `mb-8` |
-| Entre cards de un grid | 16–20px | `gap-4` / `gap-5` |
-| Dentro de una card | 16–20px | `p-4` / `p-5` |
+| Context | Mobile → desktop | Tailwind |
+|---------|------------------|----------|
+| Standard section | 56 → 80px | `py-14 md:py-20` |
+| Compact section (listings, filters) | 40 → 56px | `py-10 md:py-14` |
+| Page hero | 96px on top (fixed 56px navbar) | `pt-24 pb-14` |
+| Section title → content | 24–32px | `mb-6` / `mb-8` |
+| Between cards in a grid | 16–20px | `gap-4` / `gap-5` |
+| Inside a card | 16–20px | `p-4` / `p-5` |
 
-Las secciones se alternan por **color de fondo** (cream → white → tint-soft → navy) en lugar de líneas
-divisorias. Para los bloques destacados dentro de una sección, ver
-[Bloques destacados](./01-fundamentos.md#bloques-destacados).
+Sections alternate by **background color** (cream → white → tint-soft → navy) instead of divider lines. For
+highlighted blocks inside a section, see [Highlighted blocks](./01-foundations.md#highlighted-blocks).
 
-## 3.4 Patrones de grid
+## 3.4 Grid patterns
 
-| Patrón | Clases | Uso |
-|--------|--------|-----|
-| Cards de recursos | `grid-cols-1 sm:grid-cols-2 lg:grid-cols-3` (o `lg:grid-cols-4`) `gap-4/5` | Resource Library, homes, recursos de un tema |
-| Cursos | `grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4` | On-Demand Courses |
-| Preguntas con lateral | `grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5` | Ask a Therapist |
-| Detalle + lateral | `flex flex-col lg:flex-row gap-6`; lateral `w-full lg:w-[280px]`–`[300px]`, `lg:sticky` | Curso, lección, pregunta |
-| Texto + imagen (hero) | `grid grid-cols-1 lg:grid-cols-2 gap-10 items-center` | Heros de Coaching, Courses, Get Help |
-| Beneficios / pasos | `grid-cols-1 sm:grid-cols-2 lg:grid-cols-4` | Franja navy y pasos de Parent Coaching |
-| Líneas de ayuda | `grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5` | Get Help |
-| Tema + lateral | `grid-cols-1 lg:grid-cols-[1fr_340px] gap-8 lg:gap-14` | Página de tema de Mental Health Series |
+| Pattern | Classes | Use |
+|---------|---------|-----|
+| Resource cards | `grid-cols-1 sm:grid-cols-2 lg:grid-cols-3` (or `lg:grid-cols-4`) `gap-4/5` | Resource Library, home pages, a topic's resources |
+| Courses | `grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4` | On-Demand Courses |
+| Questions with sidebar | `grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5` | Ask a Therapist |
+| Detail + sidebar | `flex flex-col lg:flex-row gap-6`; sidebar `w-full lg:w-[280px]`–`[300px]`, `lg:sticky` | Course, lesson, question |
+| Text + image (hero) | `grid grid-cols-1 lg:grid-cols-2 gap-10 items-center` | Coaching, Courses and Get Help heroes |
+| Benefits / steps | `grid-cols-1 sm:grid-cols-2 lg:grid-cols-4` | Navy band and steps on Parent Coaching |
+| Help lines | `grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5` | Get Help |
+| Topic + sidebar | `grid-cols-1 lg:grid-cols-[1fr_340px] gap-8 lg:gap-14` | Mental Health Series topic page |
 
-## 3.5 Patrones
+## 3.5 Patterns
 
-### Card estándar (`UnifiedCard`)
+### Standard card (`UnifiedCard`)
 
-- Fondo blanco, `rounded-pg-xl`, borde `pg-line`, sombra `card`.
-- Imagen de 150px de alto arriba (`object-cover`, o `object-contain` con padding para logos).
-- Con logos, la zona de la imagen es blanca (`bg-white`), igual que el resto de la card; con fotos, `bg-pg-tint-soft` solo
-  se ve mientras carga la imagen.
-- Contenido con `p-4`: título `h4` navy, descripción `small` slate, metadatos `small` teal dark.
-- Botón Primary `w-full` anclado abajo (`mt-auto`), así todas las cards de una fila alinean su botón.
-- Destino: `to` (ruta interna, `<Link>`), `href` (externo, pestaña nueva) u `onClick`.
-- Badge opcional: píldora navy con texto blanco en la esquina superior izquierda.
+- White background, `rounded-pg-xl`, `pg-line` border, `card` shadow.
+- 150px-tall image on top (`object-cover`, or `object-contain` with padding for logos).
+- With logos, the image area is white (`bg-white`), like the rest of the card; with photos, `bg-pg-tint-soft` only
+  shows while the image loads.
+- Content with `p-4`: navy `h4` title, slate `small` description, teal dark `small` metadata.
+- Full-width Primary button anchored at the bottom (`mt-auto`), so every card in a row aligns its button.
+- Destination: `to` (internal route, `<Link>`), `href` (external, new tab) or `onClick`.
+- Optional badge: navy pill with white text in the top-left corner.
 
-Variante de color (home): bloque inferior en `pg-sage` con texto `pg-navy`. Hover de cards clicables: sombra
-`card-hover` y, como mucho, `y: -2`. Sin escalar la card.
+Color variant (home): bottom block in `pg-sage` with `pg-navy` text. Hover on clickable cards: `card-hover`
+shadow and at most `y: -2`. No card scaling.
 
-Mientras una sección no tenga su propio detalle, sus cards enlazan a una **página de ejemplo** (los cursos
-alternan las plantillas de Milestones y Free Yourself; los recursos abren "Building Your Child's Confidence").
+Until a section has its own detail pages, its cards link to a **sample page** (courses alternate the Milestones
+and Free Yourself templates; resources open "Building Your Child's Confidence").
 
-### Barra de filtros
+### Filter bar
 
-Mismo patrón en On-Demand Courses, Ask a Therapist y Mental Health Series:
+Same pattern on On-Demand Courses, Ask a Therapist and Mental Health Series:
 
 ```tsx
 <div className="bg-white border-y border-pg-line sticky top-14 z-30 shadow-pg-card">
   <div className="max-w-pg-page mx-auto px-6 md:px-10 py-3 flex flex-wrap md:flex-nowrap items-center gap-3 md:gap-4">
-    {/* buscador: relative min-w-0 flex-1 md:flex-none md:w-64; input bg-pg-cream rounded-pg-md py-2.5, lupa text-pg-sage */}
+    {/* search: relative min-w-0 flex-1 md:flex-none md:w-64; input bg-pg-cream rounded-pg-md py-2.5, text-pg-sage magnifier */}
     {/* chips: order-last basis-full md:order-none md:basis-auto flex-1 min-w-0 overflow-x-auto gap-2 */}
-    {/* "Featured": menú de orden a la derecha */}
+    {/* "Featured": sort menu on the right */}
   </div>
 </div>
 ```
 
-- A todo el ancho, debajo del hero, y **fija bajo la navegación** mientras se recorre el listado que filtra
-  (si la página sigue con otro contenido, la barra va dentro del bloque del listado para soltarse al terminar).
-- Una sola barra por listado: no se repiten buscador ni chips más abajo.
-- En móvil: buscador + "Featured" arriba y los chips en su propia fila deslizable.
+- Full width, below the hero, and **sticky under the navigation** while browsing the list it filters (if the
+  page continues with other content, the bar sits inside the listing block so it releases at the end).
+- One bar per listing: search and chips are never repeated further down.
+- On mobile: search + "Featured" on top, chips on their own scrollable row.
 
-### Título de sección con contador
+### Section title with a count
 
-Barra sage de 4×20px + título `h3` navy + contador en píldora `bg-pg-tint text-pg-teal-dark text-xs`
+4×20px sage bar + navy `h3` title + count pill `bg-pg-tint text-pg-teal-dark text-xs`
 ("Resource Library · 9 resources", "Browse All · 15 questions").
 
 ### Newsletter
 
-El botón va dentro de la caja del input: `flex items-center gap-2 rounded-pg-xl bg-pg-tint-soft p-1.5` (sobre
-navy, la caja es `bg-pg-navy-hover` y el botón Inverse).
+The button sits inside the input box: `flex items-center gap-2 rounded-pg-xl bg-pg-tint-soft p-1.5` (on navy,
+the box is `bg-pg-navy-hover` and the button is Inverse).
 
-### Pop-up de evento / diálogos
+### Event pop-up / dialogs
 
-[`EventModal`](../../src/app/mhs/EventModal.tsx): card de 320px con encabezado teal, `rounded-pg-xl`,
-`shadow-pg-overlay`. Junto al elemento que lo abre en desktop y tablet (fondo `pg-navy/10`), centrado en móvil (fondo
-`pg-navy/30`, ancho `min(320px, 100vw − 32px)`). `role="dialog"` con
-`aria-modal`, foco atrapado, se cierra con Esc, la X o un clic fuera, y devuelve el foco al cerrar.
+[`EventModal`](../../src/app/mhs/EventModal.tsx): 320px card with a teal header, `rounded-pg-xl`,
+`shadow-pg-overlay`. Next to the element that opens it on desktop and tablet (`pg-navy/10` backdrop), centered on mobile
+(`pg-navy/30` backdrop, `min(320px, 100vw − 32px)` wide). `role="dialog"` with
+`aria-modal`, trapped focus, closes with Esc, the X or a click outside, and returns focus when closed.
 
-### Páginas legales
+### Legal pages
 
-Terms of Use, Cookies Policy y Consent Documents comparten plantilla: encabezado con eyebrow **LEGAL** (sin
-barra), `h1`, intro de `max-w-pg-reading` y, debajo, los botones **Download** (Primary M, icono `file_download`)
-y **Print** (Secondary M, icono `print`). El texto va en una sola card blanca (`rounded-pg-xl`, `p-7 md:p-10`)
-con la fecha de vigencia en teal y secciones separadas por una línea `pg-line`.
+Terms of Use, Cookies Policy and Consent Documents share one template: a header with a **LEGAL** eyebrow (no
+bar), `h1`, a `max-w-pg-reading` intro and, below it, the **Download** (Primary M, `file_download` icon) and
+**Print** (Secondary M, `print` icon) buttons. The text sits in a single white card (`rounded-pg-xl`,
+`p-7 md:p-10`) with the effective date in teal and sections separated by a `pg-line` rule.
 
-Consent Documents agrupa los documentos en cards desplegables: punto teal, título `h4`, chevron, y Download/Print
-en tamaño S a la derecha (en móvil, los botones bajan a una segunda línea). Solo un documento abierto a la vez.
+Consent Documents groups the documents in collapsible cards: teal dot, `h4` title, chevron, and size S
+Download/Print on the right (on mobile the buttons wrap to a second line). Only one document is open at a time.
 
 ### Video
 
-Los degradados y overlays sobre video o foto usan navy (`from-pg-navy/80`, `bg-pg-navy/60`), equivalente a
-*Background/Scrim* en Figma; nunca negro.
+Gradients and overlays on video or photos use navy (`from-pg-navy/80`, `bg-pg-navy/60`), equivalent to
+*Background/Scrim* in Figma; never black.
 
 
-Videos de Vimeo con `iframe` en `aspect-video`, `rounded-pg-2xl` (destacado) o `rounded-pg-xl` (cards), con
-`title` descriptivo, `allow="autoplay; fullscreen; picture-in-picture"` y `dnt=1` en la URL. El video de
-bienvenida de Mental Health Series carga el reproductor directamente; los de las páginas de tema muestran una
-miniatura y cargan el reproductor al hacer clic.
+Vimeo videos use an `iframe` in `aspect-video`, `rounded-pg-2xl` (featured) or `rounded-pg-xl` (cards), with a
+descriptive `title`, `allow="autoplay; fullscreen; picture-in-picture"` and `dnt=1` in the URL. The Mental
+Health Series welcome video loads the player directly; topic page videos show a thumbnail and load the player
+on click.
 
-## 3.6 Navegación
+## 3.6 Navigation
 
-- Navbar navy fija de 56px (`h-14`); el logo enlaza siempre al Home.
-- Desde `lg`, enlaces completos; por debajo, botón ☰ que abre el menú (se cierra con Esc, al tocar fuera o al
-  navegar) y devuelve el foco.
-- Cada página nueva abre arriba (`ScrollRestoration`); atrás/adelante recupera la posición.
+- Fixed 56px navy navbar (`h-14`); the logo always links to the home page.
+- From `lg`, full links; below it, a ☰ button opens the menu (closes with Esc, an outside tap or on
+  navigation) and returns focus.
+- Every new page opens at the top (`ScrollRestoration`); back/forward restores the position.
 
-## 3.7 Componentes en Figma
+## 3.7 Components in Figma
 
-La librería de Figma ([Design system - PG](https://www.figma.com/design/mWOJYdAxkKGj0bWSO2ptGj/Design-system---PG))
-refleja el prototipo. Cada patrón de esta guía tiene su componente; al diseñar una pantalla nueva, se parte de
-ellos en vez de dibujar a mano.
+The Figma library ([Design system - PG](https://www.figma.com/design/mWOJYdAxkKGj0bWSO2ptGj/Design-system---PG))
+mirrors the prototype. Every pattern in this guide has a component; start new screens from them instead of
+drawing by hand.
 
-| Componente | Página de Figma | Equivale a |
-|------------|-----------------|------------|
-| Button (Primary, Secondary, Tertiary, Inverse, Inverse Secondary × S/M/L) | Buttons | `<Button>` (capítulo 2) |
-| Filter Bar (Desktop/Mobile), Search Field, Sort Menu, Filter Chip | Inputs & Nav | Barra de filtros (3.5) |
-| Section Header (título + contador), Section Eyebrow (con o sin barra) | Content Blocks | Título de sección con contador |
-| Photo CTA Banner, Split CTA Banner (Desktop/Tablet/Mobile), Promo Banner, Multi-action Banner | Content Blocks | Banners de cierre de página |
-| Hero Media (Portrait/Landscape) | Content Blocks | Imagen de los heros con bloque de color |
-| Outline Step, Course Mini Card, Instructor Line | Course & Media | Detalle de curso (temario, "You may also like", instructores) |
-| Video Card, Session Card, Takeaway Card, Action Card, Topic Resource Card | Cards | Página de tema de Mental Health Series |
-| Calendar (Desktop/Mobile), Event List Item, Event Popover | Calendar & Events | Página de eventos y pop-up |
-| Icon/… (Material Outlined, incluidos `download`, `print` y `vimeo`) | Icons | `src/app/components/icons.tsx` |
+| Component | Figma page | Maps to |
+|-----------|------------|---------|
+| Button (Primary, Secondary, Tertiary, Inverse, Inverse Secondary × S/M/L) | Buttons | `<Button>` (chapter 2) |
+| Filter Bar (Desktop/Mobile), Search Field, Sort Menu, Filter Chip | Inputs & Nav | Filter bar (3.5) |
+| Section Header (title + count), Section Eyebrow (with or without bar) | Content Blocks | Section title with a count |
+| Photo CTA Banner, Split CTA Banner (Desktop/Tablet/Mobile), Promo Banner, Multi-action Banner | Content Blocks | Page-closing banners |
+| Hero Media (Portrait/Landscape) | Content Blocks | Hero image with color block |
+| Outline Step, Course Mini Card, Instructor Line | Course & Media | Course detail (outline, "You may also like", instructors) |
+| Video Card, Session Card, Takeaway Card, Action Card, Topic Resource Card | Cards | Mental Health Series topic page |
+| Calendar (Desktop/Mobile), Event List Item, Event Popover | Calendar & Events | Events page and pop-up |
+| Icon/… (Material Outlined, including `download`, `print` and `vimeo`) | Icons | `src/app/components/icons.tsx` |
 
-Las pantallas completas están en **Layouts – Desktop / Tablet / Mobile** (1280, 768 y 375px). Si una pantalla
-del prototipo cambia, se actualiza también su frame en las tres páginas.
+Full screens live in **Layouts – Desktop / Tablet / Mobile** (1280, 768 and 375px). When a prototype screen
+changes, update its frame on all three pages too.
 
-## 3.8 Checklist para una pantalla nueva
+## 3.8 Checklist for a new screen
 
-1. Fondo `pg-cream`, contenedor `max-w-pg-page` con gutter `px-6 md:px-10 lg:px-14`.
-2. Un solo `display` (solo en homes) o `h1` por página.
-3. Secciones con `py-14 md:py-20`, alternando el color de fondo.
-4. Grid de la tabla 3.4, con degradación por etapas; anchos fijos solo desde `lg`.
-5. Cards con `UnifiedCard`; listados con la barra de filtros estándar.
-6. Un Primary teal por sección; botones con `<Button>`.
-7. Revisar en **390, 768, 1024 y 1280px**.
+1. `pg-cream` background, `max-w-pg-page` container with a `px-6 md:px-10 lg:px-14` gutter.
+2. A single `display` (home pages only) or `h1` per page.
+3. Sections with `py-14 md:py-20`, alternating the background color.
+4. Grid from table 3.4, degrading in steps; fixed widths only from `lg`.
+5. Cards with `UnifiedCard`; listings with the standard filter bar.
+6. One teal Primary per section; buttons with `<Button>`.
+7. Review at **390, 768, 1024 and 1280px**.

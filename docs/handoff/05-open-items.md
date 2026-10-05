@@ -14,4 +14,4 @@ prototype or the library.
 | Cookies Policy | Cookie names are shown in a monospace font | Design |
 | Spacing and line height | Mental Health Series, Parent Coaching and the alternative homes still use some off-scale spacing | Development |
 
-Source: section 5.4 of the design guidelines (`docs/guidelines/en/05-quality.md`).
+Source: section 5.4 of the design guidelines (`docs/guidelines/05-quality.md`).

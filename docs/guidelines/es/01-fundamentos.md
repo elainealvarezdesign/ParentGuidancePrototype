@@ -1,6 +1,6 @@
 # 1. Fundamentos
 
-Todos los valores están en [`tokens.css`](../../src/styles/tokens.css) como variables CSS (`--pg-navy`) y como
+Todos los valores están en [`tokens.css`](../../../src/styles/tokens.css) como variables CSS (`--pg-navy`) y como
 clases de Tailwind (`bg-pg-navy`, `text-pg-slate`…). En estilos inline o en props de `motion` se usa la
 variable: `style={{ boxShadow: "var(--pg-shadow-card)" }}`, `animate={{ backgroundColor: "var(--pg-teal)" }}`.
 
@@ -147,7 +147,7 @@ el color de fondo (tint, sage o navy).
 
 - Librería: **Material Icons, estilo Outlined** (`@mui/icons-material`). No se mezclan otros estilos (Filled,
   Rounded, Sharp) ni otras librerías.
-- Siempre se importan desde [`src/app/components/icons.tsx`](../../src/app/components/icons.tsx), nunca directo de
+- Siempre se importan desde [`src/app/components/icons.tsx`](../../../src/app/components/icons.tsx), nunca directo de
   `@mui/icons-material`: `import { Search } from "./components/icons"`. Si falta un icono, se añade ahí con su
   versión `…Outlined`.
 - Tamaño con `size` en px: 14–16px en controles y 18–20px en botones de solo icono

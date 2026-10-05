@@ -5,7 +5,7 @@ motion, never bouncy, and always respecting reduced‑motion.
 
 ## 4.1 Tokens
 
-Durations and curves live in [`tokens.css`](../../../src/styles/tokens.css):
+Durations and curves live in [`tokens.css`](../../src/styles/tokens.css):
 
 | Band | Duration | CSS variable | Tailwind class | Use |
 |------|----------|--------------|----------------|-----|
@@ -70,7 +70,7 @@ Used gently and **only once**:
 - Every navigation opens the new page at the top (`<ScrollRestoration />` in the root layout); back/forward
   restores the position.
 - "Back to top" buttons and page changes use `scrollBehavior()` from
-  [`src/app/utils/motion.ts`](../../../src/app/utils/motion.ts): `"smooth"`, or `"auto"` when the user asks for
+  [`src/app/utils/motion.ts`](../../src/app/utils/motion.ts): `"smooth"`, or `"auto"` when the user asks for
   reduced motion.
 
 ## 4.4 Reduced‑motion contract (mandatory)
@@ -84,6 +84,6 @@ Implemented. The app is wrapped in `MotionConfig`:
 
 With `reducedMotion="user"`, `motion` turns off movement and scaling for anyone who has the system setting
 enabled, and keeps opacity changes. CSS transitions are turned off by the
-`@media (prefers-reduced-motion: reduce)` rule in [`accessibility.css`](../../../src/styles/accessibility.css).
+`@media (prefers-reduced-motion: reduce)` rule in [`accessibility.css`](../../src/styles/accessibility.css).
 
 Rule: **no content may stay hidden** (`opacity: 0`) if the animation doesn't run.

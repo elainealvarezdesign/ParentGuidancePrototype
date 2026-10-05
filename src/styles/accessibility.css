@@ -1,5 +1,5 @@
 /*
- * Accesibilidad global — ver docs/guidelines/02-botones.md y 04-movimiento.md
+ * Accesibilidad global — ver docs/guidelines/02-buttons.md y 04-motion.md
  *
  * Este archivo no usa @layer a propósito: así tiene prioridad sobre utilidades
  * como `outline-none` o `focus:ring-*` que ya existen en los componentes.
