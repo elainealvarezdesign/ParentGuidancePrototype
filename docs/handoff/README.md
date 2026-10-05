@@ -1,28 +1,28 @@
-# Handoff — instrucciones para armar la carpeta en Google Drive
+# Handoff — building the Google Drive folder
 
-Esta carpeta tiene los textos del handoff del proyecto Parent Guidance. Con ellos se arma la carpeta
-**"Parent Guidance — Handoff"** en Google Drive.
+This folder holds the handoff texts for the Parent Guidance project. They are used to build the
+**"Parent Guidance — Handoff"** folder in Google Drive.
 
-## Estructura de la carpeta en Drive
+## Drive folder structure
 
 ```
 Parent Guidance — Handoff/
-├── 00 — LEEME                         ← Google Doc a partir de 00-LEEME.md
-├── 01 — Prototipo/
-│     └── Prototipo — links y publicación   ← 01-prototipo.md
+├── 00 — README                          ← Google Doc from 00-readme.md
+├── 01 — Prototype/
+│     └── Prototype — links and deployment      ← 01-prototype.md
 ├── 02 — Design System/
-│     └── Design System — cómo usar la librería   ← 02-design-system.md
-├── 03 — Guías de diseño/
-│     ├── English/   ← PDFs de docs/guidelines/pdf/
-│     └── Español/   ← PDFs de docs/guidelines/pdf/es/
+│     └── Design System — using the library     ← 02-design-system.md
+├── 03 — Design Guidelines/
+│     ├── English/   ← PDFs from docs/guidelines/pdf/
+│     └── Spanish/   ← PDFs from docs/guidelines/pdf/es/
 ├── 04 — Assets/
-│     └── Logos/     ← logos de partners de src/imports/ y src/imports/get-help-logos/
-└── 05 — Pendientes y decisiones/
-      └── Temas abiertos   ← 05-pendientes.md
+│     └── Logos/     ← partner logos from src/imports/ and src/imports/get-help-logos/
+└── 05 — Open Items and Decisions/
+      └── Open items                            ← 05-open-items.md
 ```
 
-## Notas
+## Notes
 
-- Para Figma, el prototipo y el repo se ponen **links**, no copias, para que nadie trabaje con una versión vieja.
-- Los PDF de las guías se suben como archivos. Si una guía cambia, hay que regenerar los PDF y volver a subirlos.
-- Al compartir la carpeta, confirmar que el equipo que la recibe también tenga acceso al archivo de Figma y al repo.
+- Figma, the prototype and the repo are shared as **links**, not copies, so nobody works from an outdated version.
+- The guideline PDFs are uploaded as files. If a guideline changes, regenerate the PDFs and upload them again.
+- When sharing the folder, make sure the receiving team also has access to the Figma file and the repo.

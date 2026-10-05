@@ -1,32 +1,32 @@
-# Design System — cómo usar la librería
+# Design System — using the library
 
-**Archivo de Figma:** https://www.figma.com/design/mWOJYdAxkKGj0bWSO2ptGj/Design-system---PG
+**Figma file:** https://www.figma.com/design/mWOJYdAxkKGj0bWSO2ptGj/Design-system---PG
 
-## Qué incluye
+## What it includes
 
-- **Fundamentos:** marca, logos de partners, colores (primitivos y roles semánticos), tipografía (Poppins),
-  espaciado, radios y elevación, todo como variables y estilos.
-- **Componentes:** iconos (Material Icons Outlined), botones (5 tipos × 3 tamaños), calendario y eventos,
-  tags, cards, inputs y navegación, bloques de contenido, cursos y media.
-- **Layouts:** todas las pantallas del prototipo en Desktop (1280), Tablet (768) y Mobile (375).
+- **Foundations:** brand, partner logos, colors (primitives and semantic roles), typography (Poppins),
+  spacing, radii and elevation, all as variables and styles.
+- **Components:** icons (Material Icons Outlined), buttons (5 types × 3 sizes), calendar and events, tags,
+  cards, inputs and navigation, content blocks, courses and media.
+- **Layouts:** every prototype screen at Desktop (1280), Tablet (768) and Mobile (375).
 
-El archivo refleja el prototipo: cada token tiene su variable y cada patrón su componente.
+The file mirrors the prototype: every token has a variable and every pattern has a component.
 
-## Usar la librería en otro archivo
+## Using the library in another file
 
-1. Abrir el archivo de Figma donde se va a diseñar.
-2. Ir a **Assets → Libraries** (ícono de libro).
-3. Buscar **"Design system - PG"** y activarla.
+1. Open the Figma file you are designing in.
+2. Go to **Assets → Libraries** (book icon).
+3. Find **"Design system - PG"** and enable it.
 
-## Publicar cambios
+## Publishing changes
 
-Cuando se cambia algo en la librería, los demás archivos no lo reciben hasta que se publica:
-**Assets → Libraries → Publish**, escribir una descripción y confirmar.
+Changes to the library don't reach other files until they are published:
+**Assets → Libraries → Publish**, add a description and confirm.
 
-Si al publicar aparece *Invalid assets*, normalmente es un componente con una propiedad que no está conectada
-a ninguna capa: se borra la propiedad y se vuelve a publicar.
+If publishing shows *Invalid assets*, it is usually a component with a property that isn't connected to any
+layer: delete the property and publish again.
 
-## Regla principal
+## Core rule
 
-Ningún color, tamaño de fuente, radio o sombra se pone "a mano": todo sale de las variables y estilos.
-Si falta algo, primero se agrega como variable (en Figma y en `tokens.css` del código) y después se usa.
+No color, font size, radius or shadow is set by hand: everything comes from variables and styles. If something
+is missing, add it as a variable first (in Figma and in the code's `tokens.css`), then use it.

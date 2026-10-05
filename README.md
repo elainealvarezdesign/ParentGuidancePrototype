@@ -16,6 +16,7 @@ Figma Make export.
 - English: [`docs/guidelines/en/`](./docs/guidelines/en/README.md) · PDFs in [`docs/guidelines/pdf/`](./docs/guidelines/pdf/)
 - Español: [`docs/guidelines/`](./docs/guidelines/README.md) · PDF en [`docs/guidelines/pdf/es/`](./docs/guidelines/pdf/es/)
 - Figma ↔ prototype sync status: [`docs/figma-sync/PENDIENTES.md`](./docs/figma-sync/PENDIENTES.md)
+- Project handoff: [`docs/handoff/`](./docs/handoff/README.md)
 - Design tokens: [`src/styles/tokens.css`](./src/styles/tokens.css)
 
 ## Running the code
