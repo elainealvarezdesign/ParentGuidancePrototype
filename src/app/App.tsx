@@ -964,8 +964,8 @@ const router = createBrowserRouter([
 ]);
 
 export default function App() {
-  // reducedMotion="user": si el sistema pide reducir movimiento, motion desactiva
-  // desplazamientos y escalas (las transiciones de opacidad se mantienen).
+  // reducedMotion="user": when the system asks for reduced motion, motion turns off
+  // movement and scaling (opacity transitions remain).
   return (
     <MotionConfig reducedMotion="user">
       <RouterProvider router={router} />

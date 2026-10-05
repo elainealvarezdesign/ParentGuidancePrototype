@@ -1,9 +1,9 @@
-/** true si el usuario pidió reducir el movimiento en su sistema. */
+/** True when the user asked their system to reduce motion. */
 export function prefersReducedMotion(): boolean {
   return typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
 
-/** Comportamiento de scroll para window.scrollTo: suave salvo con reduced motion. */
+/** Scroll behavior for window.scrollTo: smooth unless reduced motion is on. */
 export function scrollBehavior(): ScrollBehavior {
   return prefersReducedMotion() ? "auto" : "smooth";
 }

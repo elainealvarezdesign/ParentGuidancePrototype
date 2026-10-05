@@ -1,23 +1,23 @@
 /*
  * Parent Guidance — design tokens
- * Extraídos del prototipo PG-Live (src/app). Ver docs/guidelines/ para el uso de cada token.
- * Se importa en src/styles/index.css. Clases de Tailwind: bg-pg-navy, text-pg-slate, rounded-pg-md,
+ * Extracted from the PG-Live prototype (src/app). See docs/guidelines/ for how each token is used.
+ * Imported in src/styles/index.css. Tailwind classes: bg-pg-navy, text-pg-slate, rounded-pg-md,
  * shadow-pg-card, max-w-pg-page, duration-(--pg-dur-base)…
  */
 
 :root {
-  /* ---------- Marca ---------- */
+  /* ---------- Brand ---------- */
   --pg-navy: #1c3243;
   --pg-navy-hover: #284054;
   --pg-slate: #435766;
   --pg-teal: #59797d;
   --pg-teal-dark: #406064;
   --pg-sage: #90b3b6;
-  --pg-mist: #acbcbe; /* solo decorativo, nunca texto */
-  --pg-amber: #c8893a; /* acento de lecciones; solo relleno decorativo, nunca texto */
-  --pg-live: #52bd95;  /* punto "en vivo"; solo decorativo */
+  --pg-mist: #acbcbe; /* decorative only, never text */
+  --pg-amber: #c8893a; /* lesson accent; decorative fill only, never text */
+  --pg-live: #52bd95;  /* "live" dot; decorative only */
 
-  /* ---------- Superficies y bordes ---------- */
+  /* ---------- Surfaces and borders ---------- */
   --pg-cream: #f9f4f1;
   --pg-cream-dark: #f0edeb;
   --pg-white: #ffffff;
@@ -25,7 +25,7 @@
   --pg-tint-soft: #f0f6f6;
   --pg-line: #dee8e9;
 
-  /* ---------- Estados (en uso en badges y avisos; validar en Figma) ---------- */
+  /* ---------- Status (used in badges and notices; match Figma's Contrast/Soft) ---------- */
   --pg-success: #117a3a;
   --pg-success-soft: #d3f7df;
   --pg-warning: #a84b02;
@@ -33,15 +33,15 @@
   --pg-error: #932f2f;
   --pg-error-soft: #fdcfcf;
 
-  /* ---------- Tipografía ---------- */
+  /* ---------- Typography ---------- */
   --pg-font: 'Poppins', system-ui, sans-serif;
 
-  /* ---------- Sombras (teñidas de navy) ---------- */
+  /* ---------- Shadows (navy-tinted) ---------- */
   --pg-shadow-card: 0 8px 24px rgba(28, 50, 67, 0.06);
   --pg-shadow-card-hover: 0 8px 24px rgba(28, 50, 67, 0.14);
   --pg-shadow-overlay: 0 24px 60px rgba(28, 50, 67, 0.28);
 
-  /* ---------- Movimiento ---------- */
+  /* ---------- Motion ---------- */
   --pg-ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --pg-ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
   --pg-dur-micro: 150ms;
@@ -49,8 +49,8 @@
   --pg-dur-base: 350ms;
   --pg-dur-reveal: 550ms;
 
-  /* ---------- Tema shadcn → paleta PG ----------
-     Así los componentes de src/app/components/ui heredan la marca. */
+  /* ---------- shadcn theme → PG palette ----------
+     So the components in src/app/components/ui inherit the brand. */
   --background: var(--pg-cream);
   --foreground: var(--pg-navy);
   --card: var(--pg-white);
@@ -72,7 +72,7 @@
   --ring: var(--pg-teal-dark);
 }
 
-/* Clases de Tailwind v4: bg-pg-navy, text-pg-slate, border-pg-line, rounded-pg-md, shadow-pg-card, max-w-pg-page… */
+/* Tailwind v4 classes: bg-pg-navy, text-pg-slate, border-pg-line, rounded-pg-md, shadow-pg-card, max-w-pg-page… */
 @theme inline {
   --color-pg-navy: var(--pg-navy);
   --color-pg-navy-hover: var(--pg-navy-hover);

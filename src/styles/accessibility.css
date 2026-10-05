@@ -1,12 +1,12 @@
 /*
- * Accesibilidad global — ver docs/guidelines/02-buttons.md y 04-motion.md
+ * Global accessibility — see docs/guidelines/02-buttons.md and 04-motion.md
  *
- * Este archivo no usa @layer a propósito: así tiene prioridad sobre utilidades
- * como `outline-none` o `focus:ring-*` que ya existen en los componentes.
+ * This file deliberately avoids @layer so it takes priority over utilities
+ * such as `outline-none` or `focus:ring-*` already present in components.
  */
 
-/* Foco visible: anillo teal dark (#406064) con halo blanco por dentro y por fuera,
-   para que se vea igual sobre fondos claros (crema, blanco) y oscuros (navy). */
+/* Visible focus: teal dark ring (#406064) with a white halo inside and out,
+   so it reads the same on light (cream, white) and dark (navy) backgrounds. */
 :where(
   a[href],
   button,
@@ -26,9 +26,9 @@
   box-shadow: 0 0 0 6px #ffffff;
 }
 
-/* Reduced motion: quien lo pide en su sistema ve la interfaz en su estado final,
-   sin desplazamientos ni animaciones decorativas. Las animaciones de `motion`
-   se controlan con <MotionConfig reducedMotion="user"> en App.tsx. */
+/* Reduced motion: people who ask for it in their system see the UI in its final state,
+   with no movement or decorative animation. `motion` animations are controlled
+   with <MotionConfig reducedMotion="user"> in App.tsx. */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
