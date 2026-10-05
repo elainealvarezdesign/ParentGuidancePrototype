@@ -12,6 +12,7 @@ Parent Guidance — Handoff/
 │     └── Prototype — links and deployment      ← 01-prototype.md
 ├── 02 — Design System/
 │     ├── Design System — using the library     ← 02-design-system.md
+│     ├── DESIGN.md  ← copy of /DESIGN.md (raw .md file)
 │     └── Variables/ ← docs/tokens/parent-guidance.tokens.json
 ├── 03 — Design Guidelines/
 │     ├── English/   ← PDFs from docs/guidelines/pdf/
