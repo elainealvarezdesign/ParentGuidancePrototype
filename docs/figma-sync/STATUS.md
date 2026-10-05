@@ -56,6 +56,10 @@ in the showcase) and placed in the Home partners strip at Desktop, Tablet and Mo
 **Publishing (October 5):** removed an unused instance-swap property from `Chevron_down` (Icon Library page)
 that blocked it as an invalid asset; the library was published with all 402 assets.
 
+**Token linking (October 5):** every color variable outside *Primitive Colors* now points to a primitive
+(21 semantic colors and 5 content-type colors had raw hex values; 21 primitives were added to cover them).
+Typography sizes and line heights and the Full radius now alias the unit scale.
+
 ## Pending
 
 Nothing in the library. Library updates are published from Figma (Assets → Libraries → Publish).
