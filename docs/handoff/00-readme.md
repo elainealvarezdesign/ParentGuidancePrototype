@@ -25,9 +25,9 @@ parent coaching, on-demand courses, Ask a Therapist and crisis help.
 | Folder | Contents |
 |---|---|
 | 01 — Prototype | Links, how it is deployed and how to run it locally |
-| 02 — Design System | How to use the Figma library and the design tokens JSON (`parent-guidance.tokens.json`) |
+| 02 — Design System | How to use the Figma library and the design tokens |
 | 03 — Design Guidelines | Guideline PDFs in English and Spanish |
-| 04 — Assets | Partner logos used in the prototype |
+| 04 — Assets | Partner logos and, in `Variables`, the design tokens JSON (`parent-guidance.tokens.json`) |
 | 05 — Open Items and Decisions | Open topics and who decides each one |
 
 ## Contact

@@ -16,7 +16,8 @@ Parent Guidance — Handoff/
 │     ├── English/   ← PDFs from docs/guidelines/pdf/
 │     └── Spanish/   ← PDFs from docs/guidelines/pdf/es/
 ├── 04 — Assets/
-│     └── Logos/     ← partner logos from src/imports/ and src/imports/get-help-logos/
+│     ├── Logos/     ← partner logos from src/imports/ and src/imports/get-help-logos/
+│     └── Variables/ ← docs/tokens/parent-guidance.tokens.json
 └── 05 — Open Items and Decisions/
       └── Open items                            ← 05-open-items.md
 ```
