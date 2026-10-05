@@ -22,8 +22,8 @@ Guidelines for the **PG-Live** prototype (parentguidance.org), written from the 
 | 5 | [Quality standards](./05-quality.md) | Accessibility, visual consistency, Figma and open items |
 
 **PDF version:** [`docs/guidelines/pdf/`](./pdf/) has one PDF per guide plus one with all of them
-(`Parent-Guidance-Design-Guidelines-complete.pdf`). They are generated from these `.md` files; when a guide
-changes, they need to be generated again.
+(`Parent-Guidance-Design-Guidelines-complete.pdf`). They are generated from these `.md` files with
+[`tools/build-pdf.mjs`](./tools/build-pdf.mjs); when a guide changes, they need to be generated again.
 
 **Spanish version:** the same guidelines in Spanish live in [`docs/guidelines/es/`](./es/README.md), with their
 PDFs in `docs/guidelines/pdf/es/`.

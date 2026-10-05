@@ -22,8 +22,8 @@ Guías del prototipo **PG-Live** (parentguidance.org), escritas a partir del **c
 | 5 | [Estándares de calidad](./05-calidad.md) | Accesibilidad, consistencia visual, Figma y temas abiertos |
 
 **Versión PDF:** en [`docs/guidelines/pdf/es/`](../pdf/es/) hay un PDF por guía y uno con todas juntas
-(`Parent-Guidance-Guias-de-diseno-completas.pdf`). Se generan a partir de estos archivos `.md`; si una guía
-cambia, hay que volver a generarlos.
+(`Parent-Guidance-Guias-de-diseno-completas.pdf`). Se generan a partir de estos archivos `.md` con
+[`tools/build-pdf.mjs`](../tools/build-pdf.mjs); si una guía cambia, hay que volver a generarlos.
 
 **Versión en inglés (principal):** las mismas guías en inglés están en [`docs/guidelines/`](../README.md), con
 sus PDF en `docs/guidelines/pdf/`.
