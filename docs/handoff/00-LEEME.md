@@ -31,4 +31,4 @@ coaching para padres, cursos on-demand, Ask a Therapist y ayuda en crisis.
 
 ## Contacto
 
-- Diseño: Elaine Alvarez
+- Diseño: _(agregar nombre y correo)_
