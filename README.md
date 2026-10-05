@@ -6,7 +6,7 @@ Figma Make export.
 
 ## Links
 
-- **Live prototype:** published on Netlify from the `main` branch. Every push to `main` deploys automatically
+- **Live prototype:** <https://parent-guidance-prototype.netlify.app/> (Netlify, deployed from the `main` branch). Every push to `main` deploys automatically
   (build settings live in [`netlify.toml`](./netlify.toml)).
 - **Figma design system:** [Design system - PG](https://www.figma.com/design/mWOJYdAxkKGj0bWSO2ptGj/Design-system---PG)
 - **Original Figma Make file:** [PG-Live Prototype](https://www.figma.com/design/NjTL1IfpXPXpbLuBTHi1R8/PG-Live-Prototype)
