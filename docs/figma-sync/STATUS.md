@@ -60,6 +60,10 @@ that blocked it as an invalid asset; the library was published with all 402 asse
 (21 semantic colors and 5 content-type colors had raw hex values; 21 primitives were added to cover them).
 Typography sizes and line heights and the Full radius now alias the unit scale.
 
+**Variables aligned with the code (October 5):** motion durations and curves, button/control sizes and the
+largest radius now match `tokens.css`; the Typography collection adds the code type scale (*Code Scale*).
+All variables are exported as W3C design tokens in [`docs/tokens/`](../tokens/README.md).
+
 ## Pending
 
 Nothing in the library. Library updates are published from Figma (Assets → Libraries → Publish).

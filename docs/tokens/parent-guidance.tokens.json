@@ -1,0 +1,2144 @@
+{
+  "Primitive Colors": {
+    "Brand Color": {
+      "Navy": {
+        "Navy Base": {
+          "$type": "color",
+          "$value": "#1c3243"
+        },
+        "Navy Hover": {
+          "$type": "color",
+          "$value": "#284054"
+        },
+        "Navy 10": {
+          "$type": "color",
+          "$value": "#d2d6d9"
+        },
+        "Navy 20": {
+          "$type": "color",
+          "$value": "#a4adb4"
+        },
+        "Navy 30": {
+          "$type": "color",
+          "$value": "#77848e"
+        },
+        "Navy 40": {
+          "$type": "color",
+          "$value": "#495b69"
+        },
+        "Navy 50": {
+          "$type": "color",
+          "$value": "#1c3243"
+        },
+        "Navy 60": {
+          "$type": "color",
+          "$value": "#192d3c"
+        },
+        "Navy 70": {
+          "$type": "color",
+          "$value": "#152633"
+        },
+        "Navy 80": {
+          "$type": "color",
+          "$value": "#121f2a"
+        },
+        "Navy 90": {
+          "$type": "color",
+          "$value": "#0e1922"
+        },
+        "Navy 100": {
+          "$type": "color",
+          "$value": "#0b1319"
+        },
+        "Navy 100 Alpha 6": {
+          "$type": "color",
+          "$value": "#0b13190f"
+        },
+        "Navy 100 Alpha 14": {
+          "$type": "color",
+          "$value": "#0b131924"
+        }
+      },
+      "Slate": {
+        "Slate Base": {
+          "$type": "color",
+          "$value": "#435766"
+        },
+        "Slate Light": {
+          "$type": "color",
+          "$value": "#5b6b75"
+        },
+        "Slate Muted": {
+          "$type": "color",
+          "$value": "#6e7f89"
+        }
+      },
+      "Teal": {
+        "Teal Base": {
+          "$type": "color",
+          "$value": "#59797d"
+        },
+        "Teal 10": {
+          "$type": "color",
+          "$value": "#90b3b6"
+        },
+        "Teal 20": {
+          "$type": "color",
+          "$value": "#77999c"
+        },
+        "Teal 30": {
+          "$type": "color",
+          "$value": "#5d8083"
+        },
+        "Teal 40": {
+          "$type": "color",
+          "$value": "#44676a"
+        },
+        "Teal 50": {
+          "$type": "color",
+          "$value": "#2a4d50"
+        },
+        "Teal 60": {
+          "$type": "color",
+          "$value": "#113437"
+        },
+        "Teal 70": {
+          "$type": "color",
+          "$value": "#012b30"
+        },
+        "Teal 80": {
+          "$type": "color",
+          "$value": "#04181a"
+        },
+        "Teal 90": {
+          "$type": "color",
+          "$value": "#142f33"
+        },
+        "Teal 100": {
+          "$type": "color",
+          "$value": "#000104"
+        },
+        "Tint": {
+          "$type": "color",
+          "$value": "#eaf1f1"
+        },
+        "Tint Soft": {
+          "$type": "color",
+          "$value": "#f0f6f6"
+        },
+        "Tint Faint": {
+          "$type": "color",
+          "$value": "#edf5f5"
+        },
+        "Line": {
+          "$type": "color",
+          "$value": "#dee8e9"
+        }
+      },
+      "Sage": {
+        "Sage Base": {
+          "$type": "color",
+          "$value": "#90b3b6"
+        },
+        "Sage 10": {
+          "$type": "color",
+          "$value": "#dee4e5"
+        },
+        "Sage 20": {
+          "$type": "color",
+          "$value": "#cdd7d8"
+        },
+        "Sage 30": {
+          "$type": "color",
+          "$value": "#acbcbe"
+        },
+        "Sage 40": {
+          "$type": "color",
+          "$value": "#9bafb1"
+        },
+        "Sage 50": {
+          "$type": "color",
+          "$value": "#8ba1a4"
+        },
+        "Sage 60": {
+          "$type": "color",
+          "$value": "#7a9497"
+        },
+        "Sage 70": {
+          "$type": "color",
+          "$value": "#59797d"
+        },
+        "Sage 80": {
+          "$type": "color",
+          "$value": "#406064"
+        },
+        "Sage 90": {
+          "$type": "color",
+          "$value": "#26464a"
+        },
+        "Sage 100": {
+          "$type": "color",
+          "$value": "#0d2d31"
+        }
+      },
+      "Cream": {
+        "Cream Base": {
+          "$type": "color",
+          "$value": "#f9f4f1"
+        },
+        "Cream Dark": {
+          "$type": "color",
+          "$value": "#f0edeb"
+        },
+        "Cream Muted": {
+          "$type": "color",
+          "$value": "#f3ece8"
+        },
+        "Cream 10": {
+          "$type": "color",
+          "$value": "#fefdfc"
+        },
+        "Cream 20": {
+          "$type": "color",
+          "$value": "#fdfbf9"
+        },
+        "Cream 30": {
+          "$type": "color",
+          "$value": "#fbf8f7"
+        },
+        "Cream 40": {
+          "$type": "color",
+          "$value": "#faf6f4"
+        },
+        "Cream 50": {
+          "$type": "color",
+          "$value": "#f9f4f1"
+        },
+        "Cream 60": {
+          "$type": "color",
+          "$value": "#e0dcd9"
+        },
+        "Cream 70": {
+          "$type": "color",
+          "$value": "#bbb7b5"
+        },
+        "Cream 80": {
+          "$type": "color",
+          "$value": "#959291"
+        },
+        "Cream 90": {
+          "$type": "color",
+          "$value": "#706e6c"
+        },
+        "Cream 100": {
+          "$type": "color",
+          "$value": "#4b4948"
+        }
+      },
+      "Peach": {
+        "Peach Base": {
+          "$type": "color",
+          "$value": "#e8a497"
+        },
+        "Peach 10": {
+          "$type": "color",
+          "$value": "#f3d1cb"
+        },
+        "Peach 20": {
+          "$type": "color",
+          "$value": "#f1c8c1"
+        },
+        "Peach 30": {
+          "$type": "color",
+          "$value": "#efbfb6"
+        },
+        "Peach 40": {
+          "$type": "color",
+          "$value": "#edb6ac"
+        },
+        "Peach 50": {
+          "$type": "color",
+          "$value": "#e8a497"
+        },
+        "Peach 60": {
+          "$type": "color",
+          "$value": "#ce8a7e"
+        },
+        "Peach 70": {
+          "$type": "color",
+          "$value": "#b57164"
+        },
+        "Peach 80": {
+          "$type": "color",
+          "$value": "#9b584b"
+        },
+        "Peach 90": {
+          "$type": "color",
+          "$value": "#823e31"
+        },
+        "Peach 100": {
+          "$type": "color",
+          "$value": "#692518"
+        }
+      },
+      "Coral": {
+        "Coral Base": {
+          "$type": "color",
+          "$value": "#d66f61"
+        },
+        "Coral Hover": {
+          "$type": "color",
+          "$value": "#bd594d"
+        },
+        "Coral Active": {
+          "$type": "color",
+          "$value": "#963f37"
+        },
+        "Coral Light": {
+          "$type": "color",
+          "$value": "#f4d7d1"
+        }
+      },
+      "Amber": {
+        "Amber Base": {
+          "$type": "color",
+          "$value": "#c8893a"
+        }
+      },
+      "Green": {
+        "Live": {
+          "$type": "color",
+          "$value": "#52bd95"
+        }
+      },
+      "Purple": {
+        "Purple Base": {
+          "$type": "color",
+          "$value": "#6d5fc7"
+        },
+        "Purple Light": {
+          "$type": "color",
+          "$value": "#eae8fa"
+        },
+        "Purple Dark": {
+          "$type": "color",
+          "$value": "#4d43a0"
+        }
+      },
+      "Yellow": {
+        "Yellow Base": {
+          "$type": "color",
+          "$value": "#ad8a37"
+        },
+        "Yellow Light": {
+          "$type": "color",
+          "$value": "#fbeed3"
+        },
+        "Yellow Mid": {
+          "$type": "color",
+          "$value": "#9a7a2a"
+        },
+        "Yellow Dark": {
+          "$type": "color",
+          "$value": "#7a5c14"
+        }
+      }
+    },
+    "Neutral Base": {
+      "White": {
+        "$type": "color",
+        "$value": "#ffffff"
+      }
+    },
+    "Semantic Colors": {
+      "Success": {
+        "Success 10": {
+          "$type": "color",
+          "$value": "#d3f7df"
+        },
+        "Success 20": {
+          "$type": "color",
+          "$value": "#98e5b4"
+        },
+        "Success 30": {
+          "$type": "color",
+          "$value": "#5dd489"
+        },
+        "Success 40": {
+          "$type": "color",
+          "$value": "#22c160"
+        },
+        "Success 50": {
+          "$type": "color",
+          "$value": "#11ddaa"
+        },
+        "Success 60": {
+          "$type": "color",
+          "$value": "#19934a"
+        },
+        "Success 70": {
+          "$type": "color",
+          "$value": "#14813f"
+        },
+        "Success 80": {
+          "$type": "color",
+          "$value": "#0f6832"
+        },
+        "Success 90": {
+          "$type": "color",
+          "$value": "#0a4f25"
+        },
+        "Success 100": {
+          "$type": "color",
+          "$value": "#053618"
+        },
+        "Success Contrast": {
+          "$type": "color",
+          "$value": "#117a3a"
+        }
+      },
+      "Warning": {
+        "Warning 10": {
+          "$type": "color",
+          "$value": "#feeab1"
+        },
+        "Warning 20": {
+          "$type": "color",
+          "$value": "#fdd077"
+        },
+        "Warning 30": {
+          "$type": "color",
+          "$value": "#fcb73d"
+        },
+        "Warning 40": {
+          "$type": "color",
+          "$value": "#fb9d03"
+        },
+        "Warning 50": {
+          "$type": "color",
+          "$value": "#e78503"
+        },
+        "Warning 60": {
+          "$type": "color",
+          "$value": "#d46d02"
+        },
+        "Warning 70": {
+          "$type": "color",
+          "$value": "#c05502"
+        },
+        "Warning 80": {
+          "$type": "color",
+          "$value": "#9f4602"
+        },
+        "Warning 90": {
+          "$type": "color",
+          "$value": "#7e3701"
+        },
+        "Warning 100": {
+          "$type": "color",
+          "$value": "#5d2801"
+        },
+        "Warning Contrast": {
+          "$type": "color",
+          "$value": "#a84b02"
+        },
+        "Warning Contrast Hover": {
+          "$type": "color",
+          "$value": "#8f3f01"
+        }
+      },
+      "Error": {
+        "Error 10": {
+          "$type": "color",
+          "$value": "#fdcfcf"
+        },
+        "Error 20": {
+          "$type": "color",
+          "$value": "#fc9c9a"
+        },
+        "Error 30": {
+          "$type": "color",
+          "$value": "#fb6964"
+        },
+        "Error 40": {
+          "$type": "color",
+          "$value": "#fa372f"
+        },
+        "Error 50": {
+          "$type": "color",
+          "$value": "#d82f2f"
+        },
+        "Error 60": {
+          "$type": "color",
+          "$value": "#b6272f"
+        },
+        "Error 70": {
+          "$type": "color",
+          "$value": "#932f2f"
+        },
+        "Error 80": {
+          "$type": "color",
+          "$value": "#7d2121"
+        },
+        "Error 90": {
+          "$type": "color",
+          "$value": "#671313"
+        },
+        "Error 100": {
+          "$type": "color",
+          "$value": "#500504"
+        }
+      },
+      "Information": {
+        "Information 10": {
+          "$type": "color",
+          "$value": "#cde3fd"
+        },
+        "Information 20": {
+          "$type": "color",
+          "$value": "#97bff9"
+        },
+        "Information 30": {
+          "$type": "color",
+          "$value": "#619cf6"
+        },
+        "Information 40": {
+          "$type": "color",
+          "$value": "#2b78f2"
+        },
+        "Information 50": {
+          "$type": "color",
+          "$value": "#1d63dc"
+        },
+        "Information 60": {
+          "$type": "color",
+          "$value": "#104fc5"
+        },
+        "Information 70": {
+          "$type": "color",
+          "$value": "#023aaf"
+        },
+        "Information 80": {
+          "$type": "color",
+          "$value": "#052e85"
+        },
+        "Information 90": {
+          "$type": "color",
+          "$value": "#08235a"
+        },
+        "Information 100": {
+          "$type": "color",
+          "$value": "#0b1730"
+        }
+      },
+      "Neutral": {
+        "Neutral 5": {
+          "$type": "color",
+          "$value": "#f7f8f8"
+        },
+        "Neutral 10": {
+          "$type": "color",
+          "$value": "#f8fafa"
+        },
+        "Neutral 15": {
+          "$type": "color",
+          "$value": "#eef1f1"
+        },
+        "Neutral 20": {
+          "$type": "color",
+          "$value": "#f0f3f3"
+        },
+        "Neutral 30": {
+          "$type": "color",
+          "$value": "#e2e7e8"
+        },
+        "Neutral 40": {
+          "$type": "color",
+          "$value": "#c9d0d2"
+        },
+        "Neutral 50": {
+          "$type": "color",
+          "$value": "#a5b0b6"
+        },
+        "Neutral 60": {
+          "$type": "color",
+          "$value": "#7f8d93"
+        },
+        "Neutral 70": {
+          "$type": "color",
+          "$value": "#627279"
+        },
+        "Neutral 80": {
+          "$type": "color",
+          "$value": "#43545c"
+        },
+        "Neutral 90": {
+          "$type": "color",
+          "$value": "#293a41"
+        },
+        "Neutral 100": {
+          "$type": "color",
+          "$value": "#18272d"
+        }
+      }
+    }
+  },
+  "Primitive: Unit Scale": {
+    "0": {
+      "$type": "dimension",
+      "$value": "0px"
+    },
+    "2": {
+      "$type": "dimension",
+      "$value": "2px"
+    },
+    "4": {
+      "$type": "dimension",
+      "$value": "4px"
+    },
+    "8": {
+      "$type": "dimension",
+      "$value": "8px"
+    },
+    "11": {
+      "$type": "dimension",
+      "$value": "11px"
+    },
+    "12": {
+      "$type": "dimension",
+      "$value": "12px"
+    },
+    "14": {
+      "$type": "dimension",
+      "$value": "14px"
+    },
+    "16": {
+      "$type": "dimension",
+      "$value": "16px"
+    },
+    "20": {
+      "$type": "dimension",
+      "$value": "20px"
+    },
+    "24": {
+      "$type": "dimension",
+      "$value": "24px"
+    },
+    "28": {
+      "$type": "dimension",
+      "$value": "28px"
+    },
+    "32": {
+      "$type": "dimension",
+      "$value": "32px"
+    },
+    "36": {
+      "$type": "dimension",
+      "$value": "36px"
+    },
+    "38": {
+      "$type": "dimension",
+      "$value": "38px"
+    },
+    "40": {
+      "$type": "dimension",
+      "$value": "40px"
+    },
+    "44": {
+      "$type": "dimension",
+      "$value": "44px"
+    },
+    "46": {
+      "$type": "dimension",
+      "$value": "46px"
+    },
+    "48": {
+      "$type": "dimension",
+      "$value": "48px"
+    },
+    "50": {
+      "$type": "dimension",
+      "$value": "50px"
+    },
+    "52": {
+      "$type": "dimension",
+      "$value": "52px"
+    },
+    "56": {
+      "$type": "dimension",
+      "$value": "56px"
+    },
+    "58": {
+      "$type": "dimension",
+      "$value": "58px"
+    },
+    "64": {
+      "$type": "dimension",
+      "$value": "64px"
+    },
+    "9999": {
+      "$type": "dimension",
+      "$value": "9999px"
+    }
+  },
+  "Semantic Colors": {
+    "Accent Colors": {
+      "Primary Contrast": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Teal.Teal Base}"
+      },
+      "Primary Hover": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Sage.Sage 80}"
+      },
+      "Primary Pressed": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Sage.Sage 90}"
+      },
+      "Primary Active": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Teal.Teal 60}"
+      },
+      "Secondary Contrast": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Teal.Teal Base}"
+      },
+      "Tertiary Contrast": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Sage.Sage Base}"
+      },
+      "Accent Strong": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Coral.Coral Base}"
+      },
+      "Accent Hover": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Coral.Coral Hover}"
+      },
+      "Accent Active": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Coral.Coral Active}"
+      },
+      "Accent Soft": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Peach.Peach Base}"
+      },
+      "Accent Subtle": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Coral.Coral Light}"
+      },
+      "On Brand": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Neutral Base.White}"
+      },
+      "Live": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Green.Live}"
+      }
+    },
+    "Background Colors": {
+      "Background Canvas": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Cream.Cream Base}"
+      },
+      "Surface Primary": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Neutral Base.White}"
+      },
+      "Surface Secondary": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Cream.Cream Muted}"
+      },
+      "Surface Neutral": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Semantic Colors.Neutral.Neutral 5}"
+      },
+      "Surface Accent": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Teal.Tint Faint}"
+      },
+      "Surface Elevated": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Neutral Base.White}"
+      },
+      "Surface Inverse": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Navy.Navy Base}"
+      },
+      "Surface Disabled": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Semantic Colors.Neutral.Neutral 15}"
+      },
+      "Surface Tertiary": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Teal.Line}"
+      }
+    },
+    "Text Colors": {
+      "Primary Text": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Navy.Navy Base}"
+      },
+      "Secondary Text": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Slate.Slate Base}"
+      },
+      "Tertiary Text": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Slate.Slate Light}"
+      },
+      "Brand": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Sage.Sage 80}"
+      },
+      "Disabled": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Semantic Colors.Neutral.Neutral 50}"
+      },
+      "On Dark Backgrounds": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Neutral Base.White}"
+      },
+      "Text on Accents": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Semantic Colors.Neutral.Neutral 90}"
+      },
+      "Text Color Pressed": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Navy.Navy 70}"
+      }
+    },
+    "Success Colors": {
+      "Contrast": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Semantic Colors.Success.Success Contrast}"
+      },
+      "Hover": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Semantic Colors.Success.Success 80}"
+      },
+      "Pressed": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Semantic Colors.Success.Success 90}"
+      },
+      "Active": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Semantic Colors.Success.Success 100}"
+      },
+      "Soft": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Semantic Colors.Success.Success 10}"
+      },
+      "On Success": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Neutral Base.White}"
+      }
+    },
+    "Warning Colors": {
+      "Contrast": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Semantic Colors.Warning.Warning Contrast}"
+      },
+      "Hover": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Semantic Colors.Warning.Warning Contrast Hover}"
+      },
+      "Pressed": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Semantic Colors.Warning.Warning 90}"
+      },
+      "Active": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Semantic Colors.Warning.Warning 100}"
+      },
+      "Soft": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Semantic Colors.Warning.Warning 10}"
+      },
+      "On Warning": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Neutral Base.White}"
+      }
+    },
+    "Error Colors": {
+      "Contrast": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Semantic Colors.Error.Error 70}"
+      },
+      "Hover": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Semantic Colors.Error.Error 80}"
+      },
+      "Pressed": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Semantic Colors.Error.Error 90}"
+      },
+      "Active": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Semantic Colors.Error.Error 100}"
+      },
+      "Soft": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Semantic Colors.Error.Error 10}"
+      },
+      "On Error": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Neutral Base.White}"
+      }
+    },
+    "Shadow Colors": {
+      "Ambient": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Navy.Navy 100 Alpha 6}"
+      },
+      "Key": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Navy.Navy 100 Alpha 14}"
+      }
+    },
+    "Icon Colors": {
+      "Default": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Slate.Slate Base}"
+      },
+      "Strong": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Navy.Navy Base}"
+      },
+      "Muted": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Slate.Slate Muted}"
+      },
+      "Disabled": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Semantic Colors.Neutral.Neutral 50}"
+      },
+      "On Dark": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Neutral Base.White}"
+      },
+      "Brand": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Teal.Teal Base}"
+      },
+      "Success": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Semantic Colors.Success.Success Contrast}"
+      },
+      "Warning": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Semantic Colors.Warning.Warning Contrast}"
+      },
+      "Error": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Semantic Colors.Error.Error 70}"
+      }
+    }
+  },
+  "Semantic: Color Roles": {
+    "Background": {
+      "Page": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Background Colors.Background Canvas}"
+      },
+      "Surface": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Background Colors.Surface Primary}"
+      },
+      "Raised": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Background Colors.Surface Elevated}"
+      },
+      "Subtle": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Background Colors.Surface Secondary}"
+      },
+      "Muted": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Background Colors.Surface Neutral}"
+      },
+      "Tinted": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Background Colors.Surface Accent}"
+      },
+      "Tint": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Teal.Tint}"
+      },
+      "Tint Soft": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Teal.Tint Soft}"
+      },
+      "Chip": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Cream.Cream Dark}"
+      },
+      "Inverse": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Background Colors.Surface Inverse}"
+      },
+      "Inverse Hover": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Navy.Navy Hover}"
+      },
+      "Brand": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Accent Colors.Primary Contrast}"
+      },
+      "Brand Hover": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Accent Colors.Primary Hover}"
+      },
+      "Brand Pressed": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Accent Colors.Primary Pressed}"
+      },
+      "Brand Active": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Accent Colors.Primary Active}"
+      },
+      "Brand Light": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Accent Colors.Tertiary Contrast}"
+      },
+      "Brand Secondary": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Accent Colors.Secondary Contrast}"
+      },
+      "Accent": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Accent Colors.Accent Strong}"
+      },
+      "Accent Hover": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Accent Colors.Accent Hover}"
+      },
+      "Accent Pressed": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Accent Colors.Accent Active}"
+      },
+      "Accent Soft": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Accent Colors.Accent Soft}"
+      },
+      "Accent Subtle": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Accent Colors.Accent Subtle}"
+      },
+      "Positive": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Success Colors.Contrast}"
+      },
+      "Positive Hover": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Success Colors.Hover}"
+      },
+      "Positive Pressed": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Success Colors.Pressed}"
+      },
+      "Positive Active": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Success Colors.Active}"
+      },
+      "Positive Subtle": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Success Colors.Soft}"
+      },
+      "Warning": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Warning Colors.Contrast}"
+      },
+      "Warning Hover": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Warning Colors.Hover}"
+      },
+      "Warning Pressed": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Warning Colors.Pressed}"
+      },
+      "Warning Active": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Warning Colors.Active}"
+      },
+      "Warning Subtle": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Warning Colors.Soft}"
+      },
+      "Negative": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Error Colors.Contrast}"
+      },
+      "Negative Hover": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Error Colors.Hover}"
+      },
+      "Negative Pressed": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Error Colors.Pressed}"
+      },
+      "Negative Active": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Error Colors.Active}"
+      },
+      "Negative Subtle": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Error Colors.Soft}"
+      },
+      "Disabled": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Background Colors.Surface Disabled}"
+      },
+      "Track": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Background Colors.Surface Tertiary}"
+      },
+      "Scrim": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Shadow Colors.Ambient}"
+      }
+    },
+    "On Background": {
+      "Brand": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Accent Colors.On Brand}"
+      },
+      "Inverse": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Text Colors.On Dark Backgrounds}"
+      },
+      "Brand Light": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Text Colors.Primary Text}"
+      },
+      "Subtle": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Text Colors.Primary Text}"
+      },
+      "Accent": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Text Colors.Text on Accents}"
+      },
+      "Positive": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Success Colors.On Success}"
+      },
+      "Warning": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Warning Colors.On Warning}"
+      },
+      "Negative": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Error Colors.On Error}"
+      },
+      "Disabled": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Text Colors.Disabled}"
+      }
+    },
+    "Foreground": {
+      "Primary": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Text Colors.Primary Text}"
+      },
+      "Secondary": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Text Colors.Secondary Text}"
+      },
+      "Tertiary": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Text Colors.Tertiary Text}"
+      },
+      "Brand": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Text Colors.Brand}"
+      },
+      "Disabled": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Text Colors.Disabled}"
+      },
+      "Inverse": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Text Colors.On Dark Backgrounds}"
+      },
+      "Positive": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Success Colors.Contrast}"
+      },
+      "Warning": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Warning Colors.Contrast}"
+      },
+      "Negative": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Error Colors.Contrast}"
+      },
+      "Icon": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Icon Colors.Default}"
+      },
+      "Icon Strong": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Icon Colors.Strong}"
+      },
+      "Icon Muted": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Icon Colors.Muted}"
+      },
+      "Icon Brand": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Icon Colors.Brand}"
+      },
+      "Icon Inverse": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Icon Colors.On Dark}"
+      }
+    },
+    "Border": {
+      "Default": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Background Colors.Surface Tertiary}"
+      },
+      "Subtle": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Background Colors.Surface Secondary}"
+      },
+      "Divider": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Background Colors.Surface Tertiary}"
+      },
+      "Faint": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Background Colors.Surface Disabled}"
+      },
+      "Strong": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Text Colors.Secondary Text}"
+      },
+      "Control": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Text Colors.Tertiary Text}"
+      },
+      "On Media": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Background Colors.Surface Primary}"
+      },
+      "Brand": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Accent Colors.Primary Contrast}"
+      },
+      "Brand Hover": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Accent Colors.Primary Hover}"
+      },
+      "Brand Pressed": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Accent Colors.Primary Pressed}"
+      },
+      "Brand Active": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Accent Colors.Primary Active}"
+      },
+      "Positive": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Success Colors.Contrast}"
+      },
+      "Positive Hover": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Success Colors.Hover}"
+      },
+      "Positive Pressed": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Success Colors.Pressed}"
+      },
+      "Positive Active": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Success Colors.Active}"
+      },
+      "Warning": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Warning Colors.Contrast}"
+      },
+      "Warning Hover": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Warning Colors.Hover}"
+      },
+      "Warning Pressed": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Warning Colors.Pressed}"
+      },
+      "Warning Active": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Warning Colors.Active}"
+      },
+      "Negative": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Error Colors.Contrast}"
+      },
+      "Negative Hover": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Error Colors.Hover}"
+      },
+      "Negative Pressed": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Error Colors.Pressed}"
+      },
+      "Negative Active": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Error Colors.Active}"
+      },
+      "Disabled": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Text Colors.Disabled}"
+      },
+      "Inverse": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Text Colors.On Dark Backgrounds}"
+      }
+    },
+    "Link": {
+      "Default": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Text Colors.Brand}"
+      },
+      "Hover": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Accent Colors.Primary Pressed}"
+      },
+      "Pressed": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Accent Colors.Primary Active}"
+      },
+      "Disabled": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Text Colors.Disabled}"
+      },
+      "Inverse": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Accent Colors.Tertiary Contrast}"
+      },
+      "Inverse Hover": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Text Colors.On Dark Backgrounds}"
+      }
+    },
+    "Focus": {
+      "Ring": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Sage.Sage 80}"
+      },
+      "Inverse": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Text Colors.On Dark Backgrounds}"
+      }
+    },
+    "Accent Colors": {
+      "Amber": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Amber.Amber Base}"
+      }
+    }
+  },
+  "Semantic: Category Colors": {
+    "Child & Teen Development": {
+      "Primary": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Teal.Teal 60}"
+      },
+      "Background": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Teal.Teal 10}"
+      },
+      "Text": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Teal.Teal 90}"
+      }
+    },
+    "Behavior": {
+      "Primary": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Sage.Sage 60}"
+      },
+      "Background": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Sage.Sage 10}"
+      },
+      "Text": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Sage.Sage 90}"
+      }
+    },
+    "Emotions": {
+      "Primary": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Peach.Peach 60}"
+      },
+      "Background": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Peach.Peach 10}"
+      },
+      "Text": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Peach.Peach 90}"
+      }
+    },
+    "Screen Time": {
+      "Primary": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Navy.Navy 50}"
+      },
+      "Background": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Navy.Navy 10}"
+      },
+      "Text": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Navy.Navy 90}"
+      }
+    }
+  },
+  "Semantic: Event Type Colors": {
+    "Session": {
+      "Background": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Accent Colors.Secondary Contrast}"
+      },
+      "Text": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Accent Colors.On Brand}"
+      }
+    },
+    "Workshop": {
+      "Background": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Navy.Navy Base}"
+      },
+      "Text": {
+        "$type": "color",
+        "$value": "{Semantic Colors.Accent Colors.On Brand}"
+      }
+    }
+  },
+  "Semantic: Content Type Colors": {
+    "Video": {
+      "Background": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Semantic Colors.Success.Success 10}"
+      },
+      "Icon": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Semantic Colors.Success.Success 70}"
+      },
+      "Text": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Semantic Colors.Success.Success 80}"
+      }
+    },
+    "Article": {
+      "Background": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Semantic Colors.Neutral.Neutral 20}"
+      },
+      "Icon": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Navy.Navy Base}"
+      },
+      "Text": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Navy.Navy Base}"
+      }
+    },
+    "Guide": {
+      "Background": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Purple.Purple Light}"
+      },
+      "Icon": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Purple.Purple Base}"
+      },
+      "Text": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Purple.Purple Dark}"
+      }
+    },
+    "Worksheet": {
+      "Background": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Yellow.Yellow Light}"
+      },
+      "Icon": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Yellow.Yellow Mid}"
+      },
+      "Text": {
+        "$type": "color",
+        "$value": "{Primitive Colors.Brand Color.Yellow.Yellow Dark}"
+      }
+    }
+  },
+  "Spacing Scale": {
+    "None": {
+      "$type": "dimension",
+      "$value": "{Primitive: Unit Scale.0}"
+    },
+    "2XS": {
+      "$type": "dimension",
+      "$value": "{Primitive: Unit Scale.2}"
+    },
+    "XS": {
+      "$type": "dimension",
+      "$value": "{Primitive: Unit Scale.4}"
+    },
+    "S": {
+      "$type": "dimension",
+      "$value": "{Primitive: Unit Scale.8}"
+    },
+    "SM": {
+      "$type": "dimension",
+      "$value": "{Primitive: Unit Scale.12}"
+    },
+    "M": {
+      "$type": "dimension",
+      "$value": "{Primitive: Unit Scale.16}"
+    },
+    "ML": {
+      "$type": "dimension",
+      "$value": "{Primitive: Unit Scale.20}"
+    },
+    "L": {
+      "$type": "dimension",
+      "$value": "{Primitive: Unit Scale.24}"
+    },
+    "XL": {
+      "$type": "dimension",
+      "$value": "{Primitive: Unit Scale.32}"
+    },
+    "2XL": {
+      "$type": "dimension",
+      "$value": "{Primitive: Unit Scale.40}"
+    },
+    "3XL": {
+      "$type": "dimension",
+      "$value": "{Primitive: Unit Scale.48}"
+    },
+    "4XL": {
+      "$type": "dimension",
+      "$value": "{Primitive: Unit Scale.56}"
+    },
+    "5XL": {
+      "$type": "dimension",
+      "$value": "{Primitive: Unit Scale.64}"
+    }
+  },
+  "Corner Radius Scale": {
+    "XS": {
+      "$type": "dimension",
+      "$value": "{Primitive: Unit Scale.4}"
+    },
+    "S": {
+      "$type": "dimension",
+      "$value": "{Primitive: Unit Scale.8}"
+    },
+    "M": {
+      "$type": "dimension",
+      "$value": "{Primitive: Unit Scale.12}"
+    },
+    "L": {
+      "$type": "dimension",
+      "$value": "{Primitive: Unit Scale.16}"
+    },
+    "XL": {
+      "$type": "dimension",
+      "$value": "{Primitive: Unit Scale.28}"
+    },
+    "Full": {
+      "$type": "dimension",
+      "$value": "{Primitive: Unit Scale.9999}"
+    }
+  },
+  "Semantic: Sizing": {
+    "Icon": {
+      "XS": {
+        "$type": "dimension",
+        "$value": "{Primitive: Unit Scale.16}"
+      },
+      "S": {
+        "$type": "dimension",
+        "$value": "{Primitive: Unit Scale.20}"
+      },
+      "M": {
+        "$type": "dimension",
+        "$value": "{Primitive: Unit Scale.24}"
+      },
+      "L": {
+        "$type": "dimension",
+        "$value": "{Primitive: Unit Scale.32}"
+      },
+      "XL": {
+        "$type": "dimension",
+        "$value": "{Primitive: Unit Scale.40}"
+      }
+    },
+    "Control": {
+      "S": {
+        "$type": "dimension",
+        "$value": "{Primitive: Unit Scale.36}"
+      },
+      "M": {
+        "$type": "dimension",
+        "$value": "{Primitive: Unit Scale.44}"
+      },
+      "L": {
+        "$type": "dimension",
+        "$value": "{Primitive: Unit Scale.52}"
+      }
+    },
+    "Avatar": {
+      "XS": {
+        "$type": "dimension",
+        "$value": "{Primitive: Unit Scale.16}"
+      },
+      "S": {
+        "$type": "dimension",
+        "$value": "{Primitive: Unit Scale.24}"
+      },
+      "M": {
+        "$type": "dimension",
+        "$value": "{Primitive: Unit Scale.32}"
+      },
+      "L": {
+        "$type": "dimension",
+        "$value": "{Primitive: Unit Scale.40}"
+      },
+      "XL": {
+        "$type": "dimension",
+        "$value": "{Primitive: Unit Scale.56}"
+      }
+    },
+    "Target": {
+      "Minimum": {
+        "$type": "dimension",
+        "$value": "{Primitive: Unit Scale.24}"
+      },
+      "Dense": {
+        "$type": "dimension",
+        "$value": "{Primitive: Unit Scale.32}"
+      },
+      "Comfortable": {
+        "$type": "dimension",
+        "$value": "{Primitive: Unit Scale.44}"
+      }
+    }
+  },
+  "Breakpoints": {
+    "XS": {
+      "$type": "dimension",
+      "$value": "375px"
+    },
+    "SM": {
+      "$type": "dimension",
+      "$value": "768px"
+    },
+    "MD": {
+      "$type": "dimension",
+      "$value": "1024px"
+    },
+    "LG": {
+      "$type": "dimension",
+      "$value": "1280px"
+    },
+    "XL": {
+      "$type": "dimension",
+      "$value": "1440px"
+    }
+  },
+  "Elevation": {
+    "Z-0": {
+      "$type": "number",
+      "$value": 0
+    },
+    "Z-Dropdown": {
+      "$type": "number",
+      "$value": 100
+    },
+    "Z-Sticky": {
+      "$type": "number",
+      "$value": 200
+    },
+    "Z-Overlay": {
+      "$type": "number",
+      "$value": 300
+    },
+    "Z-Modal": {
+      "$type": "number",
+      "$value": 400
+    },
+    "Z-Toast": {
+      "$type": "number",
+      "$value": 500
+    }
+  },
+  "Semantic: Letter Spacing": {
+    "None": {
+      "$type": "dimension",
+      "$value": "0px"
+    },
+    "Subtle": {
+      "$type": "dimension",
+      "$value": "-0.2px"
+    },
+    "Snug": {
+      "$type": "dimension",
+      "$value": "-0.5px"
+    },
+    "Tight": {
+      "$type": "dimension",
+      "$value": "-1px"
+    },
+    "Tighter": {
+      "$type": "dimension",
+      "$value": "-1.5px"
+    },
+    "Wide": {
+      "$type": "dimension",
+      "$value": "0.5px"
+    }
+  },
+  "Semantic: Opacity": {
+    "Disabled": {
+      "$type": "number",
+      "$value": 0.4
+    },
+    "Scrim": {
+      "$type": "number",
+      "$value": 0.5
+    },
+    "Muted": {
+      "$type": "number",
+      "$value": 0.6
+    },
+    "Placeholder": {
+      "$type": "number",
+      "$value": 0.35
+    },
+    "Glass": {
+      "$type": "number",
+      "$value": 0.25
+    },
+    "Hover Overlay": {
+      "$type": "number",
+      "$value": 0.08
+    },
+    "Pressed Overlay": {
+      "$type": "number",
+      "$value": 0.12
+    }
+  },
+  "Semantic: Motion": {
+    "Duration": {
+      "Instant": {
+        "$type": "duration",
+        "$value": "0ms"
+      },
+      "Micro": {
+        "$type": "duration",
+        "$value": "150ms"
+      },
+      "Fast": {
+        "$type": "duration",
+        "$value": "220ms"
+      },
+      "Base": {
+        "$type": "duration",
+        "$value": "350ms"
+      },
+      "Reveal": {
+        "$type": "duration",
+        "$value": "550ms"
+      }
+    },
+    "Easing": {
+      "Standard": {
+        "$type": "cubicBezier",
+        "$value": [
+          0.25,
+          0.46,
+          0.45,
+          0.94
+        ]
+      },
+      "In Out": {
+        "$type": "cubicBezier",
+        "$value": [
+          0.65,
+          0,
+          0.35,
+          1
+        ]
+      },
+      "Decelerate": {
+        "$type": "cubicBezier",
+        "$value": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "Accelerate": {
+        "$type": "cubicBezier",
+        "$value": [
+          0.3,
+          0,
+          1,
+          1
+        ]
+      }
+    }
+  },
+  "Typography": {
+    "Font": {
+      "Family": {
+        "$type": "fontFamily",
+        "$value": "Poppins"
+      },
+      "Weight Name": {
+        "Light": {
+          "$type": "string",
+          "$value": "Light"
+        },
+        "Regular": {
+          "$type": "string",
+          "$value": "Regular"
+        },
+        "Medium": {
+          "$type": "string",
+          "$value": "Medium"
+        },
+        "Bold": {
+          "$type": "string",
+          "$value": "Bold"
+        },
+        "Bold Italic": {
+          "$type": "string",
+          "$value": "Bold Italic"
+        }
+      },
+      "Body Sizes": {
+        "Body Xtra Large": {
+          "$type": "dimension",
+          "$value": "{Primitive: Unit Scale.24}"
+        },
+        "Body Large": {
+          "$type": "dimension",
+          "$value": "{Primitive: Unit Scale.20}"
+        },
+        "Body Medium": {
+          "$type": "dimension",
+          "$value": "{Primitive: Unit Scale.16}"
+        },
+        "Body Small": {
+          "$type": "dimension",
+          "$value": "{Primitive: Unit Scale.14}"
+        }
+      },
+      "Heading": {
+        "H1": {
+          "Size": {
+            "$type": "dimension",
+            "$value": "{Primitive: Unit Scale.48}",
+            "$extensions": {
+              "figma.modes": {
+                "Desktop Large": "{Primitive: Unit Scale.48}",
+                "Desktop Regular": "{Primitive: Unit Scale.48}",
+                "Tablet": "{Primitive: Unit Scale.48}",
+                "Mobile": "{Primitive: Unit Scale.32}"
+              }
+            }
+          },
+          "Line Height": {
+            "$type": "dimension",
+            "$value": "{Primitive: Unit Scale.56}",
+            "$extensions": {
+              "figma.modes": {
+                "Desktop Large": "{Primitive: Unit Scale.56}",
+                "Desktop Regular": "{Primitive: Unit Scale.56}",
+                "Tablet": "{Primitive: Unit Scale.56}",
+                "Mobile": "{Primitive: Unit Scale.40}"
+              }
+            }
+          },
+          "Weight": {
+            "$type": "fontWeight",
+            "$value": 300
+          }
+        },
+        "H2": {
+          "Size": {
+            "$type": "dimension",
+            "$value": "{Primitive: Unit Scale.40}",
+            "$extensions": {
+              "figma.modes": {
+                "Desktop Large": "{Primitive: Unit Scale.40}",
+                "Desktop Regular": "{Primitive: Unit Scale.40}",
+                "Tablet": "{Primitive: Unit Scale.32}",
+                "Mobile": "{Primitive: Unit Scale.24}"
+              }
+            }
+          },
+          "Line Height": {
+            "$type": "dimension",
+            "$value": "{Primitive: Unit Scale.48}",
+            "$extensions": {
+              "figma.modes": {
+                "Desktop Large": "{Primitive: Unit Scale.48}",
+                "Desktop Regular": "{Primitive: Unit Scale.48}",
+                "Tablet": "{Primitive: Unit Scale.40}",
+                "Mobile": "{Primitive: Unit Scale.32}"
+              }
+            }
+          },
+          "Weight": {
+            "$type": "fontWeight",
+            "$value": 400
+          }
+        },
+        "H3": {
+          "Size": {
+            "$type": "dimension",
+            "$value": "{Primitive: Unit Scale.32}",
+            "$extensions": {
+              "figma.modes": {
+                "Desktop Large": "{Primitive: Unit Scale.32}",
+                "Desktop Regular": "{Primitive: Unit Scale.32}",
+                "Tablet": "{Primitive: Unit Scale.24}",
+                "Mobile": "{Primitive: Unit Scale.16}"
+              }
+            }
+          },
+          "Line Height": {
+            "$type": "dimension",
+            "$value": "{Primitive: Unit Scale.40}",
+            "$extensions": {
+              "figma.modes": {
+                "Desktop Large": "{Primitive: Unit Scale.40}",
+                "Desktop Regular": "{Primitive: Unit Scale.40}",
+                "Tablet": "{Primitive: Unit Scale.32}",
+                "Mobile": "{Primitive: Unit Scale.24}"
+              }
+            }
+          },
+          "Weight": {
+            "$type": "fontWeight",
+            "$value": 500
+          }
+        },
+        "H4": {
+          "Size": {
+            "$type": "dimension",
+            "$value": "{Primitive: Unit Scale.24}",
+            "$extensions": {
+              "figma.modes": {
+                "Desktop Large": "{Primitive: Unit Scale.24}",
+                "Desktop Regular": "{Primitive: Unit Scale.24}",
+                "Tablet": "{Primitive: Unit Scale.16}",
+                "Mobile": "{Primitive: Unit Scale.16}"
+              }
+            }
+          },
+          "Line Height": {
+            "$type": "dimension",
+            "$value": "{Primitive: Unit Scale.32}",
+            "$extensions": {
+              "figma.modes": {
+                "Desktop Large": "{Primitive: Unit Scale.32}",
+                "Desktop Regular": "{Primitive: Unit Scale.32}",
+                "Tablet": "{Primitive: Unit Scale.24}",
+                "Mobile": "{Primitive: Unit Scale.24}"
+              }
+            }
+          },
+          "Weight": {
+            "$type": "fontWeight",
+            "$value": 700
+          }
+        },
+        "H5": {
+          "Size": {
+            "$type": "dimension",
+            "$value": "{Primitive: Unit Scale.16}"
+          },
+          "Line Height": {
+            "$type": "dimension",
+            "$value": "{Primitive: Unit Scale.24}"
+          },
+          "Weight": {
+            "$type": "fontWeight",
+            "$value": 700
+          }
+        }
+      }
+    },
+    "Code Scale": {
+      "display": {
+        "Size": {
+          "$type": "dimension",
+          "$value": "{Primitive: Unit Scale.50}",
+          "$extensions": {
+            "figma.modes": {
+              "Desktop Large": "{Primitive: Unit Scale.50}",
+              "Desktop Regular": "{Primitive: Unit Scale.50}",
+              "Tablet": "{Primitive: Unit Scale.50}",
+              "Mobile": "{Primitive: Unit Scale.38}"
+            }
+          }
+        },
+        "Line Height": {
+          "$type": "dimension",
+          "$value": "{Primitive: Unit Scale.58}",
+          "$extensions": {
+            "figma.modes": {
+              "Desktop Large": "{Primitive: Unit Scale.58}",
+              "Desktop Regular": "{Primitive: Unit Scale.58}",
+              "Tablet": "{Primitive: Unit Scale.58}",
+              "Mobile": "{Primitive: Unit Scale.44}"
+            }
+          }
+        },
+        "Weight": {
+          "$type": "fontWeight",
+          "$value": 700
+        }
+      },
+      "h1": {
+        "Size": {
+          "$type": "dimension",
+          "$value": "{Primitive: Unit Scale.40}",
+          "$extensions": {
+            "figma.modes": {
+              "Desktop Large": "{Primitive: Unit Scale.40}",
+              "Desktop Regular": "{Primitive: Unit Scale.40}",
+              "Tablet": "{Primitive: Unit Scale.40}",
+              "Mobile": "{Primitive: Unit Scale.28}"
+            }
+          }
+        },
+        "Line Height": {
+          "$type": "dimension",
+          "$value": "{Primitive: Unit Scale.46}",
+          "$extensions": {
+            "figma.modes": {
+              "Desktop Large": "{Primitive: Unit Scale.46}",
+              "Desktop Regular": "{Primitive: Unit Scale.46}",
+              "Tablet": "{Primitive: Unit Scale.46}",
+              "Mobile": "{Primitive: Unit Scale.32}"
+            }
+          }
+        },
+        "Weight": {
+          "$type": "fontWeight",
+          "$value": 700
+        }
+      },
+      "h2": {
+        "Size": {
+          "$type": "dimension",
+          "$value": "{Primitive: Unit Scale.24}"
+        },
+        "Line Height": {
+          "$type": "dimension",
+          "$value": "{Primitive: Unit Scale.32}"
+        },
+        "Weight": {
+          "$type": "fontWeight",
+          "$value": 700
+        }
+      },
+      "h3": {
+        "Size": {
+          "$type": "dimension",
+          "$value": "{Primitive: Unit Scale.20}"
+        },
+        "Line Height": {
+          "$type": "dimension",
+          "$value": "{Primitive: Unit Scale.28}"
+        },
+        "Weight": {
+          "$type": "fontWeight",
+          "$value": 600
+        }
+      },
+      "h4": {
+        "Size": {
+          "$type": "dimension",
+          "$value": "{Primitive: Unit Scale.16}"
+        },
+        "Line Height": {
+          "$type": "dimension",
+          "$value": "{Primitive: Unit Scale.24}"
+        },
+        "Weight": {
+          "$type": "fontWeight",
+          "$value": 700
+        }
+      },
+      "body-lg": {
+        "Size": {
+          "$type": "dimension",
+          "$value": "{Primitive: Unit Scale.16}"
+        },
+        "Line Height": {
+          "$type": "dimension",
+          "$value": "{Primitive: Unit Scale.24}"
+        },
+        "Weight": {
+          "$type": "fontWeight",
+          "$value": 400
+        }
+      },
+      "body": {
+        "Size": {
+          "$type": "dimension",
+          "$value": "{Primitive: Unit Scale.14}"
+        },
+        "Line Height": {
+          "$type": "dimension",
+          "$value": "{Primitive: Unit Scale.20}"
+        },
+        "Weight": {
+          "$type": "fontWeight",
+          "$value": 400
+        }
+      },
+      "small": {
+        "Size": {
+          "$type": "dimension",
+          "$value": "{Primitive: Unit Scale.12}"
+        },
+        "Line Height": {
+          "$type": "dimension",
+          "$value": "{Primitive: Unit Scale.16}"
+        },
+        "Weight": {
+          "$type": "fontWeight",
+          "$value": 400
+        }
+      },
+      "eyebrow": {
+        "Size": {
+          "$type": "dimension",
+          "$value": "{Primitive: Unit Scale.11}"
+        },
+        "Line Height": {
+          "$type": "dimension",
+          "$value": "{Primitive: Unit Scale.16}"
+        },
+        "Weight": {
+          "$type": "fontWeight",
+          "$value": 600
+        }
+      }
+    }
+  }
+}

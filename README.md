@@ -17,7 +17,7 @@ Figma Make export.
 - Spanish: [`docs/guidelines/es/`](./docs/guidelines/es/README.md) · PDFs in [`docs/guidelines/pdf/es/`](./docs/guidelines/pdf/es/)
 - Figma ↔ prototype sync status: [`docs/figma-sync/STATUS.md`](./docs/figma-sync/STATUS.md)
 - Project handoff: [`docs/handoff/`](./docs/handoff/README.md)
-- Design tokens: [`src/styles/tokens.css`](./src/styles/tokens.css)
+- Design tokens: [`src/styles/tokens.css`](./src/styles/tokens.css) (code) · [`docs/tokens/`](./docs/tokens/README.md) (Figma variables as W3C JSON)
 
 ## Running the code
 
