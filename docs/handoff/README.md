@@ -11,13 +11,13 @@ Parent Guidance — Handoff/
 ├── 01 — Prototype/
 │     └── Prototype — links and deployment      ← 01-prototype.md
 ├── 02 — Design System/
-│     └── Design System — using the library     ← 02-design-system.md
+│     ├── Design System — using the library     ← 02-design-system.md
+│     └── Variables/ ← docs/tokens/parent-guidance.tokens.json
 ├── 03 — Design Guidelines/
 │     ├── English/   ← PDFs from docs/guidelines/pdf/
 │     └── Spanish/   ← PDFs from docs/guidelines/pdf/es/
 ├── 04 — Assets/
-│     ├── Logos/     ← partner logos from src/imports/ and src/imports/get-help-logos/
-│     └── Variables/ ← docs/tokens/parent-guidance.tokens.json
+│     └── Logos/     ← partner logos from src/imports/ and src/imports/get-help-logos/
 └── 05 — Open Items and Decisions/
       └── Open items                            ← 05-open-items.md
 ```

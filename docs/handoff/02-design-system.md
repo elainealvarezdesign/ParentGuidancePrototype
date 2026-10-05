@@ -35,7 +35,7 @@ radii, button sizes (36 / 44 / 52px), motion (150 / 220 / 350 / 550ms) and the c
 
 ## Design tokens for development
 
-`parent-guidance.tokens.json` (in the Drive at *04 — Assets → Variables*, and in the repo at `docs/tokens/`) contains all 464 Figma
+`parent-guidance.tokens.json` (in the Drive at *02 — Design System → Variables*, and in the repo at `docs/tokens/`) contains all 464 Figma
 variables in the W3C Design Tokens format, with aliases kept as references. It can be imported with
 Style Dictionary or Tokens Studio. Typography values per breakpoint are under `$extensions["figma.modes"]`.
 
