@@ -29,7 +29,3 @@ parent coaching, on-demand courses, Ask a Therapist and crisis help.
 | 03 — Design Guidelines | Guideline PDFs in English and Spanish |
 | 04 — Assets | Partner logos used in the prototype |
 | 05 — Open Items and Decisions | Open topics and who decides each one |
-
-## Contact
-
-- Design: _(add name and email)_
