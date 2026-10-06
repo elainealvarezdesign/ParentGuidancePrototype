@@ -14,9 +14,7 @@ Parent Guidance — Handoff/
 │     ├── Design System — using the library     ← 02-design-system.md
 │     ├── DESIGN.md  ← copy of /DESIGN.md (raw .md file)
 │     └── Variables/ ← docs/tokens/parent-guidance.tokens.json
-├── 03 — Design Guidelines/
-│     ├── English/   ← PDFs from docs/guidelines/pdf/
-│     └── Spanish/   ← PDFs from docs/guidelines/pdf/es/
+├── 03 — Design Guidelines/   ← English PDFs from docs/guidelines/pdf/
 ├── 04 — Assets/
 │     └── Logos/     ← partner logos from src/imports/ and src/imports/get-help-logos/
 └── 05 — Open Items and Decisions/

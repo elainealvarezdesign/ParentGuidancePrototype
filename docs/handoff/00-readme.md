@@ -10,7 +10,7 @@ parent coaching, on-demand courses, Ask a Therapist and crisis help.
 | Interactive prototype | ✅ Complete and live |
 | Figma design system | ✅ Published as a library; every variable linked to primitives and aligned with the code |
 | Design tokens (JSON) | ✅ Exported in W3C format for development |
-| Design guidelines (EN / ES) | ✅ Up to date, with PDF versions |
+| Design guidelines | ✅ Up to date, with PDF versions |
 | Product and content decisions | ⏳ Open (see folder 05) |
 
 ## Key links
@@ -26,6 +26,6 @@ parent coaching, on-demand courses, Ask a Therapist and crisis help.
 |---|---|
 | 01 — Prototype | Links, how it is deployed and how to run it locally |
 | 02 — Design System | How to use the Figma library; `DESIGN.md`, the one-file reference for building new pages; and, in `Variables`, the design tokens JSON (`parent-guidance.tokens.json`) |
-| 03 — Design Guidelines | Guideline PDFs in English and Spanish |
+| 03 — Design Guidelines | Guideline PDFs (one per chapter plus the complete set) |
 | 04 — Assets | Partner logos used in the prototype |
 | 05 — Open Items and Decisions | Open topics and who decides each one |
