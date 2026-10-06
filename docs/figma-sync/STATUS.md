@@ -77,7 +77,7 @@ variables and styles.
   (e.g. `#dee5e8`, `#59787d` on the Spacing page) now use that token. Documentation swatches use radius S (6→8),
   and component-set frames use radius XS.
 - Every text uses a text style. Documentation labels use new `_Docs/*` styles; the leading underscore keeps them
-  out of the published library. The Layout texts that had no style use the closest one.
+  out of the published library. The Layout texts that had no style now use styles that match the code exactly.
 - About 1,100 layers with default names ("Frame", "Group", "Rectangle", "Vector"…) were renamed after their
   content, e.g. *Swatch Item – Navy 10*, *Row – 2XS*, *Glyph*.
 - Known exceptions (left as they are on purpose):
@@ -96,6 +96,15 @@ has its matching mode set, so a page margin bound on Tablet or Mobile resolves t
 `*-1.5` and `*-2.5` became `*-2` (8px) and `*-3.5` became `*-4` (16px). That is 118 changes in 16 app files; the
 unused shadcn primitives in `components/ui/` were left as they are. Built and checked at 375, 768 and 1280px with
 no horizontal overflow. The guidelines now forbid half steps.
+
+**Text styles that match the code (October 6):** five new styles, all bound to Typography variables.
+- *Title/Card - Bold* (20/28, `text-xl font-bold`): the Consent Documents card titles.
+- *Body/Medium - SemiBold* (16, `font-semibold`): "The course is broken up…" and the inline course name.
+- *Body/Small - Bold* (14, inline "call 911.", "Important:").
+- *Body/Small - Italic* (14, the Topic reminder quote).
+- *Label/Medium - SemiBold Caps* (16/24, 0.1em tracking, the "WHY" eyebrow).
+
+These replace the closest-style mapping, so the Layouts again show the same sizes as the prototype.
 
 ## Pending
 
