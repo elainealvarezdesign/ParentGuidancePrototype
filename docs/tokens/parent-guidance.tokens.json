@@ -1801,6 +1801,40 @@
       }
     }
   },
+  "Semantic: Layout": {
+    "Page Margin": {
+      "$type": "dimension",
+      "$value": "90px",
+      "$extensions": {
+        "figma.modes": {
+          "Desktop Regular": "90px",
+          "Desktop Large": "170px",
+          "Tablet": "{Primitive: Unit Scale.40}",
+          "Mobile": "{Primitive: Unit Scale.24}"
+        }
+      }
+    },
+    "Page Gutter": {
+      "$type": "dimension",
+      "$value": "{Primitive: Unit Scale.56}",
+      "$extensions": {
+        "figma.modes": {
+          "Desktop Regular": "{Primitive: Unit Scale.56}",
+          "Desktop Large": "{Primitive: Unit Scale.56}",
+          "Tablet": "{Primitive: Unit Scale.40}",
+          "Mobile": "{Primitive: Unit Scale.24}"
+        }
+      }
+    },
+    "Content Max Width": {
+      "$type": "dimension",
+      "$value": "1100px"
+    },
+    "Reading Max Width": {
+      "$type": "dimension",
+      "$value": "680px"
+    }
+  },
   "Typography": {
     "Font": {
       "Family": {

@@ -430,6 +430,16 @@ for k, n in DURATION.items():
 for k, v in EASING.items():
     put("Semantic: Motion", f"Easing/{k}", {"$type": "cubicBezier", "$value": v})
 
+LAYOUT_MODES = ["Desktop Regular", "Desktop Large", "Tablet", "Mobile"]
+LAYOUT = {"Page Margin": [90, 170, 40, 24], "Page Gutter": [56, 56, 40, 24],
+          "Content Max Width": [1100] * 4, "Reading Max Width": [680] * 4}
+for k, vals in LAYOUT.items():
+    vals = [unit(v) if v in UNIT_SCALE else f"{v}px" for v in vals]
+    tok = {"$type": "dimension", "$value": vals[0]}
+    if len(set(vals)) > 1:
+        tok["$extensions"] = {"figma.modes": dict(zip(LAYOUT_MODES, vals))}
+    put("Semantic: Layout", k, tok)
+
 T = "Typography"
 
 

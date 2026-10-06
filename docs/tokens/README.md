@@ -1,7 +1,7 @@
 # Design tokens
 
 [`parent-guidance.tokens.json`](./parent-guidance.tokens.json) holds every variable of the Figma library
-[Design system - PG](https://www.figma.com/design/mWOJYdAxkKGj0bWSO2ptGj/Design-system---PG) (475 tokens) in the
+[Design system - PG](https://www.figma.com/design/mWOJYdAxkKGj0bWSO2ptGj/Design-system---PG) (479 tokens) in the
 [W3C Design Tokens](https://www.designtokens.org/) format, ready for Style Dictionary, Tokens Studio or any
 tool that reads `$type` / `$value`.
 
@@ -15,6 +15,9 @@ tool that reads `$type` / `$value`.
   below Tailwind `md` (768px); the other three match `md` and up.
 - **Typography:** `Typography.Code Scale.*` is the scale the prototype uses (`display`, `h1` … `eyebrow`).
   `Typography.Font.Heading.*` are the larger Figma heading styles (H1 48px … H5 16px) kept for design work.
+- **Layout:** `Semantic: Layout` has four modes (Desktop Regular is the default, then Desktop Large, Tablet and
+  Mobile). *Page Margin* is the side space of page sections (90 at 1280px = (1280 − 1100) / 2), *Page Gutter* is
+  the code's `px-6 md:px-10 lg:px-14`, and the max widths match `max-w-pg-content` / `max-w-pg-reading`.
 - **Motion:** durations and curves match `tokens.css` (150 / 220 / 350 / 550 ms; brand curve
   `[0.25, 0.46, 0.45, 0.94]`, open/close curve `[0.65, 0, 0.35, 1]`).
 

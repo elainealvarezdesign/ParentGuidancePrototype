@@ -84,8 +84,13 @@ variables and styles.
   - Logo artwork: partner logo colors, and the PG logo's scaled internal spacing.
   - The decorative line on the Cover.
   - The 102px gap on the Cover.
-  - The 90px page side padding on the Terms/Cookies Desktop layouts (beyond the 64px top of the scale).
   - Per-path corner radius inside two icon glyphs.
+
+**Page margin token (October 6):** new collection *Semantic: Layout* with modes Desktop Regular (default),
+Desktop Large, Tablet and Mobile: *Page Margin* 90 / 170 / 40 / 24, *Page Gutter* 56 / 56 / 40 / 24 (code
+`px-6 md:px-10 lg:px-14`), *Content Max Width* 1100 and *Reading Max Width* 680. The 90px side paddings of the legal
+pages (Terms, Cookies, Consent — Desktop) are bound to *Page Margin*, and every frame on the three Layouts pages
+has its matching mode set, so a page margin bound on Tablet or Mobile resolves to 40 or 24.
 
 ## Pending
 

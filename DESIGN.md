@@ -164,6 +164,9 @@ Brand emphasis: one word or phrase in teal italics inside a headline.
 
 ## 5. Layout
 
+- Page sections: `px-6 md:px-10 lg:px-14` (24 / 40 / 56) with content in `mx-auto max-w-pg-content` (1100px);
+  long text in `max-w-pg-reading` (680px). In Figma these are *Semantic: Layout* → Page Gutter, Content Max Width,
+  Reading Max Width, and *Page Margin* (90 at 1280, 40 tablet, 24 mobile) for page-level side padding.
 - Mobile and tablet stack; **columns start at `lg` (1024px)**: two-column heroes, sidebars, footer rows,
   full navigation (hamburger below 1024).
 - Grids degrade in steps: `grid gap-6 sm:grid-cols-2 lg:grid-cols-3` (or 4 → 2 → 1). Never 4 → 1.
