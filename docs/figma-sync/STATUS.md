@@ -1,7 +1,7 @@
 # Figma ↔ prototype sync — status
 
 Figma file: [Design system - PG](https://www.figma.com/design/mWOJYdAxkKGj0bWSO2ptGj/Design-system---PG)
-Last session: October 2, 2026. Technical detail (node IDs, variables and properties) in [`LEDGER.md`](./LEDGER.md).
+Last session: October 6, 2026. Technical detail (node IDs, variables and properties) in [`LEDGER.md`](./LEDGER.md).
 
 ## Done
 
@@ -63,6 +63,29 @@ Typography sizes and line heights and the Full radius now alias the unit scale.
 **Variables aligned with the code (October 5):** motion durations and curves, button/control sizes and the
 largest radius now match `tokens.css`; the Typography collection adds the code type scale (*Code Scale*).
 All variables are exported as W3C design tokens in [`docs/tokens/`](../tokens/README.md).
+
+**Deep audit (October 6):** every node outside component instances was checked on all 20 pages, plus all
+variables and styles.
+- Every variable now has a description (209 were missing) and a specific scope (no more *All scopes*;
+  primitives are hidden from the pickers).
+- The 43 text styles are bound to Typography variables (family, weight name, size, and line height for headings).
+  New variables: *Font/Weight Name/SemiBold* and *Italic*, *Font/Body Sizes/Body XSmall*, *Font/Button Sizes/\**,
+  *Font/Label Sizes/\**, and Unit Scale *18*.
+- Fills, strokes, radius, gaps and padding are bound to variables everywhere, about 4,000 bindings. Exact matches
+  caused no visual change. The 6/10/14px values that are not on the scale were moved to the nearest token
+  (6→8, 10→8, 14→16; on the mobile layouts 22→24, 28→32, 34→32, 45→48). Colors 1–3 units away from a token
+  (e.g. `#dee5e8`, `#59787d` on the Spacing page) now use that token. Documentation swatches use radius S (6→8),
+  and component-set frames use radius XS.
+- Every text uses a text style. Documentation labels use new `_Docs/*` styles; the leading underscore keeps them
+  out of the published library. The Layout texts that had no style use the closest one.
+- About 1,100 layers with default names ("Frame", "Group", "Rectangle", "Vector"…) were renamed after their
+  content, e.g. *Swatch Item – Navy 10*, *Row – 2XS*, *Glyph*.
+- Known exceptions (left as they are on purpose):
+  - Logo artwork: partner logo colors, and the PG logo's scaled internal spacing.
+  - The decorative line on the Cover.
+  - The 102px gap on the Cover.
+  - The 90px page side padding on the Terms/Cookies Desktop layouts (beyond the 64px top of the scale).
+  - Per-path corner radius inside two icon glyphs.
 
 ## Pending
 

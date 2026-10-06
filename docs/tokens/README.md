@@ -1,7 +1,7 @@
 # Design tokens
 
 [`parent-guidance.tokens.json`](./parent-guidance.tokens.json) holds every variable of the Figma library
-[Design system - PG](https://www.figma.com/design/mWOJYdAxkKGj0bWSO2ptGj/Design-system---PG) (464 tokens) in the
+[Design system - PG](https://www.figma.com/design/mWOJYdAxkKGj0bWSO2ptGj/Design-system---PG) (475 tokens) in the
 [W3C Design Tokens](https://www.designtokens.org/) format, ready for Style Dictionary, Tokens Studio or any
 tool that reads `$type` / `$value`.
 

@@ -616,6 +616,10 @@
       "$type": "dimension",
       "$value": "16px"
     },
+    "18": {
+      "$type": "dimension",
+      "$value": "18px"
+    },
     "20": {
       "$type": "dimension",
       "$value": "20px"
@@ -1816,9 +1820,17 @@
           "$type": "string",
           "$value": "Medium"
         },
+        "SemiBold": {
+          "$type": "string",
+          "$value": "SemiBold"
+        },
         "Bold": {
           "$type": "string",
           "$value": "Bold"
+        },
+        "Italic": {
+          "$type": "string",
+          "$value": "Italic"
         },
         "Bold Italic": {
           "$type": "string",
@@ -1841,6 +1853,42 @@
         "Body Small": {
           "$type": "dimension",
           "$value": "{Primitive: Unit Scale.14}"
+        },
+        "Body XSmall": {
+          "$type": "dimension",
+          "$value": "{Primitive: Unit Scale.12}"
+        }
+      },
+      "Button Sizes": {
+        "Button Large": {
+          "$type": "dimension",
+          "$value": "{Primitive: Unit Scale.18}"
+        },
+        "Button Medium": {
+          "$type": "dimension",
+          "$value": "{Primitive: Unit Scale.16}"
+        },
+        "Button Small": {
+          "$type": "dimension",
+          "$value": "{Primitive: Unit Scale.14}"
+        }
+      },
+      "Label Sizes": {
+        "Label Large": {
+          "$type": "dimension",
+          "$value": "{Primitive: Unit Scale.18}"
+        },
+        "Label Medium": {
+          "$type": "dimension",
+          "$value": "{Primitive: Unit Scale.14}"
+        },
+        "Label Small": {
+          "$type": "dimension",
+          "$value": "{Primitive: Unit Scale.12}"
+        },
+        "Label XSmall": {
+          "$type": "dimension",
+          "$value": "{Primitive: Unit Scale.11}"
         }
       },
       "Heading": {

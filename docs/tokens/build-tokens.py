@@ -150,7 +150,7 @@ Semantic Colors/Neutral/Neutral 90=293a41
 Semantic Colors/Neutral/Neutral 100=18272d
 """
 
-UNIT_SCALE = [0, 2, 4, 8, 11, 12, 14, 16, 20, 24, 28, 32, 36, 38, 40, 44, 46, 48, 50, 52, 56, 58, 64, 9999]
+UNIT_SCALE = [0, 2, 4, 8, 11, 12, 14, 16, 18, 20, 24, 28, 32, 36, 38, 40, 44, 46, 48, 50, 52, 56, 58, 64, 9999]
 
 # --- Aliases: "Name > Collection:Target" (Collection P = Primitive Colors, S = Semantic Colors) ---------
 P, S, U = "Primitive Colors", "Semantic Colors", "Primitive: Unit Scale"
@@ -374,7 +374,9 @@ CODE_SCALE = {"display": (50, 38, 58, 44, 700), "h1": (40, 28, 46, 32, 700), "h2
 FIGMA_HEADINGS = {"H1": ([48, 48, 48, 32], [56, 56, 56, 40], 300), "H2": ([40, 40, 32, 24], [48, 48, 40, 32], 400),
                   "H3": ([32, 32, 24, 16], [40, 40, 32, 24], 500), "H4": ([24, 24, 16, 16], [32, 32, 24, 24], 700),
                   "H5": ([16] * 4, [24] * 4, 700)}
-BODY_SIZES = {"Body Xtra Large": 24, "Body Large": 20, "Body Medium": 16, "Body Small": 14}
+BODY_SIZES = {"Body Xtra Large": 24, "Body Large": 20, "Body Medium": 16, "Body Small": 14, "Body XSmall": 12}
+BUTTON_SIZES = {"Button Large": 18, "Button Medium": 16, "Button Small": 14}
+LABEL_SIZES = {"Label Large": 18, "Label Medium": 14, "Label Small": 12, "Label XSmall": 11}
 
 ROOT = {}
 
@@ -439,10 +441,14 @@ def moded(type_, values):
 
 
 put(T, "Font/Family", {"$type": "fontFamily", "$value": "Poppins"})
-for wn in ["Light", "Regular", "Medium", "Bold", "Bold Italic"]:
+for wn in ["Light", "Regular", "Medium", "SemiBold", "Bold", "Italic", "Bold Italic"]:
     put(T, f"Font/Weight Name/{wn}", {"$type": "string", "$value": wn})
 for k, n in BODY_SIZES.items():
     put(T, f"Font/Body Sizes/{k}", {"$type": "dimension", "$value": unit(n)})
+for k, n in BUTTON_SIZES.items():
+    put(T, f"Font/Button Sizes/{k}", {"$type": "dimension", "$value": unit(n)})
+for k, n in LABEL_SIZES.items():
+    put(T, f"Font/Label Sizes/{k}", {"$type": "dimension", "$value": unit(n)})
 for h, (sizes, lhs, w) in FIGMA_HEADINGS.items():
     put(T, f"Font/Heading/{h}/Size", moded("dimension", [unit(x) for x in sizes]))
     put(T, f"Font/Heading/{h}/Line Height", moded("dimension", [unit(x) for x in lhs]))
