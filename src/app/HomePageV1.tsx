@@ -211,7 +211,7 @@ export default function HomePageV1() {
                 Find trusted guidance, practical tips, and expert resources to help you navigate everyday parenting challenges.
               </p>
 
-              <div className="bg-white rounded-pg-2xl px-5 py-2.5 flex items-center gap-3 shadow-pg-card max-w-[440px]" style={{ boxShadow: "var(--pg-shadow-card)" }}>
+              <div className="bg-white rounded-pg-2xl px-5 py-2 flex items-center gap-3 shadow-pg-card max-w-[440px]" style={{ boxShadow: "var(--pg-shadow-card)" }}>
                 <Search size={18} className="text-pg-slate shrink-0" />
                 <input
                   className="flex-1 text-sm text-pg-navy bg-transparent outline-none placeholder:text-pg-teal"
@@ -262,10 +262,10 @@ export default function HomePageV1() {
       {/* ── RESOURCES ── */}
       <section className="bg-pg-tint-soft py-14">
         <div className="max-w-pg-page mx-auto px-6 md:px-10 lg:px-14">
-          <div className="flex items-center gap-2.5 mb-6">
+          <div className="flex items-center gap-2 mb-6">
             <div className="w-1 h-5 rounded-full bg-pg-sage" />
             <span className="font-semibold text-pg-navy text-xl">Browse All Resources</span>
-            <div className="bg-pg-tint rounded-full px-2.5 py-0.5">
+            <div className="bg-pg-tint rounded-full px-2 py-0.5">
               <span className="font-medium text-pg-teal-dark text-xs">24 resources</span>
             </div>
           </div>
@@ -449,9 +449,9 @@ export default function HomePageV1() {
             {subscribed ? (
               <p className="text-pg-navy font-semibold text-base">✓ Thanks for subscribing!</p>
             ) : (
-              <div className="flex items-center gap-2 rounded-pg-xl bg-pg-tint-soft p-1.5 max-w-md">
+              <div className="flex items-center gap-2 rounded-pg-xl bg-pg-tint-soft p-2 max-w-md">
                 <input
-                  className="flex-1 min-w-0 px-4 py-2.5 bg-transparent text-sm text-pg-navy outline-none placeholder:text-pg-slate"
+                  className="flex-1 min-w-0 px-4 py-2 bg-transparent text-sm text-pg-navy outline-none placeholder:text-pg-slate"
                   placeholder="Your Email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}

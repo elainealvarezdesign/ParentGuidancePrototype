@@ -230,7 +230,7 @@ export default function QuestionDetailPage() {
 
           {/* Question heading */}
           <div>
-            <span className="inline-block font-semibold text-[11px] uppercase tracking-pg-caps text-pg-teal-dark bg-pg-tint border border-pg-sage/40 px-2.5 py-0.5 rounded-pg-sm mb-2">
+            <span className="inline-block font-semibold text-[11px] uppercase tracking-pg-caps text-pg-teal-dark bg-pg-tint border border-pg-sage/40 px-2 py-0.5 rounded-pg-sm mb-2">
               {question.category}
             </span>
             <h1 className="font-bold text-pg-navy text-[28px] md:text-[40px] leading-[1.15]">
@@ -440,7 +440,7 @@ export default function QuestionDetailPage() {
               <p className="text-white/70 text-xs leading-relaxed">
                 Submit your parenting question and get a personalized video response from one of our licensed therapists.
               </p>
-              <Button variant="inverse" size="s" onClick={() => setShowModal(true)} className="self-start gap-1.5">
+              <Button variant="inverse" size="s" onClick={() => setShowModal(true)} className="self-start gap-2">
                 Submit Question
                 <ArrowRight size={12} />
               </Button>
@@ -449,7 +449,7 @@ export default function QuestionDetailPage() {
 
           {/* Related questions */}
           <div className="bg-white rounded-pg-xl border border-pg-line overflow-hidden" style={{ boxShadow: "var(--pg-shadow-card)" }}>
-            <div className="px-4 py-3.5 border-b border-pg-line">
+            <div className="px-4 py-4 border-b border-pg-line">
               <p className="font-bold text-pg-navy text-sm">Related Questions</p>
             </div>
             <div className="flex flex-col divide-y divide-pg-tint-soft">
@@ -457,11 +457,11 @@ export default function QuestionDetailPage() {
                 <Link
                   key={item.id}
                   to={`/ask-a-therapist/${item.id}`}
-                  className="no-underline block group px-4 py-3.5 hover:bg-pg-cream transition-colors"
+                  className="no-underline block group px-4 py-4 hover:bg-pg-cream transition-colors"
                   style={{ color: "inherit" }}
                 >
-                  <div className="flex items-start gap-2.5">
-                    <span className="font-semibold text-[11px] uppercase tracking-pg-caps text-pg-teal-dark bg-pg-tint px-1.5 py-0.5 rounded-pg-sm shrink-0 mt-0.5">
+                  <div className="flex items-start gap-2">
+                    <span className="font-semibold text-[11px] uppercase tracking-pg-caps text-pg-teal-dark bg-pg-tint px-2 py-0.5 rounded-pg-sm shrink-0 mt-0.5">
                       {item.category}
                     </span>
                     <p className="text-xs text-pg-navy leading-snug group-hover:text-pg-teal transition-colors line-clamp-2">
@@ -523,20 +523,20 @@ export default function QuestionDetailPage() {
               ) : (
                 <form className="p-6 flex flex-col gap-4" onSubmit={(e) => { e.preventDefault(); if (submitQ.trim() && submitEmail.trim()) setSubmitted(true); }}>
                   <div>
-                    <label className="text-xs font-semibold text-pg-navy block mb-1.5">Your Question</label>
+                    <label className="text-xs font-semibold text-pg-navy block mb-2">Your Question</label>
                     <textarea
                       rows={4}
-                      className="w-full border border-pg-line rounded-pg-md px-3.5 py-2.5 text-sm text-pg-navy placeholder:text-pg-teal outline-none focus:border-pg-teal resize-none transition-colors"
+                      className="w-full border border-pg-line rounded-pg-md px-4 py-2 text-sm text-pg-navy placeholder:text-pg-teal outline-none focus:border-pg-teal resize-none transition-colors"
                       placeholder="What's your parenting question?"
                       value={submitQ}
                       onChange={(e) => setSubmitQ(e.target.value)}
                     />
                   </div>
                   <div>
-                    <label className="text-xs font-semibold text-pg-navy block mb-1.5">Email</label>
+                    <label className="text-xs font-semibold text-pg-navy block mb-2">Email</label>
                     <input
                       type="email"
-                      className="w-full border border-pg-line rounded-pg-md px-3.5 py-2.5 text-sm text-pg-navy placeholder:text-pg-teal outline-none focus:border-pg-teal transition-colors"
+                      className="w-full border border-pg-line rounded-pg-md px-4 py-2 text-sm text-pg-navy placeholder:text-pg-teal outline-none focus:border-pg-teal transition-colors"
                       placeholder="your@email.com"
                       value={submitEmail}
                       onChange={(e) => setSubmitEmail(e.target.value)}

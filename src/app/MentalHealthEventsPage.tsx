@@ -64,11 +64,11 @@ function EventDetail({ event }: { event: SeriesEvent }) {
   return (
     <article className="border-t border-pg-line pt-4 first:border-t-0 first:pt-0" lang={event.language === "Español" ? "es" : undefined}>
       <h3 className={`text-xl font-bold leading-snug text-pg-navy`}>{event.title}</h3>
-      <ul className={`mt-2 grid gap-1.5 text-sm text-pg-slate`}>
+      <ul className={`mt-2 grid gap-2 text-sm text-pg-slate`}>
         <li className="flex items-center gap-2"><Clock size={16} className="shrink-0 text-pg-teal-dark" aria-hidden="true" />{formatTimeRange(event)}{event.start ? " CT" : ""}</li>
         <li className="flex items-center gap-2"><MapPin size={16} className="shrink-0 text-pg-teal-dark" aria-hidden="true" />Online</li>
       </ul>
-      <div className="mt-2.5 flex flex-wrap gap-1.5">
+      <div className="mt-2 flex flex-wrap gap-2">
         <CategoryTag category={event.category} />
         {event.language && <span className={`inline-flex rounded-full bg-pg-cream-dark px-2 py-0.5 text-xs font-semibold text-pg-navy`}>{event.language}</span>}
       </div>
@@ -156,7 +156,7 @@ export default function MentalHealthEventsPage() {
     : undefined;
 
   const chip = (active: boolean) =>
-    `inline-flex h-9 shrink-0 items-center gap-2 rounded-full border px-3.5 text-sm font-medium transition-colors ${
+    `inline-flex h-9 shrink-0 items-center gap-2 rounded-full border px-4 text-sm font-medium transition-colors ${
       active ? "border-pg-navy bg-pg-navy text-white" : "border-pg-line bg-white text-pg-navy hover:bg-pg-tint-soft"
     }`;
 
@@ -198,7 +198,7 @@ export default function MentalHealthEventsPage() {
                 type="button"
                 aria-pressed={view === v}
                 onClick={() => setView(v)}
-                className={`h-8 rounded-pg-md px-3.5 text-sm ${view === v ? "bg-white font-semibold text-pg-navy shadow-pg-card" : "font-medium text-pg-slate"}`}
+                className={`h-8 rounded-pg-md px-4 text-sm ${view === v ? "bg-white font-semibold text-pg-navy shadow-pg-card" : "font-medium text-pg-slate"}`}
               >
                 {v === "month" ? "Month" : "List"}
               </button>
@@ -232,7 +232,7 @@ export default function MentalHealthEventsPage() {
             <section className={`${card} overflow-hidden`} aria-label={`Calendar, ${monthLabel(month)}`}>
               <div className="grid grid-cols-7 border-b border-pg-line" aria-hidden="true">
                 {WEEKDAYS.map((d) => (
-                  <span key={d} className={`py-2.5 text-center text-[11px] font-semibold uppercase tracking-pg-caps text-pg-slate`}>{d}</span>
+                  <span key={d} className={`py-2 text-center text-[11px] font-semibold uppercase tracking-pg-caps text-pg-slate`}>{d}</span>
                 ))}
               </div>
               <div className="grid grid-cols-7">
@@ -273,7 +273,7 @@ export default function MentalHealthEventsPage() {
                               type="button"
                               onClick={(click) => { setSelected(key); openEvent(e, click); }}
                               aria-haspopup="dialog"
-                              className={`pointer-events-auto block w-full rounded-pg-md px-1.5 py-1 text-left text-xs leading-tight transition-[filter] hover:brightness-110 ${CATEGORIES[e.category].pill}`}
+                              className={`pointer-events-auto block w-full rounded-pg-md px-2 py-1 text-left text-xs leading-tight transition-[filter] hover:brightness-110 ${CATEGORIES[e.category].pill}`}
                             >
                               <span className="block text-xs font-semibold opacity-90">{formatStart(e)}</span>
                               <span className="line-clamp-2 font-medium">{e.title}</span>
@@ -301,7 +301,7 @@ export default function MentalHealthEventsPage() {
                         <p className={`text-xs text-pg-slate`}>{parseDate(e.date).toLocaleDateString("en-US", { weekday: "long" })} · {formatTimeRange(e)}{e.start ? " CT" : ""}</p>
                         <h3 className={`mt-0.5 text-base font-bold leading-snug text-pg-navy`}>{e.title}</h3>
                         <p className={`mt-1 text-sm leading-relaxed text-pg-slate`}>{e.description}</p>
-                        <div className="mt-2 flex flex-wrap gap-1.5">
+                        <div className="mt-2 flex flex-wrap gap-2">
                           <CategoryTag category={e.category} />
                           {e.language && <span className={`inline-flex rounded-full bg-pg-cream-dark px-2 py-0.5 text-xs font-semibold text-pg-navy`}>{e.language}</span>}
                         </div>
@@ -332,21 +332,21 @@ export default function MentalHealthEventsPage() {
             <section className={`${card} p-5`} aria-labelledby="upcoming-title">
               <h2 id="upcoming-title" className={`text-base font-bold text-pg-navy`}>Upcoming events</h2>
               {upcoming.length ? (
-                <ul className="mt-3.5 grid gap-2.5">
+                <ul className="mt-4 grid gap-2">
                   {upcoming.map((e) => (
                     <li key={e.id}>
                       <button
                         type="button"
                         onClick={(click) => { goToDate(e.date); openEvent(e, click); }}
                         aria-haspopup="dialog"
-                        className="relative flex w-full gap-3 rounded-pg-lg border border-pg-tint-soft py-2.5 pl-3.5 pr-3 text-left transition-colors hover:bg-pg-tint-soft"
+                        className="relative flex w-full gap-3 rounded-pg-lg border border-pg-tint-soft py-2 pl-4 pr-3 text-left transition-colors hover:bg-pg-tint-soft"
                       >
                         <span className="absolute bottom-2.5 left-0 top-2.5 w-[3px] rounded-pg-sm" style={{ background: CATEGORIES[e.category].swatch }} aria-hidden="true" />
                         <DateBlock date={parseDate(e.date)} size="sm" />
                         <span className="min-w-0">
                           <span className={`block text-sm font-semibold leading-snug text-pg-navy`}>{e.title}</span>
                           <span className={`mt-0.5 block text-xs text-pg-slate`}>{parseDate(e.date).toLocaleDateString("en-US", { weekday: "short" })} · {formatTimeRange(e)}</span>
-                          <span className="mt-1.5 block"><CategoryTag category={e.category} /></span>
+                          <span className="mt-2 block"><CategoryTag category={e.category} /></span>
                         </span>
                       </button>
                     </li>

@@ -160,7 +160,8 @@ Brand emphasis: one word or phrase in teal italics inside a headline.
   panels) · `rounded-pg-xl` 16 (cards, dialogs, banners) · `rounded-pg-2xl` 28 (heroes, featured video) ·
   `rounded-full` (chips, badges, avatars, search bars).
 - **Shadow:** `shadow-pg-card` · `shadow-pg-card-hover` · `shadow-pg-overlay`. Never black shadows.
-- **Spacing:** Tailwind's 4px scale (`gap-2` 8, `gap-3` 12, `gap-4` 16, `gap-5` 20, `gap-6` 24, `gap-8` 32…).
+- **Spacing:** Tailwind's 4px scale (`gap-2` 8, `gap-3` 12, `gap-4` 16, `gap-5` 20, `gap-6` 24, `gap-8` 32…), matching
+  the Figma Spacing Scale. No half steps (`1.5`, `2.5`, `3.5`): they have no token.
 
 ## 5. Layout
 
@@ -214,7 +215,7 @@ from `@mui/icons-material` (Outlined).
   (cream input, sage icon), category chips in one scrollable row, "Featured" sort menu on the right. One per list.
 - **Dialogs:** follow `EventModal` — white card, `rounded-pg-xl`, `shadow-pg-overlay`, `role="dialog"`,
   focus trapped, close with Esc / X / outside click, focus returns to the trigger.
-- **Newsletter:** the button sits inside the input box (`p-1.5 gap-2`).
+- **Newsletter:** the button sits inside the input box (`p-2 gap-2`).
 - **Video:** Vimeo iframe 16:9 with a descriptive `title`; overlays on media use navy, never black.
 - **Legal/long text:** `max-w-pg-reading`, `LegalDocumentBody`, Download/Print via `LegalActions`.
 - **Get Help (crisis):** no entrance animations; call/text buttons are `ButtonAnchor` size `l` with `tel:`/`sms:`.

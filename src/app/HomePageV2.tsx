@@ -250,7 +250,7 @@ export default function HomePageV2() {
             <div>
               <div className="w-full bg-white rounded-full shadow-pg-overlay pl-5 pr-1 py-1 flex items-center gap-2 transition-shadow focus-within:shadow-pg-overlay">
                 <input
-                  className="flex-1 min-w-0 text-[14px] font-medium text-pg-navy bg-transparent outline-none placeholder:text-pg-teal placeholder:font-normal py-1.5"
+                  className="flex-1 min-w-0 text-[14px] font-medium text-pg-navy bg-transparent outline-none placeholder:text-pg-teal placeholder:font-normal py-2"
                   placeholder="Anxiety in Children"
                 />
                 <Button size="s" className="shrink-0 rounded-full">
@@ -259,7 +259,7 @@ export default function HomePageV2() {
                 </Button>
               </div>
 
-              <p className="text-white/70 text-xs mt-4 mb-2.5">
+              <p className="text-white/70 text-xs mt-4 mb-2">
                 Search for specific content related to these themes
               </p>
               <div className="flex flex-wrap gap-2 justify-center md:justify-start">
@@ -375,7 +375,7 @@ export default function HomePageV2() {
                   <p className="font-normal text-base leading-[1.5] mt-3 max-w-[300px] text-white/90">{card.desc}</p>
                 </div>
                 <div className="relative">
-                  <span className="inline-block rounded-full border border-white px-4 py-1.5 text-xs font-medium">{card.tag}</span>
+                  <span className="inline-block rounded-full border border-white px-4 py-2 text-xs font-medium">{card.tag}</span>
                 </div>
               </motion.div>
             ) : (
@@ -398,7 +398,7 @@ export default function HomePageV2() {
                   <p className="font-normal text-base leading-[1.5] mt-3">{card.desc}</p>
                 </div>
                 <div className="relative mt-6 md:mt-0">
-                  <span className="inline-block rounded-full bg-pg-navy text-white px-4 py-1.5 text-xs font-medium">{card.tag}</span>
+                  <span className="inline-block rounded-full bg-pg-navy text-white px-4 py-2 text-xs font-medium">{card.tag}</span>
                 </div>
               </motion.div>
             );
@@ -450,7 +450,7 @@ export default function HomePageV2() {
             {subscribed ? (
               <p className="text-pg-sage font-semibold text-base">✓ Thanks for subscribing!</p>
             ) : (
-              <div className="flex items-center gap-2 rounded-pg-xl bg-pg-navy-hover border border-white/10 p-1.5 focus-within:border-pg-sage/60 transition-colors">
+              <div className="flex items-center gap-2 rounded-pg-xl bg-pg-navy-hover border border-white/10 p-2 focus-within:border-pg-sage/60 transition-colors">
                 <input
                   type="email"
                   className="flex-1 min-w-0 px-4 py-3 bg-transparent text-sm text-white outline-none placeholder:text-white/60"

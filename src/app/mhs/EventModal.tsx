@@ -149,7 +149,7 @@ function Card({ event, anchor, onClose }: { event: EventModalData; anchor: DOMRe
               <span className="sr-only">{spanish ? " (se abre en una pestaña nueva)" : " (opens in a new tab)"}</span>
             </ButtonAnchor>
 
-            <Button variant="tertiary" onClick={handleCopy} className="mt-1 w-full gap-1.5 font-medium">
+            <Button variant="tertiary" onClick={handleCopy} className="mt-1 w-full gap-2 font-medium">
               {copied && <Check size={15} aria-hidden="true" />}
               {copied ? (spanish ? "Enlace copiado" : "Link copied") : (spanish ? "Copiar enlace del evento" : "Copy event link")}
             </Button>

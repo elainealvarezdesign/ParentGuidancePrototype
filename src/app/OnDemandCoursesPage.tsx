@@ -476,7 +476,7 @@ export default function OnDemandCoursesPage() {
               value={search}
               onChange={e => setSearchAndReset(e.target.value)}
               placeholder="Search courses…"
-              className="w-full bg-pg-cream text-sm text-pg-navy placeholder:text-pg-teal pl-9 pr-4 py-2.5 rounded-pg-md outline-none border border-transparent focus:border-pg-sage focus:bg-white transition-all"
+              className="w-full bg-pg-cream text-sm text-pg-navy placeholder:text-pg-teal pl-9 pr-4 py-2 rounded-pg-md outline-none border border-transparent focus:border-pg-sage focus:bg-white transition-all"
             />
             {search && (
               <button onClick={() => setSearchAndReset("")} className="absolute right-3 top-1/2 -translate-y-1/2 text-pg-slate hover:text-pg-slate">
@@ -514,7 +514,7 @@ export default function OnDemandCoursesPage() {
               onClick={() => setSortOpen(v => !v)}
               aria-haspopup="listbox"
               aria-expanded={sortOpen}
-              className="inline-flex items-center gap-2 text-xs font-medium text-pg-slate bg-pg-cream-dark px-4 py-2.5 rounded-pg-md hover:bg-pg-tint transition-colors"
+              className="inline-flex items-center gap-2 text-xs font-medium text-pg-slate bg-pg-cream-dark px-4 py-2 rounded-pg-md hover:bg-pg-tint transition-colors"
             >
               <ListFilter size={14} aria-hidden="true" />
               {SORT_LABELS[sort]}
@@ -523,7 +523,7 @@ export default function OnDemandCoursesPage() {
             <AnimatePresence>
               {sortOpen && (
                 <motion.div
-                  className="absolute right-0 top-full mt-1.5 bg-white rounded-pg-md overflow-hidden z-50"
+                  className="absolute right-0 top-full mt-2 bg-white rounded-pg-md overflow-hidden z-50"
                   style={{ boxShadow: "var(--pg-shadow-card)", minWidth: 140 }}
                   initial={{ opacity: 0, y: -6, scale: 0.97 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -534,7 +534,7 @@ export default function OnDemandCoursesPage() {
                     <button
                       key={k}
                       onClick={() => { setSort(k); setSortOpen(false); }}
-                      className="w-full text-left px-4 py-2.5 text-xs transition-colors"
+                      className="w-full text-left px-4 py-2 text-xs transition-colors"
                       style={{
                         background: sort === k ? "var(--pg-tint-soft)" : "white",
                         color: sort === k ? "var(--pg-teal)" : "var(--pg-slate)",
@@ -560,13 +560,13 @@ export default function OnDemandCoursesPage() {
             <span className="font-semibold text-pg-navy text-base">
               {activeTopic === "All" ? "All Courses" : activeTopic}
             </span>
-            <span className="bg-pg-tint text-pg-teal-dark text-xs font-semibold px-2.5 py-0.5 rounded-full">
+            <span className="bg-pg-tint text-pg-teal-dark text-xs font-semibold px-2 py-0.5 rounded-full">
               {filtered.length}
             </span>
           </div>
           <div className="flex items-center gap-2">
             {search && (
-              <span className="flex items-center gap-1.5 bg-pg-cream border border-pg-sage text-pg-teal text-xs px-2.5 py-1 rounded-full">
+              <span className="flex items-center gap-2 bg-pg-cream border border-pg-sage text-pg-teal text-xs px-2 py-1 rounded-full">
                 &ldquo;{search}&rdquo;
                 <button onClick={() => setSearchAndReset("")} className="hover:text-pg-navy">
                   <svg width="10" height="10" viewBox="0 0 24 24" fill="none">
@@ -610,7 +610,7 @@ export default function OnDemandCoursesPage() {
 
         {/* Pagination */}
         {totalPages > 1 && (
-          <div className="flex items-center justify-center gap-1.5 pt-10">
+          <div className="flex items-center justify-center gap-2 pt-10">
             <Button variant="secondary" size="s" onClick={() => { setPage(p => Math.max(1, p - 1)); window.scrollTo({ top: 0, behavior: scrollBehavior() }); }} disabled={page === 1} className="whitespace-nowrap">
               ← Prev
             </Button>

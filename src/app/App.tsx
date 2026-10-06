@@ -179,7 +179,7 @@ function LanguageDropdown() {
                   setLanguage(l);
                   setOpen(false);
                 }}
-                className="block w-full px-5 py-2.5 text-left text-sm text-pg-navy transition-colors hover:bg-pg-cream hover:text-pg-teal"
+                className="block w-full px-5 py-2 text-left text-sm text-pg-navy transition-colors hover:bg-pg-cream hover:text-pg-teal"
               >
                 {l}
               </button>
@@ -745,9 +745,9 @@ function NewsletterSection() {
               ✓ Thanks for subscribing!
             </motion.p>
           ) : (
-            <div className="flex items-center gap-2 rounded-pg-xl bg-pg-tint-soft p-1.5 max-w-md">
+            <div className="flex items-center gap-2 rounded-pg-xl bg-pg-tint-soft p-2 max-w-md">
               <input
-                className="flex-1 min-w-0 px-4 py-2.5 bg-transparent text-sm text-pg-navy outline-none placeholder:text-pg-slate"
+                className="flex-1 min-w-0 px-4 py-2 bg-transparent text-sm text-pg-navy outline-none placeholder:text-pg-slate"
                 placeholder="Your Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}

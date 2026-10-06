@@ -173,13 +173,13 @@ export default function MilestonesToProgressPage() {
 
               <div className="flex flex-col gap-2">
                 {INSTRUCTORS.map(inst => (
-                  <div key={inst.name} className="flex items-center gap-2.5">
+                  <div key={inst.name} className="flex items-center gap-2">
                     <div className="w-8 h-8 rounded-full bg-pg-teal flex items-center justify-center shrink-0">
                       <span className="font-bold text-white text-xs">{inst.initials}</span>
                     </div>
                     <div className="min-w-0">
                       <span className="font-semibold text-pg-navy text-sm">{inst.name}</span>
-                      <span className="text-pg-slate text-xs ml-1.5">{inst.credential}</span>
+                      <span className="text-pg-slate text-xs ml-2">{inst.credential}</span>
                     </div>
                   </div>
                 ))}
@@ -196,7 +196,7 @@ export default function MilestonesToProgressPage() {
               <h2 className="font-bold text-pg-navy text-base">Course outline</h2>
 
               {/* Progress */}
-              <div className="flex flex-col gap-1.5">
+              <div className="flex flex-col gap-2">
                 <p className="text-pg-slate text-xs">
                   0 of {TOTAL_LESSONS} lessons completed
                 </p>
@@ -218,7 +218,7 @@ export default function MilestonesToProgressPage() {
                       onClick={() => setActiveLesson(lesson.id)}
                     >
                       <motion.div
-                        className={`flex items-center gap-3 text-left w-full px-3 py-2.5 rounded-pg-md border transition-colors ${
+                        className={`flex items-center gap-3 text-left w-full px-3 py-2 rounded-pg-md border transition-colors ${
                           isActive
                             ? "border-pg-teal bg-pg-tint"
                             : "border-pg-line bg-white hover:border-pg-sage hover:bg-pg-cream"
@@ -304,7 +304,7 @@ export default function MilestonesToProgressPage() {
           <div className="mt-6 pt-6 border-t border-pg-line grid grid-cols-1 sm:grid-cols-3 gap-5">
             {INSTRUCTORS.map(inst => (
               <div key={inst.name} className="flex flex-col gap-2">
-                <div className="flex items-center gap-2.5">
+                <div className="flex items-center gap-2">
                   <div className="w-10 h-10 rounded-full bg-pg-teal flex items-center justify-center shrink-0">
                     <span className="font-bold text-white text-xs">{inst.initials}</span>
                   </div>

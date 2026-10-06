@@ -145,7 +145,7 @@ function ProcessStep({ num, title, desc, index }: { num: string; title: string; 
       </motion.div>
       <div>
         <p className="font-semibold text-pg-navy text-sm leading-5">{title}</p>
-        <p className="text-pg-slate text-xs leading-[1.625] mt-1.5 max-w-[224px] mx-auto">{desc}</p>
+        <p className="text-pg-slate text-xs leading-[1.625] mt-2 max-w-[224px] mx-auto">{desc}</p>
       </div>
     </motion.div>
   );
@@ -305,7 +305,7 @@ export default function ParentCoachingPage() {
                       alt={coach.name}
                       className="w-full h-full object-cover"
                     />
-                    <div className="absolute top-3 right-3 bg-pg-tint rounded-full px-2.5 py-1">
+                    <div className="absolute top-3 right-3 bg-pg-tint rounded-full px-2 py-1">
                       <span className="font-semibold text-pg-teal text-xs">● Available</span>
                     </div>
                   </div>
@@ -317,9 +317,9 @@ export default function ParentCoachingPage() {
                       <p className="text-pg-teal-dark text-xs leading-4 mt-0.5">{coach.role}</p>
                     </div>
                     <p className="text-pg-slate text-xs leading-[1.625] flex-1">{coach.bio}</p>
-                    <div className="flex flex-wrap gap-1.5">
+                    <div className="flex flex-wrap gap-2">
                       {coach.tags.map(tag => (
-                        <span key={tag} className="font-medium text-pg-teal-dark text-xs bg-pg-cream px-2.5 py-1 rounded-full">
+                        <span key={tag} className="font-medium text-pg-teal-dark text-xs bg-pg-cream px-2 py-1 rounded-full">
                           {tag}
                         </span>
                       ))}

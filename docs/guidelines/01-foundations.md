@@ -115,7 +115,7 @@ Tailwind's 4px scale is used. Allowed steps:
 | `10` / `14` | 40 / 56 | Page side gutter (md / lg) |
 | `14` / `16` / `20` | 56 / 64 / 80 | Section vertical padding |
 
-Avoid loose in-between values (`py-3.5`, `px-2.5`) except for optical adjustments inside components.
+Use only values on the Spacing Scale (2, 4, 8, 12, 16, 20, 24, 32…). No half steps (`1.5`, `2.5`, `3.5`): they have no Figma token.
 
 ## 1.4 Radii
 

@@ -115,7 +115,7 @@ Se usa la escala de 4px de Tailwind. Pasos permitidos:
 | `10` / `14` | 40 / 56 | Gutter lateral de página (md / lg) |
 | `14` / `16` / `20` | 56 / 64 / 80 | Padding vertical de sección |
 
-Evitar valores intermedios sueltos (`py-3.5`, `px-2.5`) salvo en ajustes ópticos de componentes.
+Usar solo valores de la Spacing Scale (2, 4, 8, 12, 16, 20, 24, 32…). Nada de medios pasos (`1.5`, `2.5`, `3.5`): no tienen token en Figma.
 
 ## 1.4 Radios
 

@@ -68,7 +68,7 @@ The prototype's buttons use [`src/app/components/Button.tsx`](../../src/app/comp
 - `className` is for layout (`w-full`, `mt-4`, `shrink-0`), not for changing colors, radii or sizes.
 - Exception: the "Search" button inside a pill-shaped search bar may use `rounded-full`, because it is part
   of the bar.
-- In newsletters, the button sits **inside** the input box (with `p-1.5` and `gap-2`), not glued to its edge.
+- In newsletters, the button sits **inside** the input box (with `p-2` and `gap-2`), not glued to its edge.
 
 ### Controls that are not action buttons
 
@@ -77,7 +77,7 @@ These elements have their own style and do **not** use `<Button>`:
 | Control | Style |
 |---------|-------|
 | Filter chips | `rounded-full text-xs font-medium px-4 py-2`; active `bg-pg-navy text-white`, inactive `bg-pg-cream-dark text-pg-slate`, with `aria-pressed` |
-| "Featured" (sort) menu | `rounded-pg-md bg-pg-cream-dark text-xs font-medium px-4 py-2.5`, 14px `ListFilter` (filter_list) + `ChevronDown` (expand_more) icons, centered with the label |
+| "Featured" (sort) menu | `rounded-pg-md bg-pg-cream-dark text-xs font-medium px-4 py-2`, 14px `ListFilter` (filter_list) + `ChevronDown` (expand_more) icons, centered with the label |
 | Segmented control (Month/List, Day/Week/Month) | `bg-pg-tint-soft` container; active option is white with `shadow-pg-card` and `aria-pressed` |
 | Numeric pagination | 36–44px squares; current page in navy or teal; Prev/Next as `<Button variant="secondary" size="s">` |
 | Icon-only buttons | 36–44px, `rounded-pg-md`, `aria-label` required (calendar arrows, close, menu) |

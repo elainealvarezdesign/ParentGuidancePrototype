@@ -92,6 +92,11 @@ Desktop Large, Tablet and Mobile: *Page Margin* 90 / 170 / 40 / 24, *Page Gutter
 pages (Terms, Cookies, Consent — Desktop) are bound to *Page Margin*, and every frame on the three Layouts pages
 has its matching mode set, so a page margin bound on Tablet or Mobile resolves to 40 or 24.
 
+**Code aligned to the Spacing Scale (October 6):** the prototype no longer uses half-step spacing utilities:
+`*-1.5` and `*-2.5` became `*-2` (8px) and `*-3.5` became `*-4` (16px). That is 118 changes in 16 app files; the
+unused shadcn primitives in `components/ui/` were left as they are. Built and checked at 375, 768 and 1280px with
+no horizontal overflow. The guidelines now forbid half steps.
+
 ## Pending
 
 Nothing in the library. Library updates are published from Figma (Assets → Libraries → Publish).

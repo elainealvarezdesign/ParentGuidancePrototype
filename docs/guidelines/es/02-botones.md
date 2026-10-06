@@ -68,7 +68,7 @@ Los botones del prototipo usan [`src/app/components/Button.tsx`](../../../src/ap
 - `className` sirve para el layout (`w-full`, `mt-4`, `shrink-0`), no para cambiar colores, radios ni tamaños.
 - Excepción: el botón "Search" dentro de una barra de búsqueda en píldora puede llevar `rounded-full`, porque
   forma parte de la barra.
-- En newsletters, el botón va **dentro** de la caja del input (con `p-1.5` y `gap-2`), no pegado al borde.
+- En newsletters, el botón va **dentro** de la caja del input (con `p-2` y `gap-2`), no pegado al borde.
 
 ### Controles que no son botones de acción
 
@@ -77,7 +77,7 @@ Estos elementos tienen su propio estilo y **no** usan `<Button>`:
 | Control | Estilo |
 |---------|--------|
 | Chips de filtro | `rounded-full text-xs font-medium px-4 py-2`; activo `bg-pg-navy text-white`, inactivo `bg-pg-cream-dark text-pg-slate`, con `aria-pressed` |
-| Menú "Featured" (ordenar) | `rounded-pg-md bg-pg-cream-dark text-xs font-medium px-4 py-2.5`, iconos `ListFilter` (filter_list) + `ChevronDown` (expand_more) de 14px, centrados con el texto |
+| Menú "Featured" (ordenar) | `rounded-pg-md bg-pg-cream-dark text-xs font-medium px-4 py-2`, iconos `ListFilter` (filter_list) + `ChevronDown` (expand_more) de 14px, centrados con el texto |
 | Selector segmentado (Month/List, Day/Week/Month) | Contenedor `bg-pg-tint-soft`; opción activa blanca con `shadow-pg-card` y `aria-pressed` |
 | Paginación numérica | Cuadrados de 36–44px; página actual navy o teal; Prev/Next como `<Button variant="secondary" size="s">` |
 | Botones de solo icono | 36–44px, `rounded-pg-md`, `aria-label` obligatorio (flechas del calendario, cerrar, menú) |

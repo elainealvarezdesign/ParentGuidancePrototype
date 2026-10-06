@@ -63,9 +63,9 @@ function Hero({ topic }: { topic: Topic }) {
               </div>
             </div>
             <ul className={`mt-5 grid gap-3 border-t border-pg-line pt-4 text-sm text-pg-slate`}>
-              <li className="flex items-center gap-2.5"><PlayCircle size={16} className="shrink-0 text-pg-teal-dark" aria-hidden="true" />{topic.videos.length} videos · {topic.videos.map((v) => v.kind).join(" & ")}</li>
-              <li className="flex items-center gap-2.5"><CalendarDays size={16} className="shrink-0 text-pg-teal-dark" aria-hidden="true" />{topic.sessions.length} live sessions · {[...new Set(topic.sessions.map((s) => s.language))].join(" & ")}</li>
-              <li className="flex items-center gap-2.5"><ListChecks size={16} className="shrink-0 text-pg-teal-dark" aria-hidden="true" />{topic.takeaways.length} key takeaways</li>
+              <li className="flex items-center gap-2"><PlayCircle size={16} className="shrink-0 text-pg-teal-dark" aria-hidden="true" />{topic.videos.length} videos · {topic.videos.map((v) => v.kind).join(" & ")}</li>
+              <li className="flex items-center gap-2"><CalendarDays size={16} className="shrink-0 text-pg-teal-dark" aria-hidden="true" />{topic.sessions.length} live sessions · {[...new Set(topic.sessions.map((s) => s.language))].join(" & ")}</li>
+              <li className="flex items-center gap-2"><ListChecks size={16} className="shrink-0 text-pg-teal-dark" aria-hidden="true" />{topic.takeaways.length} key takeaways</li>
             </ul>
           </aside>
         </div>
@@ -93,7 +93,7 @@ function VideoCard({ video: v }: { video: TopicVideo }) {
           <>
             <img src={v.image} alt="" className="absolute inset-0 h-full w-full object-cover" style={{ objectPosition: v.imagePosition ?? "center" }} />
             <div className="absolute inset-0 bg-gradient-to-t from-[color-mix(in srgb, var(--pg-navy) 55%, transparent)] to-transparent to-60%" aria-hidden="true" />
-            <span className={`absolute left-3.5 top-3.5 rounded-full bg-pg-navy px-2.5 py-1 text-[11px] font-semibold uppercase tracking-pg-caps text-white`}>
+            <span className={`absolute left-3.5 top-3.5 rounded-full bg-pg-navy px-2 py-1 text-[11px] font-semibold uppercase tracking-pg-caps text-white`}>
               {v.kind}
             </span>
             {canPlay ? (
@@ -120,7 +120,7 @@ function VideoCard({ video: v }: { video: TopicVideo }) {
       </div>
       <div className="p-5 md:px-6 md:pb-6">
         <h3 className={`text-xl font-bold text-pg-navy`}>{v.title}</h3>
-        <p className={`mt-1.5 text-sm leading-relaxed text-pg-slate`}>{v.description}</p>
+        <p className={`mt-2 text-sm leading-relaxed text-pg-slate`}>{v.description}</p>
       </div>
     </article>
   );
@@ -158,7 +158,7 @@ function Sessions({ topic }: { topic: Topic }) {
                   <h3 className={`text-base font-bold leading-snug text-pg-navy`}>{s.title}</h3>
                   <p className={`mt-1 text-xs text-pg-slate`}>{s.time}</p>
                   <div className="mt-auto flex flex-wrap items-center justify-between gap-2 pt-3">
-                    <span className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${spanish ? "bg-pg-cream-dark text-pg-navy" : "bg-pg-tint text-pg-teal-dark"}`}>
+                    <span className={`rounded-full px-2 py-0.5 text-xs font-medium ${spanish ? "bg-pg-cream-dark text-pg-navy" : "bg-pg-tint text-pg-teal-dark"}`}>
                       {s.language}
                     </span>
                     <ButtonAnchor href={s.registerUrl} target="_blank" rel="noopener noreferrer">
@@ -187,7 +187,7 @@ function Takeaways({ topic }: { topic: Topic }) {
               <span className={`grid h-9 w-9 place-items-center rounded-full bg-pg-sage font-bold text-pg-navy`} aria-hidden="true">
                 {i + 1}
               </span>
-              <h3 className={`mb-1.5 mt-3.5 text-base font-bold leading-snug text-pg-navy`}>{t.title}</h3>
+              <h3 className={`mb-2 mt-4 text-base font-bold leading-snug text-pg-navy`}>{t.title}</h3>
               <p className={`text-sm leading-relaxed text-pg-slate`}>{t.text}</p>
             </li>
           ))}
@@ -208,7 +208,7 @@ function Actions({ topic }: { topic: Topic }) {
         <ol className="grid gap-5">
           {topic.actions.map((a, i) => (
             <li key={a.title} className={`${card} p-6 md:p-7`}>
-              <div className="flex items-center gap-3.5">
+              <div className="flex items-center gap-4">
                 <span className={`grid h-9 w-9 shrink-0 place-items-center rounded-full bg-pg-navy font-bold text-white`} aria-hidden="true">
                   {i + 1}
                 </span>
@@ -241,10 +241,10 @@ function Resources({ topic }: { topic: Topic }) {
               <Link to={r.to} className={`${card} group flex h-full flex-col overflow-hidden no-underline transition-shadow hover:shadow-pg-card-hover`}>
                 <img src={r.image} alt="" className="h-36 w-full object-cover" />
                 <div className="flex flex-1 flex-col gap-2 p-4">
-                  <span className={`self-start rounded-full bg-pg-tint px-2.5 py-0.5 text-xs font-medium text-pg-teal-dark`}>{r.type}</span>
+                  <span className={`self-start rounded-full bg-pg-tint px-2 py-0.5 text-xs font-medium text-pg-teal-dark`}>{r.type}</span>
                   <h3 className={`text-base font-bold leading-snug text-pg-navy`}>{r.title}</h3>
                   <p className={`flex-1 text-xs leading-relaxed text-pg-slate`}>{r.description}</p>
-                  <span className={`mt-1 inline-flex items-center gap-1.5 text-sm font-semibold text-pg-teal-dark group-hover:underline`}>
+                  <span className={`mt-1 inline-flex items-center gap-2 text-sm font-semibold text-pg-teal-dark group-hover:underline`}>
                     View topic <ArrowRight size={14} aria-hidden="true" />
                   </span>
                 </div>
@@ -256,7 +256,7 @@ function Resources({ topic }: { topic: Topic }) {
         <div className="mt-14 flex flex-col items-start gap-6 rounded-pg-xl bg-pg-navy px-6 py-7 md:flex-row md:items-center md:justify-between md:rounded-pg-2xl md:px-12 md:py-10">
           <div>
             <h2 className={`text-xl font-medium text-white md:text-2xl`}>For school leaders &amp; community organizers</h2>
-            <p className={`mt-1.5 text-sm text-pg-sage`}>Share this topic with your families and find materials for your community.</p>
+            <p className={`mt-2 text-sm text-pg-sage`}>Share this topic with your families and find materials for your community.</p>
           </div>
           <ButtonLink to="/contact-us" variant="inverse" className="shrink-0">
             Get additional resources <ArrowRight size={16} aria-hidden="true" />
@@ -276,11 +276,11 @@ function Newsletter() {
         <div>
           <p className={`text-[11px] font-semibold uppercase tracking-pg-caps text-pg-navy`}>Let's keep in touch</p>
           <h2 id="newsletter-title" className={`mt-1 text-[28px] font-bold leading-tight text-pg-navy md:text-[40px]`}>Subscribe to our newsletter</h2>
-          <p className={`mt-1.5 text-sm text-pg-navy`}>New topics, live sessions and tools, straight to your inbox.</p>
+          <p className={`mt-2 text-sm text-pg-navy`}>New topics, live sessions and tools, straight to your inbox.</p>
         </div>
-        <form className="flex w-full max-w-[460px] items-center gap-2 rounded-pg-lg bg-white p-1.5" onSubmit={(e) => e.preventDefault()}>
+        <form className="flex w-full max-w-[460px] items-center gap-2 rounded-pg-lg bg-white p-2" onSubmit={(e) => e.preventDefault()}>
           <label htmlFor="topic-newsletter-email" className="sr-only">Email address</label>
-          <input id="topic-newsletter-email" type="email" placeholder="Your email" className={`min-w-0 flex-1 bg-transparent px-3 py-2.5 text-sm text-pg-navy placeholder:text-pg-teal outline-none`} />
+          <input id="topic-newsletter-email" type="email" placeholder="Your email" className={`min-w-0 flex-1 bg-transparent px-3 py-2 text-sm text-pg-navy placeholder:text-pg-teal outline-none`} />
           <Button type="submit" className="shrink-0">Subscribe</Button>
         </form>
       </div>

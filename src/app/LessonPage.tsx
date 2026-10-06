@@ -132,7 +132,7 @@ export default function LessonPage() {
           <div className="flex flex-col items-start gap-3 sm:flex-row sm:justify-between sm:gap-4">
             <div className="min-w-0">
               <div className="flex items-center gap-2 mb-1">
-                <span className="font-semibold text-[11px] uppercase tracking-pg-caps text-pg-teal-dark bg-pg-tint px-2.5 py-0.5 rounded-pg-sm">
+                <span className="font-semibold text-[11px] uppercase tracking-pg-caps text-pg-teal-dark bg-pg-tint px-2 py-0.5 rounded-pg-sm">
                   Lesson {lesson.id} of {LESSONS.length}
                 </span>
                 <span className="text-xs text-pg-slate">
@@ -145,7 +145,7 @@ export default function LessonPage() {
             </div>
 
             {/* Mark complete */}
-            <Button variant="secondary" size="s" onClick={markComplete} aria-pressed={completed.has(lesson.id)} className={`shrink-0 gap-1.5 ${completed.has(lesson.id) ? "bg-pg-tint" : ""}`}>
+            <Button variant="secondary" size="s" onClick={markComplete} aria-pressed={completed.has(lesson.id)} className={`shrink-0 gap-2 ${completed.has(lesson.id) ? "bg-pg-tint" : ""}`}>
               {completed.has(lesson.id) ? (
                 <CheckCircle2 size={13} />
               ) : (
@@ -253,7 +253,7 @@ export default function LessonPage() {
                 <button
                   key={tab}
                   onClick={() => setActiveTab(tab)}
-                  className={`flex flex-1 sm:flex-none items-center justify-center gap-1.5 px-2 sm:px-5 py-3.5 text-xs font-semibold whitespace-nowrap transition-colors border-b-2 ${
+                  className={`flex flex-1 sm:flex-none items-center justify-center gap-2 px-2 sm:px-5 py-4 text-xs font-semibold whitespace-nowrap transition-colors border-b-2 ${
                     activeTab === tab
                       ? "border-pg-teal text-pg-teal"
                       : "border-transparent text-pg-slate hover:text-pg-navy"
@@ -292,7 +292,7 @@ export default function LessonPage() {
                     transition={{ duration: 0.22 }}
                   >
                     {lesson.takeaways.map((item, i) => (
-                      <li key={i} className="flex items-start gap-2.5">
+                      <li key={i} className="flex items-start gap-2">
                         <CheckCircle2 size={14} className="text-pg-teal shrink-0 mt-0.5" />
                         <span className="text-pg-navy text-sm leading-snug">{item}</span>
                       </li>
@@ -310,7 +310,7 @@ export default function LessonPage() {
                   >
                     {RESOURCES.map((r, i) => (
                       <div key={i} className="flex items-center justify-between p-3 rounded-pg-md border border-pg-line hover:border-pg-sage transition-colors cursor-pointer">
-                        <div className="flex items-center gap-2.5">
+                        <div className="flex items-center gap-2">
                           <FileText size={14} className="text-pg-sage" />
                           <span className="text-sm text-pg-navy">{r.label}</span>
                         </div>
@@ -398,7 +398,7 @@ export default function LessonPage() {
         <div className="max-w-pg-page mx-auto px-6 h-16 flex items-center justify-between gap-3">
           {/* Previous / Back */}
           {prevLesson ? (
-            <Button variant="tertiary" onClick={() => goToLesson(prevLesson.id)} className="gap-1.5">
+            <Button variant="tertiary" onClick={() => goToLesson(prevLesson.id)} className="gap-2">
               <ChevronLeft size={15} aria-hidden="true" />
               <span className="sm:hidden">Previous</span>
               <span className="hidden sm:inline">{prevLesson.title}</span>
@@ -413,7 +413,7 @@ export default function LessonPage() {
           )}
 
           {/* Lesson indicator dots */}
-          <div className="hidden sm:flex items-center gap-1.5">
+          <div className="hidden sm:flex items-center gap-2">
             {LESSONS.map((l) => (
               <button
                 key={l.id}

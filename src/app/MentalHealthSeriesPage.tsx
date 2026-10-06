@@ -205,7 +205,7 @@ function ResourceLibrary() {
               onChange={e => setLibSearch(e.target.value)}
               placeholder="Search resources…"
               aria-label="Search resources"
-              className="w-full bg-pg-cream text-sm text-pg-navy placeholder:text-pg-teal pl-9 pr-4 py-2.5 rounded-pg-md outline-none border border-transparent focus:border-pg-sage focus:bg-white transition-colors"
+              className="w-full bg-pg-cream text-sm text-pg-navy placeholder:text-pg-teal pl-9 pr-4 py-2 rounded-pg-md outline-none border border-transparent focus:border-pg-sage focus:bg-white transition-colors"
             />
           </div>
 
@@ -231,20 +231,20 @@ function ResourceLibrary() {
               onClick={() => setSortOpen(v => !v)}
               aria-haspopup="listbox"
               aria-expanded={sortOpen}
-              className="inline-flex items-center gap-2 bg-pg-cream-dark text-pg-slate text-xs font-medium px-4 py-2.5 rounded-pg-md hover:bg-pg-tint transition-colors"
+              className="inline-flex items-center gap-2 bg-pg-cream-dark text-pg-slate text-xs font-medium px-4 py-2 rounded-pg-md hover:bg-pg-tint transition-colors"
             >
               <ListFilter size={14} aria-hidden="true" />
               {RESOURCE_SORT_LABELS[sort]}
               <ChevronDown size={14} aria-hidden="true" className={`transition-transform ${sortOpen ? "rotate-180" : ""}`} />
             </button>
             {sortOpen && (
-              <ul role="listbox" aria-label="Sort resources" className="absolute right-0 top-full mt-1.5 z-30 min-w-[140px] bg-white rounded-pg-md shadow-pg-overlay overflow-hidden py-1">
+              <ul role="listbox" aria-label="Sort resources" className="absolute right-0 top-full mt-2 z-30 min-w-[140px] bg-white rounded-pg-md shadow-pg-overlay overflow-hidden py-1">
                 {(Object.keys(RESOURCE_SORT_LABELS) as ResourceSort[]).map(k => (
                   <li key={k} role="option" aria-selected={sort === k}>
                     <button
                       type="button"
                       onClick={() => { setSort(k); setSortOpen(false); }}
-                      className={`w-full text-left px-4 py-2.5 text-xs transition-colors hover:bg-pg-tint-soft ${sort === k ? "bg-pg-tint-soft text-pg-teal-dark font-semibold" : "text-pg-slate"}`}
+                      className={`w-full text-left px-4 py-2 text-xs transition-colors hover:bg-pg-tint-soft ${sort === k ? "bg-pg-tint-soft text-pg-teal-dark font-semibold" : "text-pg-slate"}`}
                     >
                       {RESOURCE_SORT_LABELS[k]}
                     </button>
@@ -340,7 +340,7 @@ function EventPill({ ev, popup, onEventClick, compact = false }: {
       type="button"
       aria-haspopup="dialog"
       onClick={e => onEventClick(ev, e)}
-      className={`rounded-pg-md font-medium text-white text-left w-full cursor-pointer truncate ${compact ? "text-xs px-1.5 py-0.5 leading-[14px]" : "text-xs px-2 py-1"}`}
+      className={`rounded-pg-md font-medium text-white text-left w-full cursor-pointer truncate ${compact ? "text-xs px-2 py-0.5 leading-[14px]" : "text-xs px-2 py-1"}`}
       style={{ background: active ? (ev.color === "teal" ? "var(--pg-teal)" : "var(--pg-navy)") : (ev.color === "teal" ? "var(--pg-sage)" : "var(--pg-navy)") }}
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.97 }}
@@ -362,7 +362,7 @@ function MonthView({ year, month, popup, onEventClick }: { year: number; month: 
     <div className="bg-white rounded-pg-xl overflow-hidden" style={{ boxShadow: "var(--pg-shadow-card)" }}>
       <div className="grid grid-cols-7 border-b border-pg-tint-soft">
         {DAY_NAMES_SHORT.map(d => (
-          <div key={d} className="text-center py-2.5 text-xs font-semibold text-pg-slate uppercase tracking-pg-eyebrow">{d}</div>
+          <div key={d} className="text-center py-2 text-xs font-semibold text-pg-slate uppercase tracking-pg-eyebrow">{d}</div>
         ))}
       </div>
       <div className="grid grid-cols-7">
@@ -370,7 +370,7 @@ function MonthView({ year, month, popup, onEventClick }: { year: number; month: 
           const evs = day ? eventsForDate(year, month, day) : [];
           const isToday = day !== null && today.getFullYear() === year && today.getMonth() === month && today.getDate() === day;
           return (
-            <div key={idx} className={`min-h-[80px] p-1.5 border-b border-r border-pg-tint-soft flex flex-col gap-1 transition-colors ${day ? "hover:bg-pg-cream cursor-default" : "bg-pg-tint-soft"}`}>
+            <div key={idx} className={`min-h-[80px] p-2 border-b border-r border-pg-tint-soft flex flex-col gap-1 transition-colors ${day ? "hover:bg-pg-cream cursor-default" : "bg-pg-tint-soft"}`}>
               {day && (
                 <>
                   <span className={`text-xs font-medium w-6 h-6 flex items-center justify-center rounded-full ${isToday ? "bg-pg-teal text-white" : "text-pg-slate"}`}>{day}</span>
@@ -410,7 +410,7 @@ function WeekView({ weekStart, popup, onEventClick }: { weekStart: Date; popup: 
         {days.map((d, i) => {
           const evs = eventsForDate(d.getFullYear(), d.getMonth(), d.getDate());
           return (
-            <div key={i} className="border-r border-pg-tint-soft p-2 flex flex-col gap-1.5">
+            <div key={i} className="border-r border-pg-tint-soft p-2 flex flex-col gap-2">
               {evs.map((ev, j) => <EventPill key={j} ev={ev} popup={popup} onEventClick={onEventClick} />)}
             </div>
           );
@@ -524,7 +524,7 @@ function Calendar() {
             <button
               key={v}
               onClick={() => setView(v)}
-              className="text-xs font-medium px-3 py-1.5 rounded-pg-md capitalize transition-all"
+              className="text-xs font-medium px-3 py-2 rounded-pg-md capitalize transition-all"
               style={{
                 background: view === v ? "var(--pg-white)" : "transparent",
                 color: view === v ? "var(--pg-navy)" : "var(--pg-slate)",

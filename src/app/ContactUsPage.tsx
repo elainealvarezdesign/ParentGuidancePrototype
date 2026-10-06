@@ -38,7 +38,7 @@ export default function ContactUsPage() {
           {!submitted ? (
             <form onSubmit={handleSubmit} className="flex flex-col gap-5">
               <div className="grid gap-5 sm:grid-cols-2">
-                <div className="flex flex-col gap-1.5">
+                <div className="flex flex-col gap-2">
                   <label className="text-sm font-semibold text-pg-navy">
                     Full name <span className="text-pg-teal">*</span>
                   </label>
@@ -46,11 +46,11 @@ export default function ContactUsPage() {
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
                     required
-                    className="rounded-pg-md border border-pg-line px-4 py-2.5 text-sm text-pg-navy outline-none transition-colors placeholder:text-pg-teal focus:border-pg-sage"
+                    className="rounded-pg-md border border-pg-line px-4 py-2 text-sm text-pg-navy outline-none transition-colors placeholder:text-pg-teal focus:border-pg-sage"
                   />
                 </div>
 
-                <div className="flex flex-col gap-1.5">
+                <div className="flex flex-col gap-2">
                   <label className="text-sm font-semibold text-pg-navy">
                     Email <span className="text-pg-teal">*</span>
                   </label>
@@ -59,21 +59,21 @@ export default function ContactUsPage() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    className="rounded-pg-md border border-pg-line px-4 py-2.5 text-sm text-pg-navy outline-none transition-colors placeholder:text-pg-teal focus:border-pg-sage"
+                    className="rounded-pg-md border border-pg-line px-4 py-2 text-sm text-pg-navy outline-none transition-colors placeholder:text-pg-teal focus:border-pg-sage"
                   />
                 </div>
               </div>
 
-              <div className="flex flex-col gap-1.5">
+              <div className="flex flex-col gap-2">
                 <label className="text-sm font-semibold text-pg-navy">Subject</label>
                 <input
                   value={subject}
                   onChange={(e) => setSubject(e.target.value)}
-                  className="rounded-pg-md border border-pg-line px-4 py-2.5 text-sm text-pg-navy outline-none transition-colors placeholder:text-pg-teal focus:border-pg-sage"
+                  className="rounded-pg-md border border-pg-line px-4 py-2 text-sm text-pg-navy outline-none transition-colors placeholder:text-pg-teal focus:border-pg-sage"
                 />
               </div>
 
-              <div className="flex flex-col gap-1.5">
+              <div className="flex flex-col gap-2">
                 <label className="text-sm font-semibold text-pg-navy">
                   How can we help? <span className="text-pg-teal">*</span>
                 </label>

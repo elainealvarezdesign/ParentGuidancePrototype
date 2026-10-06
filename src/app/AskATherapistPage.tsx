@@ -185,7 +185,7 @@ function SubmitModal({ onClose }: { onClose: () => void }) {
 
         {!submitted ? (
           <form onSubmit={handleSubmit} className="p-8 flex flex-col gap-5">
-            <div className="flex flex-col gap-1.5">
+            <div className="flex flex-col gap-2">
               <label className="font-semibold text-pg-navy text-sm">
                 Your Question <span className="text-pg-teal">*</span>
               </label>
@@ -199,16 +199,16 @@ function SubmitModal({ onClose }: { onClose: () => void }) {
               />
             </div>
             <div className="flex gap-4">
-              <div className="flex flex-col gap-1.5 flex-1">
+              <div className="flex flex-col gap-2 flex-1">
                 <label className="font-semibold text-pg-navy text-sm">Your Name</label>
                 <input
                   value={name}
                   onChange={e => setName(e.target.value)}
                   placeholder="Optional"
-                  className="text-sm text-pg-navy placeholder:text-pg-teal border border-pg-line rounded-pg-md px-4 py-2.5 outline-none focus:border-pg-sage transition-colors"
+                  className="text-sm text-pg-navy placeholder:text-pg-teal border border-pg-line rounded-pg-md px-4 py-2 outline-none focus:border-pg-sage transition-colors"
                 />
               </div>
-              <div className="flex flex-col gap-1.5 flex-1">
+              <div className="flex flex-col gap-2 flex-1">
                 <label className="font-semibold text-pg-navy text-sm">
                   Email <span className="text-pg-teal">*</span>
                 </label>
@@ -218,7 +218,7 @@ function SubmitModal({ onClose }: { onClose: () => void }) {
                   placeholder="your@email.com"
                   type="email"
                   required
-                  className="text-sm text-pg-navy placeholder:text-pg-teal border border-pg-line rounded-pg-md px-4 py-2.5 outline-none focus:border-pg-sage transition-colors"
+                  className="text-sm text-pg-navy placeholder:text-pg-teal border border-pg-line rounded-pg-md px-4 py-2 outline-none focus:border-pg-sage transition-colors"
                 />
               </div>
             </div>
@@ -278,7 +278,7 @@ function QACard({ item, index }: { item: QAItem; index: number }) {
         />
         {/* Category pill */}
         <div className="absolute top-3 left-3">
-          <span className="font-semibold text-xs text-white bg-pg-navy/80 backdrop-blur-sm px-2.5 py-1 rounded-full">
+          <span className="font-semibold text-xs text-white bg-pg-navy/80 backdrop-blur-sm px-2 py-1 rounded-full">
             {item.category}
           </span>
         </div>
@@ -427,7 +427,7 @@ export default function AskATherapistPage() {
         value={search}
         onChange={(event) => handleSearch(event.target.value)}
         placeholder="Search questions..."
-        className="w-full bg-pg-cream text-sm text-pg-navy placeholder:text-pg-teal pl-9 pr-9 py-2.5 rounded-pg-md outline-none focus:ring-2 focus:ring-pg-sage/30"
+        className="w-full bg-pg-cream text-sm text-pg-navy placeholder:text-pg-teal pl-9 pr-9 py-2 rounded-pg-md outline-none focus:ring-2 focus:ring-pg-sage/30"
       />
 
       {search && (
@@ -467,7 +467,7 @@ export default function AskATherapistPage() {
     {/* Featured control */}
     <button
       type="button"
-      className="shrink-0 inline-flex items-center gap-2 bg-pg-cream-dark text-pg-slate text-xs font-medium px-4 py-2.5 rounded-pg-md hover:bg-pg-tint transition-colors"
+      className="shrink-0 inline-flex items-center gap-2 bg-pg-cream-dark text-pg-slate text-xs font-medium px-4 py-2 rounded-pg-md hover:bg-pg-tint transition-colors"
     >
       <ListFilter size={14} aria-hidden="true" />
 
@@ -494,7 +494,7 @@ export default function AskATherapistPage() {
               <div className="w-10 h-10 rounded-pg-md bg-pg-sage/15 flex items-center justify-center">
                 <MessageCircle size={18} className="text-pg-sage" />
               </div>
-              <div className="flex flex-col gap-1.5">
+              <div className="flex flex-col gap-2">
                 <h3 className="font-bold text-white text-base leading-snug">
                   Have a question for our therapists?
                 </h3>
@@ -534,10 +534,10 @@ export default function AskATherapistPage() {
 
             {/* Section header */}
             <div className="flex flex-wrap items-center justify-between gap-3 mb-5">
-              <div className="flex items-center gap-2.5">
+              <div className="flex items-center gap-2">
                 <div className="w-1 h-5 rounded-full bg-pg-sage" />
                 <span className="font-semibold text-pg-navy text-xl">Browse All</span>
-                <div className="bg-pg-tint rounded-full px-2.5 py-0.5">
+                <div className="bg-pg-tint rounded-full px-2 py-0.5">
                   <span className="font-medium text-pg-teal-dark text-xs">
                     {filtered.length} questions
                   </span>
@@ -556,7 +556,7 @@ export default function AskATherapistPage() {
               <div className="flex flex-col items-center justify-center py-20 text-center">
                 <MessageCircle size={36} className="text-pg-slate mb-3" />
                 <p className="font-semibold text-pg-navy text-sm">No questions found</p>
-                <p className="text-pg-slate text-xs mt-1.5">Try a different category or search term</p>
+                <p className="text-pg-slate text-xs mt-2">Try a different category or search term</p>
                 <Button variant="secondary" size="s" onClick={() => { setActiveCategory("All"); setSearch(""); }} className="mt-4">
                   Clear filters
                 </Button>

@@ -93,7 +93,7 @@ Same pattern on On-Demand Courses, Ask a Therapist and Mental Health Series:
 ```tsx
 <div className="bg-white border-y border-pg-line sticky top-14 z-30 shadow-pg-card">
   <div className="max-w-pg-page mx-auto px-6 md:px-10 py-3 flex flex-wrap md:flex-nowrap items-center gap-3 md:gap-4">
-    {/* search: relative min-w-0 flex-1 md:flex-none md:w-64; input bg-pg-cream rounded-pg-md py-2.5, text-pg-sage magnifier */}
+    {/* search: relative min-w-0 flex-1 md:flex-none md:w-64; input bg-pg-cream rounded-pg-md py-2, text-pg-sage magnifier */}
     {/* chips: order-last basis-full md:order-none md:basis-auto flex-1 min-w-0 overflow-x-auto gap-2 */}
     {/* "Featured": sort menu on the right */}
   </div>
@@ -112,7 +112,7 @@ Same pattern on On-Demand Courses, Ask a Therapist and Mental Health Series:
 
 ### Newsletter
 
-The button sits inside the input box: `flex items-center gap-2 rounded-pg-xl bg-pg-tint-soft p-1.5` (on navy,
+The button sits inside the input box: `flex items-center gap-2 rounded-pg-xl bg-pg-tint-soft p-2` (on navy,
 the box is `bg-pg-navy-hover` and the button is Inverse).
 
 ### Event pop-up / dialogs

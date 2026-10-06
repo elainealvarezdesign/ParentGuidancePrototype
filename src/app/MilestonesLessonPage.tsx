@@ -239,7 +239,7 @@ export default function MilestonesLessonPage() {
           <div className="flex flex-col items-start gap-3 sm:flex-row sm:justify-between sm:gap-4">
             <div className="min-w-0">
               <div className="flex items-center gap-2 mb-1">
-                <span className="font-semibold text-[11px] uppercase tracking-pg-caps text-pg-teal-dark bg-pg-tint px-2.5 py-0.5 rounded-pg-sm">
+                <span className="font-semibold text-[11px] uppercase tracking-pg-caps text-pg-teal-dark bg-pg-tint px-2 py-0.5 rounded-pg-sm">
                   Lesson {lesson.id} of {LESSONS.length}
                 </span>
                 <span className="text-xs text-pg-slate">{lesson.duration}</span>
@@ -247,7 +247,7 @@ export default function MilestonesLessonPage() {
               <p className="text-xs text-pg-teal-dark mb-1">{lesson.module}</p>
               <h1 className="font-bold text-pg-navy text-[28px] md:text-[40px] leading-[1.15]">{lesson.title}</h1>
             </div>
-            <Button variant="secondary" size="s" onClick={markComplete} aria-pressed={completed.has(lesson.id)} className={`shrink-0 gap-1.5 ${completed.has(lesson.id) ? "bg-pg-tint" : ""}`}>
+            <Button variant="secondary" size="s" onClick={markComplete} aria-pressed={completed.has(lesson.id)} className={`shrink-0 gap-2 ${completed.has(lesson.id) ? "bg-pg-tint" : ""}`}>
               {completed.has(lesson.id) ? <CheckCircle2 size={13} /> : <Circle size={13} />}
               {completed.has(lesson.id) ? "Completed" : "Mark complete"}
             </Button>
@@ -317,7 +317,7 @@ export default function MilestonesLessonPage() {
                 <button
                   key={tab}
                   onClick={() => setActiveTab(tab)}
-                  className={`flex flex-1 sm:flex-none items-center justify-center gap-1.5 px-2 sm:px-5 py-3.5 text-xs font-semibold whitespace-nowrap transition-colors border-b-2 ${
+                  className={`flex flex-1 sm:flex-none items-center justify-center gap-2 px-2 sm:px-5 py-4 text-xs font-semibold whitespace-nowrap transition-colors border-b-2 ${
                     activeTab === tab ? "border-pg-teal text-pg-teal" : "border-transparent text-pg-slate hover:text-pg-navy"
                   }`}
                 >
@@ -340,7 +340,7 @@ export default function MilestonesLessonPage() {
                   <motion.ul key="kt" className="flex flex-col gap-3"
                     initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.22 }}>
                     {lesson.takeaways.map((item, i) => (
-                      <li key={i} className="flex items-start gap-2.5">
+                      <li key={i} className="flex items-start gap-2">
                         <CheckCircle2 size={14} className="text-pg-teal shrink-0 mt-0.5" />
                         <span className="text-pg-navy text-sm leading-snug">{item}</span>
                       </li>
@@ -352,7 +352,7 @@ export default function MilestonesLessonPage() {
                     initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.22 }}>
                     {RESOURCES.map((r, i) => (
                       <div key={i} className="flex items-center justify-between p-3 rounded-pg-md border border-pg-line hover:border-pg-sage transition-colors cursor-pointer">
-                        <div className="flex items-center gap-2.5">
+                        <div className="flex items-center gap-2">
                           <FileText size={14} className="text-pg-sage" />
                           <span className="text-sm text-pg-navy">{r.label}</span>
                         </div>
@@ -428,7 +428,7 @@ export default function MilestonesLessonPage() {
       <div className="border-t border-pg-line bg-white shrink-0">
         <div className="max-w-pg-page mx-auto px-6 h-16 flex items-center justify-between gap-3">
           {prevLesson ? (
-            <Button variant="tertiary" onClick={() => goToLesson(prevLesson.id)} className="gap-1.5">
+            <Button variant="tertiary" onClick={() => goToLesson(prevLesson.id)} className="gap-2">
               <ChevronLeft size={15} aria-hidden="true" />
               <span className="sm:hidden">Previous</span>
               <span className="hidden sm:inline">{prevLesson.title}</span>
@@ -439,7 +439,7 @@ export default function MilestonesLessonPage() {
             </Link>
           )}
 
-          <div className="hidden sm:flex items-center gap-1.5">
+          <div className="hidden sm:flex items-center gap-2">
             {LESSONS.map(l => (
               <button key={l.id} onClick={() => goToLesson(l.id)} aria-label={l.title} aria-current={l.id === lesson.id ? "step" : undefined}
                 className={`rounded-full transition-all duration-(--pg-dur-fast) ${l.id === lesson.id ? "w-5 h-2 bg-pg-navy" : completed.has(l.id) ? "w-2 h-2 bg-pg-teal" : "w-2 h-2 bg-pg-mist hover:bg-pg-sage"}`}

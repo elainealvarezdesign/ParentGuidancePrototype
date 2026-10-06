@@ -94,7 +94,7 @@ Mismo patrón en On-Demand Courses, Ask a Therapist y Mental Health Series:
 ```tsx
 <div className="bg-white border-y border-pg-line sticky top-14 z-30 shadow-pg-card">
   <div className="max-w-pg-page mx-auto px-6 md:px-10 py-3 flex flex-wrap md:flex-nowrap items-center gap-3 md:gap-4">
-    {/* buscador: relative min-w-0 flex-1 md:flex-none md:w-64; input bg-pg-cream rounded-pg-md py-2.5, lupa text-pg-sage */}
+    {/* buscador: relative min-w-0 flex-1 md:flex-none md:w-64; input bg-pg-cream rounded-pg-md py-2, lupa text-pg-sage */}
     {/* chips: order-last basis-full md:order-none md:basis-auto flex-1 min-w-0 overflow-x-auto gap-2 */}
     {/* "Featured": menú de orden a la derecha */}
   </div>
@@ -113,7 +113,7 @@ Barra sage de 4×20px + título `h3` navy + contador en píldora `bg-pg-tint tex
 
 ### Newsletter
 
-El botón va dentro de la caja del input: `flex items-center gap-2 rounded-pg-xl bg-pg-tint-soft p-1.5` (sobre
+El botón va dentro de la caja del input: `flex items-center gap-2 rounded-pg-xl bg-pg-tint-soft p-2` (sobre
 navy, la caja es `bg-pg-navy-hover` y el botón Inverse).
 
 ### Pop-up de evento / diálogos

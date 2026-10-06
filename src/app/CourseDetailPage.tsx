@@ -115,7 +115,7 @@ export default function CourseDetailPage() {
                 <span className="text-sm">Approx. 30 min</span>
               </div>
 
-              <div className="flex items-center gap-2.5">
+              <div className="flex items-center gap-2">
                 <img
                   src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=80&h=80&q=80"
                   alt="Brett Williams"
@@ -138,7 +138,7 @@ export default function CourseDetailPage() {
                 Course outline
               </h2>
 
-              <div className="flex flex-col gap-1.5">
+              <div className="flex flex-col gap-2">
                 <p className="text-pg-slate text-xs">
                   0 of 4 lessons completed
                 </p>
@@ -158,7 +158,7 @@ export default function CourseDetailPage() {
                       style={{ color: "inherit" }}
                     >
                     <motion.div
-                      className={`flex items-center gap-3 text-left w-full px-3 py-2.5 rounded-pg-md border transition-colors ${
+                      className={`flex items-center gap-3 text-left w-full px-3 py-2 rounded-pg-md border transition-colors ${
                         isActive
                           ? "border-pg-teal bg-pg-tint"
                           : "border-pg-line bg-white hover:border-pg-sage hover:bg-pg-cream"
