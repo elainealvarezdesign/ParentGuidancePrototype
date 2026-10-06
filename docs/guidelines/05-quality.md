@@ -49,4 +49,4 @@ prototype, its three frames are updated too.
 | Home pages | Decide between the main home, V1 and V2 | Product |
 | Home V2 accent | Uses a peach tone (`#e8a497`) that is not part of the palette | Design |
 | Cookies Policy | Cookie names are shown in a monospace font | Design |
-| Spacing and line height | Mental Health Series, Parent Coaching and the alternative home pages still use one-off line heights and spacing values instead of the scale | Development |
+| Line height | Mental Health Series, Parent Coaching and the alternative home pages still use some one-off line heights (`leading-[…]`) instead of the type scale (spacing is already on the scale) | Development |

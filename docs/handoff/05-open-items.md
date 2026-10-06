@@ -12,6 +12,6 @@ prototype or the library.
 | Repeated copy | Three home cards repeat "Dive into a wealth of knowledge tailored for parents" | Content |
 | Home V2 accent | Uses a peach tone (`#e8a497`) that isn't in the palette | Design |
 | Cookies Policy | Cookie names are shown in a monospace font | Design |
-| Spacing and line height | Mental Health Series, Parent Coaching and the alternative homes still use some off-scale spacing | Development |
+| Line height | Mental Health Series, Parent Coaching and the alternative homes still use some one-off line heights (`leading-[…]`); spacing is already on the scale | Development |
 
 Source: section 5.4 of the design guidelines (`docs/guidelines/05-quality.md`).

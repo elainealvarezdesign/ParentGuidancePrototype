@@ -50,4 +50,4 @@ se actualizan también sus tres frames.
 | Homes | Decidir entre la home principal, V1 y V2 | Producto |
 | Acento de Home V2 | Usa un tono durazno (`#e8a497`) que no está en la paleta | Diseño |
 | Cookies Policy | Los nombres de las cookies se muestran en una fuente monoespaciada | Diseño |
-| Espaciado e interlineado | Mental Health Series, Parent Coaching y las homes alternativas aún usan interlineados y espaciados sueltos en lugar de la escala | Desarrollo |
+| Interlineado | Mental Health Series, Parent Coaching y las homes alternativas aún usan algunos interlineados sueltos (`leading-[…]`) en lugar de la escala tipográfica (el espaciado ya está en la escala) | Desarrollo |

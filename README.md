@@ -24,7 +24,12 @@ Figma Make export.
 ## Running the code
 
 ```bash
-pnpm install   # or: npm i
-pnpm dev       # start the development server
-pnpm build     # production build into dist/
+pnpm install     # or: npm i
+pnpm dev         # start the development server
+pnpm typecheck   # TypeScript (strict)
+pnpm build       # production build into dist/
+pnpm preview     # serve the build locally
 ```
+
+**Developers start here:** [`docs/handoff/DEVELOPER.md`](./docs/handoff/DEVELOPER.md). It covers what is final and
+what is simulated, the code map, the routes and the next steps for production.

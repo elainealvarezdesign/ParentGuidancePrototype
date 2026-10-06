@@ -1,3 +1,8 @@
-This Figma Make file includes components from [shadcn/ui](https://ui.shadcn.com/) used under [MIT license](https://github.com/shadcn-ui/ui/blob/main/LICENSE.md).
+# Attributions
 
-This Figma Make file includes photos from [Unsplash](https://unsplash.com) used under [license](https://unsplash.com/license).
+- Photos from [Unsplash](https://unsplash.com), used under the [Unsplash license](https://unsplash.com/license)
+  (hot-linked placeholders; replace before production).
+- Photos from [Pexels](https://www.pexels.com/license/); see [`src/imports/mhs/CREDITS.md`](./src/imports/mhs/CREDITS.md).
+- Icons: [Material Icons](https://fonts.google.com/icons) (Outlined) via `@mui/icons-material`, Apache License 2.0.
+- Font: [Poppins](https://fonts.google.com/specimen/Poppins), SIL Open Font License 1.1.
+- Partner and crisis-line logos belong to their respective organizations.

@@ -94,7 +94,7 @@ has its matching mode set, so a page margin bound on Tablet or Mobile resolves t
 
 **Code aligned to the Spacing Scale (October 6):** the prototype no longer uses half-step spacing utilities:
 `*-1.5` and `*-2.5` became `*-2` (8px) and `*-3.5` became `*-4` (16px). That is 118 changes in 16 app files; the
-unused shadcn primitives in `components/ui/` were left as they are. Built and checked at 375, 768 and 1280px with
+unused shadcn primitives were removed later the same day in the code cleanup. Built and checked at 375, 768 and 1280px with
 no horizontal overflow. The guidelines now forbid half steps.
 
 **Text styles that match the code (October 6):** five new styles, all bound to Typography variables.
@@ -105,6 +105,20 @@ no horizontal overflow. The guidelines now forbid half steps.
 - *Label/Medium - SemiBold Caps* (16/24, 0.1em tracking, the "WHY" eyebrow).
 
 These replace the closest-style mapping, so the Layouts again show the same sizes as the prototype.
+
+**Code cleanup for the developer handoff (October 6):**
+- Removed the Figma Make leftovers: 48 unused shadcn components, 4 unused Figma Make page exports and their images,
+  the unused fallback image component, the empty `globals.css` and `default_shadcn_theme.css`, and the Figma asset
+  resolver in Vite.
+- Dependencies went from 56 to 11.
+- The package is renamed `parent-guidance-prototype`.
+- Added strict TypeScript (`pnpm typecheck` passes; two type errors fixed).
+- Pages now load lazily per route, with vendor chunks split. The main bundle went from 890 KB to 105 KB and the
+  500 KB warning is gone.
+- All 20 routes were checked at 375 and 1280px: no errors and no overflow.
+- The remaining arbitrary spacing values (`px-[10px]`, `gap-[6px]`…) were moved onto the scale. The only ones left
+  are the two structural offsets: the navbar clearance and the calendar day number.
+- Developer guide: [`docs/handoff/DEVELOPER.md`](../handoff/DEVELOPER.md).
 
 ## Pending
 

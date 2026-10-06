@@ -55,7 +55,7 @@ const CATEGORIES: ResourceCategory[] = ["All","Anxiety","Depression","Parenting"
 /* ─── Type badge SVG icons (from Figma paths) ─── */
 function TypeBadge({ type }: { type: ResourceType }) {
   if (type === "Video") return (
-    <div className="bg-pg-tint relative rounded-full shrink-0 flex gap-[6px] items-center px-[10px] py-[4px]">
+    <div className="bg-pg-tint relative rounded-full shrink-0 flex gap-2 items-center px-2 py-1">
       <div className="relative shrink-0 size-[16px]">
         <svg className="block size-full" fill="none" viewBox="0 0 13.3333 13.3333">
           <path d={svgPaths.p308c8130} fill="var(--pg-teal-dark)" />
@@ -65,7 +65,7 @@ function TypeBadge({ type }: { type: ResourceType }) {
     </div>
   );
   if (type === "Article") return (
-    <div className="bg-pg-tint-soft relative rounded-full shrink-0 flex gap-[6px] items-center px-[10px] py-[4px]">
+    <div className="bg-pg-tint-soft relative rounded-full shrink-0 flex gap-2 items-center px-2 py-1">
       <div className="relative shrink-0 size-[16px]">
         <svg className="block size-full" fill="none" viewBox="0 0 12 12">
           <path d={svgPaths.p26f92c80} className="fill-pg-navy" />
@@ -76,7 +76,7 @@ function TypeBadge({ type }: { type: ResourceType }) {
     </div>
   );
   if (type === "Guide") return (
-    <div className="bg-pg-success-soft relative rounded-full shrink-0 flex gap-[6px] items-center px-[10px] py-[4px]">
+    <div className="bg-pg-success-soft relative rounded-full shrink-0 flex gap-2 items-center px-2 py-1">
       <div className="relative shrink-0 size-[16px]">
         <svg className="block size-full" fill="none" viewBox="0 0 12 13.3333">
           <path d={svgPaths.p2a787c0} fill="var(--pg-success)" />
@@ -86,7 +86,7 @@ function TypeBadge({ type }: { type: ResourceType }) {
     </div>
   );
   if (type === "Worksheet") return (
-    <div className="bg-pg-warning-soft relative rounded-full shrink-0 flex gap-[6px] items-center px-[10px] py-[4px]">
+    <div className="bg-pg-warning-soft relative rounded-full shrink-0 flex gap-2 items-center px-2 py-1">
       <div className="relative shrink-0 size-[16px]">
         <svg className="block size-full" fill="none" viewBox="0 0 12.0017 12">
           <path d={svgPaths.p1ad4ca80} fill="var(--pg-warning)" />
@@ -96,7 +96,7 @@ function TypeBadge({ type }: { type: ResourceType }) {
     </div>
   );
   return (
-    <div className="bg-pg-error-soft relative rounded-full shrink-0 flex gap-[6px] items-center px-[10px] py-[4px]">
+    <div className="bg-pg-error-soft relative rounded-full shrink-0 flex gap-2 items-center px-2 py-1">
       <span className="font-semibold leading-[15px] text-pg-error text-xs whitespace-nowrap">Tool</span>
     </div>
   );
@@ -109,7 +109,7 @@ function ResourceCard({ resource, index }: { resource: typeof RESOURCE_LIBRARY[0
   return (
     <MotionLink
       to={`/mental-health-series/${resource.slug ?? SAMPLE_TOPIC_SLUG}`}
-      className="bg-white flex flex-col gap-[12px] items-start p-[20px] rounded-pg-xl shadow-pg-card no-underline group"
+      className="bg-white flex flex-col gap-3 items-start p-5 rounded-pg-xl shadow-pg-card no-underline group"
       initial={{ opacity: 0, y: 14 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -120,7 +120,7 @@ function ResourceCard({ resource, index }: { resource: typeof RESOURCE_LIBRARY[0
       <div className="flex items-center justify-between w-full">
         <TypeBadge type={resource.type} />
         {resource.isNew && (
-          <div className="bg-pg-teal rounded-full px-[8px] py-[2px] inline-flex items-center">
+          <div className="bg-pg-teal rounded-full px-2 py-0.5 inline-flex items-center">
             <span className="font-semibold leading-[15px] text-white text-xs whitespace-nowrap">New</span>
           </div>
         )}
@@ -141,13 +141,13 @@ function ResourceCard({ resource, index }: { resource: typeof RESOURCE_LIBRARY[0
       </div>
 
       {/* Footer */}
-      <div className="w-full relative pt-[5px]">
+      <div className="w-full relative pt-1">
         <div aria-hidden className="absolute border-pg-tint-soft border-solid border-t inset-0 pointer-events-none" />
         <div className="flex items-center justify-between">
-          <div className="bg-pg-cream rounded-full px-[8px] py-[2px] inline-flex items-center">
+          <div className="bg-pg-cream rounded-full px-2 py-0.5 inline-flex items-center">
             <span className="font-medium leading-[15px] text-pg-teal-dark text-xs whitespace-nowrap">{resource.category}</span>
           </div>
-          <div className="flex gap-[8px] items-center">
+          <div className="flex gap-2 items-center">
             <span className="leading-[15px] text-pg-slate text-xs whitespace-nowrap">{resource.duration}</span>
             <svg className="size-[14px] group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 14 14">
               <path d={svgPaths.p7f8ed00} stroke="var(--pg-teal)" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.16667" />
@@ -258,17 +258,17 @@ function ResourceLibrary() {
 
       <div className="max-w-pg-page mx-auto px-6 md:px-10 pt-10">
       {/* Header */}
-      <div className="flex gap-[8px] items-center">
+      <div className="flex gap-2 items-center">
         <div className="bg-pg-sage h-[20px] rounded-full w-[4px]" />
         <p className="font-semibold leading-[28px] text-pg-navy text-xl whitespace-nowrap">Resource Library</p>
-        <div className="bg-pg-tint rounded-full px-[8px] py-[2px] inline-flex items-center">
+        <div className="bg-pg-tint rounded-full px-2 py-0.5 inline-flex items-center">
           <p className="font-medium leading-[16px] text-pg-teal-dark text-[12px] whitespace-nowrap">{RESOURCE_LIBRARY.length} resources</p>
         </div>
       </div>
 
       {/* Card grid */}
-      <div className="pt-[24px] w-full">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-[16px] gap-y-[16px] w-full">
+      <div className="pt-6 w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-4 w-full">
           {visible.map((r, i) => (
             <ResourceCard key={r.title} resource={r} index={i} />
           ))}
@@ -282,7 +282,7 @@ function ResourceLibrary() {
 
       {/* Show all button */}
       {filtered.length > 9 && (
-        <div className="flex items-start justify-center pt-[24px] w-full">
+        <div className="flex items-start justify-center pt-6 w-full">
           <Button variant="secondary" onClick={() => setExpanded(v => !v)} className="whitespace-nowrap">
             {expanded ? "Show fewer resources" : `Show all ${filtered.length} resources`}
           </Button>
@@ -354,7 +354,10 @@ function EventPill({ ev, popup, onEventClick, compact = false }: {
 function MonthView({ year, month, popup, onEventClick }: { year: number; month: number; popup: EventPopupState; onEventClick: (ev: typeof EVENTS[0], e: MouseEvent) => void }) {
   const days = getDaysInMonth(year, month);
   const firstDay = getFirstDayOfMonth(year, month);
-  const cells: (number | null)[] = Array.from({ length: firstDay }, () => null).concat(Array.from({ length: days }, (_, i) => i + 1));
+  const cells: (number | null)[] = [
+    ...Array.from({ length: firstDay }, () => null),
+    ...Array.from({ length: days }, (_, i) => i + 1),
+  ];
   while (cells.length % 7 !== 0) cells.push(null);
   const today = new Date();
 
@@ -572,7 +575,7 @@ function ContentPage({ state, district, onReset }: { state: string; district: st
     >
       {/* ── Hero: matches Figma ContentPage + ContainerMargin ── */}
       <div className="bg-pg-cream relative shrink-0 w-full flex flex-col items-center justify-end pt-24 pb-14 px-6 md:px-10 lg:px-14">
-        <div className="flex flex-col items-center gap-[24px] max-w-[825px] w-full">
+        <div className="flex flex-col items-center gap-6 max-w-[825px] w-full">
 
           {/* Heading + location */}
           <div className="w-full text-center">
@@ -589,7 +592,7 @@ function ContentPage({ state, district, onReset }: { state: string; district: st
 
           {/* Search bar — matches Figma SearchBar */}
           <motion.div
-            className="bg-white h-[60px] rounded-pg-2xl shrink-0 w-full max-w-[659px] flex items-center px-[24px] gap-[10px]"
+            className="bg-white h-[60px] rounded-pg-2xl shrink-0 w-full max-w-[659px] flex items-center px-6 gap-2"
             style={{ boxShadow: "var(--pg-shadow-card)" }}
             initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.55 }}
           >
@@ -633,7 +636,7 @@ function ContentPage({ state, district, onReset }: { state: string; district: st
         {/* Monthly Calendar */}
         <section>
           <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
-            <div className="flex gap-[8px] items-center">
+            <div className="flex gap-2 items-center">
               <div className="bg-pg-sage h-[20px] rounded-full w-[4px]" />
               <p className="font-semibold leading-[28px] text-pg-navy text-xl whitespace-nowrap">Monthly Calendar</p>
             </div>
@@ -650,10 +653,10 @@ function ContentPage({ state, district, onReset }: { state: string; district: st
         {/* Upcoming Events */}
         <section>
           <div className="flex items-center justify-between mb-6">
-            <div className="flex gap-[8px] items-center">
+            <div className="flex gap-2 items-center">
               <div className="bg-pg-sage h-[20px] rounded-full w-[4px]" />
               <p className="font-semibold leading-[28px] text-pg-navy text-xl whitespace-nowrap">Upcoming Events</p>
-              <div className="bg-pg-tint rounded-full px-[8px] py-[2px] inline-flex items-center">
+              <div className="bg-pg-tint rounded-full px-2 py-0.5 inline-flex items-center">
                 <p className="font-medium leading-[16px] text-pg-teal-dark text-[12px] whitespace-nowrap">{filteredEvents.length} total</p>
               </div>
             </div>

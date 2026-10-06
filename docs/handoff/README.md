@@ -9,7 +9,8 @@ This folder holds the handoff texts for the Parent Guidance project. They are us
 Parent Guidance — Handoff/
 ├── 00 — README                          ← Google Doc from 00-readme.md
 ├── 01 — Prototype/
-│     └── Prototype — links and deployment      ← 01-prototype.md
+│     ├── Prototype — links and deployment      ← 01-prototype.md
+│     └── Developer handoff                     ← DEVELOPER.md
 ├── 02 — Design System/
 │     ├── Design System — using the library     ← 02-design-system.md
 │     ├── DESIGN.md  ← copy of /DESIGN.md (raw .md file)

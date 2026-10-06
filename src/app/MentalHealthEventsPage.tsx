@@ -191,7 +191,7 @@ export default function MentalHealthEventsPage() {
               Today
             </Button>
           </div>
-          <div className="inline-flex rounded-pg-md bg-pg-tint p-[3px]" role="group" aria-label="Calendar view">
+          <div className="inline-flex rounded-pg-md bg-pg-tint p-1" role="group" aria-label="Calendar view">
             {(["month", "list"] as View[]).map((v) => (
               <button
                 key={v}
@@ -258,7 +258,7 @@ export default function MentalHealthEventsPage() {
                           {date.getDate()}
                         </span>
                         {/* Mobile: dots */}
-                        <span className="flex gap-[3px] lg:hidden" aria-hidden="true">
+                        <span className="flex gap-1 lg:hidden" aria-hidden="true">
                           {dayEvents.slice(0, 3).map((e) => (
                             <span key={e.id} className="h-1.5 w-1.5 rounded-full" style={{ background: CATEGORIES[e.category].swatch }} />
                           ))}

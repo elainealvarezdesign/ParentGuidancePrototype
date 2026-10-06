@@ -1,16 +1,6 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, type ComponentType } from "react";
 import { RouterProvider, createBrowserRouter, Outlet, Link, ScrollRestoration, useLocation } from "react-router";
 import { Button } from "./components/Button";
-import MentalHealthSeriesPage from "./MentalHealthSeriesPage";
-import ParentCoachingPage from "./ParentCoachingPage";
-import OnDemandCoursesPage from "./OnDemandCoursesPage";
-import AskATherapistPage from "./AskATherapistPage";
-import GetHelpPage from "./GetHelpPage";
-import CourseDetailPage from "./CourseDetailPage";
-import LessonPage from "./LessonPage";
-import QuestionDetailPage from "./QuestionDetailPage";
-import MilestonesToProgressPage from "./MilestonesToProgressPage";
-import MilestonesLessonPage from "./MilestonesLessonPage";
 import { motion, useInView, AnimatePresence, MotionConfig } from "motion/react";
 import { Menu, X } from "./components/icons";
 import svgPaths from "@/imports/HomePagePgV2/svg-2e7k4ll6gf.ts";
@@ -31,15 +21,6 @@ import imgRectangle79 from "@/imports/HomePagePgV2/ece298d0ec2c16f10310d45724b27
 import imgRectangle80 from "@/imports/HomePagePgV2/fb9567d2a70815a5c0307df9118cb49c401b72a3.png";
 import imgRectangle81 from "@/imports/HomePagePgV2/40e0ae4f954f871b7087c4354f1c8d0bf5926225.png";
 import imgRectangle82 from "@/imports/HomePagePgV2/dabd6f5341bd78f44bfe8771b4f0e2a23c9565f1.png";
-import CookiesPolicyPage from "./CookiesPolicyPage";
-import TermsOfUsePage from "./TermsOfUsePage";
-import ConsentDocumentsPage from "./ConsentDocumentsPage";
-import ContactUsPage from "./ContactUsPage";
-import HomePageV1 from "./HomePageV1";
-import HomePageV2 from "./HomePageV2";
-import MentalHealthTopicPage from "./MentalHealthTopicPage";
-import MentalHealthEventsPage from "./MentalHealthEventsPage";
-import NotFoundPage from "./NotFoundPage";
 
 /* ── animation helpers ── */
 function FadeUp({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
@@ -934,31 +915,34 @@ function Root() {
   );
 }
 
+// Each page is its own chunk, loaded when its route is first visited.
+const page = (load: () => Promise<{ default: ComponentType }>) => async () => ({ Component: (await load()).default });
+
 const router = createBrowserRouter([
   {
     path: "/",
     Component: Root,
     children: [
       { index: true, Component: HomePage },
-      { path: "home-v1", Component: HomePageV1 },
-      { path: "home-v2", Component: HomePageV2 },
-      { path: "mental-health-series", Component: MentalHealthSeriesPage },
-      { path: "mental-health-series/events", Component: MentalHealthEventsPage },
-      { path: "mental-health-series/:slug", Component: MentalHealthTopicPage },
-      { path: "parent-coaching", Component: ParentCoachingPage },
-      { path: "on-demand-courses", Component: OnDemandCoursesPage },
-      { path: "ask-a-therapist", Component: AskATherapistPage },
-      { path: "get-help", Component: GetHelpPage },
-      { path: "cookies-policy", Component: CookiesPolicyPage },
-      { path: "terms-of-use", Component: TermsOfUsePage },
-      { path: "consent-documents", Component: ConsentDocumentsPage },
-      { path: "contact-us", Component: ContactUsPage },
-      { path: "courses/free-yourself-from-limiting-thoughts", Component: CourseDetailPage },
-      { path: "courses/free-yourself-from-limiting-thoughts/lesson/:lessonId", Component: LessonPage },
-      { path: "ask-a-therapist/:questionId", Component: QuestionDetailPage },
-      { path: "courses/milestones-to-progress", Component: MilestonesToProgressPage },
-      { path: "courses/milestones-to-progress/lesson/:lessonId", Component: MilestonesLessonPage },
-      { path: "*", Component: NotFoundPage },
+      { path: "home-v1", lazy: page(() => import("./HomePageV1")) },
+      { path: "home-v2", lazy: page(() => import("./HomePageV2")) },
+      { path: "mental-health-series", lazy: page(() => import("./MentalHealthSeriesPage")) },
+      { path: "mental-health-series/events", lazy: page(() => import("./MentalHealthEventsPage")) },
+      { path: "mental-health-series/:slug", lazy: page(() => import("./MentalHealthTopicPage")) },
+      { path: "parent-coaching", lazy: page(() => import("./ParentCoachingPage")) },
+      { path: "on-demand-courses", lazy: page(() => import("./OnDemandCoursesPage")) },
+      { path: "ask-a-therapist", lazy: page(() => import("./AskATherapistPage")) },
+      { path: "get-help", lazy: page(() => import("./GetHelpPage")) },
+      { path: "cookies-policy", lazy: page(() => import("./CookiesPolicyPage")) },
+      { path: "terms-of-use", lazy: page(() => import("./TermsOfUsePage")) },
+      { path: "consent-documents", lazy: page(() => import("./ConsentDocumentsPage")) },
+      { path: "contact-us", lazy: page(() => import("./ContactUsPage")) },
+      { path: "courses/free-yourself-from-limiting-thoughts", lazy: page(() => import("./CourseDetailPage")) },
+      { path: "courses/free-yourself-from-limiting-thoughts/lesson/:lessonId", lazy: page(() => import("./LessonPage")) },
+      { path: "ask-a-therapist/:questionId", lazy: page(() => import("./QuestionDetailPage")) },
+      { path: "courses/milestones-to-progress", lazy: page(() => import("./MilestonesToProgressPage")) },
+      { path: "courses/milestones-to-progress/lesson/:lessonId", lazy: page(() => import("./MilestonesLessonPage")) },
+      { path: "*", lazy: page(() => import("./NotFoundPage")) },
     ],
   },
 ]);
