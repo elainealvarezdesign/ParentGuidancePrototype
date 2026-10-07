@@ -147,7 +147,7 @@ el color de fondo (tint, sage o navy).
 
 - Librería: **Material Icons, estilo Outlined** (`@mui/icons-material`). No se mezclan otros estilos (Filled,
   Rounded, Sharp) ni otras librerías.
-- Siempre se importan desde [`src/app/components/icons.tsx`](../../../src/app/components/icons.tsx), nunca directo de
+- Siempre se importan desde [`src/components/ui/icons.tsx`](../../../src/components/ui/icons.tsx), nunca directo de
   `@mui/icons-material`: `import { Search } from "./components/icons"`. Si falta un icono, se añade ahí con su
   versión `…Outlined`.
 - Tamaño con `size` en px: 14–16px en controles y 18–20px en botones de solo icono

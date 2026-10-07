@@ -117,7 +117,7 @@ the box is `bg-pg-navy-hover` and the button is Inverse).
 
 ### Event pop-up / dialogs
 
-[`EventModal`](../../src/app/mhs/EventModal.tsx): 320px card with a teal header, `rounded-pg-xl`,
+[`EventModal`](../../src/components/patterns/EventModal.tsx): 320px card with a teal header, `rounded-pg-xl`,
 `shadow-pg-overlay`. Next to the element that opens it on desktop and tablet (`pg-navy/10` backdrop), centered on mobile
 (`pg-navy/30` backdrop, `min(320px, 100vw − 32px)` wide). `role="dialog"` with
 `aria-modal`, trapped focus, closes with Esc, the X or a click outside, and returns focus when closed.
@@ -166,7 +166,7 @@ drawing by hand.
 | Outline Step, Course Mini Card, Instructor Line | Course & Media | Course detail (outline, "You may also like", instructors) |
 | Video Card, Session Card, Takeaway Card, Action Card, Topic Resource Card | Cards | Mental Health Series topic page |
 | Calendar (Desktop/Mobile), Event List Item, Event Popover | Calendar & Events | Events page and pop-up |
-| Icon/… (Material Outlined, including `download`, `print` and `vimeo`) | Icons | `src/app/components/icons.tsx` |
+| Icon/… (Material Outlined, including `download`, `print` and `vimeo`) | Icons | `src/components/ui/icons.tsx` |
 
 Full screens live in **Layouts – Desktop / Tablet / Mobile** (1280, 768 and 375px). When a prototype screen
 changes, update its frame on all three pages too.

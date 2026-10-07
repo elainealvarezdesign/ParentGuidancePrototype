@@ -15,7 +15,6 @@ const RULES = [
 // file → rule ids or literal matches that are allowed (structural offsets, brand artwork)
 const ALLOW = {
   "src/components/brand/Logo.tsx": ["raw-hex"],
-  "src/app/App.tsx": ["pt-[72px]"],
   "src/app/MentalHealthEventsPage.tsx": ["pt-[42px]"],
 };
 const BASELINE = JSON.parse(readFileSync(join(ROOT, "scripts/design-rules-baseline.json"), "utf8"));

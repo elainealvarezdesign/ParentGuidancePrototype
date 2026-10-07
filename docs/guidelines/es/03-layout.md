@@ -118,7 +118,7 @@ navy, la caja es `bg-pg-navy-hover` y el botón Inverse).
 
 ### Pop-up de evento / diálogos
 
-[`EventModal`](../../../src/app/mhs/EventModal.tsx): card de 320px con encabezado teal, `rounded-pg-xl`,
+[`EventModal`](../../../src/components/patterns/EventModal.tsx): card de 320px con encabezado teal, `rounded-pg-xl`,
 `shadow-pg-overlay`. Junto al elemento que lo abre en desktop y tablet (fondo `pg-navy/10`), centrado en móvil (fondo
 `pg-navy/30`, ancho `min(320px, 100vw − 32px)`). `role="dialog"` con
 `aria-modal`, foco atrapado, se cierra con Esc, la X o un clic fuera, y devuelve el foco al cerrar.
@@ -167,7 +167,7 @@ ellos en vez de dibujar a mano.
 | Outline Step, Course Mini Card, Instructor Line | Course & Media | Detalle de curso (temario, "You may also like", instructores) |
 | Video Card, Session Card, Takeaway Card, Action Card, Topic Resource Card | Cards | Página de tema de Mental Health Series |
 | Calendar (Desktop/Mobile), Event List Item, Event Popover | Calendar & Events | Página de eventos y pop-up |
-| Icon/… (Material Outlined, incluidos `download`, `print` y `vimeo`) | Icons | `src/app/components/icons.tsx` |
+| Icon/… (Material Outlined, incluidos `download`, `print` y `vimeo`) | Icons | `src/components/ui/icons.tsx` |
 
 Las pantallas completas están en **Layouts – Desktop / Tablet / Mobile** (1280, 768 y 375px). Si una pantalla
 del prototipo cambia, se actualiza también su frame en las tres páginas.

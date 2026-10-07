@@ -24,4 +24,5 @@ jobs:
       - run: pnpm lint
       - run: pnpm check:tokens
       - run: pnpm check:design
+      - run: pnpm check:docs
       - run: pnpm build
