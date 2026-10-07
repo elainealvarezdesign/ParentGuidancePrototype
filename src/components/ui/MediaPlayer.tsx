@@ -27,7 +27,12 @@ const toSeconds = (mmss: string) => {
   const [m = "0", s = "0"] = mmss.split(":");
   return parseInt(m, 10) * 60 + parseInt(s, 10);
 };
-const fmt = (sec: number) => `${Math.floor(sec / 60).toString().padStart(2, "0")}:${Math.floor(sec % 60).toString().padStart(2, "0")}`;
+const fmt = (sec: number) =>
+  `${Math.floor(sec / 60)
+    .toString()
+    .padStart(2, "0")}:${Math.floor(sec % 60)
+    .toString()
+    .padStart(2, "0")}`;
 
 export function MediaPlayer({ poster, duration, title, accent = "teal", className }: MediaPlayerProps) {
   const total = toSeconds(duration);
@@ -47,13 +52,26 @@ export function MediaPlayer({ poster, duration, title, accent = "teal", classNam
       <img
         src={poster}
         alt=""
-        className={cn("absolute inset-0 h-full w-full object-cover transition-opacity duration-(--pg-dur-base)", playing ? "opacity-50" : "opacity-75")}
+        className={cn(
+          "absolute inset-0 h-full w-full object-cover transition-opacity duration-(--pg-dur-base)",
+          playing ? "opacity-50" : "opacity-75",
+        )}
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-pg-navy/70 via-pg-navy/10 to-transparent" aria-hidden="true" />
-      <span className="absolute top-3 left-3 rounded-pg-sm bg-pg-navy/60 px-2 py-0.5 text-xs font-semibold text-white">{duration}</span>
+      <div
+        className="absolute inset-0 bg-gradient-to-t from-pg-navy/70 via-pg-navy/10 to-transparent"
+        aria-hidden="true"
+      />
+      <span className="absolute top-3 left-3 rounded-pg-sm bg-pg-navy/60 px-2 py-0.5 text-xs font-semibold text-white">
+        {duration}
+      </span>
 
       {/* Large center control: the whole poster is one real button */}
-      <button type="button" onClick={toggle} aria-label={label} className="absolute inset-0 flex items-center justify-center">
+      <button
+        type="button"
+        onClick={toggle}
+        aria-label={label}
+        className="absolute inset-0 flex items-center justify-center"
+      >
         <AnimatePresence mode="wait">
           <motion.span
             key={playing ? "pause" : "play"}
@@ -63,7 +81,11 @@ export function MediaPlayer({ poster, duration, title, accent = "teal", classNam
             exit={{ opacity: 0, scale: 0.85 }}
             transition={{ duration: 0.15 }}
           >
-            {playing ? <Pause size={26} className="text-white" aria-hidden="true" /> : <Play size={26} className="ml-1 text-white" aria-hidden="true" />}
+            {playing ? (
+              <Pause size={26} className="text-white" aria-hidden="true" />
+            ) : (
+              <Play size={26} className="ml-1 text-white" aria-hidden="true" />
+            )}
           </motion.span>
         </AnimatePresence>
       </button>
@@ -97,7 +119,11 @@ export function MediaPlayer({ poster, duration, title, accent = "teal", classNam
             aria-label={label}
             className="grid h-8 w-8 place-items-center rounded-pg-md text-white/80 transition-colors hover:text-white"
           >
-            {playing ? <Pause size={16} aria-hidden="true" /> : <Play size={16} className="ml-0.5" aria-hidden="true" />}
+            {playing ? (
+              <Pause size={16} aria-hidden="true" />
+            ) : (
+              <Play size={16} className="ml-0.5" aria-hidden="true" />
+            )}
           </button>
           <span className="text-xs text-white/80" aria-hidden="true">
             {fmt(position)} / {duration}

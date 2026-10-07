@@ -18,7 +18,13 @@ export function Pagination({ page, totalPages, onChange, label = "Pagination", c
   if (totalPages <= 1) return null;
   return (
     <nav aria-label={label} className={cn("flex flex-wrap items-center justify-center gap-2", className)}>
-      <Button variant="secondary" size="s" onClick={() => onChange(page - 1)} disabled={page === 1} className="gap-1 px-3">
+      <Button
+        variant="secondary"
+        size="s"
+        onClick={() => onChange(page - 1)}
+        disabled={page === 1}
+        className="gap-1 px-3"
+      >
         <ChevronLeft size={16} aria-hidden="true" /> Previous
       </Button>
       <ul className="flex gap-1">
@@ -39,7 +45,13 @@ export function Pagination({ page, totalPages, onChange, label = "Pagination", c
           </li>
         ))}
       </ul>
-      <Button variant="secondary" size="s" onClick={() => onChange(page + 1)} disabled={page === totalPages} className="gap-1 px-3">
+      <Button
+        variant="secondary"
+        size="s"
+        onClick={() => onChange(page + 1)}
+        disabled={page === totalPages}
+        className="gap-1 px-3"
+      >
         Next <ChevronRight size={16} aria-hidden="true" />
       </Button>
     </nav>

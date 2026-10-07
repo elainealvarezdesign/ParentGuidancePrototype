@@ -18,9 +18,20 @@ export type FilterChipsProps<T extends string> = {
   className?: string;
 };
 
-export function FilterChips<T extends string>({ label, options, value, onChange, renderLabel, className }: FilterChipsProps<T>) {
+export function FilterChips<T extends string>({
+  label,
+  options,
+  value,
+  onChange,
+  renderLabel,
+  className,
+}: FilterChipsProps<T>) {
   return (
-    <div role="group" aria-label={label} className={cn("flex min-w-0 items-center gap-2 overflow-x-auto py-0.5", className)}>
+    <div
+      role="group"
+      aria-label={label}
+      className={cn("flex min-w-0 items-center gap-2 overflow-x-auto py-0.5", className)}
+    >
       {options.map((option) => {
         const selected = option === value;
         return (

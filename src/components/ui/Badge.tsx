@@ -32,7 +32,7 @@ export function Badge({ children, tone = "tint", shape = "pill", icon, className
     <span
       className={cn(
         "inline-flex w-fit items-center gap-1 whitespace-nowrap [&_svg]:shrink-0",
-        shape === "pill" ? "rounded-full px-3 py-1 text-xs font-semibold" : "text-pg-eyebrow rounded-pg-md px-4 py-2",
+        shape === "pill" ? "rounded-full px-3 py-1 text-xs font-semibold" : "rounded-pg-md px-4 py-2 text-pg-eyebrow",
         tones[tone],
         className,
       )}

@@ -10,8 +10,14 @@ import svgPaths from "./logo-paths";
 
 export function Logo() {
   return (
-    <div className="h-6 relative w-[105px]">
-      <svg aria-hidden="true" className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 105 24">
+    <div className="relative h-6 w-[105px]">
+      <svg
+        aria-hidden="true"
+        className="absolute inset-0 block size-full"
+        fill="none"
+        preserveAspectRatio="none"
+        viewBox="0 0 105 24"
+      >
         <g clipPath="url(#clip0_logo)">
           <path d={svgPaths.p37d85f80} fill="#90B4B6" /* brand artwork */ />
           <path d={svgPaths.p336c2a30} className="fill-pg-cream" />
@@ -44,11 +50,16 @@ export function Logo() {
   );
 }
 
-
 export function LogoColor() {
   return (
-    <div className="h-[28px] relative w-[117px]">
-      <svg aria-hidden="true" className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 117.188 28.4089">
+    <div className="relative h-[28px] w-[117px]">
+      <svg
+        aria-hidden="true"
+        className="absolute inset-0 block size-full"
+        fill="none"
+        preserveAspectRatio="none"
+        viewBox="0 0 117.188 28.4089"
+      >
         <g>
           <path d={svgPaths.p23de9500} fill="#A1BFB9" />
           <path d={svgPaths.p2d0057f0} fill="#58595B" />
@@ -75,4 +86,3 @@ export function LogoColor() {
     </div>
   );
 }
-

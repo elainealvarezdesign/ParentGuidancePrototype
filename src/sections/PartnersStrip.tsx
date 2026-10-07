@@ -23,8 +23,17 @@ export function PartnersStrip({ content }: { content: PartnersContent }) {
         <div className="pointer-events-none absolute top-0 right-0 bottom-0 z-10 w-24 bg-gradient-to-l from-pg-cream to-transparent" />
         <ul className="pg-marquee flex w-max items-center motion-reduce:w-auto motion-reduce:flex-wrap motion-reduce:justify-center">
           {track.map((logo, i) => (
-            <li key={i} aria-hidden={i >= content.logos.length || undefined} className={`flex shrink-0 items-center justify-center px-10 ${i >= content.logos.length ? "motion-reduce:hidden" : ""}`}>
-              <img src={logo.src} alt={i < content.logos.length ? logo.alt : ""} style={{ height: logo.height }} className="w-auto object-contain mix-blend-multiply" />
+            <li
+              key={i}
+              aria-hidden={i >= content.logos.length || undefined}
+              className={`flex shrink-0 items-center justify-center px-10 ${i >= content.logos.length ? "motion-reduce:hidden" : ""}`}
+            >
+              <img
+                src={logo.src}
+                alt={i < content.logos.length ? logo.alt : ""}
+                style={{ height: logo.height }}
+                className="w-auto object-contain mix-blend-multiply"
+              />
             </li>
           ))}
         </ul>

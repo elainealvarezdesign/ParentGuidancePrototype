@@ -47,7 +47,10 @@ export const SearchField = forwardRef<HTMLInputElement, SearchFieldProps>(functi
       <Search
         size={hero ? 20 : 16}
         aria-hidden="true"
-        className={cn("shrink-0 text-pg-slate", !hero && "pointer-events-none absolute top-1/2 left-3 -translate-y-1/2")}
+        className={cn(
+          "shrink-0 text-pg-slate",
+          !hero && "pointer-events-none absolute top-1/2 left-3 -translate-y-1/2",
+        )}
       />
       <input
         ref={ref}

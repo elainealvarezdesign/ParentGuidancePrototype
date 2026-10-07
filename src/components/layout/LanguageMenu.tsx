@@ -45,7 +45,11 @@ export function LanguageMenu({ align = "right" }: { align?: "left" | "right" }) 
         className="group flex min-h-9 items-center gap-1 rounded-pg-sm text-xs font-medium text-pg-sage"
       >
         {language}
-        <ChevronDown size={14} aria-hidden="true" className={cn("transition-transform", open ? "rotate-180" : "group-hover:translate-y-0.5")} />
+        <ChevronDown
+          size={14}
+          aria-hidden="true"
+          className={cn("transition-transform", open ? "rotate-180" : "group-hover:translate-y-0.5")}
+        />
       </button>
       <AnimatePresence>
         {open && (

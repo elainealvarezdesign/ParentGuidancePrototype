@@ -311,13 +311,11 @@ export default function HomePageV2() {
                 transition={{ duration: 0.55, delay: i * 0.08 }}
               >
                 <UnifiedCard
-                  image={card.image}
-                  imageAlt={card.title}
+                  image={{ src: card.image, alt: "" }}
                   badge={card.badge}
                   title={card.title}
                   description={card.description}
-                  buttonLabel="Explore"
-                  to={EXPLORE_ROUTES[card.badge]}
+                  cta={{ label: "Explore", to: EXPLORE_ROUTES[card.badge] }}
                 />
               </motion.div>
             ))}

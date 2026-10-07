@@ -27,9 +27,18 @@ export type FeatureRowsContent = {
 export function FeatureRows({ content }: { content: FeatureRowsContent }) {
   const headingId = useId();
   return (
-    <Section spacing="l" labelledBy={headingId} className="flex flex-col items-center gap-12 px-6 md:gap-20 md:px-10 lg:px-14">
+    <Section
+      spacing="l"
+      labelledBy={headingId}
+      className="flex flex-col items-center gap-12 px-6 md:gap-20 md:px-10 lg:px-14"
+    >
       <Reveal>
-        <SectionHeading eyebrow={content.eyebrow} eyebrowSize="large" title={<span id={headingId}>{content.title}</span>} intro={content.intro} />
+        <SectionHeading
+          eyebrow={content.eyebrow}
+          eyebrowSize="large"
+          title={<span id={headingId}>{content.title}</span>}
+          intro={content.intro}
+        />
       </Reveal>
       <div className="flex w-full max-w-4xl flex-col gap-10">
         {content.rows.map((row, i) => {
@@ -42,7 +51,9 @@ export function FeatureRows({ content }: { content: FeatureRowsContent }) {
               className={`flex flex-col items-center gap-8 md:flex-row md:gap-24 ${reverse ? "md:flex-row-reverse" : ""}`}
             >
               <div className="relative h-60 w-full max-w-80 shrink-0 overflow-hidden rounded-pg-md md:w-80">
-                {content.imageBase && <img src={content.imageBase.src} alt="" className="absolute inset-0 h-full w-full object-cover" />}
+                {content.imageBase && (
+                  <img src={content.imageBase.src} alt="" className="absolute inset-0 h-full w-full object-cover" />
+                )}
                 <img src={row.image.src} alt={row.image.alt} className="absolute inset-0 h-full w-full object-cover" />
               </div>
               <div className="flex max-w-sm flex-col gap-2">

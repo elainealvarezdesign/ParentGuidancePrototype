@@ -43,9 +43,21 @@ export type SectionProps = {
   className?: string;
 };
 
-export function Section({ children, tone = "cream", spacing = "m", belowNav, labelledBy, id, className }: SectionProps) {
+export function Section({
+  children,
+  tone = "cream",
+  spacing = "m",
+  belowNav,
+  labelledBy,
+  id,
+  className,
+}: SectionProps) {
   return (
-    <section id={id} aria-labelledby={labelledBy} className={cn(tones[tone], spacings[spacing], belowNav && "mt-14", className)}>
+    <section
+      id={id}
+      aria-labelledby={labelledBy}
+      className={cn(tones[tone], spacings[spacing], belowNav && "mt-14", className)}
+    >
       {children}
     </section>
   );
@@ -58,6 +70,14 @@ const widths = {
   full: "",
 } as const;
 
-export function Container({ children, width = "page", className }: { children: ReactNode; width?: keyof typeof widths; className?: string }) {
+export function Container({
+  children,
+  width = "page",
+  className,
+}: {
+  children: ReactNode;
+  width?: keyof typeof widths;
+  className?: string;
+}) {
   return <div className={cn("mx-auto w-full px-6 md:px-10 lg:px-14", widths[width], className)}>{children}</div>;
 }

@@ -29,16 +29,39 @@ const decorative = (src: string): Media => ({ src, alt: "" });
 
 export const homeHero: HomeHeroContent = {
   title: title("Discover ", "Resources", " That Can Help"),
-  intro: "Find trusted guidance, practical tips, and expert resources to help you navigate everyday parenting challenges.",
+  intro:
+    "Find trusted guidance, practical tips, and expert resources to help you navigate everyday parenting challenges.",
   search: { label: "Search resources", placeholder: "Anxiety in Children", buttonLabel: "Search" },
 };
 
 export const homeResources: ResourceTilesContent = {
   tiles: [
-    { title: "Mental Health\nSeries", description: "Dive into a wealth of knowledge tailored for parents", image: decorative(imgSeries), dim: true, to: "/mental-health-series" },
-    { title: "Coaching for\nLasting changes", description: "Dive into a wealth of knowledge tailored for parents", image: decorative(imgCoaching), to: "/parent-coaching" },
-    { title: "On-demand\nCourses", description: "Dive into a wealth of knowledge tailored for parents", image: decorative(imgCourses), dim: true, to: "/on-demand-courses" },
-    { title: "Ask a\nTherapist", description: "Get answers to your questions from licensed therapists", image: decorative(imgTherapist), to: "/ask-a-therapist" },
+    {
+      title: "Mental Health\nSeries",
+      description: "Dive into a wealth of knowledge tailored for parents",
+      image: decorative(imgSeries),
+      dim: true,
+      to: "/mental-health-series",
+    },
+    {
+      title: "Coaching for\nLasting changes",
+      description: "Dive into a wealth of knowledge tailored for parents",
+      image: decorative(imgCoaching),
+      to: "/parent-coaching",
+    },
+    {
+      title: "On-demand\nCourses",
+      description: "Dive into a wealth of knowledge tailored for parents",
+      image: decorative(imgCourses),
+      dim: true,
+      to: "/on-demand-courses",
+    },
+    {
+      title: "Ask a\nTherapist",
+      description: "Get answers to your questions from licensed therapists",
+      image: decorative(imgTherapist),
+      to: "/ask-a-therapist",
+    },
   ],
   more: { label: "view more", to: "/mental-health-series" } satisfies Cta,
 };
@@ -50,9 +73,21 @@ export const homeWhy: FeatureRowsContent = {
     "We believe every parent deserves access to expert guidance. Our resources are built on real clinical experience and designed with your family in mind.",
   imageBase: decorative(imgFeatureBase),
   rows: [
-    { title: "Trusted by Parents", description: "Developed by leading mental health professionals with years of clinical practice", image: decorative(imgTrusted) },
-    { title: "Expert Guidance", description: "Access support whenever you need it, day or night, at your own pace", image: decorative(imgExpert) },
-    { title: "Real Support for You", description: "Get answers when your child needs them most", image: decorative(imgSupport) },
+    {
+      title: "Trusted by Parents",
+      description: "Developed by leading mental health professionals with years of clinical practice",
+      image: decorative(imgTrusted),
+    },
+    {
+      title: "Expert Guidance",
+      description: "Access support whenever you need it, day or night, at your own pace",
+      image: decorative(imgExpert),
+    },
+    {
+      title: "Real Support for You",
+      description: "Get answers when your child needs them most",
+      image: decorative(imgSupport),
+    },
   ],
 };
 
@@ -65,12 +100,31 @@ export const homeFaq: FaqContent = {
         "Mental health support doesn't have a timeline and neither does our program. While the initial Parenting with Purpose roadmap is expected to take around 4 weeks to complete, we offer ongoing support as long as you need it.",
       defaultOpen: true,
     },
-    { question: "What can I expect from a meeting with my coach?", answer: "Each coaching session is personalized to your family's unique needs and goals. Your coach will listen actively, offer evidence-based strategies, and help you develop an action plan that fits your lifestyle." },
-    { question: "How often can I message my coach?", answer: "You can message your coach at any time through our platform. Most coaches respond within a few hours during business hours, and within 24 hours at other times." },
-    { question: "How often will I meet with my coach?", answer: "Meeting frequency is flexible and based on your needs. Most families start with weekly sessions and adjust from there." },
-    { question: "What happens in a typical session?", answer: "Sessions typically include a check-in, goal review, new strategies, and a plan for the week ahead." },
+    {
+      question: "What can I expect from a meeting with my coach?",
+      answer:
+        "Each coaching session is personalized to your family's unique needs and goals. Your coach will listen actively, offer evidence-based strategies, and help you develop an action plan that fits your lifestyle.",
+    },
+    {
+      question: "How often can I message my coach?",
+      answer:
+        "You can message your coach at any time through our platform. Most coaches respond within a few hours during business hours, and within 24 hours at other times.",
+    },
+    {
+      question: "How often will I meet with my coach?",
+      answer:
+        "Meeting frequency is flexible and based on your needs. Most families start with weekly sessions and adjust from there.",
+    },
+    {
+      question: "What happens in a typical session?",
+      answer: "Sessions typically include a check-in, goal review, new strategies, and a plan for the week ahead.",
+    },
     { question: "Is messaging limited?", answer: "Messaging is unlimited — reach out whenever something comes up." },
-    { question: "How long until we deliver your first blog post?", answer: "Our team reviews your intake information and typically delivers the first resource within 48 hours of enrollment." },
+    {
+      question: "How long until we deliver your first blog post?",
+      answer:
+        "Our team reviews your intake information and typically delivers the first resource within 48 hours of enrollment.",
+    },
   ],
 };
 

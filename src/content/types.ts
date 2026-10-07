@@ -9,3 +9,6 @@ export type Cta = { label: string; to?: string; href?: string };
 
 /** Rich title: plain text plus an optional highlighted part rendered in italic bold. */
 export type Title = { text: string; highlight?: string; after?: string };
+
+/** Plain text that may contain **bold** for one key fact. Rendered with <RichText>. */
+export type RichText = string;

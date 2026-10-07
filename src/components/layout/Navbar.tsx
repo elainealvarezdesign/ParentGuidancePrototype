@@ -71,7 +71,12 @@ export function Navbar() {
                   )}
                 >
                   {l.label}
-                  {active && <span className="absolute right-0 -bottom-[18px] left-0 h-0.5 rounded-full bg-pg-sage" aria-hidden="true" />}
+                  {active && (
+                    <span
+                      className="absolute right-0 -bottom-[18px] left-0 h-0.5 rounded-full bg-pg-sage"
+                      aria-hidden="true"
+                    />
+                  )}
                 </Link>
               </li>
             );
@@ -126,7 +131,10 @@ export function Navbar() {
                           active ? "text-pg-sage" : "text-white hover:text-pg-sage",
                         )}
                       >
-                        <span className={cn("h-5 w-1 rounded-full", active ? "bg-pg-sage" : "bg-transparent")} aria-hidden="true" />
+                        <span
+                          className={cn("h-5 w-1 rounded-full", active ? "bg-pg-sage" : "bg-transparent")}
+                          aria-hidden="true"
+                        />
                         {l.label}
                       </Link>
                     </li>

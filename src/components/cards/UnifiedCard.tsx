@@ -1,123 +1,110 @@
-import { Link } from "react-router";
-import { buttonClass } from "@/components/ui/Button";
+import type { Cta, Media } from "@/content/types";
+import { cn } from "@/lib/cn";
+import { ButtonAnchor, ButtonLink } from "@/components/ui/Button";
+import { Badge } from "@/components/ui/Badge";
+import { Avatar } from "@/components/ui/Avatar";
+import { ArrowRight } from "@/components/ui/icons";
 
-type UnifiedCardProps = {
-  image: string;
-  imageAlt: string;
-  imageFit?: "cover" | "contain";
-  imageSize?: "default" | "small";
-  
+/* UnifiedCard (docs/system/components/cards.md#unified-card). The one card for browsable items: courses,
+ * help resources, featured resources. Image on top (photo or logo), optional badge and person avatar on the
+ * image, a title, optional description and meta line, one action, optional footer line.
+ *
+ *   <UnifiedCard image={{ src, alt: "" }} badge="Anxiety" person="Dr. Kevin Skinner" title="…"
+ *     meta="1h 30m • 6 lessons" footer="Dr. Kevin Skinner" cta={{ label: "Begin Course", to: "/courses/…" }} />
+ *
+ * Only the button is interactive. External links (`cta.href`) open in a new tab and say so. */
+
+export type UnifiedCardProps = {
+  image: Media;
+  /** "photo" fills the frame; "logo" shows the whole image on white with padding. */
+  imageKind?: "photo" | "logo";
+  /** Extra padding for logos that are tall or square. */
+  logoPadding?: "default" | "large";
+  /** Category or type, 1–3 words. */
   badge?: string;
-  avatar?: string;
+  /** Full name of the person behind the item; shown as an avatar on the image. */
+  person?: string;
+  /** Up to ~70 characters; long titles are kept, not truncated. */
   title: string;
+  /** One sentence, up to ~110 characters. */
   description?: string;
-  metadata?: string;
+  /** Short facts line: duration, lessons, availability. */
+  meta?: string;
+  /** Small centered line under the button (instructor, source). */
   footer?: string;
-  buttonLabel: string;
-  /** External link, opens in a new tab */
-  href?: string;
-  /** In-app route */
-  to?: string;
-  onClick?: () => void;
+  cta: Cta;
+  headingLevel?: "h2" | "h3";
+  className?: string;
 };
 
 export default function UnifiedCard({
   image,
-  imageAlt,
-  imageFit = "cover",
-  imageSize = "default",
+  imageKind = "photo",
+  logoPadding = "default",
   badge,
-  avatar,
+  person,
   title,
   description,
-  metadata,
+  meta,
   footer,
-  buttonLabel,
-  href,
-  to,
-  onClick,
+  cta,
+  headingLevel: Heading = "h3",
+  className,
 }: UnifiedCardProps) {
-  const buttonClasses = buttonClass({ className: "w-full" });
-
-  const buttonContent = (
+  const logo = imageKind === "logo";
+  const label = (
     <>
-      <span>{buttonLabel}</span>
-      <span aria-hidden="true">→</span>
+      {cta.label}
+      <ArrowRight size={16} aria-hidden="true" />
     </>
   );
 
   return (
-    <article className="bg-white rounded-pg-xl overflow-hidden border border-pg-line shadow-pg-card flex flex-col h-full">
-      <div className={`relative h-[150px] overflow-hidden ${imageFit === "contain" ? "bg-white" : "bg-pg-tint-soft"}`}>
+    <article
+      className={cn(
+        "flex h-full flex-col overflow-hidden rounded-pg-xl border border-pg-line bg-white shadow-pg-card",
+        className,
+      )}
+    >
+      <div className={cn("relative h-38 overflow-hidden", logo ? "bg-white" : "bg-pg-tint-soft")}>
         <img
-          src={image}
-          alt={imageAlt}
-          className={`w-full h-full ${
-            imageFit === "contain"
-              ? `object-contain ${imageSize === "small" ? "p-10" : "p-8"}`
-              : "object-cover"
-          }`}
+          src={image.src}
+          alt={image.alt}
+          className={cn(
+            "h-full w-full",
+            logo ? cn("object-contain", logoPadding === "large" ? "p-10" : "p-8") : "object-cover",
+          )}
         />
-
         {badge && (
-          <span className="absolute top-3 left-3 bg-pg-navy text-white rounded-full px-3 py-1 text-xs font-semibold">
+          <Badge tone="navy" className="absolute top-3 left-3">
             {badge}
-          </span>
+          </Badge>
         )}
-
-        {avatar && (
-          <span className="absolute bottom-3 left-3 w-8 h-8 rounded-full bg-pg-sage border-2 border-white flex items-center justify-center text-pg-navy text-xs font-semibold">
-            {avatar}
-          </span>
-        )}
+        {person && <Avatar name={person} size="s" ring className="absolute bottom-3 left-3" />}
       </div>
 
-      <div className="p-4 flex flex-col flex-1">
-        <h3 className="font-bold text-pg-navy text-base leading-[1.4] min-h-[44px]">
-          {title}
-        </h3>
-
-        {description && (
-          <p className="text-pg-slate text-xs leading-relaxed mt-2">
-            {description}
-          </p>
-        )}
-
-        {metadata && (
-          <p className="text-pg-teal-dark text-xs mt-2">
-            {metadata}
-          </p>
-        )}
+      <div className="flex flex-1 flex-col p-4">
+        <Heading className="min-h-11 text-base leading-snug font-bold text-pg-navy">{title}</Heading>
+        {description && <p className="mt-2 text-xs text-pg-slate">{description}</p>}
+        {meta && <p className="mt-2 text-xs text-pg-teal-dark">{meta}</p>}
 
         <div className="mt-auto pt-4">
-          {to ? (
-            <Link to={to} className={buttonClasses}>
-              {buttonContent}
-            </Link>
-          ) : href ? (
-            <a
-              href={href}
-              target="_blank"
-              rel="noreferrer"
-              className={buttonClasses}
-            >
-              {buttonContent}
-            </a>
+          {cta.to ? (
+            <ButtonLink to={cta.to} className="w-full" aria-label={`${cta.label}: ${title}`}>
+              {label}
+            </ButtonLink>
           ) : (
-            <button
-              type="button"
-              onClick={onClick}
-              className={buttonClasses}
+            <ButtonAnchor
+              href={cta.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full"
+              aria-label={`${cta.label}: ${title} (opens in a new tab)`}
             >
-              {buttonContent}
-            </button>
+              {label}
+            </ButtonAnchor>
           )}
-
-          {footer && (
-            <p className="text-pg-slate text-xs text-center mt-3">
-              {footer}
-            </p>
-          )}
+          {footer && <p className="mt-3 text-center text-xs text-pg-slate">{footer}</p>}
         </div>
       </div>
     </article>

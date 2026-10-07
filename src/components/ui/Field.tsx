@@ -42,7 +42,17 @@ export type FieldProps = {
   className?: string;
 };
 
-export function Field({ label, children, hint, error, required = false, hideLabel, tone = "default", id, className }: FieldProps) {
+export function Field({
+  label,
+  children,
+  hint,
+  error,
+  required = false,
+  hideLabel,
+  tone = "default",
+  id,
+  className,
+}: FieldProps) {
   const autoId = useId();
   const controlId = id ?? `field-${autoId}`;
   const hintId = hint ? `${controlId}-hint` : undefined;
@@ -50,13 +60,19 @@ export function Field({ label, children, hint, error, required = false, hideLabe
   const inverse = tone === "inverse";
 
   return (
-    <FieldContext.Provider value={{ id: controlId, describedBy: cn(hintId, errorId) || undefined, invalid: !!error, required }}>
+    <FieldContext.Provider
+      value={{ id: controlId, describedBy: cn(hintId, errorId) || undefined, invalid: !!error, required }}
+    >
       <div className={cn("flex flex-col gap-2", className)}>
-        <label htmlFor={controlId} className={cn("text-sm font-semibold", inverse ? "text-white" : "text-pg-navy", hideLabel && "sr-only")}>
+        <label
+          htmlFor={controlId}
+          className={cn("text-sm font-semibold", inverse ? "text-white" : "text-pg-navy", hideLabel && "sr-only")}
+        >
           {label}
           {required && (
             <span className={inverse ? "text-pg-sage" : "text-pg-teal-dark"} aria-hidden="true">
-              {" "}*
+              {" "}
+              *
             </span>
           )}
         </label>
@@ -69,7 +85,10 @@ export function Field({ label, children, hint, error, required = false, hideLabe
         {error && (
           <p
             id={errorId}
-            className={cn("flex items-center gap-1 text-xs font-medium", inverse ? "text-white" : tone === "on-sage" ? "text-pg-navy" : "text-pg-error")}
+            className={cn(
+              "flex items-center gap-1 text-xs font-medium",
+              inverse ? "text-white" : tone === "on-sage" ? "text-pg-navy" : "text-pg-error",
+            )}
           >
             <AlertCircle size={14} aria-hidden="true" />
             {error}
@@ -97,10 +116,18 @@ export const TextArea = forwardRef<HTMLTextAreaElement, ComponentPropsWithoutRef
   ref,
 ) {
   const field = useFieldProps(props);
-  return <textarea ref={ref} rows={rows} {...props} {...field} className={cn(control, "resize-none border-pg-line py-3", className)} />;
+  return (
+    <textarea
+      ref={ref}
+      rows={rows}
+      {...props}
+      {...field}
+      className={cn(control, "resize-none border-pg-line py-3", className)}
+    />
+  );
 });
 
-export type SelectProps = ComponentPropsWithoutRef<"select"> & {
+export type SelectProps = Omit<ComponentPropsWithoutRef<"select">, "size"> & {
   /** "field" for forms, "compact" for toolbars (sort menus, filters). */
   size?: "field" | "compact";
 };
@@ -118,7 +145,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(function Select
         {...props}
         {...field}
         className={cn(
-          "w-full cursor-pointer appearance-none outline-none transition-colors duration-(--pg-dur-fast)",
+          "w-full cursor-pointer appearance-none transition-colors duration-(--pg-dur-fast) outline-none",
           size === "field"
             ? cn(control, "min-h-11 border-pg-line py-2 pr-10")
             : "min-h-9 rounded-pg-md bg-pg-cream-dark py-2 pr-9 pl-4 text-xs font-medium text-pg-slate hover:bg-pg-tint",
@@ -130,7 +157,10 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(function Select
       <ChevronDown
         size={size === "field" ? 18 : 14}
         aria-hidden="true"
-        className={cn("pointer-events-none absolute top-1/2 -translate-y-1/2 text-pg-slate", size === "field" ? "right-3" : "right-3")}
+        className={cn(
+          "pointer-events-none absolute top-1/2 -translate-y-1/2 text-pg-slate",
+          size === "field" ? "right-3" : "right-3",
+        )}
       />
     </span>
   );

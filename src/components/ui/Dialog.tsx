@@ -19,7 +19,11 @@ const FOCUSABLE =
   'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
 /** Focus management, Tab trap, Escape, scroll lock and background inert for any modal surface. */
-export function useModal(ref: RefObject<HTMLElement | null>, onClose: () => void, initialFocus?: RefObject<HTMLElement | null>) {
+export function useModal(
+  ref: RefObject<HTMLElement | null>,
+  onClose: () => void,
+  initialFocus?: RefObject<HTMLElement | null>,
+) {
   const closeRef = useRef(onClose);
   closeRef.current = onClose;
 
@@ -82,7 +86,16 @@ export type DialogProps = {
   closeLabel?: string;
 };
 
-function Panel({ onClose, title, description, icon, tone = "navy", size = "md", children, closeLabel = "Close" }: Omit<DialogProps, "open">) {
+function Panel({
+  onClose,
+  title,
+  description,
+  icon,
+  tone = "navy",
+  size = "md",
+  children,
+  closeLabel = "Close",
+}: Omit<DialogProps, "open">) {
   const ref = useRef<HTMLDivElement>(null);
   const titleId = useId();
   const descId = useId();
@@ -115,9 +128,17 @@ function Panel({ onClose, title, description, icon, tone = "navy", size = "md", 
         exit={{ opacity: 0, y: 12, scale: 0.98 }}
         transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
       >
-        <div className={cn("flex shrink-0 items-center gap-3 px-6 py-5 md:px-8", tone === "teal" ? "bg-pg-teal-dark" : "bg-pg-navy")}>
+        <div
+          className={cn(
+            "flex shrink-0 items-center gap-3 px-6 py-5 md:px-8",
+            tone === "teal" ? "bg-pg-teal-dark" : "bg-pg-navy",
+          )}
+        >
           {icon && (
-            <span className="grid h-9 w-9 shrink-0 place-items-center rounded-pg-md bg-white/10 text-white [&_svg]:size-[18px]" aria-hidden="true">
+            <span
+              className="grid h-9 w-9 shrink-0 place-items-center rounded-pg-md bg-white/10 text-white [&_svg]:size-[18px]"
+              aria-hidden="true"
+            >
               {icon}
             </span>
           )}

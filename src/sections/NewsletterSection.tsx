@@ -37,11 +37,26 @@ export function NewsletterSection({ content }: { content: NewsletterContent }) {
   }
 
   return (
-    <Section tone="sage" spacing="none" labelledBy={headingId} className="flex justify-center px-6 py-16 md:px-10 lg:px-14">
+    <Section
+      tone="sage"
+      spacing="none"
+      labelledBy={headingId}
+      className="flex justify-center px-6 py-16 md:px-10 lg:px-14"
+    >
       <Reveal className="flex w-full max-w-pg-page flex-col items-center gap-8 lg:flex-row lg:justify-center lg:gap-12">
-        <motion.div className="relative h-56 w-full overflow-hidden rounded-pg-xl lg:w-[480px] lg:shrink-0" whileHover={{ scale: 1.02 }} transition={{ duration: 0.35 }}>
-          {content.imageBase && <img src={content.imageBase.src} alt="" className="absolute inset-0 h-full w-full object-cover" />}
-          <img src={content.image.src} alt={content.image.alt} className="absolute inset-0 h-full w-full object-cover" />
+        <motion.div
+          className="relative h-56 w-full overflow-hidden rounded-pg-xl lg:w-[480px] lg:shrink-0"
+          whileHover={{ scale: 1.02 }}
+          transition={{ duration: 0.35 }}
+        >
+          {content.imageBase && (
+            <img src={content.imageBase.src} alt="" className="absolute inset-0 h-full w-full object-cover" />
+          )}
+          <img
+            src={content.image.src}
+            alt={content.image.alt}
+            className="absolute inset-0 h-full w-full object-cover"
+          />
         </motion.div>
         <div className="flex w-full flex-col gap-5 lg:w-[440px] lg:shrink-0">
           <h2 id={headingId} className="text-pg-h1 text-pg-navy">
