@@ -138,7 +138,7 @@ export default function ConsentDocumentsPage() {
             Legal
           </p>
 
-          <h1 id="consent-documents-title" tabIndex={-1} className="focus:outline-none text-[28px] font-bold text-pg-navy md:text-[40px]">
+          <h1 id="consent-documents-title" tabIndex={-1} className="text-pg-h1 focus:outline-none text-pg-navy">
             Consent Documents
           </h1>
 

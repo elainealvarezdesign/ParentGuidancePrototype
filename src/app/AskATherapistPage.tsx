@@ -187,7 +187,7 @@ function SubmitModal({ onClose }: { onClose: () => void }) {
           <form onSubmit={handleSubmit} className="p-8 flex flex-col gap-5">
             <div className="flex flex-col gap-2">
               <label className="font-semibold text-pg-navy text-sm">
-                Your Question <span className="text-pg-teal">*</span>
+                Your Question <span className="text-pg-teal-dark">*</span>
               </label>
               <textarea
                 value={question}
@@ -195,7 +195,7 @@ function SubmitModal({ onClose }: { onClose: () => void }) {
                 placeholder="What would you like to ask our therapists about your child's mental health?"
                 rows={4}
                 required
-                className="text-sm text-pg-navy placeholder:text-pg-teal border border-pg-line rounded-pg-md px-4 py-3 outline-none focus:border-pg-sage transition-colors resize-none"
+                className="text-sm text-pg-navy placeholder:text-pg-slate border border-pg-line rounded-pg-md px-4 py-3 outline-none focus:border-pg-sage transition-colors resize-none"
               />
             </div>
             <div className="flex gap-4">
@@ -205,12 +205,12 @@ function SubmitModal({ onClose }: { onClose: () => void }) {
                   value={name}
                   onChange={e => setName(e.target.value)}
                   placeholder="Optional"
-                  className="text-sm text-pg-navy placeholder:text-pg-teal border border-pg-line rounded-pg-md px-4 py-2 outline-none focus:border-pg-sage transition-colors"
+                  className="text-sm text-pg-navy placeholder:text-pg-slate border border-pg-line rounded-pg-md px-4 py-2 outline-none focus:border-pg-sage transition-colors"
                 />
               </div>
               <div className="flex flex-col gap-2 flex-1">
                 <label className="font-semibold text-pg-navy text-sm">
-                  Email <span className="text-pg-teal">*</span>
+                  Email <span className="text-pg-teal-dark">*</span>
                 </label>
                 <input
                   value={email}
@@ -218,7 +218,7 @@ function SubmitModal({ onClose }: { onClose: () => void }) {
                   placeholder="your@email.com"
                   type="email"
                   required
-                  className="text-sm text-pg-navy placeholder:text-pg-teal border border-pg-line rounded-pg-md px-4 py-2 outline-none focus:border-pg-sage transition-colors"
+                  className="text-sm text-pg-navy placeholder:text-pg-slate border border-pg-line rounded-pg-md px-4 py-2 outline-none focus:border-pg-sage transition-colors"
                 />
               </div>
             </div>
@@ -292,7 +292,7 @@ function QACard({ item, index }: { item: QAItem; index: number }) {
 
       {/* Content */}
       <div className="p-5 flex flex-col gap-3 flex-1">
-        <p className="font-semibold text-pg-navy text-sm leading-[1.5] group-hover:text-pg-teal transition-colors flex-1">
+        <p className="font-semibold text-pg-navy text-sm leading-[1.5] group-hover:text-pg-teal-dark transition-colors flex-1">
           {item.question}
         </p>
         <ButtonLink to={`/ask-a-therapist/${item.id}`} className="w-full">
@@ -349,13 +349,13 @@ export default function AskATherapistPage() {
         transition={{ duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}
       >
         {/* Latest badge */}
-        <div className="inline-flex items-center gap-2 bg-pg-teal text-white font-semibold text-[11px] uppercase tracking-pg-caps px-4 py-2 rounded-pg-md mb-8">
+        <div className="text-pg-eyebrow inline-flex items-center gap-2 bg-pg-teal text-white px-4 py-2 rounded-pg-md mb-8">
           <span className="w-1.5 h-1.5 rounded-full bg-white/80" />
           Latest Answer
         </div>
 
         {/* Question */}
-        <h1 className="font-bold text-pg-navy text-[28px] md:text-[40px] leading-[1.08] mb-8">
+        <h1 className="text-pg-h1 text-pg-navy mb-8">
           {FEATURED.question}
         </h1>
 
@@ -427,7 +427,7 @@ export default function AskATherapistPage() {
         value={search}
         onChange={(event) => handleSearch(event.target.value)}
         placeholder="Search questions..."
-        className="w-full bg-pg-cream text-sm text-pg-navy placeholder:text-pg-teal pl-9 pr-9 py-2 rounded-pg-md outline-none focus:ring-2 focus:ring-pg-sage/30"
+        className="w-full bg-pg-cream text-sm text-pg-navy placeholder:text-pg-slate pl-9 pr-9 py-2 rounded-pg-md outline-none focus:ring-2 focus:ring-pg-sage/30"
       />
 
       {search && (
@@ -619,7 +619,7 @@ export default function AskATherapistPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.55 }}
           >
-            <h2 className="font-bold text-pg-navy text-[28px] md:text-[40px] leading-tight max-w-md">
+            <h2 className="text-pg-h1 text-pg-navy max-w-md">
               Looking for additional help?
             </h2>
             <p className="text-pg-navy text-sm leading-relaxed max-w-sm">

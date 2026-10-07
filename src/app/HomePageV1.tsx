@@ -162,7 +162,7 @@ function PartnersCarousel() {
         .marquee-track-v1:hover { animation-play-state: paused; }
       `}</style>
       <motion.h3
-        className="font-semibold text-pg-teal text-2xl text-center mb-10"
+        className="font-semibold text-pg-teal-dark text-2xl text-center mb-10"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
@@ -204,7 +204,7 @@ export default function HomePageV1() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
-              <h1 className="font-bold text-pg-navy text-[38px] md:text-[50px] leading-[1.08] tracking-[-0.02em] mb-5">
+              <h1 className="text-pg-display text-pg-navy tracking-[-0.02em] mb-5">
                 Discover Resources That Can Help
               </h1>
               <p className="text-pg-slate text-base leading-relaxed mb-8 max-w-[480px]">
@@ -214,7 +214,7 @@ export default function HomePageV1() {
               <div className="bg-white rounded-pg-2xl px-5 py-2 flex items-center gap-3 shadow-pg-card max-w-[440px]" style={{ boxShadow: "var(--pg-shadow-card)" }}>
                 <Search size={18} className="text-pg-slate shrink-0" />
                 <input
-                  className="flex-1 text-sm text-pg-navy bg-transparent outline-none placeholder:text-pg-teal"
+                  className="flex-1 text-sm text-pg-navy bg-transparent outline-none placeholder:text-pg-slate"
                   placeholder="Anxiety in Children"
                 />
                 <Button size="s" className="shrink-0">
@@ -370,7 +370,7 @@ export default function HomePageV1() {
           transition={{ duration: 0.55 }}
         >
           <span className="font-semibold text-pg-navy text-base uppercase tracking-pg-eyebrow">Why</span>
-          <h2 className="font-bold text-pg-navy text-[28px] md:text-[40px] leading-tight tracking-tight">
+          <h2 className="text-pg-h1 text-pg-navy tracking-tight">
             Built on real clinical experience
           </h2>
           <p className="text-pg-navy text-xl leading-relaxed">
@@ -392,7 +392,7 @@ export default function HomePageV1() {
                 <img src={f.img} alt="" className="w-full h-full object-cover" />
               </div>
               <div className="flex flex-col gap-2 max-w-sm">
-                <p className="font-bold text-pg-teal text-2xl leading-relaxed">{f.title}</p>
+                <p className="font-bold text-pg-teal-dark text-2xl leading-relaxed">{f.title}</p>
                 <p className="text-pg-navy text-base leading-relaxed">{f.desc}</p>
               </div>
             </motion.div>
@@ -442,7 +442,7 @@ export default function HomePageV1() {
             viewport={{ once: true }}
             transition={{ duration: 0.55 }}
           >
-            <h2 className="font-bold text-pg-navy text-[28px] md:text-[40px] leading-tight max-w-md">Join Us!</h2>
+            <h2 className="text-pg-h1 text-pg-navy max-w-md">Join Us!</h2>
             <p className="text-pg-navy text-sm leading-relaxed max-w-sm">
               Subscribe to our weekly newsletter and be a part of our journey to self discovery and love.
             </p>

@@ -12,7 +12,9 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "check:design": "node scripts/check-design-rules.mjs",
-    "check": "pnpm typecheck && pnpm lint && pnpm check:design && pnpm build"
+    "check": "pnpm typecheck && pnpm lint && pnpm check:tokens && pnpm check:design && pnpm build",
+    "tokens": "node scripts/build-tokens.mjs",
+    "check:tokens": "node scripts/build-tokens.mjs --check"
   },
   "dependencies": {
     "@emotion/react": "11.14.0",

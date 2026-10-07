@@ -132,14 +132,14 @@ export default function LessonPage() {
           <div className="flex flex-col items-start gap-3 sm:flex-row sm:justify-between sm:gap-4">
             <div className="min-w-0">
               <div className="flex items-center gap-2 mb-1">
-                <span className="font-semibold text-[11px] uppercase tracking-pg-caps text-pg-teal-dark bg-pg-tint px-2 py-0.5 rounded-pg-sm">
+                <span className="text-pg-eyebrow text-pg-teal-dark bg-pg-tint px-2 py-0.5 rounded-pg-sm">
                   Lesson {lesson.id} of {LESSONS.length}
                 </span>
                 <span className="text-xs text-pg-slate">
                   {lesson.duration}
                 </span>
               </div>
-              <h1 className="font-bold text-pg-navy text-[28px] md:text-[40px] leading-[1.15]">
+              <h1 className="text-pg-h1 text-pg-navy">
                 {lesson.title}
               </h1>
             </div>
@@ -255,7 +255,7 @@ export default function LessonPage() {
                   onClick={() => setActiveTab(tab)}
                   className={`flex flex-1 sm:flex-none items-center justify-center gap-2 px-2 sm:px-5 py-4 text-xs font-semibold whitespace-nowrap transition-colors border-b-2 ${
                     activeTab === tab
-                      ? "border-pg-teal text-pg-teal"
+                      ? "border-pg-teal text-pg-teal-dark"
                       : "border-transparent text-pg-slate hover:text-pg-navy"
                   }`}
                 >
@@ -314,7 +314,7 @@ export default function LessonPage() {
                           <FileText size={14} className="text-pg-sage" />
                           <span className="text-sm text-pg-navy">{r.label}</span>
                         </div>
-                        <span className="text-xs font-semibold text-pg-teal bg-pg-tint px-2 py-0.5 rounded-full">
+                        <span className="text-xs font-semibold text-pg-teal-dark bg-pg-tint px-2 py-0.5 rounded-full">
                           {r.type}
                         </span>
                       </div>
@@ -383,7 +383,7 @@ export default function LessonPage() {
             <div className="p-4 border-t border-pg-line">
               <Link
                 to={`/courses/${COURSE_SLUG}`}
-                className="text-xs text-pg-teal hover:text-pg-teal-dark no-underline transition-colors flex items-center gap-1"
+                className="text-xs text-pg-teal-dark hover:text-pg-teal-dark no-underline transition-colors flex items-center gap-1"
               >
                 <ChevronLeft size={13} />
                 Course overview
@@ -406,7 +406,7 @@ export default function LessonPage() {
           ) : (
             <Link
               to={`/courses/${COURSE_SLUG}`}
-              className="text-sm text-pg-teal hover:text-pg-teal-dark no-underline transition-colors"
+              className="text-sm text-pg-teal-dark hover:text-pg-teal-dark no-underline transition-colors"
             >
               Back to Course
             </Link>

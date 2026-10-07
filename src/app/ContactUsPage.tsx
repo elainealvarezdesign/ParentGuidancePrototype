@@ -23,7 +23,7 @@ export default function ContactUsPage() {
             Contact Us
           </p>
 
-          <h1 className="text-[28px] font-bold text-pg-navy md:text-[40px]">
+          <h1 className="text-pg-h1 text-pg-navy">
             How can we help?
           </h1>
 
@@ -40,26 +40,26 @@ export default function ContactUsPage() {
               <div className="grid gap-5 sm:grid-cols-2">
                 <div className="flex flex-col gap-2">
                   <label className="text-sm font-semibold text-pg-navy">
-                    Full name <span className="text-pg-teal">*</span>
+                    Full name <span className="text-pg-teal-dark">*</span>
                   </label>
                   <input
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
                     required
-                    className="rounded-pg-md border border-pg-line px-4 py-2 text-sm text-pg-navy outline-none transition-colors placeholder:text-pg-teal focus:border-pg-sage"
+                    className="rounded-pg-md border border-pg-line px-4 py-2 text-sm text-pg-navy outline-none transition-colors placeholder:text-pg-slate focus:border-pg-sage"
                   />
                 </div>
 
                 <div className="flex flex-col gap-2">
                   <label className="text-sm font-semibold text-pg-navy">
-                    Email <span className="text-pg-teal">*</span>
+                    Email <span className="text-pg-teal-dark">*</span>
                   </label>
                   <input
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    className="rounded-pg-md border border-pg-line px-4 py-2 text-sm text-pg-navy outline-none transition-colors placeholder:text-pg-teal focus:border-pg-sage"
+                    className="rounded-pg-md border border-pg-line px-4 py-2 text-sm text-pg-navy outline-none transition-colors placeholder:text-pg-slate focus:border-pg-sage"
                   />
                 </div>
               </div>
@@ -69,20 +69,20 @@ export default function ContactUsPage() {
                 <input
                   value={subject}
                   onChange={(e) => setSubject(e.target.value)}
-                  className="rounded-pg-md border border-pg-line px-4 py-2 text-sm text-pg-navy outline-none transition-colors placeholder:text-pg-teal focus:border-pg-sage"
+                  className="rounded-pg-md border border-pg-line px-4 py-2 text-sm text-pg-navy outline-none transition-colors placeholder:text-pg-slate focus:border-pg-sage"
                 />
               </div>
 
               <div className="flex flex-col gap-2">
                 <label className="text-sm font-semibold text-pg-navy">
-                  How can we help? <span className="text-pg-teal">*</span>
+                  How can we help? <span className="text-pg-teal-dark">*</span>
                 </label>
                 <textarea
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   rows={5}
                   required
-                  className="resize-none rounded-pg-md border border-pg-line px-4 py-3 text-sm text-pg-navy outline-none transition-colors placeholder:text-pg-teal focus:border-pg-sage"
+                  className="resize-none rounded-pg-md border border-pg-line px-4 py-3 text-sm text-pg-navy outline-none transition-colors placeholder:text-pg-slate focus:border-pg-sage"
                 />
               </div>
 

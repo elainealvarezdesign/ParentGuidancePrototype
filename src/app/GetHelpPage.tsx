@@ -169,7 +169,7 @@ export default function GetHelpPage() {
               <p className="text-pg-teal-dark text-xs font-semibold tracking-pg-eyebrow uppercase mb-5">
                 Get Help
               </p>
-              <h1 className="text-pg-navy font-bold text-[28px] md:text-[40px] leading-[1.15]">
+              <h1 className="text-pg-h1 text-pg-navy">
                 Find the right support, right when you need it.
               </h1>
               <p className="text-pg-slate text-base leading-relaxed mt-6 max-w-[500px]">
@@ -216,7 +216,7 @@ export default function GetHelpPage() {
       />
 
       <div className="text-center md:text-left">
-        <h2 className="font-bold text-white text-[28px] md:text-[40px] leading-tight">
+        <h2 className="text-pg-h1 text-white">
           Need Help Now?
         </h2>
 
@@ -252,7 +252,7 @@ export default function GetHelpPage() {
             <p className="text-pg-teal-dark text-xs font-semibold tracking-pg-eyebrow uppercase">
               Trusted support
             </p>
-            <h2 className="font-bold text-pg-navy text-[28px] md:text-[40px] mt-3">
+            <h2 className="text-pg-h1 text-pg-navy mt-3">
               Browse support resources
             </h2>
           </div>
@@ -316,7 +316,7 @@ export default function GetHelpPage() {
                   setSearch("");
                   setActiveCategory("All");
                 }}
-                className="mt-4 text-pg-teal text-sm font-semibold"
+                className="mt-4 text-pg-teal-dark text-sm font-semibold"
               >
                 Clear filters
               </button>

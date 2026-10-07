@@ -137,7 +137,7 @@ function Card({ event, anchor, onClose }: { event: EventModalData; anchor: DOMRe
                 <p className={`text-base font-semibold leading-tight text-pg-navy`}>
                   {event.date.toLocaleDateString(spanish ? "es-US" : "en-US", { weekday: "short", month: "long", day: "numeric" })}
                 </p>
-                <p className={`mt-0.5 text-sm text-pg-teal`}>{event.time}{event.time !== "All day" ? " CT" : ""}</p>
+                <p className={`mt-0.5 text-sm text-pg-teal-dark`}>{event.time}{event.time !== "All day" ? " CT" : ""}</p>
               </div>
             </div>
 

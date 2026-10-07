@@ -38,7 +38,7 @@ function DateBlock({ date, size = "md" }: { date: Date; size?: "sm" | "md" }) {
   const box = size === "sm" ? "h-11 w-11" : "h-14 w-14";
   return (
     <div className={`${box} flex shrink-0 flex-col items-center justify-center rounded-pg-lg bg-pg-tint leading-none text-pg-teal-dark`} aria-hidden="true">
-      <span className="text-[11px] font-semibold uppercase tracking-pg-caps">{date.toLocaleDateString("en-US", { month: "short" })}</span>
+      <span className="text-pg-eyebrow">{date.toLocaleDateString("en-US", { month: "short" })}</span>
       <span className={`${size === "sm" ? "text-xl" : "text-xl"} mt-0.5 font-bold text-pg-navy`}>{date.getDate()}</span>
     </div>
   );
@@ -168,11 +168,11 @@ export default function MentalHealthEventsPage() {
           <ChevronLeft size={16} aria-hidden="true" />
           Mental Health Series
         </Link>
-        <p className={`mt-4 flex items-center gap-2 text-[11px] font-semibold uppercase tracking-pg-caps text-pg-teal-dark`}>
+        <p className={`text-pg-eyebrow mt-4 flex items-center gap-2 text-pg-teal-dark`}>
           <span className="h-[18px] w-1 rounded-full bg-pg-sage" aria-hidden="true" />
           Events
         </p>
-        <h1 className={`mt-2 text-[28px] font-medium leading-[1.15] text-pg-navy md:text-[40px]`}>Live sessions &amp; events</h1>
+        <h1 className={`text-pg-h1 mt-2 font-medium text-pg-navy`}>Live sessions &amp; events</h1>
         <p className={`mt-2 max-w-[640px] text-base leading-relaxed text-pg-slate`}>
           Join free live Q&amp;As, workshops and support groups with licensed therapists. All times are shown in Central Time (CT).
         </p>
@@ -232,7 +232,7 @@ export default function MentalHealthEventsPage() {
             <section className={`${card} overflow-hidden`} aria-label={`Calendar, ${monthLabel(month)}`}>
               <div className="grid grid-cols-7 border-b border-pg-line" aria-hidden="true">
                 {WEEKDAYS.map((d) => (
-                  <span key={d} className={`py-2 text-center text-[11px] font-semibold uppercase tracking-pg-caps text-pg-slate`}>{d}</span>
+                  <span key={d} className={`text-pg-eyebrow py-2 text-center text-pg-slate`}>{d}</span>
                 ))}
               </div>
               <div className="grid grid-cols-7">
@@ -318,7 +318,7 @@ export default function MentalHealthEventsPage() {
           <aside className="grid gap-4">
             {view === "month" && (
               <section className={`${card} p-5`} aria-live="polite" aria-label="Selected day">
-                <p className={`text-[11px] font-semibold uppercase tracking-pg-caps text-pg-teal-dark`}>{longDate(parseDate(selected))}</p>
+                <p className={`text-pg-eyebrow text-pg-teal-dark`}>{longDate(parseDate(selected))}</p>
                 <div className="mt-2 grid gap-4">
                   {selectedEvents.length ? (
                     selectedEvents.map((e) => <EventDetail key={e.id} event={e} />)

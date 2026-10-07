@@ -324,9 +324,9 @@ function Hero() {
           <span className="text-xs font-semibold uppercase tracking-pg-eyebrow text-pg-teal-dark">
             On-Demand Courses
           </span>
-          <h1 className="font-bold text-pg-navy text-[28px] md:text-[40px] leading-[1.15]">
+          <h1 className="text-pg-h1 text-pg-navy">
             {"Expert-led courses to help you "}
-            <em className="italic text-pg-teal">parent with confidence.</em>
+            <em className="italic text-pg-teal-dark">parent with confidence.</em>
           </h1>
           <p className="text-pg-slate text-base leading-[26px] max-w-[380px]">
             Learn at your own pace from licensed therapists — practical tools for the real challenges families face every day.
@@ -476,7 +476,7 @@ export default function OnDemandCoursesPage() {
               value={search}
               onChange={e => setSearchAndReset(e.target.value)}
               placeholder="Search courses…"
-              className="w-full bg-pg-cream text-sm text-pg-navy placeholder:text-pg-teal pl-9 pr-4 py-2 rounded-pg-md outline-none border border-transparent focus:border-pg-sage focus:bg-white transition-all"
+              className="w-full bg-pg-cream text-sm text-pg-navy placeholder:text-pg-slate pl-9 pr-4 py-2 rounded-pg-md outline-none border border-transparent focus:border-pg-sage focus:bg-white transition-all"
             />
             {search && (
               <button onClick={() => setSearchAndReset("")} className="absolute right-3 top-1/2 -translate-y-1/2 text-pg-slate hover:text-pg-slate">
@@ -566,7 +566,7 @@ export default function OnDemandCoursesPage() {
           </div>
           <div className="flex items-center gap-2">
             {search && (
-              <span className="flex items-center gap-2 bg-pg-cream border border-pg-sage text-pg-teal text-xs px-2 py-1 rounded-full">
+              <span className="flex items-center gap-2 bg-pg-cream border border-pg-sage text-pg-teal-dark text-xs px-2 py-1 rounded-full">
                 &ldquo;{search}&rdquo;
                 <button onClick={() => setSearchAndReset("")} className="hover:text-pg-navy">
                   <svg width="10" height="10" viewBox="0 0 24 24" fill="none">
@@ -600,7 +600,7 @@ export default function OnDemandCoursesPage() {
                   <path d="M21 21l-4.35-4.35" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                 </svg>
                 <p className="text-pg-slate text-sm">No courses found.</p>
-                <button onClick={() => { setSearchAndReset(""); setTopicAndReset("All"); }} className="text-xs text-pg-teal underline">Clear all filters</button>
+                <button onClick={() => { setSearchAndReset(""); setTopicAndReset("All"); }} className="text-xs text-pg-teal-dark underline">Clear all filters</button>
               </div>
             ) : (
               paginated.map((course, i) => <CourseCard key={course.id} course={course} index={i} />)

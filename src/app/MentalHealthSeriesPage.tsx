@@ -128,14 +128,14 @@ function ResourceCard({ resource, index }: { resource: typeof RESOURCE_LIBRARY[0
 
       {/* Title */}
       <div className="w-full">
-        <p className="font-semibold leading-[19.25px] text-pg-navy text-[14px] group-hover:text-pg-teal transition-colors">
+        <p className="font-semibold leading-[19.25px] text-pg-navy text-sm group-hover:text-pg-teal-dark transition-colors">
           {resource.title}
         </p>
       </div>
 
       {/* Description */}
       <div className="flex-1 min-h-px w-full">
-        <p className="leading-[19.5px] text-pg-slate text-[12px]">
+        <p className="leading-[19.5px] text-pg-slate text-xs">
           {resource.desc}
         </p>
       </div>
@@ -205,7 +205,7 @@ function ResourceLibrary() {
               onChange={e => setLibSearch(e.target.value)}
               placeholder="Search resources…"
               aria-label="Search resources"
-              className="w-full bg-pg-cream text-sm text-pg-navy placeholder:text-pg-teal pl-9 pr-4 py-2 rounded-pg-md outline-none border border-transparent focus:border-pg-sage focus:bg-white transition-colors"
+              className="w-full bg-pg-cream text-sm text-pg-navy placeholder:text-pg-slate pl-9 pr-4 py-2 rounded-pg-md outline-none border border-transparent focus:border-pg-sage focus:bg-white transition-colors"
             />
           </div>
 
@@ -262,7 +262,7 @@ function ResourceLibrary() {
         <div className="bg-pg-sage h-[20px] rounded-full w-[4px]" />
         <p className="font-semibold leading-[28px] text-pg-navy text-xl whitespace-nowrap">Resource Library</p>
         <div className="bg-pg-tint rounded-full px-2 py-0.5 inline-flex items-center">
-          <p className="font-medium leading-[16px] text-pg-teal-dark text-[12px] whitespace-nowrap">{RESOURCE_LIBRARY.length} resources</p>
+          <p className="font-medium leading-[16px] text-pg-teal-dark text-xs whitespace-nowrap">{RESOURCE_LIBRARY.length} resources</p>
         </div>
       </div>
 
@@ -340,13 +340,16 @@ function EventPill({ ev, popup, onEventClick, compact = false }: {
       type="button"
       aria-haspopup="dialog"
       onClick={e => onEventClick(ev, e)}
-      className={`rounded-pg-md font-medium text-white text-left w-full cursor-pointer truncate ${compact ? "text-xs px-2 py-0.5 leading-[14px]" : "text-xs px-2 py-1"}`}
-      style={{ background: active ? (ev.color === "teal" ? "var(--pg-teal)" : "var(--pg-navy)") : (ev.color === "teal" ? "var(--pg-sage)" : "var(--pg-navy)") }}
+      className={`rounded-pg-md font-medium text-left w-full cursor-pointer truncate ${
+        ev.color === "teal"
+          ? active ? "bg-pg-teal-dark text-white" : "bg-pg-tint text-pg-teal-dark"
+          : active ? "bg-pg-navy-hover text-white" : "bg-pg-navy text-white"
+      } ${compact ? "text-xs px-2 py-0.5 leading-[14px]" : "text-xs px-2 py-1"}`}
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.97 }}
       title={ev.title}
     >
-      {compact ? ev.title : <><span className="opacity-70 mr-1">{ev.time.split(" ")[0]}</span>{ev.title}</>}
+      {compact ? ev.title : <><span className="mr-1 font-normal">{ev.time.split(" ")[0]}</span>{ev.title}</>}
     </motion.button>
   );
 }
@@ -403,7 +406,7 @@ function WeekView({ weekStart, popup, onEventClick }: { weekStart: Date; popup: 
           const isToday = d.toDateString() === today.toDateString();
           return (
             <div key={i} className="flex flex-col items-center py-3 gap-1">
-              <span className="text-[11px] font-semibold uppercase tracking-pg-caps text-pg-slate">{DAY_NAMES_SHORT[d.getDay()]}</span>
+              <span className="text-pg-eyebrow text-pg-slate">{DAY_NAMES_SHORT[d.getDay()]}</span>
               <span className={`w-7 h-7 flex items-center justify-center rounded-full font-semibold text-sm ${isToday ? "bg-pg-teal text-white" : "text-pg-navy"}`}>{d.getDate()}</span>
             </div>
           );
@@ -432,7 +435,7 @@ function DayView({ date, popup, onEventClick }: { date: Date; popup: EventPopupS
     <div className="bg-white rounded-pg-xl overflow-hidden" style={{ boxShadow: "var(--pg-shadow-card)" }}>
       <div className="border-b border-pg-tint-soft px-5 py-4">
         <p className="font-semibold text-pg-navy text-sm">{dayName}</p>
-        <p className="text-xs text-pg-sage mt-0.5">{monthName} {date.getDate()}, {date.getFullYear()}</p>
+        <p className="text-xs text-pg-slate mt-0.5">{monthName} {date.getDate()}, {date.getFullYear()}</p>
       </div>
       <div className="p-5 flex flex-col gap-3 min-h-[200px]">
         {evs.length === 0 && (
@@ -580,11 +583,11 @@ function ContentPage({ state, district, onReset }: { state: string; district: st
           {/* Heading + location */}
           <div className="w-full text-center">
             <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55 }}>
-              <p className="font-bold leading-tight text-pg-navy text-[28px] md:text-[40px] text-center">
+              <p className="text-pg-h1 text-pg-navy text-center">
                 Welcome to the{" "}
-                <em className="font-bold italic text-pg-teal">Mental Health Series</em>
+                <em className="font-bold italic text-pg-teal-dark">Mental Health Series</em>
               </p>
-              <p className="leading-[20px] text-pg-navy text-[14px] text-center mt-2">
+              <p className="leading-[20px] text-pg-navy text-sm text-center mt-2">
                 {district} · {state}
               </p>
             </motion.div>
@@ -604,7 +607,7 @@ function ContentPage({ state, district, onReset }: { state: string; district: st
               value={search}
               onChange={e => setSearch(e.target.value)}
               placeholder="Search resources and events…"
-              className="min-w-0 flex-1 text-[14px] text-pg-slate placeholder:text-pg-teal outline-none bg-transparent"
+              className="min-w-0 flex-1 text-sm text-pg-slate placeholder:text-pg-slate outline-none bg-transparent"
             />
             <Button size="s" className="shrink-0">
               Search
@@ -657,7 +660,7 @@ function ContentPage({ state, district, onReset }: { state: string; district: st
               <div className="bg-pg-sage h-[20px] rounded-full w-[4px]" />
               <p className="font-semibold leading-[28px] text-pg-navy text-xl whitespace-nowrap">Upcoming Events</p>
               <div className="bg-pg-tint rounded-full px-2 py-0.5 inline-flex items-center">
-                <p className="font-medium leading-[16px] text-pg-teal-dark text-[12px] whitespace-nowrap">{filteredEvents.length} total</p>
+                <p className="font-medium leading-[16px] text-pg-teal-dark text-xs whitespace-nowrap">{filteredEvents.length} total</p>
               </div>
             </div>
           </div>
@@ -677,13 +680,13 @@ function ContentPage({ state, district, onReset }: { state: string; district: st
                 <div className="shrink-0 rounded-pg-lg px-4 py-3 flex flex-col items-center justify-center min-w-[60px]"
                   style={{ background: ev.color === "teal" ? "var(--pg-tint)" : "var(--pg-tint-soft)" }}>
                   <span className="font-bold text-xl leading-none" style={{ color: ev.color === "teal" ? "var(--pg-teal-dark)" : "var(--pg-navy)" }}>{ev.day}</span>
-                  <span className="text-[11px] font-semibold uppercase tracking-pg-caps mt-0.5 text-pg-teal-dark">
+                  <span className="text-pg-eyebrow mt-0.5 text-pg-teal-dark">
                     {ev.date.split(",")[1]?.trim().split(" ")[0]}
                   </span>
                 </div>
                 <div className="flex flex-col gap-1 flex-1 min-w-0">
                   <div className="flex items-center gap-2 flex-wrap">
-                    <h3 className="font-semibold text-pg-navy text-sm group-hover:text-pg-teal transition-colors">{ev.title}</h3>
+                    <h3 className="font-semibold text-pg-navy text-sm group-hover:text-pg-teal-dark transition-colors">{ev.title}</h3>
                     <span className="text-xs font-semibold px-2 py-0.5 rounded-full"
                       style={{ background: ev.color === "teal" ? "var(--pg-sage)" : "var(--pg-navy)", color: ev.color === "teal" ? "var(--pg-navy)" : "var(--pg-white)" }}>
                       {ev.color === "teal" ? "Session" : "Workshop"}
@@ -743,11 +746,11 @@ function FormPage({ onSubmit }: { onSubmit: (state: string, district: string) =>
               Mental Health Series
             </motion.span>
             <motion.h1
-              className="font-bold text-pg-navy text-[28px] md:text-[40px] leading-tight"
+              className="text-pg-h1 text-pg-navy"
               initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.55 }}
             >
               What{" "}
-              <em className="font-bold text-pg-teal" style={{ fontStyle: "italic" }}>state</em>{" "}
+              <em className="font-bold text-pg-teal-dark" style={{ fontStyle: "italic" }}>state</em>{" "}
               does your child attend school in?
             </motion.h1>
             <motion.p

@@ -212,7 +212,7 @@ export default function QuestionDetailPage() {
             ← Back to Questions
           </Link>
           <ChevronRight size={13} className="text-pg-slate shrink-0" />
-          <span className="font-semibold text-[11px] uppercase tracking-pg-caps text-pg-teal-dark bg-pg-tint px-2 py-0.5 rounded-pg-sm shrink-0">
+          <span className="text-pg-eyebrow text-pg-teal-dark bg-pg-tint px-2 py-0.5 rounded-pg-sm shrink-0">
             {question.category}
           </span>
           <ChevronRight size={13} className="text-pg-slate shrink-0" />
@@ -230,10 +230,10 @@ export default function QuestionDetailPage() {
 
           {/* Question heading */}
           <div>
-            <span className="inline-block font-semibold text-[11px] uppercase tracking-pg-caps text-pg-teal-dark bg-pg-tint border border-pg-sage/40 px-2 py-0.5 rounded-pg-sm mb-2">
+            <span className="text-pg-eyebrow inline-block text-pg-teal-dark bg-pg-tint border border-pg-sage/40 px-2 py-0.5 rounded-pg-sm mb-2">
               {question.category}
             </span>
-            <h1 className="font-bold text-pg-navy text-[28px] md:text-[40px] leading-[1.15]">
+            <h1 className="text-pg-h1 text-pg-navy">
               {question.question}
             </h1>
             <p className="text-pg-slate text-xs mt-1">— User Submitted</p>
@@ -371,7 +371,7 @@ export default function QuestionDetailPage() {
                 >
                   <ChevronLeft size={16} className="text-pg-slate group-hover:text-pg-teal transition-colors shrink-0" />
                   <div className="min-w-0">
-                    <p className="text-[11px] text-pg-slate uppercase tracking-pg-caps mb-0.5">Previous</p>
+                    <p className="text-pg-eyebrow text-pg-slate mb-0.5">Previous</p>
                     <p className="text-xs font-semibold text-pg-navy truncate">{prevQ.question}</p>
                   </div>
                 </motion.div>
@@ -388,7 +388,7 @@ export default function QuestionDetailPage() {
                   whileHover={{ y: -2, boxShadow: "var(--pg-shadow-card-hover)" }}
                 >
                   <div className="min-w-0 flex-1">
-                    <p className="text-[11px] text-pg-slate uppercase tracking-pg-caps mb-0.5">Next</p>
+                    <p className="text-pg-eyebrow text-pg-slate mb-0.5">Next</p>
                     <p className="text-xs font-semibold text-pg-navy truncate">{nextQ.question}</p>
                   </div>
                   <ChevronRight size={16} className="text-pg-slate group-hover:text-pg-teal transition-colors shrink-0" />
@@ -403,14 +403,14 @@ export default function QuestionDetailPage() {
 
           {/* Therapist card */}
           <div className="bg-white rounded-pg-xl border border-pg-line p-5 flex flex-col gap-3" style={{ boxShadow: "var(--pg-shadow-card)" }}>
-            <p className="font-semibold text-[11px] uppercase tracking-pg-caps text-pg-slate">Answered by</p>
+            <p className="text-pg-eyebrow text-pg-slate">Answered by</p>
             <div className="flex items-center gap-3">
               <div className="w-11 h-11 rounded-full bg-pg-sage flex items-center justify-center shrink-0">
                 <span className="font-bold text-pg-navy text-sm">KS</span>
               </div>
               <div>
                 <p className="font-semibold text-pg-navy text-sm">{question.therapist}</p>
-                <p className="text-pg-teal text-xs">{question.credential}</p>
+                <p className="text-pg-teal-dark text-xs">{question.credential}</p>
               </div>
             </div>
             <p className="text-pg-slate text-xs leading-relaxed">
@@ -432,7 +432,7 @@ export default function QuestionDetailPage() {
             <div className="relative p-5 flex flex-col gap-3">
               <div className="flex items-center gap-2">
                 <MessageCircle size={14} className="text-pg-sage" />
-                <span className="font-semibold text-[11px] uppercase tracking-pg-caps text-pg-sage">Ask a Therapist</span>
+                <span className="text-pg-eyebrow text-pg-sage">Ask a Therapist</span>
               </div>
               <p className="font-bold text-white text-base leading-snug">
                 Have a question of your own?
@@ -461,10 +461,10 @@ export default function QuestionDetailPage() {
                   style={{ color: "inherit" }}
                 >
                   <div className="flex items-start gap-2">
-                    <span className="font-semibold text-[11px] uppercase tracking-pg-caps text-pg-teal-dark bg-pg-tint px-2 py-0.5 rounded-pg-sm shrink-0 mt-0.5">
+                    <span className="text-pg-eyebrow text-pg-teal-dark bg-pg-tint px-2 py-0.5 rounded-pg-sm shrink-0 mt-0.5">
                       {item.category}
                     </span>
-                    <p className="text-xs text-pg-navy leading-snug group-hover:text-pg-teal transition-colors line-clamp-2">
+                    <p className="text-xs text-pg-navy leading-snug group-hover:text-pg-teal-dark transition-colors line-clamp-2">
                       {item.question}
                     </p>
                   </div>
@@ -474,7 +474,7 @@ export default function QuestionDetailPage() {
             <div className="px-4 py-3 border-t border-pg-line">
               <Link
                 to="/ask-a-therapist"
-                className="text-xs text-pg-teal hover:text-pg-teal-dark no-underline transition-colors flex items-center gap-1"
+                className="text-xs text-pg-teal-dark hover:text-pg-teal-dark no-underline transition-colors flex items-center gap-1"
               >
                 Browse all questions
                 <ChevronRight size={12} />
@@ -504,7 +504,7 @@ export default function QuestionDetailPage() {
               <div className="bg-pg-navy px-6 py-5">
                 <div className="flex items-center gap-2 mb-1">
                   <MessageCircle size={14} className="text-pg-sage" />
-                  <span className="text-[11px] font-semibold uppercase tracking-pg-caps text-pg-sage">Ask a Therapist</span>
+                  <span className="text-pg-eyebrow text-pg-sage">Ask a Therapist</span>
                 </div>
                 <h3 className="font-bold text-white text-xl">Submit Your Question</h3>
               </div>
@@ -526,7 +526,7 @@ export default function QuestionDetailPage() {
                     <label className="text-xs font-semibold text-pg-navy block mb-2">Your Question</label>
                     <textarea
                       rows={4}
-                      className="w-full border border-pg-line rounded-pg-md px-4 py-2 text-sm text-pg-navy placeholder:text-pg-teal outline-none focus:border-pg-teal resize-none transition-colors"
+                      className="w-full border border-pg-line rounded-pg-md px-4 py-2 text-sm text-pg-navy placeholder:text-pg-slate outline-none focus:border-pg-teal resize-none transition-colors"
                       placeholder="What's your parenting question?"
                       value={submitQ}
                       onChange={(e) => setSubmitQ(e.target.value)}
@@ -536,7 +536,7 @@ export default function QuestionDetailPage() {
                     <label className="text-xs font-semibold text-pg-navy block mb-2">Email</label>
                     <input
                       type="email"
-                      className="w-full border border-pg-line rounded-pg-md px-4 py-2 text-sm text-pg-navy placeholder:text-pg-teal outline-none focus:border-pg-teal transition-colors"
+                      className="w-full border border-pg-line rounded-pg-md px-4 py-2 text-sm text-pg-navy placeholder:text-pg-slate outline-none focus:border-pg-teal transition-colors"
                       placeholder="your@email.com"
                       value={submitEmail}
                       onChange={(e) => setSubmitEmail(e.target.value)}

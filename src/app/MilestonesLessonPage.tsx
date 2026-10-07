@@ -239,13 +239,13 @@ export default function MilestonesLessonPage() {
           <div className="flex flex-col items-start gap-3 sm:flex-row sm:justify-between sm:gap-4">
             <div className="min-w-0">
               <div className="flex items-center gap-2 mb-1">
-                <span className="font-semibold text-[11px] uppercase tracking-pg-caps text-pg-teal-dark bg-pg-tint px-2 py-0.5 rounded-pg-sm">
+                <span className="text-pg-eyebrow text-pg-teal-dark bg-pg-tint px-2 py-0.5 rounded-pg-sm">
                   Lesson {lesson.id} of {LESSONS.length}
                 </span>
                 <span className="text-xs text-pg-slate">{lesson.duration}</span>
               </div>
               <p className="text-xs text-pg-teal-dark mb-1">{lesson.module}</p>
-              <h1 className="font-bold text-pg-navy text-[28px] md:text-[40px] leading-[1.15]">{lesson.title}</h1>
+              <h1 className="text-pg-h1 text-pg-navy">{lesson.title}</h1>
             </div>
             <Button variant="secondary" size="s" onClick={markComplete} aria-pressed={completed.has(lesson.id)} className={`shrink-0 gap-2 ${completed.has(lesson.id) ? "bg-pg-tint" : ""}`}>
               {completed.has(lesson.id) ? <CheckCircle2 size={13} /> : <Circle size={13} />}
@@ -318,7 +318,7 @@ export default function MilestonesLessonPage() {
                   key={tab}
                   onClick={() => setActiveTab(tab)}
                   className={`flex flex-1 sm:flex-none items-center justify-center gap-2 px-2 sm:px-5 py-4 text-xs font-semibold whitespace-nowrap transition-colors border-b-2 ${
-                    activeTab === tab ? "border-pg-teal text-pg-teal" : "border-transparent text-pg-slate hover:text-pg-navy"
+                    activeTab === tab ? "border-pg-teal text-pg-teal-dark" : "border-transparent text-pg-slate hover:text-pg-navy"
                   }`}
                 >
                   {tab === "Overview" && <BookOpen size={12} />}
@@ -356,7 +356,7 @@ export default function MilestonesLessonPage() {
                           <FileText size={14} className="text-pg-sage" />
                           <span className="text-sm text-pg-navy">{r.label}</span>
                         </div>
-                        <span className="text-xs font-semibold text-pg-teal bg-pg-tint px-2 py-0.5 rounded-full">{r.type}</span>
+                        <span className="text-xs font-semibold text-pg-teal-dark bg-pg-tint px-2 py-0.5 rounded-full">{r.type}</span>
                       </div>
                     ))}
                   </motion.div>
@@ -416,7 +416,7 @@ export default function MilestonesLessonPage() {
             </div>
 
             <div className="p-4 border-t border-pg-line">
-              <Link to={`/courses/${COURSE_SLUG}`} className="text-xs text-pg-teal hover:text-pg-teal-dark no-underline transition-colors flex items-center gap-1">
+              <Link to={`/courses/${COURSE_SLUG}`} className="text-xs text-pg-teal-dark hover:text-pg-teal-dark no-underline transition-colors flex items-center gap-1">
                 <ChevronLeft size={13} /> Course overview
               </Link>
             </div>
@@ -434,7 +434,7 @@ export default function MilestonesLessonPage() {
               <span className="hidden sm:inline">{prevLesson.title}</span>
             </Button>
           ) : (
-            <Link to={`/courses/${COURSE_SLUG}`} className="text-sm text-pg-teal hover:text-pg-teal-dark no-underline transition-colors">
+            <Link to={`/courses/${COURSE_SLUG}`} className="text-sm text-pg-teal-dark hover:text-pg-teal-dark no-underline transition-colors">
               Back to Course
             </Link>
           )}

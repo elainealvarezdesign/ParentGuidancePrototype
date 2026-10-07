@@ -1,47 +1,36 @@
 /*
  * Parent Guidance — design tokens
- * Extracted from the PG-Live prototype (src/app). See docs/guidelines/ for how each token is used.
- * Imported in src/styles/index.css. Tailwind classes: bg-pg-navy, text-pg-slate, rounded-pg-md,
- * shadow-pg-card, max-w-pg-page, duration-(--pg-dur-base)…
+ * GENERATED from tokens/pg.tokens.json by scripts/build-tokens.mjs. Do not edit by hand: change the JSON
+ * and run `pnpm tokens`. Usage rules live in docs/system/foundations.md.
  */
 
 :root {
-  /* ---------- Brand ---------- */
   --pg-navy: #1c3243;
   --pg-navy-hover: #284054;
   --pg-slate: #435766;
   --pg-teal: #59797d;
   --pg-teal-dark: #406064;
   --pg-sage: #90b3b6;
-  --pg-mist: #acbcbe; /* decorative only, never text */
-  --pg-amber: #c8893a; /* lesson accent; decorative fill only, never text */
-  --pg-live: #52bd95;  /* "live" dot; decorative only */
-
-  /* ---------- Surfaces and borders ---------- */
+  --pg-peach: #e8a497;
+  --pg-mist: #acbcbe;
+  --pg-amber: #c8893a;
+  --pg-live: #52bd95;
   --pg-cream: #f9f4f1;
   --pg-cream-dark: #f0edeb;
   --pg-white: #ffffff;
   --pg-tint: #eaf1f1;
   --pg-tint-soft: #f0f6f6;
   --pg-line: #dee8e9;
-
-  /* ---------- Status (used in badges and notices; match Figma's Contrast/Soft) ---------- */
   --pg-success: #117a3a;
   --pg-success-soft: #d3f7df;
   --pg-warning: #a84b02;
   --pg-warning-soft: #feeab1;
   --pg-error: #932f2f;
   --pg-error-soft: #fdcfcf;
-
-  /* ---------- Typography ---------- */
   --pg-font: 'Poppins', system-ui, sans-serif;
-
-  /* ---------- Shadows (navy-tinted) ---------- */
   --pg-shadow-card: 0 8px 24px rgba(28, 50, 67, 0.06);
   --pg-shadow-card-hover: 0 8px 24px rgba(28, 50, 67, 0.14);
   --pg-shadow-overlay: 0 24px 60px rgba(28, 50, 67, 0.28);
-
-  /* ---------- Motion ---------- */
   --pg-ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --pg-ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
   --pg-dur-micro: 150ms;
@@ -49,8 +38,7 @@
   --pg-dur-base: 350ms;
   --pg-dur-reveal: 550ms;
 
-  /* ---------- shadcn theme → PG palette ----------
-     So the components in src/app/components/ui inherit the brand. */
+  /* Base theme aliases read by src/styles/theme.css (element defaults). */
   --background: var(--pg-cream);
   --foreground: var(--pg-navy);
   --card: var(--pg-white);
@@ -72,7 +60,7 @@
   --ring: var(--pg-teal-dark);
 }
 
-/* Tailwind v4 classes: bg-pg-navy, text-pg-slate, border-pg-line, rounded-pg-md, shadow-pg-card, max-w-pg-page… */
+/* Tailwind v4 theme: bg-pg-navy, text-pg-slate, rounded-pg-md, shadow-pg-card, max-w-pg-content, ease-pg-out… */
 @theme inline {
   --color-pg-navy: var(--pg-navy);
   --color-pg-navy-hover: var(--pg-navy-hover);
@@ -80,6 +68,7 @@
   --color-pg-teal: var(--pg-teal);
   --color-pg-teal-dark: var(--pg-teal-dark);
   --color-pg-sage: var(--pg-sage);
+  --color-pg-peach: var(--pg-peach);
   --color-pg-mist: var(--pg-mist);
   --color-pg-amber: var(--pg-amber);
   --color-pg-live: var(--pg-live);
@@ -94,29 +83,96 @@
   --color-pg-warning-soft: var(--pg-warning-soft);
   --color-pg-error: var(--pg-error);
   --color-pg-error-soft: var(--pg-error-soft);
-
+  --shadow-pg-card: var(--pg-shadow-card);
+  --shadow-pg-card-hover: var(--pg-shadow-card-hover);
+  --shadow-pg-overlay: var(--pg-shadow-overlay);
+  --ease-pg-out: var(--pg-ease-out);
+  --ease-pg-in-out: var(--pg-ease-in-out);
   --font-sans: var(--pg-font);
-
-  /* Letter spacing for UPPERCASE labels (Figma: Label/XSmall - Bold Caps 15%, Label/Small - SemiBold Caps 10%) */
   --tracking-pg-caps: 0.15em;
   --tracking-pg-eyebrow: 0.1em;
-
   --radius-pg-sm: 4px;
   --radius-pg-md: 8px;
   --radius-pg-lg: 12px;
   --radius-pg-xl: 16px;
   --radius-pg-2xl: 28px;
-
-  --shadow-pg-card: var(--pg-shadow-card);
-  --shadow-pg-card-hover: var(--pg-shadow-card-hover);
-  --shadow-pg-overlay: var(--pg-shadow-overlay);
-
   --container-pg-page: 1280px;
   --container-pg-content: 1100px;
   --container-pg-reading: 680px;
+}
 
-  --ease-pg-out: var(--pg-ease-out);
-  --ease-pg-in-out: var(--pg-ease-in-out);
+/* Semantic type scale: text-pg-display, text-pg-h1 … text-pg-eyebrow */
+/* Home hero title only. */
+@utility text-pg-display {
+  font-size: 38px;
+  line-height: 44px;
+  font-weight: 700;
+  @media (width >= 48rem) {
+    font-size: 50px;
+    line-height: 58px;
+  }
+}
+
+/* Page title (one per page). */
+@utility text-pg-h1 {
+  font-size: 28px;
+  line-height: 32px;
+  font-weight: 700;
+  @media (width >= 48rem) {
+    font-size: 40px;
+    line-height: 46px;
+  }
+}
+
+/* Section title. */
+@utility text-pg-h2 {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 700;
+}
+
+/* Card and sub-section title. */
+@utility text-pg-h3 {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+}
+
+/* Small heading, list item title. */
+@utility text-pg-h4 {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+}
+
+/* Intro paragraphs and long-form text. */
+@utility text-pg-body-lg {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+/* Default UI text. */
+@utility text-pg-body {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+/* Meta text, captions, helper text. */
+@utility text-pg-small {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+}
+
+/* Uppercase label above a title. */
+@utility text-pg-eyebrow {
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
 }
 
 body {

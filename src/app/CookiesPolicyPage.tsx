@@ -155,7 +155,7 @@ export default function CookiesPolicyPage() {
             Legal
           </p>
 
-          <h1 id="cookies-policy-title" tabIndex={-1} className="focus:outline-none text-[28px] font-bold text-pg-navy md:text-[40px]">
+          <h1 id="cookies-policy-title" tabIndex={-1} className="text-pg-h1 focus:outline-none text-pg-navy">
             Cookies Policy
           </h1>
 
@@ -171,7 +171,7 @@ export default function CookiesPolicyPage() {
   <section className="px-6 pb-20 md:px-10 lg:px-14 print:p-0">
   <div id={DOCUMENT_ID} className="mx-auto max-w-pg-content rounded-pg-xl border border-pg-line bg-white p-7 shadow-pg-card md:p-10 print:max-w-none print:rounded-none print:border-0 print:p-0 print:shadow-none">
     <div className="border-b border-pg-line pb-8">
-  <p className="mb-6 text-sm font-semibold text-pg-teal">
+  <p className="mb-6 text-sm font-semibold text-pg-teal-dark">
     Last updated: November 27, 2024
   </p>
 

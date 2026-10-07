@@ -187,9 +187,9 @@ export default function ParentCoachingPage() {
             <span className="text-xs font-semibold uppercase tracking-pg-eyebrow text-pg-teal-dark">
               Parent Coaching
             </span>
-            <h1 className="font-bold text-pg-navy text-[28px] md:text-[40px] leading-[1.25] max-w-[488px]">
+            <h1 className="text-pg-h1 text-pg-navy max-w-[488px]">
               {"A better way to navigate your "}
-              <em className="italic text-pg-teal">{"child's mental health."}</em>
+              <em className="italic text-pg-teal-dark">{"child's mental health."}</em>
             </h1>
             <p className="text-pg-slate text-base leading-[26px] max-w-[384px]">
               {"Work one-on-one with a therapist who coaches "}
@@ -306,7 +306,7 @@ export default function ParentCoachingPage() {
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute top-3 right-3 bg-pg-tint rounded-full px-2 py-1">
-                      <span className="font-semibold text-pg-teal text-xs">● Available</span>
+                      <span className="font-semibold text-pg-teal-dark text-xs">● Available</span>
                     </div>
                   </div>
 

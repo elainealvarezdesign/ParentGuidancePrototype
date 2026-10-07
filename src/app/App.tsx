@@ -160,7 +160,7 @@ function LanguageDropdown() {
                   setLanguage(l);
                   setOpen(false);
                 }}
-                className="block w-full px-5 py-2 text-left text-sm text-pg-navy transition-colors hover:bg-pg-cream hover:text-pg-teal"
+                className="block w-full px-5 py-2 text-left text-sm text-pg-navy transition-colors hover:bg-pg-cream hover:text-pg-teal-dark"
               >
                 {l}
               </button>
@@ -336,7 +336,7 @@ function Hero() {
         transition={{ duration: 0.55, delay: 0.3 }}
         className="mt-14"
       >
-        <h1 className="font-bold text-pg-teal text-[28px] md:text-[40px] leading-tight md:leading-relaxed lg:whitespace-nowrap">
+        <h1 className="text-pg-h1 text-pg-teal-dark md:leading-relaxed lg:whitespace-nowrap">
           {"Discover "}
           <em className="italic font-bold">Resources</em>
           {" That Can Help"}
@@ -374,7 +374,7 @@ function Hero() {
             <path d="M18 18L16.5 16.5" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
           </svg>
           <input
-            className="flex-1 min-w-0 text-sm text-pg-navy bg-transparent outline-none placeholder:text-pg-teal"
+            className="flex-1 min-w-0 text-sm text-pg-navy bg-transparent outline-none placeholder:text-pg-slate"
             placeholder="Anxiety in Children"
             onFocus={() => setFocused(true)}
             onBlur={() => setFocused(false)}
@@ -470,7 +470,7 @@ function ResourceSection() {
           ))}
         </div>
         <FadeIn className="flex justify-end mt-3">
-          <Link to="/mental-health-series" className="text-sm text-pg-teal-dark underline hover:text-pg-teal transition-colors">
+          <Link to="/mental-health-series" className="text-sm text-pg-teal-dark underline hover:text-pg-teal-dark transition-colors">
             view more
           </Link>
         </FadeIn>
@@ -520,7 +520,7 @@ function FeatureRow({ feat, index }: { feat: typeof features[0]; index: number }
         <img src={feat.img} alt="" className="absolute inset-0 w-full h-full object-cover" />
       </motion.div>
       <div className="flex flex-col gap-2 max-w-sm">
-        <p className="font-bold text-pg-teal text-xl md:text-2xl leading-relaxed">{feat.title}</p>
+        <p className="font-bold text-pg-teal-dark text-xl md:text-2xl leading-relaxed">{feat.title}</p>
         <p className="text-pg-navy text-base leading-relaxed">{feat.desc}</p>
       </div>
     </motion.div>
@@ -532,7 +532,7 @@ function WhySection() {
     <section className="bg-pg-cream py-14 md:py-20 px-6 md:px-10 lg:px-14 flex flex-col items-center gap-12 md:gap-20">
       <FadeUp className="flex flex-col items-center gap-4 max-w-3xl text-center">
         <span className="font-semibold text-pg-navy text-base uppercase tracking-pg-eyebrow">Why</span>
-        <h2 className="font-bold text-pg-navy text-[28px] md:text-[40px] leading-tight tracking-tight">
+        <h2 className="text-pg-h1 text-pg-navy tracking-tight">
           Built on real clinical experience
         </h2>
         <p className="text-pg-navy text-base leading-relaxed">
@@ -667,7 +667,7 @@ function PartnersCarousel() {
       `}</style>
 
       <FadeUp className="text-center mb-10">
-        <h3 className="font-semibold text-pg-teal text-2xl">
+        <h3 className="font-semibold text-pg-teal-dark text-2xl">
           Our passionate partners
         </h3>
       </FadeUp>
@@ -713,7 +713,7 @@ function NewsletterSection() {
           <img src={imgRectangle328} alt="" className="absolute inset-0 w-full h-full object-cover" />
         </motion.div>
         <div className="flex flex-col gap-5 w-full lg:w-[440px] lg:shrink-0">
-          <h2 className="font-bold text-pg-navy text-[28px] md:text-[40px] leading-tight">Join Us!</h2>
+          <h2 className="text-pg-h1 text-pg-navy">Join Us!</h2>
           <p className="text-pg-navy text-sm leading-relaxed max-w-sm">
             Subscribe to our weekly newsletter and be a part of our journey to self discovery and love.
           </p>
@@ -815,7 +815,7 @@ function Footer() {
                 href={FOOTER_LINK_HREFS[l] ?? "#"}
                 target={FOOTER_EXTERNAL_LINKS.has(l) ? "_blank" : undefined}
                 rel={FOOTER_EXTERNAL_LINKS.has(l) ? "noopener noreferrer" : undefined}
-                className="text-pg-slate text-xs leading-relaxed hover:text-pg-teal"
+                className="text-pg-slate text-xs leading-relaxed hover:text-pg-teal-dark"
               >
                 {l}
               </a>
@@ -827,7 +827,7 @@ function Footer() {
               <a
                 key={l}
                 href={FOOTER_LINK_HREFS[l] ?? "#"}
-                className="text-pg-slate text-xs leading-relaxed hover:text-pg-teal transition-colors py-1"
+                className="text-pg-slate text-xs leading-relaxed hover:text-pg-teal-dark transition-colors py-1"
               >
                 {l}
               </a>

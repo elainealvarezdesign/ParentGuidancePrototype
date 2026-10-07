@@ -94,11 +94,11 @@ export default function CourseDetailPage() {
 
             {/* Center — course info */}
             <div className="flex-1 p-6 flex flex-col gap-4 lg:border-r border-pg-line">
-              <span className="self-start font-semibold text-[11px] uppercase tracking-pg-caps text-pg-teal-dark bg-pg-tint border border-pg-sage/40 px-3 py-1 rounded-pg-sm">
+              <span className="text-pg-eyebrow self-start text-pg-teal-dark bg-pg-tint border border-pg-sage/40 px-3 py-1 rounded-pg-sm">
                 Self-Guided Course
               </span>
 
-              <h1 className="font-bold text-pg-navy text-[28px] md:text-[40px] leading-[1.15]">
+              <h1 className="text-pg-h1 text-pg-navy">
                 {COURSE_TITLE}
               </h1>
 

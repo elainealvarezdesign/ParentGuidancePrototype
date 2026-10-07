@@ -28,7 +28,7 @@ const SEARCH_THEMES = [
   { label: "All", bg: "var(--pg-navy)", color: "var(--pg-white)" },
   { label: "Courses", bg: "var(--pg-sage)", color: "var(--pg-navy)" },
   { label: "Lessons", bg: "var(--pg-teal)", color: "var(--pg-white)" },
-  { label: "Ask A Therapist", bg: "#e8a497", color: "var(--pg-navy)" },
+  { label: "Ask A Therapist", bg: "var(--pg-peach)", color: "var(--pg-navy)" },
   { label: "Instant Insights", bg: "var(--pg-mist)", color: "var(--pg-navy)" },
 ];
 
@@ -158,7 +158,7 @@ function PartnersCarousel() {
         .marquee-track-v2:hover { animation-play-state: paused; }
       `}</style>
       <motion.h3
-        className="font-semibold text-pg-teal text-2xl text-center mb-10"
+        className="font-semibold text-pg-teal-dark text-2xl text-center mb-10"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
@@ -201,7 +201,7 @@ export default function HomePageV2() {
                 For Parents
               </p>
               {/* Heading/H1 - Medium - 2XL: Poppins Medium 48/56 */}
-              <h1 className="text-pg-navy font-medium text-[38px] md:text-[50px] leading-[1.08] tracking-normal">
+              <h1 className="text-pg-display text-pg-navy font-medium">
                 Discover Resources That Can Help
               </h1>
               {/* Body/Medium - Regular: Poppins Regular 16/1.5 */}
@@ -238,7 +238,7 @@ export default function HomePageV2() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center text-center md:text-left">
             <div>
               {/* Heading/H2 - Medium - XL: Poppins Medium 40/48 */}
-              <h2 className="font-medium text-white text-[28px] md:text-[40px] leading-[1.15] md:leading-[48px]">
+              <h2 className="text-pg-h1 font-medium text-white">
                 Not sure where to start?
               </h2>
               {/* Body/Medium - Regular: Poppins Regular 16/1.5 */}
@@ -250,7 +250,7 @@ export default function HomePageV2() {
             <div>
               <div className="w-full bg-white rounded-full shadow-pg-overlay pl-5 pr-1 py-1 flex items-center gap-2 transition-shadow focus-within:shadow-pg-overlay">
                 <input
-                  className="flex-1 min-w-0 text-[14px] font-medium text-pg-navy bg-transparent outline-none placeholder:text-pg-teal placeholder:font-normal py-2"
+                  className="flex-1 min-w-0 text-sm font-medium text-pg-navy bg-transparent outline-none placeholder:text-pg-slate placeholder:font-normal py-2"
                   placeholder="Anxiety in Children"
                 />
                 <Button size="s" className="shrink-0 rounded-full">
@@ -283,7 +283,7 @@ export default function HomePageV2() {
         <div className="max-w-pg-page mx-auto">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
             {/* Heading/H2 - Medium - XL: Poppins Medium 40/48 */}
-            <h2 className="font-medium text-pg-navy text-[28px] md:text-[40px] leading-[1.15] md:leading-[48px]">Explore Resources</h2>
+            <h2 className="text-pg-h1 font-medium text-pg-navy">Explore Resources</h2>
             <div className="flex items-center gap-2 overflow-x-auto">
               {CATEGORIES.map((cat) => (
                 <button
@@ -342,7 +342,7 @@ export default function HomePageV2() {
         >
           <span className="font-semibold text-pg-navy text-base uppercase tracking-pg-eyebrow">Why</span>
           {/* Heading/H2 - Medium - XL: Poppins Medium 40/48 */}
-          <h2 className="font-medium text-pg-navy text-[28px] md:text-[40px] leading-[1.15] md:leading-[48px]">
+          <h2 className="text-pg-h1 font-medium text-pg-navy">
             Built on real clinical experience
           </h2>
           {/* Body/Medium - Regular: Poppins Regular 16/1.5 */}
@@ -354,7 +354,7 @@ export default function HomePageV2() {
         <div className="max-w-pg-page mx-auto grid grid-cols-1 md:grid-cols-[5fr_7fr] md:grid-rows-2 gap-4">
           {WHY_CARDS.map((card, i) => {
             const featured = i === 0;
-            const tone = i === 1 ? "var(--pg-sage)" : "#e8a497";
+            const tone = i === 1 ? "var(--pg-sage)" : "var(--pg-peach)";
             return featured ? (
               <motion.div
                 key={card.title}
@@ -438,7 +438,7 @@ export default function HomePageV2() {
         >
           <div>
             {/* Heading/H2 - Medium - XL: Poppins Medium 40/48 */}
-            <h2 className="font-medium text-white text-[28px] md:text-[40px] leading-[1.15] md:leading-[48px]">Join Us!</h2>
+            <h2 className="text-pg-h1 font-medium text-white">Join Us!</h2>
             {/* Body/Medium - Regular: Poppins Regular 16/1.5 */}
             <p className="font-normal text-white/80 text-base leading-[1.5] mt-4 max-w-md">
               Subscribe to our weekly newsletter and be a part of our journey to self discovery and love.

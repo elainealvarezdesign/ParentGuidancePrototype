@@ -23,7 +23,7 @@ export default function LegalDocumentBody({
   return (
     <>
       <div className="border-b border-pg-line pb-8 print:border-0">
-        <p className="mb-6 text-sm font-semibold text-pg-teal">
+        <p className="mb-6 text-sm font-semibold text-pg-teal-dark">
           Effective date: {effectiveDate}
         </p>
 

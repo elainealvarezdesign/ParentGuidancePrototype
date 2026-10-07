@@ -10,7 +10,7 @@ import { BackToTopButton } from "./legal/LegalActions";
 function SectionHeading({ eyebrow, title, id }: { eyebrow: string; title: string; id: string }) {
   return (
     <>
-      <p className={`flex items-center gap-2 text-[11px] font-semibold uppercase tracking-pg-caps text-pg-teal-dark`}>
+      <p className={`text-pg-eyebrow flex items-center gap-2 text-pg-teal-dark`}>
         <span className="h-[18px] w-1 rounded-full bg-pg-sage" aria-hidden="true" />
         {eyebrow}
       </p>
@@ -37,11 +37,11 @@ function Hero({ topic }: { topic: Topic }) {
 
         <div className="mt-5 grid grid-cols-1 items-start gap-8 lg:grid-cols-[1fr_340px] lg:gap-14">
           <div>
-            <p className={`flex items-center gap-2 text-[11px] font-semibold uppercase tracking-pg-caps text-pg-teal-dark`}>
+            <p className={`text-pg-eyebrow flex items-center gap-2 text-pg-teal-dark`}>
               <span className="h-[18px] w-1 rounded-full bg-pg-sage" aria-hidden="true" />
               Mental Health Series · {topic.category}
             </p>
-            <h1 id="topic-title" tabIndex={-1} className={`mt-3 text-[28px] font-medium leading-[1.15] text-pg-navy focus:outline-none md:text-[40px]`}>
+            <h1 id="topic-title" tabIndex={-1} className={`text-pg-h1 mt-3 font-medium text-pg-navy focus:outline-none`}>
               {before}
               <em className="font-semibold">{topic.emphasis}</em>
               {after}
@@ -93,7 +93,7 @@ function VideoCard({ video: v }: { video: TopicVideo }) {
           <>
             <img src={v.image} alt="" className="absolute inset-0 h-full w-full object-cover" style={{ objectPosition: v.imagePosition ?? "center" }} />
             <div className="absolute inset-0 bg-gradient-to-t from-[color-mix(in srgb, var(--pg-navy) 55%, transparent)] to-transparent to-60%" aria-hidden="true" />
-            <span className={`absolute left-3.5 top-3.5 rounded-full bg-pg-navy px-2 py-1 text-[11px] font-semibold uppercase tracking-pg-caps text-white`}>
+            <span className={`text-pg-eyebrow absolute left-3.5 top-3.5 rounded-full bg-pg-navy px-2 py-1 text-white`}>
               {v.kind}
             </span>
             {canPlay ? (
@@ -150,9 +150,9 @@ function Sessions({ topic }: { topic: Topic }) {
             return (
               <article key={s.title + s.time} className={`${card} flex gap-4 p-5`} lang={spanish ? "es" : undefined}>
                 <div className={`flex h-[72px] w-[72px] shrink-0 flex-col items-center justify-center self-start rounded-pg-lg bg-pg-tint text-center text-pg-teal-dark`}>
-                  <span className="block text-[11px] font-semibold uppercase leading-none tracking-pg-caps">{s.month}</span>
+                  <span className="text-pg-eyebrow block leading-none">{s.month}</span>
                   <span className="my-1 block text-2xl font-bold leading-none text-pg-navy">{s.day}</span>
-                  <span className="block text-[11px] font-semibold uppercase leading-none tracking-pg-caps">{s.weekday}</span>
+                  <span className="text-pg-eyebrow block leading-none">{s.weekday}</span>
                 </div>
                 <div className="flex min-w-0 flex-1 flex-col">
                   <h3 className={`text-base font-bold leading-snug text-pg-navy`}>{s.title}</h3>
@@ -274,13 +274,13 @@ function Newsletter() {
     <section aria-labelledby="newsletter-title" className={`${gutter} bg-pg-sage py-14 md:py-16 print:hidden`}>
       <div className={`${container} flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between md:gap-10`}>
         <div>
-          <p className={`text-[11px] font-semibold uppercase tracking-pg-caps text-pg-navy`}>Let's keep in touch</p>
-          <h2 id="newsletter-title" className={`mt-1 text-[28px] font-bold leading-tight text-pg-navy md:text-[40px]`}>Subscribe to our newsletter</h2>
+          <p className={`text-pg-eyebrow text-pg-navy`}>Let's keep in touch</p>
+          <h2 id="newsletter-title" className={`text-pg-h1 mt-1 text-pg-navy`}>Subscribe to our newsletter</h2>
           <p className={`mt-2 text-sm text-pg-navy`}>New topics, live sessions and tools, straight to your inbox.</p>
         </div>
         <form className="flex w-full max-w-[460px] items-center gap-2 rounded-pg-lg bg-white p-2" onSubmit={(e) => e.preventDefault()}>
           <label htmlFor="topic-newsletter-email" className="sr-only">Email address</label>
-          <input id="topic-newsletter-email" type="email" placeholder="Your email" className={`min-w-0 flex-1 bg-transparent px-3 py-2 text-sm text-pg-navy placeholder:text-pg-teal outline-none`} />
+          <input id="topic-newsletter-email" type="email" placeholder="Your email" className={`min-w-0 flex-1 bg-transparent px-3 py-2 text-sm text-pg-navy placeholder:text-pg-slate outline-none`} />
           <Button type="submit" className="shrink-0">Subscribe</Button>
         </form>
       </div>
@@ -297,7 +297,7 @@ export default function MentalHealthTopicPage() {
     return (
       <main className={`${gutter} min-h-[60vh] bg-pg-cream pb-20 pt-32`}>
         <div className={container}>
-          <h1 className={`text-[28px] font-bold text-pg-navy`}>Topic not found</h1>
+          <h1 className={`text-pg-h1 text-pg-navy`}>Topic not found</h1>
           <Link to="/mental-health-series" className={`mt-4 inline-flex text-sm font-semibold text-pg-teal-dark underline`}>Back to Mental Health Series</Link>
         </div>
       </main>
