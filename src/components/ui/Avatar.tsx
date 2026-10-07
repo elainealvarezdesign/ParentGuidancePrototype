@@ -15,6 +15,8 @@ export type AvatarProps = {
   /** Full name; initials are derived from it. */
   name: string;
   size?: keyof typeof sizes;
+  /** Photo URL; initials are shown when missing. */
+  photo?: string;
   /** White ring, for avatars placed on photos. */
   ring?: boolean;
   className?: string;
@@ -29,7 +31,20 @@ export const initials = (name: string) =>
     .map((w) => w[0]!.toUpperCase())
     .join("");
 
-export function Avatar({ name, size = "m", ring, className }: AvatarProps) {
+export function Avatar({ name, size = "m", photo, ring, className }: AvatarProps) {
+  if (photo)
+    return (
+      <img
+        src={photo}
+        alt=""
+        className={cn(
+          "shrink-0 rounded-full object-cover",
+          sizes[size],
+          ring && "border-2 border-white shadow-pg-card",
+          className,
+        )}
+      />
+    );
   return (
     <span
       aria-hidden="true"

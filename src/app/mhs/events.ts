@@ -6,10 +6,14 @@ import { SAMPLE_REGISTER_URL } from "./links";
 export type EventCategory = "qa" | "workshop" | "support" | "course";
 
 export const CATEGORIES: Record<EventCategory, { label: string; swatch: string; pill: string }> = {
-  qa:       { label: "Live Q&A",      swatch: "var(--pg-teal)", pill: "bg-pg-teal text-white" },
-  workshop: { label: "Workshop",      swatch: "var(--pg-navy)", pill: "bg-pg-navy text-white" },
-  support:  { label: "Support group", swatch: "var(--pg-sage)", pill: "bg-pg-sage text-pg-navy" },
-  course:   { label: "Course update", swatch: "var(--pg-teal-dark)", pill: "bg-pg-tint text-pg-teal-dark ring-1 ring-inset ring-pg-sage" },
+  qa: { label: "Live Q&A", swatch: "var(--pg-teal)", pill: "bg-pg-teal text-white" },
+  workshop: { label: "Workshop", swatch: "var(--pg-navy)", pill: "bg-pg-navy text-white" },
+  support: { label: "Support group", swatch: "var(--pg-sage)", pill: "bg-pg-sage text-pg-navy" },
+  course: {
+    label: "Course update",
+    swatch: "var(--pg-teal-dark)",
+    pill: "bg-pg-tint text-pg-teal-dark ring-1 ring-inset ring-pg-sage",
+  },
 };
 
 export type SeriesEvent = {
@@ -29,18 +33,118 @@ export type SeriesEvent = {
 };
 
 export const EVENTS: SeriesEvent[] = [
-  { id: "anxiety-es", title: "Ansiedad en niños: preguntas y respuestas", description: "Sesión en vivo en español con una terapeuta infantil. Trae tus preguntas.", category: "qa", date: "2025-07-08", start: "18:00", end: "19:00", language: "Español", sample: true },
-  { id: "anxiety", title: "Understanding Anxiety in Children", description: "Live Q&A with a licensed child therapist. Bring your questions.", category: "qa", date: "2025-07-10", start: "16:00", end: "17:00" },
-  { id: "mindfulness", title: "Mindfulness & Stress Tools for Parents", description: "Interactive workshop on breathing and grounding techniques you can share with your kids.", category: "workshop", date: "2025-07-15", start: "12:00", end: "13:00" },
-  { id: "resilience-m2", title: "Emotional Resilience – Module 2 Launch", description: "New module now available in your dashboard.", category: "course", date: "2025-07-17" },
-  { id: "support-jul23", title: "Parent Support Circle", description: "Facilitated group session for parents navigating school-year challenges.", category: "support", date: "2025-07-23", start: "18:00", end: "19:00" },
-  { id: "screen-time", title: "Ask a Therapist: Screen Time", description: "A short live Q&A on healthy screen-time limits for kids and teens.", category: "qa", date: "2025-07-28", start: "12:00", end: "12:45", sample: true },
-  { id: "confidence-s1", title: "Building Your Child's Confidence – Session 1", description: "Dr. Kevin Skinner on fostering a healthy, confident identity in children.", category: "workshop", date: "2025-07-28", start: "18:00", end: "19:00", sample: true },
-  { id: "support-jul31", title: "Parent Support Circle", description: "Facilitated group session for parents navigating school-year challenges.", category: "support", date: "2025-07-31", start: "18:00", end: "19:00", sample: true },
-  { id: "back-to-school", title: "Back-to-School Mental Health Prep", description: "Strategies to ease school transitions and manage first-week anxiety.", category: "workshop", date: "2025-08-01", start: "14:00", end: "15:00" },
-  { id: "teen-forum", title: "Teen Mental Health – Open Forum", description: "For parents of middle and high schoolers. Topics include social pressure, identity, and digital wellbeing.", category: "qa", date: "2025-08-12", start: "17:00", end: "18:30" },
-  { id: "self-care", title: "Self-Care for Caregivers", description: "You can't pour from an empty cup. A session dedicated to parent wellbeing.", category: "support", date: "2025-08-21", start: "12:00", end: "13:00" },
-  { id: "crisis", title: "Crisis Resources Workshop", description: "Know the signs, know the steps. A practical guide to crisis preparedness for families.", category: "workshop", date: "2025-08-25", start: "15:00", end: "16:00" },
+  {
+    id: "anxiety-es",
+    title: "Ansiedad en niños: preguntas y respuestas",
+    description: "Sesión en vivo en español con una terapeuta infantil. Trae tus preguntas.",
+    category: "qa",
+    date: "2025-07-08",
+    start: "18:00",
+    end: "19:00",
+    language: "Español",
+    sample: true,
+  },
+  {
+    id: "anxiety",
+    title: "Understanding Anxiety in Children",
+    description: "Live Q&A with a licensed child therapist. Bring your questions.",
+    category: "qa",
+    date: "2025-07-10",
+    start: "16:00",
+    end: "17:00",
+  },
+  {
+    id: "mindfulness",
+    title: "Mindfulness & Stress Tools for Parents",
+    description: "Interactive workshop on breathing and grounding techniques you can share with your kids.",
+    category: "workshop",
+    date: "2025-07-15",
+    start: "12:00",
+    end: "13:00",
+  },
+  {
+    id: "resilience-m2",
+    title: "Emotional Resilience – Module 2 Launch",
+    description: "New module now available in your dashboard.",
+    category: "course",
+    date: "2025-07-17",
+  },
+  {
+    id: "support-jul23",
+    title: "Parent Support Circle",
+    description: "Facilitated group session for parents navigating school-year challenges.",
+    category: "support",
+    date: "2025-07-23",
+    start: "18:00",
+    end: "19:00",
+  },
+  {
+    id: "screen-time",
+    title: "Ask a Therapist: Screen Time",
+    description: "A short live Q&A on healthy screen-time limits for kids and teens.",
+    category: "qa",
+    date: "2025-07-28",
+    start: "12:00",
+    end: "12:45",
+    sample: true,
+  },
+  {
+    id: "confidence-s1",
+    title: "Building Your Child's Confidence – Session 1",
+    description: "Dr. Kevin Skinner on fostering a healthy, confident identity in children.",
+    category: "workshop",
+    date: "2025-07-28",
+    start: "18:00",
+    end: "19:00",
+    sample: true,
+  },
+  {
+    id: "support-jul31",
+    title: "Parent Support Circle",
+    description: "Facilitated group session for parents navigating school-year challenges.",
+    category: "support",
+    date: "2025-07-31",
+    start: "18:00",
+    end: "19:00",
+    sample: true,
+  },
+  {
+    id: "back-to-school",
+    title: "Back-to-School Mental Health Prep",
+    description: "Strategies to ease school transitions and manage first-week anxiety.",
+    category: "workshop",
+    date: "2025-08-01",
+    start: "14:00",
+    end: "15:00",
+  },
+  {
+    id: "teen-forum",
+    title: "Teen Mental Health – Open Forum",
+    description:
+      "For parents of middle and high schoolers. Topics include social pressure, identity, and digital wellbeing.",
+    category: "qa",
+    date: "2025-08-12",
+    start: "17:00",
+    end: "18:30",
+  },
+  {
+    id: "self-care",
+    title: "Self-Care for Caregivers",
+    description: "You can't pour from an empty cup. A session dedicated to parent wellbeing.",
+    category: "support",
+    date: "2025-08-21",
+    start: "12:00",
+    end: "13:00",
+  },
+  {
+    id: "crisis",
+    title: "Crisis Resources Workshop",
+    description: "Know the signs, know the steps. A practical guide to crisis preparedness for families.",
+    category: "workshop",
+    date: "2025-08-25",
+    start: "15:00",
+    end: "16:00",
+  },
 ];
 
 export const registerUrlFor = (e: SeriesEvent) => e.registerUrl ?? SAMPLE_REGISTER_URL;
@@ -66,7 +170,8 @@ function to12h(t: string) {
 /** "4:00 – 5:00 PM" or "All day" */
 export function formatTimeRange(e: SeriesEvent) {
   if (!e.start || !e.end) return "All day";
-  const a = to12h(e.start), b = to12h(e.end);
+  const a = to12h(e.start),
+    b = to12h(e.end);
   return a.slice(-2) === b.slice(-2) ? `${a.slice(0, -3)} – ${b}` : `${a} – ${b}`;
 }
 
@@ -82,7 +187,7 @@ function centralOffsetHours(date: Date) {
   const y = date.getFullYear();
   const firstSunday = (month: number) => 1 + ((7 - new Date(y, month, 1).getDay()) % 7);
   const dstStart = new Date(y, 2, firstSunday(2) + 7); // 2nd Sunday of March
-  const dstEnd = new Date(y, 10, firstSunday(10));     // 1st Sunday of November
+  const dstEnd = new Date(y, 10, firstSunday(10)); // 1st Sunday of November
   const dst = date >= dstStart && date < dstEnd;
   return dst ? 5 : 6;
 }
@@ -91,7 +196,10 @@ function utcStamp(date: string, time: string) {
   const d = parseDate(date);
   const [h, m] = time.split(":").map(Number);
   const utc = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate(), h + centralOffsetHours(d), m));
-  return utc.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
+  return utc
+    .toISOString()
+    .replace(/[-:]/g, "")
+    .replace(/\.\d{3}/, "");
 }
 
 function escapeIcs(text: string) {
@@ -107,12 +215,24 @@ function vevent(e: SeriesEvent) {
     next.setDate(next.getDate() + 1);
     lines.push(`DTSTART;VALUE=DATE:${e.date.replace(/-/g, "")}`, `DTEND;VALUE=DATE:${toKey(next).replace(/-/g, "")}`);
   }
-  lines.push(`SUMMARY:${escapeIcs(e.title)}`, `DESCRIPTION:${escapeIcs(e.description)}`, "LOCATION:Online", "END:VEVENT");
+  lines.push(
+    `SUMMARY:${escapeIcs(e.title)}`,
+    `DESCRIPTION:${escapeIcs(e.description)}`,
+    "LOCATION:Online",
+    "END:VEVENT",
+  );
   return lines;
 }
 
 export function buildIcs(events: SeriesEvent[]) {
-  return ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Parent Guidance//Mental Health Series//EN", "CALSCALE:GREGORIAN", ...events.flatMap(vevent), "END:VCALENDAR"].join("\r\n");
+  return [
+    "BEGIN:VCALENDAR",
+    "VERSION:2.0",
+    "PRODID:-//Parent Guidance//Mental Health Series//EN",
+    "CALSCALE:GREGORIAN",
+    ...events.flatMap(vevent),
+    "END:VCALENDAR",
+  ].join("\r\n");
 }
 
 export function downloadIcs(fileName: string, events: SeriesEvent[]) {

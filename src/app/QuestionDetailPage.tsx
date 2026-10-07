@@ -6,6 +6,7 @@ import { PrevNextNav } from "@/components/patterns/PrevNextNav";
 import { SubmitQuestionDialog } from "@/components/patterns/SubmitQuestionDialog";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
+import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { Avatar } from "@/components/ui/Avatar";
 import { AccordionItem } from "@/components/ui/Accordion";
 import { MediaPlayer } from "@/components/ui/MediaPlayer";
@@ -52,26 +53,14 @@ function QuestionAnswer({ question }: { question: Question }) {
   const link = (q: Question) => ({ title: q.question, to: `/ask-a-therapist/${q.id}` });
 
   return (
-    <div className="mt-14">
-      <nav aria-label="Breadcrumb" className="border-b border-pg-line bg-pg-tint-soft">
-        <ol className="mx-auto flex h-10 max-w-pg-page items-center gap-2 px-6 text-xs">
-          <li className="shrink-0">
-            <Link to="/ask-a-therapist" className="text-pg-teal-dark no-underline hover:text-pg-navy">
-              Ask a Therapist
-            </Link>
-          </li>
-          <li aria-hidden="true">
-            <ChevronRight size={14} className="text-pg-slate" />
-          </li>
-          <li className="shrink-0 text-pg-teal-dark">{question.category}</li>
-          <li aria-hidden="true">
-            <ChevronRight size={14} className="text-pg-slate" />
-          </li>
-          <li aria-current="page" className="truncate font-semibold text-pg-navy">
-            {question.question}
-          </li>
-        </ol>
-      </nav>
+    <>
+      <Breadcrumb
+        items={[
+          { label: "Ask a Therapist", to: "/ask-a-therapist" },
+          { label: question.category, hideOnMobile: true },
+          { label: question.question },
+        ]}
+      />
 
       <Container className="flex flex-col gap-6 py-8 lg:flex-row">
         <div className="flex min-w-0 flex-1 flex-col gap-5">
@@ -170,6 +159,6 @@ function QuestionAnswer({ question }: { question: Question }) {
       </Container>
 
       <SubmitQuestionDialog open={submitOpen} onClose={() => setSubmitOpen(false)} />
-    </div>
+    </>
   );
 }

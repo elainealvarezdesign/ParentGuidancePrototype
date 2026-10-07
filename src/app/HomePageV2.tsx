@@ -90,10 +90,30 @@ const FAQS = [
       "Mental health support doesn't have a timeline and neither does our program. While the initial Parenting with Purpose roadmap is expected to take around 4 weeks to complete, we offer ongoing support as long as you need it.",
     defaultOpen: true,
   },
-  { question: "What can I expect from a meeting with my coach?", answer: "Each coaching session is personalized to your family's unique needs and goals. Your coach will listen actively, offer evidence-based strategies, and help you develop an action plan that fits your lifestyle.", defaultOpen: false },
-  { question: "How often can I message my coach?", answer: "You can message your coach at any time through our platform. Most coaches respond within a few hours during business hours, and within 24 hours at other times.", defaultOpen: false },
-  { question: "How often will I meet with my coach?", answer: "Meeting frequency is flexible and based on your needs. Most families start with weekly sessions and adjust from there.", defaultOpen: false },
-  { question: "How long until we deliver your first blog post?", answer: "Our team reviews your intake information and typically delivers the first resource within 48 hours of enrollment.", defaultOpen: false },
+  {
+    question: "What can I expect from a meeting with my coach?",
+    answer:
+      "Each coaching session is personalized to your family's unique needs and goals. Your coach will listen actively, offer evidence-based strategies, and help you develop an action plan that fits your lifestyle.",
+    defaultOpen: false,
+  },
+  {
+    question: "How often can I message my coach?",
+    answer:
+      "You can message your coach at any time through our platform. Most coaches respond within a few hours during business hours, and within 24 hours at other times.",
+    defaultOpen: false,
+  },
+  {
+    question: "How often will I meet with my coach?",
+    answer:
+      "Meeting frequency is flexible and based on your needs. Most families start with weekly sessions and adjust from there.",
+    defaultOpen: false,
+  },
+  {
+    question: "How long until we deliver your first blog post?",
+    answer:
+      "Our team reviews your intake information and typically delivers the first resource within 48 hours of enrollment.",
+    defaultOpen: false,
+  },
 ];
 
 const PARTNER_LOGOS = [
@@ -112,24 +132,31 @@ const EXPLORE_ROUTES: Record<string, string> = {
   "Ask a Therapist": "/ask-a-therapist/1",
 };
 
-function FaqRow({ item, index }: { item: typeof FAQS[0]; index: number }) {
+function FaqRow({ item, index }: { item: (typeof FAQS)[0]; index: number }) {
   const [open, setOpen] = useState(item.defaultOpen);
   return (
     <motion.div
-      className="bg-white rounded-pg-md shadow-pg-card overflow-hidden"
+      className="overflow-hidden rounded-pg-md bg-white shadow-pg-card"
       initial={{ opacity: 0, y: 18 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.35, delay: index * 0.05 }}
     >
-      <button type="button" aria-expanded={open} onClick={() => setOpen((o) => !o)} className="w-full text-left flex items-center justify-between px-8 py-6">
-        <span className="font-bold text-pg-navy text-xl leading-snug opacity-88 flex-1 pr-4">
-          {item.question}
-        </span>
-        <motion.div animate={{ rotate: open ? 45 : 0 }} transition={{ duration: 0.22 }} className="flex items-center justify-center w-5 h-5 shrink-0">
-          <div className="relative w-5 h-5">
-            <div className="absolute top-1/2 left-0 w-full h-[3px] bg-pg-navy rounded-full opacity-80 -translate-y-1/2" />
-            <div className="absolute left-1/2 top-0 h-full w-[3px] bg-pg-navy rounded-full opacity-80 -translate-x-1/2" />
+      <button
+        type="button"
+        aria-expanded={open}
+        onClick={() => setOpen((o) => !o)}
+        className="flex w-full items-center justify-between px-8 py-6 text-left"
+      >
+        <span className="flex-1 pr-4 text-xl leading-snug font-bold text-pg-navy opacity-88">{item.question}</span>
+        <motion.div
+          animate={{ rotate: open ? 45 : 0 }}
+          transition={{ duration: 0.22 }}
+          className="flex h-5 w-5 shrink-0 items-center justify-center"
+        >
+          <div className="relative h-5 w-5">
+            <div className="absolute top-1/2 left-0 h-[3px] w-full -translate-y-1/2 rounded-full bg-pg-navy opacity-80" />
+            <div className="absolute top-0 left-1/2 h-full w-[3px] -translate-x-1/2 rounded-full bg-pg-navy opacity-80" />
           </div>
         </motion.div>
       </button>
@@ -139,9 +166,9 @@ function FaqRow({ item, index }: { item: typeof FAQS[0]; index: number }) {
         transition={{ duration: 0.35 }}
         style={{ overflow: "hidden" }}
       >
-        <div className="px-8 pb-6 flex flex-col gap-3">
-          <div className="w-5 h-[3px] bg-pg-live rounded-full opacity-80" />
-          <p className="text-pg-navy text-sm leading-relaxed opacity-70">{item.answer}</p>
+        <div className="flex flex-col gap-3 px-8 pb-6">
+          <div className="h-[3px] w-5 rounded-full bg-pg-live opacity-80" />
+          <p className="text-sm leading-relaxed text-pg-navy opacity-70">{item.answer}</p>
         </div>
       </motion.div>
     </motion.div>
@@ -151,14 +178,14 @@ function FaqRow({ item, index }: { item: typeof FAQS[0]; index: number }) {
 function PartnersCarousel() {
   const doubled = [...PARTNER_LOGOS, ...PARTNER_LOGOS, ...PARTNER_LOGOS];
   return (
-    <section className="bg-white py-20 overflow-hidden border-y border-pg-cream-dark">
+    <section className="overflow-hidden border-y border-pg-cream-dark bg-white py-20">
       <style>{`
         @keyframes marquee-v2 { 0% { transform: translateX(0); } 100% { transform: translateX(-33.3333%); } }
         .marquee-track-v2 { animation: marquee-v2 30s linear infinite; will-change: transform; }
         .marquee-track-v2:hover { animation-play-state: paused; }
       `}</style>
       <motion.h3
-        className="font-semibold text-pg-teal-dark text-2xl text-center mb-10"
+        className="mb-10 text-center text-2xl font-semibold text-pg-teal-dark"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
@@ -166,12 +193,22 @@ function PartnersCarousel() {
         Our Passionate Partners
       </motion.h3>
       <div className="relative">
-        <div className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: "linear-gradient(to right, var(--pg-white), transparent)" }} />
-        <div className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: "linear-gradient(to left, var(--pg-white), transparent)" }} />
-        <div className="flex items-center marquee-track-v2" style={{ width: "max-content" }}>
+        <div
+          className="pointer-events-none absolute top-0 bottom-0 left-0 z-10 w-24"
+          style={{ background: "linear-gradient(to right, var(--pg-white), transparent)" }}
+        />
+        <div
+          className="pointer-events-none absolute top-0 right-0 bottom-0 z-10 w-24"
+          style={{ background: "linear-gradient(to left, var(--pg-white), transparent)" }}
+        />
+        <div className="marquee-track-v2 flex items-center" style={{ width: "max-content" }}>
           {doubled.map((logo, i) => (
-            <div key={i} className="flex items-center justify-center flex-shrink-0 px-10">
-              <img src={logo.src} alt={logo.alt} style={{ height: logo.height, width: "auto", objectFit: "contain", mixBlendMode: "multiply" }} />
+            <div key={i} className="flex flex-shrink-0 items-center justify-center px-10">
+              <img
+                src={logo.src}
+                alt={logo.alt}
+                style={{ height: logo.height, width: "auto", objectFit: "contain", mixBlendMode: "multiply" }}
+              />
             </div>
           ))}
         </div>
@@ -186,41 +223,38 @@ export default function HomePageV2() {
   const [subscribed, setSubscribed] = useState(false);
 
   return (
-    <div className="pt-14 bg-pg-cream min-h-screen">
+    <div className="min-h-screen bg-pg-cream pt-14">
       {/* ── HERO ── */}
       <section className="overflow-hidden bg-pg-cream">
-        <div className="max-w-pg-page mx-auto px-6 md:px-10 lg:px-14 py-14 md:py-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-16">
+        <div className="mx-auto max-w-pg-page px-6 py-14 md:px-10 md:py-20 lg:px-14">
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
             <motion.div
               className="max-w-[540px]"
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55 }}
             >
-              <p className="text-pg-teal-dark text-xs font-semibold tracking-pg-eyebrow uppercase mb-5">
-                For Parents
-              </p>
+              <p className="mb-5 text-xs font-semibold tracking-pg-eyebrow text-pg-teal-dark uppercase">For Parents</p>
               {/* Heading/H1 - Medium - 2XL: Poppins Medium 48/56 */}
-              <h1 className="text-pg-display text-pg-navy font-medium">
-                Discover Resources That Can Help
-              </h1>
+              <h1 className="text-pg-display font-medium text-pg-navy">Discover Resources That Can Help</h1>
               {/* Body/Medium - Regular: Poppins Regular 16/1.5 */}
-              <p className="font-normal text-pg-slate text-base leading-[1.5] mt-6 max-w-[500px]">
-                Find trusted guidance, practical tips, and expert resources to help you navigate everyday parenting challenges.
+              <p className="mt-6 max-w-[500px] text-base leading-[1.5] font-normal text-pg-slate">
+                Find trusted guidance, practical tips, and expert resources to help you navigate everyday parenting
+                challenges.
               </p>
             </motion.div>
 
             <motion.div
-              className="relative w-full max-w-[570px] mx-auto lg:mx-0 lg:ml-auto pb-9 pr-7 md:pb-12 md:pr-10"
+              className="relative mx-auto w-full max-w-[570px] pr-7 pb-9 md:pr-10 md:pb-12 lg:mx-0 lg:ml-auto"
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.55, delay: 0.1 }}
             >
-              <div className="absolute right-0 bottom-0 w-[66%] h-[78%] rounded-pg-xl bg-pg-sage" />
+              <div className="absolute right-0 bottom-0 h-[78%] w-[66%] rounded-pg-xl bg-pg-sage" />
               <img
                 src={imgHeroBanner}
                 alt="A mother and daughter sharing a joyful moment at home"
-                className="relative z-10 w-full aspect-[16/10] object-cover rounded-pg-xl shadow-pg-card"
+                className="relative z-10 aspect-[16/10] w-full rounded-pg-xl object-cover shadow-pg-card"
               />
             </motion.div>
           </div>
@@ -228,29 +262,27 @@ export default function HomePageV2() {
       </section>
 
       {/* ── QUIZ / SEARCH PANEL ── */}
-      <section className="bg-pg-cream px-6 md:px-10 lg:px-14 pb-14">
+      <section className="bg-pg-cream px-6 pb-14 md:px-10 lg:px-14">
         <motion.div
-          className="max-w-pg-page mx-auto bg-pg-navy rounded-pg-md px-8 md:px-16 py-10 md:py-12"
+          className="mx-auto max-w-pg-page rounded-pg-md bg-pg-navy px-8 py-10 md:px-16 md:py-12"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center text-center md:text-left">
+          <div className="grid grid-cols-1 items-center gap-10 text-center md:grid-cols-2 md:text-left">
             <div>
               {/* Heading/H2 - Medium - XL: Poppins Medium 40/48 */}
-              <h2 className="text-pg-h1 font-medium text-white">
-                Not sure where to start?
-              </h2>
+              <h2 className="text-pg-h1 font-medium text-white">Not sure where to start?</h2>
               {/* Body/Medium - Regular: Poppins Regular 16/1.5 */}
-              <p className="font-normal text-white/85 text-base leading-[1.5] mt-2">
+              <p className="mt-2 text-base leading-[1.5] font-normal text-white/85">
                 Search what's on your mind, or answer a few quick questions.
               </p>
             </div>
 
             <div>
-              <div className="w-full bg-white rounded-full shadow-pg-overlay pl-5 pr-1 py-1 flex items-center gap-2 transition-shadow focus-within:shadow-pg-overlay">
+              <div className="flex w-full items-center gap-2 rounded-full bg-white py-1 pr-1 pl-5 shadow-pg-overlay transition-shadow focus-within:shadow-pg-overlay">
                 <input
-                  className="flex-1 min-w-0 text-sm font-medium text-pg-navy bg-transparent outline-none placeholder:text-pg-slate placeholder:font-normal py-2"
+                  className="min-w-0 flex-1 bg-transparent py-2 text-sm font-medium text-pg-navy outline-none placeholder:font-normal placeholder:text-pg-slate"
                   placeholder="Anxiety in Children"
                 />
                 <Button size="s" className="shrink-0 rounded-full">
@@ -259,14 +291,12 @@ export default function HomePageV2() {
                 </Button>
               </div>
 
-              <p className="text-white/70 text-xs mt-4 mb-2">
-                Search for specific content related to these themes
-              </p>
-              <div className="flex flex-wrap gap-2 justify-center md:justify-start">
+              <p className="mt-4 mb-2 text-xs text-white/70">Search for specific content related to these themes</p>
+              <div className="flex flex-wrap justify-center gap-2 md:justify-start">
                 {SEARCH_THEMES.map((theme) => (
                   <button
                     key={theme.label}
-                    className="text-xs font-semibold px-4 py-2 rounded-full transition-transform hover:scale-105"
+                    className="rounded-full px-4 py-2 text-xs font-semibold transition-transform hover:scale-105"
                     style={{ background: theme.bg, color: theme.color }}
                   >
                     {theme.label}
@@ -279,9 +309,9 @@ export default function HomePageV2() {
       </section>
 
       {/* ── RESOURCES (full-width grid, no sidebar) ── */}
-      <section className="bg-white px-6 md:px-10 lg:px-14 py-16">
-        <div className="max-w-pg-page mx-auto">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
+      <section className="bg-white px-6 py-16 md:px-10 lg:px-14">
+        <div className="mx-auto max-w-pg-page">
+          <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             {/* Heading/H2 - Medium - XL: Poppins Medium 40/48 */}
             <h2 className="text-pg-h1 font-medium text-pg-navy">Explore Resources</h2>
             <div className="flex items-center gap-2 overflow-x-auto">
@@ -289,7 +319,7 @@ export default function HomePageV2() {
                 <button
                   key={cat}
                   onClick={() => setActiveCategory(cat)}
-                  className="shrink-0 text-xs font-medium px-4 py-2 rounded-full transition-colors"
+                  className="shrink-0 rounded-full px-4 py-2 text-xs font-medium transition-colors"
                   style={{
                     background: activeCategory === cat ? "var(--pg-navy)" : "var(--pg-cream-dark)",
                     color: activeCategory === cat ? "var(--pg-white)" : "var(--pg-slate)",
@@ -301,7 +331,7 @@ export default function HomePageV2() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {RESOURCE_CARDS.map((card, i) => (
               <motion.div
                 key={card.title + i}
@@ -321,7 +351,7 @@ export default function HomePageV2() {
             ))}
           </div>
 
-          <div className="flex justify-center mt-10">
+          <div className="mt-10 flex justify-center">
             <ButtonLink to="/mental-health-series" variant="secondary">
               View more resources <ArrowRight size={14} />
             </ButtonLink>
@@ -330,33 +360,32 @@ export default function HomePageV2() {
       </section>
 
       {/* ── WHY (3-up cards) ── */}
-      <section className="bg-pg-cream py-20 px-6 md:px-10 lg:px-14">
+      <section className="bg-pg-cream px-6 py-20 md:px-10 lg:px-14">
         <motion.div
-          className="flex flex-col items-center gap-4 max-w-3xl mx-auto text-center mb-14"
+          className="mx-auto mb-14 flex max-w-3xl flex-col items-center gap-4 text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.55 }}
         >
-          <span className="font-semibold text-pg-navy text-base uppercase tracking-pg-eyebrow">Why</span>
+          <span className="text-base font-semibold tracking-pg-eyebrow text-pg-navy uppercase">Why</span>
           {/* Heading/H2 - Medium - XL: Poppins Medium 40/48 */}
-          <h2 className="text-pg-h1 font-medium text-pg-navy">
-            Built on real clinical experience
-          </h2>
+          <h2 className="text-pg-h1 font-medium text-pg-navy">Built on real clinical experience</h2>
           {/* Body/Medium - Regular: Poppins Regular 16/1.5 */}
-          <p className="font-normal text-pg-slate text-base leading-[1.5] max-w-2xl">
-            We believe every parent deserves access to expert guidance. Our resources are built on real clinical experience and designed with your family in mind.
+          <p className="max-w-2xl text-base leading-[1.5] font-normal text-pg-slate">
+            We believe every parent deserves access to expert guidance. Our resources are built on real clinical
+            experience and designed with your family in mind.
           </p>
         </motion.div>
 
-        <div className="max-w-pg-page mx-auto grid grid-cols-1 md:grid-cols-[5fr_7fr] md:grid-rows-2 gap-4">
+        <div className="mx-auto grid max-w-pg-page grid-cols-1 gap-4 md:grid-cols-[5fr_7fr] md:grid-rows-2">
           {WHY_CARDS.map((card, i) => {
             const featured = i === 0;
             const tone = i === 1 ? "var(--pg-sage)" : "var(--pg-peach)";
             return featured ? (
               <motion.div
                 key={card.title}
-                className="group relative overflow-hidden rounded-pg-2xl md:row-span-2 min-h-[420px] p-7 md:p-8 flex flex-col justify-between text-white"
+                className="group relative flex min-h-[420px] flex-col justify-between overflow-hidden rounded-pg-2xl p-7 text-white md:row-span-2 md:p-8"
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
@@ -365,21 +394,23 @@ export default function HomePageV2() {
                 <img
                   src={card.img}
                   alt={card.alt}
-                  className="absolute inset-0 w-full h-full object-cover object-[center_30%] transition-transform duration-(--pg-dur-reveal) group-hover:scale-105"
+                  className="absolute inset-0 h-full w-full object-cover object-[center_30%] transition-transform duration-(--pg-dur-reveal) group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-pg-navy/85 via-pg-navy/10 to-pg-navy/75" />
                 <div className="relative">
-                  <h3 className="font-medium text-[28px] leading-[1.2]">{card.title}</h3>
-                  <p className="font-normal text-base leading-[1.5] mt-3 max-w-[300px] text-white/90">{card.desc}</p>
+                  <h3 className="text-[28px] leading-[1.2] font-medium">{card.title}</h3>
+                  <p className="mt-3 max-w-[300px] text-base leading-[1.5] font-normal text-white/90">{card.desc}</p>
                 </div>
                 <div className="relative">
-                  <span className="inline-block rounded-full border border-white px-4 py-2 text-xs font-medium">{card.tag}</span>
+                  <span className="inline-block rounded-full border border-white px-4 py-2 text-xs font-medium">
+                    {card.tag}
+                  </span>
                 </div>
               </motion.div>
             ) : (
               <motion.div
                 key={card.title}
-                className="relative overflow-hidden rounded-pg-2xl min-h-[260px] p-7 md:p-8 flex flex-col justify-between text-pg-navy"
+                className="relative flex min-h-[260px] flex-col justify-between overflow-hidden rounded-pg-2xl p-7 text-pg-navy md:p-8"
                 style={{ background: tone }}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -389,14 +420,16 @@ export default function HomePageV2() {
                 <img
                   src={card.img}
                   alt={card.alt}
-                  className="h-40 w-full md:h-auto md:w-[42%] md:absolute md:right-4 md:top-4 md:bottom-4 rounded-pg-xl object-cover mb-5 md:mb-0"
+                  className="mb-5 h-40 w-full rounded-pg-xl object-cover md:absolute md:top-4 md:right-4 md:bottom-4 md:mb-0 md:h-auto md:w-[42%]"
                 />
                 <div className="relative md:max-w-[52%]">
-                  <h3 className="font-medium text-[28px] leading-[1.2]">{card.title}</h3>
-                  <p className="font-normal text-base leading-[1.5] mt-3">{card.desc}</p>
+                  <h3 className="text-[28px] leading-[1.2] font-medium">{card.title}</h3>
+                  <p className="mt-3 text-base leading-[1.5] font-normal">{card.desc}</p>
                 </div>
                 <div className="relative mt-6 md:mt-0">
-                  <span className="inline-block rounded-full bg-pg-navy text-white px-4 py-2 text-xs font-medium">{card.tag}</span>
+                  <span className="inline-block rounded-full bg-pg-navy px-4 py-2 text-xs font-medium text-white">
+                    {card.tag}
+                  </span>
                 </div>
               </motion.div>
             );
@@ -405,26 +438,28 @@ export default function HomePageV2() {
       </section>
 
       {/* ── FAQ (single column) ── */}
-      <section className="bg-pg-cream py-16 px-6 md:px-10 lg:px-14">
+      <section className="bg-pg-cream px-6 py-16 md:px-10 lg:px-14">
         <motion.h2
-          className="font-bold text-pg-navy text-2xl text-center mb-10 capitalize"
+          className="mb-10 text-center text-2xl font-bold text-pg-navy capitalize"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
           Frequently Asked Questions
         </motion.h2>
-        <div className="flex flex-col gap-5 max-w-[760px] mx-auto">
-          {FAQS.map((item, i) => <FaqRow key={i} item={item} index={i} />)}
+        <div className="mx-auto flex max-w-[760px] flex-col gap-5">
+          {FAQS.map((item, i) => (
+            <FaqRow key={i} item={item} index={i} />
+          ))}
         </div>
       </section>
 
       <PartnersCarousel />
 
       {/* ── CTA (centered card, no image) ── */}
-      <section className="bg-pg-cream px-6 md:px-10 lg:px-14 py-16 md:py-20">
+      <section className="bg-pg-cream px-6 py-16 md:px-10 md:py-20 lg:px-14">
         <motion.div
-          className="max-w-pg-page mx-auto rounded-pg-2xl md:rounded-pg-2xl border border-white/10 shadow-pg-overlay px-8 md:px-16 py-12 md:py-16 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center"
+          className="mx-auto grid max-w-pg-page grid-cols-1 items-center gap-10 rounded-pg-2xl border border-white/10 px-8 py-12 shadow-pg-overlay md:grid-cols-2 md:gap-16 md:rounded-pg-2xl md:px-16 md:py-16"
           style={{
             background:
               "radial-gradient(90% 130% at 100% 0%, color-mix(in srgb, var(--pg-sage) 28%, transparent) 0%, color-mix(in srgb, var(--pg-sage) 0%, transparent) 55%), var(--pg-navy)",
@@ -438,31 +473,38 @@ export default function HomePageV2() {
             {/* Heading/H2 - Medium - XL: Poppins Medium 40/48 */}
             <h2 className="text-pg-h1 font-medium text-white">Join Us!</h2>
             {/* Body/Medium - Regular: Poppins Regular 16/1.5 */}
-            <p className="font-normal text-white/80 text-base leading-[1.5] mt-4 max-w-md">
+            <p className="mt-4 max-w-md text-base leading-[1.5] font-normal text-white/80">
               Subscribe to our weekly newsletter and be a part of our journey to self discovery and love.
             </p>
           </div>
 
           <div>
-            <p className="font-normal text-white text-sm mb-3">Stay up to date</p>
+            <p className="mb-3 text-sm font-normal text-white">Stay up to date</p>
             {subscribed ? (
-              <p className="text-pg-sage font-semibold text-base">✓ Thanks for subscribing!</p>
+              <p className="text-base font-semibold text-pg-sage">✓ Thanks for subscribing!</p>
             ) : (
-              <div className="flex items-center gap-2 rounded-pg-xl bg-pg-navy-hover border border-white/10 p-2 focus-within:border-pg-sage/60 transition-colors">
+              <div className="flex items-center gap-2 rounded-pg-xl border border-white/10 bg-pg-navy-hover p-2 transition-colors focus-within:border-pg-sage/60">
                 <input
                   type="email"
-                  className="flex-1 min-w-0 px-4 py-3 bg-transparent text-sm text-white outline-none placeholder:text-white/60"
+                  className="min-w-0 flex-1 bg-transparent px-4 py-3 text-sm text-white outline-none placeholder:text-white/60"
                   placeholder="Enter your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
-                <Button variant="inverse" onClick={() => email && setSubscribed(true)} className="shrink-0 whitespace-nowrap">
+                <Button
+                  variant="inverse"
+                  onClick={() => email && setSubscribed(true)}
+                  className="shrink-0 whitespace-nowrap"
+                >
                   Subscribe
                 </Button>
               </div>
             )}
-            <p className="font-normal text-white/60 text-xs mt-3">
-              By subscribing, you agree to our <a href="/cookies-policy" className="underline hover:text-white transition-colors">Privacy Policy</a>
+            <p className="mt-3 text-xs font-normal text-white/60">
+              By subscribing, you agree to our{" "}
+              <a href="/cookies-policy" className="underline transition-colors hover:text-white">
+                Privacy Policy
+              </a>
             </p>
           </div>
         </motion.div>

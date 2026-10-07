@@ -21,7 +21,8 @@ const WIDTH = 320;
 const GAP = 8;
 const MARGIN = 16;
 
-export const eventLink = (id: string) => `${window.location.origin}/mental-health-series/events?event=${encodeURIComponent(id)}`;
+export const eventLink = (id: string) =>
+  `${window.location.origin}/mental-health-series/events?event=${encodeURIComponent(id)}`;
 
 async function copyText(text: string) {
   try {
@@ -54,9 +55,16 @@ function Card({ event, anchor, onClose }: { event: EventModalData; anchor: DOMRe
   useLayoutEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const vw = window.innerWidth, vh = window.innerHeight, h = el.offsetHeight;
+    const vw = window.innerWidth,
+      vh = window.innerHeight,
+      h = el.offsetHeight;
     if (!anchor || vw < 640) {
-      setStyle({ left: "50%", top: "50%", transform: "translate(-50%, -50%)", width: `min(${WIDTH}px, calc(100vw - ${MARGIN * 2}px))` });
+      setStyle({
+        left: "50%",
+        top: "50%",
+        transform: "translate(-50%, -50%)",
+        width: `min(${WIDTH}px, calc(100vw - ${MARGIN * 2}px))`,
+      });
       return;
     }
     const left = Math.max(MARGIN, Math.min(anchor.left, vw - WIDTH - MARGIN));
@@ -70,12 +78,22 @@ function Card({ event, anchor, onClose }: { event: EventModalData; anchor: DOMRe
     const previous = document.activeElement as HTMLElement | null;
     ref.current?.focus();
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") { e.preventDefault(); closeRef.current(); return; }
+      if (e.key === "Escape") {
+        e.preventDefault();
+        closeRef.current();
+        return;
+      }
       if (e.key !== "Tab" || !ref.current) return;
       const items = ref.current.querySelectorAll<HTMLElement>("a[href], button:not([disabled])");
-      const first = items[0], last = items[items.length - 1];
-      if (e.shiftKey && (document.activeElement === first || document.activeElement === ref.current)) { e.preventDefault(); last.focus(); }
-      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      const first = items[0],
+        last = items[items.length - 1];
+      if (e.shiftKey && (document.activeElement === first || document.activeElement === ref.current)) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
     };
     document.addEventListener("keydown", onKey);
     const overflow = document.body.style.overflow;
@@ -105,7 +123,15 @@ function Card({ event, anchor, onClose }: { event: EventModalData; anchor: DOMRe
         transition={{ duration: 0.22 }}
         aria-hidden="true"
       />
-      <div ref={ref} role="dialog" aria-modal="true" aria-labelledby={titleId} tabIndex={-1} className="fixed z-50 outline-none" style={style}>
+      <div
+        ref={ref}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={titleId}
+        tabIndex={-1}
+        className="fixed z-50 outline-none"
+        style={style}
+      >
         <motion.div
           className="overflow-hidden rounded-pg-xl bg-white shadow-pg-overlay"
           initial={{ opacity: 0, y: -6, scale: 0.97 }}
@@ -116,28 +142,40 @@ function Card({ event, anchor, onClose }: { event: EventModalData; anchor: DOMRe
         >
           {/* Header */}
           <div className="flex items-start justify-between gap-3 bg-pg-teal px-5 py-4">
-            <h2 id={titleId} className={`text-xl font-semibold leading-snug text-white`}>{event.title}</h2>
+            <h2 id={titleId} className={`text-xl leading-snug font-semibold text-white`}>
+              {event.title}
+            </h2>
             <button
               type="button"
               onClick={onClose}
               aria-label={spanish ? "Cerrar" : "Close"}
-              className="-mr-2 -mt-1 grid h-9 w-9 shrink-0 place-items-center rounded-pg-md text-white/80 transition-colors hover:bg-white/10 hover:text-white"
+              className="-mt-1 -mr-2 grid h-9 w-9 shrink-0 place-items-center rounded-pg-md text-white/80 transition-colors hover:bg-white/10 hover:text-white"
             >
               <X size={18} aria-hidden="true" />
             </button>
           </div>
 
           {/* Body */}
-          <div className="px-5 pb-4 pt-5">
+          <div className="px-5 pt-5 pb-4">
             <div className="flex items-center gap-3">
-              <span className={`grid h-11 w-11 shrink-0 place-items-center rounded-pg-md bg-pg-tint text-xl font-bold text-pg-teal-dark`} aria-hidden="true">
+              <span
+                className={`grid h-11 w-11 shrink-0 place-items-center rounded-pg-md bg-pg-tint text-xl font-bold text-pg-teal-dark`}
+                aria-hidden="true"
+              >
                 {event.date.getDate()}
               </span>
               <div>
-                <p className={`text-base font-semibold leading-tight text-pg-navy`}>
-                  {event.date.toLocaleDateString(spanish ? "es-US" : "en-US", { weekday: "short", month: "long", day: "numeric" })}
+                <p className={`text-base leading-tight font-semibold text-pg-navy`}>
+                  {event.date.toLocaleDateString(spanish ? "es-US" : "en-US", {
+                    weekday: "short",
+                    month: "long",
+                    day: "numeric",
+                  })}
                 </p>
-                <p className={`mt-0.5 text-sm text-pg-teal-dark`}>{event.time}{event.time !== "All day" ? " CT" : ""}</p>
+                <p className={`mt-0.5 text-sm text-pg-teal-dark`}>
+                  {event.time}
+                  {event.time !== "All day" ? " CT" : ""}
+                </p>
               </div>
             </div>
 
@@ -151,9 +189,17 @@ function Card({ event, anchor, onClose }: { event: EventModalData; anchor: DOMRe
 
             <Button variant="tertiary" onClick={handleCopy} className="mt-1 w-full gap-2 font-medium">
               {copied && <Check size={15} aria-hidden="true" />}
-              {copied ? (spanish ? "Enlace copiado" : "Link copied") : (spanish ? "Copiar enlace del evento" : "Copy event link")}
+              {copied
+                ? spanish
+                  ? "Enlace copiado"
+                  : "Link copied"
+                : spanish
+                  ? "Copiar enlace del evento"
+                  : "Copy event link"}
             </Button>
-            <span className="sr-only" aria-live="polite">{copied ? (spanish ? "Enlace copiado" : "Event link copied to clipboard") : ""}</span>
+            <span className="sr-only" aria-live="polite">
+              {copied ? (spanish ? "Enlace copiado" : "Event link copied to clipboard") : ""}
+            </span>
           </div>
         </motion.div>
       </div>
@@ -161,6 +207,18 @@ function Card({ event, anchor, onClose }: { event: EventModalData; anchor: DOMRe
   );
 }
 
-export function EventModal({ event, anchor, onClose }: { event: EventModalData | null; anchor: DOMRect | null; onClose: () => void }) {
-  return <AnimatePresence>{event && <Card key={event.id} event={event} anchor={anchor} onClose={onClose} />}</AnimatePresence>;
+export function EventModal({
+  event,
+  anchor,
+  onClose,
+}: {
+  event: EventModalData | null;
+  anchor: DOMRect | null;
+  onClose: () => void;
+}) {
+  return (
+    <AnimatePresence>
+      {event && <Card key={event.id} event={event} anchor={anchor} onClose={onClose} />}
+    </AnimatePresence>
+  );
 }

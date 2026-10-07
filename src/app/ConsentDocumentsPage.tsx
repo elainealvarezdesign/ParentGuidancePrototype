@@ -89,10 +89,7 @@ function AccordionItem({ doc, isOpen, onToggle }: { doc: Document; isOpen: boole
         >
           <span className="h-2 w-2 rounded-full bg-pg-teal" />
           <span className="text-xl font-bold text-pg-navy">{doc.title}</span>
-          <ChevronDown
-            size={18}
-            className={`ml-1 text-pg-teal transition-transform ${isOpen ? "rotate-180" : ""}`}
-          />
+          <ChevronDown size={18} className={`ml-1 text-pg-teal transition-transform ${isOpen ? "rotate-180" : ""}`} />
         </button>
 
         <div className="flex gap-2">
@@ -108,9 +105,7 @@ function AccordionItem({ doc, isOpen, onToggle }: { doc: Document; isOpen: boole
         </div>
       </div>
 
-      <h2 className="hidden px-6 pt-6 text-2xl font-bold text-pg-navy print:block print:px-0">
-        {doc.title}
-      </h2>
+      <h2 className="hidden px-6 pt-6 text-2xl font-bold text-pg-navy print:block print:px-0">{doc.title}</h2>
 
       <div className={`${isOpen ? "block" : "hidden"} px-6 pb-8 md:px-8 print:block print:px-0`}>
         <LegalDocumentBody
@@ -132,19 +127,17 @@ export default function ConsentDocumentsPage() {
 
   return (
     <div className="min-h-screen bg-pg-cream print:bg-white">
-      <section className="px-6 pb-14 pt-28 md:px-10 lg:px-14 print:hidden">
+      <section className="px-6 pt-28 pb-14 md:px-10 lg:px-14 print:hidden">
         <div className="mx-auto max-w-pg-content">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-pg-eyebrow text-pg-teal-dark">
-            Legal
-          </p>
+          <p className="mb-3 text-sm font-semibold tracking-pg-eyebrow text-pg-teal-dark uppercase">Legal</p>
 
-          <h1 id="consent-documents-title" tabIndex={-1} className="text-pg-h1 focus:outline-none text-pg-navy">
+          <h1 id="consent-documents-title" tabIndex={-1} className="text-pg-h1 text-pg-navy focus:outline-none">
             Consent Documents
           </h1>
 
           <p className="mt-4 max-w-pg-reading text-base leading-7 text-pg-slate">
-            Review, download or print the Terms of Use and Privacy Policy that apply to your
-            access to and use of Parent Guidance's Services.
+            Review, download or print the Terms of Use and Privacy Policy that apply to your access to and use of Parent
+            Guidance's Services.
           </p>
         </div>
       </section>

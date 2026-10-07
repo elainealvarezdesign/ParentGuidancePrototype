@@ -86,49 +86,142 @@ export const TOPICS: Topic[] = [
       },
     ],
     sessions: [
-      { month: "Nov", day: "16", weekday: "Mon", title: "Session 1 – Building Your Child's Confidence", time: "6:00 pm – 7:00 pm CST", language: "English", registerUrl: SAMPLE_REGISTER_URL },
-      { month: "Nov", day: "16", weekday: "Mon", title: "Session 2 – Building Your Child's Confidence", time: "8:00 pm – 9:00 pm CST", language: "English", registerUrl: SAMPLE_REGISTER_URL },
-      { month: "Feb", day: "25", weekday: "Thu", title: "Sesión 1 – Cómo Fortalecer la Confianza de Su Hijo", time: "6:00 pm – 7:00 pm CST", language: "Español", registerUrl: SAMPLE_REGISTER_URL },
+      {
+        month: "Nov",
+        day: "16",
+        weekday: "Mon",
+        title: "Session 1 – Building Your Child's Confidence",
+        time: "6:00 pm – 7:00 pm CST",
+        language: "English",
+        registerUrl: SAMPLE_REGISTER_URL,
+      },
+      {
+        month: "Nov",
+        day: "16",
+        weekday: "Mon",
+        title: "Session 2 – Building Your Child's Confidence",
+        time: "8:00 pm – 9:00 pm CST",
+        language: "English",
+        registerUrl: SAMPLE_REGISTER_URL,
+      },
+      {
+        month: "Feb",
+        day: "25",
+        weekday: "Thu",
+        title: "Sesión 1 – Cómo Fortalecer la Confianza de Su Hijo",
+        time: "6:00 pm – 7:00 pm CST",
+        language: "Español",
+        registerUrl: SAMPLE_REGISTER_URL,
+      },
     ],
     takeaways: [
-      { title: "Encourage Open Identity Formation", text: "Help children question negative self-beliefs and keep an open mind about their identity. Challenge self-imposed labels and encourage positive self-reflection." },
-      { title: "Be Mindful of Labels", text: "Avoid limiting labels like \"troublemaker.\" Use positive and well-rounded labels that highlight strengths and support a healthy self-image." },
-      { title: "Change Habits and Patterns", text: "Show children that habits are changeable. Emphasize that identity is flexible and can be shaped by their environment and interactions." },
-      { title: "Attune to Your Child", text: "Build trust by being present and listening actively. Keep communication lines open and be attentive to both verbal and non-verbal cues." },
-      { title: "Promote Resiliency", text: "Teach children they are enough despite challenges. Support them through difficulties and help them regulate their emotions to build resilience." },
-      { title: "Foster Creativity Through Play", text: "Encourage imaginative play and social interaction. Engage in activities that promote creativity, coordination, and human connection with your child." },
-      { title: "Develop a Growth Mindset", text: "Focus on effort rather than talent. Teach children that abilities grow through hard work and persistence, and they can overcome challenges." },
-      { title: "Create Continuous Opportunities for Connection", text: "Facilitate safe social interactions. Ensure your child feels connected, heard, and valued through empathy and shared activities." },
-      { title: "Model and Teach Positive Interactions", text: "Support emotional and social growth by modeling empathy, encouraging play, and building resilience to reinforce a positive self-image." },
+      {
+        title: "Encourage Open Identity Formation",
+        text: "Help children question negative self-beliefs and keep an open mind about their identity. Challenge self-imposed labels and encourage positive self-reflection.",
+      },
+      {
+        title: "Be Mindful of Labels",
+        text: 'Avoid limiting labels like "troublemaker." Use positive and well-rounded labels that highlight strengths and support a healthy self-image.',
+      },
+      {
+        title: "Change Habits and Patterns",
+        text: "Show children that habits are changeable. Emphasize that identity is flexible and can be shaped by their environment and interactions.",
+      },
+      {
+        title: "Attune to Your Child",
+        text: "Build trust by being present and listening actively. Keep communication lines open and be attentive to both verbal and non-verbal cues.",
+      },
+      {
+        title: "Promote Resiliency",
+        text: "Teach children they are enough despite challenges. Support them through difficulties and help them regulate their emotions to build resilience.",
+      },
+      {
+        title: "Foster Creativity Through Play",
+        text: "Encourage imaginative play and social interaction. Engage in activities that promote creativity, coordination, and human connection with your child.",
+      },
+      {
+        title: "Develop a Growth Mindset",
+        text: "Focus on effort rather than talent. Teach children that abilities grow through hard work and persistence, and they can overcome challenges.",
+      },
+      {
+        title: "Create Continuous Opportunities for Connection",
+        text: "Facilitate safe social interactions. Ensure your child feels connected, heard, and valued through empathy and shared activities.",
+      },
+      {
+        title: "Model and Teach Positive Interactions",
+        text: "Support emotional and social growth by modeling empathy, encouraging play, and building resilience to reinforce a positive self-image.",
+      },
     ],
     actions: [
       {
         title: "Foster a Growth Mindset",
         tips: [
-          { label: "Encourage effort and resilience", text: "Teach your child that effort and persistence are more important than inherent talent. Encourage them to tackle challenging tasks and praise their efforts rather than just their achievements. Remind them, \"I can do hard things,\" and share stories of times when you or others have succeeded through perseverance." },
-          { label: "Model growth-oriented language", text: "Use language that promotes growth. When your child faces a difficult task, say things like, \"What did you learn from this experience?\" or \"How would you approach this differently next time?\"" },
+          {
+            label: "Encourage effort and resilience",
+            text: 'Teach your child that effort and persistence are more important than inherent talent. Encourage them to tackle challenging tasks and praise their efforts rather than just their achievements. Remind them, "I can do hard things," and share stories of times when you or others have succeeded through perseverance.',
+          },
+          {
+            label: "Model growth-oriented language",
+            text: 'Use language that promotes growth. When your child faces a difficult task, say things like, "What did you learn from this experience?" or "How would you approach this differently next time?"',
+          },
         ],
       },
       {
         title: "Create Playful and Creative Opportunities",
         tips: [
-          { label: "Engage in play", text: "Dedicate time to play with your children. This can involve imaginative play, playing sports, or participating in creative activities like drawing or building. These interactions help children develop social skills, hand-eye coordination, and stimulate their imagination." },
-          { label: "Integrate play into daily activities", text: "Incorporate playful elements into routine tasks. For example, turn tidying up into a game by setting a timer and seeing who can pick up the most items. This not only makes chores more enjoyable but also strengthens your bond with your child." },
+          {
+            label: "Engage in play",
+            text: "Dedicate time to play with your children. This can involve imaginative play, playing sports, or participating in creative activities like drawing or building. These interactions help children develop social skills, hand-eye coordination, and stimulate their imagination.",
+          },
+          {
+            label: "Integrate play into daily activities",
+            text: "Incorporate playful elements into routine tasks. For example, turn tidying up into a game by setting a timer and seeing who can pick up the most items. This not only makes chores more enjoyable but also strengthens your bond with your child.",
+          },
         ],
       },
       {
         title: "Develop Emotional Resilience",
         tips: [
-          { label: "Acknowledge and honor emotions", text: "Encourage your child to express their feelings and validate their emotions. Ask them, \"What are you feeling right now?\" and listen attentively. Teach them that it's okay to feel sad, angry, or frustrated and that these feelings are part of the human experience." },
-          { label: "Guide emotional regulation", text: "Help your child learn to manage their emotions by discussing different ways to cope with stress and setbacks. Share techniques like deep breathing, journaling, or talking about their feelings with a trusted adult." },
+          {
+            label: "Acknowledge and honor emotions",
+            text: 'Encourage your child to express their feelings and validate their emotions. Ask them, "What are you feeling right now?" and listen attentively. Teach them that it\'s okay to feel sad, angry, or frustrated and that these feelings are part of the human experience.',
+          },
+          {
+            label: "Guide emotional regulation",
+            text: "Help your child learn to manage their emotions by discussing different ways to cope with stress and setbacks. Share techniques like deep breathing, journaling, or talking about their feelings with a trusted adult.",
+          },
         ],
       },
     ],
     resources: [
-      { type: "Article", title: "Teaching Your Child How to Make Friends", description: "Whether a large group or close-knit few, having a circle of friends matters.", image: imgMakeFriends, to: "/mental-health-series" },
-      { type: "Ask a Therapist", title: "How to Help Your Child Be More Confident with Peers", description: "Dr. Kevin Skinner suggests a strategy for children struggling with peers.", image: imgConfidentPeers, to: "/ask-a-therapist" },
-      { type: "Lesson", title: "Dr. Skinner | Helping Your Child Create a Confident Self-Identity", description: "A focused lesson from the On-Demand library.", image: imgSelfIdentity, to: "/on-demand-courses" },
-      { type: "On-Demand Course", title: "Connect With Your Child by Parenting with Purpose", description: "Based on the research and clinical work of Dr. Kevin Skinner.", image: imgParentingPurpose, to: "/on-demand-courses" },
+      {
+        type: "Article",
+        title: "Teaching Your Child How to Make Friends",
+        description: "Whether a large group or close-knit few, having a circle of friends matters.",
+        image: imgMakeFriends,
+        to: "/mental-health-series",
+      },
+      {
+        type: "Ask a Therapist",
+        title: "How to Help Your Child Be More Confident with Peers",
+        description: "Dr. Kevin Skinner suggests a strategy for children struggling with peers.",
+        image: imgConfidentPeers,
+        to: "/ask-a-therapist",
+      },
+      {
+        type: "Lesson",
+        title: "Dr. Skinner | Helping Your Child Create a Confident Self-Identity",
+        description: "A focused lesson from the On-Demand library.",
+        image: imgSelfIdentity,
+        to: "/on-demand-courses",
+      },
+      {
+        type: "On-Demand Course",
+        title: "Connect With Your Child by Parenting with Purpose",
+        description: "Based on the research and clinical work of Dr. Kevin Skinner.",
+        image: imgParentingPurpose,
+        to: "/on-demand-courses",
+      },
     ],
   },
 ];

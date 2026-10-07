@@ -43,6 +43,8 @@ export type SectionHeadingProps = {
   size?: "large" | "small";
   tone?: "default" | "inverse";
   eyebrowSize?: "small" | "large";
+  /** Id on the heading element, for aria-labelledby on the surrounding section. */
+  id?: string;
   className?: string;
 };
 
@@ -55,6 +57,7 @@ export function SectionHeading({
   size = "large",
   tone = "default",
   eyebrowSize = "small",
+  id,
   className,
 }: SectionHeadingProps) {
   const inverse = tone === "inverse";
@@ -71,7 +74,10 @@ export function SectionHeading({
           {eyebrow}
         </Eyebrow>
       )}
-      <Tag className={cn(size === "large" ? "text-pg-h1" : "text-pg-h2", inverse ? "text-white" : "text-pg-navy")}>
+      <Tag
+        id={id}
+        className={cn(size === "large" ? "text-pg-h1" : "text-pg-h2", inverse ? "text-white" : "text-pg-navy")}
+      >
         {title}
       </Tag>
       {intro && <div className={cn("text-pg-body-lg", inverse ? "text-white/80" : "text-pg-navy")}>{intro}</div>}
