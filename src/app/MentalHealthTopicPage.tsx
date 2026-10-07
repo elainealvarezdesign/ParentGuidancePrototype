@@ -1,24 +1,12 @@
 import { useState } from "react";
 import { Link, useParams } from "react-router";
-import { Button, ButtonAnchor, ButtonLink } from "@/components/ui/Button";
+import { ButtonAnchor, ButtonLink } from "@/components/ui/Button";
 import { ArrowRight, CalendarDays, ChevronLeft, ListChecks, PlayCircle } from "@/components/ui/icons";
-import { getTopic, type Topic, type TopicVideo } from "@/content/topics";
-import { BackToTopButton } from "./legal/LegalActions";
-
-/* Eyebrow + section title, shared by every section */
-function SectionHeading({ eyebrow, title, id }: { eyebrow: string; title: string; id: string }) {
-  return (
-    <>
-      <p className={`flex items-center gap-2 text-pg-eyebrow text-pg-teal-dark`}>
-        <span className="h-[18px] w-1 rounded-full bg-pg-sage" aria-hidden="true" />
-        {eyebrow}
-      </p>
-      <h2 id={id} className={`mt-2 text-2xl leading-tight font-bold text-pg-navy`}>
-        {title}
-      </h2>
-    </>
-  );
-}
+import { getTopic, topicNewsletter, type Topic, type TopicVideo } from "@/content/topics";
+import { SectionHeading } from "@/components/ui/SectionHeading";
+import { NewsletterSection } from "@/sections/NewsletterSection";
+import NotFoundPage from "./NotFoundPage";
+import { BackToTopButton } from "@/components/patterns/DocumentActions";
 
 const card = "rounded-pg-xl border border-pg-line bg-white shadow-pg-card";
 const container = "mx-auto max-w-pg-content";
@@ -27,7 +15,7 @@ const gutter = "px-6 md:px-10 lg:px-14";
 function Hero({ topic }: { topic: Topic }) {
   const [before, after] = topic.title.split(topic.emphasis);
   return (
-    <header className={`${gutter} pt-24 pb-16 md:pt-28 print:p-0 print:pb-6`}>
+    <header className={`${gutter} mt-14 pt-10 pb-16 md:pt-14 print:p-0 print:pb-6`}>
       <div className={container}>
         <Link
           to="/mental-health-series"
@@ -119,7 +107,7 @@ function VideoCard({ video: v }: { video: TopicVideo }) {
               style={{ objectPosition: v.imagePosition ?? "center" }}
             />
             <div
-              className="from-[color-mix(in srgb, var(--pg-navy) 55%, transparent)] absolute inset-0 bg-gradient-to-t to-transparent to-60%"
+              className="absolute inset-0 bg-gradient-to-t from-pg-navy/55 to-transparent to-60%"
               aria-hidden="true"
             />
             <span className={`absolute top-3.5 left-3.5 rounded-full bg-pg-navy px-2 py-1 text-pg-eyebrow text-white`}>
@@ -169,7 +157,7 @@ function Videos({ topic }: { topic: Topic }) {
   return (
     <section aria-labelledby="watch-title" className={`${gutter} bg-white py-14 md:py-20 print:hidden`}>
       <div className={container}>
-        <SectionHeading eyebrow="Watch" title="Learn at your own pace" id="watch-title" />
+        <SectionHeading align="left" size="small" eyebrow="Watch" title="Learn at your own pace" id="watch-title" />
         <div className="mt-7 grid grid-cols-1 gap-6 md:grid-cols-2">
           {topic.videos.map((v) => (
             <VideoCard key={v.kind} video={v} />
@@ -184,7 +172,13 @@ function Sessions({ topic }: { topic: Topic }) {
   return (
     <section aria-labelledby="sessions-title" className={`${gutter} py-14 md:py-20 print:hidden`}>
       <div className={container}>
-        <SectionHeading eyebrow="Live sessions" title="Join a session and ask your questions" id="sessions-title" />
+        <SectionHeading
+          align="left"
+          size="small"
+          eyebrow="Live sessions"
+          title="Join a session and ask your questions"
+          id="sessions-title"
+        />
         <div className="mt-7 grid grid-cols-1 gap-5 lg:grid-cols-3">
           {topic.sessions.map((s) => {
             const spanish = s.language === "Español";
@@ -231,6 +225,8 @@ function Takeaways({ topic }: { topic: Topic }) {
     >
       <div className={container}>
         <SectionHeading
+          align="left"
+          size="small"
           eyebrow="Key takeaways"
           title={`${topic.takeaways.length} ideas to remember`}
           id="takeaways-title"
@@ -260,6 +256,8 @@ function Actions({ topic }: { topic: Topic }) {
       <div className={`${container} grid grid-cols-1 items-start gap-8 lg:grid-cols-[300px_1fr] lg:gap-14`}>
         <div>
           <SectionHeading
+            align="left"
+            size="small"
             eyebrow="At home"
             title={`Things you can do to build your child's ${topic.emphasis.toLowerCase()}`}
             id="actions-title"
@@ -300,7 +298,13 @@ function Resources({ topic }: { topic: Topic }) {
   return (
     <section aria-labelledby="resources-title" className={`${gutter} bg-white py-14 md:py-20 print:hidden`}>
       <div className={container}>
-        <SectionHeading eyebrow="Keep learning" title="Additional resources" id="resources-title" />
+        <SectionHeading
+          align="left"
+          size="small"
+          eyebrow="Keep learning"
+          title="Additional resources"
+          id="resources-title"
+        />
         <ul className="mt-7 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {topic.resources.map((r) => (
             <li key={r.title}>
@@ -348,60 +352,19 @@ function Resources({ topic }: { topic: Topic }) {
   );
 }
 
-function Newsletter() {
-  return (
-    <section aria-labelledby="newsletter-title" className={`${gutter} bg-pg-sage py-14 md:py-16 print:hidden`}>
-      <div
-        className={`${container} flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between md:gap-10`}
-      >
-        <div>
-          <p className={`text-pg-eyebrow text-pg-navy`}>Let's keep in touch</p>
-          <h2 id="newsletter-title" className={`mt-1 text-pg-h1 text-pg-navy`}>
-            Subscribe to our newsletter
-          </h2>
-          <p className={`mt-2 text-sm text-pg-navy`}>New topics, live sessions and tools, straight to your inbox.</p>
-        </div>
-        <form
-          className="flex w-full max-w-[460px] items-center gap-2 rounded-pg-lg bg-white p-2"
-          onSubmit={(e) => e.preventDefault()}
-        >
-          <label htmlFor="topic-newsletter-email" className="sr-only">
-            Email address
-          </label>
-          <input
-            id="topic-newsletter-email"
-            type="email"
-            placeholder="Your email"
-            className={`min-w-0 flex-1 bg-transparent px-3 py-2 text-sm text-pg-navy outline-none placeholder:text-pg-slate`}
-          />
-          <Button type="submit" className="shrink-0">
-            Subscribe
-          </Button>
-        </form>
-      </div>
-    </section>
-  );
-}
-
 export default function MentalHealthTopicPage() {
   const { slug } = useParams<{ slug: string }>();
   const topic = getTopic(slug);
 
-  if (!topic) {
+  if (!topic)
     return (
-      <div className={`${gutter} min-h-[60vh] bg-pg-cream pt-32 pb-20`}>
-        <div className={container}>
-          <h1 className={`text-pg-h1 text-pg-navy`}>Topic not found</h1>
-          <Link
-            to="/mental-health-series"
-            className={`mt-4 inline-flex text-sm font-semibold text-pg-teal-dark underline`}
-          >
-            Back to Mental Health Series
-          </Link>
-        </div>
-      </div>
+      <NotFoundPage
+        eyebrow="Topic not found"
+        title="We couldn't find that topic"
+        body="It may have moved, or the link may be incomplete."
+        actions={[{ label: "Back to Mental Health Series", to: "/mental-health-series" }]}
+      />
     );
-  }
 
   return (
     <div className="bg-pg-cream print:bg-white">
@@ -411,7 +374,7 @@ export default function MentalHealthTopicPage() {
       <Takeaways topic={topic} />
       <Actions topic={topic} />
       <Resources topic={topic} />
-      <Newsletter />
+      <NewsletterSection content={topicNewsletter} />
     </div>
   );
 }

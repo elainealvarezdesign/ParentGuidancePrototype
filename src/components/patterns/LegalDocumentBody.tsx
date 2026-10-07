@@ -1,5 +1,5 @@
 import { ButtonAnchor } from "@/components/ui/Button";
-import { isLegalSubItem, type LegalSection } from "./legalContent";
+import { isLegalSubItem, type LegalSection } from "@/content/legal";
 
 type Props = {
   effectiveDate: string;
@@ -9,7 +9,12 @@ type Props = {
   contactHeading: string;
   contactBody: string;
   contactEmail: string;
+  /** "h3" when the document sits under its own h2 (Consent Documents). */
+  headingLevel?: "h2" | "h3";
 };
+
+/* LegalDocumentBody (docs/system/components/legal-document.md). Effective date, intro and numbered sections
+ * of a legal text from src/content/legal.ts, plus the contact block. Prints cleanly. */
 
 export default function LegalDocumentBody({
   effectiveDate,
@@ -19,13 +24,14 @@ export default function LegalDocumentBody({
   contactHeading,
   contactBody,
   contactEmail,
+  headingLevel: H = "h2",
 }: Props) {
   return (
     <>
       <div className="border-b border-pg-line pb-8 print:border-0">
         <p className="mb-6 text-sm font-semibold text-pg-teal-dark">Effective date: {effectiveDate}</p>
 
-        <h2 className="text-2xl font-bold text-pg-navy">{introHeading}</h2>
+        <H className="text-pg-h2 text-pg-navy">{introHeading}</H>
 
         <div className="mt-4 space-y-4 text-base leading-7 text-pg-slate">
           {intro.map((p, i) => (
@@ -43,7 +49,7 @@ export default function LegalDocumentBody({
               : "pt-8 print:pt-6"
           }
         >
-          <h2 className="text-2xl font-bold text-pg-navy">{section.heading}</h2>
+          <H className="text-pg-h2 text-pg-navy">{section.heading}</H>
 
           <div className="mt-4 space-y-4 text-base leading-7 text-pg-slate">
             {section.paragraphs.map((p, i) => (
@@ -56,7 +62,7 @@ export default function LegalDocumentBody({
       ))}
 
       <div className="border-t border-pg-line pt-8 print:border-0 print:pt-6">
-        <h2 className="text-2xl font-bold text-pg-navy">{contactHeading}</h2>
+        <H className="text-pg-h2 text-pg-navy">{contactHeading}</H>
 
         <p className="mt-4 text-base leading-7 text-pg-slate">{contactBody}</p>
 

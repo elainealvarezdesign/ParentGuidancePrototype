@@ -1,133 +1,8 @@
+import { DocumentHeader } from "@/sections/DocumentHeader";
+import { analyticsCookies, functionalCookies, necessaryCookies, performanceCookies } from "@/content/cookies";
 import { ButtonAnchor, buttonClass } from "@/components/ui/Button";
-import { LegalActions, BackToTopButton, downloadTextFile } from "./legal/LegalActions";
+import { LegalActions, BackToTopButton, downloadTextFile } from "@/components/patterns/DocumentActions";
 
-const necessaryCookies = [
-  {
-    name: "elementor",
-    provider: "Parent Guidance",
-    description: "Allows the website owner to update and modify website content in real time.",
-    duration: "Never expires",
-  },
-  {
-    name: "cookieyes-consent",
-    provider: "Parent Guidance",
-    description:
-      "Remembers consent preferences so they remain active during future visits. It does not collect or store personal information.",
-    duration: "1 year",
-  },
-  {
-    name: "wordpress_test_cookie",
-    provider: "Parent Guidance",
-    description: "Checks whether cookies are enabled in the visitor’s browser.",
-    duration: "Session",
-  },
-  {
-    name: "cf_bm",
-    provider: "Vimeo",
-    description: "Supports Cloudflare Bot Management and helps distinguish legitimate visitors from automated traffic.",
-    duration: "1 hour",
-  },
-  {
-    name: "_cfuvid",
-    provider: "Vimeo",
-    description: "Maintains consistency across user sessions to help optimize and personalize the browsing experience.",
-    duration: "Session",
-  },
-  {
-    name: "wpEmojiSettingsSupports",
-    provider: "Parent Guidance",
-    description: "Determines whether the visitor’s browser can display emojis correctly.",
-    duration: "Session",
-  },
-  {
-    name: "player",
-    provider: "Vimeo",
-    description: "Stores preferences for video player controls, including volume, stream quality and captions.",
-    duration: "1 year",
-  },
-  {
-    name: "ce_successful_csp_check",
-    provider: "Parent Guidance",
-    description: "Verifies that the Crazy Egg tracking script complies with the website’s content security policies.",
-    duration: "Session",
-  },
-];
-const functionalCookies = [
-  {
-    name: "wp_lang",
-    provider: "Parent Guidance",
-    description: "Stores the user’s language setting.",
-    duration: "Session",
-  },
-  {
-    name: "tribe_browser_time_zone",
-    provider: "Parent Guidance",
-    description: "Stores the user’s timezone to display event dates in their local timezone.",
-    duration: "Session",
-  },
-  {
-    name: "ce_seen_surveys",
-    provider: "Parent Guidance",
-    description: "Stores the surveys that have already been displayed to the user.",
-    duration: "1 year",
-  },
-  {
-    name: "ce_seen_ctas",
-    provider: "Parent Guidance",
-    description: "Stores calls to action that have already been shown to the user.",
-    duration: "1 year",
-  },
-  {
-    name: "powerup",
-    provider: "Parent Guidance",
-    description: "Stores interactive mode settings for the Crazy Egg plugin.",
-    duration: "1 year",
-  },
-];
-const analyticsCookies = [
-  {
-    name: "_ga",
-    provider: "Parent Guidance",
-    duration: "2 years",
-  },
-  {
-    name: "_ga_*",
-    provider: "Parent Guidance",
-    duration: "2 years",
-  },
-  {
-    name: "vuid",
-    provider: "Vimeo",
-    duration: "Session",
-  },
-  {
-    name: "_crazyegg",
-    provider: "Crazy Egg",
-    duration: "5 years",
-  },
-  {
-    name: "ce_virtual_tracker_data",
-    provider: "Parent Guidance",
-    duration: "Session",
-  },
-  {
-    name: "ce_fvd",
-    provider: "Parent Guidance",
-    duration: "Session",
-  },
-];
-const performanceCookies = [
-  {
-    name: "cf_ob_info",
-    provider: "Crazy Egg",
-    duration: "1 year",
-  },
-  {
-    name: "cf_use_ob",
-    provider: "Crazy Egg",
-    duration: "1 year",
-  },
-];
 const DOCUMENT_ID = "cookies-policy-document";
 
 function handleDownload() {
@@ -138,21 +13,18 @@ function handleDownload() {
 export default function CookiesPolicyPage() {
   return (
     <div className="min-h-screen bg-pg-cream print:bg-white">
-      <section className="px-6 pt-28 pb-14 md:px-10 lg:px-14 print:p-0 print:pb-6">
-        <div className="mx-auto max-w-pg-content print:max-w-none">
-          <p className="mb-3 text-sm font-semibold tracking-pg-eyebrow text-pg-teal-dark uppercase">Legal</p>
-
-          <h1 id="cookies-policy-title" tabIndex={-1} className="text-pg-h1 text-pg-navy focus:outline-none">
-            Cookies Policy
-          </h1>
-
-          <p className="mt-4 max-w-pg-reading text-base leading-7 text-pg-slate">
-            Learn how Parent Guidance uses cookies and similar technologies to improve your experience on our website.
-          </p>
-
-          <LegalActions onDownload={handleDownload} />
-        </div>
-      </section>
+      <DocumentHeader
+        content={{
+          eyebrow: "Legal",
+          title: "Cookies Policy",
+          intro:
+            "Learn how Parent Guidance uses cookies and similar technologies to improve your experience on our website.",
+        }}
+        titleId="cookies-policy-title"
+        printable
+      >
+        <LegalActions onDownload={handleDownload} />
+      </DocumentHeader>
 
       <section className="px-6 pb-20 md:px-10 lg:px-14 print:p-0">
         <div
@@ -162,7 +34,7 @@ export default function CookiesPolicyPage() {
           <div className="border-b border-pg-line pb-8">
             <p className="mb-6 text-sm font-semibold text-pg-teal-dark">Last updated: November 27, 2024</p>
 
-            <h2 className="text-2xl font-bold text-pg-navy">About this policy</h2>
+            <h2 className="text-pg-h2 text-pg-navy">About this policy</h2>
 
             <div className="mt-4 space-y-4 text-base leading-7 text-pg-slate">
               <p>
@@ -179,7 +51,7 @@ export default function CookiesPolicyPage() {
             </div>
           </div>
           <div className="border-b border-pg-line py-8">
-            <h2 className="text-2xl font-bold text-pg-navy">What are Cookies?</h2>
+            <h2 className="text-pg-h2 text-pg-navy">What are Cookies?</h2>
 
             <div className="mt-4 space-y-4 text-base leading-7 text-pg-slate">
               <p>
@@ -194,7 +66,7 @@ export default function CookiesPolicyPage() {
             </div>
           </div>
           <div className="border-b border-pg-line py-8">
-            <h2 className="text-2xl font-bold text-pg-navy">Types of Cookies We Use</h2>
+            <h2 className="text-pg-h2 text-pg-navy">Types of Cookies We Use</h2>
 
             <p className="mt-4 text-base leading-7 text-pg-slate">
               We use session and persistent cookies to support essential website functions, remember preferences and
@@ -207,7 +79,7 @@ export default function CookiesPolicyPage() {
                   Session
                 </span>
 
-                <h3 className="mt-4 text-xl font-bold text-pg-navy">Necessary cookies</h3>
+                <h3 className="mt-4 text-pg-h3 text-pg-navy">Necessary cookies</h3>
 
                 <p className="mt-2 text-sm leading-6 text-pg-slate">
                   Support essential website features, authentication and account security.
@@ -219,7 +91,7 @@ export default function CookiesPolicyPage() {
                   Persistent
                 </span>
 
-                <h3 className="mt-4 text-xl font-bold text-pg-navy">Functional cookies</h3>
+                <h3 className="mt-4 text-pg-h3 text-pg-navy">Functional cookies</h3>
 
                 <p className="mt-2 text-sm leading-6 text-pg-slate">
                   Remember choices such as login details, language and other preferences.
@@ -231,7 +103,7 @@ export default function CookiesPolicyPage() {
                   Persistent
                 </span>
 
-                <h3 className="mt-4 text-xl font-bold text-pg-navy">Analytics cookies</h3>
+                <h3 className="mt-4 text-pg-h3 text-pg-navy">Analytics cookies</h3>
 
                 <p className="mt-2 text-sm leading-6 text-pg-slate">
                   Help measure website traffic, performance and how visitors interact with our services.
@@ -241,7 +113,7 @@ export default function CookiesPolicyPage() {
           </div>
           <div className="border-b border-pg-line py-8">
             <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-              <h2 className="text-2xl font-bold text-pg-navy">The Cookies We Use</h2>
+              <h2 className="text-pg-h2 text-pg-navy">The Cookies We Use</h2>
 
               <span className="w-fit rounded-full bg-pg-tint px-3 py-1 text-xs font-semibold text-pg-teal-dark">
                 Necessary · {necessaryCookies.length}
@@ -283,7 +155,7 @@ export default function CookiesPolicyPage() {
           </div>
           <div className="border-b border-pg-line py-8">
             <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-              <h3 className="text-xl font-bold text-pg-navy">Functional Cookies</h3>
+              <h3 className="text-pg-h3 text-pg-navy">Functional Cookies</h3>
 
               <span className="w-fit rounded-full bg-pg-tint px-3 py-1 text-xs font-semibold text-pg-teal-dark">
                 Functional · {functionalCookies.length}
@@ -318,7 +190,7 @@ export default function CookiesPolicyPage() {
             </div>
             <div className="border-b border-pg-line py-8">
               <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                <h3 className="text-xl font-bold text-pg-navy">Analytics Cookies</h3>
+                <h3 className="text-pg-h3 text-pg-navy">Analytics Cookies</h3>
 
                 <span className="w-fit rounded-full bg-pg-tint px-3 py-1 text-xs font-semibold text-pg-teal-dark">
                   Analytics · {analyticsCookies.length}
@@ -354,7 +226,7 @@ export default function CookiesPolicyPage() {
             </div>
             <div className="py-8">
               <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                <h3 className="text-xl font-bold text-pg-navy">Performance Cookies</h3>
+                <h3 className="text-pg-h3 text-pg-navy">Performance Cookies</h3>
 
                 <span className="w-fit rounded-full bg-pg-tint px-3 py-1 text-xs font-semibold text-pg-teal-dark">
                   Performance · {performanceCookies.length}
@@ -390,7 +262,7 @@ export default function CookiesPolicyPage() {
             </div>
           </div>
           <div className="pt-8">
-            <h2 className="text-2xl font-bold text-pg-navy">Your Choices Regarding Cookies</h2>
+            <h2 className="text-pg-h2 text-pg-navy">Your Choices Regarding Cookies</h2>
 
             <div className="mt-4 space-y-4 text-base leading-7 text-pg-slate">
               <p>
@@ -444,7 +316,7 @@ export default function CookiesPolicyPage() {
 
               <p>For other browsers, please visit your browser&apos;s official support website.</p>
               <div className="border-t border-pg-line pt-8">
-                <h3 className="text-xl font-bold text-pg-navy">Advertising Opt-Out Options</h3>
+                <h3 className="text-pg-h3 text-pg-navy">Advertising Opt-Out Options</h3>
 
                 <p className="mt-3">
                   If you live in the United States, Canada, the European Union or the United Kingdom, you can use the
@@ -490,7 +362,7 @@ export default function CookiesPolicyPage() {
                 </div>
               </div>
               <div className="border-t border-pg-line pt-8">
-                <h2 className="text-2xl font-bold text-pg-navy">Contact Us</h2>
+                <h2 className="text-pg-h2 text-pg-navy">Contact Us</h2>
 
                 <p className="mt-4">
                   If you have any questions about this Cookies Policy, you can contact us by email.

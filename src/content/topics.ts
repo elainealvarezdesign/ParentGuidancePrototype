@@ -6,7 +6,18 @@ import imgConfidentPeers from "@/imports/mhs/grandmother-grandchildren.jpg";
 import imgSelfIdentity from "@/imports/mhs/boy-building.jpg";
 import imgParentingPurpose from "@/imports/mhs/parents-playing-baby.jpg";
 
-/* Content model for a Mental Health Series topic page (/mental-health-series/:slug). */
+import type { NewsletterContent } from "@/sections/NewsletterSection";
+
+/* Content model for a Mental Health Series topic page (/mental-health-series/:slug).
+ * Recipe: docs/system/pages/mental-health-topic.md. */
+
+/** Newsletter band at the end of every topic page. */
+export const topicNewsletter: NewsletterContent = {
+  eyebrow: "Let's keep in touch",
+  title: "Subscribe to our newsletter",
+  body: "New topics, live sessions and tools, straight to your inbox.",
+  successMessage: "Thanks! You're subscribed.",
+};
 
 export type TopicVideo = {
   kind: "Instant Insights" | "Deep Dive";

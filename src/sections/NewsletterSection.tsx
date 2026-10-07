@@ -7,15 +7,19 @@ import { Reveal } from "@/components/ui/Reveal";
 import { Section } from "@/components/layout/Section";
 
 /* NewsletterSection (docs/system/sections/newsletter.md). Sage band: photo + title, one sentence and an
- * email field with the Subscribe button inside the field box. SIMULATED: no request is sent; the success
+ * email field with the Subscribe button inside the field box. Without `image` it is the compact band
+ * (text left, form right) used at the end of topic pages. SIMULATED: no request is sent; the success
  * message is announced (aria-live) and replaces the form (audit M06). */
 
 export type NewsletterContent = {
-  /** 1–3 words. */
+  /** Small label above the title (compact band). */
+  eyebrow?: string;
+  /** 1–4 words. */
   title: string;
   /** One sentence, up to ~110 characters. */
   body: string;
-  image: Media;
+  /** Photo on the left. Omit for the compact band. */
+  image?: Media;
   imageBase?: Media;
   successMessage: string;
 };
@@ -35,6 +39,48 @@ export function NewsletterSection({ content }: { content: NewsletterContent }) {
     setError("");
     setSubscribed(true);
   }
+
+  const form = (
+    <div aria-live="polite">
+      {subscribed ? (
+        <p className="text-base font-semibold text-pg-navy">✓ {content.successMessage}</p>
+      ) : (
+        <form onSubmit={submit} noValidate className="max-w-md">
+          <Field label="Email address" hideLabel error={error} tone="on-sage">
+            <div className="flex items-center gap-2 rounded-pg-xl bg-pg-tint-soft p-2">
+              <TextInput
+                type="email"
+                autoComplete="email"
+                placeholder="Your Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="min-h-0 border-0 bg-transparent"
+              />
+              <Button type="submit" className="shrink-0 whitespace-nowrap">
+                Subscribe
+              </Button>
+            </div>
+          </Field>
+        </form>
+      )}
+    </div>
+  );
+
+  if (!content.image)
+    return (
+      <Section tone="sage" spacing="none" labelledBy={headingId} className="px-6 py-14 md:px-10 md:py-16 lg:px-14">
+        <div className="mx-auto flex max-w-pg-content flex-col items-start gap-6 md:flex-row md:items-center md:justify-between md:gap-10">
+          <div>
+            {content.eyebrow && <p className="text-pg-eyebrow text-pg-navy">{content.eyebrow}</p>}
+            <h2 id={headingId} className="mt-1 text-pg-h1 text-pg-navy">
+              {content.title}
+            </h2>
+            <p className="mt-2 text-sm text-pg-navy">{content.body}</p>
+          </div>
+          <div className="w-full max-w-115">{form}</div>
+        </div>
+      </Section>
+    );
 
   return (
     <Section
@@ -63,29 +109,7 @@ export function NewsletterSection({ content }: { content: NewsletterContent }) {
             {content.title}
           </h2>
           <p className="max-w-sm text-sm text-pg-navy">{content.body}</p>
-          <div aria-live="polite">
-            {subscribed ? (
-              <p className="text-base font-semibold text-pg-navy">✓ {content.successMessage}</p>
-            ) : (
-              <form onSubmit={submit} noValidate className="max-w-md">
-                <Field label="Email address" hideLabel error={error} tone="on-sage">
-                  <div className="flex items-center gap-2 rounded-pg-xl bg-pg-tint-soft p-2">
-                    <TextInput
-                      type="email"
-                      autoComplete="email"
-                      placeholder="Your Email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      className="min-h-0 border-0 bg-transparent"
-                    />
-                    <Button type="submit" className="shrink-0 whitespace-nowrap">
-                      Subscribe
-                    </Button>
-                  </div>
-                </Field>
-              </form>
-            )}
-          </div>
+          {form}
         </div>
       </Reveal>
     </Section>
