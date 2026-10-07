@@ -1,20 +1,29 @@
 import { useCallback, useEffect, useMemo, useState, type MouseEvent } from "react";
 import { Link, useSearchParams } from "react-router";
-import { Button, ButtonAnchor } from "@/components/ui/Button";
-import { CalendarPlus, ChevronLeft, ChevronRight, Clock, Download, MapPin } from "@/components/ui/icons";
+import { Button } from "@/components/ui/Button";
+import { ChevronLeft, ChevronRight, Clock, Download, MapPin } from "@/components/ui/icons";
 import {
-  CATEGORIES,
   EVENTS,
+  byDateTime,
+  eventCategories,
   downloadIcs,
   formatStart,
   formatTimeRange,
   parseDate,
-  registerUrlFor,
   toKey,
   type EventCategory,
   type SeriesEvent,
-} from "./mhs/events";
-import { EventModal, type EventModalData } from "./mhs/EventModal";
+} from "@/content/events";
+import { EventModal } from "@/components/patterns/EventModal";
+import {
+  DateBlock,
+  EventActions,
+  EventCategoryTag,
+  LanguageTag,
+  categoryStyle,
+  toEventModalData,
+} from "@/components/patterns/EventParts";
+import { Section, Container } from "@/components/layout/Section";
 
 const card = "rounded-pg-xl border border-pg-line bg-white shadow-pg-card";
 const WEEKDAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -25,60 +34,6 @@ type View = "month" | "list";
 
 const monthLabel = (d: Date) => d.toLocaleDateString("en-US", { month: "long", year: "numeric" });
 const longDate = (d: Date) => d.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" });
-const toModalData = (e: SeriesEvent): EventModalData => ({
-  id: e.id,
-  title: e.title,
-  date: parseDate(e.date),
-  time: formatTimeRange(e),
-  description: e.description,
-  registerUrl: registerUrlFor(e),
-  language: e.language,
-});
-const byDateTime = (a: SeriesEvent, b: SeriesEvent) =>
-  (a.date + (a.start ?? "00:00")).localeCompare(b.date + (b.start ?? "00:00"));
-
-function CategoryTag({ category }: { category: EventCategory }) {
-  return (
-    <span className={`inline-flex rounded-full px-2 py-0.5 text-xs font-semibold ${CATEGORIES[category].pill}`}>
-      {CATEGORIES[category].label}
-    </span>
-  );
-}
-
-function DateBlock({ date, size = "md" }: { date: Date; size?: "sm" | "md" }) {
-  const box = size === "sm" ? "h-11 w-11" : "h-14 w-14";
-  return (
-    <div
-      className={`${box} flex shrink-0 flex-col items-center justify-center rounded-pg-lg bg-pg-tint leading-none text-pg-teal-dark`}
-      aria-hidden="true"
-    >
-      <span className="text-pg-eyebrow">{date.toLocaleDateString("en-US", { month: "short" })}</span>
-      <span className={`${size === "sm" ? "text-xl" : "text-xl"} mt-0.5 font-bold text-pg-navy`}>{date.getDate()}</span>
-    </div>
-  );
-}
-
-function EventActions({ event }: { event: SeriesEvent }) {
-  const spanish = event.language === "Español";
-  return (
-    <div className="mt-4 flex flex-wrap gap-2">
-      <ButtonAnchor
-        href={registerUrlFor(event)}
-        target="_blank"
-        rel="noopener noreferrer"
-        lang={spanish ? "es" : undefined}
-      >
-        {spanish ? "Registrarse" : "Register"}
-        <span className="sr-only">{spanish ? " (se abre en una pestaña nueva)" : " (opens in a new tab)"}</span>
-      </ButtonAnchor>
-      <Button variant="secondary" onClick={() => downloadIcs(`${event.id}.ics`, [event])}>
-        <CalendarPlus size={16} aria-hidden="true" />
-        Add to calendar
-      </Button>
-    </div>
-  );
-}
-
 function EventDetail({ event }: { event: SeriesEvent }) {
   return (
     <article
@@ -98,12 +53,8 @@ function EventDetail({ event }: { event: SeriesEvent }) {
         </li>
       </ul>
       <div className="mt-2 flex flex-wrap gap-2">
-        <CategoryTag category={event.category} />
-        {event.language && (
-          <span className={`inline-flex rounded-full bg-pg-cream-dark px-2 py-0.5 text-xs font-semibold text-pg-navy`}>
-            {event.language}
-          </span>
-        )}
+        <EventCategoryTag category={event.category} />
+        {event.language && <LanguageTag language={event.language} />}
       </div>
       <p className={`mt-3 text-sm leading-relaxed text-pg-slate`}>{event.description}</p>
       <EventActions event={event} />
@@ -203,8 +154,8 @@ export default function MentalHealthEventsPage() {
     }`;
 
   return (
-    <div className="bg-pg-cream px-6 pt-20 pb-20 md:px-10 md:pt-24 lg:px-14">
-      <div className="mx-auto max-w-pg-page">
+    <Section belowNav spacing="none" className="pt-6 pb-20 md:pt-10">
+      <Container>
         {/* Header */}
         <Link
           to="/mental-health-series"
@@ -278,7 +229,7 @@ export default function MentalHealthEventsPage() {
           >
             All events
           </button>
-          {(Object.keys(CATEGORIES) as EventCategory[]).map((c) => (
+          {(Object.keys(eventCategories) as EventCategory[]).map((c) => (
             <button
               key={c}
               type="button"
@@ -286,12 +237,8 @@ export default function MentalHealthEventsPage() {
               onClick={() => setFilter(c)}
               className={chip(filter === c)}
             >
-              <span
-                className="h-2.5 w-2.5 rounded-pg-sm"
-                style={{ background: CATEGORIES[c].swatch }}
-                aria-hidden="true"
-              />
-              {CATEGORIES[c].label}
+              <span className={`h-2.5 w-2.5 rounded-pg-sm ${categoryStyle[c].swatch}`} aria-hidden="true" />
+              {eventCategories[c].label}
             </button>
           ))}
         </div>
@@ -328,7 +275,7 @@ export default function MentalHealthEventsPage() {
                     return (
                       <div
                         key={`blank-${i}`}
-                        className="min-h-[52px] border-r border-b border-pg-tint-soft bg-[repeating-linear-gradient(135deg,#f9f4f1_0_6px,#f4efec_6px_12px)] lg:min-h-[118px] [&:nth-child(7n)]:border-r-0"
+                        className="min-h-[52px] border-r border-b border-pg-tint-soft bg-pg-cream lg:min-h-[118px] [&:nth-child(7n)]:border-r-0"
                         aria-hidden="true"
                       />
                     );
@@ -351,7 +298,7 @@ export default function MentalHealthEventsPage() {
                         className="absolute inset-0 flex flex-col items-center gap-1 p-1 lg:items-start lg:p-2"
                       >
                         <span
-                          className={`grid h-7 w-7 place-items-center rounded-full text-sm font-semibold ${isSelected ? "bg-pg-teal text-white" : "text-pg-navy"}`}
+                          className={`grid h-7 w-7 place-items-center rounded-full text-sm font-semibold ${isSelected ? "bg-pg-teal-dark text-white" : "text-pg-navy"}`}
                         >
                           {date.getDate()}
                         </span>
@@ -360,8 +307,7 @@ export default function MentalHealthEventsPage() {
                           {dayEvents.slice(0, 3).map((e) => (
                             <span
                               key={e.id}
-                              className="h-1.5 w-1.5 rounded-full"
-                              style={{ background: CATEGORIES[e.category].swatch }}
+                              className={`h-1.5 w-1.5 rounded-full ${categoryStyle[e.category].swatch}`}
                             />
                           ))}
                         </span>
@@ -378,7 +324,7 @@ export default function MentalHealthEventsPage() {
                                 openEvent(e, click);
                               }}
                               aria-haspopup="dialog"
-                              className={`pointer-events-auto block w-full rounded-pg-md px-2 py-1 text-left text-xs leading-tight transition-[filter] hover:brightness-110 ${CATEGORIES[e.category].pill}`}
+                              className={`pointer-events-auto block w-full rounded-pg-md px-2 py-1 text-left text-xs leading-tight transition-[filter] hover:brightness-110 ${categoryStyle[e.category].pill}`}
                             >
                               <span className="block text-xs font-semibold opacity-90">{formatStart(e)}</span>
                               <span className="line-clamp-2 font-medium">{e.title}</span>
@@ -418,14 +364,8 @@ export default function MentalHealthEventsPage() {
                         <h3 className={`mt-0.5 text-base leading-snug font-bold text-pg-navy`}>{e.title}</h3>
                         <p className={`mt-1 text-sm leading-relaxed text-pg-slate`}>{e.description}</p>
                         <div className="mt-2 flex flex-wrap gap-2">
-                          <CategoryTag category={e.category} />
-                          {e.language && (
-                            <span
-                              className={`inline-flex rounded-full bg-pg-cream-dark px-2 py-0.5 text-xs font-semibold text-pg-navy`}
-                            >
-                              {e.language}
-                            </span>
-                          )}
+                          <EventCategoryTag category={e.category} />
+                          {e.language && <LanguageTag language={e.language} />}
                         </div>
                         <EventActions event={e} />
                       </div>
@@ -469,8 +409,7 @@ export default function MentalHealthEventsPage() {
                         className="relative flex w-full gap-3 rounded-pg-lg border border-pg-tint-soft py-2 pr-3 pl-4 text-left transition-colors hover:bg-pg-tint-soft"
                       >
                         <span
-                          className="absolute top-2.5 bottom-2.5 left-0 w-[3px] rounded-pg-sm"
-                          style={{ background: CATEGORIES[e.category].swatch }}
+                          className={`absolute top-2.5 bottom-2.5 left-0 w-[3px] rounded-pg-sm ${categoryStyle[e.category].swatch}`}
                           aria-hidden="true"
                         />
                         <DateBlock date={parseDate(e.date)} size="sm" />
@@ -480,7 +419,7 @@ export default function MentalHealthEventsPage() {
                             {parseDate(e.date).toLocaleDateString("en-US", { weekday: "short" })} · {formatTimeRange(e)}
                           </span>
                           <span className="mt-2 block">
-                            <CategoryTag category={e.category} />
+                            <EventCategoryTag category={e.category} />
                           </span>
                         </span>
                       </button>
@@ -519,9 +458,13 @@ export default function MentalHealthEventsPage() {
             </section>
           </aside>
         </div>
-      </div>
+      </Container>
 
-      <EventModal event={open ? toModalData(open.event) : null} anchor={open?.anchor ?? null} onClose={closeEvent} />
-    </div>
+      <EventModal
+        event={open ? toEventModalData(open.event) : null}
+        anchor={open?.anchor ?? null}
+        onClose={closeEvent}
+      />
+    </Section>
   );
 }

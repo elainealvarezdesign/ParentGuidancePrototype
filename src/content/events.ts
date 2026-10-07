@@ -1,19 +1,18 @@
-import { SAMPLE_REGISTER_URL } from "./links";
+/** Example Zoom webinar registration link used by every "Register" button until each session has its own. */
+export const SAMPLE_REGISTER_URL = "https://us02web.zoom.us/webinar/register/WN_kx1WttoySuyHmXiXIy2pgw#/registration";
 
-/* Mental Health Series events, shown on /mental-health-series/events.
+/* Mental Health Series events: one list for the Series calendar ("/mental-health-series") and the events
+ * page ("/mental-health-series/events").
  * Times are Central Time. Events marked `sample` are illustrative prototype content. */
 
 export type EventCategory = "qa" | "workshop" | "support" | "course";
 
-export const CATEGORIES: Record<EventCategory, { label: string; swatch: string; pill: string }> = {
-  qa: { label: "Live Q&A", swatch: "var(--pg-teal)", pill: "bg-pg-teal text-white" },
-  workshop: { label: "Workshop", swatch: "var(--pg-navy)", pill: "bg-pg-navy text-white" },
-  support: { label: "Support group", swatch: "var(--pg-sage)", pill: "bg-pg-sage text-pg-navy" },
-  course: {
-    label: "Course update",
-    swatch: "var(--pg-teal-dark)",
-    pill: "bg-pg-tint text-pg-teal-dark ring-1 ring-inset ring-pg-sage",
-  },
+/** Event types. Colors live in the UI (components/patterns/EventParts.tsx), not in content. */
+export const eventCategories: Record<EventCategory, { label: string }> = {
+  qa: { label: "Live Q&A" },
+  workshop: { label: "Workshop" },
+  support: { label: "Support group" },
+  course: { label: "Course update" },
 };
 
 export type SeriesEvent = {
@@ -148,6 +147,10 @@ export const EVENTS: SeriesEvent[] = [
 ];
 
 export const registerUrlFor = (e: SeriesEvent) => e.registerUrl ?? SAMPLE_REGISTER_URL;
+
+/** Sort by date, then start time (all-day first). */
+export const byDateTime = (a: SeriesEvent, b: SeriesEvent) =>
+  (a.date + (a.start ?? "00:00")).localeCompare(b.date + (b.start ?? "00:00"));
 
 /* ── Formatting helpers ── */
 

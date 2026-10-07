@@ -27,7 +27,7 @@
   --pg-warning-soft: #feeab1;
   --pg-error: #932f2f;
   --pg-error-soft: #fdcfcf;
-  --pg-font: 'Poppins', system-ui, sans-serif;
+  --pg-font: "Poppins", system-ui, sans-serif;
   --pg-shadow-card: 0 8px 24px rgba(28, 50, 67, 0.06);
   --pg-shadow-card-hover: 0 8px 24px rgba(28, 50, 67, 0.14);
   --pg-shadow-overlay: 0 24px 60px rgba(28, 50, 67, 0.28);

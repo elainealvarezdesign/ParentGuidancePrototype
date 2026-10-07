@@ -1,10 +1,13 @@
 import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from "react";
+import { createPortal } from "react-dom";
+import { useModal } from "@/components/ui/Dialog";
 import { Button, ButtonAnchor } from "@/components/ui/Button";
 import { AnimatePresence, motion } from "motion/react";
 import { ArrowRight, Check, X } from "@/components/ui/icons";
 
-/* Event pop-up used by the Mental Health Series calendars (Figma: "Calendar" event card).
- * On tablet/desktop it opens next to the event that was clicked; on phones it is centered. */
+/* EventModal (docs/system/components/event-modal.md). Event pop-up used by the Mental Health Series
+ * calendars (Figma: "Calendar" event card). On tablet/desktop it opens next to the event that was clicked;
+ * on phones it is centered. Modal behavior (focus, Tab trap, Escape, inert page) comes from useModal. */
 
 export type EventModalData = {
   id: string;
@@ -48,8 +51,7 @@ function Card({ event, anchor, onClose }: { event: EventModalData; anchor: DOMRe
   const [copied, setCopied] = useState(false);
   const spanish = event.language === "Español";
   const titleId = `event-modal-title-${event.id}`;
-  const closeRef = useRef(onClose);
-  closeRef.current = onClose;
+  const copyTimer = useRef<number | undefined>(undefined);
 
   // Place next to the clicked event (below it, or above when there is no room); center on phones
   useLayoutEffect(() => {
@@ -73,42 +75,20 @@ function Card({ event, anchor, onClose }: { event: EventModalData; anchor: DOMRe
     setStyle({ left, top, width: WIDTH });
   }, [anchor, event.id]);
 
-  // Focus the dialog, trap Tab inside it, close on Escape and give focus back on close
+  useModal(ref, onClose);
+  // The card is hidden until it is positioned; move focus into it once it is visible
+  const placed = style.visibility !== "hidden";
   useEffect(() => {
-    const previous = document.activeElement as HTMLElement | null;
-    ref.current?.focus();
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        e.preventDefault();
-        closeRef.current();
-        return;
-      }
-      if (e.key !== "Tab" || !ref.current) return;
-      const items = ref.current.querySelectorAll<HTMLElement>("a[href], button:not([disabled])");
-      const first = items[0],
-        last = items[items.length - 1];
-      if (e.shiftKey && (document.activeElement === first || document.activeElement === ref.current)) {
-        e.preventDefault();
-        last.focus();
-      } else if (!e.shiftKey && document.activeElement === last) {
-        e.preventDefault();
-        first.focus();
-      }
-    };
-    document.addEventListener("keydown", onKey);
-    const overflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = overflow;
-      previous?.focus?.();
-    };
-  }, []);
+    if (placed) ref.current?.focus();
+  }, [placed]);
+  // Clear the "Link copied" timer if the card closes first (audit L02)
+  useEffect(() => () => window.clearTimeout(copyTimer.current), []);
 
   async function handleCopy() {
     if (await copyText(eventLink(event.id))) {
       setCopied(true);
-      window.setTimeout(() => setCopied(false), 2000);
+      window.clearTimeout(copyTimer.current);
+      copyTimer.current = window.setTimeout(() => setCopied(false), 2000);
     }
   }
 
@@ -141,8 +121,8 @@ function Card({ event, anchor, onClose }: { event: EventModalData; anchor: DOMRe
           lang={spanish ? "es" : undefined}
         >
           {/* Header */}
-          <div className="flex items-start justify-between gap-3 bg-pg-teal px-5 py-4">
-            <h2 id={titleId} className={`text-xl leading-snug font-semibold text-white`}>
+          <div className="flex items-start justify-between gap-3 bg-pg-teal-dark px-5 py-4">
+            <h2 id={titleId} className="text-pg-h4 text-white">
               {event.title}
             </h2>
             <button
@@ -216,9 +196,10 @@ export function EventModal({
   anchor: DOMRect | null;
   onClose: () => void;
 }) {
-  return (
+  return createPortal(
     <AnimatePresence>
       {event && <Card key={event.id} event={event} anchor={anchor} onClose={onClose} />}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body,
   );
 }

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useParams } from "react-router";
 import { Button, ButtonAnchor, ButtonLink } from "@/components/ui/Button";
 import { ArrowRight, CalendarDays, ChevronLeft, ListChecks, PlayCircle } from "@/components/ui/icons";
-import { getTopic, type Topic, type TopicVideo } from "./mhs/topics";
+import { getTopic, type Topic, type TopicVideo } from "@/content/topics";
 import { BackToTopButton } from "./legal/LegalActions";
 
 /* Eyebrow + section title, shared by every section */

@@ -1,4 +1,4 @@
-import { SAMPLE_REGISTER_URL } from "./links";
+import { SAMPLE_REGISTER_URL } from "./events";
 import imgInstantInsights from "@/imports/mhs/family-playing.jpg";
 import imgDeepDive from "@/imports/ParentCoaching-1/f73b6da28c9de1bc7946276ba9584e3cd46f8aec.png";
 import imgMakeFriends from "@/imports/mhs/kids-building-together.jpg";

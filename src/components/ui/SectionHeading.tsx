@@ -90,19 +90,24 @@ export function ListHeading({
   count,
   as: Tag = "h2",
   action,
+  id,
   className,
 }: {
   title: ReactNode;
   count?: ReactNode;
   as?: "h2" | "h3";
   action?: ReactNode;
+  /** Heading id, for aria-labelledby. */
+  id?: string;
   className?: string;
 }) {
   return (
     <div className={cn("flex flex-wrap items-center justify-between gap-3", className)}>
       <div className="flex items-center gap-2">
         <span className="h-5 w-1 rounded-full bg-pg-sage" aria-hidden="true" />
-        <Tag className="text-pg-h3 text-pg-navy">{title}</Tag>
+        <Tag id={id} className="text-pg-h3 text-pg-navy">
+          {title}
+        </Tag>
         {count !== undefined && (
           <span className="rounded-full bg-pg-tint px-2 py-0.5 text-xs font-medium text-pg-teal-dark">{count}</span>
         )}
