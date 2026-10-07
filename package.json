@@ -7,7 +7,12 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check:design": "node scripts/check-design-rules.mjs",
+    "check": "pnpm typecheck && pnpm lint && pnpm check:design && pnpm build"
   },
   "dependencies": {
     "@emotion/react": "11.14.0",
@@ -30,12 +35,19 @@
     "typescript": "5.8.3",
     "@types/react": "18.3.23",
     "@types/react-dom": "18.3.7",
-    "@types/node": "22.15.30"
+    "@types/node": "22.15.30",
+    "eslint": "9.29.0",
+    "@eslint/js": "9.29.0",
+    "typescript-eslint": "8.34.1",
+    "eslint-plugin-react-hooks": "5.2.0",
+    "eslint-plugin-jsx-a11y": "6.10.2",
+    "globals": "16.2.0",
+    "prettier": "3.5.3",
+    "prettier-plugin-tailwindcss": "0.6.13"
   },
-  "pnpm": {
-    "overrides": {
-      "vite": "6.3.5"
-    }
-  },
-  "description": "Interactive prototype of Parent Guidance (parentguidance.org) built on the PG design system."
+  "description": "Interactive prototype of Parent Guidance (parentguidance.org) built on the PG design system.",
+  "packageManager": "pnpm@10.28.0",
+  "engines": {
+    "node": ">=20"
+  }
 }

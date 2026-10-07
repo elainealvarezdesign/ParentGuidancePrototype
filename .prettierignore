@@ -1,0 +1,4 @@
+dist
+pnpm-lock.yaml
+docs/guidelines/pdf
+src/imports
