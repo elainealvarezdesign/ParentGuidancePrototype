@@ -1,7 +1,7 @@
 import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from "react";
-import { Button, ButtonAnchor } from "../components/Button";
+import { Button, ButtonAnchor } from "@/components/ui/Button";
 import { AnimatePresence, motion } from "motion/react";
-import { ArrowRight, Check, X } from "../components/icons";
+import { ArrowRight, Check, X } from "@/components/ui/icons";
 
 /* Event pop-up used by the Mental Health Series calendars (Figma: "Calendar" event card).
  * On tablet/desktop it opens next to the event that was clicked; on phones it is centered. */

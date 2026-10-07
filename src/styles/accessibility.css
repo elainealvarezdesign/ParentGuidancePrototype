@@ -43,3 +43,14 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* Partners strip marquee (sections/PartnersStrip.tsx). Off when reduced motion is requested. */
+@keyframes pg-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-33.3333%); }
+}
+.pg-marquee { animation: pg-marquee 30s linear infinite; will-change: transform; }
+.pg-marquee:hover { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) {
+  .pg-marquee { animation: none; }
+}

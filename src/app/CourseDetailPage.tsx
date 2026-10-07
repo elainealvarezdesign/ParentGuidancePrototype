@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router";
-import { ButtonLink } from "./components/Button";
+import { ButtonLink } from "@/components/ui/Button";
 import { motion } from "motion/react";
-import { ChevronRight, Clock, Play } from "./components/icons";
+import { ChevronRight, Clock, Play } from "@/components/ui/icons";
 
 const COURSE_SLUG = "free-yourself-from-limiting-thoughts";
 

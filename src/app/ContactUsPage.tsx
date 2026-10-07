@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Button } from "./components/Button";
+import { Button } from "@/components/ui/Button";
 import { motion } from "motion/react";
-import { AlertTriangle, ArrowRight, CheckCircle } from "./components/icons";
+import { AlertTriangle, ArrowRight, CheckCircle } from "@/components/ui/icons";
 
 export default function ContactUsPage() {
   const [fullName, setFullName] = useState("");
@@ -16,7 +16,7 @@ export default function ContactUsPage() {
   }
 
   return (
-    <main className="min-h-screen bg-pg-cream">
+    <div className="min-h-screen bg-pg-cream">
       <section className="px-6 pb-14 pt-28 md:px-10 lg:px-14">
         <div className="mx-auto max-w-pg-content text-center">
           <p className="mb-3 text-sm font-semibold uppercase tracking-pg-eyebrow text-pg-teal-dark">
@@ -126,6 +126,6 @@ export default function ContactUsPage() {
           )}
         </div>
       </section>
-    </main>
+    </div>
   );
 }

@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { Button, ButtonAnchor } from "./components/Button";
+import { Button, ButtonAnchor } from "@/components/ui/Button";
 import { motion, useInView } from "motion/react";
 import svgPaths from "@/imports/ParentCoaching-1/svg-g80g54ayas";
 import imgImageParentHuggingChild from "@/imports/ParentCoaching-1/38518ee84636136dc3ed60b783115620c287b3ee.png";

@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Button } from "./components/Button";
-import { ChevronDown, Download, Printer } from "./components/icons";
+import { Button } from "@/components/ui/Button";
+import { ChevronDown, Download, Printer } from "@/components/ui/icons";
 import {
   TERMS_EFFECTIVE_DATE,
   TERMS_INTRO,
@@ -131,7 +131,7 @@ export default function ConsentDocumentsPage() {
   const [openId, setOpenId] = useState<string>(DOCUMENTS[0].id);
 
   return (
-    <main className="min-h-screen bg-pg-cream print:bg-white">
+    <div className="min-h-screen bg-pg-cream print:bg-white">
       <section className="px-6 pb-14 pt-28 md:px-10 lg:px-14 print:hidden">
         <div className="mx-auto max-w-pg-content">
           <p className="mb-3 text-sm font-semibold uppercase tracking-pg-eyebrow text-pg-teal-dark">
@@ -162,6 +162,6 @@ export default function ConsentDocumentsPage() {
         </div>
         <BackToTopButton focusId="consent-documents-title" />
       </section>
-    </main>
+    </div>
   );
 }

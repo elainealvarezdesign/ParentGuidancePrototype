@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { Link, useParams, useNavigate } from "react-router";
-import { Button } from "./components/Button";
+import { Button } from "@/components/ui/Button";
 import { motion, AnimatePresence } from "motion/react";
 import {
   ChevronRight, ChevronLeft, Play, Pause, Volume2, Maximize2,
   Settings, Captions, ChevronDown, ChevronUp, MessageCircle, ArrowRight,
   CheckCircle2, AlertCircle,
-} from "./components/icons";
+} from "@/components/ui/icons";
 
 type QAItem = {
   id: number;

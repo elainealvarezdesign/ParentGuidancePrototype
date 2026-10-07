@@ -5,7 +5,7 @@ import { readFileSync, readdirSync, statSync } from "node:fs";
 import { join, relative } from "node:path";
 
 const ROOT = new URL("..", import.meta.url).pathname;
-const SCAN = ["src/app", "src/components", "src/sections", "src/pages", "src/layout"];
+const SCAN = ["src/app", "src/components", "src/sections", "src/pages", "src/content"];
 const RULES = [
   { id: "raw-hex", re: /#[0-9a-fA-F]{6}\b/g, msg: "raw hex color — use a pg-* token" },
   { id: "tailwind-gray", re: /\b(?:text|bg|border|ring|fill|stroke)-(?:gray|slate|zinc|neutral|stone)-\d{2,3}\b/g, msg: "Tailwind gray — use a pg-* token" },
@@ -14,6 +14,7 @@ const RULES = [
 ];
 // file → rule ids or literal matches that are allowed (structural offsets, brand artwork)
 const ALLOW = {
+  "src/components/brand/Logo.tsx": ["raw-hex"],
   "src/app/App.tsx": ["pt-[72px]"],
   "src/app/MentalHealthEventsPage.tsx": ["pt-[42px]"],
 };

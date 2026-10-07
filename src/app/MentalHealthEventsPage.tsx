@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useState, type MouseEvent } from "react";
 import { Link, useSearchParams } from "react-router";
-import { Button, ButtonAnchor } from "./components/Button";
-import { CalendarPlus, ChevronLeft, ChevronRight, Clock, Download, MapPin } from "./components/icons";
+import { Button, ButtonAnchor } from "@/components/ui/Button";
+import { CalendarPlus, ChevronLeft, ChevronRight, Clock, Download, MapPin } from "@/components/ui/icons";
 import {
   CATEGORIES,
   EVENTS,
@@ -161,7 +161,7 @@ export default function MentalHealthEventsPage() {
     }`;
 
   return (
-    <main className="bg-pg-cream px-6 pb-20 pt-20 md:px-10 md:pt-24 lg:px-14">
+    <div className="bg-pg-cream px-6 pb-20 pt-20 md:px-10 md:pt-24 lg:px-14">
       <div className="mx-auto max-w-pg-page">
         {/* Header */}
         <Link to="/mental-health-series" className={`inline-flex items-center gap-1 text-xs font-medium text-pg-teal-dark hover:text-pg-navy`}>
@@ -375,6 +375,6 @@ export default function MentalHealthEventsPage() {
       </div>
 
       <EventModal event={open ? toModalData(open.event) : null} anchor={open?.anchor ?? null} onClose={closeEvent} />
-    </main>
+    </div>
   );
 }

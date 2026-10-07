@@ -1,7 +1,7 @@
 import { forwardRef, type ComponentPropsWithoutRef } from "react";
 import { Link } from "react-router";
 import { motion } from "motion/react";
-import { cn } from "../utils/cn";
+import { cn } from "@/lib/cn";
 
 /* Parent Guidance buttons (docs/guidelines/02-buttons.md).
  * One radius (8px), three sizes, five styles. Use <Button> for actions, <ButtonLink> for in-app

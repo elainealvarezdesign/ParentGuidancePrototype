@@ -1,4 +1,4 @@
-import { ButtonAnchor } from "../components/Button";
+import { ButtonAnchor } from "@/components/ui/Button";
 import { isLegalSubItem, type LegalSection } from "./legalContent";
 
 type Props = {

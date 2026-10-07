@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router";
-import { ButtonLink } from "./components/Button";
+import { ButtonLink } from "@/components/ui/Button";
 import { motion } from "motion/react";
-import { ChevronRight, ChevronLeft, Clock, Play } from "./components/icons";
+import { ChevronRight, ChevronLeft, Clock, Play } from "@/components/ui/icons";
 
 const COURSE_SLUG = "milestones-to-progress";
 const COURSE_TITLE = "Milestones to Progress: Guiding your child from birth through the early school years";

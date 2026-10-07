@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { Button, ButtonAnchor } from "./components/Button";
+import { Button, ButtonAnchor } from "@/components/ui/Button";
 import { motion } from "motion/react";
 import {
   AlertCircle,
@@ -13,7 +13,7 @@ import {
   ShieldCheck,
   Signpost,
   X,
-} from "./components/icons";
+} from "@/components/ui/icons";
 import getHelpHero from "@/imports/get-help-hero.png";
 import logo988 from "@/imports/get-help-logos/988-suicide-crisis-lifeline.png";
 import logoCrisisText from "@/imports/get-help-logos/Crisis-Text_line.jpeg";
@@ -21,7 +21,7 @@ import logoMentalHealth from "@/imports/get-help-logos/mentalhealth.gov_1.png";
 import logoNIH from "@/imports/get-help-logos/NIH-Logo.png";
 import logoTrevor from "@/imports/get-help-logos/The_Trevor_Project_logo.svg.webp";
 import logoVeterans from "@/imports/get-help-logos/veterans-crisis-line.svg";
-import UnifiedCard from "./components/UnifiedCard";
+import UnifiedCard from "@/components/cards/UnifiedCard";
 type ResourceCategory =
   | "All"
   | "Youth & LGBTQ+"
@@ -155,7 +155,7 @@ export default function GetHelpPage() {
   }, [activeCategory, search]);
 
   return (
-    <main className="pt-14 bg-pg-cream min-h-screen">
+    <div className="pt-14 bg-pg-cream min-h-screen">
       {/* Hero */}
       <section className="overflow-hidden bg-pg-cream">
         <div className="max-w-pg-page mx-auto px-6 md:px-10 lg:px-14 py-14 md:py-20">
@@ -381,6 +381,6 @@ Not sure which resource  {" "}
           ))}
         </div>
       </section>
-    </main>
+    </div>
   );
 }

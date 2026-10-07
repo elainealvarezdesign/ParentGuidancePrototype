@@ -1,10 +1,10 @@
-import { ButtonLink } from "./components/Button";
+import { ButtonLink } from "@/components/ui/Button";
 
 
 /* Shown for any address that doesn't match a page (inside the normal header and footer). */
 export default function NotFoundPage() {
   return (
-    <main className="bg-pg-cream px-6 pb-24 pt-32 md:px-10 lg:px-14">
+    <div className="bg-pg-cream px-6 pb-24 pt-32 md:px-10 lg:px-14">
       <div className="mx-auto max-w-pg-reading text-center">
         <p className={`text-pg-eyebrow text-pg-teal-dark`}>Page not found</p>
         <h1 className={`text-pg-h1 mt-3 font-medium text-pg-navy`}>We couldn't find that page</h1>
@@ -23,6 +23,6 @@ export default function NotFoundPage() {
           </ButtonLink>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

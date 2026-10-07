@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router";
-import { Button, ButtonLink } from "./components/Button";
+import { Button, ButtonLink } from "@/components/ui/Button";
 import { motion } from "motion/react";
 import {
   Search,
@@ -8,8 +8,8 @@ import {
   Send,
   ShieldCheck,
   Clock,
-} from "./components/icons";
-import UnifiedCard from "./components/UnifiedCard";
+} from "@/components/ui/icons";
+import UnifiedCard from "@/components/cards/UnifiedCard";
 
 import imgMentalHealth from "@/imports/HomePagePgV2/b75247b5542e76cdf5c675041b7a6e465e33ef23.png";
 import imgCoaching from "@/imports/HomePagePgV2/debf8187f5722e2bc3e9c2869fc7308cfe71f1fc.png";
@@ -193,7 +193,7 @@ export default function HomePageV1() {
   const right = FAQS.slice(Math.ceil(FAQS.length / 2));
 
   return (
-    <main className="pt-14 bg-pg-cream min-h-screen overflow-x-clip">
+    <div className="pt-14 bg-pg-cream min-h-screen overflow-x-clip">
       {/* ── HERO ── */}
       <section className="bg-pg-cream overflow-hidden">
         <div className="max-w-pg-page mx-auto px-6 md:px-10 lg:px-14 py-14 md:py-20">
@@ -464,6 +464,6 @@ export default function HomePageV1() {
           </motion.div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

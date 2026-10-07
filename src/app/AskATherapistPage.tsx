@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
-import { Button, ButtonLink } from "./components/Button";
+import { Button, ButtonLink } from "@/components/ui/Button";
 import { motion, useInView } from "motion/react";
-import { MessageCircle, Send, Search, ChevronDown, ListFilter, ChevronLeft, ChevronRight, X, ArrowRight, CheckCircle } from "./components/icons";
+import { MessageCircle, Send, Search, ChevronDown, ListFilter, ChevronLeft, ChevronRight, X, ArrowRight, CheckCircle } from "@/components/ui/icons";
 import imgFeaturedTherapist from "@/imports/05AskATherapist/7af58431d48866bcf252a78cb8709dda98a31204.jpg";
 import imgSidebarTherapist from "@/imports/05AskATherapist/bf73af5e36126dc41ee73d1f5f81e395e37ead59.jpg";
 import imgCtaBackground from "@/imports/05AskATherapist/7da52df8b36aa7daa4e656a1f0b1284a37a44402.jpg";

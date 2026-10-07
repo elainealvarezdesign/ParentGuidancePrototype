@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useParams } from "react-router";
-import { Button, ButtonAnchor, ButtonLink } from "./components/Button";
-import { ArrowRight, CalendarDays, ChevronLeft, ListChecks, PlayCircle } from "./components/icons";
+import { Button, ButtonAnchor, ButtonLink } from "@/components/ui/Button";
+import { ArrowRight, CalendarDays, ChevronLeft, ListChecks, PlayCircle } from "@/components/ui/icons";
 import { getTopic, type Topic, type TopicVideo } from "./mhs/topics";
 import { BackToTopButton } from "./legal/LegalActions";
 
@@ -295,17 +295,17 @@ export default function MentalHealthTopicPage() {
 
   if (!topic) {
     return (
-      <main className={`${gutter} min-h-[60vh] bg-pg-cream pb-20 pt-32`}>
+      <div className={`${gutter} min-h-[60vh] bg-pg-cream pb-20 pt-32`}>
         <div className={container}>
           <h1 className={`text-pg-h1 text-pg-navy`}>Topic not found</h1>
           <Link to="/mental-health-series" className={`mt-4 inline-flex text-sm font-semibold text-pg-teal-dark underline`}>Back to Mental Health Series</Link>
         </div>
-      </main>
+      </div>
     );
   }
 
   return (
-    <main className="bg-pg-cream print:bg-white">
+    <div className="bg-pg-cream print:bg-white">
       <Hero topic={topic} />
       <Videos topic={topic} />
       <Sessions topic={topic} />
@@ -313,6 +313,6 @@ export default function MentalHealthTopicPage() {
       <Actions topic={topic} />
       <Resources topic={topic} />
       <Newsletter />
-    </main>
+    </div>
   );
 }

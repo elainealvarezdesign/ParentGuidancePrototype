@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { buttonClass } from "./Button";
+import { buttonClass } from "@/components/ui/Button";
 
 type UnifiedCardProps = {
   image: string;

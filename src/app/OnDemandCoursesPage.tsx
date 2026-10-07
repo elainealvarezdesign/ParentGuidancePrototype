@@ -1,9 +1,9 @@
 import { useState, useMemo, useRef, useEffect } from "react";
-import { ChevronDown, ListFilter } from "./components/icons";
+import { ChevronDown, ListFilter } from "@/components/ui/icons";
 import { motion, AnimatePresence } from "motion/react";
-import { scrollBehavior } from "./utils/motion";
+import { scrollBehavior } from "@/lib/motion";
 import { useNavigate } from "react-router";
-import { Button, ButtonAnchor, ButtonLink } from "./components/Button";
+import { Button, ButtonAnchor, ButtonLink } from "@/components/ui/Button";
 import svgPaths from "@/imports/CreateLivePrototypeWithTransitions/svg-aw5njrtmbl";
 import imgParentAndChild from "@/imports/CreateLivePrototypeWithTransitions/5adf607043d952ed1bbbfdfe5254ee778ed8a6e8.png";
 import imgContainer from "@/imports/get-help-hero.png";
@@ -18,7 +18,7 @@ const imgAskTherapist = "https://images.unsplash.com/photo-1581998392741-67879e0
 const imgBodyLove = "https://images.unsplash.com/photo-1758874384842-7e79ce77ed1a?auto=format&fit=crop&w=700&q=80";
 const imgEatingDisorders = "https://images.unsplash.com/photo-1758874961000-d8b11690ce22?auto=format&fit=crop&w=700&q=80";
 
-import UnifiedCard from "./components/UnifiedCard";
+import UnifiedCard from "@/components/cards/UnifiedCard";
 
 /* ─── Types ─── */
 type Topic =

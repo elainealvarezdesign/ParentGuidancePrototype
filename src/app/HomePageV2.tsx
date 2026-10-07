@@ -1,8 +1,8 @@
-import { Button, ButtonLink } from "./components/Button";
+import { Button, ButtonLink } from "@/components/ui/Button";
 import { useState } from "react";
 import { motion } from "motion/react";
-import { ArrowRight } from "./components/icons";
-import UnifiedCard from "./components/UnifiedCard";
+import { ArrowRight } from "@/components/ui/icons";
+import UnifiedCard from "@/components/cards/UnifiedCard";
 
 import imgMentalHealth from "@/imports/HomePagePgV2/b75247b5542e76cdf5c675041b7a6e465e33ef23.png";
 import imgCoaching from "@/imports/HomePagePgV2/debf8187f5722e2bc3e9c2869fc7308cfe71f1fc.png";
@@ -186,7 +186,7 @@ export default function HomePageV2() {
   const [subscribed, setSubscribed] = useState(false);
 
   return (
-    <main className="pt-14 bg-pg-cream min-h-screen">
+    <div className="pt-14 bg-pg-cream min-h-screen">
       {/* ── HERO ── */}
       <section className="overflow-hidden bg-pg-cream">
         <div className="max-w-pg-page mx-auto px-6 md:px-10 lg:px-14 py-14 md:py-20">
@@ -469,6 +469,6 @@ export default function HomePageV2() {
           </div>
         </motion.div>
       </section>
-    </main>
+    </div>
   );
 }

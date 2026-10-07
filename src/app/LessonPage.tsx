@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Link, useParams, useNavigate } from "react-router";
-import { Button } from "./components/Button";
+import { Button } from "@/components/ui/Button";
 import { motion, AnimatePresence } from "motion/react";
 import {
   Play, Pause, Volume2, Maximize2, Settings, Captions,
   ChevronRight, ChevronLeft, CheckCircle2, Circle, BookOpen, FileText, Paperclip,
-} from "./components/icons";
+} from "@/components/ui/icons";
 
 const COURSE_SLUG = "free-yourself-from-limiting-thoughts";
 const COURSE_TITLE = "4 Questions To Free Yourself From Limiting Thoughts";

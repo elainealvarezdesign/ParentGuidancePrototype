@@ -1,4 +1,4 @@
-import { ButtonAnchor, buttonClass } from "./components/Button";
+import { ButtonAnchor, buttonClass } from "@/components/ui/Button";
 import { LegalActions, BackToTopButton, downloadTextFile } from "./legal/LegalActions";
 
 const necessaryCookies = [
@@ -148,7 +148,7 @@ function handleDownload() {
 
 export default function CookiesPolicyPage() {
   return (
-    <main className="min-h-screen bg-pg-cream print:bg-white">
+    <div className="min-h-screen bg-pg-cream print:bg-white">
       <section className="px-6 pb-14 pt-28 md:px-10 lg:px-14 print:p-0 print:pb-6">
         <div className="mx-auto max-w-pg-content print:max-w-none">
           <p className="mb-3 text-sm font-semibold uppercase tracking-pg-eyebrow text-pg-teal-dark">
@@ -628,6 +628,6 @@ export default function CookiesPolicyPage() {
     </div>
     <BackToTopButton focusId="cookies-policy-title" />
   </section>
-</main>
+</div>
   );
 }

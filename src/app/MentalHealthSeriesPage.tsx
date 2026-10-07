@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useRef, useState, type MouseEvent } from "react";
-import { ChevronDown, ListFilter, Search } from "./components/icons";
+import { ChevronDown, ListFilter, Search } from "@/components/ui/icons";
 import { motion } from "motion/react";
 import { Link } from "react-router";
-import { Button, ButtonAnchor, ButtonLink } from "./components/Button";
-import { scrollBehavior } from "./utils/motion";
+import { Button, ButtonAnchor, ButtonLink } from "@/components/ui/Button";
+import { scrollBehavior } from "@/lib/motion";
 import { EventModal, type EventModalData } from "./mhs/EventModal";
 import { SAMPLE_REGISTER_URL } from "./mhs/links";
 import svgPaths from "@/imports/MentalHealthPage/svg-8lpz1a5k3k";

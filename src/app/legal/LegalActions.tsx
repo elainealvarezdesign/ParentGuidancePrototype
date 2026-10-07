@@ -1,6 +1,6 @@
-import { Button } from "../components/Button";
-import { ArrowUp, Download, Printer } from "../components/icons";
-import { scrollBehavior } from "../utils/motion";
+import { Button } from "@/components/ui/Button";
+import { ArrowUp, Download, Printer } from "@/components/ui/icons";
+import { scrollBehavior } from "@/lib/motion";
 
 /** Saves a plain-text file in the browser. */
 export function downloadTextFile(fileName: string, text: string) {
