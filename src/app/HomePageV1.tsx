@@ -2,8 +2,17 @@ import { useState } from "react";
 import { Link } from "react-router";
 import { Button, ButtonLink } from "@/components/ui/Button";
 import { motion } from "motion/react";
-import { Search, ArrowRight, Send, ShieldCheck, Clock } from "@/components/ui/icons";
+import { ArrowRight, Send } from "@/components/ui/icons";
 import UnifiedCard from "@/components/cards/UnifiedCard";
+import { SearchField } from "@/components/ui/SearchField";
+import { FilterChips } from "@/components/ui/FilterChips";
+import { FaqSection } from "@/sections/FaqSection";
+import { PartnersStrip } from "@/sections/PartnersStrip";
+import { NewsletterSection } from "@/sections/NewsletterSection";
+import { homeFaq, homeNewsletter, homePartners } from "@/content/home";
+
+/* Home V1 ("/home-v1"): an EXPLORATION kept for comparison while the final home is chosen. It is not
+ * linked from the navigation. Shared parts come from the system; delete this page once a home is picked. */
 
 import imgMentalHealth from "@/imports/HomePagePgV2/b75247b5542e76cdf5c675041b7a6e465e33ef23.png";
 import imgCoaching from "@/imports/HomePagePgV2/debf8187f5722e2bc3e9c2869fc7308cfe71f1fc.png";
@@ -11,13 +20,6 @@ import imgOnDemand from "@/imports/HomePagePgV2/2efa62174bfcf85665907842ba36899e
 import imgAskTherapist from "@/imports/HomePagePgV2/277938b24e46ee2598e5638b70da775e75a5d182.png";
 import imgTrustedByParents from "@/imports/HomePagePgV2/fb9567d2a70815a5c0307df9118cb49c401b72a3.png";
 import imgRealSupport from "@/imports/HomePagePgV2/dabd6f5341bd78f44bfe8771b4f0e2a23c9565f1.png";
-import imgNewsletter from "@/imports/HomePagePgV2/0400e3bb3f86c98e80e3ad89c6a42fc531e57c9c.png";
-
-import imgQBUnited from "@/imports/QB_united-1.png";
-import imgHopeSquad from "@/imports/HopeSquad-1.png";
-import imgCookCenter from "@/imports/CCHC_Logo-greyscale-1.png";
-import imgStaffGuidance from "@/imports/StaffGuidance.png";
-import imgElizaChat from "@/imports/elizachat_logo_horizontal.svg";
 
 const MotionLink = motion.create(Link);
 
@@ -75,58 +77,6 @@ const FEATURES = [
   },
 ];
 
-const FAQS = [
-  {
-    question: "How long is this program?",
-    answer:
-      "Mental health support doesn't have a timeline and neither does our program. While the initial Parenting with Purpose roadmap is expected to take around 4 weeks to complete, we offer ongoing support as long as you need it.",
-    defaultOpen: true,
-  },
-  {
-    question: "What can I expect from a meeting with my coach?",
-    answer:
-      "Each coaching session is personalized to your family's unique needs and goals. Your coach will listen actively, offer evidence-based strategies, and help you develop an action plan that fits your lifestyle.",
-    defaultOpen: false,
-  },
-  {
-    question: "How often can I message my coach?",
-    answer:
-      "You can message your coach at any time through our platform. Most coaches respond within a few hours during business hours, and within 24 hours at other times.",
-    defaultOpen: false,
-  },
-  {
-    question: "How often will I meet with my coach?",
-    answer:
-      "Meeting frequency is flexible and based on your needs. Most families start with weekly sessions and adjust from there.",
-    defaultOpen: false,
-  },
-  {
-    question: "What can I expect from a meeting with my coach?",
-    answer: "Sessions typically include a check-in, goal review, new strategies, and a plan for the week ahead.",
-    defaultOpen: false,
-  },
-  {
-    question: "How often can I message my coach?",
-    answer: "Messaging is unlimited — reach out whenever something comes up.",
-    defaultOpen: false,
-  },
-  {
-    question: "How long until we deliver your first blog post?",
-    answer:
-      "Our team reviews your intake information and typically delivers the first resource within 48 hours of enrollment.",
-    defaultOpen: false,
-  },
-];
-
-const PARTNER_LOGOS = [
-  { src: imgQBUnited, alt: "QB United", height: 40 },
-  { src: imgHopeSquad, alt: "Hope Squad", height: 40 },
-  { src: imgCookCenter, alt: "Cook Center for Human Connection", height: 44 },
-  { src: imgStaffGuidance, alt: "Staff Guidance", height: 40 },
-  { src: imgElizaChat, alt: "Eliza Chat", height: 36 },
-];
-
-/* Where each "Explore" card leads (sample detail pages until each resource has its own) */
 const EXPLORE_ROUTES: Record<string, string> = {
   "Mental Health": "/mental-health-series/building-your-childs-confidence",
   Coaching: "/parent-coaching",
@@ -134,101 +84,12 @@ const EXPLORE_ROUTES: Record<string, string> = {
   "Ask a Therapist": "/ask-a-therapist/1",
 };
 
-function FaqItem({ item, index }: { item: (typeof FAQS)[0]; index: number }) {
-  const [open, setOpen] = useState(item.defaultOpen);
-  return (
-    <motion.div
-      className="overflow-hidden rounded-pg-md bg-white shadow-pg-card"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-40px" }}
-      transition={{ duration: 0.55, delay: index * 0.06 }}
-    >
-      <button
-        type="button"
-        aria-expanded={open}
-        onClick={() => setOpen((o) => !o)}
-        className="flex w-full items-center justify-between px-8 py-6 text-left"
-      >
-        <span className="flex-1 pr-4 text-xl leading-snug font-bold text-pg-navy opacity-88">{item.question}</span>
-        <motion.div
-          animate={{ rotate: open ? 45 : 0 }}
-          transition={{ duration: 0.22 }}
-          className="flex h-5 w-5 shrink-0 items-center justify-center"
-        >
-          <div className="relative h-5 w-5">
-            <div className="absolute top-1/2 left-0 h-[3px] w-full -translate-y-1/2 rounded-full bg-pg-navy opacity-80" />
-            <div className="absolute top-0 left-1/2 h-full w-[3px] -translate-x-1/2 rounded-full bg-pg-navy opacity-80" />
-          </div>
-        </motion.div>
-      </button>
-      <motion.div
-        initial={false}
-        animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }}
-        transition={{ duration: 0.35 }}
-        style={{ overflow: "hidden" }}
-      >
-        <div className="flex flex-col gap-3 px-8 pb-6">
-          <div className="h-[3px] w-5 rounded-full bg-pg-live opacity-80" />
-          <p className="text-sm leading-relaxed text-pg-navy opacity-70">{item.answer}</p>
-        </div>
-      </motion.div>
-    </motion.div>
-  );
-}
-
-function PartnersCarousel() {
-  const doubled = [...PARTNER_LOGOS, ...PARTNER_LOGOS, ...PARTNER_LOGOS];
-  return (
-    <section className="overflow-hidden bg-pg-cream py-20">
-      <style>{`
-        @keyframes marquee-v1 { 0% { transform: translateX(0); } 100% { transform: translateX(-33.3333%); } }
-        .marquee-track-v1 { animation: marquee-v1 30s linear infinite; will-change: transform; }
-        .marquee-track-v1:hover { animation-play-state: paused; }
-      `}</style>
-      <motion.h3
-        className="mb-10 text-center text-2xl font-semibold text-pg-teal-dark"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-      >
-        Our Passionate Partners
-      </motion.h3>
-      <div className="relative">
-        <div
-          className="pointer-events-none absolute top-0 bottom-0 left-0 z-10 w-24"
-          style={{ background: "linear-gradient(to right, var(--pg-cream), transparent)" }}
-        />
-        <div
-          className="pointer-events-none absolute top-0 right-0 bottom-0 z-10 w-24"
-          style={{ background: "linear-gradient(to left, var(--pg-cream), transparent)" }}
-        />
-        <div className="marquee-track-v1 flex items-center" style={{ width: "max-content" }}>
-          {doubled.map((logo, i) => (
-            <div key={i} className="flex flex-shrink-0 items-center justify-center px-10">
-              <img
-                src={logo.src}
-                alt={logo.alt}
-                style={{ height: logo.height, width: "auto", objectFit: "contain", mixBlendMode: "multiply" }}
-              />
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 export default function HomePageV1() {
   const [activeCategory, setActiveCategory] = useState<Category>("All");
-  const [email, setEmail] = useState("");
-  const [subscribed, setSubscribed] = useState(false);
-
-  const left = FAQS.slice(0, Math.ceil(FAQS.length / 2));
-  const right = FAQS.slice(Math.ceil(FAQS.length / 2));
+  const [query, setQuery] = useState("");
 
   return (
-    <div className="min-h-screen overflow-x-clip bg-pg-cream pt-14">
+    <div className="mt-14 bg-pg-cream">
       {/* ── HERO ── */}
       <section className="overflow-hidden bg-pg-cream">
         <div className="mx-auto max-w-pg-page px-6 py-14 md:px-10 md:py-20 lg:px-14">
@@ -245,19 +106,19 @@ export default function HomePageV1() {
                 challenges.
               </p>
 
-              <div
-                className="flex max-w-[440px] items-center gap-3 rounded-pg-2xl bg-white px-5 py-2 shadow-pg-card"
-                style={{ boxShadow: "var(--pg-shadow-card)" }}
-              >
-                <Search size={18} className="shrink-0 text-pg-slate" />
-                <input
-                  className="flex-1 bg-transparent text-sm text-pg-navy outline-none placeholder:text-pg-slate"
-                  placeholder="Anxiety in Children"
-                />
-                <Button size="s" className="shrink-0">
-                  Search
-                </Button>
-              </div>
+              <SearchField
+                variant="hero"
+                label="Search resources"
+                placeholder="Anxiety in Children"
+                value={query}
+                onValueChange={setQuery}
+                className="max-w-[440px]"
+                action={
+                  <Button size="s" className="shrink-0">
+                    Search
+                  </Button>
+                }
+              />
             </motion.div>
 
             <motion.div
@@ -282,20 +143,13 @@ export default function HomePageV1() {
         className="sticky top-14 z-30 border-y border-pg-cream-dark bg-white"
         style={{ boxShadow: "var(--pg-shadow-card)" }}
       >
-        <div className="mx-auto flex max-w-pg-page items-center gap-2 overflow-x-auto px-6 py-3 md:px-10">
-          {CATEGORIES.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className="shrink-0 rounded-full px-4 py-2 text-xs font-medium transition-colors"
-              style={{
-                background: activeCategory === cat ? "var(--pg-navy)" : "var(--pg-cream-dark)",
-                color: activeCategory === cat ? "var(--pg-white)" : "var(--pg-slate)",
-              }}
-            >
-              {cat}
-            </button>
-          ))}
+        <div className="mx-auto max-w-pg-page px-6 py-3 md:px-10">
+          <FilterChips
+            label="Filter resources"
+            options={CATEGORIES}
+            value={activeCategory}
+            onChange={setActiveCategory}
+          />
         </div>
       </section>
 
@@ -436,74 +290,9 @@ export default function HomePageV1() {
         </div>
       </section>
 
-      {/* ── FAQ ── */}
-      <section className="bg-pg-cream px-6 py-16 md:px-10 lg:px-14">
-        <motion.h2
-          className="mb-10 text-center text-2xl font-bold text-pg-navy capitalize"
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          Frequently Asked Questions
-        </motion.h2>
-        <div className="mx-auto flex max-w-pg-page flex-col gap-8 md:flex-row">
-          <div className="flex flex-1 flex-col gap-5">
-            {left.map((item, i) => (
-              <FaqItem key={i} item={item} index={i} />
-            ))}
-          </div>
-          <div className="flex flex-1 flex-col gap-5 md:pt-8">
-            {right.map((item, i) => (
-              <FaqItem key={i} item={item} index={i} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <PartnersCarousel />
-
-      {/* ── CTA / JOIN US ── */}
-      <section className="bg-pg-sage px-6 py-14 md:px-10 lg:px-14">
-        <div className="mx-auto flex max-w-pg-page flex-col items-center justify-center gap-12 lg:flex-row">
-          <motion.div
-            className="relative h-[240px] w-full shrink-0 overflow-hidden rounded-pg-xl lg:h-[210px] lg:w-[420px]"
-            initial={{ opacity: 0, scale: 0.97 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.55 }}
-          >
-            <img src={imgNewsletter} alt="" className="h-full w-full object-cover" />
-          </motion.div>
-
-          <motion.div
-            className="flex flex-col gap-4"
-            initial={{ opacity: 0, x: 24 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.55 }}
-          >
-            <h2 className="max-w-md text-pg-h1 text-pg-navy">Join Us!</h2>
-            <p className="max-w-sm text-sm leading-relaxed text-pg-navy">
-              Subscribe to our weekly newsletter and be a part of our journey to self discovery and love.
-            </p>
-            {subscribed ? (
-              <p className="text-base font-semibold text-pg-navy">✓ Thanks for subscribing!</p>
-            ) : (
-              <div className="flex max-w-md items-center gap-2 rounded-pg-xl bg-pg-tint-soft p-2">
-                <input
-                  className="min-w-0 flex-1 bg-transparent px-4 py-2 text-sm text-pg-navy outline-none placeholder:text-pg-slate"
-                  placeholder="Your Email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-                <Button onClick={() => email && setSubscribed(true)} className="shrink-0 whitespace-nowrap">
-                  Subscribe
-                </Button>
-              </div>
-            )}
-          </motion.div>
-        </div>
-      </section>
+      <FaqSection content={homeFaq} />
+      <PartnersStrip content={homePartners} />
+      <NewsletterSection content={homeNewsletter} />
     </div>
   );
 }

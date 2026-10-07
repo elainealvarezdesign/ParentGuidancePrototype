@@ -2,7 +2,16 @@ import { Button, ButtonLink } from "@/components/ui/Button";
 import { useState } from "react";
 import { motion } from "motion/react";
 import { ArrowRight } from "@/components/ui/icons";
+import { Link } from "react-router";
 import UnifiedCard from "@/components/cards/UnifiedCard";
+import { SearchField } from "@/components/ui/SearchField";
+import { Field, TextInput } from "@/components/ui/Field";
+import { FaqSection } from "@/sections/FaqSection";
+import { PartnersStrip } from "@/sections/PartnersStrip";
+import { homeFaq, homePartners } from "@/content/home";
+
+/* Home V2 ("/home-v2"): an EXPLORATION kept for comparison while the final home is chosen. It is not
+ * linked from the navigation. Shared parts come from the system; delete this page once a home is picked. */
 
 import imgMentalHealth from "@/imports/HomePagePgV2/b75247b5542e76cdf5c675041b7a6e465e33ef23.png";
 import imgCoaching from "@/imports/HomePagePgV2/debf8187f5722e2bc3e9c2869fc7308cfe71f1fc.png";
@@ -10,12 +19,6 @@ import imgOnDemand from "@/imports/HomePagePgV2/2efa62174bfcf85665907842ba36899e
 import imgAskTherapist from "@/imports/HomePagePgV2/277938b24e46ee2598e5638b70da775e75a5d182.png";
 import imgTrustedByParents from "@/imports/HomePagePgV2/fb9567d2a70815a5c0307df9118cb49c401b72a3.png";
 import imgRealSupport from "@/imports/HomePagePgV2/dabd6f5341bd78f44bfe8771b4f0e2a23c9565f1.png";
-
-import imgQBUnited from "@/imports/QB_united-1.png";
-import imgHopeSquad from "@/imports/HopeSquad-1.png";
-import imgCookCenter from "@/imports/CCHC_Logo-greyscale-1.png";
-import imgStaffGuidance from "@/imports/StaffGuidance.png";
-import imgElizaChat from "@/imports/elizachat_logo_horizontal.svg";
 
 const imgHeroBanner =
   "https://images.unsplash.com/photo-1560707856-3af2ff5ea652?auto=format&fit=crop&w=1400&h=900&q=80";
@@ -27,7 +30,7 @@ const CATEGORIES: Category[] = ["All", "Mental Health", "Coaching", "Courses", "
 const SEARCH_THEMES = [
   { label: "All", bg: "var(--pg-navy)", color: "var(--pg-white)" },
   { label: "Courses", bg: "var(--pg-sage)", color: "var(--pg-navy)" },
-  { label: "Lessons", bg: "var(--pg-teal)", color: "var(--pg-white)" },
+  { label: "Lessons", bg: "var(--pg-teal-dark)", color: "var(--pg-white)" },
   { label: "Ask A Therapist", bg: "var(--pg-peach)", color: "var(--pg-navy)" },
   { label: "Instant Insights", bg: "var(--pg-mist)", color: "var(--pg-navy)" },
 ];
@@ -83,48 +86,6 @@ const WHY_CARDS = [
   },
 ];
 
-const FAQS = [
-  {
-    question: "How long is this program?",
-    answer:
-      "Mental health support doesn't have a timeline and neither does our program. While the initial Parenting with Purpose roadmap is expected to take around 4 weeks to complete, we offer ongoing support as long as you need it.",
-    defaultOpen: true,
-  },
-  {
-    question: "What can I expect from a meeting with my coach?",
-    answer:
-      "Each coaching session is personalized to your family's unique needs and goals. Your coach will listen actively, offer evidence-based strategies, and help you develop an action plan that fits your lifestyle.",
-    defaultOpen: false,
-  },
-  {
-    question: "How often can I message my coach?",
-    answer:
-      "You can message your coach at any time through our platform. Most coaches respond within a few hours during business hours, and within 24 hours at other times.",
-    defaultOpen: false,
-  },
-  {
-    question: "How often will I meet with my coach?",
-    answer:
-      "Meeting frequency is flexible and based on your needs. Most families start with weekly sessions and adjust from there.",
-    defaultOpen: false,
-  },
-  {
-    question: "How long until we deliver your first blog post?",
-    answer:
-      "Our team reviews your intake information and typically delivers the first resource within 48 hours of enrollment.",
-    defaultOpen: false,
-  },
-];
-
-const PARTNER_LOGOS = [
-  { src: imgQBUnited, alt: "QB United", height: 40 },
-  { src: imgHopeSquad, alt: "Hope Squad", height: 40 },
-  { src: imgCookCenter, alt: "Cook Center for Human Connection", height: 44 },
-  { src: imgStaffGuidance, alt: "Staff Guidance", height: 40 },
-  { src: imgElizaChat, alt: "Eliza Chat", height: 36 },
-];
-
-/* Where each "Explore" card leads (sample detail pages until each resource has its own) */
 const EXPLORE_ROUTES: Record<string, string> = {
   "Mental Health": "/mental-health-series/building-your-childs-confidence",
   Coaching: "/parent-coaching",
@@ -132,98 +93,22 @@ const EXPLORE_ROUTES: Record<string, string> = {
   "Ask a Therapist": "/ask-a-therapist/1",
 };
 
-function FaqRow({ item, index }: { item: (typeof FAQS)[0]; index: number }) {
-  const [open, setOpen] = useState(item.defaultOpen);
-  return (
-    <motion.div
-      className="overflow-hidden rounded-pg-md bg-white shadow-pg-card"
-      initial={{ opacity: 0, y: 18 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-40px" }}
-      transition={{ duration: 0.35, delay: index * 0.05 }}
-    >
-      <button
-        type="button"
-        aria-expanded={open}
-        onClick={() => setOpen((o) => !o)}
-        className="flex w-full items-center justify-between px-8 py-6 text-left"
-      >
-        <span className="flex-1 pr-4 text-xl leading-snug font-bold text-pg-navy opacity-88">{item.question}</span>
-        <motion.div
-          animate={{ rotate: open ? 45 : 0 }}
-          transition={{ duration: 0.22 }}
-          className="flex h-5 w-5 shrink-0 items-center justify-center"
-        >
-          <div className="relative h-5 w-5">
-            <div className="absolute top-1/2 left-0 h-[3px] w-full -translate-y-1/2 rounded-full bg-pg-navy opacity-80" />
-            <div className="absolute top-0 left-1/2 h-full w-[3px] -translate-x-1/2 rounded-full bg-pg-navy opacity-80" />
-          </div>
-        </motion.div>
-      </button>
-      <motion.div
-        initial={false}
-        animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }}
-        transition={{ duration: 0.35 }}
-        style={{ overflow: "hidden" }}
-      >
-        <div className="flex flex-col gap-3 px-8 pb-6">
-          <div className="h-[3px] w-5 rounded-full bg-pg-live opacity-80" />
-          <p className="text-sm leading-relaxed text-pg-navy opacity-70">{item.answer}</p>
-        </div>
-      </motion.div>
-    </motion.div>
-  );
-}
-
-function PartnersCarousel() {
-  const doubled = [...PARTNER_LOGOS, ...PARTNER_LOGOS, ...PARTNER_LOGOS];
-  return (
-    <section className="overflow-hidden border-y border-pg-cream-dark bg-white py-20">
-      <style>{`
-        @keyframes marquee-v2 { 0% { transform: translateX(0); } 100% { transform: translateX(-33.3333%); } }
-        .marquee-track-v2 { animation: marquee-v2 30s linear infinite; will-change: transform; }
-        .marquee-track-v2:hover { animation-play-state: paused; }
-      `}</style>
-      <motion.h3
-        className="mb-10 text-center text-2xl font-semibold text-pg-teal-dark"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-      >
-        Our Passionate Partners
-      </motion.h3>
-      <div className="relative">
-        <div
-          className="pointer-events-none absolute top-0 bottom-0 left-0 z-10 w-24"
-          style={{ background: "linear-gradient(to right, var(--pg-white), transparent)" }}
-        />
-        <div
-          className="pointer-events-none absolute top-0 right-0 bottom-0 z-10 w-24"
-          style={{ background: "linear-gradient(to left, var(--pg-white), transparent)" }}
-        />
-        <div className="marquee-track-v2 flex items-center" style={{ width: "max-content" }}>
-          {doubled.map((logo, i) => (
-            <div key={i} className="flex flex-shrink-0 items-center justify-center px-10">
-              <img
-                src={logo.src}
-                alt={logo.alt}
-                style={{ height: logo.height, width: "auto", objectFit: "contain", mixBlendMode: "multiply" }}
-              />
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 export default function HomePageV2() {
   const [activeCategory, setActiveCategory] = useState<Category>("All");
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
+  const [error, setError] = useState("");
+  const [query, setQuery] = useState("");
+
+  function subscribe(e: React.FormEvent) {
+    e.preventDefault();
+    if (!/^\S+@\S+\.\S+$/.test(email)) return setError("Enter a valid email address.");
+    setError("");
+    setSubscribed(true);
+  }
 
   return (
-    <div className="min-h-screen bg-pg-cream pt-14">
+    <div className="mt-14 bg-pg-cream">
       {/* ── HERO ── */}
       <section className="overflow-hidden bg-pg-cream">
         <div className="mx-auto max-w-pg-page px-6 py-14 md:px-10 md:py-20 lg:px-14">
@@ -280,22 +165,26 @@ export default function HomePageV2() {
             </div>
 
             <div>
-              <div className="flex w-full items-center gap-2 rounded-full bg-white py-1 pr-1 pl-5 shadow-pg-overlay transition-shadow focus-within:shadow-pg-overlay">
-                <input
-                  className="min-w-0 flex-1 bg-transparent py-2 text-sm font-medium text-pg-navy outline-none placeholder:font-normal placeholder:text-pg-slate"
-                  placeholder="Anxiety in Children"
-                />
-                <Button size="s" className="shrink-0 rounded-full">
-                  Search
-                  <ArrowRight size={13} />
-                </Button>
-              </div>
+              <SearchField
+                variant="hero"
+                label="Search resources"
+                placeholder="Anxiety in Children"
+                value={query}
+                onValueChange={setQuery}
+                action={
+                  <Button size="s" className="shrink-0">
+                    Search
+                    <ArrowRight size={14} aria-hidden="true" />
+                  </Button>
+                }
+              />
 
               <p className="mt-4 mb-2 text-xs text-white/70">Search for specific content related to these themes</p>
               <div className="flex flex-wrap justify-center gap-2 md:justify-start">
                 {SEARCH_THEMES.map((theme) => (
                   <button
                     key={theme.label}
+                    type="button"
                     className="rounded-full px-4 py-2 text-xs font-semibold transition-transform hover:scale-105"
                     style={{ background: theme.bg, color: theme.color }}
                   >
@@ -437,24 +326,8 @@ export default function HomePageV2() {
         </div>
       </section>
 
-      {/* ── FAQ (single column) ── */}
-      <section className="bg-pg-cream px-6 py-16 md:px-10 lg:px-14">
-        <motion.h2
-          className="mb-10 text-center text-2xl font-bold text-pg-navy capitalize"
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          Frequently Asked Questions
-        </motion.h2>
-        <div className="mx-auto flex max-w-[760px] flex-col gap-5">
-          {FAQS.map((item, i) => (
-            <FaqRow key={i} item={item} index={i} />
-          ))}
-        </div>
-      </section>
-
-      <PartnersCarousel />
+      <FaqSection content={homeFaq} />
+      <PartnersStrip content={homePartners} />
 
       {/* ── CTA (centered card, no image) ── */}
       <section className="bg-pg-cream px-6 py-16 md:px-10 md:py-20 lg:px-14">
@@ -481,30 +354,33 @@ export default function HomePageV2() {
           <div>
             <p className="mb-3 text-sm font-normal text-white">Stay up to date</p>
             {subscribed ? (
-              <p className="text-base font-semibold text-pg-sage">✓ Thanks for subscribing!</p>
+              <p className="text-base font-semibold text-pg-sage" role="status">
+                ✓ Thanks for subscribing!
+              </p>
             ) : (
-              <div className="flex items-center gap-2 rounded-pg-xl border border-white/10 bg-pg-navy-hover p-2 transition-colors focus-within:border-pg-sage/60">
-                <input
-                  type="email"
-                  className="min-w-0 flex-1 bg-transparent px-4 py-3 text-sm text-white outline-none placeholder:text-white/60"
-                  placeholder="Enter your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-                <Button
-                  variant="inverse"
-                  onClick={() => email && setSubscribed(true)}
-                  className="shrink-0 whitespace-nowrap"
-                >
-                  Subscribe
-                </Button>
-              </div>
+              <form onSubmit={subscribe} noValidate>
+                <Field label="Email address" hideLabel tone="inverse" error={error}>
+                  <div className="flex items-center gap-2 rounded-pg-xl border border-white/10 bg-pg-navy-hover p-2 transition-colors focus-within:border-pg-sage/60">
+                    <TextInput
+                      type="email"
+                      autoComplete="email"
+                      placeholder="Enter your email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="min-h-0 border-0 bg-transparent text-white placeholder:text-white/60"
+                    />
+                    <Button type="submit" variant="inverse" className="shrink-0 whitespace-nowrap">
+                      Subscribe
+                    </Button>
+                  </div>
+                </Field>
+              </form>
             )}
             <p className="mt-3 text-xs font-normal text-white/60">
               By subscribing, you agree to our{" "}
-              <a href="/cookies-policy" className="underline transition-colors hover:text-white">
+              <Link to="/consent-documents" className="underline transition-colors hover:text-white">
                 Privacy Policy
-              </a>
+              </Link>
             </p>
           </div>
         </motion.div>
