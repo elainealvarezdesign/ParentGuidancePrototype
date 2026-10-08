@@ -30,15 +30,18 @@ const meta = {
     footer: courses[1].instructor,
     cta: { label: "Begin Course", to: "/courses/milestones-to-progress" },
   },
-  decorators: [(Story) => <div className="max-w-xs">{Story()}</div>],
 } satisfies Meta<typeof UnifiedCard>;
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Course: Story = {};
+// One card at its real grid width (a column of the 3-up grid).
+const oneCard = [(Story: () => React.ReactNode) => <div className="max-w-xs">{Story()}</div>];
+
+export const Course: Story = { decorators: oneCard };
 
 export const HelpLine: Story = {
   name: "Help line (logo, external)",
+  decorators: oneCard,
   args: {
     image: { src: supportResources[4].logo, alt: `${supportResources[4].name} logo` },
     imageKind: "logo",
@@ -53,6 +56,7 @@ export const HelpLine: Story = {
 };
 
 export const LongTitle: Story = {
+  decorators: oneCard,
   args: { title: "Milestones to Progress: Guiding your child from birth through the early school years" },
 };
 
