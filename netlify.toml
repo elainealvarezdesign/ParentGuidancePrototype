@@ -1,5 +1,6 @@
 [build]
-  command = "pnpm build"
+  # The site, plus the Storybook catalog published under /storybook/
+  command = "pnpm build && pnpm build-storybook --quiet -o dist/storybook"
   publish = "dist"
 
 # Client-side routing (react-router): serve index.html for every route

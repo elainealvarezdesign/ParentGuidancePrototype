@@ -18,6 +18,7 @@ The design system lives in this repository: tokens, components, sections, conten
 - **Start here:** [`docs/system/`](./docs/system/README.md) — architecture, "Build a page", and docs for every
   component, section and page. Index: [`DESIGN.md`](./DESIGN.md). AI agents: [`AGENTS.md`](./AGENTS.md).
 - **Tokens (source):** [`tokens/pg.tokens.json`](./tokens/pg.tokens.json) → `pnpm tokens` → `src/styles/tokens.css`
+- **Storybook (visual catalog):** `pnpm storybook`, published at <https://parent-guidance-prototype.netlify.app/storybook/>
 - **Contributing:** [`CONTRIBUTING.md`](./CONTRIBUTING.md)
 
 ## Design guidelines

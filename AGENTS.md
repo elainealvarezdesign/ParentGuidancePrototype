@@ -19,6 +19,7 @@ pnpm install          # Node 20+, pnpm 10 (corepack enable)
 pnpm dev              # http://localhost:5173
 pnpm check            # typecheck + lint + tokens + design rules + docs + unit tests + build — must pass
 pnpm test:e2e         # Playwright + axe on every route (CI runs it too)
+pnpm storybook        # visual catalog of every component, section and page (http://localhost:6006)
 pnpm tokens           # after editing tokens/pg.tokens.json
 pnpm format           # Prettier (with the Tailwind class sorter)
 ```
@@ -60,7 +61,8 @@ pnpm format           # Prettier (with the Tailwind class sorter)
 - Lists of cards are `<ul>/<li>`. Result counts are announced with `role="status"`.
 - Detail pages: unknown id → `NotFoundPage`; per-item state keyed by id (`key={item.id}`).
 - Imports: `@/` alias; icons only from `@/components/ui/icons`; class merging with `cn()` from `@/lib/cn`.
-- New component or section → a doc in `docs/system` (`pnpm check:docs` fails otherwise).
+- New component or section → a doc in `docs/system` (`pnpm check:docs` fails otherwise) and a story
+  (`*.stories.tsx` next to it, real content from `src/content`).
 
 ## Definition of done
 

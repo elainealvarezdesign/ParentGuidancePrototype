@@ -63,12 +63,13 @@ export function Avatar({ name, size = "m", photo, ring, className }: AvatarProps
 /** Avatar + name + credential, the "Instructor Line" pattern. */
 export function PersonLine({
   name,
-  role,
+  detail,
   size = "m",
   tone = "default",
 }: {
   name: string;
-  role?: string;
+  /** Credential or job title under the name. */
+  detail?: string;
   size?: AvatarProps["size"];
   tone?: "default" | "inverse";
 }) {
@@ -79,8 +80,8 @@ export function PersonLine({
         <span className={cn("text-sm font-semibold", tone === "inverse" ? "text-white" : "text-pg-teal-dark")}>
           {name}
         </span>
-        {role && (
-          <span className={cn("text-xs", tone === "inverse" ? "text-white/80" : "text-pg-teal-dark")}>{role}</span>
+        {detail && (
+          <span className={cn("text-xs", tone === "inverse" ? "text-white/80" : "text-pg-teal-dark")}>{detail}</span>
         )}
       </span>
     </span>

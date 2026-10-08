@@ -15,6 +15,5 @@ prototype or the library.
 | Line height | Mental Health Series, Parent Coaching and the alternative homes still use some one-off line heights (`leading-[…]`); spacing is already on the scale | Development |
 
 Source: section 5.4 of the design guidelines (`docs/guidelines/05-quality.md`).
-| Component workbench | Decide whether to add Storybook (or a `/design-system` route) to browse components in isolation; the docs in `docs/system` cover usage today | Development |
 | Figma mirror | Update the Figma library to the repo tokens and new sections (SplitHero shapes, PhotoCtaBanner overlay, ResourceLibrary…); the repo is the source | Design |
 | FAQ wording | Two home FAQ questions were duplicates; they now read "What happens in a typical session?" and "Is messaging limited?" — confirm the copy | Content |

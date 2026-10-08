@@ -12,5 +12,5 @@
 | `size` | `xs` 28, `s` 32, `m` 36, `l` 48, `xl` 64 | `m` |
 | `ring` | white ring + shadow, for avatars on photos | — |
 
-`PersonLine` = avatar + name + role (`name`, `role`, `size`, `tone: default | inverse`). Used in heroes
+`PersonLine` = avatar + name + credential (`name`, `detail`, `size`, `tone: default | inverse`). Used in heroes
 and cards to credit a therapist or instructor.

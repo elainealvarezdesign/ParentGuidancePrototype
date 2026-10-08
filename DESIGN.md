@@ -30,6 +30,7 @@ Copy is in English, sentence case. Button labels start with a verb ("View course
 | What a section is for and which content it takes | [sections/](./docs/system/sections/README.md) |
 | How each page is assembled | [pages/](./docs/system/pages/README.md) |
 | Working on the repo (checks, commits, reviews) | [CONTRIBUTING.md](./CONTRIBUTING.md) |
+| See every component, section and page live | [Storybook](./docs/system/storybook.md) (`pnpm storybook`, or `/storybook/` on the live site) |
 | Instructions for AI coding agents | [AGENTS.md](./AGENTS.md) |
 | Handoff status, simulated features, open items | [docs/handoff/](./docs/handoff/README.md) |
 | Visual guidelines (PDF, EN/ES) | [docs/guidelines/](./docs/guidelines/README.md) |

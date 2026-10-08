@@ -56,4 +56,5 @@ All in [cards.md](./cards.md): `UnifiedCard`, `QuestionCard`, `ResourceCard`, `E
 3. Type every prop and document non-obvious ones with `/** … */`.
 4. Accept `className` for layout tweaks (merged with `cn()`), never for recoloring.
 5. Handle names, focus and keyboard inside the component.
-6. Add the doc here and run `pnpm check`.
+6. Add a story next to it (`Name.stories.tsx`, see [storybook.md](../storybook.md)) covering its states.
+7. Add the doc here and run `pnpm check`.

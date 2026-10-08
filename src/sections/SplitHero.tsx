@@ -128,7 +128,7 @@ export function SplitHero({
               <RichText text={body} />
             </p>
           )}
-          {person && <PersonLine name={person.name} role={person.role} />}
+          {person && <PersonLine name={person.name} detail={person.role} />}
           {children}
           {actions.length > 0 && (
             <div className="flex flex-wrap items-center gap-3">

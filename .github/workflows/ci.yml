@@ -27,6 +27,7 @@ jobs:
       - run: pnpm check:docs
       - run: pnpm test
       - run: pnpm build
+      - run: pnpm build-storybook --quiet
 
   e2e:
     # Accessibility (axe, WCAG 2.1 AA) and keyboard tests on every route, desktop and mobile widths.

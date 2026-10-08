@@ -15,6 +15,7 @@ the site from these docs and the code alone, without opening Figma.
 | [components/](./components/) | Every reusable component: props, rules, accessibility. |
 | [sections/](./sections/) | Every page section: what it is for, its content fields and limits. |
 | [pages/](./pages/) | Every page as a recipe: which sections, in which order, with which content. |
+| [storybook.md](./storybook.md) | The visual catalog: every component, section and page rendered live (`pnpm storybook`). |
 
 ## Architecture
 
@@ -145,4 +146,5 @@ pnpm check:design   # design-rule check only
 pnpm check:docs     # every docs/system path referenced in src/ exists, every block is documented
 pnpm test           # unit, component and content tests (Vitest)
 pnpm test:e2e       # accessibility (axe) and keyboard tests on every route (Playwright)
+pnpm storybook      # visual catalog at http://localhost:6006
 ```

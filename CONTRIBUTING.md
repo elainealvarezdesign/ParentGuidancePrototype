@@ -41,7 +41,8 @@ add an interactive component, add a test next to it.
 
 - **Tokens:** change `tokens/pg.tokens.json` → `pnpm tokens` → commit both files. Then update the Figma
   variables to match (Figma follows the repo).
-- **Components and sections:** change the code and its doc in the same PR. If the change is visible, add
+- **Components and sections:** change the code, its doc and its story in the same PR (`pnpm storybook` to
+  review every state). If the change is visible, add
   before/after screenshots at 375 and 1280px to the PR.
 - **Content:** edit `src/content`; keep within the field limits documented in the content types.
 
