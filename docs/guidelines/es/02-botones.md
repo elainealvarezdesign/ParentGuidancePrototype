@@ -1,7 +1,7 @@
 # 2. Botones
 
 Todos los botones de acción del prototipo salen de un solo sistema (teal, 8px, Poppins semibold 14px, hover
-teal dark), implementado en el componente [`Button.tsx`](../../../src/app/components/Button.tsx) (sección 2.4).
+teal dark), implementado en el componente [`Button.tsx`](../../../src/components/ui/Button.tsx) (sección 2.4).
 
 ## 2.1 Estilos
 
@@ -53,7 +53,7 @@ Los componentes nuevos no necesitan añadir clases de foco.
 
 ## 2.4 Componente
 
-Los botones del prototipo usan [`src/app/components/Button.tsx`](../../../src/app/components/Button.tsx):
+Los botones del prototipo usan [`src/components/ui/Button.tsx`](../../../src/components/ui/Button.tsx):
 
 | Componente | Para qué | Ejemplo |
 |------------|----------|---------|

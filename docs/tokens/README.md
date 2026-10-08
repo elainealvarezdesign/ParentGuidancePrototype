@@ -1,4 +1,9 @@
-# Design tokens
+# Design tokens (Figma export)
+
+> **Source of truth:** [`tokens/pg.tokens.json`](../../tokens/pg.tokens.json) in the repo root generates the code
+> tokens (`pnpm tokens`). This folder is the export of the **Figma library variables**, kept as a mirror for
+> design tools. When the two disagree, the repo tokens win and Figma is updated to match. See
+> [`docs/system/foundations.md`](../system/foundations.md).
 
 [`parent-guidance.tokens.json`](./parent-guidance.tokens.json) holds every variable of the Figma library
 [Design system - PG](https://www.figma.com/design/mWOJYdAxkKGj0bWSO2ptGj/Design-system---PG) (479 tokens) in the

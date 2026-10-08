@@ -5,3 +5,8 @@ __MACOSX/
 .env
 .env.*
 *.log
+test-results/
+playwright-report/
+dist-storybook/
+*storybook.log
+preview-storybook/

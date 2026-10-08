@@ -70,7 +70,7 @@ Used gently and **only once**:
 - Every navigation opens the new page at the top (`<ScrollRestoration />` in the root layout); back/forward
   restores the position.
 - "Back to top" buttons and page changes use `scrollBehavior()` from
-  [`src/app/utils/motion.ts`](../../src/app/utils/motion.ts): `"smooth"`, or `"auto"` when the user asks for
+  [`src/lib/motion.ts`](../../src/lib/motion.ts): `"smooth"`, or `"auto"` when the user asks for
   reduced motion.
 
 ## 4.4 Reduced‑motion contract (mandatory)

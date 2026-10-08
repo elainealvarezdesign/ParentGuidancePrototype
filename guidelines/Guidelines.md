@@ -70,7 +70,7 @@ crisis help. The UI must feel warm, calm and trustworthy. Full guidelines live i
 
 # Buttons
 
-* Use `src/app/components/Button.tsx`: `<Button>` for actions, `<ButtonLink to>` for in-app links,
+* Use `src/components/ui/Button.tsx`: `<Button>` for actions, `<ButtonLink to>` for in-app links,
   `<ButtonAnchor href>` for external, mailto, tel and sms links. Props: `variant` (primary, secondary,
   tertiary, inverse, inverse-secondary) and `size` (`s` 36px, `m` 44px default, `l` 52px). Never restyle
   colors, radius or height through `className`.
@@ -86,7 +86,7 @@ crisis help. The UI must feel warm, calm and trustworthy. Full guidelines live i
 
 # Icons
 
-* Material Icons, Outlined style only (`@mui/icons-material`). Import them from `src/app/components/icons.tsx`
+* Material Icons, Outlined style only (`@mui/icons-material`). Import them from `src/components/ui/icons.tsx`
   (e.g. `import { Search } from "./components/icons"`), never from another icon library.
 * Size with `size` in px: 14–16px in controls, 18–20px in icon-only buttons. Color via `currentColor` and a
   text class. Decorative icons get `aria-hidden="true"`.

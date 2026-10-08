@@ -8,19 +8,19 @@
 /* Visible focus: teal dark ring (#406064) with a white halo inside and out,
    so it reads the same on light (cream, white) and dark (navy) backgrounds. */
 :where(
-  a[href],
-  button,
-  input,
-  select,
-  textarea,
-  summary,
-  [role="button"],
-  [role="link"],
-  [role="tab"],
-  [role="menuitem"],
-  [role="option"],
-  [tabindex]:not([tabindex="-1"])
-):focus-visible {
+    a[href],
+    button,
+    input,
+    select,
+    textarea,
+    summary,
+    [role="button"],
+    [role="link"],
+    [role="tab"],
+    [role="menuitem"],
+    [role="option"],
+    [tabindex]:not([tabindex="-1"])
+  ):focus-visible {
   outline: 2px solid #406064;
   outline-offset: 2px;
   box-shadow: 0 0 0 6px #ffffff;
@@ -41,5 +41,27 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* Partners strip marquee (sections/PartnersStrip.tsx). Off when reduced motion is requested. */
+@keyframes pg-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-33.3333%);
+  }
+}
+.pg-marquee {
+  animation: pg-marquee 30s linear infinite;
+  will-change: transform;
+}
+.pg-marquee:hover {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .pg-marquee {
+    animation: none;
   }
 }

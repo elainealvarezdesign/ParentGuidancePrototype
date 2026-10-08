@@ -34,9 +34,9 @@ sus PDF en `docs/guidelines/pdf/`.
 |---------|--------|
 | [`src/styles/tokens.css`](../../../src/styles/tokens.css) | Variables CSS (`--pg-*`) y su mapeo a Tailwind v4 (`bg-pg-navy`, `rounded-pg-md`, `shadow-pg-card`, `max-w-pg-page`…) |
 | [`src/styles/accessibility.css`](../../../src/styles/accessibility.css) | Foco visible global y regla de reduced‑motion |
-| [`src/app/components/Button.tsx`](../../../src/app/components/Button.tsx) | `<Button>`, `<ButtonLink>`, `<ButtonAnchor>` y `buttonClass()` |
-| [`src/app/components/UnifiedCard.tsx`](../../../src/app/components/UnifiedCard.tsx) | Card estándar (recursos, cursos, líneas de ayuda) |
-| [`src/app/mhs/EventModal.tsx`](../../../src/app/mhs/EventModal.tsx) | Pop-up de evento (patrón de diálogo accesible) |
+| [`src/components/ui/Button.tsx`](../../../src/components/ui/Button.tsx) | `<Button>`, `<ButtonLink>`, `<ButtonAnchor>` y `buttonClass()` |
+| [`src/components/cards/UnifiedCard.tsx`](../../../src/components/cards/UnifiedCard.tsx) | Card estándar (recursos, cursos, líneas de ayuda) |
+| [`src/components/patterns/EventModal.tsx`](../../../src/components/patterns/EventModal.tsx) | Pop-up de evento (patrón de diálogo accesible) |
 | [`guidelines/Guidelines.md`](../../../guidelines/Guidelines.md) | Resumen en inglés para **Figma Make** (el archivo que lee su IA al generar pantallas) |
 
 ## Personalidad visual

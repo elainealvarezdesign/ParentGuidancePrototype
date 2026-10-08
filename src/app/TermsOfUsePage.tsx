@@ -1,11 +1,7 @@
-import {
-  TERMS_EFFECTIVE_DATE,
-  TERMS_INTRO,
-  TERMS_SECTIONS,
-  buildLegalPlainText,
-} from "./legal/legalContent";
-import LegalDocumentBody from "./legal/LegalDocumentBody";
-import { LegalActions, BackToTopButton, downloadTextFile } from "./legal/LegalActions";
+import { DocumentHeader } from "@/sections/DocumentHeader";
+import { TERMS_EFFECTIVE_DATE, TERMS_INTRO, TERMS_SECTIONS, buildLegalPlainText } from "@/content/legal";
+import LegalDocumentBody from "@/components/patterns/LegalDocumentBody";
+import { LegalActions, BackToTopButton, downloadTextFile } from "@/components/patterns/DocumentActions";
 
 function handleDownload() {
   const text = buildLegalPlainText("Terms of Use", TERMS_EFFECTIVE_DATE, "Introduction", TERMS_INTRO, TERMS_SECTIONS);
@@ -14,27 +10,20 @@ function handleDownload() {
 
 export default function TermsOfUsePage() {
   return (
-    <main className="min-h-screen bg-pg-cream print:bg-white">
-      <section className="px-6 pb-14 pt-28 md:px-10 lg:px-14 print:hidden">
-        <div className="mx-auto max-w-pg-content">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-pg-eyebrow text-pg-teal-dark">
-            Legal
-          </p>
+    <div className="min-h-screen bg-pg-cream print:bg-white">
+      <DocumentHeader
+        content={{
+          eyebrow: "Legal",
+          title: "Terms of Use",
+          intro:
+            "Please read these Terms of Use carefully before accessing or using Parent Guidance's websites, the Online Education Platform, and related services.",
+        }}
+        titleId="terms-of-use-title"
+      >
+        <LegalActions onDownload={handleDownload} />
+      </DocumentHeader>
 
-          <h1 id="terms-of-use-title" tabIndex={-1} className="focus:outline-none text-[28px] font-bold text-pg-navy md:text-[40px]">
-            Terms of Use
-          </h1>
-
-          <p className="mt-4 max-w-pg-reading text-base leading-7 text-pg-slate">
-            Please read these Terms of Use carefully before accessing or using Parent Guidance's
-            websites, the Online Education Platform, and related services.
-          </p>
-
-          <LegalActions onDownload={handleDownload} />
-        </div>
-      </section>
-
-      <section className="px-6 pb-20 pt-10 md:px-10 lg:px-14 print:p-0">
+      <section className="px-6 pt-10 pb-20 md:px-10 lg:px-14 print:p-0">
         <div className="mx-auto max-w-pg-content rounded-pg-xl border border-pg-line bg-white p-7 shadow-pg-card md:p-10 print:max-w-none print:rounded-none print:border-0 print:p-0 print:shadow-none">
           <LegalDocumentBody
             effectiveDate={TERMS_EFFECTIVE_DATE}
@@ -48,6 +37,6 @@ export default function TermsOfUsePage() {
         </div>
         <BackToTopButton focusId="terms-of-use-title" />
       </section>
-    </main>
+    </div>
   );
 }

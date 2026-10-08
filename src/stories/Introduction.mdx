@@ -1,0 +1,27 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Introduction" />
+
+# Parent Guidance design system
+
+This catalog is generated from the code. Every component, section and page shown here is the same code the
+website runs, so it is never out of date.
+
+| Group           | What it holds                                                                                              |
+| --------------- | ---------------------------------------------------------------------------------------------------------- |
+| **Foundations** | Colors, type, spacing, radius, shadow and motion, read from `tokens/pg.tokens.json`                        |
+| **UI**          | Primitives: buttons, form fields, search, chips, dialog, tabs, accordion, badges, avatars, notices, player |
+| **Cards**       | One item in a list: Unified, Question, Resource and Event cards                                            |
+| **Patterns**    | Composed widgets: filter bar, submit-question dialog, calendar, event pop-up, lesson outline               |
+| **Sections**    | Page bands that take typed `content` (heroes, banners, FAQ, library…)                                      |
+| **Pages**       | Full pages, composed from sections                                                                         |
+
+How to use it:
+
+- **Controls** (below each story) change props live: try long titles, other variants, error states.
+- **Accessibility** runs axe on the story; any violation is listed there.
+- **Viewport** (toolbar) previews 375, 768 and 1280px.
+- Written guidance for each item (when to use it, content limits, rules) lives in the repo under
+  `docs/system/`; each story's description names its doc.
+
+Run it locally with `pnpm storybook`; it is also published with the site at `/storybook/`.

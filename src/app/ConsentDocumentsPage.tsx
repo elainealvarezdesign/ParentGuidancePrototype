@@ -1,6 +1,7 @@
+import { DocumentHeader } from "@/sections/DocumentHeader";
 import { useState } from "react";
-import { Button } from "./components/Button";
-import { ChevronDown, Download, Printer } from "./components/icons";
+import { Button } from "@/components/ui/Button";
+import { ChevronDown, Download, Printer } from "@/components/ui/icons";
 import {
   TERMS_EFFECTIVE_DATE,
   TERMS_INTRO,
@@ -10,9 +11,9 @@ import {
   PRIVACY_SECTIONS,
   buildLegalPlainText,
   type LegalSection,
-} from "./legal/legalContent";
-import LegalDocumentBody from "./legal/LegalDocumentBody";
-import { BackToTopButton } from "./legal/LegalActions";
+} from "@/content/legal";
+import LegalDocumentBody from "@/components/patterns/LegalDocumentBody";
+import { BackToTopButton } from "@/components/patterns/DocumentActions";
 
 type Document = {
   id: string;
@@ -81,39 +82,44 @@ function AccordionItem({ doc, isOpen, onToggle }: { doc: Document; isOpen: boole
       className="overflow-hidden rounded-pg-xl border border-pg-line bg-white shadow-pg-card print:rounded-none print:border-0 print:shadow-none"
     >
       <div className="flex flex-wrap items-center justify-between gap-3 px-6 py-5 md:px-8 print:hidden">
-        <button
-          type="button"
-          onClick={onToggle}
-          className="flex flex-1 items-center gap-3 text-left"
-          aria-expanded={isOpen}
-        >
-          <span className="h-2 w-2 rounded-full bg-pg-teal" />
-          <span className="text-xl font-bold text-pg-navy">{doc.title}</span>
-          <ChevronDown
-            size={18}
-            className={`ml-1 text-pg-teal transition-transform ${isOpen ? "rotate-180" : ""}`}
-          />
-        </button>
+        <h2 className="flex-1">
+          <button
+            type="button"
+            onClick={onToggle}
+            className="flex w-full items-center gap-3 text-left"
+            aria-expanded={isOpen}
+            aria-controls={`${doc.id}-panel`}
+          >
+            <span className="h-2 w-2 rounded-full bg-pg-teal-dark" aria-hidden="true" />
+            <span className="text-pg-h3 text-pg-navy">{doc.title}</span>
+            <ChevronDown
+              size={18}
+              aria-hidden="true"
+              className={`ml-1 text-pg-teal-dark transition-transform ${isOpen ? "rotate-180" : ""}`}
+            />
+          </button>
+        </h2>
 
         <div className="flex gap-2">
           <Button size="s" onClick={() => downloadDocument(doc)}>
-            <Download size={15} />
-            Download
+            <Download size={16} aria-hidden="true" />
+            Download<span className="sr-only"> {doc.title}</span>
           </Button>
 
           <Button variant="secondary" size="s" onClick={() => printDocument(doc.id)}>
-            <Printer size={15} />
-            Print
+            <Printer size={16} aria-hidden="true" />
+            Print<span className="sr-only"> {doc.title}</span>
           </Button>
         </div>
       </div>
 
-      <h2 className="hidden px-6 pt-6 text-2xl font-bold text-pg-navy print:block print:px-0">
+      <p className="hidden px-6 pt-6 text-pg-h2 text-pg-navy print:block print:px-0" aria-hidden="true">
         {doc.title}
-      </h2>
+      </p>
 
-      <div className={`${isOpen ? "block" : "hidden"} px-6 pb-8 md:px-8 print:block print:px-0`}>
+      <div id={`${doc.id}-panel`} className={`${isOpen ? "block" : "hidden"} px-6 pb-8 md:px-8 print:block print:px-0`}>
         <LegalDocumentBody
+          headingLevel="h3"
           effectiveDate={doc.effectiveDate}
           introHeading={doc.introHeading}
           intro={doc.intro}
@@ -131,23 +137,16 @@ export default function ConsentDocumentsPage() {
   const [openId, setOpenId] = useState<string>(DOCUMENTS[0].id);
 
   return (
-    <main className="min-h-screen bg-pg-cream print:bg-white">
-      <section className="px-6 pb-14 pt-28 md:px-10 lg:px-14 print:hidden">
-        <div className="mx-auto max-w-pg-content">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-pg-eyebrow text-pg-teal-dark">
-            Legal
-          </p>
-
-          <h1 id="consent-documents-title" tabIndex={-1} className="focus:outline-none text-[28px] font-bold text-pg-navy md:text-[40px]">
-            Consent Documents
-          </h1>
-
-          <p className="mt-4 max-w-pg-reading text-base leading-7 text-pg-slate">
-            Review, download or print the Terms of Use and Privacy Policy that apply to your
-            access to and use of Parent Guidance's Services.
-          </p>
-        </div>
-      </section>
+    <div className="min-h-screen bg-pg-cream print:bg-white">
+      <DocumentHeader
+        content={{
+          eyebrow: "Legal",
+          title: "Consent Documents",
+          intro:
+            "Review, download or print the Terms of Use and Privacy Policy that apply to your access to and use of Parent Guidance's Services.",
+        }}
+        titleId="consent-documents-title"
+      />
 
       <section className="px-6 pb-20 md:px-10 lg:px-14 print:p-0">
         <div className="mx-auto flex max-w-pg-content flex-col gap-6 print:gap-0">
@@ -162,6 +161,6 @@ export default function ConsentDocumentsPage() {
         </div>
         <BackToTopButton focusId="consent-documents-title" />
       </section>
-    </main>
+    </div>
   );
 }

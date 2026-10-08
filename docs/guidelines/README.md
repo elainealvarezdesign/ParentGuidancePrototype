@@ -34,9 +34,9 @@ PDFs in `docs/guidelines/pdf/es/`.
 |------|------------|
 | [`src/styles/tokens.css`](../../src/styles/tokens.css) | CSS variables (`--pg-*`) and their Tailwind v4 mapping (`bg-pg-navy`, `rounded-pg-md`, `shadow-pg-card`, `max-w-pg-page`…) |
 | [`src/styles/accessibility.css`](../../src/styles/accessibility.css) | Global visible focus and the reduced‑motion rule |
-| [`src/app/components/Button.tsx`](../../src/app/components/Button.tsx) | `<Button>`, `<ButtonLink>`, `<ButtonAnchor>` and `buttonClass()` |
-| [`src/app/components/UnifiedCard.tsx`](../../src/app/components/UnifiedCard.tsx) | Standard card (resources, courses, help lines) |
-| [`src/app/mhs/EventModal.tsx`](../../src/app/mhs/EventModal.tsx) | Event pop-up (accessible dialog pattern) |
+| [`src/components/ui/Button.tsx`](../../src/components/ui/Button.tsx) | `<Button>`, `<ButtonLink>`, `<ButtonAnchor>` and `buttonClass()` |
+| [`src/components/cards/UnifiedCard.tsx`](../../src/components/cards/UnifiedCard.tsx) | Standard card (resources, courses, help lines) |
+| [`src/components/patterns/EventModal.tsx`](../../src/components/patterns/EventModal.tsx) | Event pop-up (accessible dialog pattern) |
 | [`guidelines/Guidelines.md`](../../guidelines/Guidelines.md) | Short summary for **Figma Make** (the file its AI reads when generating screens) |
 
 ## Visual personality

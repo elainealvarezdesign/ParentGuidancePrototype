@@ -1,0 +1,76 @@
+{
+  "$description": "Parent Guidance design tokens — the source of truth for code. `pnpm tokens` generates src/styles/tokens.css from this file. Figma variables mirror these values (see docs/tokens/).",
+  "color": {
+    "$type": "color",
+    "navy": { "$value": "#1c3243", "$description": "Primary text, headings, dark surfaces (footer, banners)." },
+    "navy-hover": { "$value": "#284054", "$description": "Hover state of navy surfaces." },
+    "slate": { "$value": "#435766", "$description": "Body text and secondary text." },
+    "teal": { "$value": "#59797d", "$description": "Brand fills: primary button, active chips, icons. Text only at 18px+ or bold 14px+ (4.71:1 on white, 4.32:1 on cream)." },
+    "teal-dark": { "$value": "#406064", "$description": "Small brand-colored text, links, hover of teal, focus ring (6.83:1 on white)." },
+    "sage": { "$value": "#90b3b6", "$description": "Decorative fills and text on navy only. Never text on light backgrounds; never white text on sage (2.26:1)." },
+    "peach": { "$value": "#e8a497", "$description": "Decorative accent shape used by Home V2 only. Never text." },
+    "mist": { "$value": "#acbcbe", "$description": "Decorative only, never text." },
+    "amber": { "$value": "#c8893a", "$description": "Lesson accent; decorative fill only, never text." },
+    "live": { "$value": "#52bd95", "$description": "'Live' indicator dot; decorative only." },
+    "cream": { "$value": "#f9f4f1", "$description": "Default page background." },
+    "cream-dark": { "$value": "#f0edeb", "$description": "Chips and inputs on cream." },
+    "white": { "$value": "#ffffff", "$description": "Cards and raised surfaces." },
+    "tint": { "$value": "#eaf1f1", "$description": "Badges, selected states, soft section background." },
+    "tint-soft": { "$value": "#f0f6f6", "$description": "Alternate section background." },
+    "line": { "$value": "#dee8e9", "$description": "Borders and dividers." },
+    "success": { "$value": "#117a3a", "$description": "Success text and icons." },
+    "success-soft": { "$value": "#d3f7df", "$description": "Success badge and notice background." },
+    "warning": { "$value": "#a84b02", "$description": "Warning text and icons." },
+    "warning-soft": { "$value": "#feeab1", "$description": "Warning badge and notice background." },
+    "error": { "$value": "#932f2f", "$description": "Error text, field errors." },
+    "error-soft": { "$value": "#fdcfcf", "$description": "Error notice background." }
+  },
+  "font": {
+    "family": { "$type": "fontFamily", "$value": "'Poppins', system-ui, sans-serif" }
+  },
+  "text": {
+    "$description": "Semantic type scale. Each style is a utility class `text-pg-<name>` that sets size, line height and weight; `md` values apply from 768px.",
+    "display": { "size": 38, "lineHeight": 44, "weight": 700, "md": { "size": 50, "lineHeight": 58 }, "$description": "Home hero title only." },
+    "h1": { "size": 28, "lineHeight": 32, "weight": 700, "md": { "size": 40, "lineHeight": 46 }, "$description": "Page title (one per page)." },
+    "h2": { "size": 24, "lineHeight": 32, "weight": 700, "$description": "Section title." },
+    "h3": { "size": 20, "lineHeight": 28, "weight": 600, "$description": "Card and sub-section title." },
+    "h4": { "size": 16, "lineHeight": 24, "weight": 700, "$description": "Small heading, list item title." },
+    "body-lg": { "size": 16, "lineHeight": 24, "weight": 400, "$description": "Intro paragraphs and long-form text." },
+    "body": { "size": 14, "lineHeight": 20, "weight": 400, "$description": "Default UI text." },
+    "small": { "size": 12, "lineHeight": 16, "weight": 400, "$description": "Meta text, captions, helper text." },
+    "eyebrow": { "size": 11, "lineHeight": 16, "weight": 600, "tracking": "0.15em", "uppercase": true, "$description": "Uppercase label above a title." }
+  },
+  "tracking": {
+    "$type": "dimension",
+    "caps": { "$value": "0.15em", "$description": "Uppercase labels (dates, badges)." },
+    "eyebrow": { "$value": "0.1em", "$description": "Larger uppercase eyebrows (16px)." }
+  },
+  "radius": {
+    "$type": "dimension",
+    "sm": { "$value": "4px" },
+    "md": { "$value": "8px", "$description": "Buttons, inputs, small cards." },
+    "lg": { "$value": "12px" },
+    "xl": { "$value": "16px", "$description": "Cards and panels." },
+    "2xl": { "$value": "28px", "$description": "Large media and hero blocks." }
+  },
+  "shadow": {
+    "$type": "shadow",
+    "card": { "$value": "0 8px 24px rgba(28, 50, 67, 0.06)" },
+    "card-hover": { "$value": "0 8px 24px rgba(28, 50, 67, 0.14)" },
+    "overlay": { "$value": "0 24px 60px rgba(28, 50, 67, 0.28)", "$description": "Dialogs and popovers." }
+  },
+  "container": {
+    "$type": "dimension",
+    "page": { "$value": "1280px", "$description": "Maximum page width." },
+    "content": { "$value": "1100px", "$description": "Content column (Figma: Content Max Width)." },
+    "reading": { "$value": "680px", "$description": "Long-form text (Figma: Reading Max Width)." }
+  },
+  "motion": {
+    "ease-out": { "$type": "cubicBezier", "$value": [0.25, 0.46, 0.45, 0.94], "$description": "Brand curve for entrances and hovers." },
+    "ease-in-out": { "$type": "cubicBezier", "$value": [0.65, 0, 0.35, 1], "$description": "Open and close (accordions, dialogs)." },
+    "dur-micro": { "$type": "duration", "$value": "150ms" },
+    "dur-fast": { "$type": "duration", "$value": "220ms" },
+    "dur-base": { "$type": "duration", "$value": "350ms" },
+    "dur-reveal": { "$type": "duration", "$value": "550ms" }
+  }
+}

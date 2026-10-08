@@ -1,23 +1,33 @@
 import { useCallback, useEffect, useMemo, useState, type MouseEvent } from "react";
 import { Link, useSearchParams } from "react-router";
-import { Button, ButtonAnchor } from "./components/Button";
-import { CalendarPlus, ChevronLeft, ChevronRight, Clock, Download, MapPin } from "./components/icons";
+import { Button } from "@/components/ui/Button";
+import { ChevronLeft, ChevronRight, Clock, Download, MapPin } from "@/components/ui/icons";
 import {
-  CATEGORIES,
   EVENTS,
+  byDateTime,
+  eventCategories,
   downloadIcs,
   formatStart,
   formatTimeRange,
   parseDate,
-  registerUrlFor,
   toKey,
   type EventCategory,
   type SeriesEvent,
-} from "./mhs/events";
-import { EventModal, type EventModalData } from "./mhs/EventModal";
+} from "@/content/events";
+import { EventModal } from "@/components/patterns/EventModal";
+import {
+  DateBlock,
+  EventActions,
+  EventCategoryTag,
+  LanguageTag,
+  categoryStyle,
+  toEventModalData,
+} from "@/components/patterns/EventParts";
+import { Section, Container } from "@/components/layout/Section";
 
 const card = "rounded-pg-xl border border-pg-line bg-white shadow-pg-card";
 const WEEKDAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+/** "Today" for the prototype: the sample events are in July–August 2025. */
 const INITIAL = parseDate("2025-07-10");
 
 type Filter = "all" | EventCategory;
@@ -25,52 +35,27 @@ type View = "month" | "list";
 
 const monthLabel = (d: Date) => d.toLocaleDateString("en-US", { month: "long", year: "numeric" });
 const longDate = (d: Date) => d.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" });
-const toModalData = (e: SeriesEvent): EventModalData => ({
-  id: e.id, title: e.title, date: parseDate(e.date), time: formatTimeRange(e), description: e.description, registerUrl: registerUrlFor(e), language: e.language,
-});
-const byDateTime = (a: SeriesEvent, b: SeriesEvent) => (a.date + (a.start ?? "00:00")).localeCompare(b.date + (b.start ?? "00:00"));
-
-function CategoryTag({ category }: { category: EventCategory }) {
-  return <span className={`inline-flex rounded-full px-2 py-0.5 text-xs font-semibold ${CATEGORIES[category].pill}`}>{CATEGORIES[category].label}</span>;
-}
-
-function DateBlock({ date, size = "md" }: { date: Date; size?: "sm" | "md" }) {
-  const box = size === "sm" ? "h-11 w-11" : "h-14 w-14";
-  return (
-    <div className={`${box} flex shrink-0 flex-col items-center justify-center rounded-pg-lg bg-pg-tint leading-none text-pg-teal-dark`} aria-hidden="true">
-      <span className="text-[11px] font-semibold uppercase tracking-pg-caps">{date.toLocaleDateString("en-US", { month: "short" })}</span>
-      <span className={`${size === "sm" ? "text-xl" : "text-xl"} mt-0.5 font-bold text-pg-navy`}>{date.getDate()}</span>
-    </div>
-  );
-}
-
-function EventActions({ event }: { event: SeriesEvent }) {
-  const spanish = event.language === "Español";
-  return (
-    <div className="mt-4 flex flex-wrap gap-2">
-      <ButtonAnchor href={registerUrlFor(event)} target="_blank" rel="noopener noreferrer" lang={spanish ? "es" : undefined}>
-        {spanish ? "Registrarse" : "Register"}
-        <span className="sr-only">{spanish ? " (se abre en una pestaña nueva)" : " (opens in a new tab)"}</span>
-      </ButtonAnchor>
-      <Button variant="secondary" onClick={() => downloadIcs(`${event.id}.ics`, [event])}>
-        <CalendarPlus size={16} aria-hidden="true" />
-        Add to calendar
-      </Button>
-    </div>
-  );
-}
-
 function EventDetail({ event }: { event: SeriesEvent }) {
   return (
-    <article className="border-t border-pg-line pt-4 first:border-t-0 first:pt-0" lang={event.language === "Español" ? "es" : undefined}>
-      <h3 className={`text-xl font-bold leading-snug text-pg-navy`}>{event.title}</h3>
+    <article
+      className="border-t border-pg-line pt-4 first:border-t-0 first:pt-0"
+      lang={event.language === "Español" ? "es" : undefined}
+    >
+      <h3 className={`text-xl leading-snug font-bold text-pg-navy`}>{event.title}</h3>
       <ul className={`mt-2 grid gap-2 text-sm text-pg-slate`}>
-        <li className="flex items-center gap-2"><Clock size={16} className="shrink-0 text-pg-teal-dark" aria-hidden="true" />{formatTimeRange(event)}{event.start ? " CT" : ""}</li>
-        <li className="flex items-center gap-2"><MapPin size={16} className="shrink-0 text-pg-teal-dark" aria-hidden="true" />Online</li>
+        <li className="flex items-center gap-2">
+          <Clock size={16} className="shrink-0 text-pg-teal-dark" aria-hidden="true" />
+          {formatTimeRange(event)}
+          {event.start ? " CT" : ""}
+        </li>
+        <li className="flex items-center gap-2">
+          <MapPin size={16} className="shrink-0 text-pg-teal-dark" aria-hidden="true" />
+          Online
+        </li>
       </ul>
       <div className="mt-2 flex flex-wrap gap-2">
-        <CategoryTag category={event.category} />
-        {event.language && <span className={`inline-flex rounded-full bg-pg-cream-dark px-2 py-0.5 text-xs font-semibold text-pg-navy`}>{event.language}</span>}
+        <EventCategoryTag category={event.category} />
+        {event.language && <LanguageTag language={event.language} />}
       </div>
       <p className={`mt-3 text-sm leading-relaxed text-pg-slate`}>{event.description}</p>
       <EventActions event={event} />
@@ -108,7 +93,10 @@ export default function MentalHealthEventsPage() {
     }
   }, [params, setParams]);
 
-  const events = useMemo(() => EVENTS.filter((e) => filter === "all" || e.category === filter).sort(byDateTime), [filter]);
+  const events = useMemo(
+    () => EVENTS.filter((e) => filter === "all" || e.category === filter).sort(byDateTime),
+    [filter],
+  );
   const byDay = useMemo(() => {
     const map = new Map<string, SeriesEvent[]>();
     events.forEach((e) => map.set(e.date, [...(map.get(e.date) ?? []), e]));
@@ -120,7 +108,9 @@ export default function MentalHealthEventsPage() {
     return d.getFullYear() === month.getFullYear() && d.getMonth() === month.getMonth();
   });
   const selectedEvents = byDay.get(selected) ?? [];
-  const upcoming = events.filter((e) => e.date > selected).slice(0, 4);
+  // Upcoming is relative to "today" (fixed in the prototype), not to the selected day, so the list stays put
+  // while people open events from it (focus returns to the button they used).
+  const upcoming = events.filter((e) => e.date >= toKey(INITIAL)).slice(0, 4);
 
   // Month grid: leading blanks, days, trailing blanks (weeks start on Sunday)
   const daysInMonth = new Date(month.getFullYear(), month.getMonth() + 1, 0).getDate();
@@ -151,9 +141,15 @@ export default function MentalHealthEventsPage() {
   }
 
   // When the visible month has no events, offer the closest month that does
-  const nearest = monthEvents.length === 0 && events.length
-    ? events.reduce((best, e) => (Math.abs(parseDate(e.date).getTime() - month.getTime()) < Math.abs(parseDate(best.date).getTime() - month.getTime()) ? e : best))
-    : undefined;
+  const nearest =
+    monthEvents.length === 0 && events.length
+      ? events.reduce((best, e) =>
+          Math.abs(parseDate(e.date).getTime() - month.getTime()) <
+          Math.abs(parseDate(best.date).getTime() - month.getTime())
+            ? e
+            : best,
+        )
+      : undefined;
 
   const chip = (active: boolean) =>
     `inline-flex h-9 shrink-0 items-center gap-2 rounded-full border px-4 text-sm font-medium transition-colors ${
@@ -161,30 +157,46 @@ export default function MentalHealthEventsPage() {
     }`;
 
   return (
-    <main className="bg-pg-cream px-6 pb-20 pt-20 md:px-10 md:pt-24 lg:px-14">
-      <div className="mx-auto max-w-pg-page">
+    <Section belowNav spacing="none" className="pt-6 pb-20 md:pt-10">
+      <Container>
         {/* Header */}
-        <Link to="/mental-health-series" className={`inline-flex items-center gap-1 text-xs font-medium text-pg-teal-dark hover:text-pg-navy`}>
+        <Link
+          to="/mental-health-series"
+          className={`inline-flex items-center gap-1 text-xs font-medium text-pg-teal-dark hover:text-pg-navy`}
+        >
           <ChevronLeft size={16} aria-hidden="true" />
           Mental Health Series
         </Link>
-        <p className={`mt-4 flex items-center gap-2 text-[11px] font-semibold uppercase tracking-pg-caps text-pg-teal-dark`}>
+        <p className={`mt-4 flex items-center gap-2 text-pg-eyebrow text-pg-teal-dark`}>
           <span className="h-[18px] w-1 rounded-full bg-pg-sage" aria-hidden="true" />
           Events
         </p>
-        <h1 className={`mt-2 text-[28px] font-medium leading-[1.15] text-pg-navy md:text-[40px]`}>Live sessions &amp; events</h1>
+        <h1 className={`mt-2 text-pg-h1 font-medium text-pg-navy`}>Live sessions &amp; events</h1>
         <p className={`mt-2 max-w-[640px] text-base leading-relaxed text-pg-slate`}>
-          Join free live Q&amp;As, workshops and support groups with licensed therapists. All times are shown in Central Time (CT).
+          Join free live Q&amp;As, workshops and support groups with licensed therapists. All times are shown in Central
+          Time (CT).
         </p>
 
         {/* Toolbar */}
         <div className="mt-8 flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <button type="button" onClick={() => goToMonth(-1)} aria-label="Previous month" className="grid h-9 w-9 place-items-center rounded-pg-md border border-pg-line bg-white text-pg-teal-dark hover:bg-pg-tint-soft">
+            <button
+              type="button"
+              onClick={() => goToMonth(-1)}
+              aria-label="Previous month"
+              className="grid h-9 w-9 place-items-center rounded-pg-md border border-pg-line bg-white text-pg-teal-dark hover:bg-pg-tint-soft"
+            >
               <ChevronLeft size={18} aria-hidden="true" />
             </button>
-            <h2 className={`min-w-[150px] text-center text-xl font-bold text-pg-navy md:text-2xl`} aria-live="polite">{monthLabel(month)}</h2>
-            <button type="button" onClick={() => goToMonth(1)} aria-label="Next month" className="grid h-9 w-9 place-items-center rounded-pg-md border border-pg-line bg-white text-pg-teal-dark hover:bg-pg-tint-soft">
+            <h2 className={`min-w-[150px] text-center text-xl font-bold text-pg-navy md:text-2xl`} aria-live="polite">
+              {monthLabel(month)}
+            </h2>
+            <button
+              type="button"
+              onClick={() => goToMonth(1)}
+              aria-label="Next month"
+              className="grid h-9 w-9 place-items-center rounded-pg-md border border-pg-line bg-white text-pg-teal-dark hover:bg-pg-tint-soft"
+            >
               <ChevronRight size={18} aria-hidden="true" />
             </button>
             <Button variant="secondary" size="s" onClick={goToToday} className="ml-1">
@@ -207,20 +219,43 @@ export default function MentalHealthEventsPage() {
         </div>
 
         {/* Filters */}
-        <div className="-mr-6 mt-4 flex gap-2 overflow-x-auto pb-1 pr-6 md:mr-0 md:flex-wrap md:overflow-visible md:pr-0" role="group" aria-label="Filter by event type">
-          <button type="button" aria-pressed={filter === "all"} onClick={() => setFilter("all")} className={chip(filter === "all")}>All events</button>
-          {(Object.keys(CATEGORIES) as EventCategory[]).map((c) => (
-            <button key={c} type="button" aria-pressed={filter === c} onClick={() => setFilter(c)} className={chip(filter === c)}>
-              <span className="h-2.5 w-2.5 rounded-pg-sm" style={{ background: CATEGORIES[c].swatch }} aria-hidden="true" />
-              {CATEGORIES[c].label}
+        <div
+          className="mt-4 -mr-6 flex gap-2 overflow-x-auto pr-6 pb-1 md:mr-0 md:flex-wrap md:overflow-visible md:pr-0"
+          role="group"
+          aria-label="Filter by event type"
+        >
+          <button
+            type="button"
+            aria-pressed={filter === "all"}
+            onClick={() => setFilter("all")}
+            className={chip(filter === "all")}
+          >
+            All events
+          </button>
+          {(Object.keys(eventCategories) as EventCategory[]).map((c) => (
+            <button
+              key={c}
+              type="button"
+              aria-pressed={filter === c}
+              onClick={() => setFilter(c)}
+              className={chip(filter === c)}
+            >
+              <span className={`h-2.5 w-2.5 rounded-pg-sm ${categoryStyle[c].swatch}`} aria-hidden="true" />
+              {eventCategories[c].label}
             </button>
           ))}
         </div>
 
         {nearest && (
-          <div className={`mt-4 flex flex-wrap items-center justify-between gap-3 rounded-pg-lg border border-pg-line bg-white px-4 py-3 text-sm text-pg-slate`}>
+          <div
+            className={`mt-4 flex flex-wrap items-center justify-between gap-3 rounded-pg-lg border border-pg-line bg-white px-4 py-3 text-sm text-pg-slate`}
+          >
             <span>No events scheduled in {monthLabel(month)}.</span>
-            <button type="button" onClick={() => goToDate(nearest.date)} className="font-semibold text-pg-teal-dark underline underline-offset-4">
+            <button
+              type="button"
+              onClick={() => goToDate(nearest.date)}
+              className="font-semibold text-pg-teal-dark underline underline-offset-4"
+            >
               Show {monthLabel(parseDate(nearest.date))}
             </button>
           </div>
@@ -232,20 +267,31 @@ export default function MentalHealthEventsPage() {
             <section className={`${card} overflow-hidden`} aria-label={`Calendar, ${monthLabel(month)}`}>
               <div className="grid grid-cols-7 border-b border-pg-line" aria-hidden="true">
                 {WEEKDAYS.map((d) => (
-                  <span key={d} className={`py-2 text-center text-[11px] font-semibold uppercase tracking-pg-caps text-pg-slate`}>{d}</span>
+                  <span key={d} className={`py-2 text-center text-pg-eyebrow text-pg-slate`}>
+                    {d}
+                  </span>
                 ))}
               </div>
               <div className="grid grid-cols-7">
                 {cells.map((date, i) => {
                   if (!date) {
-                    return <div key={`blank-${i}`} className="min-h-[52px] border-b border-r border-pg-tint-soft bg-[repeating-linear-gradient(135deg,#f9f4f1_0_6px,#f4efec_6px_12px)] lg:min-h-[118px] [&:nth-child(7n)]:border-r-0" aria-hidden="true" />;
+                    return (
+                      <div
+                        key={`blank-${i}`}
+                        className="min-h-[52px] border-r border-b border-pg-tint-soft bg-pg-cream lg:min-h-[118px] [&:nth-child(7n)]:border-r-0"
+                        aria-hidden="true"
+                      />
+                    );
                   }
                   const key = toKey(date);
                   const dayEvents = byDay.get(key) ?? [];
                   const isSelected = key === selected;
                   const dayLabel = `${longDate(date)}, ${dayEvents.length === 0 ? "no events" : `${dayEvents.length} event${dayEvents.length > 1 ? "s" : ""}`}`;
                   return (
-                    <div key={key} className={`relative min-h-[52px] min-w-0 border-b border-r border-pg-tint-soft transition-colors hover:bg-pg-tint-soft lg:min-h-[118px] [&:nth-child(7n)]:border-r-0 ${isSelected ? "bg-pg-tint-soft" : "bg-white"}`}>
+                    <div
+                      key={key}
+                      className={`relative min-h-[52px] min-w-0 border-r border-b border-pg-tint-soft transition-colors hover:bg-pg-tint-soft lg:min-h-[118px] [&:nth-child(7n)]:border-r-0 ${isSelected ? "bg-pg-tint-soft" : "bg-white"}`}
+                    >
                       {/* The whole cell selects the day; event pills sit above it and open the event pop-up */}
                       <button
                         type="button"
@@ -254,32 +300,44 @@ export default function MentalHealthEventsPage() {
                         aria-label={dayLabel}
                         className="absolute inset-0 flex flex-col items-center gap-1 p-1 lg:items-start lg:p-2"
                       >
-                        <span className={`grid h-7 w-7 place-items-center rounded-full text-sm font-semibold ${isSelected ? "bg-pg-teal text-white" : "text-pg-navy"}`}>
+                        <span
+                          className={`grid h-7 w-7 place-items-center rounded-full text-sm font-semibold ${isSelected ? "bg-pg-teal-dark text-white" : "text-pg-navy"}`}
+                        >
                           {date.getDate()}
                         </span>
                         {/* Mobile: dots */}
                         <span className="flex gap-1 lg:hidden" aria-hidden="true">
                           {dayEvents.slice(0, 3).map((e) => (
-                            <span key={e.id} className="h-1.5 w-1.5 rounded-full" style={{ background: CATEGORIES[e.category].swatch }} />
+                            <span
+                              key={e.id}
+                              className={`h-1.5 w-1.5 rounded-full ${categoryStyle[e.category].swatch}`}
+                            />
                           ))}
                         </span>
                       </button>
                       {/* Desktop: event pills */}
                       {dayEvents.length > 0 && (
-                        <div className="pointer-events-none relative hidden flex-col gap-1 px-2 pb-2 pt-[42px] lg:flex">
+                        <div className="pointer-events-none relative hidden flex-col gap-1 px-2 pt-[42px] pb-2 lg:flex">
                           {dayEvents.slice(0, 3).map((e) => (
                             <button
                               key={e.id}
                               type="button"
-                              onClick={(click) => { setSelected(key); openEvent(e, click); }}
+                              onClick={(click) => {
+                                setSelected(key);
+                                openEvent(e, click);
+                              }}
                               aria-haspopup="dialog"
-                              className={`pointer-events-auto block w-full rounded-pg-md px-2 py-1 text-left text-xs leading-tight transition-[filter] hover:brightness-110 ${CATEGORIES[e.category].pill}`}
+                              className={`pointer-events-auto block w-full rounded-pg-md px-2 py-1 text-left text-xs leading-tight transition-[filter] hover:brightness-110 ${categoryStyle[e.category].pill}`}
                             >
                               <span className="block text-xs font-semibold opacity-90">{formatStart(e)}</span>
                               <span className="line-clamp-2 font-medium">{e.title}</span>
                             </button>
                           ))}
-                          {dayEvents.length > 3 && <span className={`text-xs font-semibold text-pg-teal-dark`}>+{dayEvents.length - 3} more</span>}
+                          {dayEvents.length > 3 && (
+                            <span className={`text-xs font-semibold text-pg-teal-dark`}>
+                              +{dayEvents.length - 3} more
+                            </span>
+                          )}
                         </div>
                       )}
                     </div>
@@ -295,15 +353,22 @@ export default function MentalHealthEventsPage() {
               ) : (
                 <ol className="grid gap-4">
                   {monthEvents.map((e) => (
-                    <li key={e.id} className="flex gap-4 rounded-pg-lg border border-pg-tint-soft p-4" lang={e.language === "Español" ? "es" : undefined}>
+                    <li
+                      key={e.id}
+                      className="flex gap-4 rounded-pg-lg border border-pg-tint-soft p-4"
+                      lang={e.language === "Español" ? "es" : undefined}
+                    >
                       <DateBlock date={parseDate(e.date)} />
                       <div className="min-w-0 flex-1">
-                        <p className={`text-xs text-pg-slate`}>{parseDate(e.date).toLocaleDateString("en-US", { weekday: "long" })} · {formatTimeRange(e)}{e.start ? " CT" : ""}</p>
-                        <h3 className={`mt-0.5 text-base font-bold leading-snug text-pg-navy`}>{e.title}</h3>
+                        <p className={`text-xs text-pg-slate`}>
+                          {parseDate(e.date).toLocaleDateString("en-US", { weekday: "long" })} · {formatTimeRange(e)}
+                          {e.start ? " CT" : ""}
+                        </p>
+                        <h3 className={`mt-0.5 text-base leading-snug font-bold text-pg-navy`}>{e.title}</h3>
                         <p className={`mt-1 text-sm leading-relaxed text-pg-slate`}>{e.description}</p>
                         <div className="mt-2 flex flex-wrap gap-2">
-                          <CategoryTag category={e.category} />
-                          {e.language && <span className={`inline-flex rounded-full bg-pg-cream-dark px-2 py-0.5 text-xs font-semibold text-pg-navy`}>{e.language}</span>}
+                          <EventCategoryTag category={e.category} />
+                          {e.language && <LanguageTag language={e.language} />}
                         </div>
                         <EventActions event={e} />
                       </div>
@@ -318,7 +383,7 @@ export default function MentalHealthEventsPage() {
           <aside className="grid gap-4">
             {view === "month" && (
               <section className={`${card} p-5`} aria-live="polite" aria-label="Selected day">
-                <p className={`text-[11px] font-semibold uppercase tracking-pg-caps text-pg-teal-dark`}>{longDate(parseDate(selected))}</p>
+                <p className={`text-pg-eyebrow text-pg-teal-dark`}>{longDate(parseDate(selected))}</p>
                 <div className="mt-2 grid gap-4">
                   {selectedEvents.length ? (
                     selectedEvents.map((e) => <EventDetail key={e.id} event={e} />)
@@ -330,23 +395,35 @@ export default function MentalHealthEventsPage() {
             )}
 
             <section className={`${card} p-5`} aria-labelledby="upcoming-title">
-              <h2 id="upcoming-title" className={`text-base font-bold text-pg-navy`}>Upcoming events</h2>
+              <h2 id="upcoming-title" className={`text-base font-bold text-pg-navy`}>
+                Upcoming events
+              </h2>
               {upcoming.length ? (
                 <ul className="mt-4 grid gap-2">
                   {upcoming.map((e) => (
                     <li key={e.id}>
                       <button
                         type="button"
-                        onClick={(click) => { goToDate(e.date); openEvent(e, click); }}
+                        onClick={(click) => {
+                          goToDate(e.date);
+                          openEvent(e, click);
+                        }}
                         aria-haspopup="dialog"
-                        className="relative flex w-full gap-3 rounded-pg-lg border border-pg-tint-soft py-2 pl-4 pr-3 text-left transition-colors hover:bg-pg-tint-soft"
+                        className="relative flex w-full gap-3 rounded-pg-lg border border-pg-tint-soft py-2 pr-3 pl-4 text-left transition-colors hover:bg-pg-tint-soft"
                       >
-                        <span className="absolute bottom-2.5 left-0 top-2.5 w-[3px] rounded-pg-sm" style={{ background: CATEGORIES[e.category].swatch }} aria-hidden="true" />
+                        <span
+                          className={`absolute top-2.5 bottom-2.5 left-0 w-[3px] rounded-pg-sm ${categoryStyle[e.category].swatch}`}
+                          aria-hidden="true"
+                        />
                         <DateBlock date={parseDate(e.date)} size="sm" />
                         <span className="min-w-0">
-                          <span className={`block text-sm font-semibold leading-snug text-pg-navy`}>{e.title}</span>
-                          <span className={`mt-0.5 block text-xs text-pg-slate`}>{parseDate(e.date).toLocaleDateString("en-US", { weekday: "short" })} · {formatTimeRange(e)}</span>
-                          <span className="mt-2 block"><CategoryTag category={e.category} /></span>
+                          <span className={`block text-sm leading-snug font-semibold text-pg-navy`}>{e.title}</span>
+                          <span className={`mt-0.5 block text-xs text-pg-slate`}>
+                            {parseDate(e.date).toLocaleDateString("en-US", { weekday: "short" })} · {formatTimeRange(e)}
+                          </span>
+                          <span className="mt-2 block">
+                            <EventCategoryTag category={e.category} />
+                          </span>
                         </span>
                       </button>
                     </li>
@@ -356,25 +433,41 @@ export default function MentalHealthEventsPage() {
                 <p className={`mt-3 text-sm text-pg-slate`}>No more events scheduled.</p>
               )}
               {view === "month" && (
-                <button type="button" onClick={() => setView("list")} className={`mt-3 text-sm font-semibold text-pg-teal-dark hover:underline`}>
+                <button
+                  type="button"
+                  onClick={() => setView("list")}
+                  className={`mt-3 text-sm font-semibold text-pg-teal-dark hover:underline`}
+                >
                   See all in list view →
                 </button>
               )}
             </section>
 
             <section className="rounded-pg-xl bg-pg-navy p-5 text-white" aria-labelledby="sync-title">
-              <h2 id="sync-title" className={`text-base font-bold`}>Never miss a session</h2>
-              <p className={`mt-1 text-sm text-pg-sage`}>Add every Parent Guidance event to Google, Outlook or Apple Calendar.</p>
-              <Button variant="inverse" onClick={() => downloadIcs("parent-guidance-events.ics", EVENTS)} className="mt-4">
+              <h2 id="sync-title" className={`text-base font-bold`}>
+                Never miss a session
+              </h2>
+              <p className={`mt-1 text-sm text-pg-sage`}>
+                Add every Parent Guidance event to Google, Outlook or Apple Calendar.
+              </p>
+              <Button
+                variant="inverse"
+                onClick={() => downloadIcs("parent-guidance-events.ics", EVENTS)}
+                className="mt-4"
+              >
                 <Download size={16} aria-hidden="true" />
                 Download calendar (.ics)
               </Button>
             </section>
           </aside>
         </div>
-      </div>
+      </Container>
 
-      <EventModal event={open ? toModalData(open.event) : null} anchor={open?.anchor ?? null} onClose={closeEvent} />
-    </main>
+      <EventModal
+        event={open ? toEventModalData(open.event) : null}
+        anchor={open?.anchor ?? null}
+        onClose={closeEvent}
+      />
+    </Section>
   );
 }

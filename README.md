@@ -11,22 +11,30 @@ Figma Make export.
 - **Figma design system:** [Design system - PG](https://www.figma.com/design/mWOJYdAxkKGj0bWSO2ptGj/Design-system---PG)
 - **Original Figma Make file:** [PG-Live Prototype](https://www.figma.com/design/NjTL1IfpXPXpbLuBTHi1R8/PG-Live-Prototype)
 
-## Design guidelines
+## Design system
 
-- **Start here to build new screens:** [`DESIGN.md`](./DESIGN.md) — tokens, components, patterns and the steps to add a page
+The design system lives in this repository: tokens, components, sections, content and pages are code.
+
+- **Start here:** [`docs/system/`](./docs/system/README.md) — architecture, "Build a page", and docs for every
+  component, section and page. Index: [`DESIGN.md`](./DESIGN.md). AI agents: [`AGENTS.md`](./AGENTS.md).
+- **Tokens (source):** [`tokens/pg.tokens.json`](./tokens/pg.tokens.json) → `pnpm tokens` → `src/styles/tokens.css`
+- **Storybook (visual catalog):** `pnpm storybook`, published at <https://parent-guidance-prototype.netlify.app/storybook/>
+- **Contributing:** [`CONTRIBUTING.md`](./CONTRIBUTING.md)
+
+## Design guidelines
 
 - English: [`docs/guidelines/`](./docs/guidelines/README.md) · PDFs in [`docs/guidelines/pdf/`](./docs/guidelines/pdf/)
 - Spanish: [`docs/guidelines/es/`](./docs/guidelines/es/README.md) · PDFs in [`docs/guidelines/pdf/es/`](./docs/guidelines/pdf/es/)
 - Figma ↔ prototype sync status: [`docs/figma-sync/STATUS.md`](./docs/figma-sync/STATUS.md)
 - Project handoff: [`docs/handoff/`](./docs/handoff/README.md)
-- Design tokens: [`src/styles/tokens.css`](./src/styles/tokens.css) (code) · [`docs/tokens/`](./docs/tokens/README.md) (Figma variables as W3C JSON)
+- Figma variables export (mirror of the code tokens): [`docs/tokens/`](./docs/tokens/README.md)
 
 ## Running the code
 
 ```bash
 pnpm install     # or: npm i
 pnpm dev         # start the development server
-pnpm typecheck   # TypeScript (strict)
+pnpm check       # typecheck, lint, tokens, design rules, docs, build (what CI runs)
 pnpm build       # production build into dist/
 pnpm preview     # serve the build locally
 ```
