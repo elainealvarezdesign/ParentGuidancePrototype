@@ -14,7 +14,7 @@ prototype or the library.
 | Cookies Policy | Cookie names are shown in a monospace font | Design |
 | Home search | The Home hero search has a labelled field but no results page to send the query to | Product / development |
 | Simulated forms | Contact, Ask a Therapist and newsletter forms show success without sending anything; connect endpoints (and show success only after a confirmed response) in the production build | Development |
-| Figma mirror | Update the Figma library to the repo tokens and new sections (SplitHero shapes, PhotoCtaBanner overlay, ResourceLibrary…); the repo is the source | Design |
+| Figma mirror | Tokens, shadows and the code type scale are in sync (October 8). Still to add as components: the new sections (SplitHero shapes, PhotoCtaBanner overlay, ResourceLibrary…); the repo is the source | Design |
 | FAQ wording | Two home FAQ questions were duplicates; they now read "What happens in a typical session?" and "Is messaging limited?" — confirm the copy | Content |
 
 Source: section 5.4 of the design guidelines (`docs/guidelines/05-quality.md`) and the October 2026 code audit (section 7).

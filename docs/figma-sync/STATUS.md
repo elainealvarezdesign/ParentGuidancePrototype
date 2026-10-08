@@ -120,6 +120,17 @@ These replace the closest-style mapping, so the Layouts again show the same size
   are the two structural offsets: the navbar clearance and the calendar day number.
 - Developer guide: [`docs/handoff/DEVELOPER.md`](../handoff/DEVELOPER.md).
 
+## October 8: tokens checked against the repo
+
+- **Variables:** Figma and the repo export match (479 variables, same names and values). Easing is stored as a
+  `cubic-bezier(…)` string and opacity as a percent in Figma; the values are the same.
+- **New effect styles** for the code shadows: `Shadow/Card`, `Shadow/Card Hover`, `Shadow/Overlay`
+  (`shadow-pg-card`, `shadow-pg-card-hover`, `shadow-pg-overlay`).
+- **New text styles** for the code type scale: `Code/display`, `Code/h1` … `Code/eyebrow` (`text-pg-*`). Size and
+  line height are bound to the `Typography/Code Scale` variables, so they switch to the mobile values in the
+  Mobile mode.
+
 ## Pending
+
 
 Nothing in the library. Library updates are published from Figma (Assets → Libraries → Publish).
