@@ -18,10 +18,24 @@ Node 20+ and pnpm 10 (`corepack enable`), then `pnpm install` and `pnpm dev`.
    | `pnpm check:tokens` | `src/styles/tokens.css` does not match `tokens/pg.tokens.json` |
    | `pnpm check:design` | Raw hex, Tailwind grays, half-step or arbitrary pixel spacing (outside the allow-list) |
    | `pnpm check:docs` | A `docs/system` path in code is missing, a Markdown link is broken, or a component/section has no doc |
+   | `pnpm test` | Unit, component and content tests fail (Vitest) |
    | `pnpm build` | Production build fails |
+
+   CI also runs `pnpm test:e2e` (Playwright + axe) in a separate job.
 
 4. `pnpm format` before committing (Prettier sorts Tailwind classes).
 5. Open a pull request using the template; CI runs the same checks.
+
+## Tests
+
+| Command | What | Where |
+|---|---|---|
+| `pnpm test` | Vitest + Testing Library: component behavior (labels, focus, keyboard, dialogs), forms, page states (not found, reset per item), content integrity (ids, slugs, references) | `src/**/*.test.ts(x)` |
+| `pnpm test:e2e` | Playwright + axe on the production build: every route passes WCAG 2.1 A/AA, has one `<main>` and one `<h1>`, no horizontal scroll at 1280 and 375px; keyboard flows (skip link, dialog focus trap, seek bar, event pop-up) | `tests/e2e/` |
+
+`pnpm test:e2e` builds and serves the site itself. Locally it uses Playwright's browser, or a preinstalled
+Chromium via `PW_CHROMIUM_PATH`. When you add a page, add its route to `tests/e2e/a11y.spec.ts`; when you
+add an interactive component, add a test next to it.
 
 ## Design changes
 

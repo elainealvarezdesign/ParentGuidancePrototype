@@ -17,7 +17,8 @@ the reference.
 ```bash
 pnpm install          # Node 20+, pnpm 10 (corepack enable)
 pnpm dev              # http://localhost:5173
-pnpm check            # typecheck + lint + tokens + design rules + docs + build — must pass
+pnpm check            # typecheck + lint + tokens + design rules + docs + unit tests + build — must pass
+pnpm test:e2e         # Playwright + axe on every route (CI runs it too)
 pnpm tokens           # after editing tokens/pg.tokens.json
 pnpm format           # Prettier (with the Tailwind class sorter)
 ```
@@ -63,5 +64,5 @@ pnpm format           # Prettier (with the Tailwind class sorter)
 
 ## Definition of done
 
-`pnpm check` green; the page looks right at 375, 768 and 1280px; it works with the keyboard only (Tab,
+`pnpm check` and `pnpm test:e2e` green; new routes added to `tests/e2e/a11y.spec.ts`; the page looks right at 375, 768 and 1280px; it works with the keyboard only (Tab,
 Shift+Tab, Enter, Space, Escape, arrow keys in tabs and selects); docs updated.

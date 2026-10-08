@@ -121,7 +121,7 @@ export default function CookiesPolicyPage() {
             </div>
 
             <div className="mt-6 overflow-hidden rounded-pg-lg border border-pg-line">
-              <div className="overflow-x-auto">
+              <div className="overflow-x-auto" tabIndex={0} role="region" aria-label="Necessary cookies table">
                 <table className="w-full border-collapse text-left">
                   <thead className="bg-pg-navy text-white">
                     <tr>
@@ -163,7 +163,7 @@ export default function CookiesPolicyPage() {
             </div>
 
             <div className="mt-6 overflow-hidden rounded-pg-lg border border-pg-line">
-              <div className="overflow-x-auto">
+              <div className="overflow-x-auto" tabIndex={0} role="region" aria-label="Functional cookies table">
                 <table className="w-full border-collapse text-left">
                   <thead className="bg-pg-navy text-white">
                     <tr>
@@ -198,7 +198,7 @@ export default function CookiesPolicyPage() {
               </div>
 
               <div className="mt-6 overflow-hidden rounded-pg-lg border border-pg-line">
-                <div className="overflow-x-auto">
+                <div className="overflow-x-auto" tabIndex={0} role="region" aria-label="Analytics cookies table">
                   <table className="w-full border-collapse text-left">
                     <thead className="bg-pg-navy text-white">
                       <tr>
@@ -234,7 +234,7 @@ export default function CookiesPolicyPage() {
               </div>
 
               <div className="mt-6 overflow-hidden rounded-pg-lg border border-pg-line">
-                <div className="overflow-x-auto">
+                <div className="overflow-x-auto" tabIndex={0} role="region" aria-label="Performance cookies table">
                   <table className="w-full border-collapse text-left">
                     <thead className="bg-pg-navy text-white">
                       <tr>

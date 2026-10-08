@@ -109,8 +109,8 @@ The whole flow, using a hypothetical "Workshops" page.
    `{ path: "workshops", lazy: page(() => import("./WorkshopsPage")) }`. Link it from `mainNav` or
    `footerColumns` in `src/content/site.ts` if it is a top-level page.
 5. **Write the recipe** `docs/system/pages/workshops.md` (copy an existing one).
-6. **Check:** `pnpm check` (types, lint, tokens, design rules, build) and look at the page at 375, 768 and
-   1280px with the keyboard only (Tab, Shift+Tab, Enter, Space, Escape).
+6. **Check:** add the route to `tests/e2e/a11y.spec.ts`, run `pnpm check` and `pnpm test:e2e`, and look at the
+   page at 375, 768 and 1280px with the keyboard only (Tab, Shift+Tab, Enter, Space, Escape).
 
 If no section fits, build one in `src/sections/` following [sections/README.md](./sections/README.md), and
 document it next to the others.
@@ -142,5 +142,7 @@ pnpm dev            # local server
 pnpm check          # everything CI runs: typecheck, lint, tokens, design rules, build
 pnpm tokens         # regenerate src/styles/tokens.css after editing tokens/pg.tokens.json
 pnpm check:design   # design-rule check only
-pnpm check:docs     # every docs/system path referenced in src/ exists
+pnpm check:docs     # every docs/system path referenced in src/ exists, every block is documented
+pnpm test           # unit, component and content tests (Vitest)
+pnpm test:e2e       # accessibility (axe) and keyboard tests on every route (Playwright)
 ```

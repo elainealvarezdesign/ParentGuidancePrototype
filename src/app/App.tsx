@@ -14,6 +14,8 @@ const router = createBrowserRouter([
   {
     path: "/",
     Component: PageShell,
+    // Nothing to show while the first page chunk loads (the HTML is empty until then).
+    HydrateFallback: () => null,
     errorElement: <RouteError />,
     children: [
       { index: true, lazy: page(() => import("./HomePage")) },

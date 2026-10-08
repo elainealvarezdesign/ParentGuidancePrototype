@@ -27,6 +27,7 @@ import { Section, Container } from "@/components/layout/Section";
 
 const card = "rounded-pg-xl border border-pg-line bg-white shadow-pg-card";
 const WEEKDAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+/** "Today" for the prototype: the sample events are in July–August 2025. */
 const INITIAL = parseDate("2025-07-10");
 
 type Filter = "all" | EventCategory;
@@ -107,7 +108,9 @@ export default function MentalHealthEventsPage() {
     return d.getFullYear() === month.getFullYear() && d.getMonth() === month.getMonth();
   });
   const selectedEvents = byDay.get(selected) ?? [];
-  const upcoming = events.filter((e) => e.date > selected).slice(0, 4);
+  // Upcoming is relative to "today" (fixed in the prototype), not to the selected day, so the list stays put
+  // while people open events from it (focus returns to the button they used).
+  const upcoming = events.filter((e) => e.date >= toKey(INITIAL)).slice(0, 4);
 
   // Month grid: leading blanks, days, trailing blanks (weeks start on Sunday)
   const daysInMonth = new Date(month.getFullYear(), month.getMonth() + 1, 0).getDate();

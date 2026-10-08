@@ -47,7 +47,7 @@ const docsText = walk(join(root, "docs/system"), [".md"]).map((f) => readFileSyn
 const blocks = [
   ...["ui", "cards", "patterns", "layout"].flatMap((d) => walk(join(root, "src/components", d), [".tsx"])),
   ...walk(join(root, "src/sections"), [".tsx"]),
-];
+].filter((f) => !f.endsWith(".test.tsx"));
 for (const file of blocks) {
   const name = basename(file, ".tsx");
   if (name === "icons") continue;

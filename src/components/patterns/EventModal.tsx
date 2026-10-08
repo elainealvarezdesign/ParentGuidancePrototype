@@ -47,7 +47,8 @@ async function copyText(text: string) {
 
 function Card({ event, anchor, onClose }: { event: EventModalData; anchor: DOMRect | null; onClose: () => void }) {
   const ref = useRef<HTMLDivElement>(null);
-  const [style, setStyle] = useState<CSSProperties>({ visibility: "hidden" });
+  // Transparent (not hidden) until positioned, so useModal can move focus into it right away
+  const [style, setStyle] = useState<CSSProperties>({ opacity: 0, left: 0, top: 0, width: WIDTH });
   const [copied, setCopied] = useState(false);
   const spanish = event.language === "Español";
   const titleId = `event-modal-title-${event.id}`;
@@ -76,11 +77,6 @@ function Card({ event, anchor, onClose }: { event: EventModalData; anchor: DOMRe
   }, [anchor, event.id]);
 
   useModal(ref, onClose);
-  // The card is hidden until it is positioned; move focus into it once it is visible
-  const placed = style.visibility !== "hidden";
-  useEffect(() => {
-    if (placed) ref.current?.focus();
-  }, [placed]);
   // Clear the "Link copied" timer if the card closes first (audit L02)
   useEffect(() => () => window.clearTimeout(copyTimer.current), []);
 
