@@ -22,8 +22,9 @@ meta line, one button, optional footer line. Only the button is interactive.
 | `description` | string | One sentence, up to ~110 characters. |
 | `meta` | string | "1h 30m • 6 lessons", "Available 24/7". |
 | `footer` | string | Small centered line under the button. |
-| `cta` | `Cta` | `to` = in-app; `href` = new tab with "(opens in a new tab)". |
+| `cta` | `Cta` | Rendered with `CtaButton`: `to` = in-app; http(s) `href` = new tab with "(opens in a new tab)". |
 | `headingLevel` | `h2`, `h3` | default `h3` |
+| `ref`, …native props | `id`, `data-*`, `aria-*`, `className` | Passed to the root `<article>`. |
 
 The button's accessible name includes the title ("Begin Course: Body Love") so a list of identical buttons
 is still distinguishable.

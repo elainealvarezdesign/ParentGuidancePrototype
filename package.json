@@ -14,7 +14,7 @@
     "check:design": "node scripts/check-design-rules.mjs",
     "check": "pnpm typecheck && pnpm lint && pnpm check:tokens && pnpm check:design && pnpm check:docs && pnpm test && pnpm build",
     "tokens": "node scripts/build-tokens.mjs",
-    "check:tokens": "node scripts/build-tokens.mjs --check",
+    "check:tokens": "node scripts/build-tokens.mjs --check && node scripts/check-token-export.mjs",
     "check:docs": "node scripts/check-doc-links.mjs",
     "test": "vitest run",
     "test:watch": "vitest",

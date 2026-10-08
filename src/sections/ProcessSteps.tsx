@@ -2,9 +2,10 @@ import { useId, useRef } from "react";
 import { motion, useInView } from "motion/react";
 import type { Cta } from "@/content/types";
 import { Section, Container } from "@/components/layout/Section";
-import { ButtonAnchor, ButtonLink } from "@/components/ui/Button";
+import { CtaButton } from "@/components/ui/Button";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
+import { DURATION, EASE_OUT } from "@/lib/motion";
 
 /* ProcessSteps (docs/system/sections/process-steps.md). Numbered steps (sage circles joined by a line that
  * draws in on desktop), then one action. Use for "how it works". 3–4 steps; the list is an <ol>. */
@@ -37,7 +38,7 @@ export function ProcessSteps({ content }: { content: ProcessStepsContent }) {
               className="h-full origin-left bg-pg-sage"
               initial={{ scaleX: 0 }}
               animate={lineInView ? { scaleX: 1 } : {}}
-              transition={{ duration: 0.55, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+              transition={{ duration: DURATION.reveal, delay: 0.3, ease: EASE_OUT }}
             />
           </div>
           <ol className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
@@ -65,17 +66,7 @@ export function ProcessSteps({ content }: { content: ProcessStepsContent }) {
             ))}
           </ol>
         </div>
-        {cta &&
-          (cta.to ? (
-            <ButtonLink to={cta.to} className="mt-10">
-              {cta.label}
-            </ButtonLink>
-          ) : (
-            <ButtonAnchor href={cta.href} target="_blank" rel="noopener noreferrer" className="mt-10">
-              {cta.label}
-              <span className="sr-only"> (opens in a new tab)</span>
-            </ButtonAnchor>
-          ))}
+        {cta && <CtaButton cta={cta} className="mt-10" />}
       </Container>
     </Section>
   );

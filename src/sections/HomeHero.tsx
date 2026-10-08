@@ -4,6 +4,7 @@ import type { Title } from "@/content/types";
 import { Button } from "@/components/ui/Button";
 import { SearchField } from "@/components/ui/SearchField";
 import { Section } from "@/components/layout/Section";
+import { DURATION } from "@/lib/motion";
 
 /* HomeHero (docs/system/sections/home-hero.md). Centered display title with an optional highlighted word,
  * one intro sentence and a large search field. Only on the home page. */
@@ -26,7 +27,7 @@ export function HomeHero({ content, onSearch }: { content: HomeHeroContent; onSe
         className="mt-14 text-pg-h1 text-pg-teal-dark md:leading-relaxed lg:whitespace-nowrap"
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.55, delay: 0.3 }}
+        transition={{ duration: DURATION.reveal, delay: 0.3 }}
       >
         {title.text}
         {title.highlight && <em className="font-bold italic">{title.highlight}</em>}
@@ -36,7 +37,7 @@ export function HomeHero({ content, onSearch }: { content: HomeHeroContent; onSe
         className="mt-4 max-w-2xl text-pg-body-lg text-pg-navy"
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.55, delay: 0.5 }}
+        transition={{ duration: DURATION.reveal, delay: 0.5 }}
       >
         {intro}
       </motion.p>
@@ -48,7 +49,7 @@ export function HomeHero({ content, onSearch }: { content: HomeHeroContent; onSe
         }}
         initial={{ opacity: 0, y: 20, scale: 0.97 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ duration: 0.55, delay: 0.65 }}
+        transition={{ duration: DURATION.reveal, delay: 0.65 }}
       >
         <SearchField
           variant="hero"

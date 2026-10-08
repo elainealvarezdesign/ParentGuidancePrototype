@@ -6,6 +6,7 @@ import { mainNav } from "@/content/site";
 import { Logo } from "@/components/brand/Logo";
 import { Menu, X } from "@/components/ui/icons";
 import { LanguageMenu } from "./LanguageMenu";
+import { DURATION, EASE_OUT } from "@/lib/motion";
 
 /* Site navbar (docs/system/layout.md). Fixed, 56px high, navy. Links from content/site.ts.
  * Below 1024px the links move into a menu panel: focus moves into it, Escape closes it and returns focus. */
@@ -50,7 +51,7 @@ export function Navbar() {
       aria-label="Main"
       className="fixed top-0 right-0 left-0 z-50 flex h-14 items-center justify-between bg-pg-navy px-6 lg:px-10 print:hidden"
       animate={{ boxShadow: scrolled ? "var(--pg-shadow-card-hover)" : "none" }}
-      transition={{ duration: 0.35 }}
+      transition={{ duration: DURATION.base }}
     >
       <Link to="/" aria-label="Parent Guidance home" className="flex items-center rounded-pg-sm">
         <Logo />
@@ -105,7 +106,7 @@ export function Navbar() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.22 }}
+              transition={{ duration: DURATION.fast }}
               onClick={() => setMenuOpen(false)}
               aria-hidden="true"
             />
@@ -115,7 +116,7 @@ export function Navbar() {
               initial={{ opacity: 0, y: -8 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.22, ease: [0.25, 0.46, 0.45, 0.94] }}
+              transition={{ duration: DURATION.fast, ease: EASE_OUT }}
             >
               <ul className="flex flex-col">
                 {mainNav.map((l, i) => {

@@ -9,4 +9,4 @@ inverse button. A `cta` without `to`/`href` renders a button with no destination
 |---|---|---|
 | `title` | string | Up to ~45 characters. |
 | `body` | string | One sentence. |
-| `cta` | `Cta` | |
+| `cta` | `Cta \| { label }` | With `to`/`href`: rendered by `CtaButton`. Label only: a `<button>` with no destination yet (open item). |

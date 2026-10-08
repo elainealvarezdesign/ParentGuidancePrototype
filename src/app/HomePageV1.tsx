@@ -20,6 +20,7 @@ import imgOnDemand from "@/imports/HomePagePgV2/2efa62174bfcf85665907842ba36899e
 import imgAskTherapist from "@/imports/HomePagePgV2/277938b24e46ee2598e5638b70da775e75a5d182.png";
 import imgTrustedByParents from "@/imports/HomePagePgV2/fb9567d2a70815a5c0307df9118cb49c401b72a3.png";
 import imgRealSupport from "@/imports/HomePagePgV2/dabd6f5341bd78f44bfe8771b4f0e2a23c9565f1.png";
+import { DURATION, EASE_OUT } from "@/lib/motion";
 
 const MotionLink = motion.create(Link);
 
@@ -98,7 +99,7 @@ export default function HomePageV1() {
               className="max-w-[540px]"
               initial={{ opacity: 0, y: 28 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}
+              transition={{ duration: DURATION.reveal, ease: EASE_OUT }}
             >
               <h1 className="mb-5 text-pg-display tracking-[-0.02em] text-pg-navy">Discover Resources That Can Help</h1>
               <p className="mb-8 max-w-[480px] text-base leading-relaxed text-pg-slate">
@@ -125,7 +126,7 @@ export default function HomePageV1() {
               className="relative mx-auto w-full max-w-[570px] pr-7 pb-9 md:pr-10 md:pb-12 lg:mx-0 lg:ml-auto"
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.55, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+              transition={{ duration: DURATION.reveal, delay: 0.1, ease: EASE_OUT }}
             >
               <div className="absolute right-0 bottom-0 h-[78%] w-[66%] rounded-pg-xl bg-pg-sage" />
               <img
@@ -171,7 +172,7 @@ export default function HomePageV1() {
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.55, delay: i * 0.08 }}
+                transition={{ duration: DURATION.reveal, delay: i * 0.08 }}
               >
                 <UnifiedCard
                   image={{ src: card.image, alt: "" }}
@@ -201,10 +202,10 @@ export default function HomePageV1() {
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.55 }}
+              transition={{ duration: DURATION.reveal }}
             >
-              <h3 className="text-[28px] leading-[1.2] font-medium text-white">Not sure where to start?</h3>
-              <p className="mt-3 max-w-[360px] text-base leading-[1.5] font-normal text-white/70">
+              <h3 className="text-pg-h2 font-medium text-white">Not sure where to start?</h3>
+              <p className="mt-3 max-w-[360px] text-pg-body-lg text-white/70">
                 Answer a few quick questions and we'll point you to the right resources.
               </p>
               <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
@@ -222,7 +223,7 @@ export default function HomePageV1() {
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.55, delay: 0.1 }}
+              transition={{ duration: DURATION.reveal, delay: 0.1 }}
             >
               <img
                 src={imgMentalHealth}
@@ -232,12 +233,10 @@ export default function HomePageV1() {
               <div className="absolute inset-0 bg-gradient-to-t from-pg-navy via-pg-navy/40 to-transparent" />
               <div className="absolute right-0 bottom-0 left-0 flex items-end justify-between gap-4 p-8">
                 <div>
-                  <h3 className="max-w-[320px] text-[28px] leading-[1.2] font-medium text-white">
+                  <h3 className="max-w-[320px] text-pg-h2 font-medium text-white">
                     Expert therapists available to help
                   </h3>
-                  <p className="mt-2 text-base leading-[1.5] font-normal text-white/75">
-                    Licensed clinicians, ready when you are.
-                  </p>
+                  <p className="mt-2 text-pg-body-lg text-white/75">Licensed clinicians, ready when you are.</p>
                 </div>
                 <span
                   className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white text-pg-navy transition-transform duration-(--pg-dur-base) group-hover:translate-x-1"
@@ -258,7 +257,7 @@ export default function HomePageV1() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.55 }}
+          transition={{ duration: DURATION.reveal }}
         >
           <span className="text-base font-semibold tracking-pg-eyebrow text-pg-navy uppercase">Why</span>
           <h2 className="text-pg-h1 tracking-tight text-pg-navy">Built on real clinical experience</h2>
@@ -276,7 +275,7 @@ export default function HomePageV1() {
               initial={{ opacity: 0, x: f.reverse ? 48 : -48 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.55, delay: i * 0.1 }}
+              transition={{ duration: DURATION.reveal, delay: i * 0.1 }}
             >
               <div className="h-60 w-full shrink-0 overflow-hidden rounded-pg-md md:w-80">
                 <img src={f.img} alt="" className="h-full w-full object-cover" />

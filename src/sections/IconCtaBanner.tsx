@@ -1,30 +1,27 @@
 import { useId } from "react";
 import type { Cta } from "@/content/types";
 import { cn } from "@/lib/cn";
-import { Button, ButtonLink } from "@/components/ui/Button";
+import { Button, CtaButton } from "@/components/ui/Button";
 import { ArrowRight, Signpost } from "@/components/ui/icons";
 
 /* IconCtaBanner (docs/system/sections/icon-cta-banner.md). Rounded sage box with an icon, a question-style
  * title, one sentence and one action. Sits inside another section's column (it is a block, not a band),
  * e.g. after the resource grid on Get Help.
- * A `cta` without `to`/`href` renders a button with no destination yet (open item, see the page doc). */
+ * A `cta` with only a `label` renders a button with no destination yet (open item, see the page doc). */
 
 export type IconCtaBannerContent = {
   /** Up to ~45 characters. */
   title: string;
   /** One sentence. */
   body: string;
-  cta: Cta;
+  /** `{ label }` alone = action without a destination yet (renders a <button>); flagged in the page doc. */
+  cta: Cta | { label: string };
 };
 
 export function IconCtaBanner({ content, className }: { content: IconCtaBannerContent; className?: string }) {
   const headingId = useId();
   const { title, body, cta } = content;
-  const label = (
-    <>
-      {cta.label} <ArrowRight size={16} aria-hidden="true" />
-    </>
-  );
+  const arrow = <ArrowRight size={16} aria-hidden="true" />;
   return (
     <section
       aria-labelledby={headingId}
@@ -42,13 +39,12 @@ export function IconCtaBanner({ content, className }: { content: IconCtaBannerCo
         </h2>
         <p className="mt-2 text-sm text-pg-navy md:text-base">{body}</p>
       </div>
-      {cta.to ? (
-        <ButtonLink to={cta.to} variant="inverse" className="shrink-0">
-          {label}
-        </ButtonLink>
+      {"to" in cta || "href" in cta ? (
+        <CtaButton cta={cta as Cta} variant="inverse" className="shrink-0" trailing={arrow} />
       ) : (
         <Button variant="inverse" className="shrink-0">
-          {label}
+          {cta.label}
+          {arrow}
         </Button>
       )}
     </section>

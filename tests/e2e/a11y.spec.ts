@@ -19,6 +19,8 @@ const routes = [
   "/terms-of-use",
   "/cookies-policy",
   "/consent-documents",
+  "/home-v1",
+  "/home-v2",
   "/this-page-does-not-exist",
 ];
 

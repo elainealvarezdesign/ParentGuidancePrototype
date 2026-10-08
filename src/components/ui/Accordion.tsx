@@ -1,6 +1,7 @@
 import { useId, useState, type ReactNode } from "react";
 import { motion } from "motion/react";
 import { cn } from "@/lib/cn";
+import { DURATION, EASE_OUT } from "@/lib/motion";
 
 /* Accordion item (docs/system/components/accordion.md). A button with aria-expanded/aria-controls that
  * opens a region labelled by the button (W3C APG accordion). Used by the FAQ section and legal documents.
@@ -74,7 +75,7 @@ export function AccordionItem({
           <motion.span
             aria-hidden="true"
             animate={{ rotate: open ? 45 : 0 }}
-            transition={{ duration: 0.22 }}
+            transition={{ duration: DURATION.fast }}
             className={cn("relative block shrink-0", variant === "compact" ? "h-3.5 w-3.5" : "h-5 w-5")}
           >
             <span
@@ -99,7 +100,7 @@ export function AccordionItem({
         hidden={!open}
         initial={false}
         animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }}
-        transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
+        transition={{ duration: DURATION.base, ease: EASE_OUT }}
         className="overflow-hidden"
       >
         <div

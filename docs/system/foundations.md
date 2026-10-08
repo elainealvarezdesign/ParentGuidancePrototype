@@ -88,8 +88,10 @@ Max widths: `max-w-pg-page` 1280 (page), `max-w-pg-content` 1100 (content column
 | ease-out | `[0.25, 0.46, 0.45, 0.94]` | Entrances and hovers |
 | ease-in-out | `[0.65, 0, 0.35, 1]` | Open/close |
 
-In Tailwind: `duration-(--pg-dur-fast)`. In `motion/react`: use `<Reveal>` for scroll entrances instead of
-writing `initial/whileInView` by hand. Reduced motion is handled globally (`<MotionConfig
+In Tailwind: `duration-(--pg-dur-fast)`, `ease-pg-out`. In `motion/react`: import `EASE_OUT`, `EASE_IN_OUT`
+and `DURATION.micro | fast | base | reveal` from `@/lib/motion` (read from `tokens/pg.tokens.json`), and use
+`<Reveal>` for scroll entrances instead of writing `initial/whileInView` by hand. `pnpm check:design` fails on
+a raw `ease: [...]` array or `duration: 0.3` literal. Reduced motion is handled globally (`<MotionConfig
 reducedMotion="user">` in `App.tsx` and `accessibility.css`); for `window.scrollTo` use
 `scrollBehavior()` from `@/lib/motion`.
 

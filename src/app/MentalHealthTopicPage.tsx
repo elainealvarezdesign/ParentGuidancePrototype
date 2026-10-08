@@ -40,7 +40,7 @@ function Hero({ topic }: { topic: Topic }) {
               <em className="font-semibold">{topic.emphasis}</em>
               {after}
             </h1>
-            <p className={`mt-4 text-base leading-[1.625] text-pg-slate`}>{topic.intro}</p>
+            <p className="mt-4 text-pg-body-lg text-pg-slate">{topic.intro}</p>
             <p
               className={`mt-5 rounded-r-pg-lg border-l-4 border-pg-sage bg-white px-5 py-4 text-sm leading-relaxed text-pg-navy italic`}
             >

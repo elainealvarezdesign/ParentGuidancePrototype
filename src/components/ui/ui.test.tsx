@@ -11,7 +11,9 @@ import { Dialog } from "./Dialog";
 import { MediaPlayer } from "./MediaPlayer";
 import { Pagination } from "./Pagination";
 import { RichText } from "./RichText";
-import { Button } from "./Button";
+import { createRef } from "react";
+import { Button, CtaButton } from "./Button";
+import { renderWithRouter } from "@/test/render";
 
 describe("Field (audit H02)", () => {
   it("labels the control and ties hint and error to it", () => {
@@ -168,5 +170,24 @@ describe("RichText", () => {
     expect(container.querySelector("strong")).toHaveTextContent("may be free");
     expect(container.querySelector("em")).toHaveTextContent("you");
     expect(container.querySelector("b")).toBeNull();
+  });
+});
+
+describe("CtaButton (audit M08)", () => {
+  it("routes in-app CTAs, opens external ones in a new tab and forwards the ref", () => {
+    const ref = createRef<HTMLAnchorElement>();
+    renderWithRouter(
+      <>
+        <CtaButton ref={ref} cta={{ label: "Book a session", to: "/parent-coaching" }} />
+        <CtaButton cta={{ label: "Call", href: "tel:988" }} />
+        <CtaButton cta={{ label: "Visit", href: "https://example.org" }} aria-label="Visit: Example" />
+      </>,
+    );
+    expect(screen.getByRole("link", { name: "Book a session" })).toHaveAttribute("href", "/parent-coaching");
+    expect(ref.current).toBeInstanceOf(HTMLAnchorElement);
+    expect(screen.getByRole("link", { name: "Call" })).not.toHaveAttribute("target");
+    const external = screen.getByRole("link", { name: "Visit: Example (opens in a new tab)" });
+    expect(external).toHaveAttribute("target", "_blank");
+    expect(external).toHaveAttribute("rel", "noopener noreferrer");
   });
 });

@@ -4,6 +4,7 @@ import { motion, useInView } from "motion/react";
 import type { Cta, Media } from "@/content/types";
 import { Reveal } from "@/components/ui/Reveal";
 import { Section } from "@/components/layout/Section";
+import { DURATION } from "@/lib/motion";
 
 /* ResourceTiles (docs/system/sections/resource-tiles.md). Four image tiles that link to the main areas
  * of the site, 2×2 on mobile and a row of four from 1024px. */
@@ -33,7 +34,7 @@ function Tile({ tile, index }: { tile: ResourceTile; index: number }) {
       className="group block w-full shrink-0 overflow-hidden rounded-t-pg-xl bg-pg-sage no-underline lg:w-44"
       initial={{ opacity: 0, y: 40 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.55, delay: index * 0.1 }}
+      transition={{ duration: DURATION.reveal, delay: index * 0.1 }}
       whileHover={{ y: -6, boxShadow: "var(--pg-shadow-card-hover)" }}
     >
       <div className="relative h-32 overflow-hidden rounded-t-pg-md">

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { cn } from "@/lib/cn";
 import { Pause, Play } from "./icons";
+import { DURATION } from "@/lib/motion";
 
 /* Media player (docs/system/components/media-player.md). SIMULATED: there is no video source yet; play
  * advances a fake progress so the layout and states can be reviewed. The controls are real and accessible
@@ -79,7 +80,7 @@ export function MediaPlayer({ poster, duration, title, accent = "teal", classNam
             initial={{ opacity: 0, scale: 0.85 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.85 }}
-            transition={{ duration: 0.15 }}
+            transition={{ duration: DURATION.micro }}
           >
             {playing ? (
               <Pause size={26} className="text-white" aria-hidden="true" />

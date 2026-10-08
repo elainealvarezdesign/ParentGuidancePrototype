@@ -1,6 +1,7 @@
+import { forwardRef, type ComponentPropsWithoutRef } from "react";
 import type { Cta, Media } from "@/content/types";
 import { cn } from "@/lib/cn";
-import { ButtonAnchor, ButtonLink } from "@/components/ui/Button";
+import { CtaButton } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { Avatar } from "@/components/ui/Avatar";
 import { ArrowRight } from "@/components/ui/icons";
@@ -12,9 +13,10 @@ import { ArrowRight } from "@/components/ui/icons";
  *   <UnifiedCard image={{ src, alt: "" }} badge="Anxiety" person="Dr. Kevin Skinner" title="…"
  *     meta="1h 30m • 6 lessons" footer="Dr. Kevin Skinner" cta={{ label: "Begin Course", to: "/courses/…" }} />
  *
- * Only the button is interactive. External links (`cta.href`) open in a new tab and say so. */
+ * Only the button is interactive. External links (`cta.href`) open in a new tab and say so. The ref and any
+ * other native <article> props (id, data-*, aria-*) go to the root element. */
 
-export type UnifiedCardProps = {
+export type UnifiedCardProps = Omit<ComponentPropsWithoutRef<"article">, "title" | "children"> & {
   image: Media;
   /** "photo" fills the frame; "logo" shows the whole image on white with padding. */
   imageKind?: "photo" | "logo";
@@ -34,33 +36,32 @@ export type UnifiedCardProps = {
   footer?: string;
   cta: Cta;
   headingLevel?: "h2" | "h3";
-  className?: string;
 };
 
-export default function UnifiedCard({
-  image,
-  imageKind = "photo",
-  logoPadding = "default",
-  badge,
-  person,
-  title,
-  description,
-  meta,
-  footer,
-  cta,
-  headingLevel: Heading = "h3",
-  className,
-}: UnifiedCardProps) {
+const UnifiedCard = forwardRef<HTMLElement, UnifiedCardProps>(function UnifiedCard(
+  {
+    image,
+    imageKind = "photo",
+    logoPadding = "default",
+    badge,
+    person,
+    title,
+    description,
+    meta,
+    footer,
+    cta,
+    headingLevel: Heading = "h3",
+    className,
+    ...props
+  },
+  ref,
+) {
   const logo = imageKind === "logo";
-  const label = (
-    <>
-      {cta.label}
-      <ArrowRight size={16} aria-hidden="true" />
-    </>
-  );
 
   return (
     <article
+      ref={ref}
+      {...props}
       className={cn(
         "flex h-full flex-col overflow-hidden rounded-pg-xl border border-pg-line bg-white shadow-pg-card",
         className,
@@ -89,24 +90,17 @@ export default function UnifiedCard({
         {meta && <p className="mt-2 text-xs text-pg-teal-dark">{meta}</p>}
 
         <div className="mt-auto pt-4">
-          {cta.to ? (
-            <ButtonLink to={cta.to} className="w-full" aria-label={`${cta.label}: ${title}`}>
-              {label}
-            </ButtonLink>
-          ) : (
-            <ButtonAnchor
-              href={cta.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full"
-              aria-label={`${cta.label}: ${title} (opens in a new tab)`}
-            >
-              {label}
-            </ButtonAnchor>
-          )}
+          <CtaButton
+            cta={cta}
+            className="w-full"
+            aria-label={`${cta.label}: ${title}`}
+            trailing={<ArrowRight size={16} aria-hidden="true" />}
+          />
           {footer && <p className="mt-3 text-center text-xs text-pg-slate">{footer}</p>}
         </div>
       </div>
     </article>
   );
-}
+});
+
+export default UnifiedCard;

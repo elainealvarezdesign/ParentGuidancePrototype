@@ -21,7 +21,7 @@ import { Eyebrow, ListHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { ArrowRight, ChevronDown } from "@/components/ui/icons";
 import { cn } from "@/lib/cn";
-import { scrollBehavior } from "@/lib/motion";
+import { DURATION, EASE_OUT, scrollBehavior } from "@/lib/motion";
 
 /* Mental Health Series ("/mental-health-series"). Recipe: docs/system/pages/mental-health-series.md.
  * Step 1, SchoolGate: pick state and district. Step 2, SeriesHome: welcome + search + video → ResourceLibrary
@@ -29,7 +29,6 @@ import { scrollBehavior } from "@/lib/motion";
 
 const EVENTS_PAGE = 3;
 const CALENDAR_START = parseDate("2025-07-01");
-const EASE = [0.25, 0.46, 0.45, 0.94] as const;
 
 export default function MentalHealthSeriesPage() {
   const [school, setSchool] = useState<{ state: string; district: string } | null>(null);
@@ -58,7 +57,7 @@ function SchoolGate({ onSubmit }: { onSubmit: (state: string, district: string) 
           className="flex max-w-md flex-col gap-8"
           initial={{ opacity: 0, x: -32 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.55, ease: EASE }}
+          transition={{ duration: DURATION.reveal, ease: EASE_OUT }}
           onSubmit={(e) => {
             e.preventDefault();
             if (state && district) onSubmit(state, district);
@@ -133,7 +132,7 @@ function SchoolGate({ onSubmit }: { onSubmit: (state: string, district: string) 
           className="relative z-10 h-[72%] w-3/4 overflow-hidden rounded-pg-2xl shadow-pg-overlay max-lg:my-10 max-lg:aspect-[4/3] max-lg:h-auto"
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.55, delay: 0.15, ease: EASE }}
+          transition={{ duration: DURATION.reveal, delay: 0.15, ease: EASE_OUT }}
         >
           <img src={images.base} alt="" className="absolute inset-0 h-full w-full object-cover" />
           <img src={images.frame} alt="" className="absolute inset-0 h-full w-full object-cover" />

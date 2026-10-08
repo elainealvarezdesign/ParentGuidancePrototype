@@ -19,6 +19,7 @@ import imgOnDemand from "@/imports/HomePagePgV2/2efa62174bfcf85665907842ba36899e
 import imgAskTherapist from "@/imports/HomePagePgV2/277938b24e46ee2598e5638b70da775e75a5d182.png";
 import imgTrustedByParents from "@/imports/HomePagePgV2/fb9567d2a70815a5c0307df9118cb49c401b72a3.png";
 import imgRealSupport from "@/imports/HomePagePgV2/dabd6f5341bd78f44bfe8771b4f0e2a23c9565f1.png";
+import { DURATION } from "@/lib/motion";
 
 const imgHeroBanner =
   "https://images.unsplash.com/photo-1560707856-3af2ff5ea652?auto=format&fit=crop&w=1400&h=900&q=80";
@@ -117,13 +118,13 @@ export default function HomePageV2() {
               className="max-w-[540px]"
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55 }}
+              transition={{ duration: DURATION.reveal }}
             >
               <p className="mb-5 text-xs font-semibold tracking-pg-eyebrow text-pg-teal-dark uppercase">For Parents</p>
               {/* Heading/H1 - Medium - 2XL: Poppins Medium 48/56 */}
               <h1 className="text-pg-display font-medium text-pg-navy">Discover Resources That Can Help</h1>
               {/* Body/Medium - Regular: Poppins Regular 16/1.5 */}
-              <p className="mt-6 max-w-[500px] text-base leading-[1.5] font-normal text-pg-slate">
+              <p className="mt-6 max-w-[500px] text-pg-body-lg text-pg-slate">
                 Find trusted guidance, practical tips, and expert resources to help you navigate everyday parenting
                 challenges.
               </p>
@@ -133,7 +134,7 @@ export default function HomePageV2() {
               className="relative mx-auto w-full max-w-[570px] pr-7 pb-9 md:pr-10 md:pb-12 lg:mx-0 lg:ml-auto"
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.55, delay: 0.1 }}
+              transition={{ duration: DURATION.reveal, delay: 0.1 }}
             >
               <div className="absolute right-0 bottom-0 h-[78%] w-[66%] rounded-pg-xl bg-pg-sage" />
               <img
@@ -159,7 +160,7 @@ export default function HomePageV2() {
               {/* Heading/H2 - Medium - XL: Poppins Medium 40/48 */}
               <h2 className="text-pg-h1 font-medium text-white">Not sure where to start?</h2>
               {/* Body/Medium - Regular: Poppins Regular 16/1.5 */}
-              <p className="mt-2 text-base leading-[1.5] font-normal text-white/85">
+              <p className="mt-2 text-pg-body-lg text-white/85">
                 Search what's on your mind, or answer a few quick questions.
               </p>
             </div>
@@ -227,7 +228,7 @@ export default function HomePageV2() {
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.55, delay: i * 0.08 }}
+                transition={{ duration: DURATION.reveal, delay: i * 0.08 }}
               >
                 <UnifiedCard
                   image={{ src: card.image, alt: "" }}
@@ -255,13 +256,13 @@ export default function HomePageV2() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.55 }}
+          transition={{ duration: DURATION.reveal }}
         >
           <span className="text-base font-semibold tracking-pg-eyebrow text-pg-navy uppercase">Why</span>
           {/* Heading/H2 - Medium - XL: Poppins Medium 40/48 */}
           <h2 className="text-pg-h1 font-medium text-pg-navy">Built on real clinical experience</h2>
           {/* Body/Medium - Regular: Poppins Regular 16/1.5 */}
-          <p className="max-w-2xl text-base leading-[1.5] font-normal text-pg-slate">
+          <p className="max-w-2xl text-pg-body-lg text-pg-slate">
             We believe every parent deserves access to expert guidance. Our resources are built on real clinical
             experience and designed with your family in mind.
           </p>
@@ -278,7 +279,7 @@ export default function HomePageV2() {
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.55 }}
+                transition={{ duration: DURATION.reveal }}
               >
                 <img
                   src={card.img}
@@ -287,8 +288,8 @@ export default function HomePageV2() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-pg-navy/85 via-pg-navy/10 to-pg-navy/75" />
                 <div className="relative">
-                  <h3 className="text-[28px] leading-[1.2] font-medium">{card.title}</h3>
-                  <p className="mt-3 max-w-[300px] text-base leading-[1.5] font-normal text-white/90">{card.desc}</p>
+                  <h3 className="text-pg-h2 font-medium">{card.title}</h3>
+                  <p className="mt-3 max-w-[300px] text-pg-body-lg text-white/90">{card.desc}</p>
                 </div>
                 <div className="relative">
                   <span className="inline-block rounded-full border border-white px-4 py-2 text-xs font-medium">
@@ -304,7 +305,7 @@ export default function HomePageV2() {
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.55, delay: i * 0.1 }}
+                transition={{ duration: DURATION.reveal, delay: i * 0.1 }}
               >
                 <img
                   src={card.img}
@@ -312,8 +313,8 @@ export default function HomePageV2() {
                   className="mb-5 h-40 w-full rounded-pg-xl object-cover md:absolute md:top-4 md:right-4 md:bottom-4 md:mb-0 md:h-auto md:w-[42%]"
                 />
                 <div className="relative md:max-w-[52%]">
-                  <h3 className="text-[28px] leading-[1.2] font-medium">{card.title}</h3>
-                  <p className="mt-3 text-base leading-[1.5] font-normal">{card.desc}</p>
+                  <h3 className="text-pg-h2 font-medium">{card.title}</h3>
+                  <p className="mt-3 text-pg-body-lg">{card.desc}</p>
                 </div>
                 <div className="relative mt-6 md:mt-0">
                   <span className="inline-block rounded-full bg-pg-navy px-4 py-2 text-xs font-medium text-white">
@@ -340,13 +341,13 @@ export default function HomePageV2() {
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.55 }}
+          transition={{ duration: DURATION.reveal }}
         >
           <div>
             {/* Heading/H2 - Medium - XL: Poppins Medium 40/48 */}
             <h2 className="text-pg-h1 font-medium text-white">Join Us!</h2>
             {/* Body/Medium - Regular: Poppins Regular 16/1.5 */}
-            <p className="mt-4 max-w-md text-base leading-[1.5] font-normal text-white/80">
+            <p className="mt-4 max-w-md text-pg-body-lg text-white/80">
               Subscribe to our weekly newsletter and be a part of our journey to self discovery and love.
             </p>
           </div>

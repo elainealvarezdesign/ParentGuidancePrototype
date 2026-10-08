@@ -3,6 +3,7 @@ import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "motion/react";
 import { cn } from "@/lib/cn";
 import { X } from "./icons";
+import { DURATION, EASE_OUT } from "@/lib/motion";
 
 /* Modal dialog (docs/system/components/dialog.md), following the W3C APG dialog pattern (audit H01):
  * named by its title, focus moves inside on open, Tab stays inside, Escape closes, focus returns to the
@@ -110,7 +111,7 @@ function Panel({
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        transition={{ duration: 0.22 }}
+        transition={{ duration: DURATION.fast }}
       />
       <motion.div
         ref={ref}
@@ -126,7 +127,7 @@ function Panel({
         initial={{ opacity: 0, y: 28, scale: 0.97 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: 12, scale: 0.98 }}
-        transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
+        transition={{ duration: DURATION.base, ease: EASE_OUT }}
       >
         <div
           className={cn(

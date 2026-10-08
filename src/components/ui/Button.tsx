@@ -2,11 +2,12 @@ import { forwardRef, type ComponentPropsWithoutRef } from "react";
 import { Link } from "react-router";
 import { motion } from "motion/react";
 import { cn } from "@/lib/cn";
+import type { Cta } from "@/content/types";
 
 /* Parent Guidance buttons (docs/guidelines/02-buttons.md).
  * One radius (8px), three sizes, five styles. Use <Button> for actions, <ButtonLink> for in-app
- * navigation and <ButtonAnchor> for external, mail or tel links. `buttonClass()` gives the same
- * classes for the rare element that can't use these components. */
+ * navigation and <ButtonAnchor> for external, mail or tel links, and <CtaButton> for a content `Cta`.
+ * All forward refs. `buttonClass()` gives the same classes for the rare element that can't use these. */
 
 export type ButtonVariant = "primary" | "secondary" | "tertiary" | "inverse" | "inverse-secondary";
 export type ButtonSize = "s" | "m" | "l";
@@ -74,13 +75,58 @@ const MotionLink = motion.create(Link);
 type ButtonLinkProps = Omit<ComponentPropsWithoutRef<typeof MotionLink>, "children"> &
   Style & { children?: React.ReactNode };
 
-export function ButtonLink({ variant, size, className, ...props }: ButtonLinkProps) {
-  return <MotionLink whileTap={tap} className={buttonClass({ variant, size, className })} {...props} />;
-}
+export const ButtonLink = forwardRef<HTMLAnchorElement, ButtonLinkProps>(function ButtonLink(
+  { variant, size, className, ...props },
+  ref,
+) {
+  return <MotionLink ref={ref} whileTap={tap} className={buttonClass({ variant, size, className })} {...props} />;
+});
 
 type ButtonAnchorProps = Omit<ComponentPropsWithoutRef<typeof motion.a>, "children"> &
   Style & { children?: React.ReactNode };
 
-export function ButtonAnchor({ variant, size, className, ...props }: ButtonAnchorProps) {
-  return <motion.a whileTap={tap} className={buttonClass({ variant, size, className })} {...props} />;
-}
+export const ButtonAnchor = forwardRef<HTMLAnchorElement, ButtonAnchorProps>(function ButtonAnchor(
+  { variant, size, className, ...props },
+  ref,
+) {
+  return <motion.a ref={ref} whileTap={tap} className={buttonClass({ variant, size, className })} {...props} />;
+});
+
+type CtaButtonProps = Omit<ButtonAnchorProps, "href" | "children"> &
+  Style & {
+    /** Where it goes: `to` (in-app route) or `href` (URL, #anchor, tel:, mailto:). Exactly one. */
+    cta: Cta;
+    /** Shown after the label, e.g. an arrow icon. */
+    trailing?: React.ReactNode;
+  };
+
+/** Renders a content `Cta` as the right element: in-app links use the router; http(s) links open in a
+ * new tab with rel="noopener noreferrer" and say so to screen readers; #anchors, tel: and mailto: stay
+ * in the page. Every section that shows a content action uses this, so the rules live in one place. */
+export const CtaButton = forwardRef<HTMLAnchorElement, CtaButtonProps>(function CtaButton(
+  { cta, trailing, ...props },
+  ref,
+) {
+  if ("to" in cta && cta.to)
+    return (
+      <ButtonLink ref={ref} to={cta.to} {...(props as Omit<ButtonLinkProps, "to">)}>
+        {cta.label}
+        {trailing}
+      </ButtonLink>
+    );
+  const external = /^https?:/.test(cta.href ?? "");
+  const ariaLabel = props["aria-label"];
+  return (
+    <ButtonAnchor
+      ref={ref}
+      href={cta.href}
+      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+      {...props}
+      aria-label={ariaLabel && external ? `${ariaLabel} (opens in a new tab)` : ariaLabel}
+    >
+      {cta.label}
+      {trailing}
+      {external && <span className="sr-only"> (opens in a new tab)</span>}
+    </ButtonAnchor>
+  );
+});

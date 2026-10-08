@@ -9,6 +9,7 @@ Three elements, one look:
 | `Button` | `<button>` | Actions on the page (submit, open dialog, load more) |
 | `ButtonLink` | React Router `<Link>` | Navigation inside the app (`to="/parent-coaching"`) |
 | `ButtonAnchor` | `<a>` | External URLs, `tel:`, `sms:`, `mailto:`, in-page `#anchors` |
+| `CtaButton` | `ButtonLink` or `ButtonAnchor` | A content `Cta` (`cta={…}`). **Sections and cards use this**, never their own `to ? … : …` |
 | `buttonClass()` | class string | Rare: style another element as a button |
 
 ## Props
@@ -19,6 +20,23 @@ Three elements, one look:
 | `size` | `s` (36px), `m` (44px), `l` (52px) | `m` |
 | `loading` (`Button` only) | boolean — disables and shows a spinner | — |
 | …native props | `type`, `onClick`, `disabled`, `to`, `href`, `target`, `aria-*` | `type="button"` |
+| `ref` | forwarded to the `<button>` / `<a>` (all four exports) | — |
+
+### CtaButton
+
+```tsx
+<CtaButton cta={{ label: "Book a session", to: "/parent-coaching" }} trailing={<ArrowRight size={16} aria-hidden="true" />} />
+```
+
+| `cta` | Renders |
+|---|---|
+| `{ label, to }` | `ButtonLink` (router) |
+| `{ label, href: "https://…" }` | `ButtonAnchor` with `target="_blank" rel="noopener noreferrer"` and a screen-reader "(opens in a new tab)" (also appended to a custom `aria-label`) |
+| `{ label, href: "#id" }`, `tel:…`, `mailto:…` | `ButtonAnchor` in the same tab |
+
+`Cta` requires exactly one of `to` / `href` (TypeScript rejects both or neither), so a CTA without a
+destination cannot reach production by accident. The one place that allows a label-only action is
+`IconCtaBanner` (typed `Cta | { label }`), which renders a `<button>` and is listed in the open items.
 
 | Variant | Look | On |
 |---|---|---|

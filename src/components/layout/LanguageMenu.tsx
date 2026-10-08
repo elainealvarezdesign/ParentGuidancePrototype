@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { cn } from "@/lib/cn";
 import { languages } from "@/content/site";
 import { ChevronDown } from "@/components/ui/icons";
+import { DURATION } from "@/lib/motion";
 
 /* Language menu (navbar). A disclosure button + list of buttons: closes on outside click, Escape and
  * selection, and returns focus to the trigger (audit L03). UI only until translations exist. */
@@ -58,7 +59,7 @@ export function LanguageMenu({ align = "right" }: { align?: "left" | "right" }) 
             initial={{ opacity: 0, y: -6 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -6 }}
-            transition={{ duration: 0.15 }}
+            transition={{ duration: DURATION.micro }}
             className={cn(
               "absolute top-10 z-50 min-w-40 overflow-hidden rounded-pg-lg border border-pg-line bg-white py-2 shadow-pg-card-hover",
               align === "right" ? "right-0" : "left-0",

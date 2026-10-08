@@ -22,7 +22,8 @@ exported constants with fetched data of the same shape and the pages do not chan
 
 ```ts
 type Media = { src: string; alt: string };             // alt: "" only for decorative images
-type Cta = { label: string; to?: string; href?: string }; // `to` = in-app route, `href` = external (new tab)
+type Cta = { label: string } & ({ to: string } | { href: string }); // exactly one: `to` = in-app route,
+                                                         // `href` = URL (http(s) → new tab), #anchor, tel:, mailto:
 type Title = { text: string; highlight?: string; after?: string }; // highlight renders italic teal
 type RichText = string;                                  // may contain **bold** and _italic_
 ```

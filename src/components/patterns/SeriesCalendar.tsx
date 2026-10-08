@@ -5,6 +5,7 @@ import { cn } from "@/lib/cn";
 import { ChevronLeft, ChevronRight } from "@/components/ui/icons";
 import { EventModal } from "./EventModal";
 import { categoryStyle, toEventModalData } from "./EventParts";
+import { DURATION } from "@/lib/motion";
 
 /* SeriesCalendar (docs/system/components/series-calendar.md). Compact Day / Week / Month calendar on the
  * Mental Health Series page. Event pills are buttons that open EventModal next to them. The full,
@@ -136,7 +137,7 @@ export function SeriesCalendar({
         key={`${view}-${toKey(date)}`}
         initial={{ opacity: 0, y: 6 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.22 }}
+        transition={{ duration: DURATION.fast }}
         className="overflow-hidden rounded-pg-xl bg-white shadow-pg-card"
       >
         {view === "month" && (

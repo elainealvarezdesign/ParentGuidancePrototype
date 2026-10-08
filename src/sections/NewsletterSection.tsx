@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/Button";
 import { Field, TextInput } from "@/components/ui/Field";
 import { Reveal } from "@/components/ui/Reveal";
 import { Section } from "@/components/layout/Section";
+import { DURATION } from "@/lib/motion";
 
 /* NewsletterSection (docs/system/sections/newsletter.md). Sage band: photo + title, one sentence and an
  * email field with the Subscribe button inside the field box. Without `image` it is the compact band
@@ -93,7 +94,7 @@ export function NewsletterSection({ content }: { content: NewsletterContent }) {
         <motion.div
           className="relative h-56 w-full overflow-hidden rounded-pg-xl lg:w-[480px] lg:shrink-0"
           whileHover={{ scale: 1.02 }}
-          transition={{ duration: 0.35 }}
+          transition={{ duration: DURATION.base }}
         >
           {content.imageBase && (
             <img src={content.imageBase.src} alt="" className="absolute inset-0 h-full w-full object-cover" />

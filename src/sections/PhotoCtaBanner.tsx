@@ -2,9 +2,10 @@ import { useId } from "react";
 import { motion } from "motion/react";
 import type { Cta, Media, RichText as RichTextValue } from "@/content/types";
 import { RichText } from "@/components/ui/RichText";
-import { ButtonAnchor, ButtonLink } from "@/components/ui/Button";
+import { CtaButton } from "@/components/ui/Button";
 import { ArrowRight } from "@/components/ui/icons";
 import { Container, Section, type SectionTone } from "@/components/layout/Section";
+import { DURATION } from "@/lib/motion";
 
 /* PhotoCtaBanner (docs/system/sections/photo-cta-banner.md). Near the end of a page, sends people to the
  * next step (coaching, help, sign-up): a title, one or two sentences and one action. Max one per page.
@@ -22,14 +23,8 @@ export type PhotoCtaBannerContent = {
 };
 
 function Action({ cta, variant }: { cta: Cta; variant: "primary" | "inverse" }) {
-  return cta.to ? (
-    <ButtonLink to={cta.to} variant={variant}>
-      {cta.label} <ArrowRight size={16} aria-hidden="true" />
-    </ButtonLink>
-  ) : (
-    <ButtonAnchor href={cta.href} variant={variant} target="_blank" rel="noopener noreferrer">
-      {cta.label} <span className="sr-only">(opens in a new tab)</span>
-    </ButtonAnchor>
+  return (
+    <CtaButton cta={cta} variant={variant} trailing={cta.to ? <ArrowRight size={16} aria-hidden="true" /> : null} />
   );
 }
 
@@ -79,7 +74,7 @@ export function PhotoCtaBanner({
         <motion.div
           className="relative h-[210px] w-full shrink-0 overflow-hidden rounded-pg-xl md:w-[340px] lg:w-[420px]"
           whileHover={{ scale: 1.02 }}
-          transition={{ duration: 0.35 }}
+          transition={{ duration: DURATION.base }}
         >
           <img src={image.src} alt={image.alt} className="h-full w-full object-cover" />
           <div className="absolute inset-0 bg-pg-navy/20" aria-hidden="true" />
@@ -89,7 +84,7 @@ export function PhotoCtaBanner({
           initial={{ opacity: 0, x: 24 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.55 }}
+          transition={{ duration: DURATION.reveal }}
         >
           <h2 id={headingId} className="max-w-md text-pg-h1 text-pg-navy">
             {title}

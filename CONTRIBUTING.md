@@ -15,8 +15,8 @@ Node 20+ and pnpm 10 (`corepack enable`), then `pnpm install` and `pnpm dev`.
    |---|---|
    | `pnpm typecheck` | TypeScript errors (strict) |
    | `pnpm lint` | ESLint, React hooks and jsx-a11y rules |
-   | `pnpm check:tokens` | `src/styles/tokens.css` does not match `tokens/pg.tokens.json` |
-   | `pnpm check:design` | Raw hex, Tailwind grays, half-step or arbitrary pixel spacing (outside the allow-list) |
+   | `pnpm check:tokens` | `src/styles/tokens.css` does not match `tokens/pg.tokens.json`, or the Figma export (`docs/tokens/parent-guidance.tokens.json`) has broken aliases or misses a code color |
+   | `pnpm check:design` | Raw hex, Tailwind grays, half-step or arbitrary pixel spacing, arbitrary font size/line height, raw motion values (outside the allow-list) |
    | `pnpm check:docs` | A `docs/system` path in code is missing, a Markdown link is broken, or a component/section has no doc |
    | `pnpm test` | Unit, component and content tests fail (Vitest) |
    | `pnpm build` | Production build fails |

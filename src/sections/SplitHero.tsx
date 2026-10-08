@@ -3,12 +3,13 @@ import { motion } from "motion/react";
 import type { Cta, Media, RichText as RichTextValue, Title } from "@/content/types";
 import { RichText } from "@/components/ui/RichText";
 import { cn } from "@/lib/cn";
-import { ButtonAnchor, ButtonLink } from "@/components/ui/Button";
+import { CtaButton } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { PersonLine } from "@/components/ui/Avatar";
 import { Eyebrow } from "@/components/ui/SectionHeading";
 import { ArrowRight } from "@/components/ui/icons";
 import { Section } from "@/components/layout/Section";
+import { DURATION, EASE_OUT } from "@/lib/motion";
 
 /* SplitHero (docs/system/sections/split-hero.md). The first section of most inner pages: text on the left,
  * a photo with an offset sage block on the right (stacked on mobile). Always contains the page's <h1>.
@@ -35,29 +36,9 @@ export type SplitHeroContent = {
   shape?: "wide" | "square" | "portrait";
 };
 
-const EASE = [0.25, 0.46, 0.45, 0.94] as const;
-
 function Action({ cta, primary }: { cta: Cta; primary: boolean }) {
-  const variant = primary ? "primary" : "secondary";
   const arrow = primary && cta.to ? <ArrowRight size={16} aria-hidden="true" /> : null;
-  if (cta.to)
-    return (
-      <ButtonLink to={cta.to} variant={variant}>
-        {cta.label}
-        {arrow}
-      </ButtonLink>
-    );
-  const external = cta.href?.startsWith("http");
-  return (
-    <ButtonAnchor
-      href={cta.href}
-      variant={variant}
-      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-    >
-      {cta.label}
-      {external && <span className="sr-only"> (opens in a new tab)</span>}
-    </ButtonAnchor>
-  );
+  return <CtaButton cta={cta} variant={primary ? "primary" : "secondary"} trailing={arrow} />;
 }
 
 function HeroMedia({ image, shape }: { image: Media; shape: NonNullable<SplitHeroContent["shape"]> }) {
@@ -108,7 +89,7 @@ export function SplitHero({
           className="flex max-w-[540px] flex-col items-start gap-6"
           initial={{ opacity: 0, x: -28 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.55, ease: EASE }}
+          transition={{ duration: DURATION.reveal, ease: EASE_OUT }}
         >
           {eyebrow &&
             (eyebrowStyle === "badge" ? (
@@ -142,7 +123,7 @@ export function SplitHero({
           className={cn("flex justify-center", shape === "wide" && "block")}
           initial={{ opacity: 0, x: 28 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.55, delay: 0.1, ease: EASE }}
+          transition={{ duration: DURATION.reveal, delay: 0.1, ease: EASE_OUT }}
         >
           <HeroMedia image={image} shape={shape} />
         </motion.div>

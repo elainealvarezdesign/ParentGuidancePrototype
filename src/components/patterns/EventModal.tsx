@@ -4,6 +4,7 @@ import { useModal } from "@/components/ui/Dialog";
 import { Button, ButtonAnchor } from "@/components/ui/Button";
 import { AnimatePresence, motion } from "motion/react";
 import { ArrowRight, Check, X } from "@/components/ui/icons";
+import { DURATION, EASE_OUT } from "@/lib/motion";
 
 /* EventModal (docs/system/components/event-modal.md). Event pop-up used by the Mental Health Series
  * calendars (Figma: "Calendar" event card). On tablet/desktop it opens next to the event that was clicked;
@@ -96,7 +97,7 @@ function Card({ event, anchor, onClose }: { event: EventModalData; anchor: DOMRe
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        transition={{ duration: 0.22 }}
+        transition={{ duration: DURATION.fast }}
         aria-hidden="true"
       />
       <div
@@ -113,7 +114,7 @@ function Card({ event, anchor, onClose }: { event: EventModalData; anchor: DOMRe
           initial={{ opacity: 0, y: -6, scale: 0.97 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: -4, scale: 0.98 }}
-          transition={{ duration: 0.22, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: DURATION.fast, ease: EASE_OUT }}
           lang={spanish ? "es" : undefined}
         >
           {/* Header */}
