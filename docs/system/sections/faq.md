@@ -6,6 +6,7 @@ Centered title and `AccordionItem` cards in two staggered columns (one column on
 
 | Field | Type | Rules |
 |---|---|---|
+| `id` | string, optional | Makes the section linkable, e.g. `"faq"` → `/#faq` (used by "Help me choose" on Get Help). |
 | `title` | string | "Frequently Asked Questions". |
 | `items[].question` | string | A question a parent would ask, up to ~70 characters. Unique. |
 | `items[].answer` | string | 1–3 sentences. |

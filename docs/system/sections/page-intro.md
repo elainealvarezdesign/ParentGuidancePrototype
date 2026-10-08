@@ -1,6 +1,6 @@
 # PageIntro
 
-`src/sections/PageIntro.tsx` · Used on: Contact Us
+`src/sections/PageIntro.tsx` · Used on: Contact Us, Search
 
 Centered eyebrow, `<h1>` and one sentence, without media. For utility pages whose content is a form or a
 single card.

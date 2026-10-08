@@ -10,5 +10,6 @@ is `role="status"`.
 |---|---|---|
 | `title` | string | "Message sent". Sentence case, no exclamation marks. |
 | `children` | ReactNode | One or two sentences: what happens next. |
+| `notice` | string | Small note under the body. While forms are simulated, pass `prototypeNotice` from `@/content/site`. |
 | `action` | ReactNode | "Done" button (closes a dialog or resets the form). |
 | `headingLevel` | `h2`, `h3` | `h3` inside a dialog. |

@@ -9,6 +9,8 @@ import { CheckCircle } from "./icons";
 export type SuccessMessageProps = {
   title: string;
   children?: ReactNode;
+  /** Small note under the message, e.g. the prototype notice while forms are simulated. */
+  notice?: string;
   /** Usually a "Done" or "Send another" button. */
   action?: ReactNode;
   headingLevel?: "h2" | "h3";
@@ -18,6 +20,7 @@ export type SuccessMessageProps = {
 export function SuccessMessage({
   title,
   children,
+  notice,
   action,
   headingLevel: Heading = "h2",
   className,
@@ -33,6 +36,7 @@ export function SuccessMessage({
         {title}
       </Heading>
       {children && <div className="max-w-xs text-sm text-pg-slate">{children}</div>}
+      {notice && <p className="max-w-xs rounded-pg-md bg-pg-cream-dark px-3 py-2 text-xs text-pg-slate">{notice}</p>}
       {action && <div className="mt-2">{action}</div>}
     </div>
   );

@@ -33,6 +33,7 @@ const router = createBrowserRouter([
       { path: "terms-of-use", lazy: page(() => import("./TermsOfUsePage")) },
       { path: "consent-documents", lazy: page(() => import("./ConsentDocumentsPage")) },
       { path: "contact-us", lazy: page(() => import("./ContactUsPage")) },
+      { path: "search", lazy: page(() => import("./SearchPage")) },
       { path: "courses/:courseSlug", lazy: page(() => import("./CoursePage")) },
       { path: "courses/:courseSlug/lesson/:lessonId", lazy: page(() => import("./LessonPage")) },
       { path: "*", lazy: page(() => import("./NotFoundPage")) },

@@ -14,7 +14,8 @@ export type FaqItem = {
   defaultOpen?: boolean;
 };
 
-export type FaqContent = { title: string; items: FaqItem[] };
+/** `id` makes the section linkable (`/#faq`). */
+export type FaqContent = { id?: string; title: string; items: FaqItem[] };
 
 export function FaqSection({ content }: { content: FaqContent }) {
   const headingId = useId();
@@ -22,7 +23,7 @@ export function FaqSection({ content }: { content: FaqContent }) {
   const columns = [content.items.slice(0, half), content.items.slice(half)];
 
   return (
-    <Section spacing="none" labelledBy={headingId} className="px-6 py-16 md:px-10 lg:px-14">
+    <Section id={content.id} spacing="none" labelledBy={headingId} className="px-6 py-16 md:px-10 lg:px-14">
       <Reveal className="mb-10 text-center">
         <h2 id={headingId} className="text-pg-h2 text-pg-navy">
           {content.title}

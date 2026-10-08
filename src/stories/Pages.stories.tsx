@@ -14,6 +14,7 @@ import MentalHealthSeriesPage from "@/app/MentalHealthSeriesPage";
 import MentalHealthEventsPage from "@/app/MentalHealthEventsPage";
 import MentalHealthTopicPage from "@/app/MentalHealthTopicPage";
 import NotFoundPage from "@/app/NotFoundPage";
+import SearchPage from "@/app/SearchPage";
 
 /* Whole pages as the site renders them (without the navbar and footer of PageShell).
  * Each page is only a list of sections fed with content; recipes in docs/system/pages/. */
@@ -51,3 +52,5 @@ export const Topic = page(
   MentalHealthTopicPage,
 );
 export const NotFound = page("/missing", "*", NotFoundPage);
+
+export const Search = page("/search?q=anxiety", "/search", SearchPage);

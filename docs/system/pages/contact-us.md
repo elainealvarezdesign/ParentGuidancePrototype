@@ -9,4 +9,4 @@ Route `/contact-us` · `src/app/ContactUsPage.tsx` · Content `src/content/conta
 | 2' | After sending: `SuccessMessage` with "Done" (resets the form) | `contactForm` |
 
 Validation follows the [form pattern](../components/field.md#form-behavior-pattern-used-by-every-form).
-Nothing is sent (prototype).
+Nothing is sent (prototype); the success message says so with `prototypeNotice`.

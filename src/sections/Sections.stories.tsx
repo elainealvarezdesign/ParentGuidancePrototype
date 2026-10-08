@@ -16,6 +16,7 @@ import { CrisisLineBanner } from "./CrisisLineBanner";
 import { IconCtaBanner } from "./IconCtaBanner";
 import { TrustStrip } from "./TrustStrip";
 import { ResourceLibrary } from "./ResourceLibrary";
+import { SiteSearch } from "./SiteSearch";
 import { CrisisNotice } from "@/components/ui/Notice";
 import { homeFaq, homeHero, homeNewsletter, homePartners, homeResources, homeWhy } from "@/content/home";
 import { askCta, askHero } from "@/content/askATherapist";
@@ -25,6 +26,8 @@ import { crisisLine, getHelpHero, getHelpTrust, helpChooser } from "@/content/ge
 import { contactIntro } from "@/content/contact";
 import { topicNewsletter } from "@/content/topics";
 import { seriesResources } from "@/content/mentalHealthSeries";
+import { searchIndex, searchPage } from "@/content/search";
+import { searchSite } from "@/lib/search";
 
 /* Every section with the content it has on the site. Each section takes one typed `content` prop;
  * change it in the Controls panel. Guidance: docs/system/sections/. */
@@ -94,4 +97,21 @@ export const Trust = section(TrustStrip, getHelpTrust, "TrustStrip");
 export const Library: Story = {
   name: "ResourceLibrary",
   render: () => <ResourceLibrary resources={seriesResources} />,
+};
+
+const { intro: _searchIntro, ...searchContent } = searchPage;
+export const SiteSearchResults: Story = {
+  name: "SiteSearch (results)",
+  render: () => (
+    <SiteSearch
+      content={searchContent}
+      query="anxiety"
+      results={searchSite("anxiety", searchIndex)}
+      onSearch={() => {}}
+    />
+  ),
+};
+export const SiteSearchEmpty: Story = {
+  name: "SiteSearch (no results)",
+  render: () => <SiteSearch content={searchContent} query="zzz" results={[]} onSearch={() => {}} />,
 };

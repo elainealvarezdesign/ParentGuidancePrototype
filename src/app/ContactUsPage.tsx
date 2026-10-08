@@ -7,6 +7,7 @@ import { Field, TextArea, TextInput } from "@/components/ui/Field";
 import { CrisisNotice } from "@/components/ui/Notice";
 import { SuccessMessage } from "@/components/ui/SuccessMessage";
 import { ArrowRight } from "@/components/ui/icons";
+import { prototypeNotice } from "@/content/site";
 
 /* Contact Us ("/contact-us"). Recipe: docs/system/pages/contact-us.md.
  * PageIntro → form card (fields, crisis notice) that becomes a SuccessMessage once sent.
@@ -53,6 +54,7 @@ export default function ContactUsPage() {
           <div className="rounded-pg-xl border border-pg-line bg-white p-7 shadow-pg-card md:p-10">
             {submitted ? (
               <SuccessMessage
+                notice={prototypeNotice}
                 title={contactForm.successTitle}
                 className="py-8"
                 action={<Button onClick={reset}>Done</Button>}

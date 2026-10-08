@@ -132,6 +132,7 @@ document it next to the others.
 | `/ask-a-therapist/:questionId` | `QuestionDetailPage.tsx` | [question-detail.md](./pages/question-detail.md) |
 | `/get-help` | `GetHelpPage.tsx` | [get-help.md](./pages/get-help.md) |
 | `/contact-us` | `ContactUsPage.tsx` | [contact-us.md](./pages/contact-us.md) |
+| `/search` | `SearchPage.tsx` | [search.md](./pages/search.md) |
 | `/terms-of-use`, `/cookies-policy`, `/consent-documents` | `TermsOfUsePage.tsx`, `CookiesPolicyPage.tsx`, `ConsentDocumentsPage.tsx` | [legal.md](./pages/legal.md) |
 | `*` | `NotFoundPage.tsx` | [not-found.md](./pages/not-found.md) |
 | `/home-v1`, `/home-v2` | `HomePageV1.tsx`, `HomePageV2.tsx` | Explorations, not part of the system (see [home.md](./pages/home.md)) |

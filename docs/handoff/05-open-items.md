@@ -6,14 +6,12 @@ prototype or the library.
 | Topic | Detail | Owner |
 |---|---|---|
 | Choose the home page | Decide between the main home, Home V1 (`/home-v1`) and Home V2 (`/home-v2`) | Product |
-| Buttons without an action | "Help me choose" (Get Help) and "Take the Quiz" / "Learn more" (Home V1) have no destination yet. ("Featured" on Ask a Therapist is now a working sort menu.) | Design / development |
-| Social media | Facebook, Instagram, YouTube and LinkedIn URLs are missing (Vimeo is already linked) | Content |
+| Buttons without an action | "Take the Quiz" and "Learn more" (Home V1 only) have no destination yet. "Help me choose" (Get Help) now links to the home FAQ until a questionnaire exists. | Design / development |
+| Social media | Facebook, LinkedIn and Vimeo are linked; Instagram and YouTube have no URL yet (their icons show without a link) | Content |
 | Sample content | Sample events and registration links; courses and resources without their own page open sample templates | Content |
-| Repeated copy | Three home cards repeat "Dive into a wealth of knowledge tailored for parents" | Content |
 | Home V2 accent | Uses the `peach` token, which is reserved for illustration accents | Design |
 | Cookies Policy | Cookie names are shown in a monospace font | Design |
-| Home search | The Home hero search has a labelled field but no results page to send the query to | Product / development |
-| Simulated forms | Contact, Ask a Therapist and newsletter forms show success without sending anything; connect endpoints (and show success only after a confirmed response) in the production build | Development |
+| Simulated forms | Contact, Ask a Therapist and newsletter forms send nothing; their success message says so (`prototypeNotice` in `src/content/site.ts`). In production, connect endpoints, show success only after a confirmed response, and remove the notice | Development |
 | Figma mirror | Tokens, shadows and the code type scale are in sync (October 8). Still to add as components: the new sections (SplitHero shapes, PhotoCtaBanner overlay, ResourceLibrary…); the repo is the source | Design |
 | FAQ wording | Two home FAQ questions were duplicates; they now read "What happens in a typical session?" and "Is messaging limited?" — confirm the copy | Content |
 

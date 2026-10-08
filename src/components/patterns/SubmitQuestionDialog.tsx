@@ -5,6 +5,7 @@ import { Field, TextArea, TextInput } from "@/components/ui/Field";
 import { SuccessMessage } from "@/components/ui/SuccessMessage";
 import { MessageCircle, Send } from "@/components/ui/icons";
 import { submitQuestionCopy as copy } from "@/content/askATherapist";
+import { prototypeNotice } from "@/content/site";
 
 /* SubmitQuestionDialog (docs/system/components/dialog.md#submit-question). The "Ask a Therapist" form,
  * opened from the list page sidebar and from the answer page. Built from <Dialog> + <Field>.
@@ -46,6 +47,7 @@ function SubmitQuestionForm({ onClose }: { onClose: () => void }) {
   if (submitted)
     return (
       <SuccessMessage
+        notice={prototypeNotice}
         title={copy.successTitle}
         headingLevel="h3"
         className="px-8 py-12"

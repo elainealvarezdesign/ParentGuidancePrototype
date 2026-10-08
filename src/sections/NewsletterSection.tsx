@@ -6,6 +6,7 @@ import { Field, TextInput } from "@/components/ui/Field";
 import { Reveal } from "@/components/ui/Reveal";
 import { Section } from "@/components/layout/Section";
 import { DURATION } from "@/lib/motion";
+import { prototypeNotice } from "@/content/site";
 
 /* NewsletterSection (docs/system/sections/newsletter.md). Sage band: photo + title, one sentence and an
  * email field with the Subscribe button inside the field box. Without `image` it is the compact band
@@ -44,7 +45,10 @@ export function NewsletterSection({ content }: { content: NewsletterContent }) {
   const form = (
     <div aria-live="polite">
       {subscribed ? (
-        <p className="text-base font-semibold text-pg-navy">✓ {content.successMessage}</p>
+        <div>
+          <p className="text-base font-semibold text-pg-navy">✓ {content.successMessage}</p>
+          <p className="mt-1 text-xs text-pg-navy">{prototypeNotice}</p>
+        </div>
       ) : (
         <form onSubmit={submit} noValidate className="max-w-md">
           <Field label="Email address" hideLabel error={error} tone="on-sage">

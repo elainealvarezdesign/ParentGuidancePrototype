@@ -16,4 +16,4 @@ Two layouts, chosen by content:
 | `title` | string | 1–4 words. |
 | `body` | string | One sentence, up to ~110 characters. |
 | `image`, `imageBase` | `Media` | Optional; `imageBase` is a frame under the photo. |
-| `successMessage` | string | "Thanks! You're subscribed." |
+| `successMessage` | string | "Thanks! You're subscribed." The `prototypeNotice` line from `@/content/site` is shown under it while the form is simulated. |

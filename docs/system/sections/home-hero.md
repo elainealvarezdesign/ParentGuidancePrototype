@@ -11,4 +11,4 @@ button. Contains the page `<h1>` (`text-pg-display`).
 | `intro` | string | One sentence, up to ~140 characters. |
 | `search` | `{ label, placeholder, buttonLabel }` | `label` is the accessible name ("Search resources"). |
 
-Prop `onSearch(query)` receives the submitted query (no search backend yet).
+Prop `onSearch(query)` receives the submitted query. The home page sends it to the [Search page](../pages/search.md) (`/search?q=…`).

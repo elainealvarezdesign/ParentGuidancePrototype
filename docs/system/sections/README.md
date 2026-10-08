@@ -25,6 +25,7 @@ A section is a full-width band of a page with its own heading and content (`src/
 | `IconCtaBanner` | [icon-cta-banner.md](./icon-cta-banner.md) | Get Help | `IconCtaBannerContent` |
 | `TrustStrip` | [trust-strip.md](./trust-strip.md) | Get Help | `TrustStripContent` |
 | `ResourceLibrary` | [resource-library.md](./resource-library.md) | Mental Health Series | `SeriesResource[]` |
+| `SiteSearch` | [site-search.md](./site-search.md) | Search | `SiteSearchContent` |
 
 ## Choosing a hero
 

@@ -51,3 +51,19 @@ test("unknown answer shows not found instead of another question (audit M04)", a
   await page.goto("/ask-a-therapist/999");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("We couldn't find that answer");
 });
+
+test("home search opens the results page for the query", async ({ page }) => {
+  await page.goto("/");
+  await page.getByRole("searchbox", { name: "Search resources" }).fill("anxiety");
+  await page.keyboard.press("Enter");
+  await expect(page).toHaveURL(/\/search\?q=anxiety$/);
+  await expect(page.getByRole("status").filter({ hasText: /results? for “anxiety”/ })).toBeVisible();
+  await expect(page.locator("main ul li a").first()).toBeVisible();
+});
+
+test("Help me choose links to the home FAQ", async ({ page }) => {
+  await page.goto("/get-help");
+  await page.getByRole("link", { name: /Help me choose/ }).click();
+  await expect(page).toHaveURL(/\/#faq$/);
+  await expect(page.getByRole("heading", { name: "Frequently Asked Questions" })).toBeInViewport();
+});

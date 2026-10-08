@@ -114,8 +114,8 @@ export const supportResources: SupportResource[] = [
 export const helpChooser: IconCtaBannerContent = {
   title: "Not sure which resource is right for you?",
   body: "Answer a few simple questions to find the best place to start.",
-  // No destination yet: the questionnaire is an open item (docs/handoff/05-open-items.md).
-  cta: { label: "Help me choose" },
+  // Until a questionnaire exists, the answers to common questions live in the home FAQ.
+  cta: { label: "Help me choose", to: "/#faq" },
 };
 
 export const getHelpTrust: TrustStripContent = {

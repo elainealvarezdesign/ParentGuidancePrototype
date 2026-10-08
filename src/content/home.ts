@@ -38,20 +38,20 @@ export const homeResources: ResourceTilesContent = {
   tiles: [
     {
       title: "Mental Health\nSeries",
-      description: "Dive into a wealth of knowledge tailored for parents",
+      description: "Live sessions with experts on the topics families face most",
       image: decorative(imgSeries),
       dim: true,
       to: "/mental-health-series",
     },
     {
       title: "Coaching for\nLasting changes",
-      description: "Dive into a wealth of knowledge tailored for parents",
+      description: "One-on-one support from a coach to build lasting habits at home",
       image: decorative(imgCoaching),
       to: "/parent-coaching",
     },
     {
       title: "On-demand\nCourses",
-      description: "Dive into a wealth of knowledge tailored for parents",
+      description: "Short video courses you can watch at your own pace",
       image: decorative(imgCourses),
       dim: true,
       to: "/on-demand-courses",
@@ -92,6 +92,7 @@ export const homeWhy: FeatureRowsContent = {
 };
 
 export const homeFaq: FaqContent = {
+  id: "faq",
   title: "Frequently Asked Questions",
   items: [
     {
