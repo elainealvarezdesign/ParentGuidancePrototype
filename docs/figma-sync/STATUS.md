@@ -130,6 +130,11 @@ These replace the closest-style mapping, so the Layouts again show the same size
   line height are bound to the `Typography/Code Scale` variables, so they switch to the mobile values in the
   Mobile mode.
 
+## October 9: page-by-page comparison
+
+All 18 desktop frames compared with the prototype: [PAGE-COMPARISON.md](./PAGE-COMPARISON.md). Two code fixes
+(footer, detail-page gutter); nine Figma updates and seven decisions listed there.
+
 ## Pending
 
 

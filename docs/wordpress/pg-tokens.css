@@ -1,0 +1,150 @@
+/*
+ * Parent Guidance — design tokens as plain CSS (for WordPress or any non-Tailwind stack)
+ * GENERATED from tokens/pg.tokens.json by scripts/build-wp-theme.mjs. Do not edit by hand.
+ * Guide: docs/handoff/WORDPRESS.md
+ */
+
+:root {
+  --pg-navy: #1c3243;
+  --pg-navy-hover: #284054;
+  --pg-slate: #435766;
+  --pg-teal: #59797d;
+  --pg-teal-dark: #406064;
+  --pg-sage: #90b3b6;
+  --pg-peach: #e8a497;
+  --pg-mist: #acbcbe;
+  --pg-amber: #c8893a;
+  --pg-live: #52bd95;
+  --pg-cream: #f9f4f1;
+  --pg-cream-dark: #f0edeb;
+  --pg-white: #ffffff;
+  --pg-tint: #eaf1f1;
+  --pg-tint-soft: #f0f6f6;
+  --pg-line: #dee8e9;
+  --pg-success: #117a3a;
+  --pg-success-soft: #d3f7df;
+  --pg-warning: #a84b02;
+  --pg-warning-soft: #feeab1;
+  --pg-error: #932f2f;
+  --pg-error-soft: #fdcfcf;
+  --pg-role-bg-page: var(--pg-cream);
+  --pg-role-bg-surface: var(--pg-white);
+  --pg-role-bg-chip: var(--pg-cream-dark);
+  --pg-role-bg-tint: var(--pg-tint);
+  --pg-role-bg-tint-soft: var(--pg-tint-soft);
+  --pg-role-bg-inverse: var(--pg-navy);
+  --pg-role-bg-inverse-hover: var(--pg-navy-hover);
+  --pg-role-bg-brand: var(--pg-teal);
+  --pg-role-bg-brand-hover: var(--pg-teal-dark);
+  --pg-role-bg-brand-light: var(--pg-sage);
+  --pg-role-bg-positive-subtle: var(--pg-success-soft);
+  --pg-role-bg-warning-subtle: var(--pg-warning-soft);
+  --pg-role-bg-negative-subtle: var(--pg-error-soft);
+  --pg-role-fg-primary: var(--pg-navy);
+  --pg-role-fg-secondary: var(--pg-slate);
+  --pg-role-fg-brand: var(--pg-teal-dark);
+  --pg-role-fg-inverse: var(--pg-white);
+  --pg-role-fg-icon: var(--pg-slate);
+  --pg-role-fg-positive: var(--pg-success);
+  --pg-role-fg-warning: var(--pg-warning);
+  --pg-role-fg-negative: var(--pg-error);
+  --pg-role-border-default: var(--pg-line);
+  --pg-role-border-divider: var(--pg-line);
+  --pg-role-border-brand: var(--pg-teal);
+  --pg-role-focus-ring: var(--pg-teal-dark);
+  --pg-font: 'Poppins', system-ui, sans-serif;
+  --pg-radius-sm: 4px;
+  --pg-radius-md: 8px;
+  --pg-radius-lg: 12px;
+  --pg-radius-xl: 16px;
+  --pg-radius-2xl: 28px;
+  --pg-shadow-card: 0 8px 24px rgba(28, 50, 67, 0.06);
+  --pg-shadow-card-hover: 0 8px 24px rgba(28, 50, 67, 0.14);
+  --pg-shadow-overlay: 0 24px 60px rgba(28, 50, 67, 0.28);
+  --pg-container-page: 1280px;
+  --pg-container-content: 1100px;
+  --pg-container-reading: 680px;
+  --pg-ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --pg-ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --pg-dur-micro: 150ms;
+  --pg-dur-fast: 220ms;
+  --pg-dur-base: 350ms;
+  --pg-dur-reveal: 550ms;
+}
+
+/* Home hero title only. */
+.text-pg-display {
+  font-size: 38px;
+  line-height: 44px;
+  font-weight: 700;
+}
+@media (min-width: 768px) {
+  .text-pg-display {
+    font-size: 50px;
+    line-height: 58px;
+  }
+}
+
+/* Page title (one per page). */
+.text-pg-h1 {
+  font-size: 28px;
+  line-height: 32px;
+  font-weight: 700;
+}
+@media (min-width: 768px) {
+  .text-pg-h1 {
+    font-size: 40px;
+    line-height: 46px;
+  }
+}
+
+/* Section title. */
+.text-pg-h2 {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 700;
+}
+
+/* Card and sub-section title. */
+.text-pg-h3 {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+}
+
+/* Small heading, list item title. */
+.text-pg-h4 {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+}
+
+/* Intro paragraphs and long-form text. */
+.text-pg-body-lg {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+/* Default UI text. */
+.text-pg-body {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+/* Meta text, captions, helper text. */
+.text-pg-small {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+}
+
+/* Uppercase label above a title. */
+.text-pg-eyebrow {
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}

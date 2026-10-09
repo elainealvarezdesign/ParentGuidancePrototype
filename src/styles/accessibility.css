@@ -65,3 +65,9 @@
     animation: none;
   }
 }
+
+/* The page heading receives focus after a route change (PageShell) so screen readers announce the new page.
+ * It is not an interactive element, so it shows no focus ring. */
+[data-route-focus]:focus {
+  outline: none;
+}

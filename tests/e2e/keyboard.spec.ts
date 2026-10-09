@@ -67,3 +67,13 @@ test("Help me choose links to the home FAQ", async ({ page }) => {
   await expect(page).toHaveURL(/\/#faq$/);
   await expect(page.getByRole("heading", { name: "Frequently Asked Questions" })).toBeInViewport();
 });
+
+test("route changes name the tab after the page and move focus to its heading", async ({ page }) => {
+  await page.goto("/");
+  await expect(page).toHaveTitle(/\| Parent Guidance$/);
+  await page.getByRole("contentinfo").getByRole("link", { name: "Parent Coaching" }).click();
+  const h1 = page.locator("main h1");
+  await expect(h1).toBeFocused();
+  await expect(page).toHaveTitle(`${(await h1.textContent())?.replace(/\s+/g, " ").trim()} | Parent Guidance`);
+  await expect(page.getByRole("banner")).toHaveCount(1);
+});

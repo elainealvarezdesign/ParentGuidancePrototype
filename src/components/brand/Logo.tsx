@@ -50,9 +50,9 @@ export function Logo() {
   );
 }
 
-export function LogoColor() {
+export function LogoColor({ className = "h-[28px] w-[117px]" }: { className?: string }) {
   return (
-    <div className="relative h-[28px] w-[117px]">
+    <div className={`relative ${className}`}>
       <svg
         aria-hidden="true"
         className="absolute inset-0 block size-full"

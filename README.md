@@ -17,6 +17,8 @@ The design system lives in this repository: tokens, components, sections, conten
 
 - **Handoff pack (start here):** [`docs/handoff/AGENT-HANDOFF.md`](./docs/handoff/AGENT-HANDOFF.md) — prototype, tokens,
   roles, components and checks on one page.
+- **WordPress build guide:** [`docs/handoff/WORDPRESS.md`](./docs/handoff/WORDPRESS.md) — `theme.json`, blocks,
+  accessibility, reusable assets.
 - **System docs:** [`docs/system/`](./docs/system/README.md) — architecture, "Build a page", and docs for every
   component, section and page. Index: [`DESIGN.md`](./DESIGN.md). AI agents: [`AGENTS.md`](./AGENTS.md).
 - **Tokens (source):** [`tokens/pg.tokens.json`](./tokens/pg.tokens.json) → `pnpm tokens` → `src/styles/tokens.css`

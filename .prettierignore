@@ -4,3 +4,5 @@ docs/guidelines/pdf
 src/imports
 src/styles/tokens.css
 dist-storybook
+docs/wordpress/theme.json
+docs/wordpress/pg-tokens.css

@@ -53,7 +53,19 @@ Tokens carry intent, not only values:
 type or motion values), docs checks, unit tests and the build. `pnpm test:e2e` runs WCAG 2.1 AA (axe) and
 keyboard tests on every route at desktop and mobile. CI runs both on every pull request.
 
-## 6. What is simulated
+## 6. Building it in WordPress
+
+[WORDPRESS.md](./WORDPRESS.md): tokens → `theme.json` (generated: [`docs/wordpress/`](../wordpress/theme.json)),
+section → block table with fields, accessible behavior to keep, and what to reuse as is (plain-CSS tokens, SVG
+icons, logos, content).
+
+## 7. Accessibility evidence
+
+Automated: axe and keyboard tests in CI on every route. Screen-reader review and the manual VoiceOver/NVDA
+script: [screen-reader-test.md](../accessibility/screen-reader-test.md). Figma vs prototype, page by page:
+[PAGE-COMPARISON.md](../figma-sync/PAGE-COMPARISON.md).
+
+## 8. What is simulated
 
 No backend: forms say "Prototype preview: … nothing was sent", media is sample content, and some content is
 illustrative. The full list, with owners: [05-open-items.md](./05-open-items.md). Production build notes:
