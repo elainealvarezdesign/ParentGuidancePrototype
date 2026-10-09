@@ -22,6 +22,11 @@ Parent Guidance — Handoff/
       └── Open items                            ← 05-open-items.md
 ```
 
+## Agent-friendly handoff pack
+
+[`AGENT-HANDOFF.md`](./AGENT-HANDOFF.md) is the single entry point for developers and AI agents: prototype,
+Storybook, design tokens, color/type/component roles, build docs, quality gates and what is simulated.
+
 ## Notes
 
 - Figma, the prototype and the repo are shared as **links**, not copies, so nobody works from an outdated version.

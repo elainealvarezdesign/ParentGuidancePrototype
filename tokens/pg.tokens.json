@@ -25,6 +25,46 @@
     "error": { "$value": "#932f2f", "$description": "Error text, field errors." },
     "error-soft": { "$value": "#fdcfcf", "$description": "Error notice background." }
   },
+  "role": {
+    "$description": "Color roles: what a color is FOR. Each role aliases a palette color and matches a Figma variable in 'Semantic: Color Roles' (checked by pnpm check:tokens). Use roles when the intent matters: bg-role-bg-page, text-role-fg-primary, border-role-border-default, ring-role-focus-ring.",
+    "bg": {
+      "$type": "color",
+      "page": { "$value": "{color.cream}", "$description": "Default page background.", "$extensions": { "figma": "Semantic: Color Roles/Background/Page" } },
+      "surface": { "$value": "{color.white}", "$description": "Cards, dialogs, form panels.", "$extensions": { "figma": "Semantic: Color Roles/Background/Surface" } },
+      "chip": { "$value": "{color.cream-dark}", "$description": "Chips and inputs on the page background.", "$extensions": { "figma": "Semantic: Color Roles/Background/Chip" } },
+      "tint": { "$value": "{color.tint}", "$description": "Badges, selected states, soft sections.", "$extensions": { "figma": "Semantic: Color Roles/Background/Tint" } },
+      "tint-soft": { "$value": "{color.tint-soft}", "$description": "Alternate section background.", "$extensions": { "figma": "Semantic: Color Roles/Background/Tint Soft" } },
+      "inverse": { "$value": "{color.navy}", "$description": "Dark surfaces: navbar, banners, footer blocks.", "$extensions": { "figma": "Semantic: Color Roles/Background/Inverse" } },
+      "inverse-hover": { "$value": "{color.navy-hover}", "$description": "Hover of inverse surfaces.", "$extensions": { "figma": "Semantic: Color Roles/Background/Inverse Hover" } },
+      "brand": { "$value": "{color.teal}", "$description": "Primary button, active chip.", "$extensions": { "figma": "Semantic: Color Roles/Background/Brand" } },
+      "brand-hover": { "$value": "{color.teal-dark}", "$description": "Hover of brand fills.", "$extensions": { "figma": "Semantic: Color Roles/Background/Brand Hover" } },
+      "brand-light": { "$value": "{color.sage}", "$description": "Decorative brand fill. Never put white text on it.", "$extensions": { "figma": "Semantic: Color Roles/Background/Brand Light" } },
+      "positive-subtle": { "$value": "{color.success-soft}", "$description": "Success notice and badge.", "$extensions": { "figma": "Semantic: Color Roles/Background/Positive Subtle" } },
+      "warning-subtle": { "$value": "{color.warning-soft}", "$description": "Warning notice and badge.", "$extensions": { "figma": "Semantic: Color Roles/Background/Warning Subtle" } },
+      "negative-subtle": { "$value": "{color.error-soft}", "$description": "Error notice and badge.", "$extensions": { "figma": "Semantic: Color Roles/Background/Negative Subtle" } }
+    },
+    "fg": {
+      "$type": "color",
+      "primary": { "$value": "{color.navy}", "$description": "Headings and primary text.", "$extensions": { "figma": "Semantic: Color Roles/Foreground/Primary" } },
+      "secondary": { "$value": "{color.slate}", "$description": "Body and secondary text.", "$extensions": { "figma": "Semantic: Color Roles/Foreground/Secondary" } },
+      "brand": { "$value": "{color.teal-dark}", "$description": "Links and small brand-colored text.", "$extensions": { "figma": "Semantic: Color Roles/Foreground/Brand" } },
+      "inverse": { "$value": "{color.white}", "$description": "Text on inverse and brand backgrounds.", "$extensions": { "figma": "Semantic: Color Roles/Foreground/Inverse" } },
+      "icon": { "$value": "{color.slate}", "$description": "Default icon color.", "$extensions": { "figma": "Semantic: Color Roles/Foreground/Icon" } },
+      "positive": { "$value": "{color.success}", "$description": "Success text and icons.", "$extensions": { "figma": "Semantic: Color Roles/Foreground/Positive" } },
+      "warning": { "$value": "{color.warning}", "$description": "Warning text and icons.", "$extensions": { "figma": "Semantic: Color Roles/Foreground/Warning" } },
+      "negative": { "$value": "{color.error}", "$description": "Error text and field errors.", "$extensions": { "figma": "Semantic: Color Roles/Foreground/Negative" } }
+    },
+    "border": {
+      "$type": "color",
+      "default": { "$value": "{color.line}", "$description": "Card and input borders.", "$extensions": { "figma": "Semantic: Color Roles/Border/Default" } },
+      "divider": { "$value": "{color.line}", "$description": "Dividers.", "$extensions": { "figma": "Semantic: Color Roles/Border/Divider" } },
+      "brand": { "$value": "{color.teal}", "$description": "Secondary button, selected outline.", "$extensions": { "figma": "Semantic: Color Roles/Border/Brand" } }
+    },
+    "focus": {
+      "$type": "color",
+      "ring": { "$value": "{color.teal-dark}", "$description": "Keyboard focus ring.", "$extensions": { "figma": "Semantic: Color Roles/Focus/Ring" } }
+    }
+  },
   "font": {
     "family": { "$type": "fontFamily", "$value": "'Poppins', system-ui, sans-serif" }
   },

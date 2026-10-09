@@ -27,6 +27,31 @@
   --pg-warning-soft: #feeab1;
   --pg-error: #932f2f;
   --pg-error-soft: #fdcfcf;
+  --pg-role-bg-page: var(--pg-cream);
+  --pg-role-bg-surface: var(--pg-white);
+  --pg-role-bg-chip: var(--pg-cream-dark);
+  --pg-role-bg-tint: var(--pg-tint);
+  --pg-role-bg-tint-soft: var(--pg-tint-soft);
+  --pg-role-bg-inverse: var(--pg-navy);
+  --pg-role-bg-inverse-hover: var(--pg-navy-hover);
+  --pg-role-bg-brand: var(--pg-teal);
+  --pg-role-bg-brand-hover: var(--pg-teal-dark);
+  --pg-role-bg-brand-light: var(--pg-sage);
+  --pg-role-bg-positive-subtle: var(--pg-success-soft);
+  --pg-role-bg-warning-subtle: var(--pg-warning-soft);
+  --pg-role-bg-negative-subtle: var(--pg-error-soft);
+  --pg-role-fg-primary: var(--pg-navy);
+  --pg-role-fg-secondary: var(--pg-slate);
+  --pg-role-fg-brand: var(--pg-teal-dark);
+  --pg-role-fg-inverse: var(--pg-white);
+  --pg-role-fg-icon: var(--pg-slate);
+  --pg-role-fg-positive: var(--pg-success);
+  --pg-role-fg-warning: var(--pg-warning);
+  --pg-role-fg-negative: var(--pg-error);
+  --pg-role-border-default: var(--pg-line);
+  --pg-role-border-divider: var(--pg-line);
+  --pg-role-border-brand: var(--pg-teal);
+  --pg-role-focus-ring: var(--pg-teal-dark);
   --pg-font: 'Poppins', system-ui, sans-serif;
   --pg-shadow-card: 0 8px 24px rgba(28, 50, 67, 0.06);
   --pg-shadow-card-hover: 0 8px 24px rgba(28, 50, 67, 0.14);
@@ -60,7 +85,7 @@
   --ring: var(--pg-teal-dark);
 }
 
-/* Tailwind v4 theme: bg-pg-navy, text-pg-slate, rounded-pg-md, shadow-pg-card, max-w-pg-content, ease-pg-out… */
+/* Tailwind v4 theme: bg-pg-navy, text-pg-slate, bg-role-bg-page, text-role-fg-primary, rounded-pg-md, shadow-pg-card, max-w-pg-content, ease-pg-out… */
 @theme inline {
   --color-pg-navy: var(--pg-navy);
   --color-pg-navy-hover: var(--pg-navy-hover);
@@ -83,6 +108,31 @@
   --color-pg-warning-soft: var(--pg-warning-soft);
   --color-pg-error: var(--pg-error);
   --color-pg-error-soft: var(--pg-error-soft);
+  --color-role-bg-page: var(--pg-role-bg-page);
+  --color-role-bg-surface: var(--pg-role-bg-surface);
+  --color-role-bg-chip: var(--pg-role-bg-chip);
+  --color-role-bg-tint: var(--pg-role-bg-tint);
+  --color-role-bg-tint-soft: var(--pg-role-bg-tint-soft);
+  --color-role-bg-inverse: var(--pg-role-bg-inverse);
+  --color-role-bg-inverse-hover: var(--pg-role-bg-inverse-hover);
+  --color-role-bg-brand: var(--pg-role-bg-brand);
+  --color-role-bg-brand-hover: var(--pg-role-bg-brand-hover);
+  --color-role-bg-brand-light: var(--pg-role-bg-brand-light);
+  --color-role-bg-positive-subtle: var(--pg-role-bg-positive-subtle);
+  --color-role-bg-warning-subtle: var(--pg-role-bg-warning-subtle);
+  --color-role-bg-negative-subtle: var(--pg-role-bg-negative-subtle);
+  --color-role-fg-primary: var(--pg-role-fg-primary);
+  --color-role-fg-secondary: var(--pg-role-fg-secondary);
+  --color-role-fg-brand: var(--pg-role-fg-brand);
+  --color-role-fg-inverse: var(--pg-role-fg-inverse);
+  --color-role-fg-icon: var(--pg-role-fg-icon);
+  --color-role-fg-positive: var(--pg-role-fg-positive);
+  --color-role-fg-warning: var(--pg-role-fg-warning);
+  --color-role-fg-negative: var(--pg-role-fg-negative);
+  --color-role-border-default: var(--pg-role-border-default);
+  --color-role-border-divider: var(--pg-role-border-divider);
+  --color-role-border-brand: var(--pg-role-border-brand);
+  --color-role-focus-ring: var(--pg-role-focus-ring);
   --shadow-pg-card: var(--pg-shadow-card);
   --shadow-pg-card-hover: var(--pg-shadow-card-hover);
   --shadow-pg-overlay: var(--pg-shadow-overlay);

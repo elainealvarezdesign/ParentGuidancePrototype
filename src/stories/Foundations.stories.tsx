@@ -56,6 +56,43 @@ export const Colors: Story = {
   ),
 };
 
+type RoleTok = { $value: string; $description?: string; $extensions?: { figma?: string } };
+
+const roleEntries = (group: unknown) =>
+  Object.entries(group as Record<string, RoleTok>).filter(([k]) => !k.startsWith("$"));
+
+/** Color roles: what each color is for. Each swatch uses the role's CSS variable (--pg-role-…). */
+export const ColorRoles: Story = {
+  name: "Color roles",
+  render: () => (
+    <div className="flex flex-col gap-8">
+      {Object.entries(tokens.role)
+        .filter(([k]) => !k.startsWith("$"))
+        .map(([group, roles]) => (
+          <section key={group}>
+            <h2 className="text-pg-h4 text-pg-navy">{group}</h2>
+            <ul className="mt-3 grid grid-cols-2 gap-4 md:grid-cols-4">
+              {roleEntries(roles).map(([name, t]) => (
+                <li key={name} className="overflow-hidden rounded-pg-lg border border-pg-line bg-white">
+                  <div className="h-12" style={{ background: `var(--pg-role-${group}-${name})` }} />
+                  <div className="p-3">
+                    <p className="text-sm font-semibold text-pg-navy">
+                      {group}-{name}
+                    </p>
+                    <p className="text-xs text-pg-slate">
+                      → {t.$value.replace(/[{}]/g, "")} · Figma {t.$extensions?.figma?.split("/").slice(1).join("/")}
+                    </p>
+                    {t.$description && <p className="mt-1 text-xs text-pg-slate">{t.$description}</p>}
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))}
+    </div>
+  ),
+};
+
 type TextTok = {
   size: number;
   lineHeight: number;

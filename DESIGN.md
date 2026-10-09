@@ -4,7 +4,8 @@ The entry point to the Parent Guidance design system. **The system lives in this
 components, sections, content and pages are code, and the docs below describe them. Figma mirrors the code.
 
 - **Live prototype:** https://parent-guidance-prototype.netlify.app/ (deploys from `main`)
-- **System docs:** [`docs/system/`](./docs/system/README.md) — start there
+- **Agent-friendly handoff pack:** [`docs/handoff/AGENT-HANDOFF.md`](./docs/handoff/AGENT-HANDOFF.md) — start here
+- **System docs:** [`docs/system/`](./docs/system/README.md)
 - **Tokens (source of truth):** [`tokens/pg.tokens.json`](./tokens/pg.tokens.json) → `pnpm tokens` →
   [`src/styles/tokens.css`](./src/styles/tokens.css)
 - **Figma library (mirror):** [Design system - PG](https://www.figma.com/design/mWOJYdAxkKGj0bWSO2ptGj/Design-system---PG)

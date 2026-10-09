@@ -31,6 +31,10 @@ also checks that every reference resolves. When a Figma variable changes, update
 
 ## Code token → Figma variable
 
+The code also has **color roles** (`role.*` in `tokens/pg.tokens.json`, utilities like `text-role-fg-primary`).
+Each role names its Figma variable in `$extensions.figma`, and `pnpm check:tokens` verifies that both resolve to
+the same color. Full list: [foundations.md → Color roles](../system/foundations.md#color-roles).
+
 The prototype's CSS variables live in [`src/styles/tokens.css`](../../src/styles/tokens.css).
 
 | Code (`tokens.css` / Tailwind) | Value | Figma variable (Semantic: Color Roles) |

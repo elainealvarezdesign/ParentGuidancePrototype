@@ -2,7 +2,8 @@
 /* Validates the Figma variables export (docs/tokens/parent-guidance.tokens.json), audit M07:
  *  - it is the canonical, complete export (EXPECTED tokens; the older 464-token snapshot is retired);
  *  - every alias ({Group.Token}) resolves;
- *  - every color of the code tokens (tokens/pg.tokens.json, the source of truth) exists in Figma.
+ *  - every color of the code tokens (tokens/pg.tokens.json, the source of truth) exists in Figma;
+ *  - every code color role resolves to the same value as the Figma role variable it names.
  * Run with `pnpm check:tokens`. */
 import { readFileSync } from "node:fs";
 
@@ -40,10 +41,35 @@ for (const [name, t] of Object.entries(code.color)) {
     problems.push(`code color ${name} ${t.$value} is missing from the Figma export`);
 }
 
+// Color roles: code role → palette color must equal the Figma role variable (aliases followed to a value).
+const resolve = (value, depth = 0) => {
+  const m = typeof value === "string" && value.match(/^\{([^}]+)\}$/);
+  if (!m || depth > 10) return value;
+  const t = tokens.get(m[1]);
+  return t ? resolve(t.$value, depth + 1) : value;
+};
+let roleCount = 0;
+for (const [group, roles] of Object.entries(code.role ?? {})) {
+  if (group.startsWith("$")) continue;
+  for (const [name, r] of Object.entries(roles)) {
+    if (name.startsWith("$")) continue;
+    roleCount++;
+    const color = r.$value.match(/^\{color\.([\w-]+)\}$/)?.[1];
+    const codeValue = code.color[color]?.$value;
+    const figmaPath = r.$extensions?.figma?.replace(/\//g, ".");
+    const figmaValue = figmaPath && resolve(`{${figmaPath}}`);
+    if (!codeValue) problems.push(`role.${group}.${name}: ${r.$value} is not a code color`);
+    else if (!figmaPath || !tokens.has(figmaPath))
+      problems.push(`role.${group}.${name}: Figma variable "${r.$extensions?.figma}" not found`);
+    else if (String(figmaValue).toLowerCase() !== codeValue.toLowerCase())
+      problems.push(`role.${group}.${name}: code ${codeValue} ≠ Figma ${figmaValue} (${r.$extensions.figma})`);
+  }
+}
+
 if (problems.length) {
   console.error(`Token export check failed (${problems.length}):\n  ` + problems.join("\n  "));
   process.exit(1);
 }
 console.log(
-  `Token export OK — ${tokens.size} Figma tokens, all aliases resolve, all ${Object.keys(code.color).filter((k) => !k.startsWith("$")).length} code colors present.`,
+  `Token export OK — ${tokens.size} Figma tokens, all aliases resolve, all ${Object.keys(code.color).filter((k) => !k.startsWith("$")).length} code colors present, ${roleCount} color roles match Figma.`,
 );
