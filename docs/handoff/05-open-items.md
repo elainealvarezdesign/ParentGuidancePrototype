@@ -12,7 +12,7 @@ prototype or the library.
 | Home V2 accent | Uses the `peach` token, which is reserved for illustration accents | Design |
 | Cookies Policy | Cookie names are shown in a monospace font | Design |
 | Simulated forms | Contact, Ask a Therapist and newsletter forms send nothing; their success message says so (`prototypeNotice` in `src/content/site.ts`). In production, connect endpoints, show success only after a confirmed response, and remove the notice | Development |
-| Figma mirror | Tokens, shadows and the code type scale are in sync (October 8). Still to add as components: the new sections (SplitHero shapes, PhotoCtaBanner overlay, ResourceLibrary…); the repo is the source | Design |
+| Figma mirror | Tokens, shadows and the code type scale are in sync (October 8). Page comparison with the Figma updates and decisions: [PAGE-COMPARISON.md](../figma-sync/PAGE-COMPARISON.md). Still to add as components: the new sections (SplitHero shapes, PhotoCtaBanner overlay, ResourceLibrary…); the repo is the source | Design |
 | FAQ wording | Two home FAQ questions were duplicates; they now read "What happens in a typical session?" and "Is messaging limited?" — confirm the copy | Content |
 
 Source: section 5.4 of the design guidelines (`docs/guidelines/05-quality.md`) and the October 2026 code audit (section 7).

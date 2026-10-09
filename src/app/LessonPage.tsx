@@ -63,7 +63,7 @@ function LessonView({ program, lesson }: { program: CourseProgram; lesson: Lesso
         ]}
       />
 
-      <div className="mx-auto flex w-full max-w-pg-page flex-col gap-6 px-6 py-6 lg:flex-row">
+      <div className="mx-auto flex w-full max-w-pg-page flex-col gap-6 px-6 py-6 md:px-10 lg:flex-row lg:px-14">
         <div className="flex min-w-0 flex-1 flex-col gap-4">
           <div className="flex flex-col items-start gap-3 sm:flex-row sm:justify-between sm:gap-4">
             <div className="min-w-0">
@@ -162,7 +162,7 @@ function LessonView({ program, lesson }: { program: CourseProgram; lesson: Lesso
       </div>
 
       <nav aria-label="Lessons" className="border-t border-pg-line bg-white">
-        <div className="mx-auto flex h-16 max-w-pg-page items-center justify-between gap-3 px-6">
+        <div className="mx-auto flex h-16 max-w-pg-page items-center justify-between gap-3 px-6 md:px-10 lg:px-14">
           {prev ? (
             <ButtonLink to={lessonHref(prev.id)} variant="tertiary" rel="prev" className="gap-2">
               <ChevronLeft size={16} aria-hidden="true" />

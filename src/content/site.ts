@@ -1,6 +1,9 @@
 /* Site-wide content: navigation, footer and social links. Edit here; the layout reads it.
  * In production this would come from the CMS (global settings). */
 
+/** Used in every browser tab title: "<page h1> | Parent Guidance". */
+export const siteName = "Parent Guidance";
+
 export type NavLink = { label: string; to: string };
 export type FooterLink = { label: string; to?: string; href?: string };
 export type SocialNetwork = "facebook" | "instagram" | "youtube" | "vimeo" | "linkedin";

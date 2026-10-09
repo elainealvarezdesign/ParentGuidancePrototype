@@ -11,7 +11,7 @@ export type Crumb = { label: string; to?: string; hideOnMobile?: boolean };
 export function Breadcrumb({ items, className }: { items: Crumb[]; className?: string }) {
   return (
     <nav aria-label="Breadcrumb" className={cn("mt-14 border-b border-pg-line bg-pg-tint-soft", className)}>
-      <ol className="mx-auto flex h-10 max-w-pg-page items-center gap-2 px-6 text-xs">
+      <ol className="mx-auto flex h-10 max-w-pg-page items-center gap-2 px-6 text-xs md:px-10 lg:px-14">
         {items.map((item, i) => {
           const last = i === items.length - 1;
           return (

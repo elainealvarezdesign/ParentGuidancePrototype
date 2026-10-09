@@ -13,13 +13,13 @@ export function Footer() {
   return (
     <footer className="bg-pg-cream px-6 py-8 md:px-10 lg:px-14 print:hidden">
       <div className="mx-auto mb-10 flex max-w-pg-page flex-col items-start gap-10 lg:flex-row lg:gap-20">
-        <div className="flex w-full flex-col gap-6 lg:w-[467px] lg:shrink-0 lg:gap-40">
+        <div className="flex w-full flex-col gap-6 lg:w-[467px] lg:shrink-0">
           <Link to="/" aria-label="Parent Guidance home" className="w-fit rounded-pg-sm">
-            <LogoColor />
+            <LogoColor className="h-11 w-[182px]" />
           </Link>
           <div className="flex items-center gap-3">
-            <img src={badgeGooglePlay} alt="Get it on Google Play" className="h-6 object-contain" />
-            <img src={badgeAppStore} alt="Download on the App Store" className="h-6 object-contain" />
+            <img src={badgeGooglePlay} alt="Get it on Google Play" className="h-10 object-contain" />
+            <img src={badgeAppStore} alt="Download on the App Store" className="h-10 object-contain" />
           </div>
         </div>
         <div className="flex flex-1 flex-col gap-8 sm:flex-row sm:gap-16 lg:justify-center">
