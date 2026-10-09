@@ -8,7 +8,8 @@ The Parent Guidance website prototype and the **code source of truth of its desi
 TypeScript (strict), Vite 6, Tailwind CSS 4, React Router 7, `motion/react`. No backend: content is typed
 data in `src/content`, forms are simulated.
 
-Read before changing anything: [`docs/system/README.md`](./docs/system/README.md) (architecture and
+Start here: [`docs/handoff/AGENT-HANDOFF.md`](./docs/handoff/AGENT-HANDOFF.md) (the handoff pack: links,
+tokens, roles, components, checks). Read before changing anything: [`docs/system/README.md`](./docs/system/README.md) (architecture and
 "Build a page"). Do not use Figma as a reference for implementation details; the code and `docs/system` are
 the reference.
 
@@ -49,7 +50,9 @@ pnpm format           # Prettier (with the Tailwind class sorter)
 
 ## Hard rules (CI enforces most of them)
 
-- Tokens only: `bg-pg-*`, `text-pg-*`, `rounded-pg-*`, `shadow-pg-*`, Tailwind's 4px spacing scale. No hex,
+- Tokens only: `bg-pg-*`, `text-pg-*`, `rounded-pg-*`, `shadow-pg-*`, Tailwind's 4px spacing scale. Color roles
+  (`bg-role-bg-page`, `text-role-fg-primary`, `border-role-border-default`…) say what a color is for; prefer them
+  in new code. No hex,
   no `gray-*`, no `py-2.5`, no `mt-[13px]`. Exceptions need `// design-rules-ignore` and a reason.
 - Small colored text uses `teal-dark`, never `teal`; never white text on `sage`.
 - Pages never render `<main>`, `Navbar` or `Footer`. The first section uses `Section belowNav` (or the

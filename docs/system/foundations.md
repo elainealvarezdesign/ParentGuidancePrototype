@@ -35,6 +35,35 @@ Text pairs that pass WCAG AA (4.5:1) and are allowed: navy, slate or teal-dark o
 white on navy, teal-dark or teal (bold ≥14px); navy on sage; sage on navy. Status text on its `-soft`
 background. Opacity variants (`bg-pg-navy/60`) are fine for overlays and scrims.
 
+### Color roles
+
+Roles say what a color is **for**. Each role is an alias of a palette color in `tokens/pg.tokens.json`
+(`role.*`) and matches a variable in Figma's **Semantic: Color Roles** collection; `pnpm check:tokens` fails if
+a role and its Figma variable disagree. Use a role when the intent matters (new components, generated code,
+agents); the palette utilities above stay valid.
+
+| Role | Tailwind | Palette | Figma variable |
+|---|---|---|---|
+| `bg-page` | `bg-role-bg-page` | cream | Background/Page |
+| `bg-surface` | `bg-role-bg-surface` | white | Background/Surface |
+| `bg-chip` | `bg-role-bg-chip` | cream-dark | Background/Chip |
+| `bg-tint`, `bg-tint-soft` | `bg-role-bg-tint`, `bg-role-bg-tint-soft` | tint, tint-soft | Background/Tint, Tint Soft |
+| `bg-inverse`, `bg-inverse-hover` | `bg-role-bg-inverse` … | navy, navy-hover | Background/Inverse, Inverse Hover |
+| `bg-brand`, `bg-brand-hover` | `bg-role-bg-brand` … | teal, teal-dark | Background/Brand, Brand Hover |
+| `bg-brand-light` | `bg-role-bg-brand-light` | sage | Background/Brand Light (never white text on it) |
+| `bg-positive-subtle`, `bg-warning-subtle`, `bg-negative-subtle` | `bg-role-bg-positive-subtle` … | success-soft, warning-soft, error-soft | Background/… Subtle |
+| `fg-primary` | `text-role-fg-primary` | navy | Foreground/Primary |
+| `fg-secondary` | `text-role-fg-secondary` | slate | Foreground/Secondary |
+| `fg-brand` | `text-role-fg-brand` | teal-dark | Foreground/Brand (links, small brand text) |
+| `fg-inverse` | `text-role-fg-inverse` | white | Foreground/Inverse |
+| `fg-icon` | `text-role-fg-icon` | slate | Foreground/Icon |
+| `fg-positive`, `fg-warning`, `fg-negative` | `text-role-fg-positive` … | success, warning, error | Foreground/Positive, Warning, Negative |
+| `border-default`, `border-divider` | `border-role-border-default` … | line | Border/Default, Divider |
+| `border-brand` | `border-role-border-brand` | teal | Border/Brand |
+| `focus-ring` | `ring-role-focus-ring` | teal-dark | Focus/Ring |
+
+CSS variables: `--pg-role-<role>` (e.g. `--pg-role-fg-primary`). Storybook: **Foundations → Tokens → Color roles**.
+
 ## Type
 
 Poppins (Google Fonts), with `system-ui` fallback. Use the semantic utilities; each sets size, line height

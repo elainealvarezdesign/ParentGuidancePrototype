@@ -18,6 +18,16 @@ for (const [k, v] of entries(t.color)) {
   root_.push(`  --pg-${k}: ${v.$value};`);
   if (k !== "white") theme.push(`  --color-pg-${k}: var(--pg-${k});`);
 }
+// Color roles: --pg-role-<group>-<name> → the palette variable it aliases; Tailwind: bg-role-bg-page…
+const alias = (v) => v.match(/^\{color\.([\w-]+)\}$/)?.[1];
+for (const [group, roles] of entries(t.role)) {
+  for (const [name, r] of entries(roles)) {
+    const color = alias(r.$value);
+    if (!color || !t.color[color]) throw new Error(`role.${group}.${name}: ${r.$value} is not a {color.*} alias`);
+    root_.push(`  --pg-role-${group}-${name}: var(--pg-${color});`);
+    theme.push(`  --color-role-${group}-${name}: var(--pg-role-${group}-${name});`);
+  }
+}
 root_.push(`  --pg-font: ${t.font.family.$value};`);
 for (const [k, v] of entries(t.shadow)) {
   root_.push(`  --pg-shadow-${k}: ${v.$value};`);
@@ -34,11 +44,7 @@ for (const [k, v] of entries(t.radius)) theme.push(`  --radius-pg-${k}: ${v.$val
 for (const [k, v] of entries(t.container)) theme.push(`  --container-pg-${k}: ${v.$value};`);
 
 for (const [k, s] of entries(t.text)) {
-  const lines = [
-    `  font-size: ${px(s.size)};`,
-    `  line-height: ${px(s.lineHeight)};`,
-    `  font-weight: ${s.weight};`,
-  ];
+  const lines = [`  font-size: ${px(s.size)};`, `  line-height: ${px(s.lineHeight)};`, `  font-weight: ${s.weight};`];
   if (s.tracking) lines.push(`  letter-spacing: ${s.tracking};`);
   if (s.uppercase) lines.push("  text-transform: uppercase;");
   if (s.md) {
@@ -81,7 +87,7 @@ ${root_.join("\n")}
   --ring: var(--pg-teal-dark);
 }
 
-/* Tailwind v4 theme: bg-pg-navy, text-pg-slate, rounded-pg-md, shadow-pg-card, max-w-pg-content, ease-pg-out… */
+/* Tailwind v4 theme: bg-pg-navy, text-pg-slate, bg-role-bg-page, text-role-fg-primary, rounded-pg-md, shadow-pg-card, max-w-pg-content, ease-pg-out… */
 @theme inline {
 ${theme.join("\n")}
 }

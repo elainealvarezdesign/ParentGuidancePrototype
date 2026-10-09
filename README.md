@@ -15,7 +15,9 @@ Figma Make export.
 
 The design system lives in this repository: tokens, components, sections, content and pages are code.
 
-- **Start here:** [`docs/system/`](./docs/system/README.md) — architecture, "Build a page", and docs for every
+- **Handoff pack (start here):** [`docs/handoff/AGENT-HANDOFF.md`](./docs/handoff/AGENT-HANDOFF.md) — prototype, tokens,
+  roles, components and checks on one page.
+- **System docs:** [`docs/system/`](./docs/system/README.md) — architecture, "Build a page", and docs for every
   component, section and page. Index: [`DESIGN.md`](./DESIGN.md). AI agents: [`AGENTS.md`](./AGENTS.md).
 - **Tokens (source):** [`tokens/pg.tokens.json`](./tokens/pg.tokens.json) → `pnpm tokens` → `src/styles/tokens.css`
 - **Storybook (visual catalog):** `pnpm storybook`, published at <https://parent-guidance-prototype.netlify.app/storybook/>
