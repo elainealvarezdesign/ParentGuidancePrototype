@@ -80,6 +80,7 @@ const theme = {
       role,
       radius: Object.fromEntries(entries(t.radius).map(([k, v]) => [k, v.$value])),
       container: Object.fromEntries(entries(t.container).map(([k, v]) => [k, v.$value])),
+      control: Object.fromEntries(entries(t.control).map(([k, v]) => [k, v.$value])),
       text,
       motion: Object.fromEntries(
         entries(t.motion).map(([k, v]) => [
@@ -113,12 +114,13 @@ const theme = {
         typography: { fontSize: fontSize("body"), fontWeight: "600" },
         spacing: {
           padding: {
-            top: "var(--wp--preset--spacing--3)",
-            bottom: "var(--wp--preset--spacing--3)",
+            top: "var(--wp--preset--spacing--2)",
+            bottom: "var(--wp--preset--spacing--2)",
             left: "var(--wp--preset--spacing--5)",
             right: "var(--wp--preset--spacing--5)",
           },
         },
+        dimensions: { minHeight: "var(--wp--custom--control--touch)" },
         ":hover": { color: { background: role.bg["brand-hover"] } },
         ":focus": { outline: { color: role.focus.ring, width: "2px", style: "solid", offset: "2px" } },
       },
@@ -140,6 +142,7 @@ const vars = [
   ...entries(t.radius).map(([k, v]) => `  --pg-radius-${k}: ${v.$value};`),
   ...entries(t.shadow).map(([k, v]) => `  --pg-shadow-${k}: ${v.$value};`),
   ...entries(t.container).map(([k, v]) => `  --pg-container-${k}: ${v.$value};`),
+  ...entries(t.control).map(([k, v]) => `  --pg-control-${k}: ${v.$value};`),
   ...entries(t.motion).map(
     ([k, v]) => `  --pg-${k}: ${Array.isArray(v.$value) ? `cubic-bezier(${v.$value.join(", ")})` : v.$value};`,
   ),

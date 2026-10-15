@@ -1587,15 +1587,15 @@
     "Control": {
       "S": {
         "$type": "dimension",
-        "$value": "{Primitive: Unit Scale.36}"
+        "$value": "{Primitive: Unit Scale.32}"
       },
       "M": {
         "$type": "dimension",
-        "$value": "{Primitive: Unit Scale.44}"
+        "$value": "{Primitive: Unit Scale.40}"
       },
       "L": {
         "$type": "dimension",
-        "$value": "{Primitive: Unit Scale.52}"
+        "$value": "{Primitive: Unit Scale.48}"
       }
     },
     "Avatar": {

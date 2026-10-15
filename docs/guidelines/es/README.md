@@ -54,7 +54,7 @@ sentirse **cálida, calmada y confiable**:
 - Regla de tokens: ningún hex, tamaño o sombra "a mano"; todo sale de `tokens.css`.
 - Escalas cerradas de tipo y espaciado; a cualquier valor nuevo se le asigna el paso más cercano.
 - Jerarquía de botones: un solo Primary por sección, labels que empiezan con verbo, estados completos
-  (Focus, Loading, Disabled), mínimo 44px de área táctil.
+  (Focus, Loading, Disabled), tamaños 32 / 40 / 48px en la cuadrícula de 8px, 48px de alto táctil en móvil.
 - Grids que degradan por etapas (3 → 2 → 1 columnas).
 - Movimiento seguro y sin prisa, con duraciones por bandas y un contrato de reduced‑motion obligatorio.
 

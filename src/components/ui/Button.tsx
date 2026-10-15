@@ -25,10 +25,11 @@ const variants: Record<ButtonVariant, string> = {
   "inverse-secondary": "border border-white/20 bg-white/5 text-white hover:bg-white/10 disabled:opacity-60",
 };
 
+// 8px grid: s 32, m 40, l 48. On phones m grows to 48 so the default button keeps a comfortable touch target.
 const sizes: Record<ButtonSize, string> = {
-  s: "min-h-9 px-4 text-sm",
-  m: "min-h-11 px-5 text-sm",
-  l: "min-h-13 px-7 text-base",
+  s: "min-h-8 px-4 text-sm",
+  m: "min-h-12 px-5 text-sm md:min-h-10",
+  l: "min-h-12 px-7 text-base",
 };
 
 export function buttonClass({
@@ -36,7 +37,12 @@ export function buttonClass({
   size = "m",
   className,
 }: { variant?: ButtonVariant; size?: ButtonSize; className?: string } = {}) {
-  return cn(base, variants[variant], variant === "tertiary" ? "min-h-11 px-1 text-sm" : sizes[size], className);
+  return cn(
+    base,
+    variants[variant],
+    variant === "tertiary" ? "min-h-12 px-1 text-sm md:min-h-10" : sizes[size],
+    className,
+  );
 }
 
 type Style = { variant?: ButtonVariant; size?: ButtonSize };

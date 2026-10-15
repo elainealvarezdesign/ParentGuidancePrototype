@@ -25,9 +25,9 @@ Sobre fondo **sage** (banners como "Not sure which resource is right for you?") 
 
 | Tamaño | Alto | Padding | Texto | Cuándo |
 |--------|------|---------|-------|--------|
-| **S** | 36px | `px-4` | 14px / 600 | UI densa: barras de herramientas, paginación, "Register" en filas de eventos. En móvil, solo si el botón ocupa el ancho completo |
-| **M** | 44px | `px-5` | 14px / 600 | **Por defecto** |
-| **L** | 52px | `px-7` | 16px / 600 | CTA de hero y pantallas clave en móvil |
+| **S** | 32px | `px-4` | 14px / 600 | UI densa: barras de herramientas, paginación, "Register" en filas de eventos. En móvil, solo si el botón ocupa el ancho completo |
+| **M** | 40px (48px en móvil) | `px-5` | 14px / 600 | **Por defecto** |
+| **L** | 48px | `px-7` | 16px / 600 | CTA de hero y pantallas clave en móvil |
 
 - Radio `rounded-pg-md` (8px) en todos los tamaños.
 - La forma **píldora** (`rounded-full`) se reserva para chips, badges, filtros y el buscador. No para botones
@@ -79,13 +79,13 @@ Estos elementos tienen su propio estilo y **no** usan `<Button>`:
 | Chips de filtro | `rounded-full text-xs font-medium px-4 py-2`; activo `bg-pg-navy text-white`, inactivo `bg-pg-cream-dark text-pg-slate`, con `aria-pressed` |
 | Menú "Featured" (ordenar) | `rounded-pg-md bg-pg-cream-dark text-xs font-medium px-4 py-2`, iconos `ListFilter` (filter_list) + `ChevronDown` (expand_more) de 14px, centrados con el texto |
 | Selector segmentado (Month/List, Day/Week/Month) | Contenedor `bg-pg-tint-soft`; opción activa blanca con `shadow-pg-card` y `aria-pressed` |
-| Paginación numérica | Cuadrados de 36–44px; página actual navy o teal; Prev/Next como `<Button variant="secondary" size="s">` |
-| Botones de solo icono | 36–44px, `rounded-pg-md`, `aria-label` obligatorio (flechas del calendario, cerrar, menú) |
+| Paginación numérica | Cuadrados de 32–40px; página actual navy o teal; Prev/Next como `<Button variant="secondary" size="s">` |
+| Botones de solo icono | 32–40px, `rounded-pg-md`, `aria-label` obligatorio (flechas del calendario, cerrar, menú) |
 
 ## 2.5 Accesibilidad
 
 - Usar `<button>` para acciones y `<a>` para navegación. No usar `<div onClick>`.
-- Área táctil mínima de **44×44px** en móvil (tamaño M o L).
+- Área táctil de al menos **48px** de alto en móvil: el tamaño M sube a 48px automáticamente (cuadrícula de 8px: 32 / 40 / 48).
 - Los enlaces externos (`target="_blank"`) deben avisar: icono de enlace externo + texto oculto
   "(se abre en una pestaña nueva)".
 - Los botones de solo icono llevan `aria-label` ("Cerrar", "Menú").

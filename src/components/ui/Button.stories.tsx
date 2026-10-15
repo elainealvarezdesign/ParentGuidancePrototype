@@ -40,9 +40,9 @@ export const Variants: Story = {
 export const Sizes: Story = {
   render: () => (
     <div className="flex flex-wrap items-center gap-3">
-      <Button size="s">Small 36</Button>
-      <Button size="m">Medium 44</Button>
-      <Button size="l">Large 52</Button>
+      <Button size="s">Small 32</Button>
+      <Button size="m">Medium 40</Button>
+      <Button size="l">Large 48</Button>
     </div>
   ),
 };

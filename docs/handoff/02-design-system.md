@@ -30,7 +30,7 @@ layer: delete the property and publish again.
 
 Every variable outside *Primitive Colors* and *Primitive: Unit Scale* points to a primitive, so changing a base
 value updates everything that uses it. Values match the prototype code (`src/styles/tokens.css`): colors,
-radii, button sizes (36 / 44 / 52px), motion (150 / 220 / 350 / 550ms) and the code type scale
+radii, button sizes (32 / 40 / 48px), motion (150 / 220 / 350 / 550ms) and the code type scale
 (*Typography → Code Scale*: display, h1, h2, h3, h4, body-lg, body, small, eyebrow).
 
 ## Design tokens for development
@@ -53,7 +53,7 @@ Style Dictionary or Tokens Studio. Typography values per breakpoint are under `$
 | `pg-success` / `pg-warning` / `pg-error` | `#117a3a` / `#a84b02` / `#932f2f` | Foreground/Positive / Warning / Negative |
 | `rounded-pg-sm … 2xl` | 4 / 8 / 12 / 16 / 28px | Corner Radius XS / S / M / L / XL |
 | `--pg-dur-micro … reveal` | 150 / 220 / 350 / 550ms | Duration/Micro / Fast / Base / Reveal |
-| `<Button size="s/m/l">` | 36 / 44 / 52px | Control/S / M / L |
+| `<Button size="s/m/l">` | 32 / 40 / 48px | Control/S / M / L |
 
 The full table is in the repo: `docs/tokens/README.md`.
 

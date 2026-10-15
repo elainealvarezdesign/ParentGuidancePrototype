@@ -54,7 +54,7 @@ must feel **warm, calm and trustworthy**:
 - Token rule: no hex, size or shadow written "by hand"; everything comes from `tokens.css`.
 - Closed type and spacing scales; any new value is assigned the nearest step.
 - Button hierarchy: one Primary per section, labels that start with a verb, complete states
-  (Focus, Loading, Disabled), 44px minimum touch area.
+  (Focus, Loading, Disabled), 32 / 40 / 48px sizes on the 8px grid, 48px touch height on mobile.
 - Grids that degrade in steps (3 → 2 → 1 columns).
 - Safe, unhurried motion with duration bands and a mandatory reduced‑motion contract.
 

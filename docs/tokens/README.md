@@ -60,4 +60,4 @@ The prototype's CSS variables live in [`src/styles/tokens.css`](../../src/styles
 | `rounded-pg-sm/md/lg/xl/2xl` | 4 / 8 / 12 / 16 / 28px | Corner Radius Scale XS / S / M / L / XL |
 | `--pg-dur-micro/fast/base/reveal` | 150 / 220 / 350 / 550ms | Semantic: Motion Duration/Micro / Fast / Base / Reveal |
 | `--pg-ease-out` / `--pg-ease-in-out` | see above | Easing/Standard / Easing/In Out |
-| `<Button size="s/m/l">` | 36 / 44 / 52px | Semantic: Sizing Control/S / M / L |
+| `<Button size="s/m/l">`, `control.*` | 32 / 40 / 48px (m is 48px on phones) | Semantic: Sizing Control/S / M / L |

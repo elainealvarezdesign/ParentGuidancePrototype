@@ -108,7 +108,14 @@ export const TextInput = forwardRef<HTMLInputElement, ComponentPropsWithoutRef<"
   ref,
 ) {
   const field = useFieldProps(props);
-  return <input ref={ref} {...props} {...field} className={cn(control, "min-h-11 border-pg-line py-2", className)} />;
+  return (
+    <input
+      ref={ref}
+      {...props}
+      {...field}
+      className={cn(control, "min-h-12 border-pg-line py-2 md:min-h-10", className)}
+    />
+  );
 });
 
 export const TextArea = forwardRef<HTMLTextAreaElement, ComponentPropsWithoutRef<"textarea">>(function TextArea(
@@ -147,8 +154,8 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(function Select
         className={cn(
           "w-full cursor-pointer appearance-none transition-colors duration-(--pg-dur-fast) outline-none",
           size === "field"
-            ? cn(control, "min-h-11 border-pg-line py-2 pr-10")
-            : "min-h-9 rounded-pg-md bg-pg-cream-dark py-2 pr-9 pl-4 text-xs font-medium text-pg-slate hover:bg-pg-tint",
+            ? cn(control, "min-h-12 border-pg-line py-2 pr-10 md:min-h-10")
+            : "min-h-8 rounded-pg-md bg-pg-cream-dark py-1 pr-9 pl-4 text-xs font-medium text-pg-slate hover:bg-pg-tint",
           className,
         )}
       >
