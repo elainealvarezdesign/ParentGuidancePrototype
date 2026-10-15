@@ -2,7 +2,7 @@
 
 Parent Guidance (parentguidance.org) supports families with mental health resources, coaching, courses and
 crisis help. The UI must feel warm, calm and trustworthy. Full guidelines live in `docs/guidelines/`
-(English) and `docs/guidelines/es/` (Spanish); design tokens live in `src/styles/tokens.css` (Tailwind classes: `bg-pg-navy`,
+(English) and `docs/guidelines/es/` (Spanish); design tokens live in `tokens/pg.tokens.json`, generated into `src/styles/tokens.css` (Tailwind classes: `bg-pg-navy`,
 `text-pg-slate`, `rounded-pg-md`, `shadow-pg-card`, `max-w-pg-page`).
 
 # General
@@ -72,7 +72,7 @@ crisis help. The UI must feel warm, calm and trustworthy. Full guidelines live i
 
 * Use `src/components/ui/Button.tsx`: `<Button>` for actions, `<ButtonLink to>` for in-app links,
   `<ButtonAnchor href>` for external, mailto, tel and sms links. Props: `variant` (primary, secondary,
-  tertiary, inverse, inverse-secondary) and `size` (`s` 36px, `m` 44px default, `l` 52px). Never restyle
+  tertiary, inverse, inverse-secondary) and `size` (8px grid: `s` 32px, `m` 40px default, `l` 48px; `m` is 48px on phones). Never restyle
   colors, radius or height through `className`.
 * Primary: teal background, white text, 8px radius, Poppins semibold 14px; hover teal dark.
 * Secondary: white background, 1px teal border, teal-dark text; hover tint background.
@@ -81,7 +81,7 @@ crisis help. The UI must feel warm, calm and trustworthy. Full guidelines live i
 * Only one Primary per section. Labels start with a verb ("View course", "Book a session").
 * No navy or sage buttons. Pill shape is only for chips, badges, filters and search bars.
 * Every button and link has a visible focus style (global 2px teal-dark ring). Icon-only buttons need an
-  `aria-label`. Minimum touch target 44×44px. External links opening a new tab say so to screen readers.
+  `aria-label`. Touch targets at least 44px (the default button and inputs are 48px on phones). External links opening a new tab say so to screen readers.
 * Crisis call/text buttons on Get Help use `tel:`/`sms:` links in size L.
 
 # Icons
