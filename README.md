@@ -38,7 +38,7 @@ The design system lives in this repository: tokens, components, sections, conten
 ```bash
 pnpm install     # or: npm i
 pnpm dev         # start the development server
-pnpm check       # typecheck, lint, tokens, design rules, docs, build (what CI runs)
+pnpm check       # typecheck, lint, tokens, design rules, docs, unit tests, build (what CI runs)
 pnpm build       # production build into dist/
 pnpm preview     # serve the build locally
 ```
