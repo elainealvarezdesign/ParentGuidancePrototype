@@ -31,7 +31,7 @@ const LANGS = {
     complete: "Parent-Guidance-Design-Guidelines-complete",
     introSubtitle: "Design system of the PG-Live prototype",
     chapterSubtitle: "Design guidelines · Parent Guidance",
-    updated: "Updated October 5, 2026",
+    updated: "Updated October 15, 2026",
     footer: "Parent Guidance · Design guidelines",
   },
   es: {
@@ -48,7 +48,7 @@ const LANGS = {
     complete: "Parent-Guidance-Guias-de-diseno-completas",
     introSubtitle: "Sistema de diseño del prototipo PG-Live",
     chapterSubtitle: "Guías de diseño · Parent Guidance",
-    updated: "Actualizado el 5 de octubre de 2026",
+    updated: "Actualizado el 15 de octubre de 2026",
     footer: "Parent Guidance · Guías de diseño",
   },
 };

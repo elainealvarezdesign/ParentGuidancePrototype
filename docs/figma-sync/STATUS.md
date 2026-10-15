@@ -1,7 +1,7 @@
 # Figma ↔ prototype sync — status
 
 Figma file: [Design system - PG](https://www.figma.com/design/mWOJYdAxkKGj0bWSO2ptGj/Design-system---PG)
-Last session: October 6, 2026. Technical detail (node IDs, variables and properties) in [`LEDGER.md`](./LEDGER.md).
+Last session: October 15, 2026. Technical detail (node IDs, variables and properties) in [`LEDGER.md`](./LEDGER.md).
 
 ## Done
 
@@ -25,7 +25,7 @@ search field couldn't shrink). No route overflows at 375px or 768px anymore.
 Course Detail · Milestones is hidden.
 
 **Library:**
-- Button: 8px radius, heights 36/44/52 and new Inverse and Inverse Secondary types (855 variants).
+- Button: 8px radius, heights 32/40/48 (8px grid, October 15) and new Inverse and Inverse Secondary types (855 variants).
 - Updated components: FAQ Item, Newsletter Banner, Feature Teaser Card, Footer (+Terms of Use, +Vimeo),
   Filter Chip, Section Eyebrow (option without bar), Testimonial Card, Hero Media (Portrait/Landscape),
   Course Card, Avatar, Resource Card, Lesson Navigation Bar, Mark Complete, Lesson Label, Multi-action Banner,
@@ -139,3 +139,7 @@ All 18 desktop frames compared with the prototype: [PAGE-COMPARISON.md](./PAGE-C
 
 
 Nothing in the library. Library updates are published from Figma (Assets → Libraries → Publish).
+
+**Buttons on the 8px grid (October 15):** the *Control/S, M, L* variables now point to Unit Scale 32 / 40 / 48
+(they were 36 / 44 / 52), and the height of all 855 Button variants is bound to them. The code matches
+(`control` tokens). On phones the code makes the default size M 48px tall for touch; Figma shows the desktop 40px.
