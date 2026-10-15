@@ -12,11 +12,11 @@ forms only simulate success (see [What is simulated](#what-is-simulated)).
 
 | Treat as final | Treat as placeholder |
 |---|---|
-| Design tokens (`src/styles/tokens.css`) | All copy, events, Q&A and course data |
+| Design tokens (`tokens/pg.tokens.json` → generated `src/styles/tokens.css`) | All copy, events, Q&A and course data |
 | Components and their variants (`Button`, `UnifiedCard`, `EventModal`, legal pages…) | Form submissions and the newsletter |
 | Layouts, breakpoints and responsive behavior | Video player (a fake progress bar, no real media) |
 | Motion (durations and curves) and accessibility rules | Language selector (UI only, no translations) |
-| Icon set (`src/app/components/icons.tsx`) | Remote Unsplash images (see [Assets](#assets)) |
+| Icon set (`src/components/ui/icons.tsx`) | Remote Unsplash images (see [Assets](#assets)) |
 
 ## Run it
 
@@ -25,9 +25,11 @@ Requires Node 20+ and pnpm (`corepack enable`).
 ```bash
 pnpm install
 pnpm dev         # http://localhost:5173
-pnpm typecheck   # TypeScript, strict mode — must pass
+pnpm check       # typecheck + lint + tokens + design rules + docs + unit tests + build — must pass
+pnpm test:e2e    # Playwright + axe on every route
+pnpm storybook   # visual catalog of every component, section and page (http://localhost:6006)
+pnpm tokens      # after editing tokens/pg.tokens.json (also regenerates the WordPress theme.json)
 pnpm build       # production build into dist/
-pnpm preview     # serve dist/ locally
 ```
 
 Deploys: Netlify builds `main` automatically (`netlify.toml`: `pnpm build`, publish `dist`, SPA fallback to
@@ -114,7 +116,8 @@ Tokens map one-to-one to Figma variables; the table is in [`docs/tokens/README.m
 
 ## Suggested next steps for production
 
-1. Choose the framework and hosting (the pages port cleanly to Next.js or Remix; routes and layouts are 1:1).
+1. The production site will be built in WordPress: follow [`WORDPRESS.md`](./WORDPRESS.md) (generated `theme.json`,
+   tokens CSS, icons and a block for each section).
 2. Replace the constants in `src/content` with CMS/API data of the same types: events, topics, Q&A, courses,
    legal documents.
 3. Wire the forms to real endpoints (each form already has one `onSubmit` to replace) with spam protection.
