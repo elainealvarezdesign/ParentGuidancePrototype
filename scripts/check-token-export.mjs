@@ -66,10 +66,20 @@ for (const [group, roles] of Object.entries(code.role ?? {})) {
   }
 }
 
+// Control heights (buttons, fields): code control.s/m/l must equal Figma "Semantic: Sizing / Control / S/M/L".
+for (const size of ["s", "m", "l"]) {
+  const codeValue = code.control?.[size]?.$value;
+  const figmaValue = resolve(`{Semantic: Sizing.Control.${size.toUpperCase()}}`);
+  if (parseFloat(codeValue) !== parseFloat(figmaValue))
+    problems.push(
+      `control.${size}: code ${codeValue} ≠ Figma ${figmaValue} (Semantic: Sizing/Control/${size.toUpperCase()})`,
+    );
+}
+
 if (problems.length) {
   console.error(`Token export check failed (${problems.length}):\n  ` + problems.join("\n  "));
   process.exit(1);
 }
 console.log(
-  `Token export OK — ${tokens.size} Figma tokens, all aliases resolve, all ${Object.keys(code.color).filter((k) => !k.startsWith("$")).length} code colors present, ${roleCount} color roles match Figma.`,
+  `Token export OK — ${tokens.size} Figma tokens, all aliases resolve, all ${Object.keys(code.color).filter((k) => !k.startsWith("$")).length} code colors present, ${roleCount} color roles and 3 control heights match Figma.`,
 );

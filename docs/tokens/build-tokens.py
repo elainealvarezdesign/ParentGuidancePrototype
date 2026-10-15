@@ -355,7 +355,7 @@ Worksheet/Text > P:Brand Color/Yellow/Yellow Dark
 
 SPACING = {"None": 0, "2XS": 2, "XS": 4, "S": 8, "SM": 12, "M": 16, "ML": 20, "L": 24, "XL": 32, "2XL": 40, "3XL": 48, "4XL": 56, "5XL": 64}
 RADIUS = {"XS": 4, "S": 8, "M": 12, "L": 16, "XL": 28, "Full": 9999}
-SIZING = {"Icon/XS": 16, "Icon/S": 20, "Icon/M": 24, "Icon/L": 32, "Icon/XL": 40, "Control/S": 36, "Control/M": 44, "Control/L": 52,
+SIZING = {"Icon/XS": 16, "Icon/S": 20, "Icon/M": 24, "Icon/L": 32, "Icon/XL": 40, "Control/S": 32, "Control/M": 40, "Control/L": 48,
           "Avatar/XS": 16, "Avatar/S": 24, "Avatar/M": 32, "Avatar/L": 40, "Avatar/XL": 56,
           "Target/Minimum": 24, "Target/Dense": 32, "Target/Comfortable": 44}
 BREAKPOINTS = {"XS": 375, "SM": 768, "MD": 1024, "LG": 1280, "XL": 1440}

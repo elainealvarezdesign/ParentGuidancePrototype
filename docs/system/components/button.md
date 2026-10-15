@@ -17,7 +17,7 @@ Three elements, one look:
 | Prop | Values | Default |
 |---|---|---|
 | `variant` | `primary`, `secondary`, `tertiary`, `inverse`, `inverse-secondary` | `primary` |
-| `size` | `s` (36px), `m` (44px), `l` (52px) | `m` |
+| `size` | `s` (32px), `m` (40px; 48px on phones), `l` (48px) — 8px grid, tokens `control.*` | `m` |
 | `loading` (`Button` only) | boolean — disables and shows a spinner | — |
 | …native props | `type`, `onClick`, `disabled`, `to`, `href`, `target`, `aria-*` | `type="button"` |
 | `ref` | forwarded to the `<button>` / `<a>` (all four exports) | — |

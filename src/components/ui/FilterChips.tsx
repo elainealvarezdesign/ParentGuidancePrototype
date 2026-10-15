@@ -41,7 +41,7 @@ export function FilterChips<T extends string>({
             aria-pressed={selected}
             onClick={() => onChange(option)}
             className={cn(
-              "min-h-9 shrink-0 rounded-full px-4 py-2 text-xs font-medium transition-colors duration-(--pg-dur-fast)",
+              "min-h-8 shrink-0 rounded-full px-4 py-1 text-xs font-medium transition-colors duration-(--pg-dur-fast)",
               selected ? "bg-pg-navy text-white" : "bg-pg-cream-dark text-pg-slate hover:bg-pg-tint hover:text-pg-navy",
             )}
           >

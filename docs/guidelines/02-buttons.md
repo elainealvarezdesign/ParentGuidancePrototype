@@ -25,9 +25,9 @@ On a **sage** background (banners such as "Not sure which resource is right for 
 
 | Size | Height | Padding | Text | When |
 |------|--------|---------|------|------|
-| **S** | 36px | `px-4` | 14px / 600 | Dense UI: toolbars, pagination, "Register" in event rows. On mobile, only if the button is full width |
-| **M** | 44px | `px-5` | 14px / 600 | **Default** |
-| **L** | 52px | `px-7` | 16px / 600 | Hero CTAs and key screens on mobile |
+| **S** | 32px | `px-4` | 14px / 600 | Dense UI: toolbars, pagination, "Register" in event rows. On mobile, only if the button is full width |
+| **M** | 40px (48px on mobile) | `px-5` | 14px / 600 | **Default** |
+| **L** | 48px | `px-7` | 16px / 600 | Hero CTAs and key screens on mobile |
 
 - `rounded-pg-md` radius (8px) on every size.
 - The **pill** shape (`rounded-full`) is reserved for chips, badges, filters and the search bar. Not for action
@@ -79,13 +79,13 @@ These elements have their own style and do **not** use `<Button>`:
 | Filter chips | `rounded-full text-xs font-medium px-4 py-2`; active `bg-pg-navy text-white`, inactive `bg-pg-cream-dark text-pg-slate`, with `aria-pressed` |
 | "Featured" (sort) menu | `rounded-pg-md bg-pg-cream-dark text-xs font-medium px-4 py-2`, 14px `ListFilter` (filter_list) + `ChevronDown` (expand_more) icons, centered with the label |
 | Segmented control (Month/List, Day/Week/Month) | `bg-pg-tint-soft` container; active option is white with `shadow-pg-card` and `aria-pressed` |
-| Numeric pagination | 36–44px squares; current page in navy or teal; Prev/Next as `<Button variant="secondary" size="s">` |
-| Icon-only buttons | 36–44px, `rounded-pg-md`, `aria-label` required (calendar arrows, close, menu) |
+| Numeric pagination | 32–40px squares; current page in navy or teal; Prev/Next as `<Button variant="secondary" size="s">` |
+| Icon-only buttons | 32–40px, `rounded-pg-md`, `aria-label` required (calendar arrows, close, menu) |
 
 ## 2.5 Accessibility
 
 - Use `<button>` for actions and `<a>` for navigation. Never `<div onClick>`.
-- Minimum touch area of **44×44px** on mobile (size M or L).
+- Touch area of at least **48px** high on mobile: size M grows to 48px automatically (8px grid: 32 / 40 / 48).
 - External links (`target="_blank"`) must say so: an external-link icon + hidden text "(opens in a new tab)".
 - Icon-only buttons get an `aria-label` ("Close", "Menu").
 - Disabled: explain why with nearby helper text if it isn't obvious.

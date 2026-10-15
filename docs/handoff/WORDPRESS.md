@@ -38,6 +38,7 @@ Both are checked in CI (`pnpm check:tokens`), so they always match the code. **W
 | `text-pg-h2` | Font size preset `h2` (`has-h2-font-size`) **plus** its line height and weight: use the `.text-pg-h2` class from `pg-tokens.css`, or the heading element styles already set in `theme.json` |
 | `p-6`, `gap-4`, `mt-10` | Spacing presets with the same number: `var(--wp--preset--spacing--6)` = 24px, `--4` = 16px, `--10` = 40px |
 | `rounded-pg-md`, `rounded-pg-xl` | `var(--wp--custom--radius--md)` (8px), `--xl` (16px) |
+| Button and field heights (`min-h-8`, `min-h-10`, `min-h-12`) | `var(--wp--custom--control--s)` 32px, `--m` 40px, `--l` 48px, `--touch` 48px. `theme.json` gives buttons the touch height; set 40px from 768px up in the theme CSS |
 | `shadow-pg-card` | Shadow preset `card`: `var(--wp--preset--shadow--card)` |
 | `max-w-pg-content`, `max-w-pg-page` | `contentSize` (1100px) and `wideSize` (1280px) in `settings.layout` |
 | `EASE_OUT`, `DURATION.fast` | `var(--wp--custom--motion--ease-out)`, `var(--wp--custom--motion--dur-fast)` |

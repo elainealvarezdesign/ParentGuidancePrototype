@@ -147,4 +147,4 @@ Target: WCAG 2.2 AA. What the system already does, and what you must keep doing:
 - **Links that open a new tab** say so to screen readers (`<span className="sr-only"> (opens in a new tab)</span>`)
   and use `rel="noopener noreferrer"`.
 - **Language:** Spanish content is marked `lang="es"`.
-- **Targets:** interactive elements are at least 36px tall (buttons `s`), 44px in forms.
+- **Targets:** control heights follow the 8px grid (`control.*` tokens): 32px for dense UI (buttons `s`, chips, sort menus), 40px for buttons `m` and form fields, 48px for `l`. On phones `m` and fields grow to 48px for touch.

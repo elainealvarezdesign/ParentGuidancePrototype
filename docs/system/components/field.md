@@ -24,7 +24,7 @@
 
 ## Controls
 
-- `TextInput` — `<input>`, 44px min height. All native props.
+- `TextInput` — `<input>`, same height as a `m` button (40px; 48px on phones). All native props.
 - `TextArea` — `<textarea>`, `rows` default 4, not resizable.
 - `Select` — native `<select>` with a chevron. `size="field"` (forms, full width) or `size="compact"`
   (toolbars: sort menus). **Always use the native select for sort/filter menus** (audit H07); outside a

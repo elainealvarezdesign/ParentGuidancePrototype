@@ -99,6 +99,14 @@
     "card-hover": { "$value": "0 8px 24px rgba(28, 50, 67, 0.14)" },
     "overlay": { "$value": "0 24px 60px rgba(28, 50, 67, 0.28)", "$description": "Dialogs and popovers." }
   },
+  "control": {
+    "$type": "dimension",
+    "$description": "Heights of buttons and form controls, on the 8px grid. On phones (below 768px) the default size m uses touch (48px).",
+    "s": { "$value": "32px", "$description": "Dense UI: toolbars, filter chips, sort menus, pagination." },
+    "m": { "$value": "40px", "$description": "Default button and form field (desktop)." },
+    "l": { "$value": "48px", "$description": "Hero and key calls to action." },
+    "touch": { "$value": "48px", "$description": "Size m on phones, for a comfortable touch target." }
+  },
   "container": {
     "$type": "dimension",
     "page": { "$value": "1280px", "$description": "Maximum page width." },

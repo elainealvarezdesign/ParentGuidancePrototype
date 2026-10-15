@@ -62,7 +62,7 @@ export const SearchField = forwardRef<HTMLInputElement, SearchFieldProps>(functi
           "min-w-0 flex-1 text-sm text-pg-navy outline-none placeholder:text-pg-slate [&::-webkit-search-cancel-button]:hidden",
           hero
             ? "bg-transparent"
-            : "w-full rounded-pg-md bg-pg-cream py-2 pr-9 pl-9 focus-visible:ring-2 focus-visible:ring-pg-teal-dark",
+            : "h-8 w-full rounded-pg-md bg-pg-cream pr-9 pl-9 focus-visible:ring-2 focus-visible:ring-pg-teal-dark",
         )}
         {...props}
       />
