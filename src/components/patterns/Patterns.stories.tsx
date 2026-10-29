@@ -5,13 +5,23 @@ import { SubmitQuestionDialog } from "./SubmitQuestionDialog";
 import { SeriesCalendar } from "./SeriesCalendar";
 import { LessonOutline } from "./LessonOutline";
 import { PrevNextNav } from "./PrevNextNav";
-import { DateBlock, EventActions, EventCategoryTag } from "./EventParts";
+import {
+  DateBlock,
+  EventActions,
+  EventCategoryTag,
+  EventDetail,
+  EventListItem,
+  UpcomingEventButton,
+} from "./EventParts";
+import { EventMonthGrid } from "./EventMonthGrid";
+import { CookieTable } from "./CookieTable";
+import { cookiesPage } from "@/content/cookies";
 import { SearchField } from "@/components/ui/SearchField";
 import { FilterChips } from "@/components/ui/FilterChips";
 import { Select } from "@/components/ui/Field";
 import { Button } from "@/components/ui/Button";
 import { questionCategories } from "@/content/askATherapist";
-import { EVENTS, eventCategories, parseDate, type EventCategory } from "@/content/events";
+import { EVENTS, eventCategories, eventsPage, parseDate, type EventCategory, type SeriesEvent } from "@/content/events";
 import { coursePrograms } from "@/content/coursePrograms";
 
 /* Composed widgets (docs/system/components/README.md#patterns--composed-widgets--srccomponentspatterns). */
@@ -73,6 +83,45 @@ export const EventPartsStory: Story = {
         <DateBlock date={parseDate("2025-08-12")} size="sm" />
       </div>
       <EventActions event={EVENTS[1]} />
+      <div className="max-w-sm rounded-pg-xl border border-pg-line bg-white p-5">
+        <EventDetail event={EVENTS[1]} timeZone={eventsPage.timeZone} location={eventsPage.location} />
+      </div>
+      <ol className="max-w-2xl">
+        <EventListItem event={EVENTS[2]} timeZone={eventsPage.timeZone} />
+      </ol>
+      <div className="max-w-sm">
+        <UpcomingEventButton event={EVENTS[3]} onOpen={() => {}} />
+      </div>
+    </div>
+  ),
+};
+
+function MonthGridDemo() {
+  const [selected, setSelected] = useState("2025-07-10");
+  const byDay = new Map<string, SeriesEvent[]>();
+  EVENTS.forEach((e) => byDay.set(e.date, [...(byDay.get(e.date) ?? []), e]));
+  return (
+    <EventMonthGrid
+      month={parseDate("2025-07-01")}
+      byDay={byDay}
+      selected={selected}
+      onSelectDay={setSelected}
+      onOpenEvent={() => {}}
+      label={eventsPage.calendarLabel("July 2025")}
+      moreLabel={eventsPage.more}
+    />
+  );
+}
+
+export const MonthGrid: Story = { name: "EventMonthGrid", render: () => <MonthGridDemo /> };
+
+export const Cookies: Story = {
+  name: "CookieTable",
+  render: () => (
+    <div className="flex max-w-4xl flex-col gap-10">
+      {cookiesPage.tables.groups.slice(0, 2).map((g) => (
+        <CookieTable key={g.label} group={g} />
+      ))}
     </div>
   ),
 };

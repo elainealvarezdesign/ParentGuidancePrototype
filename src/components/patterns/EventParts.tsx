@@ -1,5 +1,6 @@
+import type { MouseEvent } from "react";
 import { Button, ButtonAnchor } from "@/components/ui/Button";
-import { CalendarPlus } from "@/components/ui/icons";
+import { CalendarPlus, Clock, MapPin } from "@/components/ui/icons";
 import { cn } from "@/lib/cn";
 import {
   downloadIcs,
@@ -18,6 +19,9 @@ import type { EventModalData } from "./EventModal";
  *   EventCategoryTag   the type label as a pill
  *   DateBlock          month + day tile
  *   EventActions       Register (external) + Add to calendar (.ics)
+ *   EventDetail        one event in the "Selected day" panel: title, time, place, tags, description, actions
+ *   EventListItem      one event in the month list: date tile, weekday and time, title, description, actions
+ *   UpcomingEventButton  compact button for the "Upcoming events" panel; opens the event pop-up
  *   toEventModalData   SeriesEvent → EventModal props */
 
 export const categoryStyle: Record<EventCategory, { pill: string; swatch: string }> = {
@@ -94,3 +98,99 @@ export const toEventModalData = (e: SeriesEvent): EventModalData => ({
   registerUrl: registerUrlFor(e),
   language: e.language,
 });
+
+const isSpanish = (e: SeriesEvent) => e.language === "Español";
+
+/** Time range with the time zone, "6:00 – 7:00 pm CT". All-day events have no zone. */
+const timeWithZone = (e: SeriesEvent, timeZone: string) => `${formatTimeRange(e)}${e.start ? ` ${timeZone}` : ""}`;
+
+export function EventDetail({
+  event,
+  timeZone,
+  location,
+}: {
+  event: SeriesEvent;
+  /** "CT". */
+  timeZone: string;
+  /** "Online". */
+  location: string;
+}) {
+  return (
+    <article
+      className="border-t border-pg-line pt-4 first:border-t-0 first:pt-0"
+      lang={isSpanish(event) ? "es" : undefined}
+    >
+      <h3 className="text-xl leading-snug font-bold text-pg-navy">{event.title}</h3>
+      <ul className="mt-2 grid gap-2 text-sm text-pg-slate">
+        <li className="flex items-center gap-2">
+          <Clock size={16} className="shrink-0 text-pg-teal-dark" aria-hidden="true" />
+          {timeWithZone(event, timeZone)}
+        </li>
+        <li className="flex items-center gap-2">
+          <MapPin size={16} className="shrink-0 text-pg-teal-dark" aria-hidden="true" />
+          {location}
+        </li>
+      </ul>
+      <div className="mt-2 flex flex-wrap gap-2">
+        <EventCategoryTag category={event.category} />
+        {event.language && <LanguageTag language={event.language} />}
+      </div>
+      <p className="mt-3 text-sm leading-relaxed text-pg-slate">{event.description}</p>
+      <EventActions event={event} />
+    </article>
+  );
+}
+
+export function EventListItem({ event, timeZone }: { event: SeriesEvent; timeZone: string }) {
+  const date = parseDate(event.date);
+  return (
+    <li className="flex gap-4 rounded-pg-lg border border-pg-tint-soft p-4" lang={isSpanish(event) ? "es" : undefined}>
+      <DateBlock date={date} />
+      <div className="min-w-0 flex-1">
+        <p className="text-xs text-pg-slate">
+          {date.toLocaleDateString("en-US", { weekday: "long" })} · {timeWithZone(event, timeZone)}
+        </p>
+        <h3 className="mt-0.5 text-base leading-snug font-bold text-pg-navy">{event.title}</h3>
+        <p className="mt-1 text-sm leading-relaxed text-pg-slate">{event.description}</p>
+        <div className="mt-2 flex flex-wrap gap-2">
+          <EventCategoryTag category={event.category} />
+          {event.language && <LanguageTag language={event.language} />}
+        </div>
+        <EventActions event={event} />
+      </div>
+    </li>
+  );
+}
+
+export function UpcomingEventButton({
+  event,
+  onOpen,
+}: {
+  event: SeriesEvent;
+  onOpen: (event: SeriesEvent, click: MouseEvent<HTMLElement>) => void;
+}) {
+  const date = parseDate(event.date);
+  return (
+    <button
+      type="button"
+      onClick={(click) => onOpen(event, click)}
+      aria-haspopup="dialog"
+      className="relative flex w-full gap-3 rounded-pg-lg border border-pg-tint-soft py-2 pr-3 pl-4 text-left transition-colors hover:bg-pg-tint-soft"
+    >
+      <span
+        className={cn("absolute top-2.5 bottom-2.5 left-0 w-[3px] rounded-pg-sm", categoryStyle[event.category].swatch)}
+        aria-hidden="true"
+      />
+      <DateBlock date={date} size="sm" />
+      <span className="min-w-0">
+        <span className="block text-sm leading-snug font-semibold text-pg-navy">{event.title}</span>
+        <span className="mt-0.5 block text-xs text-pg-slate">
+          {date.toLocaleDateString("en-US", { weekday: "short" })} · {formatTimeRange(event)}
+        </span>
+        <span className="mt-2 block">
+          <EventCategoryTag category={event.category} />
+        </span>
+      </span>
+    </button>
+  );
+}

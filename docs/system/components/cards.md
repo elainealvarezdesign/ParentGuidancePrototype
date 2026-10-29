@@ -52,3 +52,36 @@ other controls). Props: `title`, `description` (RichText), `type`, `category`, `
 Date tile, title with category tag (and language tag), date · time CT, description, Register (new tab) and
 Add to calendar (.ics). Spanish events get `lang="es"` and Spanish button labels. Props: `event`
 (`SeriesEvent` from `src/content/events.ts`), `headingLevel`.
+
+## Video card
+
+`VideoCard.tsx` · Used on: Topic (`VideoGrid`).
+
+16:9 poster with the kind badge, duration and a play button; pressing play swaps in the Vimeo player
+(privacy mode, autoplay). Without `vimeoId` the play icon is decorative. Title and one sentence below.
+
+| Prop | Type | Notes |
+|---|---|---|
+| `video.kind` | string | Badge on the poster ("Deep Dive"). |
+| `video.title`, `video.description` | string | Description: one sentence. |
+| `video.duration` | string | "4:48"; read as "Duration 4:48". |
+| `video.image`, `video.imagePosition` | string | Poster 16:9, 1200px wide; optional `object-position`. |
+| `video.vimeoId` | string | The number in vimeo.com/&lt;id&gt;. |
+| `headingLevel` | `2`, `3` | default `3` |
+
+The play button is named "Play &lt;title&gt;, &lt;duration&gt;" and the iframe "&lt;title&gt; (video)".
+
+## Session card
+
+`SessionCard.tsx` · Used on: Topic (`SessionList`).
+
+A live session: date tile (month, day, weekday), title, time, language pill and Register (new tab). Spanish
+sessions get `lang="es"` and Spanish labels ("Registrarse", "se abre en una pestaña nueva").
+
+| Prop | Type | Notes |
+|---|---|---|
+| `session.month`, `session.day`, `session.weekday` | string | "Nov", "16", "Mon". |
+| `session.title`, `session.time` | string | Time with zone: "6:00 pm – 7:00 pm CST". |
+| `session.language` | `English`, `Español` | |
+| `session.registerUrl` | string | Opens in a new tab. |
+| `headingLevel` | `2`, `3` | default `3` |

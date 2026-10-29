@@ -26,6 +26,17 @@ A section is a full-width band of a page with its own heading and content (`src/
 | `TrustStrip` | [trust-strip.md](./trust-strip.md) | Get Help | `TrustStripContent` |
 | `ResourceLibrary` | [resource-library.md](./resource-library.md) | Mental Health Series | `SeriesResource[]` |
 | `SiteSearch` | [site-search.md](./site-search.md) | Search | `SiteSearchContent` |
+| `TopicHero` | [topic-hero.md](./topic-hero.md) | Topic | `TopicHeroContent` |
+| `VideoGrid` | [video-grid.md](./video-grid.md) | Topic | `VideoGridContent` |
+| `SessionList` | [session-list.md](./session-list.md) | Topic | `SessionListContent` |
+| `NumberedCards` | [numbered-cards.md](./numbered-cards.md) | Topic | `NumberedCardsContent` |
+| `ActionSteps` | [action-steps.md](./action-steps.md) | Topic | `ActionStepsContent` |
+| `RelatedResources` | [related-resources.md](./related-resources.md) | Topic | `RelatedResourcesContent` |
+| `SchoolGate` | [school-gate.md](./school-gate.md) | Mental Health Series | `SchoolGateContent` |
+| `SeriesWelcome` | [series-welcome.md](./series-welcome.md) | Mental Health Series | `SeriesWelcomeContent` |
+| `CourseSummary` | [course-summary.md](./course-summary.md) | Course | `CourseSummaryContent` |
+| `CourseAbout` | [course-about.md](./course-about.md) | Course | `CourseAboutContent` |
+| `CourseRecommendations` | [course-recommendations.md](./course-recommendations.md) | Course | `CourseRecommendationsContent` |
 
 ## Choosing a hero
 

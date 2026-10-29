@@ -57,7 +57,7 @@ keyboard tests on every route at desktop and mobile. CI runs both on every pull 
 
 [WORDPRESS.md](./WORDPRESS.md): tokens → `theme.json` (generated: [`docs/wordpress/`](../wordpress/theme.json)),
 section → block table with fields, accessible behavior to keep, and what to reuse as is (plain-CSS tokens, SVG
-icons, logos, content).
+icons, logos, content). How much of the code carries over, layer by layer: [REUSABILITY.md](./REUSABILITY.md).
 
 ## 7. Accessibility evidence
 

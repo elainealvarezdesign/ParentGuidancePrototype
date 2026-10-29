@@ -106,6 +106,9 @@ export const seriesGate = {
   help: { text: "Don't see your state?", linkLabel: "Get in touch with our team.", to: "/contact-us" },
   /** Layered artwork: base and frame are decorative, the photo carries the alt text. */
   images: { base: imgGateBase, frame: imgGateFrame, photo: { src: imgGatePhoto, alt: "Parent and child" } },
+  state: { label: "State", placeholder: "Select your state" },
+  district: { label: "School district", placeholder: "Select your district" },
+  submitLabel: "Continue",
 };
 
 export const seriesWelcome = {
@@ -114,6 +117,19 @@ export const seriesWelcome = {
   /** "Welcome to the Mental Health Series" video on Vimeo. */
   vimeoId: "1037509342",
   videoTitle: "Welcome to the Mental Health Series (video)",
+  searchPlaceholder: "Search resources and events…",
+  changeLabel: "Change district",
+};
+
+/** Calendar and event list under the resource library. */
+export const seriesEvents = {
+  calendarTitle: "Monthly Calendar",
+  allEventsCta: { label: "View all events", to: "/mental-health-series/events" },
+  upcomingTitle: "Upcoming Events",
+  /** Count next to "Upcoming Events". */
+  total: (count: number) => `${count} total`,
+  empty: "No events match your search.",
+  loadMore: "Load more events",
 };
 
 export const resourceTypes = ["Video", "Article", "Guide", "Worksheet", "Tool"] as const;

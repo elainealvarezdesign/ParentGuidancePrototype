@@ -29,7 +29,8 @@ instead of re-creating the markup. Each doc lists **when to use it**, **props**,
 
 ## cards — one item in a list (`src/components/cards`)
 
-All in [cards.md](./cards.md): `UnifiedCard`, `QuestionCard`, `ResourceCard`, `EventRow`.
+All in [cards.md](./cards.md): `UnifiedCard`, `QuestionCard`, `ResourceCard`, `EventRow`, `VideoCard`,
+`SessionCard`.
 
 ## patterns — composed widgets (`src/components/patterns`)
 
@@ -41,8 +42,9 @@ All in [cards.md](./cards.md): `UnifiedCard`, `QuestionCard`, `ResourceCard`, `E
 | `LessonOutline` | [lesson-outline.md](./lesson-outline.md) | Lesson |
 | `SeriesCalendar` | [series-calendar.md](./series-calendar.md) | Mental Health Series |
 | `EventModal` | [event-modal.md](./event-modal.md) | Series calendar, Events |
-| `EventParts` (`EventCategoryTag`, `DateBlock`, `EventActions`…) | [event-parts.md](./event-parts.md) | Series, Events |
-| `LegalDocumentBody`, `DocumentActions` | [legal-document.md](./legal-document.md) | Legal pages, Topic |
+| `EventParts` (`EventCategoryTag`, `DateBlock`, `EventActions`, `EventDetail`…) | [event-parts.md](./event-parts.md) | Series, Events |
+| `EventMonthGrid` | [event-month-grid.md](./event-month-grid.md) | Events |
+| `LegalDocumentBody`, `DocumentActions`, `CookieTable` | [legal-document.md](./legal-document.md) | Legal pages, Topic |
 
 ## layout and brand
 

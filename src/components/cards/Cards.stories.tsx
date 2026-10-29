@@ -3,11 +3,14 @@ import UnifiedCard from "./UnifiedCard";
 import { QuestionCard } from "./QuestionCard";
 import { ResourceCard } from "./ResourceCard";
 import { EventRow } from "./EventRow";
+import { VideoCard } from "./VideoCard";
+import { SessionCard } from "./SessionCard";
 import { courses } from "@/content/courses";
 import { supportResources } from "@/content/getHelp";
 import { questions, therapists } from "@/content/askATherapist";
 import { seriesResources, topicHref } from "@/content/mentalHealthSeries";
 import { EVENTS } from "@/content/events";
+import { TOPICS } from "@/content/topics";
 
 /* Cards (docs/system/components/cards.md), with real content from src/content. */
 
@@ -92,6 +95,32 @@ export const Events: Story = {
       {EVENTS.slice(0, 3).map((e) => (
         <li key={e.id}>
           <EventRow event={e} />
+        </li>
+      ))}
+    </ul>
+  ),
+};
+
+export const Videos: Story = {
+  name: "VideoCard",
+  render: () => (
+    <ul className="grid max-w-4xl grid-cols-1 gap-6 md:grid-cols-2">
+      {TOPICS[0].videos.map((v) => (
+        <li key={v.title}>
+          <VideoCard video={v} />
+        </li>
+      ))}
+    </ul>
+  ),
+};
+
+export const Sessions: Story = {
+  name: "SessionCard",
+  render: () => (
+    <ul className="grid max-w-5xl grid-cols-1 gap-5 lg:grid-cols-3">
+      {TOPICS[0].sessions.slice(0, 3).map((s) => (
+        <li key={s.title + s.time}>
+          <SessionCard session={s} />
         </li>
       ))}
     </ul>

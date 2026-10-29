@@ -12,3 +12,8 @@ buttons). Props: `effectiveDate`, `introHeading`, `intro`, `sections`, `contactH
 - `BackToTopButton` — scrolls up and moves focus to the element with `focusId` (the page `<h1>`, which has
   `tabIndex={-1}`).
 - `downloadTextFile(name, text)` — saves a .txt in the browser.
+
+`CookieTable` (`src/components/patterns/CookieTable.tsx`) renders one cookie group from `cookiesPage.tables` in
+`src/content/cookies.ts`: heading (`h3` by default) with a count pill, then a table (cookie, provider,
+duration; rows with a `description` show it under the name). The table scrolls sideways on small screens; the
+scroll region is focusable and named "<label> cookies table".

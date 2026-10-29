@@ -373,3 +373,54 @@ export const PRIVACY_SECTIONS: LegalSection[] = [
     ],
   },
 ];
+
+/* ── Consent Documents ("/consent-documents") ── */
+
+export type ConsentDocument = {
+  id: string;
+  title: string;
+  /** Name of the plain-text file saved by "Download". */
+  fileName: string;
+  effectiveDate: string;
+  introHeading: string;
+  intro: string[];
+  sections: LegalSection[];
+  contactHeading: string;
+  contactBody: string;
+  contactEmail: string;
+};
+
+export const consentPage = {
+  header: {
+    eyebrow: "Legal",
+    title: "Consent Documents",
+    intro:
+      "Review, download or print the Terms of Use and Privacy Policy that apply to your access to and use of Parent Guidance's Services.",
+  },
+  documents: [
+    {
+      id: "terms-of-use",
+      title: "Terms of Use",
+      fileName: "ParentGuidance-Terms-of-Use.txt",
+      effectiveDate: TERMS_EFFECTIVE_DATE,
+      introHeading: "Introduction",
+      intro: TERMS_INTRO,
+      sections: TERMS_SECTIONS,
+      contactHeading: "Questions about these Terms?",
+      contactBody: "If you have any questions about this Terms of Use, you can contact us by email.",
+      contactEmail: "hello@parentguidance.org",
+    },
+    {
+      id: "privacy-policy",
+      title: "Privacy Policy",
+      fileName: "ParentGuidance-Privacy-Policy.txt",
+      effectiveDate: PRIVACY_EFFECTIVE_DATE,
+      introHeading: "Introduction",
+      intro: PRIVACY_INTRO,
+      sections: PRIVACY_SECTIONS,
+      contactHeading: "Questions about this Policy?",
+      contactBody: "If you have any questions about this Privacy Policy, you can contact us by email.",
+      contactEmail: "hello@parentguidance.org",
+    },
+  ] satisfies ConsentDocument[],
+};
