@@ -249,3 +249,39 @@ export function downloadIcs(fileName: string, events: SeriesEvent[]) {
   document.body.removeChild(link);
   URL.revokeObjectURL(url);
 }
+
+/** Copy for the Events page ("/mental-health-series/events"). Recipe: docs/system/pages/events.md. */
+export const eventsPage = {
+  backLink: { label: "Mental Health Series", to: "/mental-health-series" },
+  eyebrow: "Events",
+  title: "Live sessions & events",
+  intro:
+    "Join free live Q&As, workshops and support groups with licensed therapists. All times are shown in Central Time (CT).",
+  /** Time zone suffix after event times. */
+  timeZone: "CT",
+  location: "Online",
+  toolbar: {
+    previousMonth: "Previous month",
+    nextMonth: "Next month",
+    today: "Today",
+    viewGroup: "Calendar view",
+    month: "Month",
+    list: "List",
+  },
+  filters: { group: "Filter by event type", all: "All events" },
+  emptyMonth: (month: string) => `No events scheduled in ${month}.`,
+  showMonth: (month: string) => `Show ${month}`,
+  calendarLabel: (month: string) => `Calendar, ${month}`,
+  listLabel: (month: string) => `Events in ${month}`,
+  noEventsInMonth: (month: string) => `No events in ${month}.`,
+  /** "+2 more" under a busy day. */
+  more: (count: number) => `+${count} more`,
+  selectedDay: { label: "Selected day", empty: "No events on this day." },
+  upcoming: { title: "Upcoming events", empty: "No more events scheduled.", seeList: "See all in list view →" },
+  sync: {
+    title: "Never miss a session",
+    body: "Add every Parent Guidance event to Google, Outlook or Apple Calendar.",
+    button: "Download calendar (.ics)",
+    fileName: "parent-guidance-events.ics",
+  },
+};

@@ -522,3 +522,26 @@ export const coursePrograms: Record<string, CourseProgram> = {
 };
 
 export const getProgram = (slug: string | undefined) => (slug ? coursePrograms[slug] : undefined);
+
+/** Labels shared by every course overview page ("/courses/:courseSlug"). */
+export const coursePage = {
+  breadcrumb: { label: "Courses", to: "/on-demand-courses" },
+  lessons: (count: number) => `${count} lessons`,
+  modules: (count: number) => `${count} modules`,
+  startLabel: "Start course",
+  outline: {
+    title: "Course outline",
+    previous: "Previous lessons",
+    next: "Next lessons",
+    page: (page: number, pages: number) => `${page} of ${pages}`,
+  },
+  aboutTitle: "About this course",
+  recommendationsTitle: "You may also like",
+  recommendationMeta: (rec: CourseRecommendation) => `${rec.lessons} lessons • ${rec.duration}`,
+  notFound: {
+    eyebrow: "Course not found",
+    title: "We couldn't find that course",
+    body: "It may have been renamed or retired.",
+    actions: [{ label: "Browse courses", to: "/on-demand-courses" }],
+  },
+};

@@ -9,6 +9,9 @@
 | `LanguageTag` | "Español" pill. |
 | `DateBlock` | Month + day tile, `size` `sm`/`md`, decorative (the date is written in text too). |
 | `EventActions` | Register (new tab, Spanish label when needed) + Add to calendar (.ics download). |
+| `EventDetail` | One event in the Events page "Selected day" panel: title, time with zone, place, tags, description, `EventActions`. Props `event`, `timeZone`, `location`. |
+| `EventListItem` | One event in the month list (an `<li>`): date tile, weekday and time, title, description, tags, `EventActions`. |
+| `UpcomingEventButton` | Compact button for the "Upcoming events" panel (color bar, date tile, title, time, tag); `aria-haspopup="dialog"`, calls `onOpen(event, click)`. |
 | `toEventModalData` | `SeriesEvent` → `EventModal` data. |
 
 Event data, labels and date helpers (`parseDate`, `formatTimeRange`, `formatStart`, `downloadIcs`) live in

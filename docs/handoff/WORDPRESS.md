@@ -90,6 +90,15 @@ patterns** or page templates (the sections in order).
 | `TrustStrip` | Block `pg/trust-strip` | items (repeater: icon [shield, lock, check], title, body) | |
 | `ResourceLibrary` | Block `pg/resource-library` (query of `resource` posts) | category filter, sort | Filter bar + grid; see part 3 for filters |
 | `SiteSearch` | WordPress `search.php` template | — | Results from WordPress search instead of the prototype's index |
+| `TopicHero` | Part of the `single-topic.php` template | back link, eyebrow, title, emphasis, intro, reminder, expert (name, role, initials) | Facts are counted from the topic's own fields |
+| `VideoGrid` | Block `pg/video-grid` | eyebrow, title, videos (repeater: kind, title, description, duration, poster, Vimeo id) | Vimeo embed on play |
+| `SessionList` | Block `pg/session-list` | eyebrow, title, sessions (repeater: date, title, time, language, register URL) | Spanish rows get `lang="es"` |
+| `NumberedCards` | Block `pg/numbered-cards` | eyebrow, title, items (repeater: title, text) | Ordered list |
+| `ActionSteps` | Block `pg/action-steps` | eyebrow, title, intro, steps (repeater: title, tips [repeater: label, text]) | Tips are a `<dl>` |
+| `RelatedResources` | Block `pg/related-resources` | eyebrow, title, link label, resources (relationship or repeater), banner (title, body, link) | |
+| `SchoolGate` | Block `pg/school-gate` | eyebrow, title, help line + link, images, state / district labels, button label | States and districts from an options page or a taxonomy |
+| `SeriesWelcome` | Block `pg/series-welcome` | title, search label / placeholder, change label, Vimeo id, video title | |
+| `CourseSummary`, `CourseAbout`, `CourseRecommendations` | Parts of the `single-course.php` template | Fields of the `course` post type (below) | Outline lists the child `lesson` posts |
 
 ### Repeating content → custom post types
 
@@ -104,7 +113,8 @@ patterns** or page templates (the sections in order).
 | `getHelp.ts` → `SupportResource` | `support_resource` | name, logo, description, category, availability, URL |
 | `site.ts` | Menus + an options page | navigation, footer, social links, prototype notice (remove at launch) |
 
-The cards that list these posts (`UnifiedCard`, `QuestionCard`, `ResourceCard`, `EventRow`) become the
+The cards that list these posts (`UnifiedCard`, `QuestionCard`, `ResourceCard`, `EventRow`, `VideoCard`,
+`SessionCard`) become the
 post templates inside Query Loop blocks. Their props are documented in
 [components/cards.md](../system/components/cards.md).
 

@@ -240,3 +240,41 @@ export const TOPICS: Topic[] = [
 export function getTopic(slug: string | undefined) {
   return TOPICS.find((t) => t.slug === slug);
 }
+
+/* Labels and section titles shared by every topic page. Topic-specific text lives in TOPICS above. */
+export const topicPage = {
+  backLink: { label: "All topics", to: "/mental-health-series" },
+  /** Eyebrow above the title: "<seriesName> · <category>". */
+  seriesName: "Mental Health Series",
+  asideLabel: "About this topic",
+  videos: { eyebrow: "Watch", title: "Learn at your own pace" },
+  sessions: { eyebrow: "Live sessions", title: "Join a session and ask your questions" },
+  takeaways: { eyebrow: "Key takeaways", title: (count: number) => `${count} ideas to remember` },
+  actions: {
+    eyebrow: "At home",
+    title: (emphasis: string) => `Things you can do to build your child's ${emphasis.toLowerCase()}`,
+    intro: "Small, everyday actions you can start with this week.",
+  },
+  resources: { eyebrow: "Keep learning", title: "Additional resources", linkLabel: "View topic" },
+  leadersBanner: {
+    title: "For school leaders & community organizers",
+    body: "Share this topic with your families and find materials for your community.",
+    cta: { label: "Get additional resources", to: "/contact-us" },
+  },
+  notFound: {
+    eyebrow: "Topic not found",
+    title: "We couldn't find that topic",
+    body: "It may have moved, or the link may be incomplete.",
+    actions: [{ label: "Back to Mental Health Series", to: "/mental-health-series" }],
+  },
+};
+
+/** The three facts in the hero's side card, built from the topic's own lists. */
+export function topicFacts(topic: Topic) {
+  const languages = [...new Set(topic.sessions.map((s) => s.language))].join(" & ");
+  return {
+    videos: `${topic.videos.length} videos · ${topic.videos.map((v) => v.kind).join(" & ")}`,
+    sessions: `${topic.sessions.length} live sessions · ${languages}`,
+    takeaways: `${topic.takeaways.length} key takeaways`,
+  };
+}
